@@ -1,0 +1,255 @@
+#!/usr/bin/env escript
+%% vim: ts=4 sw=4 et ft=erlang
+
+%%生成日志相关的定义及字符串函数
+
+main(_Arg) ->
+	LogFile =  "include/common/logdb.hrl",
+	FucellFile =  "src/gs2funcell/gsFuncellStringDefine.erl",
+	Filename =  "support/Logdefine.config",
+	{ok, Contents} = file:consult(Filename),
+	FileList = fileAccList(Contents),
+	FunLog =
+		fun(Key1, AccOut1) ->
+			case erlang:is_list(Key1) of
+				true ->
+					Out = toLogString(Key1),
+					Out1 = lists:append(Out, "\n"),
+					[Out1|AccOut1];
+				_ ->
+					Def = erlang:tuple_to_list(Key1),
+					Def1 = lists:append(Def, "\n"),
+					[Def1|AccOut1]
+			end
+		end,
+	Funcull =
+		fun(Key2, AccOut2) ->
+			case erlang:is_list(Key2) of
+				true ->
+					Out = toFunString(Key2),
+					Out2 = lists:append(Out, "\n"),
+					[Out2 | AccOut2];
+				_ ->
+					AccOut2
+			end
+		end,
+	Fun =
+		fun(Key, Acc) ->
+			Log = lists:foldr(FunLog, [], Key),
+			[Log | Acc]
+		end,
+	Fun1 =
+		fun(Key1, Acc1) ->
+			Func = lists:foldr(Funcull, [], Key1),
+			[Func | Acc1]
+		end,
+
+	LogDef = lists:foldr(Fun, [], FileList),
+	Funcell = lists:foldr(Fun1, [], FileList),
+	FunInclude	= includeToString(),
+	DefineH = defineToString(),
+	LogdbNew = lists:umerge(DefineH, LogDef),
+	List = [FunInclude|Funcell],
+	ModH = modToString(),
+
+	io:format("start build files...~n"),
+	%% "%% coding: latin-1\r\n"
+	Title = <<37,37,32,99,111,100,105,110,103,58,32,108,97,116,105,110,45,49,13,10>>,
+
+%%  io:format("~p",[[LogdbNew|["-endif."]]]),
+    LogDBContextBin = iolist_to_binary([LogdbNew|["-endif."]]),
+	case file:read_file(LogFile) of
+		{ok, LogDBContextBin} ->
+			io:format("...~p未检测到修改，忽略~n", [LogFile]);
+		_ ->
+			LogDBContextBin2 = <<Title/binary, LogDBContextBin/binary>>,
+			ErrorLog = file:write_file(LogFile, LogDBContextBin2),
+			io:format("write to file logdb:~p\n", [ErrorLog])
+	end,
+	FunCellContextBin = iolist_to_binary([List|ModH]),
+	case file:read_file(FucellFile) of
+		{ok,FunCellContextBin} ->
+			io:format("...~p 未检测到修改，忽略~n", [FucellFile]);
+		_ ->
+			FunCellContextBin2 = <<Title/binary, FunCellContextBin/binary>>,
+			ErrorFun =  file:write_file(FucellFile, FunCellContextBin2),
+			io:format("write to file gsFuncellStringDefine: ~p\n", [ErrorFun])
+	end,
+	ok.
+
+-spec fileAccList(ContenList :: list()) -> list().
+fileAccList(ContenList) ->
+	Fun =
+		fun(Key, Acc) ->
+			case erlang:is_tuple(Key) of
+				true ->
+					[Mode | Argc] = erlang:tuple_to_list(Key),
+					SR = fileArgcList(Mode, Argc),
+					[SR | Acc];
+				_ ->
+					Acc
+			end
+		end,
+	lists:foldr(Fun, [], ContenList).
+
+-spec fileArgcList(Mode :: term(), Argc :: list()) -> list().
+fileArgcList(Mode, Argc) ->
+	FunArgc =
+		fun(Key, Acc) ->
+			if
+				erlang:is_tuple(Key) andalso erlang:size(Key) =:=3 ->
+					{N1, N2, N3} = Key,
+					GR = [Mode, N1, N2,N3],
+					[GR|Acc];
+				erlang:is_tuple(Key) andalso erlang:size(Key) =:= 2 ->
+					{A1, A2} = Key,
+					AR = [Mode, A1, A2],
+					[AR|Acc];
+				erlang:is_tuple(Key) andalso erlang:size(Key) =:= 1 ->
+					DR = [Mode, Key],
+					[DR|Acc];
+				true ->
+					[]
+			end
+		end,
+	Fun =
+		fun(Key1, AccIn) ->
+			case erlang:is_list(Key1) of
+				true ->
+					[Def| Args] = Key1,
+					ListOut =  lists:foldr(FunArgc, [], Args),
+					[{Def}, ListOut| AccIn];
+				_ ->
+					AccIn
+			end
+		end,
+	lists:foldr(Fun, [], Argc).
+
+toLogString(KeyList) ->
+	Fun =
+		fun(Key1, AccIn) ->
+			[Mode|_D] = Key1,
+			if
+				erlang:is_list(Key1) andalso erlang:length(Key1) =:= 4 andalso  Mode =/= getCoinTypeStr->
+					[_Mode, Ar1, Ar2, Ar3] = Key1,
+					Acc1 = combLogString(Ar1, Ar2, Ar3),
+					[Acc1 | AccIn];
+				erlang:is_list(Key1) andalso erlang:length(Key1) =:= 3 andalso  Mode =/=  getCoinTypeStr andalso Mode =/= getCoinChangeResonStr->
+					[_Mode, Ar1, Ar2] = Key1,
+					Acc2 = combLogString(Ar1, Ar2),
+					[Acc2 | AccIn];
+				true ->
+					AccIn
+			end
+		end,
+	lists:foldr(Fun, [], KeyList).
+
+toFunString(KeyList) ->
+	Fun =
+		fun(Key1, AccIn) ->
+			[Mode|_D] = Key1,
+			if
+				erlang:is_list(Key1) andalso erlang:length(Key1) =:= 4 andalso  Mode =/= setOnlydefine ->
+					[Mode1, Ar1, _Ar2, Ar3] = Key1,
+					Acc4 = combFunString(Mode1, Ar1, Ar3),
+					[Acc4 | AccIn];
+				erlang:is_list(Key1) andalso erlang:length(Key1) =:= 3 andalso  Mode =/= setOnlydefine ->
+					[Mode1, Ar1, Ar2] = Key1,
+					Acc3 = combFunString(Mode1, Ar1, Ar2),
+					[Acc3 | AccIn];
+				erlang:is_list(Key1) andalso erlang:length(Key1) =:= 2 ->
+					[Mode2, Ar1] = Key1,
+					Acc2 = combFunString(Mode2, Ar1),
+					[Acc2 | AccIn];
+				true ->
+					AccIn
+			end
+		end,
+	lists:foldr(Fun, [], KeyList).
+
+combLogString(Arg1, Arg2, Arg3) ->
+	Atom1 = atom_to_list(Arg1),
+	Atom2 = integer_to_list(Arg2),
+	LogDefine = "-define(" ++ Atom1 ++ ", \t" ++ Atom2 ++ ")." ++ "%%" ++ Arg3 ++ "\n",
+	LogDefine.
+
+combLogString(Arg1, Arg2) ->
+	Atom1 = atom_to_list(Arg1),
+	LogDefine1 = "-define(" ++ Atom1 ++ ", \t" ++ "\"" ++ Arg2 ++ "\")." ++ "\n",
+	LogDefine1.
+
+
+combFunString(Mode, Arg1, Arg3) ->
+	Atom1 = atom_to_list(Arg1),
+	Atom3 = atom_to_list(Mode),
+	FucDefine = Atom3 ++ "(?"  ++ Atom1 ++ ") ->\""  ++ Arg3 ++ "\";\n",
+	FucDefine.
+
+combFunString(Mode, Arg1) ->
+	Atom1 = tuple_to_list(Arg1),
+	Atom3 = atom_to_list(Mode),
+	FucDefine = Atom3 ++ "(Reason) ->"  ++ Atom1 ++ "\n",
+	FucDefine.
+
+-spec includeToString() -> list().
+includeToString() ->
+	Include = "%%This file is automatically generated, please do not modify the contents of this file manually!!!\n-module(gsFuncellStringDefine).\n%% API\n-export([
+		 getGoodsChangeStr/1,
+		 getCoinChangeResonStr/1,
+		 getCoinTypeStr/1,
+		 getGoodsChangeGroupStr/1,
+		 getGoodsGroupName/1,
+		 getCareerStr/1,
+		 getTaskNameAndGroupName/1
+		]).\n
+-include(\"gsInc.hrl\").\n\n",
+	[Include].
+
+-spec defineToString() -> list().
+defineToString() ->
+	Define	="%%This file is automatically generated, please do not modify the contents of this file manually!!!\n%%This document defines the game log database needed some definitions
+%%Source to the largest:100000, Consumption class from 100001 Began to various sources section set number
+-ifndef(LOGDB_HRL).
+-define(LOGDB_HRL,1).\n\n",
+	[Define].
+
+-spec modToString() -> list().
+modToString() ->
+	Data = " %% Return items change reason grouping
+getGoodsChangeGroupStr( Reason ) ->
+	if
+		Reason > 0 ->
+			\"obtain\";
+		Reason =< 0 ->
+		\"consumption\";
+		true ->
+		?ERROR_OUT(\"getGoodsChangeGroupStr:unknow[~w] ~p\",[Reason,misc:getStackTrace()]),\"unknown\"
+	end.
+
+%%Depending on the type of item ID returned items
+getGoodsGroupName( GoodsID ) ->
+	case goods:getGoodsCfg(GoodsID)of
+		#itemCfg{ itemType = ItemType } ->
+			integer_to_list(ItemType);
+		#equipmentCfg{type=Type} ->
+			integer_to_list(Type);
+		#runeCfg{type = RuneType} ->
+			case RuneType of
+				0 -> 24;
+				1 -> 25
+			end;
+		R ->
+			?ERROR_OUT(\"getGoodsGroupName:unknow[~w] ~p\",[R,misc:getStackTrace()]),\"unknown\"
+	end.
+
+%% career Chinese name (profession)
+getCareerStr( Career ) ->
+	Career_Cfg = getCfg:getCfgPStack(cfg_player_desc, Career),
+	Career_Cfg#player_descCfg.name.
+
+%% Returns the task name and group name
+getTaskNameAndGroupName( TaskID ) ->
+  TaskCfg=getCfg:getCfgPStack(cfg_task_new, TaskID),
+  TaskGroupCfg = getCfg:getCfgPStack(cfg_task_group, TaskCfg#task_newCfg.groupid),
+  {TaskCfg#task_newCfg.task_name, TaskGroupCfg#task_groupCfg.groupname}.",
+	[Data].

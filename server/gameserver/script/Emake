@@ -1,0 +1,15 @@
+{
+	[
+		"../src"
+	],
+
+	[
+		{d,'GAME_SERVER',1},
+		{i,"../include/common"},
+		{i,"../include"},
+		{i,"../src/netmsg"},
+		{i,"../src/config"},
+		{i,"../src/database/emysql/include"},
+		{outdir,"../ebin"}
+	]
+}.

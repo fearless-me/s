@@ -1,0 +1,88 @@
+#!/usr/bin/env escript
+
+%%%-------------------------------------------------------------------
+%%% @author liushixue
+%%% @copyright (C) 2015, <公司>
+%%% @doc 生成进程字典列表及相关函数接口
+%%%
+%%% @end
+%%% Created : 24. 一月 2015 14:12
+%%%-------------------------------------------------------------------
+
+%% API
+main(_Ags) ->
+	OrigenFile = "support/process_dict.tpl",
+	AimFile = "support/mydict.erl",
+	io:format("Generating ~p ... ~n",[AimFile]),
+	OriBinary = readFile(OrigenFile),
+	OutputDict = parseList(OriBinary),
+	AllText = [OutputDict | initDict(OriBinary)],
+	file:write_file(AimFile, AllText),
+	ok.
+
+%%读取原始文件
+-spec readFile(FileName :: string()) ->  list() | [].
+readFile(FileName) ->
+	case file:read_file(FileName) of
+		{ok,Binary} ->
+			Binary;
+		Ret ->
+			io:format("Read File:~p failed By:~p!~n",[FileName,Ret]),
+			[]
+	end.
+
+%%解析为进程字典
+-spec parseList(OriBinary :: list()) -> List :: list().
+parseList(OriBinary) ->
+	Head = "-module(mydict).\r\n"
+	"-author(zhongyuanwei).\r\n"
+	"-include(\"gsInc.hrl\").\r\n"
+	"-export([init/0]).\r\n"
+	"-define(DictList,[",
+
+	List1 = re:replace(OriBinary, "struct\sMonsterPsDict.*\n{", Head,[global, {return, list}]),
+	List2 = re:replace(List1, "\s{4}\\w{3,4}\s", "\t",[global, {return, list}]),
+	List3 = re:replace(List2, "//", "%%",[global, {return, list}]),
+	List = re:replace(List3, "\};", "]).",[global, {return, list}]),
+	List.
+
+%%生成初始化函数
+-spec initDict(OriBinary :: list()) -> List :: list().
+initDict(OriBinary) ->
+	Head = "init(Code) ->\r\n",
+
+	Mid = ["\tInt = [\r\n" , getPropString(OriBinary,"(?<=\\bint\s)\\w+") , "],\r\n"
+	"\tList = [\r\n" , getPropString(OriBinary,"(?<=\\blist\s)\\w+") , "],\r\n"
+	"\tTerm = [\r\n" , getPropString(OriBinary,"(?<=\\bterm\s)\\w+") , "],\r\n"
+	"\tEts = [\r\n" , getPropString(OriBinary,"(?<=\\bets\s)\\w+") , "],\r\n"
+	"\tPid = [\r\n" , getPropString(OriBinary,"(?<=\\bpid\s)\\w+") , "],\r\n"
+	"\tBool = [\r\n" , getPropString(OriBinary,"(?<=\\bbool\s)\\w+") , "],\r\n"],
+
+	End =
+		"\tFun1 = fun(Key) when erlang:is_atom(Key) ->\r\n"
+		"\t\t\tput({Key,Code},0)\r\n"
+		"\t\tend,\r\n"
+		"\tFun2 = fun(Key) when erlang:is_atom(Key) ->\r\n"
+		"\t\t\tput({Key,Code},undefined)\r\n"
+		"\t\tend,\r\n"
+		"\tFun3 = fun(Key) when erlang:is_atom(Key) ->\r\n"
+		"\t\t\tput({Key,Code},false)\r\n"
+		"\t\tend,\r\n"
+		"\tlists:foreach(Fun1, Int),\r\n"
+		"\tlists:foreach(Fun1, List),\r\n"
+		"\tlists:foreach(Fun1, Term),\r\n"
+		"\tlists:foreach(Fun1, Ets),\r\n"
+		"\tlists:foreach(Fun2, Pid),\r\n"
+		"\tlists:foreach(Fun3, Bool).\r\n",
+
+	[Head | [Mid | End]].
+
+%%获取各类型的所有条目
+-spec getPropString(OriBinary :: list(),Match :: string()) -> list() | [].
+getPropString(OriBinary,Match) ->
+	{match,PropString} = re:run(OriBinary, Match, [global, {capture, all, list}]),
+	Fun = fun(Prop) ->
+		["\t\t\t" | [Prop | ",\r\n"]]
+	end,
+	Terms = lists:flatten(lists:map(Fun, PropString)),
+	lists:sublist(Terms,erlang:length(Terms) - 3).

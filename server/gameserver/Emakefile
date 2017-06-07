@@ -1,0 +1,36 @@
+{  
+   ["src/*",
+    "src/*/*",
+    "src/*/*/*",
+    "src/*/*/*",
+     "src/*/*/*/*"
+   ], 
+   [
+    debug_info,
+	  {d,'GAME_SERVER',1},
+	  %%{d,'RELEASE',1},
+    {i,"include"},
+	  {i,"include/common"},
+	  {i,"src/battle"},
+    {i,"src/client"},
+    {i,"src/common"},
+    {i,"src/config"},
+    {i,"src/core"},
+    {i,"src/database"},
+    {i,"src/db"},
+    {i,"src/dbServer"},
+    {i,"src/log"},
+    {i,"src/logdb"},
+    {i,"src/loginserver"},
+    {i,"src/main"},
+    {i,"src/mall"},
+    {i,"src/monster"},
+    {i,"src/netmsg"},
+    {i,"src/player"},
+    {i,"src/trigger"},
+    {i,"src/world"},
+    {i,"src/language"},
+	  {i,"src/database/emysql/include"},
+    {outdir,"./ebin"}
+	]
+}. 

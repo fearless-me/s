@@ -1,0 +1,3 @@
+-define(MAX_RESTART,    4). %% usually 4, now set not restart
+-define(MAX_TIME,      	3600).
+-define(HTTPC_AUTH_TIMEOUT,      	3600).
