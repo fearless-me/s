@@ -5099,6 +5099,48 @@ getRow(spiritArea_TimeWait)->
     settype = spiritArea_TimeWait,
     setpara = [10]
     };
+getRow(Square_dancing_1)->
+    #globalsetupCfg {
+    id = 926,
+    settype = Square_dancing_1,
+    setpara = [1000]
+    };
+getRow(Square_dancing_2)->
+    #globalsetupCfg {
+    id = 927,
+    settype = Square_dancing_2,
+    setpara = [10]
+    };
+getRow(Square_dancing_3)->
+    #globalsetupCfg {
+    id = 928,
+    settype = Square_dancing_3,
+    setpara = [61400]
+    };
+getRow(Square_dancing_4)->
+    #globalsetupCfg {
+    id = 929,
+    settype = Square_dancing_4,
+    setpara = [300]
+    };
+getRow(Square_dancing_5)->
+    #globalsetupCfg {
+    id = 930,
+    settype = Square_dancing_5,
+    setpara = [0]
+    };
+getRow(Square_dancing_6)->
+    #globalsetupCfg {
+    id = 931,
+    settype = Square_dancing_6,
+    setpara = [0]
+    };
+getRow(Square_dancing_7)->
+    #globalsetupCfg {
+    id = 932,
+    settype = Square_dancing_7,
+    setpara = [0]
+    };
 getRow(startmap)->
     #globalsetupCfg {
     id = 73,
@@ -6340,6 +6382,13 @@ getKeyList()->[
     {spiritArea_TimeAll},
     {spiritArea_TimeReady},
     {spiritArea_TimeWait},
+    {Square_dancing_1},
+    {Square_dancing_2},
+    {Square_dancing_3},
+    {Square_dancing_4},
+    {Square_dancing_5},
+    {Square_dancing_6},
+    {Square_dancing_7},
     {startmap},
     {sweep_level},
     {sweeplv},
@@ -7257,6 +7306,13 @@ get1KeyList()->[
     spiritArea_TimeAll,
     spiritArea_TimeReady,
     spiritArea_TimeWait,
+    Square_dancing_1,
+    Square_dancing_2,
+    Square_dancing_3,
+    Square_dancing_4,
+    Square_dancing_5,
+    Square_dancing_6,
+    Square_dancing_7,
     startmap,
     sweep_level,
     sweeplv,

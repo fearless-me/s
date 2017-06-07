@@ -862,7 +862,7 @@ getRow(32)->
     txt = "与你的伴侣共游蓝色大陆，探寻失落的历史与传说\n[00ff00]请与您的伴侣双人组队前往，每日完成获得稀有奖励[-]",
     time = "全天开放",
     num = 2,
-    mapid = [0],
+    mapid = [{-1,0}],
     npcid = 1100,
     lookup_mapid = 0,
     coordinate = [0],

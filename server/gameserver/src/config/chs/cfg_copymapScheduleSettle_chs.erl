@@ -56,7 +56,7 @@ getRow(4)->
 getRow(5)->
     #copymapScheduleSettleCfg {
     id = 5,
-    name = "追赶魔族",
+    name = "阻止罗撒特",
     killmonster = [{22001,1},{22001,1},{22002,1},{22002,1}],
     collect = 0,
     countdown = 0,
@@ -878,6 +878,18 @@ getRow(600)->
     id = 600,
     name = "橘鬼花异变",
     killmonster = [{22041,1},{22041,1},{22041,1},{22041,1}],
+    collect = 0,
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    iskillall = 1
+    };
+getRow(601)->
+    #copymapScheduleSettleCfg {
+    id = 601,
+    name = "安娜的魔宠",
+    killmonster = [{22017,1},{22017,1},{22017,1},{22017,1}],
     collect = 0,
     countdown = 0,
     task = 0,
@@ -5181,6 +5193,18 @@ getRow(20000)->
     play_show2 = 0,
     iskillall = 1
     };
+getRow(21000)->
+    #copymapScheduleSettleCfg {
+    id = 21000,
+    name = "所有开始倒计时结束条件",
+    killmonster = [0],
+    collect = 0,
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    iskillall = 0
+    };
 getRow(_)->[].
 
 getKeyList()->[
@@ -5257,6 +5281,7 @@ getKeyList()->[
     {128},
     {129},
     {600},
+    {601},
     {950},
     {951},
     {952},
@@ -5614,7 +5639,8 @@ getKeyList()->[
     {1752},
     {1753},
     {1754},
-    {20000}
+    {20000},
+    {21000}
     ].
 
 get1KeyList()->[
@@ -5691,6 +5717,7 @@ get1KeyList()->[
     128,
     129,
     600,
+    601,
     950,
     951,
     952,
@@ -6048,6 +6075,7 @@ get1KeyList()->[
     1752,
     1753,
     1754,
-    20000
+    20000,
+    21000
     ].
 

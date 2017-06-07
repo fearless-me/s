@@ -45,7 +45,13 @@
         %%: 李菡琦:
         %%: 点击锁定后的提示文字
         %%: 根据lock判断，锁定状态才给提示
-        discription
+        discription,
+
+        %%: Luoch:
+        %%: 是否是跳舞动作
+        %%: 0 不是
+        %%: 1 是
+        action_dance
 
  }).
 

@@ -121,7 +121,8 @@ getRow(12)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(501)->
     #skillCfg {
@@ -239,7 +240,8 @@ getRow(501)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(502)->
     #skillCfg {
@@ -357,7 +359,8 @@ getRow(502)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(503)->
     #skillCfg {
@@ -475,7 +478,8 @@ getRow(503)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1001)->
     #skillCfg {
@@ -593,7 +597,8 @@ getRow(1001)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1002)->
     #skillCfg {
@@ -710,7 +715,8 @@ getRow(1002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1003)->
     #skillCfg {
@@ -828,7 +834,8 @@ getRow(1003)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1004)->
     #skillCfg {
@@ -945,7 +952,8 @@ getRow(1004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1005)->
     #skillCfg {
@@ -1062,7 +1070,8 @@ getRow(1005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1006)->
     #skillCfg {
@@ -1179,7 +1188,8 @@ getRow(1006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1007)->
     #skillCfg {
@@ -1296,7 +1306,8 @@ getRow(1007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1008)->
     #skillCfg {
@@ -1413,7 +1424,8 @@ getRow(1008)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1009)->
     #skillCfg {
@@ -1530,7 +1542,8 @@ getRow(1009)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1010)->
     #skillCfg {
@@ -1648,7 +1661,8 @@ getRow(1010)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1011)->
     #skillCfg {
@@ -1765,7 +1779,8 @@ getRow(1011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1012)->
     #skillCfg {
@@ -1883,7 +1898,8 @@ getRow(1012)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1013)->
     #skillCfg {
@@ -2000,7 +2016,8 @@ getRow(1013)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1014)->
     #skillCfg {
@@ -2118,7 +2135,8 @@ getRow(1014)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1015)->
     #skillCfg {
@@ -2235,7 +2253,8 @@ getRow(1015)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1016)->
     #skillCfg {
@@ -2352,7 +2371,8 @@ getRow(1016)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1017)->
     #skillCfg {
@@ -2469,7 +2489,8 @@ getRow(1017)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1018)->
     #skillCfg {
@@ -2586,7 +2607,8 @@ getRow(1018)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1019)->
     #skillCfg {
@@ -2703,7 +2725,8 @@ getRow(1019)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1020)->
     #skillCfg {
@@ -2820,7 +2843,8 @@ getRow(1020)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1021)->
     #skillCfg {
@@ -2938,7 +2962,8 @@ getRow(1021)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1022)->
     #skillCfg {
@@ -3056,7 +3081,8 @@ getRow(1022)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1023)->
     #skillCfg {
@@ -3173,7 +3199,8 @@ getRow(1023)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1024)->
     #skillCfg {
@@ -3291,7 +3318,8 @@ getRow(1024)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1025)->
     #skillCfg {
@@ -3408,7 +3436,8 @@ getRow(1025)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1026)->
     #skillCfg {
@@ -3525,7 +3554,8 @@ getRow(1026)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1027)->
     #skillCfg {
@@ -3642,7 +3672,8 @@ getRow(1027)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1028)->
     #skillCfg {
@@ -3759,7 +3790,8 @@ getRow(1028)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1029)->
     #skillCfg {
@@ -3876,7 +3908,8 @@ getRow(1029)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1030)->
     #skillCfg {
@@ -3993,7 +4026,8 @@ getRow(1030)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1031)->
     #skillCfg {
@@ -4111,7 +4145,8 @@ getRow(1031)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1032)->
     #skillCfg {
@@ -4228,7 +4263,8 @@ getRow(1032)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1033)->
     #skillCfg {
@@ -4346,7 +4382,8 @@ getRow(1033)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1034)->
     #skillCfg {
@@ -4463,7 +4500,8 @@ getRow(1034)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1035)->
     #skillCfg {
@@ -4580,7 +4618,8 @@ getRow(1035)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1036)->
     #skillCfg {
@@ -4697,7 +4736,8 @@ getRow(1036)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1037)->
     #skillCfg {
@@ -4814,7 +4854,8 @@ getRow(1037)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1038)->
     #skillCfg {
@@ -4932,7 +4973,8 @@ getRow(1038)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1039)->
     #skillCfg {
@@ -5049,7 +5091,8 @@ getRow(1039)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1040)->
     #skillCfg {
@@ -5167,7 +5210,8 @@ getRow(1040)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1041)->
     #skillCfg {
@@ -5285,7 +5329,8 @@ getRow(1041)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1042)->
     #skillCfg {
@@ -5403,7 +5448,8 @@ getRow(1042)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1043)->
     #skillCfg {
@@ -5521,7 +5567,8 @@ getRow(1043)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1044)->
     #skillCfg {
@@ -5638,7 +5685,8 @@ getRow(1044)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1045)->
     #skillCfg {
@@ -5756,7 +5804,8 @@ getRow(1045)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1046)->
     #skillCfg {
@@ -5873,7 +5922,8 @@ getRow(1046)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1047)->
     #skillCfg {
@@ -5990,7 +6040,8 @@ getRow(1047)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1048)->
     #skillCfg {
@@ -6108,7 +6159,8 @@ getRow(1048)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1049)->
     #skillCfg {
@@ -6225,7 +6277,8 @@ getRow(1049)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1050)->
     #skillCfg {
@@ -6342,7 +6395,8 @@ getRow(1050)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1051)->
     #skillCfg {
@@ -6459,7 +6513,8 @@ getRow(1051)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1052)->
     #skillCfg {
@@ -6577,7 +6632,8 @@ getRow(1052)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1053)->
     #skillCfg {
@@ -6695,7 +6751,8 @@ getRow(1053)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1054)->
     #skillCfg {
@@ -6813,7 +6870,8 @@ getRow(1054)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1055)->
     #skillCfg {
@@ -6931,7 +6989,8 @@ getRow(1055)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1056)->
     #skillCfg {
@@ -7049,7 +7108,8 @@ getRow(1056)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1057)->
     #skillCfg {
@@ -7166,7 +7226,8 @@ getRow(1057)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1058)->
     #skillCfg {
@@ -7283,7 +7344,8 @@ getRow(1058)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1059)->
     #skillCfg {
@@ -7401,7 +7463,8 @@ getRow(1059)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1060)->
     #skillCfg {
@@ -7519,7 +7582,8 @@ getRow(1060)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1061)->
     #skillCfg {
@@ -7637,7 +7701,8 @@ getRow(1061)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1062)->
     #skillCfg {
@@ -7755,7 +7820,8 @@ getRow(1062)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1063)->
     #skillCfg {
@@ -7873,7 +7939,8 @@ getRow(1063)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1101)->
     #skillCfg {
@@ -7990,7 +8057,8 @@ getRow(1101)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1102)->
     #skillCfg {
@@ -8107,7 +8175,8 @@ getRow(1102)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1103)->
     #skillCfg {
@@ -8224,7 +8293,8 @@ getRow(1103)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1104)->
     #skillCfg {
@@ -8341,7 +8411,8 @@ getRow(1104)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1105)->
     #skillCfg {
@@ -8458,7 +8529,8 @@ getRow(1105)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1106)->
     #skillCfg {
@@ -8575,7 +8647,8 @@ getRow(1106)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1107)->
     #skillCfg {
@@ -8692,7 +8765,8 @@ getRow(1107)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1108)->
     #skillCfg {
@@ -8809,7 +8883,8 @@ getRow(1108)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1109)->
     #skillCfg {
@@ -8926,7 +9001,8 @@ getRow(1109)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1110)->
     #skillCfg {
@@ -9043,7 +9119,8 @@ getRow(1110)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1111)->
     #skillCfg {
@@ -9160,7 +9237,8 @@ getRow(1111)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1112)->
     #skillCfg {
@@ -9277,7 +9355,8 @@ getRow(1112)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1113)->
     #skillCfg {
@@ -9394,7 +9473,8 @@ getRow(1113)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1114)->
     #skillCfg {
@@ -9511,7 +9591,8 @@ getRow(1114)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1115)->
     #skillCfg {
@@ -9628,7 +9709,8 @@ getRow(1115)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1116)->
     #skillCfg {
@@ -9746,7 +9828,8 @@ getRow(1116)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1117)->
     #skillCfg {
@@ -9863,7 +9946,8 @@ getRow(1117)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1118)->
     #skillCfg {
@@ -9980,7 +10064,8 @@ getRow(1118)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1119)->
     #skillCfg {
@@ -10097,7 +10182,8 @@ getRow(1119)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1120)->
     #skillCfg {
@@ -10214,7 +10300,8 @@ getRow(1120)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1121)->
     #skillCfg {
@@ -10331,7 +10418,8 @@ getRow(1121)->
     pveskillMult = 1.1,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1122)->
     #skillCfg {
@@ -10448,7 +10536,8 @@ getRow(1122)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1123)->
     #skillCfg {
@@ -10565,7 +10654,8 @@ getRow(1123)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1124)->
     #skillCfg {
@@ -10682,7 +10772,8 @@ getRow(1124)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1125)->
     #skillCfg {
@@ -10799,7 +10890,8 @@ getRow(1125)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1126)->
     #skillCfg {
@@ -10916,7 +11008,8 @@ getRow(1126)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1127)->
     #skillCfg {
@@ -11033,7 +11126,8 @@ getRow(1127)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1128)->
     #skillCfg {
@@ -11150,7 +11244,8 @@ getRow(1128)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1129)->
     #skillCfg {
@@ -11267,7 +11362,8 @@ getRow(1129)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1130)->
     #skillCfg {
@@ -11384,7 +11480,8 @@ getRow(1130)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1131)->
     #skillCfg {
@@ -11501,7 +11598,8 @@ getRow(1131)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1132)->
     #skillCfg {
@@ -11618,7 +11716,8 @@ getRow(1132)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1133)->
     #skillCfg {
@@ -11735,7 +11834,8 @@ getRow(1133)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1134)->
     #skillCfg {
@@ -11852,7 +11952,8 @@ getRow(1134)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1135)->
     #skillCfg {
@@ -11969,7 +12070,8 @@ getRow(1135)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1136)->
     #skillCfg {
@@ -12086,7 +12188,8 @@ getRow(1136)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1137)->
     #skillCfg {
@@ -12203,7 +12306,8 @@ getRow(1137)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1138)->
     #skillCfg {
@@ -12320,7 +12424,8 @@ getRow(1138)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1139)->
     #skillCfg {
@@ -12437,7 +12542,8 @@ getRow(1139)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1140)->
     #skillCfg {
@@ -12554,7 +12660,8 @@ getRow(1140)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1141)->
     #skillCfg {
@@ -12671,7 +12778,8 @@ getRow(1141)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1142)->
     #skillCfg {
@@ -12788,7 +12896,8 @@ getRow(1142)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1143)->
     #skillCfg {
@@ -12905,7 +13014,8 @@ getRow(1143)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1144)->
     #skillCfg {
@@ -13022,7 +13132,8 @@ getRow(1144)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1145)->
     #skillCfg {
@@ -13139,7 +13250,8 @@ getRow(1145)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1146)->
     #skillCfg {
@@ -13256,7 +13368,8 @@ getRow(1146)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1147)->
     #skillCfg {
@@ -13373,7 +13486,8 @@ getRow(1147)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1148)->
     #skillCfg {
@@ -13490,7 +13604,8 @@ getRow(1148)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1149)->
     #skillCfg {
@@ -13607,7 +13722,8 @@ getRow(1149)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1150)->
     #skillCfg {
@@ -13724,7 +13840,8 @@ getRow(1150)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1151)->
     #skillCfg {
@@ -13841,7 +13958,8 @@ getRow(1151)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1152)->
     #skillCfg {
@@ -13958,7 +14076,8 @@ getRow(1152)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1153)->
     #skillCfg {
@@ -14075,7 +14194,8 @@ getRow(1153)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1154)->
     #skillCfg {
@@ -14192,7 +14312,8 @@ getRow(1154)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1155)->
     #skillCfg {
@@ -14309,7 +14430,8 @@ getRow(1155)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1156)->
     #skillCfg {
@@ -14426,7 +14548,8 @@ getRow(1156)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1157)->
     #skillCfg {
@@ -14543,7 +14666,8 @@ getRow(1157)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1158)->
     #skillCfg {
@@ -14660,7 +14784,8 @@ getRow(1158)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1159)->
     #skillCfg {
@@ -14777,7 +14902,8 @@ getRow(1159)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1160)->
     #skillCfg {
@@ -14894,7 +15020,8 @@ getRow(1160)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1161)->
     #skillCfg {
@@ -15011,7 +15138,8 @@ getRow(1161)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1162)->
     #skillCfg {
@@ -15128,7 +15256,8 @@ getRow(1162)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1163)->
     #skillCfg {
@@ -15245,7 +15374,8 @@ getRow(1163)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1164)->
     #skillCfg {
@@ -15362,7 +15492,8 @@ getRow(1164)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1165)->
     #skillCfg {
@@ -15479,7 +15610,8 @@ getRow(1165)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1166)->
     #skillCfg {
@@ -15596,7 +15728,8 @@ getRow(1166)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1167)->
     #skillCfg {
@@ -15713,7 +15846,8 @@ getRow(1167)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1168)->
     #skillCfg {
@@ -15830,7 +15964,8 @@ getRow(1168)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1169)->
     #skillCfg {
@@ -15947,7 +16082,8 @@ getRow(1169)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1170)->
     #skillCfg {
@@ -16064,7 +16200,8 @@ getRow(1170)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1171)->
     #skillCfg {
@@ -16181,7 +16318,8 @@ getRow(1171)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1172)->
     #skillCfg {
@@ -16298,7 +16436,8 @@ getRow(1172)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1173)->
     #skillCfg {
@@ -16415,7 +16554,8 @@ getRow(1173)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1174)->
     #skillCfg {
@@ -16532,7 +16672,8 @@ getRow(1174)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1175)->
     #skillCfg {
@@ -16649,7 +16790,8 @@ getRow(1175)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1176)->
     #skillCfg {
@@ -16766,7 +16908,8 @@ getRow(1176)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1177)->
     #skillCfg {
@@ -16883,7 +17026,8 @@ getRow(1177)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1178)->
     #skillCfg {
@@ -17000,7 +17144,8 @@ getRow(1178)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1179)->
     #skillCfg {
@@ -17117,7 +17262,8 @@ getRow(1179)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1180)->
     #skillCfg {
@@ -17234,7 +17380,8 @@ getRow(1180)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1181)->
     #skillCfg {
@@ -17351,7 +17498,8 @@ getRow(1181)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1500)->
     #skillCfg {
@@ -17468,7 +17616,8 @@ getRow(1500)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1501)->
     #skillCfg {
@@ -17585,7 +17734,8 @@ getRow(1501)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1504)->
     #skillCfg {
@@ -17702,7 +17852,8 @@ getRow(1504)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1601)->
     #skillCfg {
@@ -17819,7 +17970,8 @@ getRow(1601)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1602)->
     #skillCfg {
@@ -17936,7 +18088,8 @@ getRow(1602)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1603)->
     #skillCfg {
@@ -18053,7 +18206,8 @@ getRow(1603)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1604)->
     #skillCfg {
@@ -18170,7 +18324,8 @@ getRow(1604)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1605)->
     #skillCfg {
@@ -18287,7 +18442,8 @@ getRow(1605)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1606)->
     #skillCfg {
@@ -18404,7 +18560,8 @@ getRow(1606)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1607)->
     #skillCfg {
@@ -18521,7 +18678,8 @@ getRow(1607)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1608)->
     #skillCfg {
@@ -18638,7 +18796,8 @@ getRow(1608)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1609)->
     #skillCfg {
@@ -18755,7 +18914,8 @@ getRow(1609)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1610)->
     #skillCfg {
@@ -18872,7 +19032,8 @@ getRow(1610)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1611)->
     #skillCfg {
@@ -18989,7 +19150,8 @@ getRow(1611)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1612)->
     #skillCfg {
@@ -19106,7 +19268,8 @@ getRow(1612)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1613)->
     #skillCfg {
@@ -19223,7 +19386,8 @@ getRow(1613)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1614)->
     #skillCfg {
@@ -19340,7 +19504,8 @@ getRow(1614)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1615)->
     #skillCfg {
@@ -19457,7 +19622,8 @@ getRow(1615)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1616)->
     #skillCfg {
@@ -19574,7 +19740,8 @@ getRow(1616)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1617)->
     #skillCfg {
@@ -19691,7 +19858,8 @@ getRow(1617)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1618)->
     #skillCfg {
@@ -19808,7 +19976,8 @@ getRow(1618)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1619)->
     #skillCfg {
@@ -19925,7 +20094,8 @@ getRow(1619)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1620)->
     #skillCfg {
@@ -20042,7 +20212,8 @@ getRow(1620)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1621)->
     #skillCfg {
@@ -20159,7 +20330,8 @@ getRow(1621)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1622)->
     #skillCfg {
@@ -20276,7 +20448,8 @@ getRow(1622)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1623)->
     #skillCfg {
@@ -20393,7 +20566,8 @@ getRow(1623)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1624)->
     #skillCfg {
@@ -20510,7 +20684,8 @@ getRow(1624)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1625)->
     #skillCfg {
@@ -20627,7 +20802,8 @@ getRow(1625)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1626)->
     #skillCfg {
@@ -20744,7 +20920,8 @@ getRow(1626)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1627)->
     #skillCfg {
@@ -20861,7 +21038,8 @@ getRow(1627)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1628)->
     #skillCfg {
@@ -20978,7 +21156,8 @@ getRow(1628)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1629)->
     #skillCfg {
@@ -21095,7 +21274,8 @@ getRow(1629)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1630)->
     #skillCfg {
@@ -21212,7 +21392,8 @@ getRow(1630)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1631)->
     #skillCfg {
@@ -21329,7 +21510,8 @@ getRow(1631)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1632)->
     #skillCfg {
@@ -21446,7 +21628,8 @@ getRow(1632)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1633)->
     #skillCfg {
@@ -21563,7 +21746,8 @@ getRow(1633)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1634)->
     #skillCfg {
@@ -21680,7 +21864,8 @@ getRow(1634)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(1635)->
     #skillCfg {
@@ -21797,7 +21982,8 @@ getRow(1635)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3036)->
     #skillCfg {
@@ -21914,7 +22100,8 @@ getRow(3036)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3037)->
     #skillCfg {
@@ -22031,7 +22218,8 @@ getRow(3037)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3038)->
     #skillCfg {
@@ -22148,7 +22336,8 @@ getRow(3038)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3039)->
     #skillCfg {
@@ -22265,7 +22454,8 @@ getRow(3039)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3040)->
     #skillCfg {
@@ -22382,7 +22572,8 @@ getRow(3040)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3041)->
     #skillCfg {
@@ -22500,7 +22691,8 @@ getRow(3041)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3042)->
     #skillCfg {
@@ -22618,7 +22810,8 @@ getRow(3042)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3043)->
     #skillCfg {
@@ -22736,7 +22929,8 @@ getRow(3043)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3044)->
     #skillCfg {
@@ -22854,7 +23048,8 @@ getRow(3044)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3045)->
     #skillCfg {
@@ -22971,7 +23166,8 @@ getRow(3045)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3046)->
     #skillCfg {
@@ -23088,7 +23284,8 @@ getRow(3046)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3047)->
     #skillCfg {
@@ -23205,7 +23402,8 @@ getRow(3047)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3048)->
     #skillCfg {
@@ -23322,7 +23520,8 @@ getRow(3048)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3137)->
     #skillCfg {
@@ -23439,7 +23638,8 @@ getRow(3137)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3138)->
     #skillCfg {
@@ -23556,7 +23756,8 @@ getRow(3138)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3139)->
     #skillCfg {
@@ -23673,7 +23874,8 @@ getRow(3139)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3140)->
     #skillCfg {
@@ -23790,7 +23992,8 @@ getRow(3140)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3141)->
     #skillCfg {
@@ -23908,7 +24111,8 @@ getRow(3141)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3142)->
     #skillCfg {
@@ -24026,7 +24230,8 @@ getRow(3142)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3143)->
     #skillCfg {
@@ -24144,7 +24349,8 @@ getRow(3143)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(3144)->
     #skillCfg {
@@ -24262,7 +24468,8 @@ getRow(3144)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(6000)->
     #skillCfg {
@@ -24378,7 +24585,8 @@ getRow(6000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(6001)->
     #skillCfg {
@@ -24494,7 +24702,8 @@ getRow(6001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(6002)->
     #skillCfg {
@@ -24610,7 +24819,8 @@ getRow(6002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(6003)->
     #skillCfg {
@@ -24726,7 +24936,8 @@ getRow(6003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(6004)->
     #skillCfg {
@@ -24842,7 +25053,8 @@ getRow(6004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(6005)->
     #skillCfg {
@@ -24958,7 +25170,8 @@ getRow(6005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(6006)->
     #skillCfg {
@@ -25074,7 +25287,8 @@ getRow(6006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(6007)->
     #skillCfg {
@@ -25190,7 +25404,8 @@ getRow(6007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(6008)->
     #skillCfg {
@@ -25306,7 +25521,8 @@ getRow(6008)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(6009)->
     #skillCfg {
@@ -25422,7 +25638,8 @@ getRow(6009)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(6010)->
     #skillCfg {
@@ -25538,7 +25755,8 @@ getRow(6010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7000)->
     #skillCfg {
@@ -25655,7 +25873,8 @@ getRow(7000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7001)->
     #skillCfg {
@@ -25772,7 +25991,8 @@ getRow(7001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7002)->
     #skillCfg {
@@ -25889,7 +26109,8 @@ getRow(7002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7003)->
     #skillCfg {
@@ -26006,7 +26227,8 @@ getRow(7003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7004)->
     #skillCfg {
@@ -26123,7 +26345,8 @@ getRow(7004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7005)->
     #skillCfg {
@@ -26240,7 +26463,8 @@ getRow(7005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7006)->
     #skillCfg {
@@ -26357,7 +26581,8 @@ getRow(7006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7007)->
     #skillCfg {
@@ -26474,7 +26699,8 @@ getRow(7007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7008)->
     #skillCfg {
@@ -26591,7 +26817,8 @@ getRow(7008)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7009)->
     #skillCfg {
@@ -26708,7 +26935,8 @@ getRow(7009)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7010)->
     #skillCfg {
@@ -26825,7 +27053,8 @@ getRow(7010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7011)->
     #skillCfg {
@@ -26942,7 +27171,8 @@ getRow(7011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7012)->
     #skillCfg {
@@ -27059,7 +27289,8 @@ getRow(7012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7013)->
     #skillCfg {
@@ -27176,7 +27407,8 @@ getRow(7013)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7014)->
     #skillCfg {
@@ -27293,7 +27525,8 @@ getRow(7014)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7015)->
     #skillCfg {
@@ -27410,7 +27643,8 @@ getRow(7015)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7016)->
     #skillCfg {
@@ -27527,7 +27761,8 @@ getRow(7016)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7017)->
     #skillCfg {
@@ -27644,7 +27879,8 @@ getRow(7017)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7018)->
     #skillCfg {
@@ -27761,7 +27997,8 @@ getRow(7018)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7019)->
     #skillCfg {
@@ -27878,7 +28115,8 @@ getRow(7019)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7020)->
     #skillCfg {
@@ -27995,7 +28233,8 @@ getRow(7020)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7021)->
     #skillCfg {
@@ -28112,7 +28351,8 @@ getRow(7021)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7023)->
     #skillCfg {
@@ -28229,7 +28469,8 @@ getRow(7023)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7024)->
     #skillCfg {
@@ -28346,7 +28587,8 @@ getRow(7024)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7025)->
     #skillCfg {
@@ -28463,7 +28705,8 @@ getRow(7025)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7026)->
     #skillCfg {
@@ -28580,7 +28823,8 @@ getRow(7026)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7027)->
     #skillCfg {
@@ -28697,7 +28941,8 @@ getRow(7027)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7028)->
     #skillCfg {
@@ -28814,7 +29059,8 @@ getRow(7028)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7029)->
     #skillCfg {
@@ -28931,7 +29177,8 @@ getRow(7029)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7030)->
     #skillCfg {
@@ -29048,7 +29295,8 @@ getRow(7030)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7031)->
     #skillCfg {
@@ -29165,7 +29413,8 @@ getRow(7031)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7032)->
     #skillCfg {
@@ -29282,7 +29531,8 @@ getRow(7032)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7033)->
     #skillCfg {
@@ -29400,7 +29650,8 @@ getRow(7033)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7034)->
     #skillCfg {
@@ -29517,7 +29768,8 @@ getRow(7034)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7035)->
     #skillCfg {
@@ -29634,7 +29886,8 @@ getRow(7035)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7036)->
     #skillCfg {
@@ -29751,7 +30004,8 @@ getRow(7036)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7037)->
     #skillCfg {
@@ -29868,7 +30122,8 @@ getRow(7037)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7038)->
     #skillCfg {
@@ -29985,7 +30240,8 @@ getRow(7038)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7039)->
     #skillCfg {
@@ -30102,7 +30358,8 @@ getRow(7039)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(7040)->
     #skillCfg {
@@ -30219,7 +30476,8 @@ getRow(7040)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10050)->
     #skillCfg {
@@ -30337,7 +30595,8 @@ getRow(10050)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10051)->
     #skillCfg {
@@ -30455,7 +30714,8 @@ getRow(10051)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10052)->
     #skillCfg {
@@ -30573,7 +30833,8 @@ getRow(10052)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10122)->
     #skillCfg {
@@ -30690,7 +30951,8 @@ getRow(10122)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10124)->
     #skillCfg {
@@ -30809,7 +31071,8 @@ getRow(10124)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10127)->
     #skillCfg {
@@ -30928,7 +31191,8 @@ getRow(10127)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10128)->
     #skillCfg {
@@ -31046,7 +31310,8 @@ getRow(10128)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10129)->
     #skillCfg {
@@ -31163,7 +31428,8 @@ getRow(10129)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10130)->
     #skillCfg {
@@ -31281,7 +31547,8 @@ getRow(10130)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10132)->
     #skillCfg {
@@ -31399,7 +31666,8 @@ getRow(10132)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10133)->
     #skillCfg {
@@ -31519,7 +31787,8 @@ getRow(10133)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10134)->
     #skillCfg {
@@ -31636,7 +31905,8 @@ getRow(10134)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10135)->
     #skillCfg {
@@ -31754,7 +32024,8 @@ getRow(10135)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10153)->
     #skillCfg {
@@ -31873,7 +32144,8 @@ getRow(10153)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10154)->
     #skillCfg {
@@ -31993,7 +32265,8 @@ getRow(10154)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10155)->
     #skillCfg {
@@ -32113,7 +32386,8 @@ getRow(10155)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10221)->
     #skillCfg {
@@ -32233,7 +32507,8 @@ getRow(10221)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10224)->
     #skillCfg {
@@ -32350,7 +32625,8 @@ getRow(10224)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10230)->
     #skillCfg {
@@ -32468,7 +32744,8 @@ getRow(10230)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10231)->
     #skillCfg {
@@ -32586,7 +32863,8 @@ getRow(10231)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10232)->
     #skillCfg {
@@ -32704,7 +32982,8 @@ getRow(10232)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10233)->
     #skillCfg {
@@ -32822,7 +33101,8 @@ getRow(10233)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(10234)->
     #skillCfg {
@@ -32939,7 +33219,8 @@ getRow(10234)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11000)->
     #skillCfg {
@@ -33058,7 +33339,8 @@ getRow(11000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11001)->
     #skillCfg {
@@ -33175,7 +33457,8 @@ getRow(11001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11002)->
     #skillCfg {
@@ -33292,7 +33575,8 @@ getRow(11002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11500)->
     #skillCfg {
@@ -33409,7 +33693,8 @@ getRow(11500)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11501)->
     #skillCfg {
@@ -33526,7 +33811,8 @@ getRow(11501)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11505)->
     #skillCfg {
@@ -33643,7 +33929,8 @@ getRow(11505)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11506)->
     #skillCfg {
@@ -33760,7 +34047,8 @@ getRow(11506)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11507)->
     #skillCfg {
@@ -33877,7 +34165,8 @@ getRow(11507)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11510)->
     #skillCfg {
@@ -33904,7 +34193,7 @@ getRow(11510)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "baseattack1",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_79",
     attackSfxDur = 0,
     attackSfxScal = 3.2,
     skillAttackSfxSlots = "p_m_origin",
@@ -33994,7 +34283,8 @@ getRow(11510)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11511)->
     #skillCfg {
@@ -34021,7 +34311,7 @@ getRow(11511)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "skillcast1",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_80",
     attackSfxDur = 0,
     attackSfxScal = 3.2,
     skillAttackSfxSlots = "p_m_origin",
@@ -34111,7 +34401,8 @@ getRow(11511)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11515)->
     #skillCfg {
@@ -34228,7 +34519,8 @@ getRow(11515)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11516)->
     #skillCfg {
@@ -34345,7 +34637,8 @@ getRow(11516)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11517)->
     #skillCfg {
@@ -34462,7 +34755,8 @@ getRow(11517)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11520)->
     #skillCfg {
@@ -34579,7 +34873,8 @@ getRow(11520)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11521)->
     #skillCfg {
@@ -34696,7 +34991,8 @@ getRow(11521)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11522)->
     #skillCfg {
@@ -34813,7 +35109,8 @@ getRow(11522)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11525)->
     #skillCfg {
@@ -34840,7 +35137,7 @@ getRow(11525)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "baseattack1",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_81",
     attackSfxDur = 0,
     attackSfxScal = 2.7,
     skillAttackSfxSlots = "p_m_origin",
@@ -34930,7 +35227,8 @@ getRow(11525)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11526)->
     #skillCfg {
@@ -34957,7 +35255,7 @@ getRow(11526)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "skillcast1",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_82",
     attackSfxDur = 0,
     attackSfxScal = 2.7,
     skillAttackSfxSlots = "p_m_origin",
@@ -35047,7 +35345,8 @@ getRow(11526)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11527)->
     #skillCfg {
@@ -35074,7 +35373,7 @@ getRow(11527)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "skillcast2",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_84",
     attackSfxDur = 0,
     attackSfxScal = 2.7,
     skillAttackSfxSlots = "p_m_origin",
@@ -35164,7 +35463,8 @@ getRow(11527)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11528)->
     #skillCfg {
@@ -35212,7 +35512,7 @@ getRow(11528)->
     skillMissileSpeed = 0,
     beAtkSound = "0",
     beAtkDelay = 0,
-    skillBeAtkSfx = "0",
+    skillBeAtkSfx = "monster/vfx_22_85",
     beAtkSfxScal = 1,
     skillBeAtkSlots = "slot_hit",
     skillBeAtkSfxNum = 1,
@@ -35281,7 +35581,8 @@ getRow(11528)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11530)->
     #skillCfg {
@@ -35398,7 +35699,8 @@ getRow(11530)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11531)->
     #skillCfg {
@@ -35515,7 +35817,8 @@ getRow(11531)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11535)->
     #skillCfg {
@@ -35632,7 +35935,8 @@ getRow(11535)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11536)->
     #skillCfg {
@@ -35749,7 +36053,8 @@ getRow(11536)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11540)->
     #skillCfg {
@@ -35866,7 +36171,8 @@ getRow(11540)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11541)->
     #skillCfg {
@@ -35983,7 +36289,8 @@ getRow(11541)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11545)->
     #skillCfg {
@@ -36010,7 +36317,7 @@ getRow(11545)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "baseattack1",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_86",
     attackSfxDur = 0,
     attackSfxScal = 2.4,
     skillAttackSfxSlots = "p_m_origin",
@@ -36100,7 +36407,8 @@ getRow(11545)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11546)->
     #skillCfg {
@@ -36127,7 +36435,7 @@ getRow(11546)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "skillcast1",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_87",
     attackSfxDur = 0,
     attackSfxScal = 2.4,
     skillAttackSfxSlots = "p_m_origin",
@@ -36217,7 +36525,8 @@ getRow(11546)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11547)->
     #skillCfg {
@@ -36244,7 +36553,7 @@ getRow(11547)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "skillcast2",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_88",
     attackSfxDur = 0,
     attackSfxScal = 2.4,
     skillAttackSfxSlots = "p_m_origin",
@@ -36334,7 +36643,8 @@ getRow(11547)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11548)->
     #skillCfg {
@@ -36361,7 +36671,7 @@ getRow(11548)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "skillcast3",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_89",
     attackSfxDur = 0,
     attackSfxScal = 2.4,
     skillAttackSfxSlots = "p_m_origin",
@@ -36451,7 +36761,8 @@ getRow(11548)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11550)->
     #skillCfg {
@@ -36568,7 +36879,8 @@ getRow(11550)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11551)->
     #skillCfg {
@@ -36685,7 +36997,8 @@ getRow(11551)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11555)->
     #skillCfg {
@@ -36802,7 +37115,8 @@ getRow(11555)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11556)->
     #skillCfg {
@@ -36919,7 +37233,8 @@ getRow(11556)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11557)->
     #skillCfg {
@@ -37036,7 +37351,8 @@ getRow(11557)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11558)->
     #skillCfg {
@@ -37153,7 +37469,8 @@ getRow(11558)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11560)->
     #skillCfg {
@@ -37270,7 +37587,8 @@ getRow(11560)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11561)->
     #skillCfg {
@@ -37387,7 +37705,8 @@ getRow(11561)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11562)->
     #skillCfg {
@@ -37504,7 +37823,8 @@ getRow(11562)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11565)->
     #skillCfg {
@@ -37531,7 +37851,7 @@ getRow(11565)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "baseattack1",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_90",
     attackSfxDur = 0,
     attackSfxScal = 1.5,
     skillAttackSfxSlots = "p_m_origin",
@@ -37621,7 +37941,8 @@ getRow(11565)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11566)->
     #skillCfg {
@@ -37648,7 +37969,7 @@ getRow(11566)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "skillcast1",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_91",
     attackSfxDur = 0,
     attackSfxScal = 1.5,
     skillAttackSfxSlots = "p_m_origin",
@@ -37738,7 +38059,8 @@ getRow(11566)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11567)->
     #skillCfg {
@@ -37765,7 +38087,7 @@ getRow(11567)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "skillcast2",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_93",
     attackSfxDur = 0,
     attackSfxScal = 1.5,
     skillAttackSfxSlots = "p_m_origin",
@@ -37855,7 +38177,8 @@ getRow(11567)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11568)->
     #skillCfg {
@@ -37882,7 +38205,7 @@ getRow(11568)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "skillcast3",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_94",
     attackSfxDur = 0,
     attackSfxScal = 1.5,
     skillAttackSfxSlots = "p_m_origin",
@@ -37972,7 +38295,8 @@ getRow(11568)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11570)->
     #skillCfg {
@@ -38089,7 +38413,8 @@ getRow(11570)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11571)->
     #skillCfg {
@@ -38206,7 +38531,8 @@ getRow(11571)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11572)->
     #skillCfg {
@@ -38323,7 +38649,8 @@ getRow(11572)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(11573)->
     #skillCfg {
@@ -38440,7 +38767,8 @@ getRow(11573)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12001)->
     #skillCfg {
@@ -38560,7 +38888,8 @@ getRow(12001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12002)->
     #skillCfg {
@@ -38678,7 +39007,8 @@ getRow(12002)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12003)->
     #skillCfg {
@@ -38796,7 +39126,8 @@ getRow(12003)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12004)->
     #skillCfg {
@@ -38914,7 +39245,8 @@ getRow(12004)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12005)->
     #skillCfg {
@@ -39031,7 +39363,8 @@ getRow(12005)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12006)->
     #skillCfg {
@@ -39147,7 +39480,8 @@ getRow(12006)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12007)->
     #skillCfg {
@@ -39265,7 +39599,8 @@ getRow(12007)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12008)->
     #skillCfg {
@@ -39382,7 +39717,8 @@ getRow(12008)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12009)->
     #skillCfg {
@@ -39499,7 +39835,8 @@ getRow(12009)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12100)->
     #skillCfg {
@@ -39615,7 +39952,8 @@ getRow(12100)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12101)->
     #skillCfg {
@@ -39731,7 +40069,8 @@ getRow(12101)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12102)->
     #skillCfg {
@@ -39847,7 +40186,8 @@ getRow(12102)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12103)->
     #skillCfg {
@@ -39964,7 +40304,8 @@ getRow(12103)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12104)->
     #skillCfg {
@@ -40081,7 +40422,8 @@ getRow(12104)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12105)->
     #skillCfg {
@@ -40197,7 +40539,8 @@ getRow(12105)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12122)->
     #skillCfg {
@@ -40313,7 +40656,8 @@ getRow(12122)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12201)->
     #skillCfg {
@@ -40430,7 +40774,8 @@ getRow(12201)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12202)->
     #skillCfg {
@@ -40548,7 +40893,8 @@ getRow(12202)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12204)->
     #skillCfg {
@@ -40664,7 +41010,8 @@ getRow(12204)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12205)->
     #skillCfg {
@@ -40780,7 +41127,8 @@ getRow(12205)->
     pveskillMult = 0,
     nouse = 1,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12206)->
     #skillCfg {
@@ -40896,7 +41244,8 @@ getRow(12206)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12300)->
     #skillCfg {
@@ -41015,7 +41364,8 @@ getRow(12300)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12301)->
     #skillCfg {
@@ -41134,7 +41484,8 @@ getRow(12301)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12302)->
     #skillCfg {
@@ -41253,7 +41604,8 @@ getRow(12302)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12500)->
     #skillCfg {
@@ -41370,7 +41722,8 @@ getRow(12500)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12504)->
     #skillCfg {
@@ -41487,7 +41840,8 @@ getRow(12504)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12505)->
     #skillCfg {
@@ -41604,7 +41958,8 @@ getRow(12505)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(12506)->
     #skillCfg {
@@ -41721,7 +42076,8 @@ getRow(12506)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13000)->
     #skillCfg {
@@ -41839,7 +42195,8 @@ getRow(13000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13001)->
     #skillCfg {
@@ -41957,7 +42314,8 @@ getRow(13001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13002)->
     #skillCfg {
@@ -42075,7 +42433,8 @@ getRow(13002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13003)->
     #skillCfg {
@@ -42193,7 +42552,8 @@ getRow(13003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13004)->
     #skillCfg {
@@ -42311,7 +42671,8 @@ getRow(13004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13005)->
     #skillCfg {
@@ -42429,7 +42790,8 @@ getRow(13005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13006)->
     #skillCfg {
@@ -42547,7 +42909,8 @@ getRow(13006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13007)->
     #skillCfg {
@@ -42665,7 +43028,8 @@ getRow(13007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13100)->
     #skillCfg {
@@ -42782,7 +43146,8 @@ getRow(13100)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13101)->
     #skillCfg {
@@ -42898,7 +43263,8 @@ getRow(13101)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13102)->
     #skillCfg {
@@ -43014,7 +43380,8 @@ getRow(13102)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13103)->
     #skillCfg {
@@ -43131,7 +43498,8 @@ getRow(13103)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13104)->
     #skillCfg {
@@ -43248,7 +43616,8 @@ getRow(13104)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13105)->
     #skillCfg {
@@ -43365,7 +43734,8 @@ getRow(13105)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13200)->
     #skillCfg {
@@ -43482,7 +43852,8 @@ getRow(13200)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13201)->
     #skillCfg {
@@ -43599,7 +43970,8 @@ getRow(13201)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13202)->
     #skillCfg {
@@ -43717,7 +44089,8 @@ getRow(13202)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13203)->
     #skillCfg {
@@ -43833,7 +44206,8 @@ getRow(13203)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13204)->
     #skillCfg {
@@ -43949,7 +44323,8 @@ getRow(13204)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13205)->
     #skillCfg {
@@ -44066,7 +44441,8 @@ getRow(13205)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13206)->
     #skillCfg {
@@ -44182,7 +44558,8 @@ getRow(13206)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13207)->
     #skillCfg {
@@ -44299,7 +44676,8 @@ getRow(13207)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13208)->
     #skillCfg {
@@ -44415,7 +44793,8 @@ getRow(13208)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13209)->
     #skillCfg {
@@ -44531,7 +44910,8 @@ getRow(13209)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13210)->
     #skillCfg {
@@ -44648,7 +45028,8 @@ getRow(13210)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13300)->
     #skillCfg {
@@ -44767,7 +45148,8 @@ getRow(13300)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13301)->
     #skillCfg {
@@ -44886,7 +45268,8 @@ getRow(13301)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13302)->
     #skillCfg {
@@ -45005,7 +45388,8 @@ getRow(13302)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13500)->
     #skillCfg {
@@ -45121,7 +45505,8 @@ getRow(13500)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13501)->
     #skillCfg {
@@ -45237,7 +45622,8 @@ getRow(13501)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13502)->
     #skillCfg {
@@ -45353,7 +45739,8 @@ getRow(13502)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13503)->
     #skillCfg {
@@ -45469,7 +45856,8 @@ getRow(13503)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(13504)->
     #skillCfg {
@@ -45585,7 +45973,8 @@ getRow(13504)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14000)->
     #skillCfg {
@@ -45703,7 +46092,8 @@ getRow(14000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14001)->
     #skillCfg {
@@ -45820,7 +46210,8 @@ getRow(14001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14005)->
     #skillCfg {
@@ -45938,7 +46329,8 @@ getRow(14005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14006)->
     #skillCfg {
@@ -46055,7 +46447,8 @@ getRow(14006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14007)->
     #skillCfg {
@@ -46172,7 +46565,8 @@ getRow(14007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14011)->
     #skillCfg {
@@ -46239,7 +46633,7 @@ getRow(14011)->
     maxCount = 0,
     countTime = -1,
     skill_GlobeCoolDown = 3500,
-    skillCoolDown = 30000,
+    skillCoolDown = 90000,
     skillCoolDownGroup = 0,
     costEnergy = 0,
     costCourage = 0,
@@ -46281,9 +46675,9 @@ getRow(14011)->
     cDFactor = 105,
     costFactor = 0,
     castFactor = 0,
-    effects = [0],
-    misc = 4,
-    miscP1 = 101006,
+    effects = [108,109],
+    misc = 0,
+    miscP1 = 0,
     conflictSkill = 0,
     getitem = 0,
     noneed_atksd = 0,
@@ -46292,7 +46686,8 @@ getRow(14011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14012)->
     #skillCfg {
@@ -46412,7 +46807,8 @@ getRow(14012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14013)->
     #skillCfg {
@@ -46532,7 +46928,8 @@ getRow(14013)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14014)->
     #skillCfg {
@@ -46652,7 +47049,8 @@ getRow(14014)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14015)->
     #skillCfg {
@@ -46772,7 +47170,8 @@ getRow(14015)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14016)->
     #skillCfg {
@@ -46892,7 +47291,8 @@ getRow(14016)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14017)->
     #skillCfg {
@@ -47012,7 +47412,8 @@ getRow(14017)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14018)->
     #skillCfg {
@@ -47132,7 +47533,8 @@ getRow(14018)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14019)->
     #skillCfg {
@@ -47252,7 +47654,8 @@ getRow(14019)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14020)->
     #skillCfg {
@@ -47372,7 +47775,8 @@ getRow(14020)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14021)->
     #skillCfg {
@@ -47492,7 +47896,8 @@ getRow(14021)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14022)->
     #skillCfg {
@@ -47612,7 +48017,8 @@ getRow(14022)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14023)->
     #skillCfg {
@@ -47732,7 +48138,8 @@ getRow(14023)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14024)->
     #skillCfg {
@@ -47852,7 +48259,8 @@ getRow(14024)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14025)->
     #skillCfg {
@@ -47972,7 +48380,8 @@ getRow(14025)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14026)->
     #skillCfg {
@@ -48092,7 +48501,8 @@ getRow(14026)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14027)->
     #skillCfg {
@@ -48212,7 +48622,8 @@ getRow(14027)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14028)->
     #skillCfg {
@@ -48332,7 +48743,8 @@ getRow(14028)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14029)->
     #skillCfg {
@@ -48452,7 +48864,8 @@ getRow(14029)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14030)->
     #skillCfg {
@@ -48572,7 +48985,8 @@ getRow(14030)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14041)->
     #skillCfg {
@@ -48692,7 +49106,8 @@ getRow(14041)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14042)->
     #skillCfg {
@@ -48812,7 +49227,8 @@ getRow(14042)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14043)->
     #skillCfg {
@@ -48932,7 +49348,8 @@ getRow(14043)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14044)->
     #skillCfg {
@@ -49052,7 +49469,8 @@ getRow(14044)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14045)->
     #skillCfg {
@@ -49172,7 +49590,8 @@ getRow(14045)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14046)->
     #skillCfg {
@@ -49292,7 +49711,8 @@ getRow(14046)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14047)->
     #skillCfg {
@@ -49412,7 +49832,8 @@ getRow(14047)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14048)->
     #skillCfg {
@@ -49532,7 +49953,8 @@ getRow(14048)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14049)->
     #skillCfg {
@@ -49652,7 +50074,8 @@ getRow(14049)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14050)->
     #skillCfg {
@@ -49772,7 +50195,8 @@ getRow(14050)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14051)->
     #skillCfg {
@@ -49892,7 +50316,8 @@ getRow(14051)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14052)->
     #skillCfg {
@@ -50012,7 +50437,8 @@ getRow(14052)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14053)->
     #skillCfg {
@@ -50132,7 +50558,8 @@ getRow(14053)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14054)->
     #skillCfg {
@@ -50252,7 +50679,8 @@ getRow(14054)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14055)->
     #skillCfg {
@@ -50372,7 +50800,8 @@ getRow(14055)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14056)->
     #skillCfg {
@@ -50492,7 +50921,8 @@ getRow(14056)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14057)->
     #skillCfg {
@@ -50612,7 +51042,8 @@ getRow(14057)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14058)->
     #skillCfg {
@@ -50732,7 +51163,8 @@ getRow(14058)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14059)->
     #skillCfg {
@@ -50852,7 +51284,8 @@ getRow(14059)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14060)->
     #skillCfg {
@@ -50972,7 +51405,8 @@ getRow(14060)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14071)->
     #skillCfg {
@@ -51092,7 +51526,8 @@ getRow(14071)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14072)->
     #skillCfg {
@@ -51212,7 +51647,8 @@ getRow(14072)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14073)->
     #skillCfg {
@@ -51332,7 +51768,8 @@ getRow(14073)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14074)->
     #skillCfg {
@@ -51452,7 +51889,8 @@ getRow(14074)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14075)->
     #skillCfg {
@@ -51572,7 +52010,8 @@ getRow(14075)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14076)->
     #skillCfg {
@@ -51692,7 +52131,8 @@ getRow(14076)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14077)->
     #skillCfg {
@@ -51812,7 +52252,8 @@ getRow(14077)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14078)->
     #skillCfg {
@@ -51932,7 +52373,8 @@ getRow(14078)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14079)->
     #skillCfg {
@@ -52052,7 +52494,8 @@ getRow(14079)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14080)->
     #skillCfg {
@@ -52172,7 +52615,8 @@ getRow(14080)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14081)->
     #skillCfg {
@@ -52292,7 +52736,8 @@ getRow(14081)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14082)->
     #skillCfg {
@@ -52412,7 +52857,8 @@ getRow(14082)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14083)->
     #skillCfg {
@@ -52532,7 +52978,8 @@ getRow(14083)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14084)->
     #skillCfg {
@@ -52652,7 +53099,8 @@ getRow(14084)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14085)->
     #skillCfg {
@@ -52772,7 +53220,8 @@ getRow(14085)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14086)->
     #skillCfg {
@@ -52892,7 +53341,8 @@ getRow(14086)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14087)->
     #skillCfg {
@@ -53012,7 +53462,8 @@ getRow(14087)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14088)->
     #skillCfg {
@@ -53132,7 +53583,8 @@ getRow(14088)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14089)->
     #skillCfg {
@@ -53252,7 +53704,8 @@ getRow(14089)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14090)->
     #skillCfg {
@@ -53372,7 +53825,8 @@ getRow(14090)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14091)->
     #skillCfg {
@@ -53491,7 +53945,8 @@ getRow(14091)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14092)->
     #skillCfg {
@@ -53608,7 +54063,8 @@ getRow(14092)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14093)->
     #skillCfg {
@@ -53725,7 +54181,8 @@ getRow(14093)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14094)->
     #skillCfg {
@@ -53842,7 +54299,8 @@ getRow(14094)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14104)->
     #skillCfg {
@@ -53959,7 +54417,8 @@ getRow(14104)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14105)->
     #skillCfg {
@@ -54076,7 +54535,8 @@ getRow(14105)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14111)->
     #skillCfg {
@@ -54196,7 +54656,8 @@ getRow(14111)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14112)->
     #skillCfg {
@@ -54316,7 +54777,8 @@ getRow(14112)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14113)->
     #skillCfg {
@@ -54436,7 +54898,8 @@ getRow(14113)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14114)->
     #skillCfg {
@@ -54556,7 +55019,8 @@ getRow(14114)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14115)->
     #skillCfg {
@@ -54676,7 +55140,8 @@ getRow(14115)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14116)->
     #skillCfg {
@@ -54796,7 +55261,8 @@ getRow(14116)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14117)->
     #skillCfg {
@@ -54916,7 +55382,8 @@ getRow(14117)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14118)->
     #skillCfg {
@@ -55036,7 +55503,8 @@ getRow(14118)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14119)->
     #skillCfg {
@@ -55156,7 +55624,8 @@ getRow(14119)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14120)->
     #skillCfg {
@@ -55276,7 +55745,8 @@ getRow(14120)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14121)->
     #skillCfg {
@@ -55396,7 +55866,8 @@ getRow(14121)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14122)->
     #skillCfg {
@@ -55516,7 +55987,8 @@ getRow(14122)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14123)->
     #skillCfg {
@@ -55636,7 +56108,8 @@ getRow(14123)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14124)->
     #skillCfg {
@@ -55756,7 +56229,8 @@ getRow(14124)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14125)->
     #skillCfg {
@@ -55876,7 +56350,8 @@ getRow(14125)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14126)->
     #skillCfg {
@@ -55996,7 +56471,8 @@ getRow(14126)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14127)->
     #skillCfg {
@@ -56116,7 +56592,8 @@ getRow(14127)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14128)->
     #skillCfg {
@@ -56236,7 +56713,8 @@ getRow(14128)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14129)->
     #skillCfg {
@@ -56356,7 +56834,8 @@ getRow(14129)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14130)->
     #skillCfg {
@@ -56476,7 +56955,8 @@ getRow(14130)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14141)->
     #skillCfg {
@@ -56596,7 +57076,8 @@ getRow(14141)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14142)->
     #skillCfg {
@@ -56716,7 +57197,8 @@ getRow(14142)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14143)->
     #skillCfg {
@@ -56836,7 +57318,8 @@ getRow(14143)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14144)->
     #skillCfg {
@@ -56956,7 +57439,8 @@ getRow(14144)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14145)->
     #skillCfg {
@@ -57076,7 +57560,8 @@ getRow(14145)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14146)->
     #skillCfg {
@@ -57196,7 +57681,8 @@ getRow(14146)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14147)->
     #skillCfg {
@@ -57316,7 +57802,8 @@ getRow(14147)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14148)->
     #skillCfg {
@@ -57436,7 +57923,8 @@ getRow(14148)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14149)->
     #skillCfg {
@@ -57556,7 +58044,8 @@ getRow(14149)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14150)->
     #skillCfg {
@@ -57676,7 +58165,8 @@ getRow(14150)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14151)->
     #skillCfg {
@@ -57796,7 +58286,8 @@ getRow(14151)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14152)->
     #skillCfg {
@@ -57916,7 +58407,8 @@ getRow(14152)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14153)->
     #skillCfg {
@@ -58036,7 +58528,8 @@ getRow(14153)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14154)->
     #skillCfg {
@@ -58156,7 +58649,8 @@ getRow(14154)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14155)->
     #skillCfg {
@@ -58276,7 +58770,8 @@ getRow(14155)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14156)->
     #skillCfg {
@@ -58396,7 +58891,8 @@ getRow(14156)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14157)->
     #skillCfg {
@@ -58516,7 +59012,8 @@ getRow(14157)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14158)->
     #skillCfg {
@@ -58636,7 +59133,8 @@ getRow(14158)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14159)->
     #skillCfg {
@@ -58756,7 +59254,8 @@ getRow(14159)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14160)->
     #skillCfg {
@@ -58876,7 +59375,8 @@ getRow(14160)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14171)->
     #skillCfg {
@@ -58996,7 +59496,8 @@ getRow(14171)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14172)->
     #skillCfg {
@@ -59116,7 +59617,8 @@ getRow(14172)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14173)->
     #skillCfg {
@@ -59236,7 +59738,8 @@ getRow(14173)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14174)->
     #skillCfg {
@@ -59356,7 +59859,8 @@ getRow(14174)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14175)->
     #skillCfg {
@@ -59476,7 +59980,8 @@ getRow(14175)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14176)->
     #skillCfg {
@@ -59596,7 +60101,8 @@ getRow(14176)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14177)->
     #skillCfg {
@@ -59716,7 +60222,8 @@ getRow(14177)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14178)->
     #skillCfg {
@@ -59836,7 +60343,8 @@ getRow(14178)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14179)->
     #skillCfg {
@@ -59956,7 +60464,8 @@ getRow(14179)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14180)->
     #skillCfg {
@@ -60076,7 +60585,8 @@ getRow(14180)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14181)->
     #skillCfg {
@@ -60196,7 +60706,8 @@ getRow(14181)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14182)->
     #skillCfg {
@@ -60316,7 +60827,8 @@ getRow(14182)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14183)->
     #skillCfg {
@@ -60436,7 +60948,8 @@ getRow(14183)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14184)->
     #skillCfg {
@@ -60556,7 +61069,8 @@ getRow(14184)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14185)->
     #skillCfg {
@@ -60676,7 +61190,8 @@ getRow(14185)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14186)->
     #skillCfg {
@@ -60796,7 +61311,8 @@ getRow(14186)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14187)->
     #skillCfg {
@@ -60916,7 +61432,8 @@ getRow(14187)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14188)->
     #skillCfg {
@@ -61036,7 +61553,8 @@ getRow(14188)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14189)->
     #skillCfg {
@@ -61156,7 +61674,8 @@ getRow(14189)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14190)->
     #skillCfg {
@@ -61276,7 +61795,8 @@ getRow(14190)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14200)->
     #skillCfg {
@@ -61392,7 +61912,8 @@ getRow(14200)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14201)->
     #skillCfg {
@@ -61509,7 +62030,8 @@ getRow(14201)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14202)->
     #skillCfg {
@@ -61626,7 +62148,8 @@ getRow(14202)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14203)->
     #skillCfg {
@@ -61742,7 +62265,8 @@ getRow(14203)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14204)->
     #skillCfg {
@@ -61858,7 +62382,8 @@ getRow(14204)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14300)->
     #skillCfg {
@@ -61975,7 +62500,8 @@ getRow(14300)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14301)->
     #skillCfg {
@@ -62092,7 +62618,8 @@ getRow(14301)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14302)->
     #skillCfg {
@@ -62209,7 +62736,8 @@ getRow(14302)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14500)->
     #skillCfg {
@@ -62326,7 +62854,8 @@ getRow(14500)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14501)->
     #skillCfg {
@@ -62443,7 +62972,8 @@ getRow(14501)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14505)->
     #skillCfg {
@@ -62560,7 +63090,8 @@ getRow(14505)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14506)->
     #skillCfg {
@@ -62677,7 +63208,8 @@ getRow(14506)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14510)->
     #skillCfg {
@@ -62794,7 +63326,8 @@ getRow(14510)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14511)->
     #skillCfg {
@@ -62911,7 +63444,8 @@ getRow(14511)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14512)->
     #skillCfg {
@@ -63028,7 +63562,8 @@ getRow(14512)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14515)->
     #skillCfg {
@@ -63145,7 +63680,8 @@ getRow(14515)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14516)->
     #skillCfg {
@@ -63262,7 +63798,8 @@ getRow(14516)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14517)->
     #skillCfg {
@@ -63379,7 +63916,8 @@ getRow(14517)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14518)->
     #skillCfg {
@@ -63496,7 +64034,8 @@ getRow(14518)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14520)->
     #skillCfg {
@@ -63613,7 +64152,8 @@ getRow(14520)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14521)->
     #skillCfg {
@@ -63730,7 +64270,8 @@ getRow(14521)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14522)->
     #skillCfg {
@@ -63847,7 +64388,8 @@ getRow(14522)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14523)->
     #skillCfg {
@@ -63964,7 +64506,8 @@ getRow(14523)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14525)->
     #skillCfg {
@@ -64081,7 +64624,8 @@ getRow(14525)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14526)->
     #skillCfg {
@@ -64198,7 +64742,8 @@ getRow(14526)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(14527)->
     #skillCfg {
@@ -64315,7 +64860,8 @@ getRow(14527)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17000)->
     #skillCfg {
@@ -64435,7 +64981,8 @@ getRow(17000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17500)->
     #skillCfg {
@@ -64554,7 +65101,8 @@ getRow(17500)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17501)->
     #skillCfg {
@@ -64673,7 +65221,8 @@ getRow(17501)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17502)->
     #skillCfg {
@@ -64792,7 +65341,8 @@ getRow(17502)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17503)->
     #skillCfg {
@@ -64911,7 +65461,8 @@ getRow(17503)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17504)->
     #skillCfg {
@@ -65031,7 +65582,8 @@ getRow(17504)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17505)->
     #skillCfg {
@@ -65151,7 +65703,8 @@ getRow(17505)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17506)->
     #skillCfg {
@@ -65271,7 +65824,8 @@ getRow(17506)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17507)->
     #skillCfg {
@@ -65391,7 +65945,8 @@ getRow(17507)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17508)->
     #skillCfg {
@@ -65510,7 +66065,8 @@ getRow(17508)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17509)->
     #skillCfg {
@@ -65629,7 +66185,8 @@ getRow(17509)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17510)->
     #skillCfg {
@@ -65748,7 +66305,8 @@ getRow(17510)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17511)->
     #skillCfg {
@@ -65867,7 +66425,8 @@ getRow(17511)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17600)->
     #skillCfg {
@@ -65986,7 +66545,8 @@ getRow(17600)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17601)->
     #skillCfg {
@@ -66105,7 +66665,8 @@ getRow(17601)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17602)->
     #skillCfg {
@@ -66224,7 +66785,8 @@ getRow(17602)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(17603)->
     #skillCfg {
@@ -66343,7 +66905,8 @@ getRow(17603)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(18000)->
     #skillCfg {
@@ -66461,7 +67024,8 @@ getRow(18000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19000)->
     #skillCfg {
@@ -66581,7 +67145,8 @@ getRow(19000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19001)->
     #skillCfg {
@@ -66701,7 +67266,8 @@ getRow(19001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19002)->
     #skillCfg {
@@ -66821,7 +67387,8 @@ getRow(19002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19003)->
     #skillCfg {
@@ -66941,7 +67508,8 @@ getRow(19003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19004)->
     #skillCfg {
@@ -67061,7 +67629,8 @@ getRow(19004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19005)->
     #skillCfg {
@@ -67181,7 +67750,8 @@ getRow(19005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19006)->
     #skillCfg {
@@ -67300,7 +67870,8 @@ getRow(19006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19007)->
     #skillCfg {
@@ -67420,7 +67991,8 @@ getRow(19007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19008)->
     #skillCfg {
@@ -67540,7 +68112,8 @@ getRow(19008)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19009)->
     #skillCfg {
@@ -67659,7 +68232,8 @@ getRow(19009)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19010)->
     #skillCfg {
@@ -67778,7 +68352,8 @@ getRow(19010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19011)->
     #skillCfg {
@@ -67898,7 +68473,8 @@ getRow(19011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19012)->
     #skillCfg {
@@ -67925,7 +68501,7 @@ getRow(19012)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "baseattack1",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_90",
     attackSfxDur = 0,
     attackSfxScal = 1,
     skillAttackSfxSlots = "p_m_origin",
@@ -67971,14 +68547,14 @@ getRow(19012)->
     weaponNeed = 0,
     skillSchool = 1,
     use_Spec = 1,
-    targetSearch = 9,
+    targetSearch = 4,
     triggerTarget = 0,
     targetType = 0,
-    ranger = 4,
-    aoe = 0,
-    aoeAngle = 8,
-    aoeRange = 8,
-    maxEffectCount = 1,
+    ranger = 5,
+    aoe = 1,
+    aoeAngle = 0,
+    aoeRange = 6,
+    maxEffectCount = 5,
     skillType = 1,
     moveBreak = 0,
     moveDistance = [0],
@@ -67993,7 +68569,7 @@ getRow(19012)->
     critOther = 0,
     breakOther = 0,
     hitOther = 0,
-    effectTimes = 1,
+    effectTimes = 2,
     damageType = 1,
     healProperty = 0,
     damageMultiply = [{1,1,0}],
@@ -68018,13 +68594,14 @@ getRow(19012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19013)->
     #skillCfg {
     skillID = 19013,
     skillName = "首领入侵boss4号",
-    skillInfo = "技能1狂野横扫",
+    skillInfo = "技能1火焰陷阱",
     skillData = [0],
     skillIcon = 0,
     comboID = 0,
@@ -68045,127 +68622,7 @@ getRow(19013)->
     actionSound = "0",
     actionDelay = 0,
     skillAction = "skillcast1",
-    skillAttackSfx = "0",
-    attackSfxDur = 0,
-    attackSfxScal = 1,
-    skillAttackSfxSlots = "p_m_origin",
-    attackSfxBind = 0,
-    prepareSound = "0",
-    prepareDelay = 0,
-    skillPrepareAction = "0",
-    skillPrepareSfx = "0",
-    prepareSfxScal = 1,
-    skillPrepareSfxSlots = "0",
-    missileSound = "0",
-    missileDelay = 0,
-    skillMissileSfx = "0",
-    missileSfxScal = 1,
-    skillMissileSfxSlot = "0",
-    skillMissileSfxType = 0,
-    skillMissileSfxMode = 0,
-    skillMissileSpeed = 0,
-    beAtkSound = "0",
-    beAtkDelay = 0,
-    skillBeAtkSfx = "0",
-    beAtkSfxScal = 0,
-    skillBeAtkSlots = "slot_hit",
-    skillBeAtkSfxNum = 0,
-    absorbSound = "0",
-    absorbDelay = 0,
-    skillAbsorbSfx = "0",
-    absorbSfxScal = 1,
-    skillAbsorbSfxSlot = "0",
-    skillClass = 5,
-    baseLevel = 1,
-    nextLevelPlus = 1,
-    studySkill = 1,
-    maxLevel = 1,
-    aggressivity = 1,
-    maxCount = 0,
-    countTime = -1,
-    skill_GlobeCoolDown = 0,
-    skillCoolDown = 0,
-    skillCoolDownGroup = 0,
-    costEnergy = 0,
-    costCourage = 0,
-    weaponNeed = 0,
-    skillSchool = 1,
-    use_Spec = 1,
-    targetSearch = 7,
-    triggerTarget = 0,
-    targetType = 0,
-    ranger = 8,
-    aoe = 1,
-    aoeAngle = 180,
-    aoeRange = 16,
-    maxEffectCount = 12,
-    skillType = 1,
-    moveBreak = 0,
-    moveDistance = [0],
-    triggerAggressi = 0,
-    triggercondition = 0,
-    castDuration = 0,
-    afterCast = 0,
-    hasteCast = 0,
-    combatcast = 0,
-    durationTimes = 0,
-    castStep = 0,
-    critOther = 0,
-    breakOther = 0,
-    hitOther = 0,
-    effectTimes = 1,
-    damageType = 1,
-    healProperty = 0,
-    damageMultiply = [{1,2,0}],
-    damagePlus = [0],
-    secTarget = 1,
-    skill_Hate = 0,
-    hit_Spec = 0,
-    shakeType = 0,
-    triggerFactor = 0,
-    damFactor = 0,
-    cDFactor = 0,
-    costFactor = 0,
-    castFactor = 0,
-    effects = [19013],
-    misc = 0,
-    miscP1 = 0,
-    conflictSkill = 0,
-    getitem = 0,
-    noneed_atksd = 0,
-    lowestPriority = 0,
-    autoSkillCondition = [0],
-    pveskillMult = 0,
-    nouse = 0,
-    unnormal = 1,
-    manaCost = 0
-    };
-getRow(19014)->
-    #skillCfg {
-    skillID = 19014,
-    skillName = "首领入侵boss4号",
-    skillInfo = "技能2愤怒之力",
-    skillData = [0],
-    skillIcon = 0,
-    comboID = 0,
-    hiden = 0,
-    bossAlert = 0,
-    cast_shake = 0,
-    hit_shake = 0,
-    hit_away = 0,
-    weaponSfxSlots = 0,
-    weaponSfx = 0,
-    chargeSound = "0",
-    chargeDelay = 0,
-    chargeAction = "0",
-    chargeSfx = "0",
-    chargeSfxScal = 0,
-    chargeSfxSlots = "0",
-    chargeSfxBind = 0,
-    actionSound = "0",
-    actionDelay = 0,
-    skillAction = "skillcast2",
-    skillAttackSfx = "0",
+    skillAttackSfx = "monster/vfx_22_91",
     attackSfxDur = 0,
     attackSfxScal = 1,
     skillAttackSfxSlots = "p_m_origin",
@@ -68214,11 +68671,11 @@ getRow(19014)->
     targetSearch = 5,
     triggerTarget = 0,
     targetType = 0,
-    ranger = 8,
+    ranger = 5,
     aoe = 1,
     aoeAngle = 0,
-    aoeRange = 16,
-    maxEffectCount = 12,
+    aoeRange = 20,
+    maxEffectCount = 8,
     skillType = 1,
     moveBreak = 0,
     moveDistance = [0],
@@ -68246,7 +68703,7 @@ getRow(19014)->
     cDFactor = 0,
     costFactor = 0,
     castFactor = 0,
-    effects = [20002],
+    effects = [20001],
     misc = 0,
     miscP1 = 0,
     conflictSkill = 0,
@@ -68257,13 +68714,14 @@ getRow(19014)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
-getRow(19015)->
+getRow(19014)->
     #skillCfg {
-    skillID = 19015,
+    skillID = 19014,
     skillName = "首领入侵boss4号",
-    skillInfo = "技能3撼地重击",
+    skillInfo = "技能2喷火",
     skillData = [0],
     skillIcon = 0,
     comboID = 0,
@@ -68283,8 +68741,8 @@ getRow(19015)->
     chargeSfxBind = 0,
     actionSound = "0",
     actionDelay = 0,
-    skillAction = "skillcast3",
-    skillAttackSfx = "0",
+    skillAction = "skillcast2",
+    skillAttackSfx = "monster/vfx_22_93",
     attackSfxDur = 0,
     attackSfxScal = 1,
     skillAttackSfxSlots = "p_m_origin",
@@ -68330,14 +68788,134 @@ getRow(19015)->
     weaponNeed = 0,
     skillSchool = 1,
     use_Spec = 1,
-    targetSearch = 9,
+    targetSearch = 7,
     triggerTarget = 0,
     targetType = 0,
-    ranger = 8,
+    ranger = 5,
     aoe = 1,
-    aoeAngle = 8,
-    aoeRange = 16,
-    maxEffectCount = 12,
+    aoeAngle = 120,
+    aoeRange = 10,
+    maxEffectCount = 0,
+    skillType = 1,
+    moveBreak = 0,
+    moveDistance = [0],
+    triggerAggressi = 0,
+    triggercondition = 0,
+    castDuration = 0,
+    afterCast = 0,
+    hasteCast = 0,
+    combatcast = 0,
+    durationTimes = 0,
+    castStep = 0,
+    critOther = 0,
+    breakOther = 0,
+    hitOther = 0,
+    effectTimes = 6,
+    damageType = 1,
+    healProperty = 0,
+    damageMultiply = [{1,1,0}],
+    damagePlus = [0],
+    secTarget = 1,
+    skill_Hate = 0,
+    hit_Spec = 0,
+    shakeType = 0,
+    triggerFactor = 0,
+    damFactor = 0,
+    cDFactor = 0,
+    costFactor = 0,
+    castFactor = 0,
+    misc = 0,
+    miscP1 = 0,
+    conflictSkill = 0,
+    getitem = 0,
+    noneed_atksd = 0,
+    lowestPriority = 0,
+    autoSkillCondition = [0],
+    pveskillMult = 0,
+    nouse = 0,
+    unnormal = 1,
+    manaCost = 0,
+    skill_release_trigger = 0
+    };
+getRow(19015)->
+    #skillCfg {
+    skillID = 19015,
+    skillName = "首领入侵boss4号",
+    skillInfo = "技能3撼地重击",
+    skillData = [0],
+    skillIcon = 0,
+    comboID = 0,
+    hiden = 0,
+    bossAlert = 0,
+    cast_shake = 0,
+    hit_shake = 0,
+    hit_away = 0,
+    weaponSfxSlots = 0,
+    weaponSfx = 0,
+    chargeSound = "0",
+    chargeDelay = 0,
+    chargeAction = "0",
+    chargeSfx = "0",
+    chargeSfxScal = 0,
+    chargeSfxSlots = "0",
+    chargeSfxBind = 0,
+    actionSound = "0",
+    actionDelay = 0,
+    skillAction = "skillcast3",
+    skillAttackSfx = "monster/vfx_22_94",
+    attackSfxDur = 0,
+    attackSfxScal = 1,
+    skillAttackSfxSlots = "p_m_origin",
+    attackSfxBind = 0,
+    prepareSound = "0",
+    prepareDelay = 0,
+    skillPrepareAction = "0",
+    skillPrepareSfx = "0",
+    prepareSfxScal = 1,
+    skillPrepareSfxSlots = "0",
+    missileSound = "0",
+    missileDelay = 0,
+    skillMissileSfx = "0",
+    missileSfxScal = 1,
+    skillMissileSfxSlot = "0",
+    skillMissileSfxType = 0,
+    skillMissileSfxMode = 0,
+    skillMissileSpeed = 0,
+    beAtkSound = "0",
+    beAtkDelay = 0,
+    skillBeAtkSfx = "0",
+    beAtkSfxScal = 0,
+    skillBeAtkSlots = "slot_hit",
+    skillBeAtkSfxNum = 0,
+    absorbSound = "0",
+    absorbDelay = 0,
+    skillAbsorbSfx = "0",
+    absorbSfxScal = 1,
+    skillAbsorbSfxSlot = "0",
+    skillClass = 5,
+    baseLevel = 1,
+    nextLevelPlus = 1,
+    studySkill = 1,
+    maxLevel = 1,
+    aggressivity = 1,
+    maxCount = 0,
+    countTime = -1,
+    skill_GlobeCoolDown = 0,
+    skillCoolDown = 0,
+    skillCoolDownGroup = 0,
+    costEnergy = 0,
+    costCourage = 0,
+    weaponNeed = 0,
+    skillSchool = 1,
+    use_Spec = 1,
+    targetSearch = 5,
+    triggerTarget = 0,
+    targetType = 0,
+    ranger = 5,
+    aoe = 1,
+    aoeAngle = 0,
+    aoeRange = 20,
+    maxEffectCount = 0,
     skillType = 1,
     moveBreak = 0,
     moveDistance = [0],
@@ -68355,7 +68933,6 @@ getRow(19015)->
     effectTimes = 1,
     damageType = 1,
     healProperty = 0,
-    damageMultiply = [{1,1.5,0}],
     damagePlus = [0],
     secTarget = 1,
     skill_Hate = 0,
@@ -68366,7 +68943,7 @@ getRow(19015)->
     cDFactor = 0,
     costFactor = 0,
     castFactor = 0,
-    effects = [19015],
+    effects = [20002,20003],
     misc = 0,
     miscP1 = 0,
     conflictSkill = 0,
@@ -68377,7 +68954,8 @@ getRow(19015)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19016)->
     #skillCfg {
@@ -68497,7 +69075,8 @@ getRow(19016)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19017)->
     #skillCfg {
@@ -68617,7 +69196,8 @@ getRow(19017)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19018)->
     #skillCfg {
@@ -68737,7 +69317,8 @@ getRow(19018)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19019)->
     #skillCfg {
@@ -68856,7 +69437,8 @@ getRow(19019)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19020)->
     #skillCfg {
@@ -68976,7 +69558,8 @@ getRow(19020)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19021)->
     #skillCfg {
@@ -69095,7 +69678,8 @@ getRow(19021)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19022)->
     #skillCfg {
@@ -69215,7 +69799,8 @@ getRow(19022)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19023)->
     #skillCfg {
@@ -69335,7 +69920,8 @@ getRow(19023)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19024)->
     #skillCfg {
@@ -69455,7 +70041,8 @@ getRow(19024)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19025)->
     #skillCfg {
@@ -69575,7 +70162,8 @@ getRow(19025)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19026)->
     #skillCfg {
@@ -69695,7 +70283,8 @@ getRow(19026)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19027)->
     #skillCfg {
@@ -69815,7 +70404,8 @@ getRow(19027)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19028)->
     #skillCfg {
@@ -69935,7 +70525,8 @@ getRow(19028)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19029)->
     #skillCfg {
@@ -70055,7 +70646,8 @@ getRow(19029)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19030)->
     #skillCfg {
@@ -70175,7 +70767,8 @@ getRow(19030)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19031)->
     #skillCfg {
@@ -70294,7 +70887,8 @@ getRow(19031)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19032)->
     #skillCfg {
@@ -70414,7 +71008,8 @@ getRow(19032)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19033)->
     #skillCfg {
@@ -70534,7 +71129,8 @@ getRow(19033)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19034)->
     #skillCfg {
@@ -70653,7 +71249,8 @@ getRow(19034)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(19035)->
     #skillCfg {
@@ -70772,7 +71369,8 @@ getRow(19035)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(20000)->
     #skillCfg {
@@ -70828,12 +71426,12 @@ getRow(20000)->
     skillAbsorbSfx = "0",
     absorbSfxScal = 1,
     skillAbsorbSfxSlot = "0",
-    skillClass = 9,
+    skillClass = 5,
     baseLevel = 1,
     nextLevelPlus = 0,
     studySkill = 1,
     maxLevel = 10,
-    aggressivity = 1,
+    aggressivity = 0,
     maxCount = 0,
     countTime = -1,
     skill_GlobeCoolDown = 0,
@@ -70888,129 +71486,13 @@ getRow(20000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(20001)->
     #skillCfg {
     skillID = 20001,
-    skillName = "首领入侵3号boss载体",
-    skillInfo = "喷火",
-    skillData = [0],
-    skillIcon = 1,
-    comboID = 0,
-    hiden = 0,
-    bossAlert = 0,
-    cast_shake = 0,
-    hit_shake = 0,
-    hit_away = 0,
-    weaponSfxSlots = 0,
-    weaponSfx = 0,
-    chargeSound = "0",
-    chargeDelay = 0,
-    chargeAction = "0",
-    chargeSfx = "0",
-    chargeSfxScal = 1,
-    chargeSfxSlots = "0",
-    chargeSfxBind = 0,
-    actionSound = "0",
-    actionDelay = 0,
-    skillAttackSfx = "0",
-    attackSfxDur = 0,
-    attackSfxScal = 1,
-    skillAttackSfxSlots = "p_m_origin",
-    attackSfxBind = 0,
-    prepareSound = "0",
-    prepareDelay = 0,
-    skillPrepareAction = "0",
-    skillPrepareSfx = "0",
-    prepareSfxScal = 1,
-    skillPrepareSfxSlots = "0",
-    missileSound = "0",
-    missileDelay = 0,
-    skillMissileSfx = "0",
-    missileSfxScal = 1,
-    skillMissileSfxSlot = "0",
-    skillMissileSfxType = 0,
-    skillMissileSfxMode = 0,
-    skillMissileSpeed = 0,
-    beAtkSound = "0",
-    beAtkDelay = 0,
-    skillBeAtkSfx = "0",
-    beAtkSfxScal = 1,
-    skillBeAtkSlots = "p_m_origin",
-    skillBeAtkSfxNum = 0,
-    absorbSound = "0",
-    absorbDelay = 0,
-    skillAbsorbSfx = "0",
-    absorbSfxScal = 1,
-    skillAbsorbSfxSlot = "0",
-    skillClass = 9,
-    baseLevel = 1,
-    nextLevelPlus = 0,
-    studySkill = 1,
-    maxLevel = 10,
-    aggressivity = 1,
-    maxCount = 0,
-    countTime = -1,
-    skill_GlobeCoolDown = 0,
-    skillCoolDown = 0,
-    skillCoolDownGroup = 0,
-    costEnergy = 0,
-    costCourage = 0,
-    weaponNeed = 0,
-    skillSchool = 0,
-    use_Spec = 1,
-    targetSearch = 7,
-    triggerTarget = 0,
-    targetType = 0,
-    ranger = 0,
-    aoe = 1,
-    aoeAngle = 90,
-    aoeRange = 12,
-    maxEffectCount = 12,
-    skillType = 4,
-    moveBreak = 0,
-    moveDistance = [0],
-    triggerAggressi = 0,
-    triggercondition = 0,
-    castDuration = 0,
-    afterCast = 0,
-    hasteCast = 0,
-    combatcast = 0,
-    durationTimes = 0,
-    castStep = 0,
-    critOther = 0,
-    breakOther = 0,
-    hitOther = 0,
-    effectTimes = 1,
-    damageType = 1,
-    healProperty = 0,
-    damageMultiply = [{1,1.5,0}],
-    secTarget = 1,
-    skill_Hate = 0,
-    hit_Spec = 7,
-    shakeType = 0,
-    triggerFactor = 1,
-    damFactor = 78,
-    cDFactor = 0,
-    costFactor = 0,
-    castFactor = 0,
-    effects = [19009],
-    misc = 0,
-    miscP1 = 0,
-    conflictSkill = 0,
-    getitem = 0,
-    noneed_atksd = 1,
-    lowestPriority = 0,
-    pveskillMult = 0,
-    nouse = 0,
-    unnormal = 0,
-    manaCost = 0
-    };
-getRow(20002)->
-    #skillCfg {
-    skillID = 20002,
-    skillName = "首领入侵4号boss载体",
+    skillName = "首领入侵4号boss火焰陷阱载体",
     skillInfo = "愤怒之力",
     skillData = [0],
     skillIcon = 1,
@@ -71061,7 +71543,7 @@ getRow(20002)->
     skillAbsorbSfx = "0",
     absorbSfxScal = 1,
     skillAbsorbSfxSlot = "0",
-    skillClass = 9,
+    skillClass = 5,
     baseLevel = 1,
     nextLevelPlus = 0,
     studySkill = 1,
@@ -71081,10 +71563,10 @@ getRow(20002)->
     triggerTarget = 0,
     targetType = 0,
     ranger = 0,
-    aoe = 1,
+    aoe = 0,
     aoeAngle = 0,
-    aoeRange = 12,
-    maxEffectCount = 12,
+    aoeRange = 6,
+    maxEffectCount = 3,
     skillType = 4,
     moveBreak = 0,
     moveDistance = [0],
@@ -71100,19 +71582,18 @@ getRow(20002)->
     breakOther = 0,
     hitOther = 0,
     effectTimes = 1,
-    damageType = 7,
-    healProperty = 135,
-    damageMultiply = [{1,0.05,0}],
+    damageType = 1,
+    healProperty = 0,
+    damageMultiply = [{1,2,0}],
     secTarget = 1,
     skill_Hate = 0,
-    hit_Spec = 7,
+    hit_Spec = 0,
     shakeType = 0,
-    triggerFactor = 1,
-    damFactor = 78,
+    triggerFactor = 0,
+    damFactor = 0,
     cDFactor = 0,
     costFactor = 0,
     castFactor = 0,
-    effects = [19014],
     misc = 0,
     miscP1 = 0,
     conflictSkill = 0,
@@ -71122,13 +71603,14 @@ getRow(20002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
-getRow(20003)->
+getRow(20002)->
     #skillCfg {
-    skillID = 20003,
-    skillName = "首领入侵5号boss载体",
-    skillInfo = "熔岩四射",
+    skillID = 20002,
+    skillName = "首领入侵4号boss灼热地面载体首次伤害",
+    skillInfo = "愤怒之力",
     skillData = [0],
     skillIcon = 1,
     comboID = 0,
@@ -71178,7 +71660,7 @@ getRow(20003)->
     skillAbsorbSfx = "0",
     absorbSfxScal = 1,
     skillAbsorbSfxSlot = "0",
-    skillClass = 9,
+    skillClass = 5,
     baseLevel = 1,
     nextLevelPlus = 0,
     studySkill = 1,
@@ -71200,8 +71682,8 @@ getRow(20003)->
     ranger = 0,
     aoe = 1,
     aoeAngle = 0,
-    aoeRange = 12,
-    maxEffectCount = 12,
+    aoeRange = 20,
+    maxEffectCount = 0,
     skillType = 4,
     moveBreak = 0,
     moveDistance = [0],
@@ -71219,17 +71701,16 @@ getRow(20003)->
     effectTimes = 1,
     damageType = 1,
     healProperty = 0,
-    damageMultiply = [{1,1.5,0}],
+    damageMultiply = [{1,3,0}],
     secTarget = 1,
     skill_Hate = 0,
-    hit_Spec = 7,
+    hit_Spec = 0,
     shakeType = 0,
-    triggerFactor = 1,
-    damFactor = 78,
+    triggerFactor = 0,
+    damFactor = 0,
     cDFactor = 0,
     costFactor = 0,
     castFactor = 0,
-    effects = [19017],
     misc = 0,
     miscP1 = 0,
     conflictSkill = 0,
@@ -71239,7 +71720,125 @@ getRow(20003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
+    };
+getRow(20003)->
+    #skillCfg {
+    skillID = 20003,
+    skillName = "首领入侵4号boss灼热地面载体持续伤害",
+    skillInfo = "愤怒之力",
+    skillData = [0],
+    skillIcon = 1,
+    comboID = 0,
+    hiden = 0,
+    bossAlert = 0,
+    cast_shake = 0,
+    hit_shake = 0,
+    hit_away = 0,
+    weaponSfxSlots = 0,
+    weaponSfx = 0,
+    chargeSound = "0",
+    chargeDelay = 0,
+    chargeAction = "0",
+    chargeSfx = "0",
+    chargeSfxScal = 1,
+    chargeSfxSlots = "0",
+    chargeSfxBind = 0,
+    actionSound = "0",
+    actionDelay = 0,
+    skillAttackSfx = "0",
+    attackSfxDur = 0,
+    attackSfxScal = 1,
+    skillAttackSfxSlots = "p_m_origin",
+    attackSfxBind = 0,
+    prepareSound = "0",
+    prepareDelay = 0,
+    skillPrepareAction = "0",
+    skillPrepareSfx = "0",
+    prepareSfxScal = 1,
+    skillPrepareSfxSlots = "0",
+    missileSound = "0",
+    missileDelay = 0,
+    skillMissileSfx = "0",
+    missileSfxScal = 1,
+    skillMissileSfxSlot = "0",
+    skillMissileSfxType = 0,
+    skillMissileSfxMode = 0,
+    skillMissileSpeed = 0,
+    beAtkSound = "0",
+    beAtkDelay = 0,
+    skillBeAtkSfx = "0",
+    beAtkSfxScal = 1,
+    skillBeAtkSlots = "p_m_origin",
+    skillBeAtkSfxNum = 0,
+    absorbSound = "0",
+    absorbDelay = 0,
+    skillAbsorbSfx = "0",
+    absorbSfxScal = 1,
+    skillAbsorbSfxSlot = "0",
+    skillClass = 5,
+    baseLevel = 1,
+    nextLevelPlus = 0,
+    studySkill = 1,
+    maxLevel = 10,
+    aggressivity = 1,
+    maxCount = 0,
+    countTime = -1,
+    skill_GlobeCoolDown = 0,
+    skillCoolDown = 0,
+    skillCoolDownGroup = 0,
+    costEnergy = 0,
+    costCourage = 0,
+    weaponNeed = 0,
+    skillSchool = 0,
+    use_Spec = 1,
+    targetSearch = 5,
+    triggerTarget = 0,
+    targetType = 0,
+    ranger = 0,
+    aoe = 1,
+    aoeAngle = 0,
+    aoeRange = 20,
+    maxEffectCount = 0,
+    skillType = 4,
+    moveBreak = 0,
+    moveDistance = [0],
+    triggerAggressi = 0,
+    triggercondition = 0,
+    castDuration = 0,
+    afterCast = 0,
+    hasteCast = 0,
+    combatcast = 0,
+    durationTimes = 0,
+    castStep = 0,
+    critOther = 0,
+    breakOther = 0,
+    hitOther = 0,
+    effectTimes = 1,
+    damageType = 1,
+    healProperty = 0,
+    damageMultiply = [{1,0.5,0}],
+    secTarget = 1,
+    skill_Hate = 0,
+    hit_Spec = 0,
+    shakeType = 0,
+    triggerFactor = 0,
+    damFactor = 0,
+    cDFactor = 0,
+    costFactor = 0,
+    castFactor = 0,
+    misc = 0,
+    miscP1 = 0,
+    conflictSkill = 0,
+    getitem = 0,
+    noneed_atksd = 1,
+    lowestPriority = 0,
+    pveskillMult = 0,
+    nouse = 0,
+    unnormal = 0,
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(20004)->
     #skillCfg {
@@ -71295,7 +71894,7 @@ getRow(20004)->
     skillAbsorbSfx = "0",
     absorbSfxScal = 1,
     skillAbsorbSfxSlot = "0",
-    skillClass = 9,
+    skillClass = 5,
     baseLevel = 1,
     nextLevelPlus = 0,
     studySkill = 1,
@@ -71355,7 +71954,8 @@ getRow(20004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(20005)->
     #skillCfg {
@@ -71411,7 +72011,7 @@ getRow(20005)->
     skillAbsorbSfx = "0",
     absorbSfxScal = 1,
     skillAbsorbSfxSlot = "0",
-    skillClass = 9,
+    skillClass = 5,
     baseLevel = 1,
     nextLevelPlus = 0,
     studySkill = 1,
@@ -71472,7 +72072,8 @@ getRow(20005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(20006)->
     #skillCfg {
@@ -71528,7 +72129,7 @@ getRow(20006)->
     skillAbsorbSfx = "0",
     absorbSfxScal = 1,
     skillAbsorbSfxSlot = "0",
-    skillClass = 9,
+    skillClass = 5,
     baseLevel = 1,
     nextLevelPlus = 0,
     studySkill = 1,
@@ -71589,7 +72190,8 @@ getRow(20006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21000)->
     #skillCfg {
@@ -71706,7 +72308,8 @@ getRow(21000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21001)->
     #skillCfg {
@@ -71824,7 +72427,8 @@ getRow(21001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21002)->
     #skillCfg {
@@ -71941,7 +72545,8 @@ getRow(21002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21003)->
     #skillCfg {
@@ -72059,7 +72664,8 @@ getRow(21003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21004)->
     #skillCfg {
@@ -72176,7 +72782,8 @@ getRow(21004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21005)->
     #skillCfg {
@@ -72294,7 +72901,8 @@ getRow(21005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21006)->
     #skillCfg {
@@ -72411,7 +73019,8 @@ getRow(21006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21007)->
     #skillCfg {
@@ -72529,7 +73138,8 @@ getRow(21007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21008)->
     #skillCfg {
@@ -72646,7 +73256,8 @@ getRow(21008)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21009)->
     #skillCfg {
@@ -72763,7 +73374,8 @@ getRow(21009)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21010)->
     #skillCfg {
@@ -72880,7 +73492,8 @@ getRow(21010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21011)->
     #skillCfg {
@@ -72998,7 +73611,8 @@ getRow(21011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21012)->
     #skillCfg {
@@ -73115,7 +73729,8 @@ getRow(21012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21013)->
     #skillCfg {
@@ -73233,7 +73848,8 @@ getRow(21013)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21014)->
     #skillCfg {
@@ -73350,7 +73966,8 @@ getRow(21014)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21015)->
     #skillCfg {
@@ -73468,7 +74085,8 @@ getRow(21015)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21016)->
     #skillCfg {
@@ -73585,7 +74203,8 @@ getRow(21016)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21017)->
     #skillCfg {
@@ -73703,7 +74322,8 @@ getRow(21017)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21018)->
     #skillCfg {
@@ -73820,7 +74440,8 @@ getRow(21018)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21019)->
     #skillCfg {
@@ -73938,7 +74559,8 @@ getRow(21019)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21020)->
     #skillCfg {
@@ -74055,7 +74677,8 @@ getRow(21020)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21021)->
     #skillCfg {
@@ -74172,7 +74795,8 @@ getRow(21021)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21022)->
     #skillCfg {
@@ -74289,7 +74913,8 @@ getRow(21022)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21023)->
     #skillCfg {
@@ -74407,7 +75032,8 @@ getRow(21023)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21024)->
     #skillCfg {
@@ -74524,7 +75150,8 @@ getRow(21024)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21025)->
     #skillCfg {
@@ -74642,7 +75269,8 @@ getRow(21025)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21026)->
     #skillCfg {
@@ -74759,7 +75387,8 @@ getRow(21026)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21027)->
     #skillCfg {
@@ -74877,7 +75506,8 @@ getRow(21027)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21028)->
     #skillCfg {
@@ -74994,7 +75624,8 @@ getRow(21028)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21029)->
     #skillCfg {
@@ -75112,7 +75743,8 @@ getRow(21029)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21030)->
     #skillCfg {
@@ -75229,7 +75861,8 @@ getRow(21030)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21031)->
     #skillCfg {
@@ -75347,7 +75980,8 @@ getRow(21031)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21032)->
     #skillCfg {
@@ -75464,7 +76098,8 @@ getRow(21032)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21033)->
     #skillCfg {
@@ -75581,7 +76216,8 @@ getRow(21033)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21034)->
     #skillCfg {
@@ -75698,7 +76334,8 @@ getRow(21034)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21035)->
     #skillCfg {
@@ -75816,7 +76453,8 @@ getRow(21035)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21036)->
     #skillCfg {
@@ -75933,7 +76571,8 @@ getRow(21036)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21037)->
     #skillCfg {
@@ -76051,7 +76690,8 @@ getRow(21037)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21038)->
     #skillCfg {
@@ -76168,7 +76808,8 @@ getRow(21038)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21039)->
     #skillCfg {
@@ -76286,7 +76927,8 @@ getRow(21039)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21040)->
     #skillCfg {
@@ -76403,7 +77045,8 @@ getRow(21040)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21041)->
     #skillCfg {
@@ -76521,7 +77164,8 @@ getRow(21041)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21042)->
     #skillCfg {
@@ -76638,7 +77282,8 @@ getRow(21042)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21043)->
     #skillCfg {
@@ -76756,7 +77401,8 @@ getRow(21043)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21044)->
     #skillCfg {
@@ -76873,7 +77519,8 @@ getRow(21044)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21045)->
     #skillCfg {
@@ -76990,7 +77637,8 @@ getRow(21045)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21046)->
     #skillCfg {
@@ -77107,7 +77755,8 @@ getRow(21046)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21047)->
     #skillCfg {
@@ -77225,7 +77874,8 @@ getRow(21047)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21048)->
     #skillCfg {
@@ -77342,7 +77992,8 @@ getRow(21048)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21049)->
     #skillCfg {
@@ -77460,7 +78111,8 @@ getRow(21049)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21050)->
     #skillCfg {
@@ -77577,7 +78229,8 @@ getRow(21050)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21051)->
     #skillCfg {
@@ -77695,7 +78348,8 @@ getRow(21051)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21052)->
     #skillCfg {
@@ -77812,7 +78466,8 @@ getRow(21052)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21053)->
     #skillCfg {
@@ -77930,7 +78585,8 @@ getRow(21053)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21054)->
     #skillCfg {
@@ -78047,7 +78703,8 @@ getRow(21054)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21055)->
     #skillCfg {
@@ -78165,7 +78822,8 @@ getRow(21055)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21056)->
     #skillCfg {
@@ -78282,7 +78940,8 @@ getRow(21056)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21057)->
     #skillCfg {
@@ -78399,7 +79058,8 @@ getRow(21057)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21058)->
     #skillCfg {
@@ -78516,7 +79176,8 @@ getRow(21058)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21059)->
     #skillCfg {
@@ -78634,7 +79295,8 @@ getRow(21059)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21060)->
     #skillCfg {
@@ -78751,7 +79413,8 @@ getRow(21060)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21061)->
     #skillCfg {
@@ -78869,7 +79532,8 @@ getRow(21061)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21062)->
     #skillCfg {
@@ -78986,7 +79650,8 @@ getRow(21062)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21063)->
     #skillCfg {
@@ -79104,7 +79769,8 @@ getRow(21063)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21064)->
     #skillCfg {
@@ -79221,7 +79887,8 @@ getRow(21064)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21065)->
     #skillCfg {
@@ -79339,7 +80006,8 @@ getRow(21065)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21066)->
     #skillCfg {
@@ -79456,7 +80124,8 @@ getRow(21066)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21067)->
     #skillCfg {
@@ -79574,7 +80243,8 @@ getRow(21067)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21068)->
     #skillCfg {
@@ -79691,7 +80361,8 @@ getRow(21068)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21069)->
     #skillCfg {
@@ -79808,7 +80479,8 @@ getRow(21069)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21070)->
     #skillCfg {
@@ -79925,7 +80597,8 @@ getRow(21070)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21071)->
     #skillCfg {
@@ -80043,7 +80716,8 @@ getRow(21071)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21072)->
     #skillCfg {
@@ -80160,7 +80834,8 @@ getRow(21072)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21073)->
     #skillCfg {
@@ -80278,7 +80953,8 @@ getRow(21073)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21074)->
     #skillCfg {
@@ -80395,7 +81071,8 @@ getRow(21074)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21075)->
     #skillCfg {
@@ -80513,7 +81190,8 @@ getRow(21075)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21076)->
     #skillCfg {
@@ -80630,7 +81308,8 @@ getRow(21076)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21077)->
     #skillCfg {
@@ -80748,7 +81427,8 @@ getRow(21077)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21078)->
     #skillCfg {
@@ -80865,7 +81545,8 @@ getRow(21078)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21079)->
     #skillCfg {
@@ -80983,7 +81664,8 @@ getRow(21079)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21080)->
     #skillCfg {
@@ -81100,7 +81782,8 @@ getRow(21080)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21081)->
     #skillCfg {
@@ -81217,7 +81900,8 @@ getRow(21081)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21082)->
     #skillCfg {
@@ -81334,7 +82018,8 @@ getRow(21082)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21083)->
     #skillCfg {
@@ -81452,7 +82137,8 @@ getRow(21083)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21084)->
     #skillCfg {
@@ -81569,7 +82255,8 @@ getRow(21084)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21085)->
     #skillCfg {
@@ -81687,7 +82374,8 @@ getRow(21085)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21086)->
     #skillCfg {
@@ -81804,7 +82492,8 @@ getRow(21086)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21087)->
     #skillCfg {
@@ -81922,7 +82611,8 @@ getRow(21087)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21088)->
     #skillCfg {
@@ -82039,7 +82729,8 @@ getRow(21088)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21089)->
     #skillCfg {
@@ -82157,7 +82848,8 @@ getRow(21089)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21090)->
     #skillCfg {
@@ -82274,7 +82966,8 @@ getRow(21090)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21091)->
     #skillCfg {
@@ -82392,7 +83085,8 @@ getRow(21091)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21092)->
     #skillCfg {
@@ -82509,7 +83203,8 @@ getRow(21092)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21093)->
     #skillCfg {
@@ -82626,7 +83321,8 @@ getRow(21093)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21094)->
     #skillCfg {
@@ -82743,7 +83439,8 @@ getRow(21094)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21095)->
     #skillCfg {
@@ -82861,7 +83558,8 @@ getRow(21095)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21096)->
     #skillCfg {
@@ -82978,7 +83676,8 @@ getRow(21096)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21097)->
     #skillCfg {
@@ -83096,7 +83795,8 @@ getRow(21097)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21098)->
     #skillCfg {
@@ -83213,7 +83913,8 @@ getRow(21098)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21099)->
     #skillCfg {
@@ -83331,7 +84032,8 @@ getRow(21099)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21100)->
     #skillCfg {
@@ -83448,7 +84150,8 @@ getRow(21100)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21101)->
     #skillCfg {
@@ -83566,7 +84269,8 @@ getRow(21101)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21102)->
     #skillCfg {
@@ -83683,7 +84387,8 @@ getRow(21102)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21103)->
     #skillCfg {
@@ -83801,7 +84506,8 @@ getRow(21103)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21104)->
     #skillCfg {
@@ -83918,7 +84624,8 @@ getRow(21104)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21105)->
     #skillCfg {
@@ -84035,7 +84742,8 @@ getRow(21105)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21106)->
     #skillCfg {
@@ -84152,7 +84860,8 @@ getRow(21106)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21107)->
     #skillCfg {
@@ -84270,7 +84979,8 @@ getRow(21107)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21108)->
     #skillCfg {
@@ -84387,7 +85097,8 @@ getRow(21108)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21109)->
     #skillCfg {
@@ -84505,7 +85216,8 @@ getRow(21109)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21110)->
     #skillCfg {
@@ -84622,7 +85334,8 @@ getRow(21110)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21111)->
     #skillCfg {
@@ -84740,7 +85453,8 @@ getRow(21111)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21112)->
     #skillCfg {
@@ -84857,7 +85571,8 @@ getRow(21112)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21113)->
     #skillCfg {
@@ -84975,7 +85690,8 @@ getRow(21113)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21114)->
     #skillCfg {
@@ -85092,7 +85808,8 @@ getRow(21114)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21115)->
     #skillCfg {
@@ -85210,7 +85927,8 @@ getRow(21115)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21116)->
     #skillCfg {
@@ -85327,7 +86045,8 @@ getRow(21116)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21117)->
     #skillCfg {
@@ -85444,7 +86163,8 @@ getRow(21117)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21118)->
     #skillCfg {
@@ -85561,7 +86281,8 @@ getRow(21118)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(21119)->
     #skillCfg {
@@ -85679,7 +86400,8 @@ getRow(21119)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22000)->
     #skillCfg {
@@ -85796,7 +86518,8 @@ getRow(22000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22001)->
     #skillCfg {
@@ -85913,7 +86636,8 @@ getRow(22001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22002)->
     #skillCfg {
@@ -86030,7 +86754,8 @@ getRow(22002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22100)->
     #skillCfg {
@@ -86149,7 +86874,8 @@ getRow(22100)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22101)->
     #skillCfg {
@@ -86268,7 +86994,8 @@ getRow(22101)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22102)->
     #skillCfg {
@@ -86387,7 +87114,8 @@ getRow(22102)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22103)->
     #skillCfg {
@@ -86506,7 +87234,8 @@ getRow(22103)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22104)->
     #skillCfg {
@@ -86625,7 +87354,8 @@ getRow(22104)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22105)->
     #skillCfg {
@@ -86744,7 +87474,8 @@ getRow(22105)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22106)->
     #skillCfg {
@@ -86863,7 +87594,8 @@ getRow(22106)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22107)->
     #skillCfg {
@@ -86982,7 +87714,8 @@ getRow(22107)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22108)->
     #skillCfg {
@@ -87101,7 +87834,8 @@ getRow(22108)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22109)->
     #skillCfg {
@@ -87220,7 +87954,8 @@ getRow(22109)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22110)->
     #skillCfg {
@@ -87339,7 +88074,8 @@ getRow(22110)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22111)->
     #skillCfg {
@@ -87458,7 +88194,8 @@ getRow(22111)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22112)->
     #skillCfg {
@@ -87577,7 +88314,8 @@ getRow(22112)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22113)->
     #skillCfg {
@@ -87696,7 +88434,8 @@ getRow(22113)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22114)->
     #skillCfg {
@@ -87815,7 +88554,8 @@ getRow(22114)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22115)->
     #skillCfg {
@@ -87934,7 +88674,8 @@ getRow(22115)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22116)->
     #skillCfg {
@@ -88053,7 +88794,8 @@ getRow(22116)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22117)->
     #skillCfg {
@@ -88172,7 +88914,8 @@ getRow(22117)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22118)->
     #skillCfg {
@@ -88291,7 +89034,8 @@ getRow(22118)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22119)->
     #skillCfg {
@@ -88410,7 +89154,8 @@ getRow(22119)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22130)->
     #skillCfg {
@@ -88529,7 +89274,8 @@ getRow(22130)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22131)->
     #skillCfg {
@@ -88648,7 +89394,8 @@ getRow(22131)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22132)->
     #skillCfg {
@@ -88767,7 +89514,8 @@ getRow(22132)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22133)->
     #skillCfg {
@@ -88886,7 +89634,8 @@ getRow(22133)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22134)->
     #skillCfg {
@@ -89005,7 +89754,8 @@ getRow(22134)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22135)->
     #skillCfg {
@@ -89124,7 +89874,8 @@ getRow(22135)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22136)->
     #skillCfg {
@@ -89243,7 +89994,8 @@ getRow(22136)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22137)->
     #skillCfg {
@@ -89362,7 +90114,8 @@ getRow(22137)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22138)->
     #skillCfg {
@@ -89481,7 +90234,8 @@ getRow(22138)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22139)->
     #skillCfg {
@@ -89600,7 +90354,8 @@ getRow(22139)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22140)->
     #skillCfg {
@@ -89719,7 +90474,8 @@ getRow(22140)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22141)->
     #skillCfg {
@@ -89838,7 +90594,8 @@ getRow(22141)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22142)->
     #skillCfg {
@@ -89957,7 +90714,8 @@ getRow(22142)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22143)->
     #skillCfg {
@@ -90076,7 +90834,8 @@ getRow(22143)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22144)->
     #skillCfg {
@@ -90195,7 +90954,8 @@ getRow(22144)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22145)->
     #skillCfg {
@@ -90314,7 +91074,8 @@ getRow(22145)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22146)->
     #skillCfg {
@@ -90433,7 +91194,8 @@ getRow(22146)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22147)->
     #skillCfg {
@@ -90552,7 +91314,8 @@ getRow(22147)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22148)->
     #skillCfg {
@@ -90671,7 +91434,8 @@ getRow(22148)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22149)->
     #skillCfg {
@@ -90790,7 +91554,8 @@ getRow(22149)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22160)->
     #skillCfg {
@@ -90909,7 +91674,8 @@ getRow(22160)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22161)->
     #skillCfg {
@@ -91028,7 +91794,8 @@ getRow(22161)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22162)->
     #skillCfg {
@@ -91147,7 +91914,8 @@ getRow(22162)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22163)->
     #skillCfg {
@@ -91266,7 +92034,8 @@ getRow(22163)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22164)->
     #skillCfg {
@@ -91385,7 +92154,8 @@ getRow(22164)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22165)->
     #skillCfg {
@@ -91504,7 +92274,8 @@ getRow(22165)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22166)->
     #skillCfg {
@@ -91623,7 +92394,8 @@ getRow(22166)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22167)->
     #skillCfg {
@@ -91742,7 +92514,8 @@ getRow(22167)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22168)->
     #skillCfg {
@@ -91861,7 +92634,8 @@ getRow(22168)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22169)->
     #skillCfg {
@@ -91980,7 +92754,8 @@ getRow(22169)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22170)->
     #skillCfg {
@@ -92099,7 +92874,8 @@ getRow(22170)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22171)->
     #skillCfg {
@@ -92218,7 +92994,8 @@ getRow(22171)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22172)->
     #skillCfg {
@@ -92337,7 +93114,8 @@ getRow(22172)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22173)->
     #skillCfg {
@@ -92456,7 +93234,8 @@ getRow(22173)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22174)->
     #skillCfg {
@@ -92575,7 +93354,8 @@ getRow(22174)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22175)->
     #skillCfg {
@@ -92694,7 +93474,8 @@ getRow(22175)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22176)->
     #skillCfg {
@@ -92813,7 +93594,8 @@ getRow(22176)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22177)->
     #skillCfg {
@@ -92932,7 +93714,8 @@ getRow(22177)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22178)->
     #skillCfg {
@@ -93051,7 +93834,8 @@ getRow(22178)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22179)->
     #skillCfg {
@@ -93170,7 +93954,8 @@ getRow(22179)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22190)->
     #skillCfg {
@@ -93289,7 +94074,8 @@ getRow(22190)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22191)->
     #skillCfg {
@@ -93408,7 +94194,8 @@ getRow(22191)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22192)->
     #skillCfg {
@@ -93527,7 +94314,8 @@ getRow(22192)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22193)->
     #skillCfg {
@@ -93646,7 +94434,8 @@ getRow(22193)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22194)->
     #skillCfg {
@@ -93765,7 +94554,8 @@ getRow(22194)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22195)->
     #skillCfg {
@@ -93884,7 +94674,8 @@ getRow(22195)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22196)->
     #skillCfg {
@@ -94003,7 +94794,8 @@ getRow(22196)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22197)->
     #skillCfg {
@@ -94122,7 +94914,8 @@ getRow(22197)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22198)->
     #skillCfg {
@@ -94241,7 +95034,8 @@ getRow(22198)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22199)->
     #skillCfg {
@@ -94360,7 +95154,8 @@ getRow(22199)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22200)->
     #skillCfg {
@@ -94479,7 +95274,8 @@ getRow(22200)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22201)->
     #skillCfg {
@@ -94598,7 +95394,8 @@ getRow(22201)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22202)->
     #skillCfg {
@@ -94717,7 +95514,8 @@ getRow(22202)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22203)->
     #skillCfg {
@@ -94836,7 +95634,8 @@ getRow(22203)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22204)->
     #skillCfg {
@@ -94955,7 +95754,8 @@ getRow(22204)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22205)->
     #skillCfg {
@@ -95074,7 +95874,8 @@ getRow(22205)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22206)->
     #skillCfg {
@@ -95193,7 +95994,8 @@ getRow(22206)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22207)->
     #skillCfg {
@@ -95312,7 +96114,8 @@ getRow(22207)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22208)->
     #skillCfg {
@@ -95431,7 +96234,8 @@ getRow(22208)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22209)->
     #skillCfg {
@@ -95550,7 +96354,8 @@ getRow(22209)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22220)->
     #skillCfg {
@@ -95669,7 +96474,8 @@ getRow(22220)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22221)->
     #skillCfg {
@@ -95788,7 +96594,8 @@ getRow(22221)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22222)->
     #skillCfg {
@@ -95907,7 +96714,8 @@ getRow(22222)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22223)->
     #skillCfg {
@@ -96026,7 +96834,8 @@ getRow(22223)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22224)->
     #skillCfg {
@@ -96145,7 +96954,8 @@ getRow(22224)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22225)->
     #skillCfg {
@@ -96264,7 +97074,8 @@ getRow(22225)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22226)->
     #skillCfg {
@@ -96383,7 +97194,8 @@ getRow(22226)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22227)->
     #skillCfg {
@@ -96502,7 +97314,8 @@ getRow(22227)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22228)->
     #skillCfg {
@@ -96621,7 +97434,8 @@ getRow(22228)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22229)->
     #skillCfg {
@@ -96740,7 +97554,8 @@ getRow(22229)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22230)->
     #skillCfg {
@@ -96859,7 +97674,8 @@ getRow(22230)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22231)->
     #skillCfg {
@@ -96978,7 +97794,8 @@ getRow(22231)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22232)->
     #skillCfg {
@@ -97097,7 +97914,8 @@ getRow(22232)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22233)->
     #skillCfg {
@@ -97216,7 +98034,8 @@ getRow(22233)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22234)->
     #skillCfg {
@@ -97335,7 +98154,8 @@ getRow(22234)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22235)->
     #skillCfg {
@@ -97454,7 +98274,8 @@ getRow(22235)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22236)->
     #skillCfg {
@@ -97573,7 +98394,8 @@ getRow(22236)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22237)->
     #skillCfg {
@@ -97692,7 +98514,8 @@ getRow(22237)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22238)->
     #skillCfg {
@@ -97811,7 +98634,8 @@ getRow(22238)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22239)->
     #skillCfg {
@@ -97930,7 +98754,8 @@ getRow(22239)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22250)->
     #skillCfg {
@@ -98049,7 +98874,8 @@ getRow(22250)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22251)->
     #skillCfg {
@@ -98168,7 +98994,8 @@ getRow(22251)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22252)->
     #skillCfg {
@@ -98287,7 +99114,8 @@ getRow(22252)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22253)->
     #skillCfg {
@@ -98406,7 +99234,8 @@ getRow(22253)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22254)->
     #skillCfg {
@@ -98525,7 +99354,8 @@ getRow(22254)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22255)->
     #skillCfg {
@@ -98644,7 +99474,8 @@ getRow(22255)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22256)->
     #skillCfg {
@@ -98763,7 +99594,8 @@ getRow(22256)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22257)->
     #skillCfg {
@@ -98882,7 +99714,8 @@ getRow(22257)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22258)->
     #skillCfg {
@@ -99001,7 +99834,8 @@ getRow(22258)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22259)->
     #skillCfg {
@@ -99120,7 +99954,8 @@ getRow(22259)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22260)->
     #skillCfg {
@@ -99239,7 +100074,8 @@ getRow(22260)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22261)->
     #skillCfg {
@@ -99358,7 +100194,8 @@ getRow(22261)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22262)->
     #skillCfg {
@@ -99477,7 +100314,8 @@ getRow(22262)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22263)->
     #skillCfg {
@@ -99596,7 +100434,8 @@ getRow(22263)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22264)->
     #skillCfg {
@@ -99715,7 +100554,8 @@ getRow(22264)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22265)->
     #skillCfg {
@@ -99834,7 +100674,8 @@ getRow(22265)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22266)->
     #skillCfg {
@@ -99953,7 +100794,8 @@ getRow(22266)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22267)->
     #skillCfg {
@@ -100072,7 +100914,8 @@ getRow(22267)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22268)->
     #skillCfg {
@@ -100191,7 +101034,8 @@ getRow(22268)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(22269)->
     #skillCfg {
@@ -100310,7 +101154,8 @@ getRow(22269)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(30000)->
     #skillCfg {
@@ -100431,7 +101276,8 @@ getRow(30000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(30001)->
     #skillCfg {
@@ -100552,7 +101398,8 @@ getRow(30001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(30002)->
     #skillCfg {
@@ -100673,7 +101520,8 @@ getRow(30002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(30003)->
     #skillCfg {
@@ -100793,7 +101641,8 @@ getRow(30003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31000)->
     #skillCfg {
@@ -100910,14 +101759,15 @@ getRow(31000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31101)->
     #skillCfg {
     skillID = 31101,
     skillName = "仁慈召唤I",
-    skillInfo = "恢复自身10%生命，并使周围队友每3秒恢复5%生命值，持续15秒。",
-    skillInfo_sp = "恢复自身10%生命，并使周围队友每3秒恢复[53ff80]5%[-]生命值，持续15秒。",
+    skillInfo = "3秒内总计恢复自身40%最大生命值。",
+    skillInfo_sp = "3秒内总计恢复自身[53ff80]40%[-]最大生命值。",
     skillData = [0],
     skillIcon = 159,
     comboID = 0,
@@ -101017,7 +101867,7 @@ getRow(31101)->
     cDFactor = 0,
     costFactor = 0,
     castFactor = 0,
-    effects = [7111,7211,7011,60006],
+    effects = [7111,7211,60006],
     misc = 0,
     miscP1 = 0,
     conflictSkill = 0,
@@ -101028,14 +101878,15 @@ getRow(31101)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31102)->
     #skillCfg {
     skillID = 31102,
     skillName = "仁慈召唤II",
-    skillInfo = "恢复自身12%生命，并使周围队友每3秒恢复6%生命值，持续15秒。",
-    skillInfo_sp = "恢复自身12%生命，并使周围队友每3秒恢复[53ff80]6%[-]生命值，持续15秒。",
+    skillInfo = "3秒内总计恢复自身42.5%最大生命值。",
+    skillInfo_sp = "3秒内总计恢复自身[53ff80]42.5%[-]最大生命值。",
     skillData = [0],
     skillIcon = 159,
     comboID = 0,
@@ -101135,7 +101986,7 @@ getRow(31102)->
     cDFactor = 0,
     costFactor = 0,
     castFactor = 0,
-    effects = [7112,7211,7012,60006],
+    effects = [7112,7211,60006],
     misc = 0,
     miscP1 = 0,
     conflictSkill = 0,
@@ -101146,14 +101997,15 @@ getRow(31102)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31103)->
     #skillCfg {
     skillID = 31103,
     skillName = "仁慈召唤III",
-    skillInfo = "恢复自身14%生命，并使周围队友每3秒恢复7%生命值，持续15秒。",
-    skillInfo_sp = "恢复自身14%生命，并使周围队友每3秒恢复[53ff80]7%[-]生命值，持续15秒。",
+    skillInfo = "3秒内总计恢复自身45%最大生命值。",
+    skillInfo_sp = "3秒内总计恢复自身[53ff80]45%[-]最大生命值。",
     skillData = [0],
     skillIcon = 159,
     comboID = 0,
@@ -101253,7 +102105,7 @@ getRow(31103)->
     cDFactor = 0,
     costFactor = 0,
     castFactor = 0,
-    effects = [7113,7211,7013,60006],
+    effects = [7113,7211,60006],
     misc = 0,
     miscP1 = 0,
     conflictSkill = 0,
@@ -101264,14 +102116,15 @@ getRow(31103)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31104)->
     #skillCfg {
     skillID = 31104,
     skillName = "仁慈召唤IV",
-    skillInfo = "恢复自身16%生命，并使周围队友每3秒恢复8%生命值，持续15秒。",
-    skillInfo_sp = "恢复自身16%生命，并使周围队友每3秒恢复[53ff80]8%[-]生命值，持续15秒。",
+    skillInfo = "3秒内总计恢复自身47.5%最大生命值。",
+    skillInfo_sp = "3秒内总计恢复自身[53ff80]47.5%[-]最大生命值。",
     skillData = [0],
     skillIcon = 159,
     comboID = 0,
@@ -101371,7 +102224,7 @@ getRow(31104)->
     cDFactor = 0,
     costFactor = 0,
     castFactor = 0,
-    effects = [7114,7211,7014,60006],
+    effects = [7114,7211,60006],
     misc = 0,
     miscP1 = 0,
     conflictSkill = 0,
@@ -101382,14 +102235,15 @@ getRow(31104)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31105)->
     #skillCfg {
     skillID = 31105,
     skillName = "仁慈召唤V",
-    skillInfo = "恢复自身18%生命，并使周围队友每3秒恢复9%生命值，持续15秒。",
-    skillInfo_sp = "恢复自身18%生命，并使周围队友每3秒恢复[53ff80]9%[-]生命值，持续15秒。",
+    skillInfo = "3秒内总计恢复自身50%最大生命值。",
+    skillInfo_sp = "3秒内总计恢复自身[53ff80]50%[-]最大生命值。",
     skillData = [0],
     skillIcon = 159,
     comboID = 0,
@@ -101489,7 +102343,7 @@ getRow(31105)->
     cDFactor = 0,
     costFactor = 0,
     castFactor = 0,
-    effects = [7115,7211,7015,60006],
+    effects = [7115,7211,60006],
     misc = 0,
     miscP1 = 0,
     conflictSkill = 0,
@@ -101500,7 +102354,8 @@ getRow(31105)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31111)->
     #skillCfg {
@@ -101598,7 +102453,7 @@ getRow(31111)->
     effectTimes = 1,
     damageType = 6,
     healProperty = 135,
-    damageMultiply = [{1,0.05,0}],
+    damageMultiply = [{1,0.4,0}],
     secTarget = 0,
     skill_Hate = 0,
     hit_Spec = 0,
@@ -101619,7 +102474,8 @@ getRow(31111)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31112)->
     #skillCfg {
@@ -101717,7 +102573,7 @@ getRow(31112)->
     effectTimes = 1,
     damageType = 6,
     healProperty = 135,
-    damageMultiply = [{1,0.06,0}],
+    damageMultiply = [{1,0.425,0}],
     secTarget = 0,
     skill_Hate = 0,
     hit_Spec = 0,
@@ -101738,7 +102594,8 @@ getRow(31112)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31113)->
     #skillCfg {
@@ -101836,7 +102693,7 @@ getRow(31113)->
     effectTimes = 1,
     damageType = 6,
     healProperty = 135,
-    damageMultiply = [{1,0.07,0}],
+    damageMultiply = [{1,0.45,0}],
     secTarget = 0,
     skill_Hate = 0,
     hit_Spec = 0,
@@ -101857,7 +102714,8 @@ getRow(31113)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31114)->
     #skillCfg {
@@ -101955,7 +102813,7 @@ getRow(31114)->
     effectTimes = 1,
     damageType = 6,
     healProperty = 135,
-    damageMultiply = [{1,0.08,0}],
+    damageMultiply = [{1,0.475,0}],
     secTarget = 0,
     skill_Hate = 0,
     hit_Spec = 0,
@@ -101976,7 +102834,8 @@ getRow(31114)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31115)->
     #skillCfg {
@@ -102074,7 +102933,7 @@ getRow(31115)->
     effectTimes = 1,
     damageType = 6,
     healProperty = 135,
-    damageMultiply = [{1,0.09,0}],
+    damageMultiply = [{1,0.5,0}],
     secTarget = 0,
     skill_Hate = 0,
     hit_Spec = 0,
@@ -102095,7 +102954,8 @@ getRow(31115)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31121)->
     #skillCfg {
@@ -102213,7 +103073,8 @@ getRow(31121)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31131)->
     #skillCfg {
@@ -102332,7 +103193,8 @@ getRow(31131)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31132)->
     #skillCfg {
@@ -102451,7 +103313,8 @@ getRow(31132)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31133)->
     #skillCfg {
@@ -102570,7 +103433,8 @@ getRow(31133)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31134)->
     #skillCfg {
@@ -102689,7 +103553,8 @@ getRow(31134)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31135)->
     #skillCfg {
@@ -102808,7 +103673,8 @@ getRow(31135)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31141)->
     #skillCfg {
@@ -102927,14 +103793,15 @@ getRow(31141)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31201)->
     #skillCfg {
     skillID = 31201,
     skillName = "战争召唤I",
-    skillInfo = "提升自身10%所有伤害，持续15秒。",
-    skillInfo_sp = "提升自身[53ff80]10%[-]所有伤害，持续15秒。",
+    skillInfo = "提升自身40%所有伤害，持续15秒。",
+    skillInfo_sp = "提升自身[53ff80]40%[-]所有伤害，持续15秒。",
     skillData = [0],
     skillIcon = 156,
     comboID = 0,
@@ -103045,14 +103912,15 @@ getRow(31201)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31202)->
     #skillCfg {
     skillID = 31202,
     skillName = "战争召唤II",
-    skillInfo = "提升自身15%所有伤害，持续15秒。",
-    skillInfo_sp = "提升自身[53ff80]15%[-]所有伤害，持续15秒。",
+    skillInfo = "提升自身42.5%所有伤害，持续15秒。",
+    skillInfo_sp = "提升自身[53ff80]42.5%[-]所有伤害，持续15秒。",
     skillData = [0],
     skillIcon = 156,
     comboID = 0,
@@ -103163,14 +104031,15 @@ getRow(31202)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31203)->
     #skillCfg {
     skillID = 31203,
     skillName = "战争召唤III",
-    skillInfo = "提升自身20%所有伤害，持续15秒。",
-    skillInfo_sp = "提升自身[53ff80]20%[-]所有伤害，持续15秒。",
+    skillInfo = "提升自身45%所有伤害，持续15秒。",
+    skillInfo_sp = "提升自身[53ff80]45%[-]所有伤害，持续15秒。",
     skillData = [0],
     skillIcon = 156,
     comboID = 0,
@@ -103281,14 +104150,15 @@ getRow(31203)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31204)->
     #skillCfg {
     skillID = 31204,
     skillName = "战争召唤IV",
-    skillInfo = "提升自身25%所有伤害，持续15秒。",
-    skillInfo_sp = "提升自身[53ff80]25%[-]所有伤害，持续15秒。",
+    skillInfo = "提升自身47.5%所有伤害，持续15秒。",
+    skillInfo_sp = "提升自身[53ff80]47.5%[-]所有伤害，持续15秒。",
     skillData = [0],
     skillIcon = 156,
     comboID = 0,
@@ -103399,14 +104269,15 @@ getRow(31204)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31205)->
     #skillCfg {
     skillID = 31205,
     skillName = "战争召唤V",
-    skillInfo = "提升自身30%所有伤害，持续15秒。",
-    skillInfo_sp = "提升自身[53ff80]30%[-]所有伤害，持续15秒。",
+    skillInfo = "提升自身50%所有伤害，持续15秒。",
+    skillInfo_sp = "提升自身[53ff80]50%[-]所有伤害，持续15秒。",
     skillData = [0],
     skillIcon = 156,
     comboID = 0,
@@ -103517,7 +104388,8 @@ getRow(31205)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31211)->
     #skillCfg {
@@ -103635,7 +104507,8 @@ getRow(31211)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31212)->
     #skillCfg {
@@ -103753,7 +104626,8 @@ getRow(31212)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31213)->
     #skillCfg {
@@ -103871,7 +104745,8 @@ getRow(31213)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31214)->
     #skillCfg {
@@ -103989,7 +104864,8 @@ getRow(31214)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31215)->
     #skillCfg {
@@ -104107,7 +104983,8 @@ getRow(31215)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31221)->
     #skillCfg {
@@ -104225,7 +105102,8 @@ getRow(31221)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31231)->
     #skillCfg {
@@ -104343,7 +105221,8 @@ getRow(31231)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31232)->
     #skillCfg {
@@ -104461,7 +105340,8 @@ getRow(31232)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31233)->
     #skillCfg {
@@ -104579,7 +105459,8 @@ getRow(31233)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31234)->
     #skillCfg {
@@ -104697,7 +105578,8 @@ getRow(31234)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31235)->
     #skillCfg {
@@ -104815,7 +105697,8 @@ getRow(31235)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31241)->
     #skillCfg {
@@ -104933,14 +105816,15 @@ getRow(31241)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31301)->
     #skillCfg {
     skillID = 31301,
     skillName = "智慧召唤I",
-    skillInfo = "技能冷却时间减少20%，持续15秒。",
-    skillInfo_sp = "技能冷却时间减少[53ff80]20%[-]，持续15秒。",
+    skillInfo = "技能冷却时间减少32%，持续15秒。",
+    skillInfo_sp = "技能冷却时间减少[53ff80]32%[-]，持续15秒。",
     skillData = [0],
     skillIcon = 45,
     comboID = 0,
@@ -105051,14 +105935,15 @@ getRow(31301)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31302)->
     #skillCfg {
     skillID = 31302,
     skillName = "智慧召唤II",
-    skillInfo = "技能冷却时间减少25%，持续15秒。",
-    skillInfo_sp = "技能冷却时间减少[53ff80]25%[-]，持续15秒。",
+    skillInfo = "技能冷却时间减少34%，持续15秒。",
+    skillInfo_sp = "技能冷却时间减少[53ff80]34%[-]，持续15秒。",
     skillData = [0],
     skillIcon = 45,
     comboID = 0,
@@ -105169,14 +106054,15 @@ getRow(31302)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31303)->
     #skillCfg {
     skillID = 31303,
     skillName = "智慧召唤III",
-    skillInfo = "技能冷却时间减少30%，持续15秒。",
-    skillInfo_sp = "技能冷却时间减少[53ff80]30%[-]，持续15秒。",
+    skillInfo = "技能冷却时间减少36%，持续15秒。",
+    skillInfo_sp = "技能冷却时间减少[53ff80]36%[-]，持续15秒。",
     skillData = [0],
     skillIcon = 45,
     comboID = 0,
@@ -105287,14 +106173,15 @@ getRow(31303)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31304)->
     #skillCfg {
     skillID = 31304,
     skillName = "智慧召唤IV",
-    skillInfo = "技能冷却时间减少35%，持续15秒。",
-    skillInfo_sp = "技能冷却时间减少[53ff80]35%[-]，持续15秒。",
+    skillInfo = "技能冷却时间减少38%，持续15秒。",
+    skillInfo_sp = "技能冷却时间减少[53ff80]38%[-]，持续15秒。",
     skillData = [0],
     skillIcon = 45,
     comboID = 0,
@@ -105405,7 +106292,8 @@ getRow(31304)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31305)->
     #skillCfg {
@@ -105523,7 +106411,8 @@ getRow(31305)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31311)->
     #skillCfg {
@@ -105641,7 +106530,8 @@ getRow(31311)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31312)->
     #skillCfg {
@@ -105759,7 +106649,8 @@ getRow(31312)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31313)->
     #skillCfg {
@@ -105877,7 +106768,8 @@ getRow(31313)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31314)->
     #skillCfg {
@@ -105995,7 +106887,8 @@ getRow(31314)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31315)->
     #skillCfg {
@@ -106113,7 +107006,8 @@ getRow(31315)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31321)->
     #skillCfg {
@@ -106231,7 +107125,8 @@ getRow(31321)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31331)->
     #skillCfg {
@@ -106349,7 +107244,8 @@ getRow(31331)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31332)->
     #skillCfg {
@@ -106467,7 +107363,8 @@ getRow(31332)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31333)->
     #skillCfg {
@@ -106585,7 +107482,8 @@ getRow(31333)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31334)->
     #skillCfg {
@@ -106703,7 +107601,8 @@ getRow(31334)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31335)->
     #skillCfg {
@@ -106821,7 +107720,8 @@ getRow(31335)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31341)->
     #skillCfg {
@@ -106939,14 +107839,15 @@ getRow(31341)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31401)->
     #skillCfg {
     skillID = 31401,
     skillName = "暗夜召唤I",
-    skillInfo = "受到的伤害降低10%，持续15秒。",
-    skillInfo_sp = "受到的伤害降低[53ff80]10%[-]，持续15秒。",
+    skillInfo = "受到所有伤害降低40%，持续15秒。",
+    skillInfo_sp = "受到所有伤害降低[53ff80]40%[-]，持续15秒。",
     skillData = [0],
     skillIcon = 40,
     comboID = 0,
@@ -107057,14 +107958,15 @@ getRow(31401)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31402)->
     #skillCfg {
     skillID = 31402,
     skillName = "暗夜召唤II",
-    skillInfo = "受到的伤害降低15%，持续15秒。",
-    skillInfo_sp = "受到的伤害降低[53ff80]15%[-]，持续15秒。",
+    skillInfo = "受到所有伤害降低42.5%，持续15秒。",
+    skillInfo_sp = "受到所有伤害降低[53ff80]42.5%[-]，持续15秒。",
     skillData = [0],
     skillIcon = 40,
     comboID = 0,
@@ -107175,14 +108077,15 @@ getRow(31402)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31403)->
     #skillCfg {
     skillID = 31403,
     skillName = "暗夜召唤III",
-    skillInfo = "受到的伤害降低20%，持续15秒。",
-    skillInfo_sp = "受到的伤害降低[53ff80]20%[-]，持续15秒。",
+    skillInfo = "受到所有伤害降低45%，持续15秒。",
+    skillInfo_sp = "受到所有伤害降低[53ff80]45%[-]，持续15秒。",
     skillData = [0],
     skillIcon = 40,
     comboID = 0,
@@ -107293,14 +108196,15 @@ getRow(31403)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31404)->
     #skillCfg {
     skillID = 31404,
     skillName = "暗夜召唤IV",
-    skillInfo = "受到的伤害降低25%，持续15秒。",
-    skillInfo_sp = "受到的伤害降低[53ff80]25%[-]，持续15秒。",
+    skillInfo = "受到所有伤害降低47.5%，持续15秒。",
+    skillInfo_sp = "受到所有伤害降低[53ff80]47.5%[-]，持续15秒。",
     skillData = [0],
     skillIcon = 40,
     comboID = 0,
@@ -107411,14 +108315,15 @@ getRow(31404)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31405)->
     #skillCfg {
     skillID = 31405,
     skillName = "暗夜召唤V",
-    skillInfo = "受到的伤害降低30%，持续15秒。",
-    skillInfo_sp = "受到的伤害降低[53ff80]30%[-]，持续15秒。",
+    skillInfo = "受到所有伤害降低50%，持续15秒。",
+    skillInfo_sp = "受到所有伤害降低[53ff80]50%[-]，持续15秒。",
     skillData = [0],
     skillIcon = 40,
     comboID = 0,
@@ -107529,7 +108434,8 @@ getRow(31405)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31411)->
     #skillCfg {
@@ -107647,7 +108553,8 @@ getRow(31411)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31412)->
     #skillCfg {
@@ -107765,7 +108672,8 @@ getRow(31412)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31413)->
     #skillCfg {
@@ -107883,7 +108791,8 @@ getRow(31413)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31414)->
     #skillCfg {
@@ -108001,7 +108910,8 @@ getRow(31414)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31415)->
     #skillCfg {
@@ -108119,7 +109029,8 @@ getRow(31415)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31421)->
     #skillCfg {
@@ -108237,7 +109148,8 @@ getRow(31421)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31431)->
     #skillCfg {
@@ -108355,7 +109267,8 @@ getRow(31431)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31432)->
     #skillCfg {
@@ -108473,7 +109386,8 @@ getRow(31432)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31433)->
     #skillCfg {
@@ -108591,7 +109505,8 @@ getRow(31433)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31434)->
     #skillCfg {
@@ -108709,7 +109624,8 @@ getRow(31434)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31435)->
     #skillCfg {
@@ -108827,7 +109743,8 @@ getRow(31435)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(31441)->
     #skillCfg {
@@ -108945,14 +109862,15 @@ getRow(31441)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32111)->
     #skillCfg {
     skillID = 32111,
-    skillName = "活力I",
-    skillInfo = "药水恢复+10%",
-    skillInfo_sp = "药水恢复[53ff80]+10%[-]",
+    skillName = "坚韧I",
+    skillInfo = "生命+2675",
+    skillInfo_sp = "生命[53ff80]+2675[-]",
     skillData = [0],
     skillIcon = 84,
     comboID = 0,
@@ -109062,14 +109980,15 @@ getRow(32111)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32112)->
     #skillCfg {
     skillID = 32112,
-    skillName = "活力II",
-    skillInfo = "药水恢复+13%",
-    skillInfo_sp = "药水恢复[53ff80]+13%[-]",
+    skillName = "坚韧II",
+    skillInfo = "生命+4440",
+    skillInfo_sp = "生命[53ff80]+4440[-]",
     skillData = [0],
     skillIcon = 84,
     comboID = 0,
@@ -109179,14 +110098,15 @@ getRow(32112)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32113)->
     #skillCfg {
     skillID = 32113,
-    skillName = "活力III",
-    skillInfo = "药水恢复+16%",
-    skillInfo_sp = "药水恢复[53ff80]+16%[-]",
+    skillName = "坚韧III",
+    skillInfo = "生命+7021",
+    skillInfo_sp = "生命[53ff80]+7021[-]",
     skillData = [0],
     skillIcon = 84,
     comboID = 0,
@@ -109296,14 +110216,15 @@ getRow(32113)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32114)->
     #skillCfg {
     skillID = 32114,
-    skillName = "活力IV",
-    skillInfo = "药水恢复+19%",
-    skillInfo_sp = "药水恢复[53ff80]+19%[-]",
+    skillName = "坚韧IV",
+    skillInfo = "生命+10036",
+    skillInfo_sp = "生命[53ff80]+10036[-]",
     skillData = [0],
     skillIcon = 84,
     comboID = 0,
@@ -109413,14 +110334,15 @@ getRow(32114)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32115)->
     #skillCfg {
     skillID = 32115,
-    skillName = "活力V",
-    skillInfo = "药水恢复+22%",
-    skillInfo_sp = "药水恢复[53ff80]+22%[-]",
+    skillName = "坚韧V",
+    skillInfo = "生命+13375",
+    skillInfo_sp = "生命[53ff80]+13375[-]",
     skillData = [0],
     skillIcon = 84,
     comboID = 0,
@@ -109530,14 +110452,15 @@ getRow(32115)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32211)->
     #skillCfg {
     skillID = 32211,
-    skillName = "柔光I",
-    skillInfo = "物理防御和魔法防御+39",
-    skillInfo_sp = "物理防御和魔法防御[53ff80]+39[-]",
+    skillName = "灵敏I",
+    skillInfo = "闪避等级+161",
+    skillInfo_sp = "闪避等级[53ff80]+161[-]",
     skillData = [0],
     skillIcon = 16,
     comboID = 0,
@@ -109647,14 +110570,15 @@ getRow(32211)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32212)->
     #skillCfg {
     skillID = 32212,
-    skillName = "柔光II",
-    skillInfo = "物理防御和魔法防御+66",
-    skillInfo_sp = "物理防御和魔法防御[53ff80]+66[-]",
+    skillName = "灵敏II",
+    skillInfo = "闪避等级+266",
+    skillInfo_sp = "闪避等级[53ff80]+266[-]",
     skillData = [0],
     skillIcon = 16,
     comboID = 0,
@@ -109764,14 +110688,15 @@ getRow(32212)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32213)->
     #skillCfg {
     skillID = 32213,
-    skillName = "柔光III",
-    skillInfo = "物理防御和魔法防御+100",
-    skillInfo_sp = "物理防御和魔法防御[53ff80]+100[-]",
+    skillName = "灵敏III",
+    skillInfo = "闪避等级+421",
+    skillInfo_sp = "闪避等级[53ff80]+421[-]",
     skillData = [0],
     skillIcon = 16,
     comboID = 0,
@@ -109881,14 +110806,15 @@ getRow(32213)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32214)->
     #skillCfg {
     skillID = 32214,
-    skillName = "柔光IV",
-    skillInfo = "物理防御和魔法防御+139",
-    skillInfo_sp = "物理防御和魔法防御[53ff80]+139[-]",
+    skillName = "灵敏IV",
+    skillInfo = "闪避等级+602",
+    skillInfo_sp = "闪避等级[53ff80]+602[-]",
     skillData = [0],
     skillIcon = 16,
     comboID = 0,
@@ -109998,14 +110924,15 @@ getRow(32214)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32215)->
     #skillCfg {
     skillID = 32215,
-    skillName = "柔光V",
-    skillInfo = "物理防御和魔法防御+183",
-    skillInfo_sp = "物理防御和魔法防御[53ff80]+183[-]",
+    skillName = "灵敏V",
+    skillInfo = "闪避等级+803",
+    skillInfo_sp = "闪避等级[53ff80]+803[-]",
     skillData = [0],
     skillIcon = 16,
     comboID = 0,
@@ -110115,14 +111042,15 @@ getRow(32215)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32311)->
     #skillCfg {
     skillID = 32311,
-    skillName = "坚韧I",
-    skillInfo = "受到的所有伤害-7%",
-    skillInfo_sp = "受到的所有伤害[53ff80]-7%[-]",
+    skillName = "活力I",
+    skillInfo = "药水恢复+35%",
+    skillInfo_sp = "药水恢复[53ff80]+35%[-]",
     skillData = [0],
     skillIcon = 148,
     comboID = 0,
@@ -110232,14 +111160,15 @@ getRow(32311)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32312)->
     #skillCfg {
     skillID = 32312,
-    skillName = "坚韧II",
-    skillInfo = "受到的所有伤害-9%",
-    skillInfo_sp = "受到的所有伤害[53ff80]-9%[-]",
+    skillName = "活力II",
+    skillInfo = "药水恢复+38%",
+    skillInfo_sp = "药水恢复[53ff80]+38%[-]",
     skillData = [0],
     skillIcon = 148,
     comboID = 0,
@@ -110349,14 +111278,15 @@ getRow(32312)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32313)->
     #skillCfg {
     skillID = 32313,
-    skillName = "坚韧III",
-    skillInfo = "受到的所有伤害-12%",
-    skillInfo_sp = "受到的所有伤害[53ff80]-12%[-]",
+    skillName = "活力III",
+    skillInfo = "药水恢复+42%",
+    skillInfo_sp = "药水恢复[53ff80]+42%[-]",
     skillData = [0],
     skillIcon = 148,
     comboID = 0,
@@ -110466,14 +111396,15 @@ getRow(32313)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32314)->
     #skillCfg {
     skillID = 32314,
-    skillName = "坚韧IV",
-    skillInfo = "受到的所有伤害-15%",
-    skillInfo_sp = "受到的所有伤害[53ff80]-15%[-]",
+    skillName = "活力IV",
+    skillInfo = "药水恢复+46%",
+    skillInfo_sp = "药水恢复[53ff80]+46%[-]",
     skillData = [0],
     skillIcon = 148,
     comboID = 0,
@@ -110583,14 +111514,15 @@ getRow(32314)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32315)->
     #skillCfg {
     skillID = 32315,
-    skillName = "坚韧V",
-    skillInfo = "受到的所有伤害-18%",
-    skillInfo_sp = "受到的所有伤害[53ff80]-18%[-]",
+    skillName = "活力V",
+    skillInfo = "药水恢复+50%",
+    skillInfo_sp = "药水恢复[53ff80]+50%[-]",
     skillData = [0],
     skillIcon = 148,
     comboID = 0,
@@ -110700,14 +111632,15 @@ getRow(32315)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32411)->
     #skillCfg {
     skillID = 32411,
     skillName = "战意I",
-    skillInfo = "暴击等级+31",
-    skillInfo_sp = "暴击等级[53ff80]+31[-]",
+    skillInfo = "物攻和法攻+268",
+    skillInfo_sp = "物攻和法攻[53ff80]+268[-]",
     skillData = [0],
     skillIcon = 75,
     comboID = 0,
@@ -110817,14 +111750,15 @@ getRow(32411)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32412)->
     #skillCfg {
     skillID = 32412,
     skillName = "战意II",
-    skillInfo = "暴击等级+53",
-    skillInfo_sp = "暴击等级[53ff80]+53[-]",
+    skillInfo = "物攻和法攻+444",
+    skillInfo_sp = "物攻和法攻[53ff80]+444[-]",
     skillData = [0],
     skillIcon = 75,
     comboID = 0,
@@ -110934,14 +111868,15 @@ getRow(32412)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32413)->
     #skillCfg {
     skillID = 32413,
     skillName = "战意III",
-    skillInfo = "暴击等级+79",
-    skillInfo_sp = "暴击等级[53ff80]+79[-]",
+    skillInfo = "物攻和法攻+702",
+    skillInfo_sp = "物攻和法攻[53ff80]+702[-]",
     skillData = [0],
     skillIcon = 75,
     comboID = 0,
@@ -111051,14 +111986,15 @@ getRow(32413)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32414)->
     #skillCfg {
     skillID = 32414,
     skillName = "战意IV",
-    skillInfo = "暴击等级+111",
-    skillInfo_sp = "暴击等级[53ff80]+111[-]",
+    skillInfo = "物攻和法攻+1004",
+    skillInfo_sp = "物攻和法攻[53ff80]+1004[-]",
     skillData = [0],
     skillIcon = 75,
     comboID = 0,
@@ -111168,14 +112104,15 @@ getRow(32414)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32415)->
     #skillCfg {
     skillID = 32415,
     skillName = "战意V",
-    skillInfo = "暴击等级+146",
-    skillInfo_sp = "暴击等级[53ff80]+146[-]",
+    skillInfo = "物攻和法攻+1338",
+    skillInfo_sp = "物攻和法攻[53ff80]+1338[-]",
     skillData = [0],
     skillIcon = 75,
     comboID = 0,
@@ -111285,14 +112222,15 @@ getRow(32415)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32511)->
     #skillCfg {
     skillID = 32511,
-    skillName = "猛击I",
-    skillInfo = "物理攻击和魔法攻击+78",
-    skillInfo_sp = "物理攻击和魔法攻击[53ff80]+78[-]",
+    skillName = "精准I",
+    skillInfo = "命中等级+112",
+    skillInfo_sp = "命中等级[53ff80]+112[-]",
     skillData = [0],
     skillIcon = 26,
     comboID = 0,
@@ -111402,14 +112340,15 @@ getRow(32511)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32512)->
     #skillCfg {
     skillID = 32512,
-    skillName = "猛击II",
-    skillInfo = "物理攻击和魔法攻击+132",
-    skillInfo_sp = "物理攻击和魔法攻击[53ff80]+132[-]",
+    skillName = "精准II",
+    skillInfo = "命中等级+186",
+    skillInfo_sp = "命中等级[53ff80]+186[-]",
     skillData = [0],
     skillIcon = 26,
     comboID = 0,
@@ -111519,14 +112458,15 @@ getRow(32512)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32513)->
     #skillCfg {
     skillID = 32513,
-    skillName = "猛击III",
-    skillInfo = "物理攻击和魔法攻击+199",
-    skillInfo_sp = "物理攻击和魔法攻击[53ff80]+199[-]",
+    skillName = "精准III",
+    skillInfo = "命中等级+294",
+    skillInfo_sp = "命中等级[53ff80]+294[-]",
     skillData = [0],
     skillIcon = 26,
     comboID = 0,
@@ -111636,14 +112576,15 @@ getRow(32513)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32514)->
     #skillCfg {
     skillID = 32514,
-    skillName = "猛击IV",
-    skillInfo = "物理攻击和魔法攻击+277",
-    skillInfo_sp = "物理攻击和魔法攻击[53ff80]+277[-]",
+    skillName = "精准IV",
+    skillInfo = "命中等级+421",
+    skillInfo_sp = "命中等级[53ff80]+421[-]",
     skillData = [0],
     skillIcon = 26,
     comboID = 0,
@@ -111753,14 +112694,15 @@ getRow(32514)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32515)->
     #skillCfg {
     skillID = 32515,
-    skillName = "猛击V",
-    skillInfo = "物理攻击和魔法攻击+366",
-    skillInfo_sp = "物理攻击和魔法攻击[53ff80]+366[-]",
+    skillName = "精准V",
+    skillInfo = "命中等级+561",
+    skillInfo_sp = "命中等级[53ff80]+561[-]",
     skillData = [0],
     skillIcon = 26,
     comboID = 0,
@@ -111870,14 +112812,15 @@ getRow(32515)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32611)->
     #skillCfg {
     skillID = 32611,
     skillName = "怒火I",
-    skillInfo = "造成的所有伤害+5%",
-    skillInfo_sp = "造成的所有伤害[53ff80]+5%[-]",
+    skillInfo = "角色伤害加成+6%",
+    skillInfo_sp = "角色伤害加成[53ff80]+6%[-]",
     skillData = [0],
     skillIcon = 50,
     comboID = 0,
@@ -111987,14 +112930,15 @@ getRow(32611)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32612)->
     #skillCfg {
     skillID = 32612,
     skillName = "怒火II",
-    skillInfo = "造成的所有伤害+7%",
-    skillInfo_sp = "造成的所有伤害[53ff80]+7%[-]",
+    skillInfo = "角色伤害加成+7%",
+    skillInfo_sp = "角色伤害加成[53ff80]+7%[-]",
     skillData = [0],
     skillIcon = 50,
     comboID = 0,
@@ -112104,14 +113048,15 @@ getRow(32612)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32613)->
     #skillCfg {
     skillID = 32613,
     skillName = "怒火III",
-    skillInfo = "造成的所有伤害+9%",
-    skillInfo_sp = "造成的所有伤害[53ff80]+9%[-]",
+    skillInfo = "角色伤害加成+8%",
+    skillInfo_sp = "角色伤害加成[53ff80]+8%[-]",
     skillData = [0],
     skillIcon = 50,
     comboID = 0,
@@ -112221,14 +113166,15 @@ getRow(32613)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32614)->
     #skillCfg {
     skillID = 32614,
     skillName = "怒火IV",
-    skillInfo = "造成的所有伤害+12%",
-    skillInfo_sp = "造成的所有伤害[53ff80]+12%[-]",
+    skillInfo = "角色伤害加成+9%",
+    skillInfo_sp = "角色伤害加成[53ff80]+9%[-]",
     skillData = [0],
     skillIcon = 50,
     comboID = 0,
@@ -112338,14 +113284,15 @@ getRow(32614)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32615)->
     #skillCfg {
     skillID = 32615,
     skillName = "怒火V",
-    skillInfo = "造成的所有伤害+15%",
-    skillInfo_sp = "造成的所有伤害[53ff80]+15%[-]",
+    skillInfo = "角色伤害加成+10%",
+    skillInfo_sp = "角色伤害加成[53ff80]+10%[-]",
     skillData = [0],
     skillIcon = 50,
     comboID = 0,
@@ -112455,14 +113402,15 @@ getRow(32615)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32711)->
     #skillCfg {
     skillID = 32711,
-    skillName = "奥义I",
-    skillInfo = "破甲等级+20",
-    skillInfo_sp = "破甲等级[53ff80]+20[-]",
+    skillName = "猛击I",
+    skillInfo = "暴击等级+213",
+    skillInfo_sp = "暴击等级[53ff80]+213[-]",
     skillData = [0],
     skillIcon = 70,
     comboID = 0,
@@ -112572,14 +113520,15 @@ getRow(32711)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32712)->
     #skillCfg {
     skillID = 32712,
-    skillName = "奥义II",
-    skillInfo = "破甲等级+33",
-    skillInfo_sp = "破甲等级[53ff80]+33[-]",
+    skillName = "猛击II",
+    skillInfo = "暴击等级+354",
+    skillInfo_sp = "暴击等级[53ff80]+354[-]",
     skillData = [0],
     skillIcon = 70,
     comboID = 0,
@@ -112689,14 +113638,15 @@ getRow(32712)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32713)->
     #skillCfg {
     skillID = 32713,
-    skillName = "奥义III",
-    skillInfo = "破甲等级+50",
-    skillInfo_sp = "破甲等级[53ff80]+50[-]",
+    skillName = "猛击III",
+    skillInfo = "暴击等级+559",
+    skillInfo_sp = "暴击等级[53ff80]+559[-]",
     skillData = [0],
     skillIcon = 70,
     comboID = 0,
@@ -112806,14 +113756,15 @@ getRow(32713)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32714)->
     #skillCfg {
     skillID = 32714,
-    skillName = "奥义IV",
-    skillInfo = "破甲等级+70",
-    skillInfo_sp = "破甲等级[53ff80]+70[-]",
+    skillName = "猛击IV",
+    skillInfo = "暴击等级+799",
+    skillInfo_sp = "暴击等级[53ff80]+799[-]",
     skillData = [0],
     skillIcon = 70,
     comboID = 0,
@@ -112923,14 +113874,15 @@ getRow(32714)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32715)->
     #skillCfg {
     skillID = 32715,
-    skillName = "奥义V",
-    skillInfo = "破甲等级+92",
-    skillInfo_sp = "破甲等级[53ff80]+92[-]",
+    skillName = "猛击V",
+    skillInfo = "暴击等级+1065",
+    skillInfo_sp = "暴击等级[53ff80]+1065[-]",
     skillData = [0],
     skillIcon = 70,
     comboID = 0,
@@ -113040,14 +113992,15 @@ getRow(32715)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32811)->
     #skillCfg {
     skillID = 32811,
-    skillName = "精准I",
-    skillInfo = "命中等级+23",
-    skillInfo_sp = "命中等级[53ff80]+23[-]",
+    skillName = "无畏I",
+    skillInfo = "抗暴等级+150",
+    skillInfo_sp = "抗暴等级[53ff80]+150[-]",
     skillData = [0],
     skillIcon = 37,
     comboID = 0,
@@ -113157,14 +114110,15 @@ getRow(32811)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32812)->
     #skillCfg {
     skillID = 32812,
-    skillName = "精准II",
-    skillInfo = "命中等级+40",
-    skillInfo_sp = "命中等级[53ff80]+40[-]",
+    skillName = "无畏II",
+    skillInfo = "抗暴等级+249",
+    skillInfo_sp = "抗暴等级[53ff80]+249[-]",
     skillData = [0],
     skillIcon = 37,
     comboID = 0,
@@ -113274,14 +114228,15 @@ getRow(32812)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32813)->
     #skillCfg {
     skillID = 32813,
-    skillName = "精准III",
-    skillInfo = "命中等级+60",
-    skillInfo_sp = "命中等级[53ff80]+60[-]",
+    skillName = "无畏III",
+    skillInfo = "抗暴等级+394",
+    skillInfo_sp = "抗暴等级[53ff80]+394[-]",
     skillData = [0],
     skillIcon = 37,
     comboID = 0,
@@ -113391,14 +114346,15 @@ getRow(32813)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32814)->
     #skillCfg {
     skillID = 32814,
-    skillName = "精准IV",
-    skillInfo = "命中等级+83",
-    skillInfo_sp = "命中等级[53ff80]+83[-]",
+    skillName = "无畏IV",
+    skillInfo = "抗暴等级+563",
+    skillInfo_sp = "抗暴等级[53ff80]+563[-]",
     skillData = [0],
     skillIcon = 37,
     comboID = 0,
@@ -113508,14 +114464,15 @@ getRow(32814)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32815)->
     #skillCfg {
     skillID = 32815,
-    skillName = "精准V",
-    skillInfo = "命中等级+110",
-    skillInfo_sp = "命中等级[53ff80]+110[-]",
+    skillName = "无畏V",
+    skillInfo = "抗暴等级+751",
+    skillInfo_sp = "抗暴等级[53ff80]+751[-]",
     skillData = [0],
     skillIcon = 37,
     comboID = 0,
@@ -113625,14 +114582,15 @@ getRow(32815)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32911)->
     #skillCfg {
     skillID = 32911,
     skillName = "灵感I",
-    skillInfo = "基础技能的冷却时间减少-10%",
-    skillInfo_sp = "基础技能的冷却时间减少[53ff80]-10%[-]",
+    skillInfo = "基础技能冷却时间-6%",
+    skillInfo_sp = "基础技能冷却时间[53ff80]-6%[-]",
     skillData = [0],
     skillIcon = 11,
     comboID = 0,
@@ -113742,14 +114700,15 @@ getRow(32911)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32912)->
     #skillCfg {
     skillID = 32912,
     skillName = "灵感II",
-    skillInfo = "基础技能的冷却时间减少-14%",
-    skillInfo_sp = "基础技能的冷却时间减少[53ff80]-14%[-]",
+    skillInfo = "基础技能冷却时间-7%",
+    skillInfo_sp = "基础技能冷却时间[53ff80]-7%[-]",
     skillData = [0],
     skillIcon = 11,
     comboID = 0,
@@ -113859,14 +114818,15 @@ getRow(32912)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32913)->
     #skillCfg {
     skillID = 32913,
     skillName = "灵感III",
-    skillInfo = "基础技能的冷却时间减少-18%",
-    skillInfo_sp = "基础技能的冷却时间减少[53ff80]-18%[-]",
+    skillInfo = "基础技能冷却时间-8%",
+    skillInfo_sp = "基础技能冷却时间[53ff80]-8%[-]",
     skillData = [0],
     skillIcon = 11,
     comboID = 0,
@@ -113976,14 +114936,15 @@ getRow(32913)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32914)->
     #skillCfg {
     skillID = 32914,
     skillName = "灵感IV",
-    skillInfo = "基础技能的冷却时间减少-22%",
-    skillInfo_sp = "基础技能的冷却时间减少[53ff80]-22%[-]",
+    skillInfo = "基础技能冷却时间-9%",
+    skillInfo_sp = "基础技能冷却时间[53ff80]-9%[-]",
     skillData = [0],
     skillIcon = 11,
     comboID = 0,
@@ -114093,14 +115054,15 @@ getRow(32914)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(32915)->
     #skillCfg {
     skillID = 32915,
     skillName = "灵感V",
-    skillInfo = "基础技能的冷却时间减少-25%",
-    skillInfo_sp = "基础技能的冷却时间减少[53ff80]-25%[-]",
+    skillInfo = "基础技能冷却时间-10%",
+    skillInfo_sp = "基础技能冷却时间[53ff80]-10%[-]",
     skillData = [0],
     skillIcon = 11,
     comboID = 0,
@@ -114210,14 +115172,15 @@ getRow(32915)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33011)->
     #skillCfg {
     skillID = 33011,
-    skillName = "灵敏I",
-    skillInfo = "闪避+23",
-    skillInfo_sp = "闪避[53ff80]+23[-]",
+    skillName = "重甲I",
+    skillInfo = "物防+268",
+    skillInfo_sp = "物防[53ff80]+268[-]",
     skillData = [0],
     skillIcon = 63,
     comboID = 0,
@@ -114327,14 +115290,15 @@ getRow(33011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33012)->
     #skillCfg {
     skillID = 33012,
-    skillName = "灵敏II",
-    skillInfo = "闪避+40",
-    skillInfo_sp = "闪避[53ff80]+40[-]",
+    skillName = "重甲II",
+    skillInfo = "物防+444",
+    skillInfo_sp = "物防[53ff80]+444[-]",
     skillData = [0],
     skillIcon = 63,
     comboID = 0,
@@ -114444,14 +115408,15 @@ getRow(33012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33013)->
     #skillCfg {
     skillID = 33013,
-    skillName = "灵敏III",
-    skillInfo = "闪避+60",
-    skillInfo_sp = "闪避[53ff80]+60[-]",
+    skillName = "重甲III",
+    skillInfo = "物防+702",
+    skillInfo_sp = "物防[53ff80]+702[-]",
     skillData = [0],
     skillIcon = 63,
     comboID = 0,
@@ -114561,14 +115526,15 @@ getRow(33013)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33014)->
     #skillCfg {
     skillID = 33014,
-    skillName = "灵敏IV",
-    skillInfo = "闪避+83",
-    skillInfo_sp = "闪避[53ff80]+83[-]",
+    skillName = "重甲IV",
+    skillInfo = "物防+1004",
+    skillInfo_sp = "物防[53ff80]+1004[-]",
     skillData = [0],
     skillIcon = 63,
     comboID = 0,
@@ -114678,14 +115644,15 @@ getRow(33014)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33015)->
     #skillCfg {
     skillID = 33015,
-    skillName = "灵敏V",
-    skillInfo = "闪避+110",
-    skillInfo_sp = "闪避[53ff80]+110[-]",
+    skillName = "重甲V",
+    skillInfo = "物防+1338",
+    skillInfo_sp = "物防[53ff80]+1338[-]",
     skillData = [0],
     skillIcon = 63,
     comboID = 0,
@@ -114795,14 +115762,15 @@ getRow(33015)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33111)->
     #skillCfg {
     skillID = 33111,
-    skillName = "专注I",
-    skillInfo = "韧性+31",
-    skillInfo_sp = "韧性[53ff80]+31[-]",
+    skillName = "柔光I",
+    skillInfo = "魔防+268",
+    skillInfo_sp = "魔防[53ff80]+268[-]",
     skillData = [0],
     skillIcon = 66,
     comboID = 0,
@@ -114912,14 +115880,15 @@ getRow(33111)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33112)->
     #skillCfg {
     skillID = 33112,
-    skillName = "专注II",
-    skillInfo = "韧性+53",
-    skillInfo_sp = "韧性[53ff80]+53[-]",
+    skillName = "柔光II",
+    skillInfo = "魔防+444",
+    skillInfo_sp = "魔防[53ff80]+444[-]",
     skillData = [0],
     skillIcon = 66,
     comboID = 0,
@@ -115029,14 +115998,15 @@ getRow(33112)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33113)->
     #skillCfg {
     skillID = 33113,
-    skillName = "专注III",
-    skillInfo = "韧性+79",
-    skillInfo_sp = "韧性[53ff80]+79[-]",
+    skillName = "柔光III",
+    skillInfo = "魔防+702",
+    skillInfo_sp = "魔防[53ff80]+702[-]",
     skillData = [0],
     skillIcon = 66,
     comboID = 0,
@@ -115146,14 +116116,15 @@ getRow(33113)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33114)->
     #skillCfg {
     skillID = 33114,
-    skillName = "专注IV",
-    skillInfo = "韧性+111",
-    skillInfo_sp = "韧性[53ff80]+111[-]",
+    skillName = "柔光IV",
+    skillInfo = "魔防+1004",
+    skillInfo_sp = "魔防[53ff80]+1004[-]",
     skillData = [0],
     skillIcon = 66,
     comboID = 0,
@@ -115263,14 +116234,15 @@ getRow(33114)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33115)->
     #skillCfg {
     skillID = 33115,
-    skillName = "专注V",
-    skillInfo = "韧性+146",
-    skillInfo_sp = "韧性[53ff80]+146[-]",
+    skillName = "柔光V",
+    skillInfo = "魔防+1338",
+    skillInfo_sp = "魔防[53ff80]+1338[-]",
     skillData = [0],
     skillIcon = 66,
     comboID = 0,
@@ -115380,14 +116352,15 @@ getRow(33115)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33211)->
     #skillCfg {
     skillID = 33211,
-    skillName = "狂乱I",
-    skillInfo = "骑宠伤害+10%",
-    skillInfo_sp = "骑宠伤害[53ff80]+10%[-]",
+    skillName = "铁血I",
+    skillInfo = "角色承受伤害-6%",
+    skillInfo_sp = "角色承受伤害[53ff80]-6%[-]",
     skillData = [0],
     skillIcon = 131,
     comboID = 0,
@@ -115497,14 +116470,15 @@ getRow(33211)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33212)->
     #skillCfg {
     skillID = 33212,
-    skillName = "狂乱II",
-    skillInfo = "骑宠伤害+13%",
-    skillInfo_sp = "骑宠伤害[53ff80]+13%[-]",
+    skillName = "铁血II",
+    skillInfo = "角色承受伤害-7%",
+    skillInfo_sp = "角色承受伤害[53ff80]-7%[-]",
     skillData = [0],
     skillIcon = 131,
     comboID = 0,
@@ -115614,14 +116588,15 @@ getRow(33212)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33213)->
     #skillCfg {
     skillID = 33213,
-    skillName = "狂乱III",
-    skillInfo = "骑宠伤害+16%",
-    skillInfo_sp = "骑宠伤害[53ff80]+16%[-]",
+    skillName = "铁血III",
+    skillInfo = "角色承受伤害-8%",
+    skillInfo_sp = "角色承受伤害[53ff80]-8%[-]",
     skillData = [0],
     skillIcon = 131,
     comboID = 0,
@@ -115731,14 +116706,15 @@ getRow(33213)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33214)->
     #skillCfg {
     skillID = 33214,
-    skillName = "狂乱IV",
-    skillInfo = "骑宠伤害+20%",
-    skillInfo_sp = "骑宠伤害[53ff80]+20%[-]",
+    skillName = "铁血IV",
+    skillInfo = "角色承受伤害-9%",
+    skillInfo_sp = "角色承受伤害[53ff80]-9%[-]",
     skillData = [0],
     skillIcon = 131,
     comboID = 0,
@@ -115848,14 +116824,15 @@ getRow(33214)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(33215)->
     #skillCfg {
     skillID = 33215,
-    skillName = "狂乱V",
-    skillInfo = "骑宠伤害+25%",
-    skillInfo_sp = "骑宠伤害[53ff80]+25%[-]",
+    skillName = "铁血V",
+    skillInfo = "角色承受伤害-10%",
+    skillInfo_sp = "角色承受伤害[53ff80]-10%[-]",
     skillData = [0],
     skillIcon = 131,
     comboID = 0,
@@ -115965,7 +116942,8 @@ getRow(33215)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(35000)->
     #skillCfg {
@@ -116083,7 +117061,8 @@ getRow(35000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(101000)->
     #skillCfg {
@@ -116202,7 +117181,8 @@ getRow(101000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(101001)->
     #skillCfg {
@@ -116321,7 +117301,8 @@ getRow(101001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(101002)->
     #skillCfg {
@@ -116440,7 +117421,8 @@ getRow(101002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(101003)->
     #skillCfg {
@@ -116560,7 +117542,8 @@ getRow(101003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(101004)->
     #skillCfg {
@@ -116680,7 +117663,8 @@ getRow(101004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(101005)->
     #skillCfg {
@@ -116800,7 +117784,8 @@ getRow(101005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(101006)->
     #skillCfg {
@@ -116919,7 +117904,8 @@ getRow(101006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(101010)->
     #skillCfg {
@@ -117038,7 +118024,8 @@ getRow(101010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(101011)->
     #skillCfg {
@@ -117157,7 +118144,8 @@ getRow(101011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(101012)->
     #skillCfg {
@@ -117276,7 +118264,8 @@ getRow(101012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(101999)->
     #skillCfg {
@@ -117390,7 +118379,8 @@ getRow(101999)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111000)->
     #skillCfg {
@@ -117509,7 +118499,8 @@ getRow(111000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111001)->
     #skillCfg {
@@ -117628,7 +118619,8 @@ getRow(111001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111002)->
     #skillCfg {
@@ -117746,7 +118738,8 @@ getRow(111002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111003)->
     #skillCfg {
@@ -117866,7 +118859,8 @@ getRow(111003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111004)->
     #skillCfg {
@@ -117986,7 +118980,8 @@ getRow(111004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111005)->
     #skillCfg {
@@ -118106,7 +119101,8 @@ getRow(111005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111006)->
     #skillCfg {
@@ -118225,7 +119221,8 @@ getRow(111006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111007)->
     #skillCfg {
@@ -118343,7 +119340,8 @@ getRow(111007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111008)->
     #skillCfg {
@@ -118460,7 +119458,8 @@ getRow(111008)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111010)->
     #skillCfg {
@@ -118579,7 +119578,8 @@ getRow(111010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111011)->
     #skillCfg {
@@ -118698,7 +119698,8 @@ getRow(111011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111012)->
     #skillCfg {
@@ -118817,7 +119818,8 @@ getRow(111012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111100)->
     #skillCfg {
@@ -118933,7 +119935,8 @@ getRow(111100)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(111101)->
     #skillCfg {
@@ -119049,7 +120052,8 @@ getRow(111101)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112000)->
     #skillCfg {
@@ -119168,7 +120172,8 @@ getRow(112000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112001)->
     #skillCfg {
@@ -119287,7 +120292,8 @@ getRow(112001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112002)->
     #skillCfg {
@@ -119406,7 +120412,8 @@ getRow(112002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112003)->
     #skillCfg {
@@ -119526,7 +120533,8 @@ getRow(112003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112004)->
     #skillCfg {
@@ -119647,7 +120655,8 @@ getRow(112004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112005)->
     #skillCfg {
@@ -119767,7 +120776,8 @@ getRow(112005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112006)->
     #skillCfg {
@@ -119886,7 +120896,8 @@ getRow(112006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112007)->
     #skillCfg {
@@ -120002,7 +121013,8 @@ getRow(112007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112008)->
     #skillCfg {
@@ -120119,7 +121131,8 @@ getRow(112008)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112010)->
     #skillCfg {
@@ -120239,7 +121252,8 @@ getRow(112010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112011)->
     #skillCfg {
@@ -120358,7 +121372,8 @@ getRow(112011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(112012)->
     #skillCfg {
@@ -120477,7 +121492,8 @@ getRow(112012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(121000)->
     #skillCfg {
@@ -120596,7 +121612,8 @@ getRow(121000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(121001)->
     #skillCfg {
@@ -120715,7 +121732,8 @@ getRow(121001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(121002)->
     #skillCfg {
@@ -120835,7 +121853,8 @@ getRow(121002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(121003)->
     #skillCfg {
@@ -120955,7 +121974,8 @@ getRow(121003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(121004)->
     #skillCfg {
@@ -121074,7 +122094,8 @@ getRow(121004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(121005)->
     #skillCfg {
@@ -121193,7 +122214,8 @@ getRow(121005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(121006)->
     #skillCfg {
@@ -121313,7 +122335,8 @@ getRow(121006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(122000)->
     #skillCfg {
@@ -121432,7 +122455,8 @@ getRow(122000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(122001)->
     #skillCfg {
@@ -121551,7 +122575,8 @@ getRow(122001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(122002)->
     #skillCfg {
@@ -121671,7 +122696,8 @@ getRow(122002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(122003)->
     #skillCfg {
@@ -121791,7 +122817,8 @@ getRow(122003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(122004)->
     #skillCfg {
@@ -121910,7 +122937,8 @@ getRow(122004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(122005)->
     #skillCfg {
@@ -122029,7 +123057,8 @@ getRow(122005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(122006)->
     #skillCfg {
@@ -122149,7 +123178,8 @@ getRow(122006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(123000)->
     #skillCfg {
@@ -122268,7 +123298,8 @@ getRow(123000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(123001)->
     #skillCfg {
@@ -122387,7 +123418,8 @@ getRow(123001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(123002)->
     #skillCfg {
@@ -122507,7 +123539,8 @@ getRow(123002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(123003)->
     #skillCfg {
@@ -122627,7 +123660,8 @@ getRow(123003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(123004)->
     #skillCfg {
@@ -122746,7 +123780,8 @@ getRow(123004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(123005)->
     #skillCfg {
@@ -122865,7 +123900,8 @@ getRow(123005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(123006)->
     #skillCfg {
@@ -122985,7 +124021,8 @@ getRow(123006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(201000)->
     #skillCfg {
@@ -123104,7 +124141,8 @@ getRow(201000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(201001)->
     #skillCfg {
@@ -123223,7 +124261,8 @@ getRow(201001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(201002)->
     #skillCfg {
@@ -123342,7 +124381,8 @@ getRow(201002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(201003)->
     #skillCfg {
@@ -123462,7 +124502,8 @@ getRow(201003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(201004)->
     #skillCfg {
@@ -123581,7 +124622,8 @@ getRow(201004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(201005)->
     #skillCfg {
@@ -123702,7 +124744,8 @@ getRow(201005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(201006)->
     #skillCfg {
@@ -123822,7 +124865,8 @@ getRow(201006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(201010)->
     #skillCfg {
@@ -123941,7 +124985,8 @@ getRow(201010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(201011)->
     #skillCfg {
@@ -124060,7 +125105,8 @@ getRow(201011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(201012)->
     #skillCfg {
@@ -124179,7 +125225,8 @@ getRow(201012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211000)->
     #skillCfg {
@@ -124298,7 +125345,8 @@ getRow(211000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211001)->
     #skillCfg {
@@ -124417,7 +125465,8 @@ getRow(211001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211002)->
     #skillCfg {
@@ -124536,7 +125585,8 @@ getRow(211002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211003)->
     #skillCfg {
@@ -124656,7 +125706,8 @@ getRow(211003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211004)->
     #skillCfg {
@@ -124776,7 +125827,8 @@ getRow(211004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211005)->
     #skillCfg {
@@ -124895,7 +125947,8 @@ getRow(211005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211006)->
     #skillCfg {
@@ -125012,7 +126065,8 @@ getRow(211006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211007)->
     #skillCfg {
@@ -125131,7 +126185,8 @@ getRow(211007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211008)->
     #skillCfg {
@@ -125250,7 +126305,8 @@ getRow(211008)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211010)->
     #skillCfg {
@@ -125369,7 +126425,8 @@ getRow(211010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211011)->
     #skillCfg {
@@ -125488,7 +126545,8 @@ getRow(211011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211012)->
     #skillCfg {
@@ -125607,7 +126665,8 @@ getRow(211012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211100)->
     #skillCfg {
@@ -125723,7 +126782,8 @@ getRow(211100)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211101)->
     #skillCfg {
@@ -125841,7 +126901,8 @@ getRow(211101)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211102)->
     #skillCfg {
@@ -125958,7 +127019,8 @@ getRow(211102)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(211103)->
     #skillCfg {
@@ -126076,7 +127138,8 @@ getRow(211103)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212000)->
     #skillCfg {
@@ -126195,7 +127258,8 @@ getRow(212000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212001)->
     #skillCfg {
@@ -126314,7 +127378,8 @@ getRow(212001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212002)->
     #skillCfg {
@@ -126433,7 +127498,8 @@ getRow(212002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212003)->
     #skillCfg {
@@ -126550,7 +127616,8 @@ getRow(212003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212004)->
     #skillCfg {
@@ -126671,7 +127738,8 @@ getRow(212004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212005)->
     #skillCfg {
@@ -126788,7 +127856,8 @@ getRow(212005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212006)->
     #skillCfg {
@@ -126909,7 +127978,8 @@ getRow(212006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212007)->
     #skillCfg {
@@ -127026,7 +128096,8 @@ getRow(212007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212008)->
     #skillCfg {
@@ -127143,7 +128214,8 @@ getRow(212008)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212010)->
     #skillCfg {
@@ -127262,7 +128334,8 @@ getRow(212010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212011)->
     #skillCfg {
@@ -127381,7 +128454,8 @@ getRow(212011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212012)->
     #skillCfg {
@@ -127500,7 +128574,8 @@ getRow(212012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212100)->
     #skillCfg {
@@ -127617,7 +128692,8 @@ getRow(212100)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(212101)->
     #skillCfg {
@@ -127734,7 +128810,8 @@ getRow(212101)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(221000)->
     #skillCfg {
@@ -127853,7 +128930,8 @@ getRow(221000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(221001)->
     #skillCfg {
@@ -127972,7 +129050,8 @@ getRow(221001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(221002)->
     #skillCfg {
@@ -128091,7 +129170,8 @@ getRow(221002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(221003)->
     #skillCfg {
@@ -128211,7 +129291,8 @@ getRow(221003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(221004)->
     #skillCfg {
@@ -128331,7 +129412,8 @@ getRow(221004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(221005)->
     #skillCfg {
@@ -128451,7 +129533,8 @@ getRow(221005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(221006)->
     #skillCfg {
@@ -128571,7 +129654,8 @@ getRow(221006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(221007)->
     #skillCfg {
@@ -128691,7 +129775,8 @@ getRow(221007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(222000)->
     #skillCfg {
@@ -128810,7 +129895,8 @@ getRow(222000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(222001)->
     #skillCfg {
@@ -128929,7 +130015,8 @@ getRow(222001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(222002)->
     #skillCfg {
@@ -129048,7 +130135,8 @@ getRow(222002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(222003)->
     #skillCfg {
@@ -129168,7 +130256,8 @@ getRow(222003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(222004)->
     #skillCfg {
@@ -129288,7 +130377,8 @@ getRow(222004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(222005)->
     #skillCfg {
@@ -129408,7 +130498,8 @@ getRow(222005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(222006)->
     #skillCfg {
@@ -129528,7 +130619,8 @@ getRow(222006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(222007)->
     #skillCfg {
@@ -129648,7 +130740,8 @@ getRow(222007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(223000)->
     #skillCfg {
@@ -129767,7 +130860,8 @@ getRow(223000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(223001)->
     #skillCfg {
@@ -129886,7 +130980,8 @@ getRow(223001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(223002)->
     #skillCfg {
@@ -130005,7 +131100,8 @@ getRow(223002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(223003)->
     #skillCfg {
@@ -130125,7 +131221,8 @@ getRow(223003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(223004)->
     #skillCfg {
@@ -130245,7 +131342,8 @@ getRow(223004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(223005)->
     #skillCfg {
@@ -130365,7 +131463,8 @@ getRow(223005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(223006)->
     #skillCfg {
@@ -130485,7 +131584,8 @@ getRow(223006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(223007)->
     #skillCfg {
@@ -130605,7 +131705,8 @@ getRow(223007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(301000)->
     #skillCfg {
@@ -130724,7 +131825,8 @@ getRow(301000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(301001)->
     #skillCfg {
@@ -130843,7 +131945,8 @@ getRow(301001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(301002)->
     #skillCfg {
@@ -130962,7 +132065,8 @@ getRow(301002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(301003)->
     #skillCfg {
@@ -131083,7 +132187,8 @@ getRow(301003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(301004)->
     #skillCfg {
@@ -131203,7 +132308,8 @@ getRow(301004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(301005)->
     #skillCfg {
@@ -131324,7 +132430,8 @@ getRow(301005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(301006)->
     #skillCfg {
@@ -131441,7 +132548,8 @@ getRow(301006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(301010)->
     #skillCfg {
@@ -131560,7 +132668,8 @@ getRow(301010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(301011)->
     #skillCfg {
@@ -131679,7 +132788,8 @@ getRow(301011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(301012)->
     #skillCfg {
@@ -131798,7 +132908,8 @@ getRow(301012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311000)->
     #skillCfg {
@@ -131917,7 +133028,8 @@ getRow(311000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311001)->
     #skillCfg {
@@ -132036,7 +133148,8 @@ getRow(311001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311002)->
     #skillCfg {
@@ -132155,7 +133268,8 @@ getRow(311002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311003)->
     #skillCfg {
@@ -132275,7 +133389,8 @@ getRow(311003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311004)->
     #skillCfg {
@@ -132396,7 +133511,8 @@ getRow(311004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311005)->
     #skillCfg {
@@ -132517,7 +133633,8 @@ getRow(311005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311006)->
     #skillCfg {
@@ -132634,7 +133751,8 @@ getRow(311006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311007)->
     #skillCfg {
@@ -132751,7 +133869,8 @@ getRow(311007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311008)->
     #skillCfg {
@@ -132868,7 +133987,8 @@ getRow(311008)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311010)->
     #skillCfg {
@@ -132987,7 +134107,8 @@ getRow(311010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311011)->
     #skillCfg {
@@ -133106,7 +134227,8 @@ getRow(311011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311012)->
     #skillCfg {
@@ -133225,7 +134347,8 @@ getRow(311012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(311100)->
     #skillCfg {
@@ -133341,7 +134464,8 @@ getRow(311100)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312000)->
     #skillCfg {
@@ -133459,7 +134583,8 @@ getRow(312000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312001)->
     #skillCfg {
@@ -133577,7 +134702,8 @@ getRow(312001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312002)->
     #skillCfg {
@@ -133695,7 +134821,8 @@ getRow(312002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312003)->
     #skillCfg {
@@ -133816,7 +134943,8 @@ getRow(312003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312004)->
     #skillCfg {
@@ -133936,7 +135064,8 @@ getRow(312004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312005)->
     #skillCfg {
@@ -134056,7 +135185,8 @@ getRow(312005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312006)->
     #skillCfg {
@@ -134175,7 +135305,8 @@ getRow(312006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312007)->
     #skillCfg {
@@ -134291,7 +135422,8 @@ getRow(312007)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312008)->
     #skillCfg {
@@ -134408,7 +135540,8 @@ getRow(312008)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312010)->
     #skillCfg {
@@ -134526,7 +135659,8 @@ getRow(312010)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312011)->
     #skillCfg {
@@ -134644,7 +135778,8 @@ getRow(312011)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(312012)->
     #skillCfg {
@@ -134762,7 +135897,8 @@ getRow(312012)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(321000)->
     #skillCfg {
@@ -134881,7 +136017,8 @@ getRow(321000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(321001)->
     #skillCfg {
@@ -135000,7 +136137,8 @@ getRow(321001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(321002)->
     #skillCfg {
@@ -135120,7 +136258,8 @@ getRow(321002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(321004)->
     #skillCfg {
@@ -135239,7 +136378,8 @@ getRow(321004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(321005)->
     #skillCfg {
@@ -135358,7 +136498,8 @@ getRow(321005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(321006)->
     #skillCfg {
@@ -135477,7 +136618,8 @@ getRow(321006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(322000)->
     #skillCfg {
@@ -135596,7 +136738,8 @@ getRow(322000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(322001)->
     #skillCfg {
@@ -135715,7 +136858,8 @@ getRow(322001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(322002)->
     #skillCfg {
@@ -135835,7 +136979,8 @@ getRow(322002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(322003)->
     #skillCfg {
@@ -135955,7 +137100,8 @@ getRow(322003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(322004)->
     #skillCfg {
@@ -136074,7 +137220,8 @@ getRow(322004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(322005)->
     #skillCfg {
@@ -136193,7 +137340,8 @@ getRow(322005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(322006)->
     #skillCfg {
@@ -136312,7 +137460,8 @@ getRow(322006)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(323000)->
     #skillCfg {
@@ -136431,7 +137580,8 @@ getRow(323000)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(323001)->
     #skillCfg {
@@ -136550,7 +137700,8 @@ getRow(323001)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(323002)->
     #skillCfg {
@@ -136670,7 +137821,8 @@ getRow(323002)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 1,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(323003)->
     #skillCfg {
@@ -136790,7 +137942,8 @@ getRow(323003)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(323004)->
     #skillCfg {
@@ -136909,7 +138062,8 @@ getRow(323004)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(323005)->
     #skillCfg {
@@ -137028,7 +138182,8 @@ getRow(323005)->
     pveskillMult = 0,
     nouse = 0,
     unnormal = 0,
-    manaCost = 0
+    manaCost = 0,
+    skill_release_trigger = 0
     };
 getRow(_)->[].
 

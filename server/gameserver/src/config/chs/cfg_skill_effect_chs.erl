@@ -7943,16 +7943,16 @@ getRow(19014)->
 getRow(19015)->
     #skill_effectCfg {
     iD = 19015,
-    effectType = 4,
+    effectType = 1,
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 724,
-    param2 = 10,
-    param3 = 20,
+    param1 = 0,
+    param2 = 0,
+    param3 = 0,
     param4 = 0,
     param5 = 0,
-    param6 = 20,
+    param6 = 0,
     skillName = "首领入侵boss4号"
     };
 getRow(19016)->
@@ -8277,13 +8277,13 @@ getRow(20001)->
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 20001,
+    param1 = 15001,
     param2 = 0,
     param3 = 0,
-    param4 = 3000,
+    param4 = 5000,
     param5 = 0,
     param6 = 0,
-    skillName = "首领入侵3号boss载体"
+    skillName = "首领入侵4号boss载体"
     };
 getRow(20002)->
     #skill_effectCfg {
@@ -8292,10 +8292,10 @@ getRow(20002)->
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 20002,
+    param1 = 15002,
     param2 = 0,
     param3 = 0,
-    param4 = 10000,
+    param4 = 1500,
     param5 = 0,
     param6 = 0,
     skillName = "首领入侵4号boss载体"
@@ -8307,13 +8307,13 @@ getRow(20003)->
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 20003,
+    param1 = 15003,
     param2 = 0,
     param3 = 0,
     param4 = 5000,
     param5 = 0,
     param6 = 0,
-    skillName = "首领入侵5号boss载体"
+    skillName = "首领入侵4号boss载体"
     };
 getRow(20004)->
     #skill_effectCfg {
@@ -10950,7 +10950,7 @@ getRow(40131)->
     param1 = 20009,
     param2 = 0,
     param3 = 0,
-    param4 = 7000,
+    param4 = 5000,
     param5 = 0,
     param6 = 1,
     skillName = "旅者-漫天箭雨-载体"

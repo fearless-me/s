@@ -311,6 +311,60 @@ getRow(changeGuildNameSuccess)->
     stringID = changeGuildNameSuccess,
     chs = "家族公告：您所在的家族名已由【{0}】改为【{1}】"
     };
+getRow(characters_countdown1)->
+    #serverstringsCfg {
+    id = 357,
+    stringID = characters_countdown1,
+    chs = "<1>"
+    };
+getRow(characters_countdown2)->
+    #serverstringsCfg {
+    id = 356,
+    stringID = characters_countdown2,
+    chs = "<2>"
+    };
+getRow(characters_countdown3)->
+    #serverstringsCfg {
+    id = 355,
+    stringID = characters_countdown3,
+    chs = "<3>"
+    };
+getRow(characters_countdown4)->
+    #serverstringsCfg {
+    id = 354,
+    stringID = characters_countdown4,
+    chs = "<4>"
+    };
+getRow(characters_countdown5)->
+    #serverstringsCfg {
+    id = 353,
+    stringID = characters_countdown5,
+    chs = "<5>"
+    };
+getRow(characters_countdownstart)->
+    #serverstringsCfg {
+    id = 358,
+    stringID = characters_countdownstart,
+    chs = "战斗开始！"
+    };
+getRow(characters_enterexpfb)->
+    #serverstringsCfg {
+    id = 359,
+    stringID = characters_enterexpfb,
+    chs = "你现在进入了经验升降梯！"
+    };
+getRow(characters_entershouhu)->
+    #serverstringsCfg {
+    id = 360,
+    stringID = characters_entershouhu,
+    chs = "请保护守护目标不被打破"
+    };
+getRow(characters_startcountdown)->
+    #serverstringsCfg {
+    id = 361,
+    stringID = characters_startcountdown,
+    chs = "开始倒计时"
+    };
 getRow(cityMonster_NetBoss)->
     #serverstringsCfg {
     id = 84,
@@ -2171,6 +2225,15 @@ getKeyList()->[
     {career_transfer_success},
     {carrer_warrior},
     {changeGuildNameSuccess},
+    {characters_countdown1},
+    {characters_countdown2},
+    {characters_countdown3},
+    {characters_countdown4},
+    {characters_countdown5},
+    {characters_countdownstart},
+    {characters_enterexpfb},
+    {characters_entershouhu},
+    {characters_startcountdown},
     {cityMonster_NetBoss},
     {cityMonster_NextMonster},
     {cityMonsterAcEnd},
@@ -2526,6 +2589,15 @@ get1KeyList()->[
     career_transfer_success,
     carrer_warrior,
     changeGuildNameSuccess,
+    characters_countdown1,
+    characters_countdown2,
+    characters_countdown3,
+    characters_countdown4,
+    characters_countdown5,
+    characters_countdownstart,
+    characters_enterexpfb,
+    characters_entershouhu,
+    characters_startcountdown,
     cityMonster_NetBoss,
     cityMonster_NextMonster,
     cityMonsterAcEnd,

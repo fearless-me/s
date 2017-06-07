@@ -12,7 +12,8 @@ getRow(1)->
     name = "doge",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(2)->
     #bubbleExpressionCfg {
@@ -21,7 +22,8 @@ getRow(2)->
     name = "ok",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(3)->
     #bubbleExpressionCfg {
@@ -30,7 +32,8 @@ getRow(3)->
     name = "aixinyan",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(4)->
     #bubbleExpressionCfg {
@@ -39,7 +42,8 @@ getRow(4)->
     name = "daku",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(5)->
     #bubbleExpressionCfg {
@@ -48,7 +52,8 @@ getRow(5)->
     name = "diantou",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(6)->
     #bubbleExpressionCfg {
@@ -57,7 +62,8 @@ getRow(6)->
     name = "dianzan",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(7)->
     #bubbleExpressionCfg {
@@ -66,7 +72,8 @@ getRow(7)->
     name = "duqi",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(8)->
     #bubbleExpressionCfg {
@@ -75,7 +82,8 @@ getRow(8)->
     name = "fadai",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(9)->
     #bubbleExpressionCfg {
@@ -84,7 +92,8 @@ getRow(9)->
     name = "fanyun",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(10)->
     #bubbleExpressionCfg {
@@ -93,7 +102,8 @@ getRow(10)->
     name = "gaobai",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(11)->
     #bubbleExpressionCfg {
@@ -102,7 +112,8 @@ getRow(11)->
     name = "haipa",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(12)->
     #bubbleExpressionCfg {
@@ -111,7 +122,8 @@ getRow(12)->
     name = "haixiu",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(13)->
     #bubbleExpressionCfg {
@@ -120,7 +132,8 @@ getRow(13)->
     name = "hanyan",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(14)->
     #bubbleExpressionCfg {
@@ -129,7 +142,8 @@ getRow(14)->
     name = "hengheng",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(15)->
     #bubbleExpressionCfg {
@@ -138,7 +152,8 @@ getRow(15)->
     name = "huaixiao",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(16)->
     #bubbleExpressionCfg {
@@ -147,7 +162,8 @@ getRow(16)->
     name = "jiyanxiao",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(17)->
     #bubbleExpressionCfg {
@@ -156,7 +172,8 @@ getRow(17)->
     name = "jiandaoshou",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(18)->
     #bubbleExpressionCfg {
@@ -165,7 +182,8 @@ getRow(18)->
     name = "jingxia",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(19)->
     #bubbleExpressionCfg {
@@ -174,7 +192,8 @@ getRow(19)->
     name = "kaixin",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(20)->
     #bubbleExpressionCfg {
@@ -183,7 +202,8 @@ getRow(20)->
     name = "kuzhexiao",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(21)->
     #bubbleExpressionCfg {
@@ -192,7 +212,8 @@ getRow(21)->
     name = "ku",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(22)->
     #bubbleExpressionCfg {
@@ -201,7 +222,8 @@ getRow(22)->
     name = "liulei",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(23)->
     #bubbleExpressionCfg {
@@ -210,7 +232,8 @@ getRow(23)->
     name = "maimeng",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(24)->
     #bubbleExpressionCfg {
@@ -219,7 +242,8 @@ getRow(24)->
     name = "miyanxiao",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(25)->
     #bubbleExpressionCfg {
@@ -228,7 +252,8 @@ getRow(25)->
     name = "momotou",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(26)->
     #bubbleExpressionCfg {
@@ -237,7 +262,8 @@ getRow(26)->
     name = "nanguo",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(27)->
     #bubbleExpressionCfg {
@@ -246,7 +272,8 @@ getRow(27)->
     name = "paishou",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(28)->
     #bubbleExpressionCfg {
@@ -255,7 +282,8 @@ getRow(28)->
     name = "qinqin",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(29)->
     #bubbleExpressionCfg {
@@ -264,7 +292,8 @@ getRow(29)->
     name = "shengbing",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(30)->
     #bubbleExpressionCfg {
@@ -273,7 +302,8 @@ getRow(30)->
     name = "shengqi",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(31)->
     #bubbleExpressionCfg {
@@ -282,7 +312,8 @@ getRow(31)->
     name = "shuijiao",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(32)->
     #bubbleExpressionCfg {
@@ -291,7 +322,8 @@ getRow(32)->
     name = "tanqi",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(33)->
     #bubbleExpressionCfg {
@@ -300,7 +332,8 @@ getRow(33)->
     name = "xiexie",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(34)->
     #bubbleExpressionCfg {
@@ -309,7 +342,8 @@ getRow(34)->
     name = "xinsui",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(35)->
     #bubbleExpressionCfg {
@@ -318,7 +352,8 @@ getRow(35)->
     name = "yiwen",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(36)->
     #bubbleExpressionCfg {
@@ -327,7 +362,8 @@ getRow(36)->
     name = "zaijian",
     expressionlist = [1,2],
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(51)->
     #bubbleExpressionCfg {
@@ -336,7 +372,8 @@ getRow(51)->
     name = "paishou1",
     icon = "action_paishou",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(52)->
     #bubbleExpressionCfg {
@@ -345,7 +382,8 @@ getRow(52)->
     name = "tiaopi1",
     icon = "action_guilian",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(53)->
     #bubbleExpressionCfg {
@@ -354,7 +392,8 @@ getRow(53)->
     name = "wuliao1",
     icon = "action_shenyao",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(54)->
     #bubbleExpressionCfg {
@@ -363,7 +402,8 @@ getRow(54)->
     name = "xingli1",
     icon = "action_xingli",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(55)->
     #bubbleExpressionCfg {
@@ -372,7 +412,8 @@ getRow(55)->
     name = "aiyi1",
     icon = "action_bixin",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(56)->
     #bubbleExpressionCfg {
@@ -381,7 +422,8 @@ getRow(56)->
     name = "beishang1",
     icon = "action_kuqi",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(57)->
     #bubbleExpressionCfg {
@@ -390,7 +432,8 @@ getRow(57)->
     name = "feiwen1",
     icon = "action_huanying",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(58)->
     #bubbleExpressionCfg {
@@ -399,7 +442,8 @@ getRow(58)->
     name = "fennu1",
     icon = "action_fennu",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(59)->
     #bubbleExpressionCfg {
@@ -408,7 +452,8 @@ getRow(59)->
     name = "guancha1",
     icon = "action_zhangwang",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(60)->
     #bubbleExpressionCfg {
@@ -417,7 +462,8 @@ getRow(60)->
     name = "haipa1",
     icon = "action_haipa",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(61)->
     #bubbleExpressionCfg {
@@ -426,7 +472,8 @@ getRow(61)->
     name = "huaquanquan1",
     icon = "action_huaquanquan",
     continueTime = 1,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(62)->
     #bubbleExpressionCfg {
@@ -435,7 +482,8 @@ getRow(62)->
     name = "huishou1",
     icon = "action_huishou",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(63)->
     #bubbleExpressionCfg {
@@ -444,7 +492,8 @@ getRow(63)->
     name = "jingong1",
     icon = "action_qianjin",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(64)->
     #bubbleExpressionCfg {
@@ -453,7 +502,8 @@ getRow(64)->
     name = "kaixin1",
     icon = "action_huanhu",
     continueTime = 2,
-    lock = 0
+    lock = 0,
+    action_dance = 0
     };
 getRow(65)->
     #bubbleExpressionCfg {
@@ -462,7 +512,8 @@ getRow(65)->
     name = "tiaowu1",
     icon = "action_wudao1",
     continueTime = 1,
-    lock = 0
+    lock = 0,
+    action_dance = 1
     };
 getRow(66)->
     #bubbleExpressionCfg {
@@ -471,7 +522,8 @@ getRow(66)->
     name = "wudao2",
     icon = "action_wudao2",
     continueTime = 1,
-    lock = 0
+    lock = 0,
+    action_dance = 1
     };
 getRow(67)->
     #bubbleExpressionCfg {
@@ -480,7 +532,8 @@ getRow(67)->
     name = "wudao3",
     icon = "action_wudao3",
     continueTime = 1,
-    lock = 0
+    lock = 0,
+    action_dance = 1
     };
 getRow(68)->
     #bubbleExpressionCfg {
@@ -489,7 +542,8 @@ getRow(68)->
     name = "dianyinshuaishouwu",
     icon = "action_wudao4",
     continueTime = 1,
-    lock = 0
+    lock = 0,
+    action_dance = 1
     };
 getRow(69)->
     #bubbleExpressionCfg {
@@ -498,7 +552,8 @@ getRow(69)->
     name = "yueqiumanbu",
     icon = "action_wudao5",
     continueTime = 1,
-    lock = 0
+    lock = 0,
+    action_dance = 1
     };
 getRow(70)->
     #bubbleExpressionCfg {
@@ -507,7 +562,8 @@ getRow(70)->
     name = "nobody",
     icon = "action_wudao6",
     continueTime = 1,
-    lock = 0
+    lock = 0,
+    action_dance = 1
     };
 getRow(71)->
     #bubbleExpressionCfg {
@@ -516,7 +572,8 @@ getRow(71)->
     name = "jilejingtu",
     icon = "action_wudao7",
     continueTime = 1,
-    lock = 0
+    lock = 0,
+    action_dance = 1
     };
 getRow(72)->
     #bubbleExpressionCfg {
@@ -525,7 +582,8 @@ getRow(72)->
     name = "fuguwu",
     icon = "action_wudao8",
     continueTime = 1,
-    lock = 0
+    lock = 0,
+    action_dance = 1
     };
 getRow(73)->
     #bubbleExpressionCfg {
@@ -534,7 +592,8 @@ getRow(73)->
     name = "niuniuwu",
     icon = "action_wudao9",
     continueTime = 1,
-    lock = 0
+    lock = 0,
+    action_dance = 1
     };
 getRow(74)->
     #bubbleExpressionCfg {
@@ -543,7 +602,8 @@ getRow(74)->
     name = "tufengwu1",
     icon = "action_wudao10",
     continueTime = 1,
-    lock = 0
+    lock = 0,
+    action_dance = 1
     };
 getRow(_)->[].
 

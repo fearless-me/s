@@ -1399,6 +1399,27 @@ getRow(1104)->
     npc_head = 1,
     npc_minimap = 0
     };
+getRow(1105)->
+    #npcCfg {
+    id = 1105,
+    refname = "触发点-安娜的家",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-97.9,-285,1507],
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0
+    };
 getRow(2000)->
     #npcCfg {
     id = 2000,
@@ -2986,11 +3007,11 @@ getRow(3029)->
 getRow(3031)->
     #npcCfg {
     id = 3031,
-    refname = "触发点-皮皮的智慧/魔族线索",
+    refname = "触发点-安娜的魔宠",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
+    param = "m",
     mo_type = 0,
     multiple = 100,
     npcface = 0,
@@ -7381,6 +7402,7 @@ getKeyList()->[
     {1102},
     {1103},
     {1104},
+    {1105},
     {2000},
     {2001},
     {2002},
@@ -7713,6 +7735,7 @@ get1KeyList()->[
     1102,
     1103,
     1104,
+    1105,
     2000,
     2001,
     2002,

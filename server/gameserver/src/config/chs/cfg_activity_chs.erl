@@ -40,7 +40,7 @@ getRow(3)->
     type = 0,
     cycletype = 2,
     cycletime = 0,
-    starttime = [{0,1800}],
+    starttime = [{0,10}],
     lenghtime = 43200,
     stage = [60,43020,120],
     mapidlist = [22],
@@ -264,7 +264,7 @@ getRow(19)->
     type = 0,
     cycletype = 2,
     cycletime = 0,
-    starttime = [{0,12}],
+    starttime = [{0,19}],
     lenghtime = 3732,
     stage = [1800,10,1800,2,120],
     mapidlist = [7000],
@@ -299,6 +299,20 @@ getRow(21)->
     condition = 0,
     awardlist = 0
     };
+getRow(22)->
+    #activityCfg {
+    id = 22,
+    name = "限时广场舞",
+    type = 0,
+    cycletype = 2,
+    cycletime = 0,
+    starttime = [{0,11},{0,17}],
+    lenghtime = 2400,
+    stage = [1500,120,120,60,600],
+    mapidlist = [0],
+    condition = 0,
+    awardlist = 0
+    };
 getRow(_)->[].
 
 getKeyList()->[
@@ -322,7 +336,8 @@ getKeyList()->[
     {18},
     {19},
     {20},
-    {21}
+    {21},
+    {22}
     ].
 
 get1KeyList()->[
@@ -346,6 +361,7 @@ get1KeyList()->[
     18,
     19,
     20,
-    21
+    21,
+    22
     ].
 
