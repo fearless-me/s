@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="build_cn" default="make_tar">
+	<property name="channel" value="cn" />
+	<property name="build" value="tar" />
+	<target name="init">
+		<delete dir="../${build}" />
+		<mkdir dir="../${build}" />
+	</target>
+	<target name="make_tar" depends="init">
+		<tar destfile="../${build}/gameserver.tar.gz" compression="gzip">
+			<fileset dir="../gameserver/ebin">
+				<include name="**" />
+			</fileset>
+		</tar>
+	</target>
+</project>

@@ -1,0 +1,13 @@
+{application,xref_runner,
+             [{description,"Xref Runner"},
+              {vsn,"1.0.0"},
+              {applications,[kernel,stdlib,tools,erl_interface]},
+              {modules,[xref_runner,xrefr]},
+              {registered,[]},
+              {maintainers,["Inaka"]},
+              {licenses,["Apache 2.0"]},
+              {links,[{"Github","https://github.com/inaka/xref_runner"},
+                      {"Docs","http://inaka.github.io/xref_runner/"},
+                      {"Blog",
+                       "http://inaka.net/blog/2015/02/10/xref-runner/"}]},
+              {build_tools,["erlang.mk","rebar"]}]}.

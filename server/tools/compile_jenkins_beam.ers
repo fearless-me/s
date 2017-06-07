@@ -1,0 +1,31 @@
+#!/usr/bin/env escript
+
+%%%-------------------------------------------------------------------
+%%% @author tiancheng
+%%% @copyright (C) 2014, <公司>
+%%% @doc
+%%%    chs cht enu kor xmt tha rus jpn  vietnam
+%%% @end
+%%% Created : 04. 十二月 2014 16:57
+%%%-------------------------------------------------------------------
+
+-author("tiancheng").
+
+main(Param) ->
+	io:format("Param:~p", [Param]),
+	[Lang] = Param,
+	compile2(list_to_atom(Lang)),
+	ok.
+
+compile2(Lang) ->
+	%% gs/gsD
+	FileName = io_lib:format("./compile_~p_gs.txt", [Lang]),
+	CmdStr = io_lib:format("make gs Region=\"~p\" > ~ts", [Lang, FileName]),
+	io:format("compile [~p,gs] start, please wait...~n", [Lang]),
+	file:write_file(FileName, ""),	
+	Ret = os:cmd(CmdStr),
+	case string:str(Ret, "recipe for target") of
+		0 -> io:format("@@@compile [~p,gs] success@@@~n", [Lang]);
+		_ -> io:format("***compile [~p,gs] ERROR ERROR ERROR !!!***~n", [Lang])
+	end,
+	ok.

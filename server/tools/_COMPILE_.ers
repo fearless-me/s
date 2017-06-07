@@ -1,0 +1,184 @@
+#!/usr/bin/env escript
+
+%%%-------------------------------------------------------------------
+%%% @author tiancheng
+%%% @copyright (C) 2014, <公司>
+%%% @doc
+%%%
+%%% @end
+%%% Created : 04. 十二月 2014 16:57
+%%%-------------------------------------------------------------------
+
+-author("tiancheng").
+
+-define(SleepTime, 3000).
+-define(CompileEts, compileEts).
+
+main(_) ->
+	ets:new(?CompileEts, [public, named_table, {keypos,1}]),
+	setTitle("unknown", "unknown"),
+	menu(),
+	ok.
+
+	
+menu() ->
+	%%读取配置
+	io:format(
+		"##########################################################~n"
+		"\t\tLUNA multi-language compile~n#~n"
+		"\t1.(chs) China~n"
+		"\t2.(cht) Taiwan~n"
+		"\t3.(enu) English~n"
+		"\t4.(kor) Korea~n"
+		"\t5.(xmt) Malaysia~n"
+		"\t6.(tha) Thailand~n"
+		"\t7.(rus) Russia~n"
+		"\t8.(jpn) Japan~n"
+		"\t9.(vietnam)  Vietnam~n"
+		"#~n"
+		"\t0.exit~n"
+		"\t888. jump package~n"
+		"~n##########################################################~n~n"
+	),
+	InputNoStr = io:get_line("Please enter your choice:"),
+	{InputNo, _Rest} = string:to_integer(InputNoStr),
+	dispatchInput(InputNo).
+
+dispatchInput(0) -> ok;
+dispatchInput(1) -> menu2(chs);
+dispatchInput(2) -> menu2(cht);
+dispatchInput(3) -> menu2(enu);
+dispatchInput(4) -> menu2(kor);
+dispatchInput(5) -> menu2(xmt);
+dispatchInput(6) -> menu2(tha);
+dispatchInput(7) -> menu2(rus);
+dispatchInput(8) -> menu2(jpn);
+dispatchInput(9) -> menu2(vietnam);
+dispatchInput(888) ->
+	os:cmd("start misc_menu.ers"),
+	ok;
+dispatchInput(_) -> menu().
+
+getCompileServer(1) -> gs;
+getCompileServer(_) -> gsD.
+
+menu2(V) ->
+	io:format(
+		"~n##########################################################~n"
+		"\t\tselect compile sub order~n#~n"
+		"\t1.gs(release)~n"
+		"\t11.gs(debug)~n"
+		"#~n"
+		"\t0.exit~n"
+		"\t9.return main...~n"
+		"\t888.jump package~n"
+		"~n##########################################################~n~n"
+	),
+	setTitle(V, "unknown"),
+	InputNoStr = io:get_line("Please enter your choice:"),
+	{InputNo, _Rest} = string:to_integer(InputNoStr),
+	dispatchInput2(V, InputNo).
+
+dispatchInput2(_Lang, 0) -> ok;
+dispatchInput2(Lang, Compile) when erlang:is_integer(Compile) andalso ((Compile >= 1 andalso Compile =< 5) orelse (Compile >= 11 andalso Compile =< 15)) ->
+	setTitle(Lang, getCompileServer(Compile)),
+	if
+		Compile =:= 1 ->
+			compile(Lang, 1);
+		Compile =:= 11 ->
+			compile(Lang, 11);
+		true ->
+			compile(Lang, Compile)
+	end,
+	compileWait(Lang, Compile);
+dispatchInput2(_Lang, 9) -> menu();
+dispatchInput2(_Lang, 888) ->
+	os:cmd("start misc_menu.ers"),
+	ok;
+dispatchInput2(Lang, _Compile) -> menu2(Lang).
+
+compileWait(Lang, Compile) ->
+	waitATime(?SleepTime),
+	case ets:info(?CompileEts, size) of
+		0 ->
+			io:format("---compile end---~n~n"),
+
+			%% 记录编译日期，编译版本，并提交SVN
+			os:cmd("svn update _________COMPILE_TIME_________.txt"),
+			{{Y,M,D},{H,Min,S}} = calendar:local_time(),
+			Result = io_lib:format("~p-~p-~p ~p:~p:~p compile ~p[~p]",
+				[Y, M, D, H, Min, S, Lang, getCompileServer(Compile)]),
+			file:write_file("./_________COMPILE_TIME_________.txt", Result),
+			os:cmd("svn commit -m \"compile time\" _________COMPILE_TIME_________.txt"),
+			os:cmd("svn update"),
+
+			waitATime(?SleepTime),
+			menu2(Lang);
+		_ ->
+			compileWait(Lang, Compile)
+	end.
+
+compile(Lang, Compile) ->
+	erlang:spawn(fun() -> compile2(Lang, Compile) end),
+	waitATime(?SleepTime),
+	ok.
+compile2(Lang, Compile) ->
+	ets:insert(?CompileEts, {Compile, Lang}),
+	Target = getCompileServer(Compile),
+	FileName = io_lib:format("./compile_~p_~p.txt", [Lang, Target]),
+	CmdStr = io_lib:format("make ~p Region=\"~p\" > ~ts", [Target, Lang, FileName]),
+	
+	io:format("compile [~p,~p] start, please wait...~n", [Lang, Target]),
+	file:write_file(FileName, ""),	
+	os:cmd(CmdStr),
+	
+	Now = time_format(),
+	case checkCompileError(FileName) of
+		0 -> 
+			io:format("@@@compile [~p,~p] success@@@ at ~ts ~n", [Lang, Target,Now]);
+		_ -> 
+			io:format("***compile [~p,~p] ERROR ERROR ERROR !!!*** ~ts ~n", [Lang, Target,Now])
+	end,
+	io:format("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n"),
+	
+	
+	ets:delete(?CompileEts, Compile),
+	ok.
+	
+checkCompileError(FileName)->
+	{ok,Binary} = file:read_file(FileName),
+	Content = binary_to_list(Binary),
+	case string:str(Content, "recipe for target") of
+		0 ->
+			string:str(Content, "failed");
+		V ->
+			V
+	end.
+
+waitATime(Time) ->
+	receive
+		tttttttttttttttcccccccccccccccc ->
+			ok
+	after Time ->
+		ok
+	end.
+	
+	
+setTitle(Lang, Mode)->
+	case os:type() of
+		{win32, _} ->
+			{_,Cwd} = file:get_cwd(),
+			os:cmd(io_lib:format('title "~p|~p|~p"',[Cwd,Lang, Mode]));
+		_ ->
+			skip
+	end.
+
+time_format()-> time_format(erlang:timestamp()).
+
+time_format(Now) -> 
+	{{Y,M,D},{H,MM,S}} = calendar:now_to_local_time(Now),
+	time_format1(Y, M, D, H, MM, S).
+time_format1(Y, M, D, H, MM, S) ->
+	lists:concat([Y, "-", one_to_two(M), "-", one_to_two(D), " ", 
+						one_to_two(H) , ":", one_to_two(MM), ":", one_to_two(S)]).	
+one_to_two(One) -> io_lib:format("~2..0B", [One]).

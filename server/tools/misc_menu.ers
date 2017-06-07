@@ -1,0 +1,913 @@
+#!/usr/bin/env escript
+
+%%%-------------------------------------------------------------------
+%%% @author ZhongYuanWei
+%%% @copyright (C) 2014, <公司>
+%%% @doc
+%%%
+%%% @end
+%%% Created : 04. 十二月 2014 16:57
+%%%-------------------------------------------------------------------
+
+-author("ZhongYuanWei").
+-define(TXTConfig, 0).%%服务器的配置
+-define(ShFile, 1).%%Sh文件
+
+-define(Full_Install, 0). 	%%全新安装，包括所有配置文件，数据文件以及ebin下的所有beam文件
+-define(Full_Update, 1).	%%全新更新，包括ebin下所有beam文件、全部数据文件、(运维实际脚本处理会把配置文件以及脚本除外），需要重启服务器
+-define(Hot_Update, 0).		%%热更新，只有ebin下的部分beam文件，可以不用重启服务器
+-define(Update, 1).			%%更新，可以有ebin下的部分beam文件、gameserver/data/maps目录下的部分文件、部分配置文件(需要运维手动操作和确认)或者是部分脚本文件(需要运维手动操作和确认)。需要重启服务器
+
+main(_) ->
+	menu(),
+	ok.
+
+menu() ->
+	%%读取配置
+	{_, Config} = file:consult("./menu.config"),
+
+	[{dir_config, {work_dir, WorkDir}, {target_dir, TargetDir}, {smallpack_target_dir, SmallPackDir}},
+
+		{pack_config, PackConfig},
+		{pack_small_config, SmallPackConfig}] = Config,
+	setWorkDir(WorkDir),
+	setTargetDir(TargetDir),
+	setSmallPackDir(SmallPackDir),
+
+	setPackConfig(PackConfig),
+	setSmallPackConfig(SmallPackConfig),
+	io:format(
+		"~n#######################################################~n"
+		"             Welcome to the Utility Wizard             ~n"
+		"~n"
+		"hotupdate:~n"
+		"6.hot_Update source copy     8.server hotUpdate pack~n~n"
+		"update:~n"
+		"5.smallpack source full copy   9.server update pack~n~n"
+		"install:~n"
+		"3.server full install pack~n"
+
+		"0.exit~n"
+		"~n#######################################################~n"
+	),
+	InputNoStr = io:get_line("Please enter your choice:"),
+	{InputNo, _Rest} = string:to_integer(InputNoStr),
+	io:format("~n#######################################################~n"),
+	dispatchInput(InputNo).
+
+dispatchInput(999) ->
+	%%os:cmd("start _________COMPILE_________.bat"),
+	ok;
+dispatchInput(0) ->
+	ok;
+%%dispatchInput(1) ->
+%%	try
+%%		updateServer()
+%%	catch
+%%	    _:Why ->
+%%			io:format("Update Server Exception:~p~n",[Why])
+%%	end,
+%%	menu();
+%%dispatchInput(2) ->
+%%	try
+%%		compileServer()
+%%	catch
+%%		_:Why ->
+%%			io:format("Compile Server Exception:~p~n",[Why])
+%%	end,
+%%	menu();
+dispatchInput(3) ->
+	try
+		packServer(?Full_Install)
+	catch
+		_:Why ->
+			io:format("FullInstall Pack Exception:~p~n",[Why])
+	end,
+	menu();
+%%dispatchInput(4) ->
+%%	try
+%%		packServer(?Full_Update)
+%%	catch
+%%		_:Why ->
+%%			io:format("FullUpdate Pack Exception:~p~n",[Why])
+%%	end,
+%%	menu();
+dispatchInput(5) ->
+	try
+		smallPackSourceFullCopy()
+	catch
+		_:Why ->
+			io:format("SmallPack Source Full Copy Exception:~p~n",[Why])
+	end,
+	menu();
+dispatchInput(6) ->
+	try
+		smallPackSourceCopy(?Hot_Update)
+	catch
+		_:Why ->
+			io:format("SmallPack Source Copy Exception:~p~n",[Why])
+	end,
+	menu();
+%%dispatchInput(7) ->
+%%	try
+%%		smallPackSourceCopy(?Update)
+%%	catch
+%%		_:Why ->
+%%			io:format("SmallPack Source Copy Exception:~p~n",[Why])
+%%	end,
+%%	menu();
+dispatchInput(8) ->
+	try
+		smallPackServer(?Hot_Update)
+	catch
+		_:Why ->
+			io:format("HotUpdate Pack Exception:~p~n",[Why])
+	end,
+	menu();
+dispatchInput(9) ->
+	try
+		smallPackServer(?Update)
+	catch
+		_:Why ->
+			io:format("Update Pack Exception:~p~n",[Why])
+	end,
+	menu();
+%%dispatchInput(10) ->
+%%	hotUpdateServer(),
+%%	menu();
+dispatchInput(89314313415531231) ->
+	updateServer(),
+	compileServer(),
+	hotUpdateServer(),
+	ok;
+dispatchInput(_) ->
+	writeLine("Invalid choice, please enter valid choice!"),
+	menu().
+
+updateServer() ->
+	%%setWorkDir(),
+	svn_update(),
+	writeLine("updateServer OK!"),
+	ok.
+
+compileServer() ->
+	compileBegin(),
+	writeLine("compileServer OK!"),
+	ok.
+
+packServer(Type) ->
+	%%setTargetDir(),
+	pack(Type),
+	%%writeLine("packServer OK!"),
+	ok.
+smallPackServer(Type) ->
+	smallPack(Type),
+	ok.
+smallPackSourceFullCopy() ->
+	smallPackFileFullCopy(),
+	writeLine("SmallPack Source Full Copy OK!"),
+	ok.
+smallPackSourceCopy(Type) ->
+	smallPackFileCopy(Type),
+	writeLine("SmallPack Source Copy OK!\n\n"),
+	ok.
+hotUpdateServer() ->
+	InputNoStr = io:get_line("Please enter NodeName:"),
+	NodeName = string:strip(InputNoStr, right, $\n),
+	hotUpdate(NodeName),
+	writeLine("hotUpdateServer OK!"),
+	ok.
+
+setWorkDir(WorkDir) ->
+	put(workdir, WorkDir).
+
+getWorkDir() ->
+	get(workdir).
+
+setTargetDir(TargetDir) ->
+	put(targetdir, TargetDir).
+
+getTargetDir() ->
+	get(targetdir).
+setSmallPackDir(SmallPackDir) ->
+	put(smallpackdir, SmallPackDir).
+getSmallPackDir() ->
+	get(smallpackdir).
+setPackConfig(PackCfg) ->
+	put(packcfg, PackCfg).
+
+getPackConfig() ->
+	get(packcfg).
+setSmallPackConfig(SmallPackConfig) ->
+	put(smallpackcfg, SmallPackConfig).
+getSmallPackConfig() ->
+	get(smallpackcfg).
+%% stripEnter(String) ->
+%% 	string:left(String,erlang:length(String) - 1).
+
+writeLine(LineString) ->
+	io:format(LineString),
+	io:format("~n"),
+	ok.
+
+%% writeLine(LineStringFmt,ArgList) when erlang:is_list(ArgList) ->
+%% 	io:format(LineStringFmt,ArgList),
+%% 	io:format("~n"),
+%% 	ok.
+
+%%===========================================================
+%%SVN相关
+%%===========================================================
+svn_update() ->
+	WorkDir = getWorkDir(),
+	os:cmd("cd " ++ WorkDir ++ " && svn update"),
+	ok.
+
+svn_version() ->
+	WorkDir = getWorkDir(),
+	Data = os:cmd("cd " ++ WorkDir ++ " && svn info"),
+	Line = getLine(Data,11),
+	Pos = string:chr(Line, $:),
+	Len = erlang:length(Line),
+	S = string:right(Line, Len - Pos - 1),
+	Ver = erlang:list_to_integer(S),
+	Ver.
+-spec svn_diff_file_log(RA, RB) -> Data when
+	RA::string(),
+	RB::string(),
+	Data::string().
+svn_diff_file_log(RA, RB) ->
+	WorkDir = getWorkDir(),
+	Data = os:cmd("cd " ++ WorkDir ++ " && svn log -r " ++RA ++":" ++ RB ++" -q -v"),
+	Data.
+%%
+svn_lastest_file_log() ->
+	WorkDir = getWorkDir(),
+	Data = os:cmd("cd " ++ WorkDir ++ " && svn log -v -l1 -q"),
+	Data.
+getLine(String,N) ->
+	getLine(String,1,N).
+
+getLine([],_,_) ->
+	ok;
+getLine(String,N,N) ->
+	Pos = string:str(String, "\n"),
+	string:left(String, Pos - 2);
+getLine(String,I,N) ->
+	Pos = string:str(String, "\n"),
+	RemainStr = string:substr(String, Pos + 1),
+	getLine(RemainStr,I + 1,N).
+%%===========================================================
+%%打包相关
+%%===========================================================
+
+pack(Type) ->
+	WorkDir = case getWorkDir() of
+				  undefined ->
+					  throw("Please Set WorkDir In menu.config");
+				  Dir ->
+					  Dir
+			  end,
+	TargetDir = case getTargetDir() of
+					undefined ->
+						throw("Please Set TargetDir In menu.config");
+					TD ->
+						TD
+				end,
+	PackCfgs = case getPackConfig() of
+				   undefined ->
+					   throw("Please Set CopyCfg In menu.config");
+				   Cfgs ->
+					   Cfgs
+			   end,
+	PackCfg = case Type of
+				  ?Full_Install ->
+					  lists:keyfind(server_full_install, 1, PackCfgs);
+				  ?Full_Update ->
+					  lists:keyfind(server_full_update, 1, PackCfgs)
+			  end,
+	{ConfigName, {node_name, NodeName}, {monitor_ip, MonitorIP},{monitor_port, MonitorPort}, ServerCopyCfgs} = PackCfg,
+	Fun = fun({_, ServerCopyCfg, {server_config, ServerConfig}}) ->
+
+		%%io:format("~p~n", [ServerConfig]),
+		NewConfigName = erlang:integer_to_list(svn_version()) ++ "_" ++ erlang:atom_to_list(ConfigName),
+		{{temp_config, TempCfg}, {use_config, UseCfg}, {app_config, AppCfg}, {package_name, PackageName}, {package_folder, PackageFolder}} = ServerConfig,
+		%%多加一层带svn版本号的文件夹
+		Ver = erlang:integer_to_list(svn_version()),
+		PackageFolderName = lists:nth(1, string:tokens(PackageName, ".")),
+		RealPackageFolder = Ver ++ "_" ++ PackageFolder ++ "_" ++ PackageFolderName,
+		copyFile(WorkDir, TargetDir, NewConfigName, ServerCopyCfg, RealPackageFolder),%% 复制文件
+		case string:equal(TempCfg, "") orelse string:equal(UseCfg, "") of
+			true ->
+				skip;
+			_ ->
+				changeAllNodeName(TargetDir ++ "/" ++ NewConfigName ++ "/" ++ RealPackageFolder ++ "/" ++ TempCfg,
+					TargetDir ++ "/" ++ NewConfigName ++ "/" ++ RealPackageFolder ++ "/"++ UseCfg, NodeName, MonitorIP, MonitorPort, ?TXTConfig)%% 改变文件
+		end,
+		case string:equal(AppCfg, "") of
+			true ->
+				skip;
+			_ ->
+				changeAppFile(TargetDir ++ "/" ++ NewConfigName ++ "/" ++ RealPackageFolder ++ "/" ++ AppCfg)
+		end,
+		modifyShFileNodeName(TargetDir, NewConfigName, ServerCopyCfg, NodeName, RealPackageFolder),
+		beginTar(TargetDir, NewConfigName, PackageName, PackageFolder)%%开始打包
+	end,
+	lists:foreach(Fun, ServerCopyCfgs),
+	ok.
+%%打散包
+smallPack(Type) ->
+	TargetDir = case getTargetDir() of
+					undefined ->
+						throw("Please Set TargetDir In menu.config");
+					TD ->
+						TD
+				end,
+	SmallPackDir = case getSmallPackDir() of
+					   undefined ->
+						   throw("Please Set SmallPackDir In menu.config");
+					   SD ->
+						   case filelib:is_dir(SD) of
+							   true ->
+								   SD;
+							   _ ->
+								   throw("SmallPackDir is not exist")
+						   end
+				   end,
+	PackageName = case Type of
+					  ?Hot_Update ->
+						  "hotUpdate.tar.bz2";
+					  ?Update ->
+						  "update.tar.bz2"
+				  end,
+	ConfigName = case Type of
+					  ?Hot_Update ->
+						  "server_hot_update";
+					  ?Update ->
+						  "server_update"
+				  end,
+
+	Cfg = getSmallPackConfig(),
+	Fun1 = fun({_, _, {server_config, {package_folder, PackageFolder}}}) ->
+		NewConfigName = erlang:integer_to_list(svn_version()) ++ "_" ++ ConfigName,
+		%%多加一层带svn版本号的文件夹
+		Ver = erlang:integer_to_list(svn_version()),
+		PackageFolderName = lists:nth(1, string:tokens(PackageName, ".")),
+		RealPackageFolder = Ver ++ "_" ++ PackageFolder ++ "_" ++ PackageFolderName,
+		%%先复制文件
+		case copyFile1(SmallPackDir, TargetDir, NewConfigName, RealPackageFolder, PackageFolder) of
+			skip ->
+				io:format("~s has no file so skip!~n",[PackageFolder]),
+				skip;
+			_ ->
+				Predicate = fun(E) ->
+					string:equal(E, PackageFolder)
+				end,
+				{ok, FileList} = file:list_dir(SmallPackDir),
+				%%io:format("~p", [FileList]),
+				case lists:any(Predicate, FileList) of
+					true ->
+						beginTar(TargetDir, NewConfigName, PackageName, PackageFolder);%%开始打包
+					false ->
+						skip
+				end
+		end
+	end,
+	lists:foreach(Fun1, Cfg),
+	ok.
+smallPackFileFullCopy() ->
+	WorkDir = getWorkDir(),
+	SmallPackDir = getSmallPackDir(),
+	List = string:tokens(SmallPackDir, "/"),
+	Cfg = getSmallPackConfig(),
+	%%/替换成\\
+	List1 = string:tokens(SmallPackDir, "/"),
+	SmallPackDir1 = string:join(List1, "\\"),
+	%%删除旧的文件
+	Cmd = "rd /s /q " ++ SmallPackDir1,
+	os:cmd(Cmd),
+	Fun = fun({_, CopyCfg,{server_config, {package_folder, _PackageFolder}}}) ->
+		%%复制文件
+		copyFile(WorkDir, lists:nth(1,List), lists:nth(2,List),CopyCfg,"")
+	end,
+	lists:foreach(Fun, Cfg),
+	ok.
+smallPackFileCopy(Type) ->
+	WorkDir = getWorkDir(),
+	SmallPackDir = getSmallPackDir(),
+	%%/替换成\\
+	List1 = string:tokens(SmallPackDir, "/"),
+	SmallPackDir1 = string:join(List1, "\\"),
+	%%删除旧的文件
+	Cmd = "rd /s /q " ++ SmallPackDir1,
+	os:cmd(Cmd),
+	StrA = io:get_line("Please enter revision A(default is head version):"),
+	RevisionA = case string:equal(StrA, "\n") of
+					true ->
+						"head";
+					_ ->
+						{ResA, _} = string:to_integer(StrA),
+						erlang:integer_to_list(ResA)
+				end,
+	StrB = io:get_line("Please enter revision B(default is head version):"),
+	RevisionB = case string:equal(StrB, "\n") of
+					true ->
+						"head";
+					_ ->
+						{ResB, _} = string:to_integer(StrB),
+						erlang:integer_to_list(ResB)
+				end,
+	FileList = getDiffFileList(Type, RevisionA, RevisionB),
+	Fun = fun(FilePath, FileCount) ->
+		%%复制文件
+		case copy1(WorkDir++"/"++FilePath, SmallPackDir ++"/"++ FilePath) of
+			true ->
+				FileCount + 1;
+			_ ->
+				io:format("file[~s] not exsits ~n",[WorkDir++"/"++FilePath]),
+				FileCount
+		end
+	end,
+	CopyFileNum = lists:foldl(Fun, 0, FileList),
+	io:format("copy [~p] file~n", [CopyFileNum]),
+	ok.
+%%从文件路径里面提取文件名
+getFileName(Path) ->
+	ResList = string:tokens(Path, "/"),
+	lists:last(ResList).
+%%创建文件夹结构
+createFilefolder(Dir) ->
+	Str = string:sub_string(Dir, 3),
+	ResList = string:tokens(Str, "/"),
+	%%Len = erlang:length(ResList),
+	Fun = fun(FolderName, AccIn) ->
+		Path = AccIn ++ "/" ++ FolderName,
+		file:make_dir(Path),
+		Path
+	end,
+	lists:foldl(Fun, string:sub_string(Dir, 1, 2), ResList).
+
+copyFile(WorkDir, TargetDir, NewConfigName, ServerCopyCfgs, RealPackageFolder) ->
+	Fun2 = fun(CopyCfg, AccCount1) ->
+		{{child_dir, ChildDir}, {copy_ext, Exts}} = CopyCfg,
+		%%io:format("createFilefolder is ~p~n", [TargetDir ++ "/" ++ NewConfigName ++"/" ++ RealPackageFolder ++ "/" ++ ChildDir]),
+		createFilefolder(TargetDir ++ "/" ++ NewConfigName ++"/" ++ RealPackageFolder ++ "/" ++ ChildDir),
+		Fun3 = fun(Ext, AccCount2) ->
+			Fun1 = fun(F, AccCount3) ->
+				CopyDest = TargetDir ++ "/" ++ NewConfigName ++ "/" ++ RealPackageFolder ++ "/" ++ ChildDir ++ "/" ++ getFileName(F),
+				List1 = string:tokens(F, "/"),
+				F1 = string:join(List1, "\\"),
+				List2 = string:tokens(CopyDest, "/"),
+				CopyDest1 = string:join(List2, "\\"),
+				Str = "copy "++ F1 ++" "++CopyDest1,
+				io:format("copy [~ts]~n", [F1]),
+				os:cmd(Str),
+				AccCount3 + 1
+			end,
+			%%io:format("~p~n", [Ext]),
+			Count2 = filelib:fold_files(WorkDir ++ "/" ++ ChildDir, Ext, true, Fun1, 0),
+			AccCount2 + Count2
+		end,
+		Count3 = lists:foldl(Fun3, 0, Exts),
+		AccCount1 + Count3
+	end,
+	FileCount = lists:foldl(Fun2, 0, ServerCopyCfgs),
+	io:format("copy [~p] files ok! ~n", [FileCount]).
+
+copyFile1(WorkDir, TargetDir, NewConfigName, RealPackageFolder, PackageFolder) ->
+
+	{ok, FileList1} = file:list_dir(WorkDir),
+	Predicate = fun(E) ->
+		string:equal(E, PackageFolder)
+	end,
+	%%没有文件夹跳过
+	case lists:any(Predicate, FileList1) of
+		true ->
+			copy(WorkDir ++ "/" ++ PackageFolder, TargetDir ++ "/" ++ NewConfigName ++ "/" ++ RealPackageFolder ++ "/" ++
+				PackageFolder);
+		_ ->
+			skip
+	end.
+%%拷文件夹
+copy(CopySource, CopyDest) ->
+	{ok,FileList} = file:list_dir(CopySource),
+	case erlang:length(FileList) > 0 of
+		true ->
+			Fun = fun(F) ->
+				case filelib:is_dir(CopySource ++ "/" ++ F) of
+					true ->
+						copy(CopySource ++ "/" ++ F, CopyDest ++ "/" ++ F);
+					false ->
+						%%先创建出文件夹，再拷贝
+						createFilefolder(CopyDest),
+						List1 = string:tokens(CopySource ++ "/" ++ F, "/"),
+						CopySource1 = string:join(List1, "\\"),
+						List2 = string:tokens(CopyDest ++ "/" ++ F, "/"),
+						CopyDest1 = string:join(List2, "\\"),
+						Str = "copy "++ CopySource1 ++" "++CopyDest1,
+						os:cmd(Str)
+				end
+			end,
+			lists:foreach(Fun, FileList);
+		_ ->
+			skip
+	end.
+%%拷文件
+copy1(CopySource, CopyDest) ->
+	List = string:tokens(CopyDest, "/"),
+	CopyPathList = lists:sublist(List, erlang:length(List) - 1),
+	CopyPath = string:join(CopyPathList, "/"),
+	createFilefolder(CopyPath),
+	List1 = string:tokens(CopySource, "/"),
+	CopySource1 = string:join(List1, "\\"),
+	List2 = string:tokens(CopyDest, "/"),
+	CopyDest1 = string:join(List2, "\\"),
+	case filelib:is_file(CopySource1) of
+		true ->
+			Str = "copy " ++ CopySource1 ++ " " ++ CopyDest1,
+			io:format("copy [~ts]~n",[CopySource1]),
+			os:cmd(Str),
+			true;
+		_ ->
+			false
+	end.
+
+
+modifyShFileNodeName(TargetDir, NewConfigName, ServerCopyCfgs, NewNodeName, RealPackageFolder) ->
+	Fun1 = fun(CopyCfg) ->
+		{{child_dir, ChildDir}, {copy_ext, _Exts}} = CopyCfg,
+		%%io:format("~p~n",[TargetDir ++ "/" ++ ChildDir]),
+		modifyAllFileNodeName(TargetDir ++ "/" ++ NewConfigName ++ "/" ++ RealPackageFolder ++ "/" ++ ChildDir, ".+\\.sh", NewNodeName, ?ShFile)
+	end,
+	lists:foreach(Fun1, ServerCopyCfgs).
+
+%% 修改目录下所有匹配正则表达式的NodeName，TXTConfig为修改txt那种格式的配置，ShFile为.sh文件
+modifyAllFileNodeName(Dir, RegExp, NewNodeName, Type) ->
+	Fun = fun(F, AccIn) ->
+		%%io:format("F ~ts~n",[F]),
+		file:copy(F, F++".bak"),
+		changeAllNodeName(F++".bak",  F, NewNodeName, "", "", Type),
+		file:delete(F++".bak"),
+		AccIn + 1
+	end,
+	filelib:fold_files(Dir, RegExp, true, Fun, 0).
+
+%%复制SourceFile的内容并且替换文件里的所有NodeName，然后写到TargetFile
+changeAllNodeName(SourceFile, TargetFile, NewNodeName, NewMonitorIP, NewMonitorPort, Type) ->
+	%%io:format("SourceFile = ~p, TargetFile = ~p, NewNodeName = ~p", [SourceFile, TargetFile, NewNodeName]),
+	%%先删掉旧的目标文件
+	file:delete(TargetFile),
+
+	case file:open(TargetFile, [read, write]) of
+		{ok, IoDevice} ->
+			case file:read_file(SourceFile) of
+				{ok, Data} ->
+					%%io:format("Data ~p~n", [Data]),
+					case changeNodeName(Data, NewNodeName,NewMonitorIP, NewMonitorPort, IoDevice, Type) of
+						ok ->
+							%%io:format("change ~s ok! ~n", [TargetFile]),
+							ok;
+
+						_ ->
+							skip
+					end;
+				{error, Reason1} ->
+					io:format("~s~n~s~n", [SourceFile, file:format_error(Reason1)])
+			end,
+			file:close(IoDevice);
+		{error, Reason2} ->
+			io:format("~s~n~s~n", [TargetFile, file:format_error(Reason2)])
+	end,
+
+	ok.
+
+%%查找替换nodename
+changeNodeName(Data,NodeName, NewMonitorIP, NewMonitorPort, IoDevice, Type) ->
+	case Type of
+		?TXTConfig ->
+			Found1 = binary:match(Data, [<<"\r\n">>,<<"\n">>,<<"\r">>]),
+			case Found1 of
+				{Pos1, Len1} ->
+					{LineData1, Left1} = split_to_line(Data, Pos1, Len1),
+					%%以#开头的是注释直接复制
+					case string:substr(erlang:binary_to_list(LineData1), 1, 1) =:= "#" of
+						true ->
+							io:format(IoDevice, "~s~n", [LineData1]);
+						_ ->
+							if
+								Pos1 > 0 ->
+									NewLine = parse_one_line(LineData1, NodeName, NewMonitorIP, NewMonitorPort),
+									io:format(IoDevice, "~s~n", [NewLine]);
+								true ->
+									io:format(IoDevice, "~n", [])
+							end
+					end,
+					changeNodeName(Left1, NodeName, NewMonitorIP, NewMonitorPort, IoDevice, Type);
+				nomatch ->
+					ok
+			end;
+		?ShFile ->
+			Found2 = binary:match(Data, [<<"\r\n">>, <<"\n">>, <<"\r">>]),
+			case Found2 of
+				{Pos2, Len2} ->
+					{LineData2, Left2} = split_to_line(Data, Pos2, Len2),
+
+					%%以#开头的是注释直接复制
+					case string:substr(erlang:binary_to_list(LineData2), 1, 1) =:= "#" of
+						true ->
+							io:format(IoDevice, "~s~n", [LineData2]);
+						false ->
+							if
+								Pos2 > 0 ->
+									parse_one_space(LineData2, NodeName, IoDevice);
+								true ->
+									skip
+							end
+					end,
+					changeNodeName(Left2, NodeName, "", "", IoDevice, Type);
+				nomatch ->
+					%%以#开头的是注释直接复制
+					case string:substr(erlang:binary_to_list(Data), 1, 1) =:= "#" of
+						true ->
+							io:format(IoDevice, "~s~n", [Data]);
+						false ->
+							parse_one_space(Data, NodeName, IoDevice)
+					end,
+					ok
+			end
+	end.
+
+convertMD5ToHexString(MD5) ->
+	convertMD5ToHexString(lists:reverse(MD5),[]).
+
+convertMD5ToHexString([],AccIn) ->
+	AccIn;
+convertMD5ToHexString([H|T],AccIn) ->
+	R = [io_lib:format("~.16B",[H]) | AccIn],
+	convertMD5ToHexString(T,R).
+
+%%开始打包
+beginTar(TargetDir, ConfigName, PackageName, PackageFolder) ->
+	Ver = erlang:integer_to_list(svn_version()),
+	RealPackageName = Ver ++ "_" ++ PackageFolder ++ "_" ++ PackageName,
+	PackageFolderName = lists:nth(1, string:tokens(PackageName, ".")),
+	RealPackageFolder = Ver ++ "_" ++ PackageFolder ++ "_" ++ PackageFolderName,
+
+	Dir = io_lib:format("~ts/~ts",[TargetDir,ConfigName]),
+	CmdStr = io_lib:format("cd ~ts && tar -jcvf ~ts ~ts",[Dir,RealPackageName,RealPackageFolder]),
+	io:format("Pack ~ts ok!~n", [RealPackageName]),
+	os:cmd(CmdStr),
+
+	TargetFileName = io_lib:format("~ts/~ts",[Dir,RealPackageName]),
+
+	{ok,Binary} = file:read_file(TargetFileName),
+	MD5 = erlang:md5(Binary),
+	MD5String = convertMD5ToHexString(erlang:binary_to_list(MD5)),
+
+	MD5FileName = io_lib:format("~ts/~ts.md5",[Dir,RealPackageName]),
+	ok = file:write_file(MD5FileName,MD5String),
+	ok.
+
+%%解析配置文件相关
+parse_one_line(Line, NodeName) ->
+	Mark1 = binary:match(Line, [<<"@">>]),
+	case Mark1 of
+		{MarkPos1, Len1} ->
+			{NewLine, _} = erlang:split_binary(Line, MarkPos1+Len1),
+			binary:replace(NewLine, <<"@">>, erlang:list_to_binary(NodeName));
+		_ ->
+			Line
+	end.
+parse_one_line(Line, NodeName, MonitorIP, MonitorPort) ->
+	case binary:match(Line, [<<"@">>]) of
+		{MarkPos1, Len1} ->
+			{NewLine1, _} = erlang:split_binary(Line, MarkPos1 + Len1),
+			binary:replace(NewLine1, <<"@">>, erlang:list_to_binary(NodeName));
+		_ ->
+			case binary:match(Line, [<<"ListenToUserIP=">>,<<"ListenToUserIP =">>]) of
+				{MarkPos2, Len2} ->
+					{NewLine2, _} = erlang:split_binary(Line, MarkPos2 + Len2),
+					binary:replace(NewLine2, <<"=">>, erlang:list_to_binary("="++MonitorIP));
+				_ ->
+					case binary:match(Line, [<<"ListenToUserPort=">>,<<"ListenToUserPort =">>]) of
+						{MarkPos3, Len3} ->
+							{NewLine3, _} = erlang:split_binary(Line, MarkPos3 + Len3),
+							binary:replace(NewLine3, <<"=">>, erlang:list_to_binary("="++MonitorPort));
+						_ ->
+							Line
+					end
+			end
+	end.
+
+split_to_line(Data,Pos,Len) ->
+	{Line,Left} = erlang:split_binary(Data, Pos + Len),
+
+	{LineData,_Spliter} = erlang:split_binary(Line,Pos),
+
+	%%io:format("Line = ~s~n Left = ~s~n",[Line, Left]),
+	{LineData,Left}.
+%%按空格来解析替换nodename
+parse_one_space(Line, NodeName, IoDevice) ->
+	%%io:format("Line = ~p", [Line]),
+	Found = binary:match(Line, [<<" ">>]),
+	case Found of
+		{Pos, Len} ->
+			{LineData, Left} = split_to_line(Line, Pos, Len),
+			if
+				Pos > 0 ->
+					NewLine = parse_one_line(LineData, NodeName),
+					%%io:format("NewLine = ~p", [NewLine]),
+					%%io:format("~s~n", [NewLine]),
+					io:format(IoDevice, "~s ", [NewLine]);
+				true ->
+					skip
+			end,
+			parse_one_space(Left, NodeName, IoDevice);
+		nomatch ->
+			NewLine2 = parse_one_line(Line, NodeName),
+			%%io:format("NewLine2 = ~p", [NewLine2]),
+			io:format(IoDevice, "~s~n", [NewLine2]),
+			ok
+	end.
+%%修改App配置为打包状态的
+changeAppFile(Path) ->
+	file:copy(Path, Path ++ ".bak"),
+	file:delete(Path),
+	case file:open(Path, [read, write]) of
+		{ok, IoDevice} ->
+			case file:read_file(Path ++ ".bak") of
+				{ok, Data} ->
+					changeAppConfig(Data, IoDevice);
+				{error, Reason} ->
+					io:format("~s~n~s~n", [Path ++ ".bak", file:format_error(Reason)])
+			end,
+			file:close(IoDevice);
+		{error, Reason2} ->
+			io:format("~s~n~s~n", [Path, file:format_error(Reason2)])
+	end,
+	file:delete(Path ++ ".bak").
+changeAppConfig(Data, IoDevice) ->
+	Found = binary:match(Data, [<<"\r\n">>,<<"\n">>,<<"\r">>]),
+	case Found of
+		{Pos, Len} ->
+			{LineData, Left} = split_to_line(Data, Pos, Len),
+			%%以%%开头的是注释直接复制
+			case string:substr(erlang:binary_to_list(LineData), 1, 1) =:= "%%" of
+				true ->
+					io:format(IoDevice, "~s~n", [LineData]);
+				_ ->
+					if
+						Pos > 0 ->
+							NewLine = parse_one_line(LineData),
+							%%io:format("NewLine = ~s", [NewLine]),
+							io:format(IoDevice, "~s~n", [NewLine]);
+						true ->
+							io:format(IoDevice, "~n", [])
+					end
+			end,
+			changeAppConfig(Left, IoDevice);
+		nomatch ->
+			ok
+	end.
+parse_one_line(Line) ->
+	case binary:match(Line, [<<"isShowInStdio">>]) of
+		{_MarkPos1, _Len1} ->
+			binary:replace(Line, <<"true">>, erlang:list_to_binary("false"));
+		_ ->
+			case binary:match(Line, [<<"logLevel">>]) of
+				{_MarkPos2, _Len2} ->
+					binary:replace(Line, <<"debug">>, erlang:list_to_binary("log"));
+				_ ->
+					Line
+			end
+	end.
+%%找出差异文件列表
+-spec getDiffFileList(Type::integer(), RA::string(), RB::string()) -> List::list().
+getDiffFileList(Type, RA, RB) ->
+	Data = case RA=:="head" andalso RB=:="head" of
+		true ->
+			erlang:list_to_binary(svn_lastest_file_log());
+		_ ->
+			erlang:list_to_binary(svn_diff_file_log(RA, RB))
+	end,
+
+	CodeFileList = getChangeFile(Data, ".erl", []),
+	BeamFileList = changeExt(CodeFileList, ".beam"),
+	BeamFileList1 = changePath(BeamFileList, "ebin/"),
+	case Type of
+		?Hot_Update ->
+			BeamFileList1;
+		?Update ->
+			MapFileList = getChangeFile(Data, ".bytes", []),
+			BeamFileList1 ++ MapFileList
+	end.
+%%找出被改变的文件
+getChangeFile(Data, Ext, ResultList) ->
+	%%先解析成一行一行的
+	Found = binary:match(Data, [<<"\r\n">>, <<"\n">>, <<"\r">>]),
+	case Found of
+		{Pos, Len} ->
+			{LineData, Left} = split_to_line(Data, Pos, Len),
+			LineData1 = string:strip(erlang:binary_to_list(LineData), left),
+			ResultList1 = case string:equal(string:substr(LineData1, 1, 1), "M") orelse string:equal(string:substr(LineData1, 1, 1), "A") of
+							  true ->
+								  Pos1 = string:str(LineData1, "/server/"),
+								  %% 是server目录下的文件
+								  case Pos1 > 0 of
+									true ->
+										case string:str(LineData1, Ext) > 0 of
+											true ->
+												FilePath = string:substr(LineData1, Pos1+8),
+												[FilePath | ResultList];
+											_ ->
+												ResultList
+										end;
+									  _ ->
+										  ResultList
+									end;
+
+							  _ ->
+								  ResultList
+						  end,
+			getChangeFile(Left, Ext, ResultList1);
+		nomatch ->
+			ResultList
+	end.
+%%更改文件路径
+changePath(FilePathList, AddPath) ->
+	Fun = fun(FilePath, AccList) ->
+		List1 = string:tokens(FilePath, "/"),
+
+		FilePath1 = lists:nth(1, List1) ++ "/" ++ AddPath ++lists:nth(erlang:length(List1), List1),
+		[FilePath1| AccList]
+	end,
+	lists:foldl(Fun, [], FilePathList).
+%%给文件名换上特定的扩展名
+-spec changeExt(FilePathList::list(), Ext::string()) -> ResultList::list().
+changeExt(FilePathList, Ext) ->
+	Fun = fun(FilePath, AccList) ->
+		FilePath1 = lists:nth(1, string:tokens(FilePath, ".")) ++ Ext,
+		[FilePath1| AccList]
+		end,
+	lists:foldl(Fun, [], FilePathList).
+%%===========================================================
+%%编译相关
+%%===========================================================
+compileBegin() ->
+	WorkDir = getWorkDir(),
+	io:format("compile begin ~n"),
+	%%CmdStr1 = "cd " ++ WorkDir ++ "/commonserver && make -j8 && cd ..",
+	%%os:cmd(CmdStr1),
+	%%io:format("compile commonserver ok ~n"),
+	CmdStr2 = "cd " ++ WorkDir ++ "/dbserver && make -j8 && cd ..",
+	os:cmd(CmdStr2),
+	io:format("compile dbserver ok ~n"),
+	CmdStr3 = "cd " ++ WorkDir ++ "/funcell && make -j8 && cd ..",
+	os:cmd(CmdStr3),
+	io:format("compile funcell ok ~n"),
+	CmdStr4 = "cd " ++ WorkDir ++ "/gameserver && make -j8 && cd ..",
+	os:cmd(CmdStr4),
+	io:format("compile gameserver ok ~n"),
+	CmdStr5 = "cd " ++ WorkDir ++ "/loginserver && make -j8 && cd ..",
+	os:cmd(CmdStr5),
+	io:format("compile loginserver ok ~n").
+%%===========================================================
+%%热更新相关
+%%===========================================================
+hotUpdate(NodeName) ->
+	%%先更新代码
+	svn_update(),
+	WorkDir = getWorkDir(),
+	io:format("NodeName is ~p ~n", [NodeName]),
+	%% 更新dbserver
+	io:format("compile&&reload dbserver ~n"),
+	CmdStr1 = "cd "++WorkDir++"/"++"dbserver && erl -make && cd script && erl -make && " ++ "erl -name reload@" ++ NodeName ++
+		" -setcookie erlide -s reload reload dbserver@" ++ NodeName,
+	os:cmd(CmdStr1),
+
+	%% 更新commonserver
+	%io:format("compile&&reload commonserver ~n"),
+	%CmdStr2 = "cd "++WorkDir++"/"++"loginserver && erl -make && cd script && erl -make && " ++ "erl -name reload@" ++ NodeName ++
+	%	" -setcookie erlide -s reload reload commonserver@" ++ NodeName,
+	%os:cmd(CmdStr2),
+
+	%% 更新funcell
+	%%io:format("compile&&reload funcell ~n"),
+	%%CmdStr3 = "cd "++WorkDir++"/"++"funcell && erl -make && cd script && erl -make && " ++ "erl -name reload@" ++ NodeName ++
+	%%	" -setcookie erlide -s reload reload funcell@" ++ NodeName,
+	%%os:cmd(CmdStr3),
+
+	%% 更新loginserver
+	io:format("compile&&reload loginserver ~n"),
+	CmdStr4 = "cd "++WorkDir++"/"++"loginserver && erl -make && cd script && erl -make && " ++ "erl -name reload@" ++ NodeName ++
+		" -setcookie erlide -s reload reload loginserver@" ++ NodeName,
+	os:cmd(CmdStr4),
+
+	%% 更新gameserver
+	io:format("compile&&reload gameserver ~n"),
+	CmdStr5 = "cd "++WorkDir++"/"++"gameserver && erl -make && cd script && erl -make && " ++ "erl -name reload@" ++ NodeName ++
+		" -setcookie erlide -s reload reload gameserver@" ++ NodeName,
+	os:cmd(CmdStr5),
+
+	io:format("hotUpdate completed ~n").
+

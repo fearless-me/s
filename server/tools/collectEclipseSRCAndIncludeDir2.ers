@@ -1,0 +1,77 @@
+%%%-------------------------------------------------------------------
+%%% @author tiancheng
+%%% @copyright (C) 2016, <雨墨>
+%%% @doc
+%%% 收集eclise奇葩软件所需要的工作目录，只负责生成，需要自己手动搬运
+%%% @end
+%%% Created : 11. 十月 2016 10:15
+%%%-------------------------------------------------------------------
+-module(collectEclipseSRCAndIncludeDir).
+-author("tiancheng").
+
+main(_) ->
+    io:format("collect gs,dbs,ls dir...~n"),
+    {DBSrc, DBInl} = getSrcAndIncludeList("../dbserver/", "src/"),
+    {LSSrc, LSInl} = getSrcAndIncludeList("../loginserver/", "src/"),
+    {GSSrc, GSInl} = getSrcAndIncludeList("../gameserver/", "src/"),
+
+    {ok, Fd} = file:open("./temp_collectEclipseSRCAndIncludeDir.txt", [write, raw]),
+    file:write(Fd, "===dbserver===\r\nsrc=\r\n"),
+    file:write(Fd, io_lib:format("~ts~n~n", [DBSrc])),
+    file:write(Fd, "include=\r\n"),
+    file:write(Fd, io_lib:format("~ts~n~n~n~n~n", [DBInl])),
+
+    file:write(Fd, "===loginserver===\r\nsrc=\r\n"),
+    file:write(Fd, io_lib:format("~ts~n~n", [LSSrc])),
+    file:write(Fd, "include=\r\n"),
+    file:write(Fd, io_lib:format("~ts~n~n~n~n~n", [LSInl])),
+
+    file:write(Fd, "===gameserver===\r\nsrc=\r\n"),
+    file:write(Fd, io_lib:format("~ts~n~n", [GSSrc])),
+    file:write(Fd, "include=\r\n"),
+    file:write(Fd, io_lib:format("~ts~n", [GSInl])),
+    file:close(Fd),
+
+    io:get_line("Please enter anything for exit!~n"),
+    ok.
+
+getSrcAndIncludeList(Dir, Src) ->
+    Len = string:len(Dir) + 1,
+    Fun =
+        fun(F, Acc) ->
+            Str = string:substr(F, Len),
+            [_|StrL] = lists:reverse(string:tokens(Str, "/")),
+            StrL2 = lists:reverse(StrL),
+            Str2 = getDir(StrL2),
+            Str3 = listToString(io_lib:format("~ts;", [Str2])),
+            case Acc of
+                "" ->
+                    Str3;
+                _ ->
+                    case string:str(Acc, Str3) > 0 of
+                        true ->
+                            Acc;
+                        _ ->
+                            listToString(io_lib:format("~ts~ts", [Acc, Str3]))
+                    end
+            end
+        end,
+    SSSSRC = filelib:fold_files(Dir ++ Src, ".*.erl", true, Fun, ""),
+
+    Include1 = filelib:fold_files(Dir ++ Src, ".*.hrl", true, Fun, ""),
+    {SSSSRC, "include;include/common;" ++ Include1}.
+
+listToString(List) ->
+    binary_to_list(list_to_binary(List)).
+
+getDir(List) ->
+    F =
+        fun(Dir, Acc) ->
+            case Acc of
+                "" ->
+                    Dir;
+                _ ->
+                    io_lib:format("~ts/~ts", [Acc, Dir])
+            end
+        end,
+    lists:foldl(F, "", List).
