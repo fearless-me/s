@@ -5099,46 +5099,46 @@ getRow(spiritArea_TimeWait)->
     settype = spiritArea_TimeWait,
     setpara = [10]
     };
-getRow(Square_dancing_1)->
+getRow(square_dancing_1)->
     #globalsetupCfg {
     id = 926,
-    settype = Square_dancing_1,
+    settype = square_dancing_1,
     setpara = [1000]
     };
-getRow(Square_dancing_2)->
+getRow(square_dancing_2)->
     #globalsetupCfg {
     id = 927,
-    settype = Square_dancing_2,
+    settype = square_dancing_2,
     setpara = [10]
     };
-getRow(Square_dancing_3)->
+getRow(square_dancing_3)->
     #globalsetupCfg {
     id = 928,
-    settype = Square_dancing_3,
+    settype = square_dancing_3,
     setpara = [61400]
     };
-getRow(Square_dancing_4)->
+getRow(square_dancing_4)->
     #globalsetupCfg {
     id = 929,
-    settype = Square_dancing_4,
+    settype = square_dancing_4,
     setpara = [300]
     };
-getRow(Square_dancing_5)->
+getRow(square_dancing_5)->
     #globalsetupCfg {
     id = 930,
-    settype = Square_dancing_5,
+    settype = square_dancing_5,
     setpara = [0]
     };
-getRow(Square_dancing_6)->
+getRow(square_dancing_6)->
     #globalsetupCfg {
     id = 931,
-    settype = Square_dancing_6,
+    settype = square_dancing_6,
     setpara = [0]
     };
-getRow(Square_dancing_7)->
+getRow(square_dancing_7)->
     #globalsetupCfg {
     id = 932,
-    settype = Square_dancing_7,
+    settype = square_dancing_7,
     setpara = [0]
     };
 getRow(startmap)->
@@ -6382,13 +6382,13 @@ getKeyList()->[
     {spiritArea_TimeAll},
     {spiritArea_TimeReady},
     {spiritArea_TimeWait},
-    {Square_dancing_1},
-    {Square_dancing_2},
-    {Square_dancing_3},
-    {Square_dancing_4},
-    {Square_dancing_5},
-    {Square_dancing_6},
-    {Square_dancing_7},
+    {square_dancing_1},
+    {square_dancing_2},
+    {square_dancing_3},
+    {square_dancing_4},
+    {square_dancing_5},
+    {square_dancing_6},
+    {square_dancing_7},
     {startmap},
     {sweep_level},
     {sweeplv},
@@ -7306,13 +7306,13 @@ get1KeyList()->[
     spiritArea_TimeAll,
     spiritArea_TimeReady,
     spiritArea_TimeWait,
-    Square_dancing_1,
-    Square_dancing_2,
-    Square_dancing_3,
-    Square_dancing_4,
-    Square_dancing_5,
-    Square_dancing_6,
-    Square_dancing_7,
+    square_dancing_1,
+    square_dancing_2,
+    square_dancing_3,
+    square_dancing_4,
+    square_dancing_5,
+    square_dancing_6,
+    square_dancing_7,
     startmap,
     sweep_level,
     sweeplv,
