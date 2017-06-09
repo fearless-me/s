@@ -1,0 +1,488 @@
+#!/usr/bin/env escript
+%%%-------------------------------------------------------------------
+%%% @author mwh
+%%% @copyright (C) 2017, <COMPANY>
+%%% @doc
+%%%
+%%% @end
+%%% Created : 08. 六 2017 9:32
+%%%-------------------------------------------------------------------
+
+%% 全新安装包
+-define(PS_Install, 1).
+%% 热更新
+-define(PS_HotUpdate, 2).
+
+
+main(_) ->
+	menu(),
+	ok.
+
+menu() ->
+	%%读取配置
+	fastSel(),
+	ok.
+
+
+%%location() ->
+%%	io:format(
+%%		"~n##########################################################~n"
+%%		"\t\tLUNA multi-language package~n#~n"
+%%		"\t1.(chs) China~n"
+%%		"\t2.(cht) Taiwan~n"
+%%		"\t3.(enu) English~n"
+%%		"\t4.(kor) Korea~n"
+%%		"\t5.(xmt) Malaysia~n"
+%%		"\t6.(tha) Thailand~n"
+%%		"\t7.(rus) Russia~n"
+%%		"\t8.(jpn) Japan~n"
+%%		"\t9.(vietnam)  Vietnam~n"
+%%		"#~n"
+%%		"\t0.exit~n"
+%%		"~n##########################################################~n~n"
+%%	),
+%%	InputNoStr = io:get_line("Please enter your choice:"),
+%%	{InputNo, _Rest} = string:to_integer(InputNoStr),
+%%	dispatchInput(InputNo).
+
+fastSel()->
+	io:format(
+		"~n##########################################################~n"
+		"\t\tLUNA PACKAGE TOOLS~n"
+		"~n#region~n"
+		"\t1.(chs) China~n"
+		"\t2.(cht) Taiwan~n"
+		"\t3.(enu) English~n"
+		"\t4.(kor) Korea~n"
+		"\t5.(xmt) Malaysia~n"
+		"\t6.(tha) Thailand~n"
+		"\t7.(rus) Russia~n"
+		"\t8.(jpn) Japan~n"
+		"\t9.(vietnam)  Vietnam~n"
+		"~n#platform~n"
+		"\t1.ios~n"
+		"\t2.Android~n"
+		"\t3.mix~n"
+		"~n#type~n"
+		"\t1.install~n"
+		"\t2.hotupdate~n"
+		"~n~n#eg.1 1 1 = chs ios install"
+		"~n##########################################################~n~n"
+	),
+	set_title(unknown),
+	InputNoStr = io:get_line("Please enter your choice:"),
+	[V, P, T | _] = string:tokens(string_strip(InputNoStr,"\n"), " "),
+	{IV,_} = string:to_integer(V),
+	{IP,_} = string:to_integer(P),
+	{IT,_} = string:to_integer(T),
+	dispatchInput3(
+		getVersion(IV),
+		getPlatform(IP),
+		IT
+	).
+
+
+getVersion(1) -> chs;
+getVersion(2) -> cht;
+getVersion(3) -> enu;
+getVersion(4) -> kor;
+getVersion(5) -> xmt;
+getVersion(6) -> tha;
+getVersion(7) -> rus;
+getVersion(8) -> jpn;
+getVersion(9) -> vietnam;
+getVersion(_) -> menu().
+
+getPlatform(1) -> ios;
+getPlatform(2) -> android;
+getPlatform(3) -> mix;
+getPlatform(_) -> menu().
+
+%%
+%%
+%%dispatchInput(0) -> ok;
+%%dispatchInput(1) -> menu2(chs);
+%%dispatchInput(2) -> menu2(cht);
+%%dispatchInput(3) -> menu2(enu);
+%%dispatchInput(4) -> menu2(kor);
+%%dispatchInput(5) -> menu2(xmt);
+%%dispatchInput(6) -> menu2(tha);
+%%dispatchInput(7) -> menu2(rus);
+%%dispatchInput(8) -> menu2(jpn);
+%%dispatchInput(9) -> menu2(vietnam);
+%%dispatchInput(_) -> menu().
+
+%%
+%%menu2(Lang) ->
+%%	set_title(Lang, "gs"),
+%%	io:format(
+%%		"~n##########################################################~n"
+%%		"\t\tselect version~n#~n"
+%%		"\t1.ios~n"
+%%		"\t2.Android~n"
+%%		"\t3.mix~n"
+%%		"~n##########################################################~n~n"
+%%	),
+%%	set_title(Lang, "gs"),
+%%	InputNoStr = io:get_line("Please enter your choice:"),
+%%	{InputNo, _Rest} = string:to_integer(InputNoStr),
+%%	dispatchInput2(Lang, InputNo).
+%%
+%%
+%%dispatchInput2(Lang, 1) -> menu3(Lang, ios);
+%%dispatchInput2(Lang, 2) -> menu3(Lang, android);
+%%dispatchInput2(Lang, 3) -> menu3(Lang, mix);
+%%dispatchInput2(_Lang, _V) -> menu().
+%%
+%%
+%%menu3(Lang, Platform) ->
+%%	set_title(Lang, "gs"),
+%%	io:format(
+%%		"~n##########################################################~n"
+%%		"\t1.install~n"
+%%		"\t2.hotupdate~n"
+%%		"~n##########################################################~n~n"
+%%	),
+%%	set_title(Lang, Platform),
+%%	InputNoStr = io:get_line("Please enter your choice:"),
+%%	{InputNo, _Rest} = string:to_integer(InputNoStr),
+%%	dispatchInput3(Lang, Platform, InputNo).
+
+
+dispatchInput3(Lang, Platform, 1) -> work(Lang, Platform, install);
+dispatchInput3(Lang, Platform, 2) -> work(Lang, Platform, hotupdate);
+dispatchInput3(_Lang, _Version, _InputNo) -> menu().
+
+
+work(Lang, Platform, Type) ->
+	set_title({Lang, Platform, Type}),
+	{_, Config} = file:consult("./ps.config"),
+	[{{work_dir, WorkDir}, {target_dir, TargetDir}},{CopyFileCfg} | _] = Config,
+	setWorkDir(WorkDir),
+	setTargetDir(TargetDir),
+	createFilefolder(TargetDir),
+	HotModList = reDir(Type),
+	copyFile(WorkDir,getTempDir(), CopyFileCfg),
+	makeHotMod(HotModList),
+	doWorkZip(Lang, Platform, HotModList),
+	menu().
+
+reDir(install) ->
+	TempDir1 = getTempDir(),
+	List1 = string:tokens(TempDir1, "/"),
+	TempDir = string:join(List1, "\\"),
+	redirectCreateDir(TempDir),
+	[];
+reDir(hotupdate) ->
+	TempDir1 = getTempDir(),
+	List1 = string:tokens(TempDir1, "/"),
+	TempDir = string:join(List1, "\\"),
+	redirectCreateDir(TempDir),
+
+	{RevisionA, RevisionB} = read_two_version(),
+	FileList = getDiffFileList(RevisionA, RevisionB),
+
+	ModList =
+		lists:map(
+			fun(FileName) ->
+				[FileExt | _] = lists:reverse(string:tokens(FileName, "/")),
+				[Mod | _] = string:tokens(FileExt, "."),
+				io:format("module [~ts]~n",[Mod]),
+				Mod
+			end, FileList),
+	ModList.
+
+
+makeHotMod(L)->
+	Content = lists:foldl(
+		fun(ModName, Acc)->
+			io_lib:format("~ts~n~ts",[ModName,Acc])
+		end, "", L),
+	TempDir = getTempDir(),
+	file:write_file(TempDir ++ "/updateMod.txt", Content),
+	ok.
+
+doWorkZip(Lang, Platform, HotList) ->
+	TempDir = getTempDir(),
+	TargetDir = getTargetDir(),
+	SvnVer = svn_version(),
+	ZipName = io_lib:format(
+		"~p_~p_~p_server.tar.bz2",
+		[Lang, Platform, SvnVer]
+	),
+
+	io:format("zip [~ts]~n",[ZipName]),
+	CmdStr = io_lib:format("cd ~ts && tar -jcvf ~ts ./", [TempDir,ZipName]),
+	os:cmd(CmdStr),
+
+	ZipPath = TempDir ++ "/"++ ZipName,
+	{ok,Binary} = file:read_file( ZipPath ),
+	MD5 = erlang:md5(Binary),
+	MD5String = convertMD5ToHexString(erlang:binary_to_list(MD5)),
+	MD5FileName = io_lib:format("~ts/~ts.md5",[TargetDir,ZipName]),
+	ok = file:write_file(MD5FileName,MD5String),
+	io:format("make [~ts.md5]~n",[ZipName]),
+
+	Str = "copy " ++ pathConvert(ZipPath) ++ " " ++ pathConvert(TargetDir),
+	io:format("copy [~ts]~n",[ZipName]),
+	os:cmd(Str),
+
+	commitPLog(ZipName, MD5String, HotList),
+
+	ok.
+
+commitPLog(ZipName, Md5, HotModList)->
+	HL = string:join(HotModList, "~n"),
+	{{Y,M,D},{H,Min,S}} = calendar:local_time(),
+	Result = io_lib:format("~p-~p-~p ~p:~p:~p\t~ts\t~ts~n~ts~n",
+		[Y, M, D, H, Min, S, ZipName,Md5, HL]),
+	file:write_file("./_____package_____.txt", Result),
+	os:cmd("svn commit -m \"package time\" _____package_____.txt"),
+	os:cmd("svn update"),
+	ok.
+
+
+redirectCreateDir(Dir) ->
+	file:make_dir(Dir),
+	Cmd = "rd /s /q " ++ Dir,
+	os:cmd(Cmd),
+	file:make_dir(Dir).
+
+
+getDiffFileList(RA, RB) ->
+	Data = case RA =:= "head" andalso RB =:= "head" of
+		       true ->
+			       erlang:list_to_binary(svn_lastest_file_log());
+		       _ ->
+			       erlang:list_to_binary(svn_diff_file_log(RA, RB))
+	       end,
+
+	CodeFileList = getChangeFile(Data, ".erl", []),
+	BeamFileList = changeExt(CodeFileList, ".beam"),
+	BeamFileList1 = changePath(BeamFileList, "ebin/"),
+	BeamFileList1.
+
+
+%%找出被改变的文件
+getChangeFile(Data, Ext, ResultList) ->
+	%%先解析成一行一行的
+	Found = binary:match(Data, [<<"\r\n">>, <<"\n">>, <<"\r">>]),
+	case Found of
+		{Pos, Len} ->
+			{LineData, Left} = split_to_line(Data, Pos, Len),
+			LineData1 = string:strip(erlang:binary_to_list(LineData), left),
+			ResultList1 = case string:equal(string:substr(LineData1, 1, 1), "M") orelse string:equal(string:substr(LineData1, 1, 1), "A") of
+				              true ->
+					              Pos1 = string:str(LineData1, "/server/gameserver/"),
+					              %% 是server目录下的文件
+					              case Pos1 > 0 of
+						              true ->
+							              case string:str(LineData1, Ext) > 0 of
+								              true ->
+									              FilePath = string:substr(LineData1, Pos1 + 8),
+									              [FilePath | ResultList];
+								              _ ->
+									              ResultList
+							              end;
+						              _ ->
+							              ResultList
+					              end;
+
+				              _ ->
+					              ResultList
+			              end,
+			getChangeFile(Left, Ext, ResultList1);
+		nomatch ->
+			ResultList
+	end.
+%%更改文件路径
+changePath(FilePathList, AddPath) ->
+	Fun = fun(FilePath, AccList) ->
+		List1 = string:tokens(FilePath, "/"),
+
+		FilePath1 = lists:nth(1, List1) ++ "/" ++ AddPath ++ lists:nth(erlang:length(List1), List1),
+		[FilePath1 | AccList]
+	      end,
+	lists:foldl(Fun, [], FilePathList).
+%%给文件名换上特定的扩展名
+-spec changeExt(FilePathList :: list(), Ext :: string()) -> ResultList :: list().
+changeExt(FilePathList, Ext) ->
+	Fun = fun(FilePath, AccList) ->
+		FilePath1 = lists:nth(1, string:tokens(FilePath, ".")) ++ Ext,
+		[FilePath1 | AccList]
+	      end,
+	lists:foldl(Fun, [], FilePathList).
+
+
+copyFile(WorkDir, TargetDir, ServerCopyCfgs) ->
+	Fun2 = fun(CopyCfg, AccCount1) ->
+		{{child_dir, ChildDir}, {copy_ext, Exts}} = CopyCfg,
+		createFilefolder(TargetDir ++ "/"  ++ "/" ++ "/" ++ ChildDir),
+		Fun3 =
+			fun(Ext, AccCount2) ->
+				Fun1 =
+					fun(F, AccCount3) ->
+						CopyDest = TargetDir ++ "/" ++ "/" ++ "/" ++ ChildDir ++ "/" ++ getFileName(F),
+
+						F1 = pathConvert(F),
+						CopyDest1 = pathConvert(CopyDest),
+						
+						Str = "copy " ++ F1 ++ " " ++ CopyDest1,
+						io:format("copy [~ts]~n", [F1]),
+						os:cmd(Str),
+						AccCount3 + 1
+					end,
+				Count2 = filelib:fold_files(WorkDir ++ "/" ++ ChildDir, Ext, true, Fun1, 0),
+				AccCount2 + Count2
+			end,
+		Count3 = lists:foldl(Fun3, 0, Exts),
+		AccCount1 + Count3
+	       end,
+	FileCount = lists:foldl(Fun2, 0, ServerCopyCfgs),
+	io:format("copy [~p] files ok! ~n", [FileCount]).
+
+%%拷文件
+%%copy1(CopySource, CopyDest) ->
+%%	List = string:tokens(CopyDest, "/"),
+%%	CopyPathList = lists:sublist(List, erlang:length(List) - 1),
+%%	CopyPath = string:join(CopyPathList, "/"),
+%%	createFilefolder(CopyPath),
+%%
+%%	CopySource1 = pathConvert(CopySource),
+%%	CopyDest1 = pathConvert(CopyDest),
+%%
+%%	case filelib:is_file(CopySource1) of
+%%		true ->
+%%			Str = "copy " ++ CopySource1 ++ " " ++ CopyDest1,
+%%			io:format("copy [~ts]~n", [CopySource1]),
+%%			os:cmd(Str),
+%%			true;
+%%		_ ->
+%%			false
+%%	end.
+
+%%从文件路径里面提取文件名
+getFileName(Path) ->
+	ResList = string:tokens(Path, "/"),
+	lists:last(ResList).
+%%创建文件夹结构
+createFilefolder(Dir) ->
+	Str = string:sub_string(Dir, 3),
+	ResList = string:tokens(Str, "/"),
+	Fun =
+		fun(FolderName, AccIn) ->
+			Path = AccIn ++ "/" ++ FolderName,
+			file:make_dir(Path),
+			Path
+		end,
+	lists:foldl(Fun, string:sub_string(Dir, 1, 2), ResList).
+
+split_to_line(Data, Pos, Len) ->
+	{Line, Left} = erlang:split_binary(Data, Pos + Len),
+	{LineData, _Spliter} = erlang:split_binary(Line, Pos),
+	{LineData, Left}.
+
+read_two_version() ->
+	StrA = io:get_line("Please enter revision A(default is head version):"),
+	RevisionA = case string:equal(StrA, "\n") of
+		            true ->
+			            "head";
+		            _ ->
+			            {ResA, _} = string:to_integer(StrA),
+			            erlang:integer_to_list(ResA)
+	            end,
+	StrB = io:get_line("Please enter revision B(default is head version):"),
+	RevisionB = case string:equal(StrB, "\n") of
+		            true ->
+			            "head";
+		            _ ->
+			            {ResB, _} = string:to_integer(StrB),
+			            erlang:integer_to_list(ResB)
+	            end,
+	{RevisionA, RevisionB}.
+
+
+
+svn_version() ->
+	WorkDir = getWorkDir(),
+	Data = os:cmd("cd " ++ WorkDir ++ " && svn info"),
+	Line = getLine(Data, 11),
+	Pos = string:chr(Line, $:),
+	Len = erlang:length(Line),
+	S = string:right(Line, Len - Pos - 1),
+	Ver = erlang:list_to_integer(S),
+	Ver.
+-spec svn_diff_file_log(RA, RB) -> Data when
+	RA :: string(),
+	RB :: string(),
+	Data :: string().
+svn_diff_file_log(RA, RB) ->
+	WorkDir = getWorkDir(),
+	Data = os:cmd("cd " ++ WorkDir ++ " && svn log -r " ++ RA ++ ":" ++ RB ++ " -q -v"),
+	Data.
+
+
+%%
+svn_lastest_file_log() ->
+	WorkDir = getWorkDir(),
+	Data = os:cmd("cd " ++ WorkDir ++ " && svn log -v -l1 -q"),
+	Data.
+getLine(String, N) ->
+	getLine(String, 1, N).
+
+getLine([], _, _) ->
+	ok;
+getLine(String, N, N) ->
+	Pos = string:str(String, "\n"),
+	string:left(String, Pos - 2);
+getLine(String, I, N) ->
+	Pos = string:str(String, "\n"),
+	RemainStr = string:substr(String, Pos + 1),
+	getLine(RemainStr, I + 1, N).
+
+setWorkDir(WorkDir) ->
+	put(workdir, WorkDir).
+
+getWorkDir() ->
+	get(workdir).
+
+setTargetDir(TargetDir) ->
+	put(targetdir, TargetDir).
+
+getTargetDir() ->
+	get(targetdir).
+
+
+set_title(Title) ->
+	case os:type() of
+		{win32, _} ->
+			{_, Cwd} = file:get_cwd(),
+			os:cmd(io_lib:format('title "~p|~p"', [Cwd, Title]));
+		_ ->
+			skip
+	end.
+
+
+convertMD5ToHexString(MD5) ->
+	convertMD5ToHexString(lists:reverse(MD5),[]).
+
+convertMD5ToHexString([],AccIn) ->
+	AccIn;
+convertMD5ToHexString([H|T],AccIn) ->
+	R = [io_lib:format("~.16B",[H]) | AccIn],
+	convertMD5ToHexString(T,R).
+
+getTempDir() ->
+	"./___Temp___".
+
+pathConvert(Path) ->
+	List1 = string:tokens(Path, "/"),
+	string:join(List1, "\\").
+
+
+%%string_strip(Str)-> string:strip(Str).
+
+string_strip(Str, [])->
+	Str;
+string_strip(Str, [CH | L])->
+	string_strip(string:strip(Str, both, CH), L).

@@ -576,16 +576,6 @@ intCrossServer() ->
 			[?PsNameIdentity]
 		},
 
-		%% 世界boss战，公用进程
-		WorldBoss = {
-			?PsNameWorldBOss,
-			{?PsNameWorldBOss, start_link, []},
-			permanent,
-			2000,
-			worker,
-			[?PsNameWorldBOss]
-		},
-
 		%% 活动进程
 		Activity = {
 			?PsNameActivity,
@@ -724,7 +714,6 @@ intCrossServer() ->
 					Friend2,
 					Friend2LBS,
 					Identity,
-					WorldBoss,
 					Activity,
 					OperateActivity,
 					Award,

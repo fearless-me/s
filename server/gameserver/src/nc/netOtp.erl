@@ -130,8 +130,8 @@ handle_cast(_Request, State) ->
 handle_info({netMsgSend, _From, Msg}, State) ->
 	netLogic:sendNetMsg(Msg),
 	{noreply, State};
-handle_info({'EXIT',_UserPid,Reason},State) ->
-	userLogic:offline(Reason),
+handle_info({'EXIT',UserPid,Reason},State) ->
+	?LOG_OUT("me[`p],userPid[~p]exit,reason[~p]",[self(), UserPid, Reason]),
 	{stop, userPidExit, State};
 handle_info(_Info, State) ->
 	?ERROR_OUT("unhandle info [~p]",[_Info]),
