@@ -161,10 +161,10 @@ work(Lang, Platform, Type) ->
 	setWorkDir(WorkDir),
 	setTargetDir(TargetDir),
 	createFilefolder(TargetDir),
-	HotModList = reDir(Type),
+	{RevisionA, RevisionB,ModList} = reDir(Type),
 	copyFile(WorkDir,getTempDir(), CopyFileCfg),
-	makeHotMod(HotModList),
-	doWorkZip(Lang, Platform, HotModList),
+	makeHotMod(ModList),
+	doWorkZip(Lang, Platform, ModList,RevisionA, RevisionB),
 	menu().
 
 reDir(install) ->
@@ -172,7 +172,7 @@ reDir(install) ->
 	List1 = string:tokens(TempDir1, "/"),
 	TempDir = string:join(List1, "\\"),
 	redirectCreateDir(TempDir),
-	[];
+	{0,head,[]};
 reDir(hotupdate) ->
 	TempDir1 = getTempDir(),
 	List1 = string:tokens(TempDir1, "/"),
@@ -190,19 +190,19 @@ reDir(hotupdate) ->
 				io:format("module [~ts]~n",[Mod]),
 				Mod
 			end, FileList),
-	ModList.
+	{RevisionA, RevisionB,ModList}.
 
 
 makeHotMod(L)->
 	Content = lists:foldl(
 		fun(ModName, Acc)->
-			io_lib:format("~ts~n~ts",[ModName,Acc])
+			io_lib:format("~ts\n~ts",[ModName,Acc])
 		end, "", L),
 	TempDir = getTempDir(),
 	file:write_file(TempDir ++ "/updateMod.txt", Content),
 	ok.
 
-doWorkZip(Lang, Platform, HotList) ->
+doWorkZip(Lang, Platform, HotList, SvnA, SvnB) ->
 	TempDir = getTempDir(),
 	TargetDir = getTargetDir(),
 	SvnVer = svn_version(),
@@ -227,16 +227,24 @@ doWorkZip(Lang, Platform, HotList) ->
 	io:format("copy [~ts]~n",[ZipName]),
 	os:cmd(Str),
 
-	commitPLog(ZipName, MD5String, HotList),
+	commitPLog(ZipName, MD5String, HotList, SvnA, SvnB),
 
 	ok.
 
-commitPLog(ZipName, Md5, HotModList)->
-	HL = string:join(HotModList, "~n"),
+commitPLog(ZipName, Md5, HotModList, SvnA, SvnB)->
+	ModList =
+		lists:foldl(
+			fun(ModName, Acc)->
+				io_lib:format("~ts\n~ts",[ModName,Acc])
+			end,
+			"", HotModList),
 	{{Y,M,D},{H,Min,S}} = calendar:local_time(),
-	Result = io_lib:format("~p-~p-~p ~p:~p:~p\t~ts\t~ts~n~ts~n",
-		[Y, M, D, H, Min, S, ZipName,Md5, HL]),
-	file:write_file("./_____package_____.txt", Result),
+	Now = io_lib:format("time: ~p-~p-~p ~p:~p:~p~n",
+		[Y, M, D, H, Min, S]),
+	SvnVer = io_lib:format("svn: ~ts -> ~ts~n",[SvnA, SvnB]),
+	File = io_lib:format("File: ~ts ~ts~n",[ZipName, Md5]),
+	Content = io_lib:format("~ts~ts~tsmodules:~n~ts~n",[Now, SvnVer, File, ModList]),
+	file:write_file("./_____package_____.txt", Content),
 	os:cmd("svn commit -m \"package time\" _____package_____.txt"),
 	os:cmd("svn update"),
 	ok.
