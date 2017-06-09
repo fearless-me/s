@@ -172,7 +172,7 @@ reDir(install) ->
 	List1 = string:tokens(TempDir1, "/"),
 	TempDir = string:join(List1, "\\"),
 	redirectCreateDir(TempDir),
-	{0,head,[]};
+	{"0","head",[]};
 reDir(hotupdate) ->
 	TempDir1 = getTempDir(),
 	List1 = string:tokens(TempDir1, "/"),
