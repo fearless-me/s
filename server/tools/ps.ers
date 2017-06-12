@@ -161,10 +161,11 @@ work(Lang, Platform, Type) ->
 	setWorkDir(WorkDir),
 	setTargetDir(TargetDir),
 	createFilefolder(TargetDir),
+	SvnVer = svn_version(),
 	{RevisionA, RevisionB,ModList} = reDir(Type),
-	copyFile(WorkDir,getTempDir(), CopyFileCfg),
-	makeHotMod(ModList),
-	doWorkZip(Lang, Platform, ModList,RevisionA, RevisionB),
+	TempDir= io_lib:format("~ts/~p_~p_~p/",[getTempDir(), Lang, Platform, SvnVer]),
+	copyFile(WorkDir, TempDir, CopyFileCfg),
+	doWorkZip(Lang, Platform, Type, ModList,RevisionA, RevisionB),
 	menu().
 
 reDir(install) ->
@@ -193,16 +194,19 @@ reDir(hotupdate) ->
 	{RevisionA, RevisionB,ModList}.
 
 
-makeHotMod(L)->
+makeHotMod(Lang, Platform, _Type, Ver, L)->
 	Content = lists:foldl(
 		fun(ModName, Acc)->
 			io_lib:format("~ts\n~ts",[ModName,Acc])
 		end, "", L),
-	TempDir = getTempDir(),
-	file:write_file(TempDir ++ "/updateMod.txt", Content),
+	TempDir = io_lib:format("~ts/~p_~p_~p/module.txt",
+		[getTempDir(), Lang, Platform, Ver]
+	),
+
+	file:write_file(TempDir, Content),
 	ok.
 
-doWorkZip(Lang, Platform, HotList, SvnA, SvnB) ->
+doWorkZip(Lang, Platform, Type, HotList, SvnA, SvnB) ->
 	TempDir = getTempDir(),
 	TargetDir = getTargetDir(),
 	SvnVer = svn_version(),
@@ -211,8 +215,10 @@ doWorkZip(Lang, Platform, HotList, SvnA, SvnB) ->
 		[Lang, Platform, SvnVer]
 	),
 
+	makeHotMod(Lang, Platform, Type, SvnVer, HotList),
 	io:format("zip [~ts]~n",[ZipName]),
-	CmdStr = io_lib:format("cd ~ts && tar -jcvf ~ts ./", [TempDir,ZipName]),
+	CmdStr = io_lib:format("cd ~ts && tar -jcvf ~ts ./~p_~p_~p/",
+		[TempDir,ZipName, Lang, Platform,SvnVer]),
 	os:cmd(CmdStr),
 
 	ZipPath = TempDir ++ "/"++ ZipName,
@@ -227,11 +233,10 @@ doWorkZip(Lang, Platform, HotList, SvnA, SvnB) ->
 	io:format("copy [~ts]~n",[ZipName]),
 	os:cmd(Str),
 
-	commitPLog(ZipName, MD5String, HotList, SvnA, SvnB),
-
+	commitPLog(Type, ZipName, MD5String, HotList, SvnA, SvnB),
 	ok.
 
-commitPLog(ZipName, Md5, HotModList, SvnA, SvnB)->
+commitPLog(Type, ZipName, Md5, HotModList, SvnA, SvnB)->
 	ModList =
 		lists:foldl(
 			fun(ModName, Acc)->
@@ -241,7 +246,7 @@ commitPLog(ZipName, Md5, HotModList, SvnA, SvnB)->
 	{{Y,M,D},{H,Min,S}} = calendar:local_time(),
 	Now = io_lib:format("time: ~p-~p-~p ~p:~p:~p~n",
 		[Y, M, D, H, Min, S]),
-	SvnVer = io_lib:format("svn: ~ts -> ~ts~n",[SvnA, SvnB]),
+	SvnVer = io_lib:format("type: ~p~nsvn: ~ts -> ~ts~n",[Type,SvnA, SvnB]),
 	File = io_lib:format("File: ~ts ~ts~n",[ZipName, Md5]),
 	Content = io_lib:format("~ts~ts~tsmodules:~n~ts~n",[Now, SvnVer, File, ModList]),
 	file:write_file("./_____package_____.txt", Content),
@@ -481,7 +486,7 @@ convertMD5ToHexString([H|T],AccIn) ->
 	convertMD5ToHexString(T,R).
 
 getTempDir() ->
-	"./___Temp___".
+	"./___temp___".
 
 pathConvert(Path) ->
 	List1 = string:tokens(Path, "/"),
