@@ -162,22 +162,20 @@ work(Lang, Platform, Type) ->
 	setTargetDir(TargetDir),
 	createFilefolder(TargetDir),
 	SvnVer = svn_version(),
-	{RevisionA, RevisionB,ModList} = reDir(Type),
+	{RevisionA, RevisionB, FileList, ModList} = reDir(Type),
 	TempDir= io_lib:format("~ts/~p_~p_~p/",[getTempDir(), Lang, Platform, SvnVer]),
-	copyFile(WorkDir, TempDir, CopyFileCfg),
+	copyFile(Type,WorkDir, TempDir, CopyFileCfg, FileList),
 	doWorkZip(Lang, Platform, Type, ModList,RevisionA, RevisionB),
 	menu().
 
 reDir(install) ->
 	TempDir1 = getTempDir(),
-	List1 = string:tokens(TempDir1, "/"),
-	TempDir = string:join(List1, "\\"),
+	TempDir = pathConvert(TempDir1),
 	redirectCreateDir(TempDir),
-	{"0","head",[]};
+	{"0","head",[], []};
 reDir(hotupdate) ->
 	TempDir1 = getTempDir(),
-	List1 = string:tokens(TempDir1, "/"),
-	TempDir = string:join(List1, "\\"),
+	TempDir = pathConvert(TempDir1),
 	redirectCreateDir(TempDir),
 
 	{RevisionA, RevisionB} = read_two_version(),
@@ -191,14 +189,11 @@ reDir(hotupdate) ->
 				io:format("module [~ts]~n",[Mod]),
 				Mod
 			end, FileList),
-	{RevisionA, RevisionB,ModList}.
+	{RevisionA, RevisionB, FileList, ModList}.
 
 
 makeHotMod(Lang, Platform, _Type, Ver, L)->
-	Content = lists:foldl(
-		fun(ModName, Acc)->
-			io_lib:format("~ts\n~ts",[ModName,Acc])
-		end, "", L),
+	Content = string:join(L, "\n"),
 	TempDir = io_lib:format("~ts/~p_~p_~p/module.txt",
 		[getTempDir(), Lang, Platform, Ver]
 	),
@@ -326,8 +321,24 @@ changeExt(FilePathList, Ext) ->
 	      end,
 	lists:foldl(Fun, [], FilePathList).
 
+copyFile(install, WorkDir, TargetDir, ServerCopyCfgs, _FileList)->
+	copyFileFull(WorkDir, TargetDir, ServerCopyCfgs);
+copyFile(hotupdate, WorkDir, TargetDir, _ServerCopyCfgs, FileList)->
+	Fun = fun(FilePath, FileCount) ->
+		%%复制文件
+		case copy1(WorkDir++"/"++FilePath, TargetDir ++"/"++ FilePath) of
+			true ->
+				FileCount + 1;
+			_ ->
+				io:format("file[~s] not exsits ~n",[WorkDir++"/"++FilePath]),
+				FileCount
+		end
+	      end,
+	CopyFileNum = lists:foldl(Fun, 0, FileList),
+	io:format("copy [~p] file~n", [CopyFileNum]),
+	ok.
 
-copyFile(WorkDir, TargetDir, ServerCopyCfgs) ->
+copyFileFull(WorkDir, TargetDir, ServerCopyCfgs) ->
 	Fun2 = fun(CopyCfg, AccCount1) ->
 		{{child_dir, ChildDir}, {copy_ext, Exts}} = CopyCfg,
 		createFilefolder(TargetDir ++ "/"  ++ "/" ++ "/" ++ ChildDir),
@@ -354,25 +365,27 @@ copyFile(WorkDir, TargetDir, ServerCopyCfgs) ->
 	FileCount = lists:foldl(Fun2, 0, ServerCopyCfgs),
 	io:format("copy [~p] files ok! ~n", [FileCount]).
 
+
 %%拷文件
-%%copy1(CopySource, CopyDest) ->
-%%	List = string:tokens(CopyDest, "/"),
-%%	CopyPathList = lists:sublist(List, erlang:length(List) - 1),
-%%	CopyPath = string:join(CopyPathList, "/"),
-%%	createFilefolder(CopyPath),
-%%
-%%	CopySource1 = pathConvert(CopySource),
-%%	CopyDest1 = pathConvert(CopyDest),
-%%
-%%	case filelib:is_file(CopySource1) of
-%%		true ->
-%%			Str = "copy " ++ CopySource1 ++ " " ++ CopyDest1,
-%%			io:format("copy [~ts]~n", [CopySource1]),
-%%			os:cmd(Str),
-%%			true;
-%%		_ ->
-%%			false
-%%	end.
+copy1(CopySource, CopyDest) ->
+	List = string:tokens(CopyDest, "/"),
+	CopyPathList = lists:sublist(List, erlang:length(List) - 1),
+	CopyPath = string:join(CopyPathList, "/"),
+	createFilefolder(CopyPath),
+
+%%	List1 = string:tokens(CopySource, "/"),
+	CopySource1 = pathConvert(CopySource),%%string:join(List1, "\\"),
+%%	List2 = string:tokens(CopyDest, "/"),
+	CopyDest1 = pathConvert(CopyDest),%%string:join(List2, "\\"),
+	case filelib:is_file(CopySource1) of
+		true ->
+			Str = "copy " ++ CopySource1 ++ " " ++ CopyDest1,
+			io:format("copy [~ts]~n",[CopySource1]),
+			os:cmd(Str),
+			true;
+		_ ->
+			false
+	end.
 
 %%从文件路径里面提取文件名
 getFileName(Path) ->
@@ -486,7 +499,7 @@ convertMD5ToHexString([H|T],AccIn) ->
 	convertMD5ToHexString(T,R).
 
 getTempDir() ->
-	"./___temp___".
+	".\\___temp___".
 
 pathConvert(Path) ->
 	List1 = string:tokens(Path, "/"),
