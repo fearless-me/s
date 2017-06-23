@@ -18,7 +18,8 @@
 	call/4,
 	cast/3,
 	cast/4,
-	try_call/4
+	try_call/4,
+	where/1
 ]).
 
 where(Name)->
@@ -60,7 +61,7 @@ sendMsgAfter2PS(Name, MsgID, Msg, After)
 	andalso (erlang:is_atom(MsgID) orelse erlang:is_integer(MsgID))  ->
 	erlang:send_after(After, Name, {MsgID, self(), Msg});
 sendMsgAfter2PS(Name, MsgID, Msg, After) ->
-	case where(Name) of
+	case psMgr:where(Name) of
 		undefined ->
 			skip;
 		Pid ->
@@ -79,7 +80,7 @@ sendMsgAfter2PS(Name, MsgID, After)
 	andalso (erlang:is_atom(MsgID) orelse erlang:is_integer(MsgID))  ->
 	erlang:send_after(After, Name, {MsgID, self()});
 sendMsgAfter2PS(Name, MsgID, After) ->
-	case where(Name) of
+	case psMgr:where(Name) of
 		undefined ->
 			skip;
 		Pid ->
@@ -102,7 +103,7 @@ sendMsgAfter2PS(Name, MsgID, FromPID, Msg, After)
 	erlang:send_after(After, Name, {MsgID, FromPID, Msg}),
 	ok;
 sendMsgAfter2PS(Name, MsgID, FromPID, Msg, After) ->
-	case where(Name) of
+	case psMgr:where(Name) of
 		undefined ->
 			skip;
 		Pid ->
@@ -122,7 +123,7 @@ sendMsg2PS(0, _, _) ->
 sendMsg2PS(Name, MsgID, Msg) when (erlang:is_pid(Name) orelse erlang:is_tuple(Name)) andalso (erlang:is_atom(MsgID) orelse erlang:is_integer(MsgID)) ->
 	Name ! {MsgID, self(), Msg};
 sendMsg2PS(Name, MsgID, Msg) ->
-	case where(Name) of
+	case psMgr:where(Name) of
 		undefined ->
 			skip;
 		Pid ->
@@ -138,7 +139,7 @@ sendMsg2PS(0, _) ->
 sendMsg2PS(Name, MsgID) when (erlang:is_pid(Name) orelse erlang:is_tuple(Name)) andalso (erlang:is_atom(MsgID) orelse erlang:is_integer(MsgID)) ->
 	Name ! {MsgID, self()};
 sendMsg2PS(Name, MsgID) ->
-	case where(Name) of
+	case psMgr:where(Name) of
 		undefined ->
 			skip;
 		Pid ->
@@ -156,7 +157,7 @@ sendMsg2PS(Name, MsgID, FromPID, Msg)
 	Name ! {MsgID, FromPID, Msg},
 	ok;
 sendMsg2PS(Name, MsgID, FromPID, Msg) ->
-	case where(Name) of
+	case psMgr:where(Name) of
 		undefined ->
 			skip;
 		Pid ->

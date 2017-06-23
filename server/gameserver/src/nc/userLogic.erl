@@ -16,8 +16,7 @@
 -export([
 	init/2,
 	tick/0,
-	offline/1,
-	repetitionLogin/0
+	offline/1
 ]).
 
 
@@ -54,9 +53,4 @@ doOffline(_State,Reason)->
 	userLocal:setStatus(?US_Dead),
 	?LOG_OUT("network close[~p],client[~p]",
 		[Reason, self()]),
-	ok.
-
-
-repetitionLogin()->
-	offline(repetitionLogin),
 	ok.

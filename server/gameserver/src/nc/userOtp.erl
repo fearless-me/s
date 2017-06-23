@@ -131,8 +131,8 @@ handle_info({getAccountAck,_From,Msg},State)->
 	userLogin:loadAccountAck(Msg),
 	{noreply, State};
 handle_info({repetitionLogin,_From},State)->
-	userLogic:repetitionLogin( ),
-	{noreply, State};
+	userLogic:offline(repetitionLogin),
+	{stop, repetitionLogin, State};
 %%%-------------------------------------------------------------------
 handle_info({tick,_From},State)->
 	userLogic:tick( ),
