@@ -1,0 +1,19 @@
+%%%-------------------------------------------------------------------
+%%% @author ZhongYuanWei
+%%% @copyright (C) 2014, 好玩一二三科技
+%%% @doc
+%%%
+%%% @end
+%%% Created : 27. 六月 2014 11:19
+%%%-------------------------------------------------------------------
+{ application, localLog, [
+	{description, "local log application"},
+	{vsn, "1"},
+	{registered, []},
+	{applications, [
+		kernel,
+		stdlib
+	]},
+	{mod, {logApp, []}},
+	{env, []}
+]}.
