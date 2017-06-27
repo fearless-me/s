@@ -124,6 +124,7 @@ start_link(NameAtom) ->
 init([NameAtom]) ->
 	erlang:process_flag(trap_exit, true),
 	erlang:process_flag(priority, high),
+	createWindow(io_lib:format("~w",[NameAtom])),
 	put('IsWriteLog', true),
 	{ok, #state{name = NameAtom}}.
 
@@ -373,6 +374,7 @@ handleLog(NameD, Name, Level, String, Day) ->
 			skip
 	end,
 	logToFile(LogFile, String),
+	addToLogWindow(Level,String),
 	put(Name,{Cnt + 1, LogFile, ErrFile, Day}),
 	ok.
 
@@ -403,3 +405,52 @@ getLogInfo(Atom)->
 		V->
 			V
 	end.
+
+
+-spec createWindow(Log_File_Name) -> ok when Log_File_Name::string().
+-ifdef(RELEASE).
+createWindow(_Log_File_Name) ->
+	?LOG_OUT("Cur Is Release Version"),
+	ok.
+-else.
+createWindow(Log_File_Name) ->
+	?LOG_OUT("Cur Is Debug Version"),
+	WinPid = window:create_window(Log_File_Name, "", 800, 600),
+	put("WinPid", WinPid),
+	ok.
+-endif.
+
+
+-ifdef(RELEASE).
+
+-spec addToLogWindow(MsgLevel,String) -> ok when
+	MsgLevel::uint(),String::string().
+addToLogWindow(_MsgLevel,_String) ->
+	ok.
+
+-else.
+-spec addToLogWindow(MsgLevel,String) -> ok when
+	MsgLevel::uint(),String::string().
+addToLogWindow(MsgLevel,String) ->
+
+
+	try
+		case get("WinPid") of
+			undefined ->
+				skip;
+			WinPid ->
+				erlang:spawn(
+					fun()->
+						window:insert_record(WinPid, String, MsgLevel),
+						io:format("~ts", [str:utf8_to_utf16(String)])
+					end)
+
+		end
+	catch
+		_:_ ->
+			%%注意，此处不能再throw出去，因为本模块是从myGenServer派生，，
+			%%throw出的异常在myGenServer中处理异常还会调用本模块打印日志,这样会出现死循环
+			skip
+	end,
+	ok.
+-endif.
