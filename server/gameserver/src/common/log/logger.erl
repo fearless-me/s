@@ -414,7 +414,7 @@ createWindow(_Log_File_Name) ->
 	ok.
 -else.
 createWindow(Log_File_Name) ->
-	?LOG_OUT("Cur Is Debug Version"),
+%%	?LOG_OUT("Cur Is Debug Version"),
 	WinPid = window:create_window(Log_File_Name, "", 800, 600),
 	put("WinPid", WinPid),
 	ok.
