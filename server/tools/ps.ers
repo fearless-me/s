@@ -13,10 +13,12 @@
 %% 热更新
 -define(PS_Update, 2).
 -define(PS_HotFix, 3).
+-define(PS_Sql, 4).
 
 -define(InstallAtom, install).
 -define(UpdateAtom, udpate).
 -define(HotUpdateAtom, hotfix).
+-define(SqlUpdateAtom, updateSql).
 
 
 main(_) ->
@@ -72,9 +74,11 @@ fastSel() ->
 		"\t~p.~p~n"
 		"\t~p.~p~n"
 		"\t~p.~p~n"
+		"\t~p.~p~n"
+		"\t0.exit~n"
 %%		"~n~n#eg.1 1 1 = chs ios install"
 		"~n##########################################################~n~n"
-	,[?PS_Install, ?InstallAtom, ?PS_Update, ?UpdateAtom, ?PS_HotFix, ?HotUpdateAtom]),
+		, [?PS_Install, ?InstallAtom, ?PS_Update, ?UpdateAtom, ?PS_HotFix, ?HotUpdateAtom, ?PS_Sql, ?SqlUpdateAtom]),
 	set_title(unknown),
 	InputNoStr = io:get_line("Please enter your choice:"),
 %%	[L, P, T | _] = string:tokens(string_strip(InputNoStr,"\n"), " "),
@@ -161,6 +165,8 @@ getPlatform(_) -> menu().
 dispatchInput3(Lang, Platform, ?PS_Install) -> work(Lang, Platform, ?InstallAtom);
 dispatchInput3(Lang, Platform, ?PS_Update) -> work(Lang, Platform, ?UpdateAtom);
 dispatchInput3(Lang, Platform, ?PS_HotFix) -> work(Lang, Platform, ?HotUpdateAtom);
+dispatchInput3(Lang, Platform, ?PS_Sql) -> work(Lang, Platform, ?SqlUpdateAtom);
+dispatchInput3(_Lang, _Version, 0) -> ok;
 dispatchInput3(_Lang, _Version, _InputNo) -> menu().
 
 
@@ -172,13 +178,42 @@ work(Lang, Platform, Type) ->
 	setSqlDir(SqlDir),
 	setTargetDir(TargetDir),
 	createFilefolder(TargetDir),
+	doWork(Type, Lang, Platform, CopyFileCfg),
+	menu().
+
+doWork(?SqlUpdateAtom, _Lang, _Platform, _CopyFileCfg) ->
+	SqlDir = getSqlDir(),
+	SvnVer = svn_version(),
+	TargetDir = getTargetDir(),
+	FileList1 = filelib:fold_files(SqlDir, ".sql$$", true, fun(File, Acc) -> [File | Acc] end, []),
+	%%
+	reDir(?SqlUpdateAtom),
+	F =
+		fun(SqlFile) ->
+			BaseName = filename:basename(SqlFile, ".sql"),
+			TempDir = io_lib:format("~ts/~ts/",
+				[getTempDir(), makeSqlOutTempDir(BaseName, SvnVer)]),
+			createFilefolder(TempDir),
+			%%复制文件
+			ZipName = makeSqlZipName(BaseName, SvnVer),
+			case copy1(SqlFile, TempDir ++ "/" ++ filename:basename(SqlFile)) of
+				true ->
+					zipAndMd5(makeSqlOutTempDir(BaseName, SvnVer), TargetDir, ZipName);
+				_ ->
+					io:format("file[~s] not exsits ~n", [SqlDir ++ "/" ++ SqlFile])
+			end
+		end,
+	lists:foreach(F, FileList1),
+	ok;
+doWork(Type, Lang, Platform, CopyFileCfg) ->
+	WorkDir = getWorkDir(),
 	SvnVer = svn_version(),
 	{RevisionA, RevisionB, FileList, ModList} = reDir(Type),
-	TempDir = io_lib:format("~ts/~ts/", [getTempDir(), makeOutTempDir(Lang, Platform, Type, SvnVer)]),
+	TempDir = io_lib:format("~ts/~ts/", [getTempDir(), makeOutTempDir(Type, Lang, Platform, SvnVer)]),
 	copyFile(Type, WorkDir, TempDir, splitCopyFileCfg(Type, CopyFileCfg), FileList),
 	catch waitContinue(),
-	doWorkZip(Lang, Platform, Type, ModList, SvnVer, RevisionA, RevisionB),
-	menu().
+	doWorkZip(Type, Lang, Platform, ModList, SvnVer, RevisionA, RevisionB),
+	ok.
 
 reDir(?HotUpdateAtom) ->
 	TempDir1 = getTempDir(),
@@ -219,14 +254,19 @@ waitContinue() ->
 %%	file:write_file(TempDir, Content),
 %%	ok.
 
-doWorkZip(Lang, Platform, Type, HotList, SvnVer, SvnA, SvnB) ->
-	TempDir = getTempDir(),
+doWorkZip(Type, Lang, Platform, HotList, SvnVer, SvnA, SvnB) ->
 	TargetDir = getTargetDir(),
 	ZipName = makeZipName(Type, SvnVer),
-%%	makeHotMod(Lang, Platform, Type, SvnVer, HotList),
+	SourcePath = makeOutTempDir(Type, Lang, Platform, SvnVer),
+	NewZipName = zipAndMd5(SourcePath, TargetDir, ZipName),
+	commitPLog(Type, NewZipName, HotList, SvnA, SvnB),
+	ok.
+
+zipAndMd5(SourcePath,DestPath,ZipName)->
+	TempDir = getTempDir(),
 	io:format("zip [~ts]~n", [ZipName]),
 	CmdStr = io_lib:format("cd ~ts && tar -jcvf ~ts ./~ts/",
-		[TempDir, ZipName, makeOutTempDir(Lang, Platform, Type, SvnVer)]),
+		[TempDir, ZipName, SourcePath]),
 	os:cmd(CmdStr),
 
 	ZipPath = TempDir ++ "/" ++ ZipName,
@@ -238,20 +278,12 @@ doWorkZip(Lang, Platform, Type, HotList, SvnVer, SvnA, SvnB) ->
 	ok = file:rename(ZipPath, NewZipPath),
 
 	io:format("rename [~ts] -> [~ts]~n", [ZipName, NewZipName]),
-	Str = "copy " ++ pathConvert(NewZipPath) ++ " " ++ pathConvert(TargetDir),
+	Str = "copy " ++ pathConvert(NewZipPath) ++ " " ++ pathConvert(DestPath),
 	io:format("copy [~ts]~n", [NewZipName]),
 	os:cmd(Str),
 
-	commitPLog(Type, NewZipName, HotList, SvnA, SvnB),
-	ok.
+	NewZipName.
 
-makeOutTempDir(_Lang, _Platform, Type, SvnVer) ->
-	LocalYMD = localTimeYMD(),
-	io_lib:format(
-		"luna_gameserver_~p_~ts_~p",
-		[Type, LocalYMD, SvnVer]
-	).
-%%	io_lib:format("~p_~p_~p_~p", [Lang, Platform, Type, SvnVer]).
 
 splitCopyFileCfg(?InstallAtom, {{install, Cfg}, _}) ->
 	Cfg;
@@ -259,6 +291,28 @@ splitCopyFileCfg(?UpdateAtom, {_, {update, Cfg}}) ->
 	Cfg;
 splitCopyFileCfg(_, _) ->
 	[].
+
+makeSqlOutTempDir(BaseName, SvnVer) ->
+	LocalYMD = localTimeYMD(),
+	io_lib:format(
+		"~ts_~ts_~p",
+		[BaseName, LocalYMD, SvnVer]
+	).
+
+makeSqlZipName(Type, SvnVer) ->
+	LocalYMD = localTimeYMD(),
+	io_lib:format(
+		"~ts_~ts_~p.tar.bz2",
+		[Type, LocalYMD, SvnVer]
+	).
+
+makeOutTempDir(Type, _Lang, _Platform, SvnVer) ->
+	LocalYMD = localTimeYMD(),
+	io_lib:format(
+		"luna_gameserver_~p_~ts_~p",
+		[Type, LocalYMD, SvnVer]
+	).
+%%	io_lib:format("~p_~p_~p_~p", [Lang, Platform, Type, SvnVer]).
 
 %%makeZipName(?HotUpdateAtom, SvnVer) ->
 %%	LocalYMD = localTimeYMD(),
@@ -365,16 +419,17 @@ changeExt(FilePathList, Ext) ->
 	lists:foldl(Fun, [], FilePathList).
 
 copyFile(?HotUpdateAtom, WorkDir, TargetDir, _ServerCopyCfgs, FileList) ->
-	Fun = fun(FilePath, FileCount) ->
-		%%复制文件
-		case copy1(WorkDir ++ "/" ++ FilePath, TargetDir ++ "/" ++ FilePath) of
-			true ->
-				FileCount + 1;
-			_ ->
-				io:format("file[~s] not exsits ~n", [WorkDir ++ "/" ++ FilePath]),
-				FileCount
-		end
-	      end,
+	Fun =
+		fun(FilePath, FileCount) ->
+			%%复制文件
+			case copy1(WorkDir ++ "/" ++ FilePath, TargetDir ++ "/" ++ FilePath) of
+				true ->
+					FileCount + 1;
+				_ ->
+					io:format("file[~s] not exsits ~n", [WorkDir ++ "/" ++ FilePath]),
+					FileCount
+			end
+		end,
 	CopyFileNum = lists:foldl(Fun, 0, FileList),
 	io:format("copy [~p] file~n", [CopyFileNum]),
 	ok;
