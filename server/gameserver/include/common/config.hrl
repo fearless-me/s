@@ -176,4 +176,7 @@
 -include("cfg_pet_territory_search.hrl").
 -include("cfg_skillBase.hrl").
 -include("cfg_skillLevelParam.hrl").
+-include("cfg_pet_star.hrl").
+-include("cfg_pet_rebirth.hrl").
+-include("cfg_task_other.hrl").
 -endif.

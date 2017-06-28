@@ -84,7 +84,12 @@
 
         %%: Coby:
         %%: 判断掉线重连的依据
-        mainStep
+        mainStep,
+
+        %%: 功能模块开启后才会触发
+        %%: 0，无效
+        %%: id，mainMenu里功能模块id
+        module
 
  }).
 

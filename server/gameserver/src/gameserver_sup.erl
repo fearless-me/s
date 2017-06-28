@@ -31,96 +31,44 @@ start_link() ->
 %% Child :: {Id,StartFunc,Restart,Shutdown,Type,Modules}
 init([]) ->
 	try
-		SrvSup =
+		Title =
 			case core:isCross() of
 				true ->
-					{
-						serverSup,                                                % Id       = internal id
-						{serverSup, start_link, ["CrossServer", "GameServer.txt"]},    % StartFun = {M, F, A}
-						permanent,                                            % Restart  = permanent | transient | temporary
-						2000,                                                    % Shutdown = brutal_kill | int() >= 0 | infinity
-						supervisor,                                            % Type     = worker | supervisor
-						[serverSup]                                            % Modules  = [Module] | dynamic
-					};
+					"CrossServer";
 				false ->
-					{
-						serverSup,                                                % Id       = internal id
-						{serverSup, start_link, ["GameServer", "GameServer.txt"]},    % StartFun = {M, F, A}
-						permanent,                                            % Restart  = permanent | transient | temporary
-						2000,                                                    % Shutdown = brutal_kill | int() >= 0 | infinity
-						supervisor,                                            % Type     = worker | supervisor
-						[serverSup]                                            % Modules  = [Module] | dynamic
-					}
+					"GameServer"
 			end,
 
+		hdlt_logger:initEnv(Title),
+		crypto:start(),
+		application:start(localLog),
+		application:start(emysql),
 
-		Main = {
-			dbMainOtp,                                                % Id       = internal id
-			{dbMainOtp, start_link, []},                            % StartFun = {M, F, A}
+		ConfigOtp = {
+			configOtp,                                            % Id       = internal id
+			{configOtp, start_link, []},                          % StartFun = {M, F, A}
 			permanent,                                            % Restart  = permanent | transient | temporary
-			2000,                                                    % Shutdown = brutal_kill | int() >= 0 | infinity
-			worker,                                                % Type     = worker | supervisor
-			[dbMainOtp]                                            % Modules  = [Module] | dynamic
+			2000,                                                 % Shutdown = brutal_kill | int() >= 0 | infinity
+			worker,                                               % Type     = worker | supervisor
+			[configOtp]                                           % Modules  = [Module] | dynamic
 		},
 
-		%% DB进程
-		DBMgr = {dbMgrOtp,                                            % Id       = internal id
-			{dbMgrOtp, start_link, []},                                % StartFun = {M, F, A}
+		OperationsOtp = {
+			operationsOtp,                                        % Id       = internal id
+			{operationsOtp, start_link, []},                      % StartFun = {M, F, A}
 			permanent,                                            % Restart  = permanent | transient | temporary
-			2000,                                                    % Shutdown = brutal_kill | int() >= 0 | infinity
-			worker,                                                % Type     = worker | supervisor
-			[dbMgrOtp]                                            % Modules  = [Module] | dynamic
-		},
-
-		%% LogDB进程
-		LogDB = {logDBOtp,                                            % Id       = internal id
-			{logDBOtp, start_link, []},                                % StartFun = {M, F, A}
-			permanent,                                            % Restart  = permanent | transient | temporary
-			2000,                                                    % Shutdown = brutal_kill | int() >= 0 | infinity
-			worker,                                                % Type     = worker | supervisor
-			[logDBOtp]                                            % Modules  = [Module] | dynamic
-		},
-
-		%支付服务器进程
-		DBRechargePoolServerSup = {db_recharge_otp_pool,                                    % Id       = internal id
-			{db_recharge_otp_pool, start_link, []},                                % StartFun = {M, F, A}
-			permanent,                                            % Restart  = permanent | transient | temporary
-			2000,                                                    % Shutdown = brutal_kill | int() >= 0 | infinity
-			worker,                                                % Type     = worker | supervisor
-			[db_recharge_otp_pool]                                            % Modules  = [Module] | dynamic
-		},
-
-		%% GS进程树
-		TreeGS = {treeGSOtp,                                            % Id       = internal id
-			{treeGSOtp, start_link, []},                                % StartFun = {M, F, A}
-			permanent,                                            % Restart  = permanent | transient | temporary
-			2000,                                                    % Shutdown = brutal_kill | int() >= 0 | infinity
-			worker,                                                % Type     = worker | supervisor
-			[treeGSOtp]                                            % Modules  = [Module] | dynamic
-		},
-
-		%% LS进程树
-		TreeLS = {treeLSOtp,                                            % Id       = internal id
-			{treeLSOtp, start_link, []},                                % StartFun = {M, F, A}
-			permanent,                                            % Restart  = permanent | transient | temporary
-			2000,                                                    % Shutdown = brutal_kill | int() >= 0 | infinity
-			worker,                                                % Type     = worker | supervisor
-			[treeLSOtp]                                            % Modules  = [Module] | dynamic
+			2000,                                                 % Shutdown = brutal_kill | int() >= 0 | infinity
+			worker,                                               % Type     = worker | supervisor
+			[operationsOtp]                                       % Modules  = [Module] | dynamic
 		},
 
 		{ok, {{one_for_one, 0, 3600}, [
-			SrvSup,
-			TreeGS,
-			TreeLS,
-			Main,
-			DBMgr,
-			LogDB,
-			DBRechargePoolServerSup
+			ConfigOtp,
+			OperationsOtp
 		]}}
 	catch
 		_:Why ->
-			?ERROR_OUT("Exception Module:[~p] Why[~p] stack[~p]",
-				[?MODULE, Why, erlang:get_stacktrace()]),
+			?ERROR_OUT("Exception Module:[~p] Why[~p] stack[~p]", [?MODULE, Why, erlang:get_stacktrace()]),
 			{stop, [Why, erlang:get_stacktrace()]}
 	end.
 

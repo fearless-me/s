@@ -11,16 +11,37 @@
 
 -include("playerPrivate.hrl").
 
--define(ReviveProtectTime, 33).      %% 复活保护时间s，超过这个时间，玩家没有复活，则自动复活
+-define(ReviveProtectTime, 3600).   %% 复活保护时间s，超过这个时间，玩家没有复活，则自动复活
 
 -define(Revive_Normal, 1).          %% 普通复活
 -define(Revive_Cost, 2).            %% 收费复活
 -define(Revive_Unconditional, 3).   %% 无条件复活
 -define(Revive_BattleLearn, 4).     %% 切磋复活
 
+%% 多项复活类型，则相加。
+-define(ReviveType_None, 0).		%% 0：死亡后不弹复活界面，实际为营地复活
+-define(ReviveType_Home, 1).		%% 1：营地复活
+-define(ReviveType_Auto, 2).		%% 2：自动复活倒计时
+-define(ReviveType_Pos,  4).		%% 4：原地复活
+-define(ReviveType_HomeAuto,  3).	%% 3：1+2
+-define(ReviveType_HomePos,  5).	%% 5：1+4
+-define(ReviveType_AutoPos,  6).	%% 6：2+4
+-define(ReviveType_HomeAutoPos,  7).%% 7：1+2+4
+-define(ReviveTypeRange, [
+	?ReviveType_None,
+	?ReviveType_Home,
+	?ReviveType_Auto,
+	?ReviveType_Pos,
+	?ReviveType_HomeAuto,
+	?ReviveType_HomePos,
+	?ReviveType_AutoPos,
+	?ReviveType_HomeAutoPos
+]).
+
 %% API
 -export([
-	onDead/3,
+	onDead/4,
+	revive/1,
 	requestRevive_Normal/0,
 	requestRevive_Cost/0,
 	requestRevive_Unconditional/0,
@@ -30,27 +51,24 @@
 	noticeTeam/3
 ]).
 
+%% 客户端请求复活
+revive(?Revive_Normal) ->
+	%% 立即营地复活，不需要判断时间
+	requestRevive(?Revive_Normal);
+revive(?Revive_Cost) ->
+	%% 收费复活
+	requestRevive_Cost();
+revive(?Revive_Unconditional) ->
+	%% 自动复活时间到的复活，需要判断CD时间
+	requestRevive_Normal();
+revive(Type) ->
+	?ERROR_OUT("requestRevive:~p,~p", [playerState:getRoleID(), Type]),
+	ok.
+
 %% 请求普通营地复活
 -spec requestRevive_Normal() -> ok.
 requestRevive_Normal() ->
 	?DEBUG_OUT("requestRevive_Normal:~p,~ts",[playerState:getRoleID(), playerState:getName()]),
-	MapID = playerState:getMapIDGroup(),
-	#mapsettingCfg{type = MapType} = getCfg:getCfgPStack(cfg_mapsetting, MapID),
-	if
-		MapType =:= ?MapTypeActivity ->
-			%% 活动地图，目前都处理成直接复活
-			requestRevive(?Revive_Normal);
-		MapType =:= ?MapTypeCopyMap ->
-			requestRevive_Normal2();
-		MapType =:= ?MapTypeNormal ->
-			requestRevive_Normal2();
-		true ->
-			requestRevive_Normal2()
-	end,
-	ok.
-
--spec requestRevive_Normal2() -> ok.
-requestRevive_Normal2() ->
 	NowTime = time:getSyncTime1970FromDBS(),
 	LastTime = playerPropSync:getProp(?SerProp_PlayerDTime),
 	ReviveTime = playerPropSync:getProp(?SerProp_PlayerRTime),
@@ -68,40 +86,24 @@ requestRevive_Normal2() ->
 -spec requestRevive_Cost() -> ok.
 requestRevive_Cost() ->
 	?DEBUG_OUT("requestRevive_Cost:~p,~ts",[playerState:getRoleID(), playerState:getName()]),
-	RoleID = playerState:getRoleID(),
-	RoleName = playerState:getName(),
 	{CPhase, _NPhase} = getCNPhase(),
 	#globalsetupCfg{setpara = CostList} = getCfg:getCfgPStack(cfg_globalsetup, relive_cost),
-	{MoneyType, Money} = getListObj(CostList, CPhase),
-	{CanUse, ErrorCode} =
-		case MoneyType of
-			?CoinTypeGold -> {playerState:getCoin(MoneyType) >= Money, ?ErrorCode_TradeGold};
-			?CoinTypeDiamond -> {playerState:getCoin(MoneyType) >= Money, ?ErrorCode_TradeDiamond};
-			?CoinTypeBindDiamond -> {playerMoney:canUseCoin(?CoinUseTypeDiamond, Money), ?ErrorCode_TradeDiamond};
-			_ ->
-				?ERROR_OUT("requestRevive_Cost roleID=~p, roleName=~ts, config error:~p", [RoleID, RoleName, MoneyType]),
-				{false, ?ErrorCode_SystemNotEnoughMoney}
-		end,
-	case CanUse of
+	Money = getListObj(CostList, CPhase),
+	case playerMoney:canUseCoin(?CoinUseTypeDiamond, Money) of
 		true ->
 			case requestRevive(?Revive_Cost) of
 				true ->
 					%% 扣钱
 					PLog = #recPLogTSMoney{reason = ?CoinUseRevive, param = CPhase, target = ?PLogTS_System, source = ?PLogTS_PlayerSelf},
-					case MoneyType of
-						?CoinTypeGold -> playerMoney:decCoin(MoneyType, Money, PLog);
-						?CoinTypeDiamond -> playerMoney:decCoin(MoneyType, Money, PLog);
-						?CoinTypeBindDiamond -> playerMoney:useCoin(?CoinUseTypeDiamond, Money, PLog)
-					end,
-
-					addCostPhase(1, erlang:length(CostList)),
-%% 					?WARN_OUT("AAAAAAAAAAA:~ts, ~p -> ~p, ~p", [playerState:getName(),CPhase,getCNPhase(),Money]),
+					playerMoney:useCoin(?CoinUseTypeDiamond, Money, PLog),
 					ok;
 				_ ->
 					skip
-			end;
+			end,
+
+			addCostPhase(1, erlang:length(CostList));
 		false ->
-			playerMsg:sendErrorCodeMsg(ErrorCode)
+			playerMsg:sendErrorCodeMsg(?ErrorCode_TradeDiamond)
 	end,
 	ok.
 
@@ -216,14 +218,7 @@ requestRevive2(Type) ->
 								{TTTX, TTTY} ->
 									requestRevive3(MapID, TTTX, TTTY, HPPer_Normal);
 								_ ->
-									%%% 军团驻地
-									%Condition4 = playerGuildHome:getRevivePos(MapID),
-									%case Condition4 of
-									%	{TTTTX, TTTTY} ->
-									%		requestRevive3(MapID, erlang:float(TTTTX), erlang:float(TTTTY), HPPer_Normal);
-									%	_ ->
-											requestRevive3(MapID, Normal_Tx, Normal_Ty, HPPer_Normal)
-									%end
+									requestRevive3(MapID, Normal_Tx, Normal_Ty, HPPer_Normal)
 							end
 					end
 			end
@@ -231,9 +226,12 @@ requestRevive2(Type) ->
 	true.
 
 %% 其它统一复活
-requestRevive3(MapID, X, Y, Percent) ->
+requestRevive3(MapID, X, Y, PercentValue) ->
 	RX = erlang:float(X),
 	RY = erlang:float(Y),
+
+	%% 百分比
+	Percent = erlang:max(0, erlang:min(PercentValue / 100, 1)),
 
 	MaxHp = playerState:getMaxHp(),
 	CurHp = erlang:round(MaxHp * Percent),
@@ -332,107 +330,84 @@ noticeOtherObject(MapID, RX, RY, PC, #pk_GS2U_PlayerRevive{} = PlayerRevive) ->
 	ok.
 
 %% 玩家死亡
--spec onDead(AttackerCode::uint(), AttackName::string(), IsBattleLearn::boolean()) -> ok.
-onDead(AttackerCode, AttackName, IsBattleLearn) ->
+-spec onDead(AttackerCode::uint64(), AttackRoleID::uint64(), AttackName::string(), IsBattleLearn::boolean()) -> ok.
+onDead(AttackerCode, AttackRoleID, AttackName, IsBattleLearn) ->
 	Code = playerState:getPlayerCode(),
 	NowTime = time:getSyncTime1970FromDBS(),
 	%% 上次死亡时间
-	LastTime = playerPropSync:getProp(?SerProp_PlayerDTime),
+%%	LastTime = playerPropSync:getProp(?SerProp_PlayerDTime),
 	%% 设置本次死亡时间
 	playerPropSync:setInt64(?SerProp_PlayerDTime, NowTime),
 
-	%% 得到攻击者RoleID和姓名
-	AttackRoleID = playerBattle:getAttackRoleID(AttackerCode),
+	MapID = playerState:getMapID(),
 
 	%% 军团争霸特殊复活时间
 	{GuildWarResult, GWTime} = playerGuildWar:playerDead(AttackRoleID),
-	%%跨服竞技场复活时间
-	CrosArena = playerCrosTeam:getCrosArenaReviveTime(),
 
-	MapSubType = playerScene:getMapSubType(playerState:getMapID()),
+	%% 跨服竞技场复活时间
+	CosArena = playerCrosTeam:getCrosArenaReviveTime(),
 
-	{MoneyStruct, ReveTime} =
+	MapSubType = playerScene:getMapSubType(MapID),
+
+	ReviveType = getReviveType(MapID),
+
+	{MoneyStruct, ReviveTime} =
 		if
 			GuildWarResult ->
 				{#pk_MoneyInit{moneyType = 0, value = 0}, GWTime};
 			IsBattleLearn ->
-				Money = #pk_MoneyInit{moneyType = 0, value = 0},
-				{Money, 1};
-			erlang:is_integer(CrosArena) andalso CrosArena > 0 ->
-				Money = #pk_MoneyInit{moneyType = 0, value = 0},
-				{Money, CrosArena};
+				{#pk_MoneyInit{moneyType = 0, value = 0}, 1};
+			erlang:is_integer(CosArena) andalso CosArena > 0 ->
+				{#pk_MoneyInit{moneyType = 0, value = 0}, CosArena};
 			MapSubType =:= ?MapSubTypeExpCopyMap ->
-				Money = #pk_MoneyInit{moneyType = 0, value = 0},
-				ExpCopyReviveTime = case getCfg:getCfgByArgs(cfg_globalsetup, expfuben_revivedtime) of
-										#globalsetupCfg{setpara = [V]} ->
-											V;
-										_ ->
-											3
-									end,
-				{Money, ExpCopyReviveTime};
+				ExpCopyReviveTime =
+					case getCfg:getCfgByArgs(cfg_globalsetup, expfuben_revivedtime) of
+						#globalsetupCfg{setpara = [V]} -> V;
+						_ -> 3
+					end,
+				{#pk_MoneyInit{moneyType = 0, value = 0}, ExpCopyReviveTime};
 			true ->
 				%% 普通复活需要时间与金钱
 				{CPhase, NPhase} = getCNPhase(),
 
 				#globalsetupCfg{setpara = TimeList} = getCfg:getCfgPStack(cfg_globalsetup, relive_time),
-				#globalsetupCfg{setpara = [Cost|_] = CostList} = getCfg:getCfgPStack(cfg_globalsetup, relive_cost),
-				#globalsetupCfg{setpara = [CD]} = getCfg:getCfgPStack(cfg_globalsetup, relive_cd),
-				DiffTime = NowTime - LastTime,
-				{MoneyType, Money} =
-					case CPhase =< 0 of
-						true -> Cost;
-						_ ->
-							case DiffTime > CD of
-								true ->
-									DecV = DiffTime div CD,
-									addCostPhase(-DecV, erlang:length(CostList)),
-									getListObj(CostList, CPhase - DecV);
-								_ ->
-									getListObj(CostList, CPhase)
-							end
-					end,
+				#globalsetupCfg{setpara = [_Cost|_] = CostList} = getCfg:getCfgPStack(cfg_globalsetup, relive_cost),
+				%% 收费复活
+				Money = getListObj(CostList, CPhase),
 
-				ReviveTime =
-					case NowTime - LastTime > CD of
-						true ->
-							DecV2 = DiffTime div CD,
-							addNormalPhase(-DecV2, erlang:length(TimeList)),
-							getListObj(TimeList, NPhase - DecV2);
-						_ ->
-							addNormalPhase(1, erlang:length(TimeList)),
-							getListObj(TimeList, NPhase + 1)
-					end,
-				MoneySt = #pk_MoneyInit{moneyType = MoneyType, value = Money},
-				{MoneySt, ReviveTime}
+				%% 只要死亡，复活时间就累积
+				RTime = getListObj(TimeList, NPhase),
+				addNormalPhase(1, erlang:length(TimeList)),
+				{#pk_MoneyInit{moneyType = ?CoinTypeBindDiamond, value = Money}, RTime}
 		end,
 
 	%% 设置允许复活的CD时间
-	playerPropSync:setInt(?SerProp_PlayerRTime, ReveTime),
+	playerPropSync:setInt(?SerProp_PlayerRTime, ReviveTime),
 
-	playerGuildExpedition:playerDead(AttackerCode, AttackRoleID),
-	{_IsLost, LostMoney1} = playerDarkness:playerDead(AttackerCode, AttackRoleID),
+	%% 死亡丢失金钱
+	{_IsLost, LostMoney} = playerDarkness:playerDead(AttackerCode, AttackRoleID),
 
-	MoneyStruct1=
+	MoneyStruct2=
 		case core:isCross() of
-			true ->
-				MoneyStruct#pk_MoneyInit{value=0};
+			true -> MoneyStruct#pk_MoneyInit{value=0};
 			_ ->MoneyStruct
 		end,
+
 	%% 通知客户端死亡
 	Msg = #pk_GS2U_PlayerDead{
 		deadTime = NowTime,
 		code = Code,
-		normalReviveCDTime = ReveTime,
-		reviveCost = MoneyStruct1,
+		normalReviveCDTime = ReviveTime,
+		reviveCost = MoneyStruct2,
 		attackCode = AttackerCode,
 		attackName = AttackName,
-		lostMoney = LostMoney1
+		lostMoney = LostMoney,
+		reviveType = ReviveType
 	},
 	playerMsg:sendNetMsg(Msg),
 
-	?LOG_OUT("player dead roleID=~p, roleName=~ts, reviveTime=~p, money=~p",
-		[playerState:getRoleID(),playerState:getName(),ReveTime,MoneyStruct]),
-
+	?LOG_OUT("player dead roleID=~p, roleName=~ts, reviveTime=~p, money=~p, reviveType=~p",
+		[playerState:getRoleID(),playerState:getName(), ReviveTime,MoneyStruct2, ReviveType]),
 	ok.
 
 %%通知自己队友死亡或者复活
@@ -466,33 +441,33 @@ getCNPhase() ->
 	RevivePhase2 = RevivePhase band 16#FFFF,
 	CPhase = RevivePhase2 bsr 8,     % 收费复活阶段
 	NPhase = RevivePhase band 16#FF, % 普通复活阶段
-	{CPhase, NPhase}.
+	{erlang:max(CPhase, 1), erlang:max(NPhase, 1)}.
 
+%% 添加收费复活阶段
 addCostPhase(Number, Max) ->
 	{CPhase, NPhase} = getCNPhase(),
-	NCPhase1 = erlang:max(CPhase + Number, 0),
-	NCPhase2 = erlang:min(NCPhase1, Max),
-	case CPhase /= NCPhase2 of
+	NewCPhase = erlang:min(erlang:max(CPhase + Number, 1), Max),
+	case CPhase /= NewCPhase of
 		true ->
-			Value = (NCPhase2 bsl 8) + NPhase,
-			playerPropSync:setInt(?SerProp_PlayerRevivePhase, Value);
+			Value = (NewCPhase bsl 8) + NPhase,
+			playerPropSync:setInt(?SerProp_PlayerRevivePhase, Value),
+			NewCPhase;
 		_ ->
-			skip
-	end,
-	ok.
+			1
+	end.
 
+%% 添加普通复活阶段
 addNormalPhase(Number, Max) ->
 	{CPhase, NPhase} = getCNPhase(),
-	NNPhase1 = erlang:max(NPhase + Number, 0),
-	NNPhase2 = erlang:min(NNPhase1, Max),
-	case NPhase /= NNPhase2 of
+	NewNPhase = erlang:min(erlang:max(NPhase + Number, 1), Max),
+	case NPhase /= NewNPhase of
 		true ->
-			Value = (CPhase bsl 8) + NNPhase2,
-			playerPropSync:setInt(?SerProp_PlayerRevivePhase, Value);
+			Value = (CPhase bsl 8) + NewNPhase,
+			playerPropSync:setInt(?SerProp_PlayerRevivePhase, Value),
+			NewNPhase;
 		_ ->
-			skip
-	end,
-	ok.
+			1
+	end.
 
 getListObj([Obj|_] = List, Index) ->
 	Len = erlang:length(List),
@@ -512,3 +487,13 @@ reviveCallBack(Type) ->
 			skip
 	end,
 	ok.
+
+getReviveType(MapID) ->
+	case getCfg:getCfgByKey(cfg_mapsetting, MapID) of
+		#mapsettingCfg{fuhuo = Type} ->
+			case lists:member(Type, ?ReviveTypeRange) of
+				true -> Type;
+				_ -> ?ReviveType_Home
+			end;
+		_ -> ?ReviveType_Home
+	end.

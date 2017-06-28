@@ -227,67 +227,71 @@ useRide_check(RoleID, NetPid, GuildIDIn, RideID, UpOrDown, MapPID) ->
 			false;
 		#recGuildFairground{guildID = GuildID}
 			when GuildIDIn =:= 0; GuildID =:= GuildIDIn ->	%% 这里判断0是让角色进程忽略验证而仅由公共进程验证
-			%% 2.检查设施状态
-			case guildState:queryRide(GuildID, RideID) of
-				#rec_guild_ride{rideLevel = 0} ->
-					?ERROR_OUT("useRide_check invalid rideID(~w) guildID(~w)", [RideID, GuildID]),
-					playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_ErrorRideID),
-					false;
-				#rec_guild_ride{rideState = ?RideState_Maintain} ->
-					playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Maintain),
-					false;
-				#rec_guild_ride{rideState = ?RideState_Close} ->
-					playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Close),
-					false;
-				#rec_guild_ride{rideState = ?RideState_Open, rideLevel = RideLevel} = Ride ->
-					%% 3.检查设施使用情况
-					#guild_rideCfg{playerMax = CountMax} = Cfg =
-						getCfg:getCfgPStack(cfg_guild_ride, RideID, RideLevel),
-					RecGuildRideUser = queryRideUser(GuildID, RideID),
-					ListRideUser = [Role || #recGuildRideUser{role = Role} <- RecGuildRideUser],
-					case UpOrDown of
-						false ->
-							%% 3.1 取消乘坐操作下的最终判断
-							case lists:keyfind(RoleID, #pk_RideRole.roleID, ListRideUser) of
-								#pk_RideRole{} ->
-									%% 正在乘坐目标设施，可以取消乘坐
-									#recGuildRideParam{
-										guildID = GuildID,
-										cfg = Cfg,
-										ride = Ride,
-										listUser = ListRideUser
-									};
-								_ ->
-									%% 没有乘坐目标设施，忽略取消乘坐
-									false
-							end;
-						_ ->
-							%% 3.2 乘坐操作下需要额外判断
-							case ets:lookup(?EtsGuildRideUser, RoleID) of
-								[#recGuildRideUser{}] ->
-									playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Riding),
-									false;
-								_ ->
-									case erlang:length(ListRideUser) < CountMax of
-										false ->
-											playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Full),
-											false;
-										_ ->
-											%% 没有乘坐任何设施，可以乘坐
-											#recGuildRideParam{
-												guildID = GuildID,
-												cfg = Cfg,
-												ride = Ride,
-												listUser = ListRideUser
-											}
-									end
-							end
-					end
-			end;
+			useRide_check_(RoleID, NetPid, GuildID, RideID, UpOrDown, guildState:queryRide(GuildID, RideID));
 		#recGuildFairground{guildID = GuildID} ->
 			%% 公共进程处理该消息时，角色已经换了不同的家族游乐场，直接判断操作失败
 			%% 这种情况应该只在理论上才能出现
 			?ERROR_OUT("useRide_check guildID is changed! RoleID:~w GuildID:~w GuildIDIn:~w", [RoleID, GuildID, GuildIDIn]),
+			false
+	end.
+
+useRide_check_(_RoleID, NetPid, GuildID, RideID, true, #rec_guild_ride{rideLevel = 0}) ->
+	?ERROR_OUT("useRide_check_ up invalid rideID(~w) guildID(~w)", [RideID, GuildID]),
+	playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_ErrorRideID),
+	false;
+useRide_check_(_RoleID, NetPid, _GuildID, _RideID, true, #rec_guild_ride{rideState = ?RideState_Maintain}) ->
+	playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Maintain),
+	false;
+useRide_check_(_RoleID, NetPid, _GuildID, _RideID, true, #rec_guild_ride{rideState = ?RideState_Close}) ->
+	playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Close),
+	false;
+useRide_check_(RoleID, NetPid, GuildID, RideID, true, #rec_guild_ride{rideState = ?RideState_Open, rideLevel = RideLevel} = Ride) ->
+	%% 检查设施使用情况
+	#guild_rideCfg{playerMax = CountMax} = Cfg =
+		getCfg:getCfgPStack(cfg_guild_ride, RideID, RideLevel),
+	RecGuildRideUser = queryRideUser(GuildID, RideID),
+	ListRideUser = [Role || #recGuildRideUser{role = Role} <- RecGuildRideUser],
+	%% 乘坐操作下需要额外判断
+	case ets:lookup(?EtsGuildRideUser, RoleID) of
+		[#recGuildRideUser{}] ->
+			playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Riding),
+			false;
+		_ ->
+			case erlang:length(ListRideUser) < CountMax of
+				false ->
+					playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Full),
+					false;
+				_ ->
+					%% 没有乘坐任何设施，可以乘坐
+					#recGuildRideParam{
+						guildID = GuildID,
+						cfg = Cfg,
+						ride = Ride,
+						listUser = ListRideUser
+					}
+			end
+	end;
+useRide_check_(_RoleID, NetPid, GuildID, RideID, false, #rec_guild_ride{rideLevel = 0}) ->
+	?ERROR_OUT("useRide_check_ down invalid rideID(~w) guildID(~w)", [RideID, GuildID]),
+	playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_ErrorRideID),
+	false;
+useRide_check_(RoleID, _NetPid, GuildID, RideID, false, #rec_guild_ride{rideLevel = RideLevel} = Ride) ->
+	%% 设备存在时始终允许下设备
+	Cfg = getCfg:getCfgPStack(cfg_guild_ride, RideID, RideLevel),
+	RecGuildRideUser = queryRideUser(GuildID, RideID),
+	ListRideUser = [Role || #recGuildRideUser{role = Role} <- RecGuildRideUser],
+	%% 取消乘坐操作下的最终判断
+	case lists:keyfind(RoleID, #pk_RideRole.roleID, ListRideUser) of
+		#pk_RideRole{} ->
+			%% 正在乘坐目标设施，可以取消乘坐
+			#recGuildRideParam{
+				guildID = GuildID,
+				cfg = Cfg,
+				ride = Ride,
+				listUser = ListRideUser
+			};
+		_ ->
+			%% 没有乘坐目标设施，忽略取消乘坐
 			false
 	end.
 

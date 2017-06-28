@@ -746,6 +746,44 @@ getRow(22006,4)->
     ishide = 1,
     showtype = 2
     };
+getRow(26001,3)->
+    #mallCfg {
+    item_id = 26001,
+    type = 3,
+    sort = 10,
+    type1 = 0,
+    gold = 1200,
+    bind_gold = 1200,
+    use_integral = 0,
+    get_integral = 0,
+    limit_buy = 0,
+    limit_type = 3,
+    limit_day = 1,
+    buy_reset = 0,
+    level = 1,
+    recharge = 0,
+    ishide = 1,
+    showtype = 0
+    };
+getRow(26002,2)->
+    #mallCfg {
+    item_id = 26002,
+    type = 2,
+    sort = 13,
+    type1 = 0,
+    gold = 2400,
+    bind_gold = 0,
+    use_integral = 0,
+    get_integral = 0,
+    limit_buy = 0,
+    limit_type = 3,
+    limit_day = 1,
+    buy_reset = 0,
+    level = 1,
+    recharge = 0,
+    ishide = 1,
+    showtype = 0
+    };
 getRow(_,_)->[].
 
 getKeyList()->[
@@ -787,7 +825,9 @@ getKeyList()->[
     {22005,1},
     {22005,4},
     {22006,1},
-    {22006,4}
+    {22006,4},
+    {26001,3},
+    {26002,2}
     ].
 
 get1KeyList()->[
@@ -812,7 +852,9 @@ get1KeyList()->[
     22003,
     22004,
     22005,
-    22006
+    22006,
+    26001,
+    26002
     ].
 
 get2KeyList(201)->[
@@ -897,6 +939,12 @@ get2KeyList(22005)->[
 get2KeyList(22006)->[
     1,
     4
+    ];
+get2KeyList(26001)->[
+    3
+    ];
+get2KeyList(26002)->[
+    2
     ];
 get2KeyList(_)->[].
 

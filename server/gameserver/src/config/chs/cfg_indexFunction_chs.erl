@@ -8,6 +8,7 @@
 getRow(1)->
     #indexFunctionCfg {
     level = 1,
+    exp = 1000,
     demonDamLv = 0.5,
     demonResLv = 1,
     demonHPLv = 0.5,
@@ -20,6 +21,7 @@ getRow(1)->
     heroDgDamLv = 1.45,
     heroDgHPLv = 1.6,
     heroDgDropLv = 0.93,
+    hPRecover = 9,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -34,6 +36,7 @@ getRow(1)->
 getRow(2)->
     #indexFunctionCfg {
     level = 2,
+    exp = 1040,
     demonDamLv = 0.609607188804495,
     demonResLv = 1,
     demonHPLv = 0.605029940119761,
@@ -46,6 +49,7 @@ getRow(2)->
     heroDgDamLv = 2.11,
     heroDgHPLv = 2.56,
     heroDgDropLv = 2.26,
+    hPRecover = 9,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -60,6 +64,7 @@ getRow(2)->
 getRow(3)->
     #indexFunctionCfg {
     level = 3,
+    exp = 1140,
     demonDamLv = 0.722416773877154,
     demonResLv = 1,
     demonHPLv = 0.711736526946108,
@@ -72,6 +77,7 @@ getRow(3)->
     heroDgDamLv = 3.05,
     heroDgHPLv = 4.1,
     heroDgDropLv = 3.8,
+    hPRecover = 10,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -86,6 +92,7 @@ getRow(3)->
 getRow(4)->
     #indexFunctionCfg {
     level = 4,
+    exp = 1290,
     demonDamLv = 0.838428755217979,
     demonResLv = 1,
     demonHPLv = 0.820119760479042,
@@ -98,6 +105,7 @@ getRow(4)->
     heroDgDamLv = 4.42,
     heroDgHPLv = 6.55,
     heroDgDropLv = 5.53,
+    hPRecover = 11,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -112,6 +120,7 @@ getRow(4)->
 getRow(5)->
     #indexFunctionCfg {
     level = 5,
+    exp = 1480,
     demonDamLv = 0.969958607707242,
     demonResLv = 1,
     demonHPLv = 0.968892340184471,
@@ -124,6 +133,7 @@ getRow(5)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 12,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -138,6 +148,7 @@ getRow(5)->
 getRow(6)->
     #indexFunctionCfg {
     level = 6,
+    exp = 1720,
     demonDamLv = 1.09394968484198,
     demonResLv = 1,
     demonHPLv = 1.08527917595016,
@@ -150,6 +161,7 @@ getRow(6)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 12,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -164,6 +176,7 @@ getRow(6)->
 getRow(7)->
     #indexFunctionCfg {
     level = 7,
+    exp = 2010,
     demonDamLv = 1.22118434167683,
     demonResLv = 1,
     demonHPLv = 1.203412437976,
@@ -176,6 +189,7 @@ getRow(7)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 13,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -190,6 +204,7 @@ getRow(7)->
 getRow(8)->
     #indexFunctionCfg {
     level = 8,
+    exp = 2370,
     demonDamLv = 1.3516625782118,
     demonResLv = 1,
     demonHPLv = 1.32329212626199,
@@ -202,6 +217,7 @@ getRow(8)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 14,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -216,6 +232,7 @@ getRow(8)->
 getRow(9)->
     #indexFunctionCfg {
     level = 9,
+    exp = 2790,
     demonDamLv = 1.50434556933795,
     demonResLv = 1,
     demonHPLv = 1.50655612842051,
@@ -228,6 +245,7 @@ getRow(9)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 15,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -242,6 +260,7 @@ getRow(9)->
 getRow(10)->
     #indexFunctionCfg {
     level = 10,
+    exp = 3300,
     demonDamLv = 1.64305935096784,
     demonResLv = 1,
     demonHPLv = 1.63519154333961,
@@ -254,6 +273,7 @@ getRow(10)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 29,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -268,6 +288,7 @@ getRow(10)->
 getRow(11)->
     #indexFunctionCfg {
     level = 11,
+    exp = 3910,
     demonDamLv = 1.78505811712356,
     demonResLv = 1,
     demonHPLv = 1.76564788425351,
@@ -280,6 +301,7 @@ getRow(11)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 32,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -294,6 +316,7 @@ getRow(11)->
 getRow(12)->
     #indexFunctionCfg {
     level = 12,
+    exp = 4640,
     demonDamLv = 1.93034186780511,
     demonResLv = 1,
     demonHPLv = 1.89792515116223,
@@ -306,6 +329,7 @@ getRow(12)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 38,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -320,6 +344,7 @@ getRow(12)->
 getRow(13)->
     #indexFunctionCfg {
     level = 13,
+    exp = 5510,
     demonDamLv = 2.10525499207092,
     demonResLv = 1,
     demonHPLv = 2.12068785901032,
@@ -332,6 +357,7 @@ getRow(13)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 41,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -346,6 +372,7 @@ getRow(13)->
 getRow(14)->
     #indexFunctionCfg {
     level = 14,
+    exp = 6560,
     demonDamLv = 2.25903303383454,
     demonResLv = 1,
     demonHPLv = 2.26253761979031,
@@ -358,6 +385,7 @@ getRow(14)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 44,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -372,6 +400,7 @@ getRow(14)->
 getRow(15)->
     #indexFunctionCfg {
     level = 15,
+    exp = 7800,
     demonDamLv = 2.41613768813352,
     demonResLv = 1,
     demonHPLv = 2.40628776014056,
@@ -384,6 +413,7 @@ getRow(15)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 47,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -398,6 +428,7 @@ getRow(15)->
 getRow(16)->
     #indexFunctionCfg {
     level = 16,
+    exp = 9270,
     demonDamLv = 2.57656895496787,
     demonResLv = 1,
     demonHPLv = 2.55193828006106,
@@ -410,6 +441,7 @@ getRow(16)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 50,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -424,6 +456,7 @@ getRow(16)->
 getRow(17)->
     #indexFunctionCfg {
     level = 17,
+    exp = 11000,
     demonDamLv = 2.77480361976404,
     demonResLv = 1,
     demonHPLv = 2.81972879264759,
@@ -436,6 +469,7 @@ getRow(17)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 54,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -450,6 +484,7 @@ getRow(17)->
 getRow(18)->
     #indexFunctionCfg {
     level = 18,
+    exp = 13000,
     demonDamLv = 2.94399024638652,
     demonResLv = 1,
     demonHPLv = 2.97583687333875,
@@ -462,6 +497,7 @@ getRow(18)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 58,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -476,6 +512,7 @@ getRow(18)->
 getRow(19)->
     #indexFunctionCfg {
     level = 19,
+    exp = 15000,
     demonDamLv = 3.11654533854713,
     demonResLv = 1,
     demonHPLv = 3.13392997957911,
@@ -488,6 +525,7 @@ getRow(19)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 61,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -502,6 +540,7 @@ getRow(19)->
 getRow(20)->
     #indexFunctionCfg {
     level = 20,
+    exp = 18000,
     demonDamLv = 3.29246889624587,
     demonResLv = 1,
     demonHPLv = 3.29400811136868,
@@ -514,6 +553,7 @@ getRow(20)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 66,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -528,6 +568,7 @@ getRow(20)->
 getRow(21)->
     #indexFunctionCfg {
     level = 21,
+    exp = 21000,
     demonDamLv = 3.65615269661668,
     demonResLv = 1,
     demonHPLv = 3.78440300501195,
@@ -540,6 +581,7 @@ getRow(21)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 70,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -554,6 +596,7 @@ getRow(21)->
 getRow(22)->
     #indexFunctionCfg {
     level = 22,
+    exp = 25000,
     demonDamLv = 3.98559118215503,
     demonResLv = 1,
     demonHPLv = 4.13361393560134,
@@ -566,6 +609,7 @@ getRow(22)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 74,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -580,6 +624,7 @@ getRow(22)->
 getRow(23)->
     #indexFunctionCfg {
     level = 23,
+    exp = 29000,
     demonDamLv = 4.32191480632395,
     demonResLv = 1,
     demonHPLv = 4.49112529578028,
@@ -592,6 +637,7 @@ getRow(23)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 78,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -606,6 +652,7 @@ getRow(23)->
 getRow(24)->
     #indexFunctionCfg {
     level = 24,
+    exp = 34000,
     demonDamLv = 4.66512356912344,
     demonResLv = 1,
     demonHPLv = 4.85693708554879,
@@ -618,6 +665,7 @@ getRow(24)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 82,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -632,6 +680,7 @@ getRow(24)->
 getRow(25)->
     #indexFunctionCfg {
     level = 25,
+    exp = 40000,
     demonDamLv = 5.07743224462936,
     demonResLv = 1,
     demonHPLv = 5.47246192729313,
@@ -644,6 +693,7 @@ getRow(25)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 89,
     offLineExpFree = 0,
     offLineExpFreeAll = 0,
     offLineExpGold = 0,
@@ -658,6 +708,7 @@ getRow(25)->
 getRow(26)->
     #indexFunctionCfg {
     level = 26,
+    exp = 46000,
     demonDamLv = 5.43883968095746,
     demonResLv = 1,
     demonHPLv = 5.87252289783649,
@@ -670,6 +721,7 @@ getRow(26)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 94,
     offLineExpFree = 62,
     offLineExpFreeAll = 44640,
     offLineExpGold = 1.5,
@@ -684,6 +736,7 @@ getRow(26)->
 getRow(27)->
     #indexFunctionCfg {
     level = 27,
+    exp = 54000,
     demonDamLv = 5.80721766743556,
     demonResLv = 1,
     demonHPLv = 6.28126736231412,
@@ -696,6 +749,7 @@ getRow(27)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 99,
     offLineExpFree = 62,
     offLineExpFreeAll = 44640,
     offLineExpGold = 1.5,
@@ -710,6 +764,7 @@ getRow(27)->
 getRow(28)->
     #indexFunctionCfg {
     level = 28,
+    exp = 62000,
     demonDamLv = 6.18256620406364,
     demonResLv = 1,
     demonHPLv = 6.69869532072603,
@@ -722,6 +777,7 @@ getRow(28)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 107,
     offLineExpFree = 62,
     offLineExpFreeAll = 44640,
     offLineExpGold = 1.5,
@@ -736,6 +792,7 @@ getRow(28)->
 getRow(29)->
     #indexFunctionCfg {
     level = 29,
+    exp = 93000,
     demonDamLv = 6.6457644435,
     demonResLv = 1,
     demonHPLv = 7.45859797499513,
@@ -748,6 +805,7 @@ getRow(29)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 113,
     offLineExpFree = 53,
     offLineExpFreeAll = 38160,
     offLineExpGold = 1.5,
@@ -762,6 +820,7 @@ getRow(29)->
 getRow(30)->
     #indexFunctionCfg {
     level = 30,
+    exp = 134000,
     demonDamLv = 7.0398501148717,
     demonResLv = 1,
     demonHPLv = 7.91376269863677,
@@ -774,6 +833,7 @@ getRow(30)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 144,
     offLineExpFree = 53,
     offLineExpFreeAll = 38160,
     offLineExpGold = 1.5,
@@ -788,6 +848,7 @@ getRow(30)->
 getRow(31)->
     #indexFunctionCfg {
     level = 31,
+    exp = 166000,
     demonDamLv = 7.44099221332264,
     demonResLv = 1,
     demonHPLv = 8.37801773059651,
@@ -800,6 +861,7 @@ getRow(31)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 158,
     offLineExpFree = 53,
     offLineExpFreeAll = 38160,
     offLineExpGold = 1.5,
@@ -814,6 +876,7 @@ getRow(31)->
 getRow(32)->
     #indexFunctionCfg {
     level = 32,
+    exp = 207000,
     demonDamLv = 7.84919073885284,
     demonResLv = 1,
     demonHPLv = 8.85136307087434,
@@ -826,6 +889,7 @@ getRow(32)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 170,
     offLineExpFree = 53,
     offLineExpFreeAll = 38160,
     offLineExpGold = 1.5,
@@ -840,6 +904,7 @@ getRow(32)->
 getRow(33)->
     #indexFunctionCfg {
     level = 33,
+    exp = 253000,
     demonDamLv = 8.36557379616907,
     demonResLv = 1,
     demonHPLv = 9.77695647881226,
@@ -852,6 +917,7 @@ getRow(33)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 181,
     offLineExpFree = 63,
     offLineExpFreeAll = 45360,
     offLineExpGold = 1.5,
@@ -866,6 +932,7 @@ getRow(33)->
 getRow(34)->
     #indexFunctionCfg {
     level = 34,
+    exp = 271000,
     demonDamLv = 8.79305280004193,
     demonResLv = 1,
     demonHPLv = 10.2918195086878,
@@ -878,6 +945,7 @@ getRow(34)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 194,
     offLineExpFree = 63,
     offLineExpFreeAll = 45360,
     offLineExpGold = 1.5,
@@ -892,6 +960,7 @@ getRow(34)->
 getRow(35)->
     #indexFunctionCfg {
     level = 35,
+    exp = 290000,
     demonDamLv = 9.22767457714756,
     demonResLv = 1,
     demonHPLv = 10.8162044440036,
@@ -904,6 +973,7 @@ getRow(35)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 209,
     offLineExpFree = 63,
     offLineExpFreeAll = 45360,
     offLineExpGold = 1.5,
@@ -918,6 +988,7 @@ getRow(35)->
 getRow(36)->
     #indexFunctionCfg {
     level = 36,
+    exp = 343000,
     demonDamLv = 9.66943912748597,
     demonResLv = 1,
     demonHPLv = 11.3501112847596,
@@ -930,6 +1001,7 @@ getRow(36)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 241,
     offLineExpFree = 70,
     offLineExpFreeAll = 50400,
     offLineExpGold = 1.5,
@@ -944,6 +1016,7 @@ getRow(36)->
 getRow(37)->
     #indexFunctionCfg {
     level = 37,
+    exp = 470000,
     demonDamLv = 10.241333288249,
     demonResLv = 1,
     demonHPLv = 12.4649054872305,
@@ -956,6 +1029,7 @@ getRow(37)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 261,
     offLineExpFree = 70,
     offLineExpFreeAll = 50400,
     offLineExpGold = 1.5,
@@ -970,6 +1044,7 @@ getRow(37)->
 getRow(38)->
     #indexFunctionCfg {
     level = 38,
+    exp = 610000,
     demonDamLv = 10.7029265989841,
     demonResLv = 1,
     demonHPLv = 13.0444198785566,
@@ -982,6 +1057,7 @@ getRow(38)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 287,
     offLineExpFree = 79,
     offLineExpFreeAll = 56880,
     offLineExpGold = 1.5,
@@ -996,6 +1072,7 @@ getRow(38)->
 getRow(39)->
     #indexFunctionCfg {
     level = 39,
+    exp = 801000,
     demonDamLv = 11.171749502186,
     demonResLv = 1,
     demonHPLv = 13.6339136074946,
@@ -1008,6 +1085,7 @@ getRow(39)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 312,
     offLineExpFree = 86,
     offLineExpFreeAll = 61920,
     offLineExpGold = 1.5,
@@ -1022,6 +1100,7 @@ getRow(39)->
 getRow(40)->
     #indexFunctionCfg {
     level = 40,
+    exp = 85300000,
     demonDamLv = 11.6478019978546,
     demonResLv = 1,
     demonHPLv = 14.2333866740447,
@@ -1034,6 +1113,7 @@ getRow(40)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 351,
     offLineExpFree = 90,
     offLineExpFreeAll = 64800,
     offLineExpGold = 1.5,
@@ -1048,6 +1128,7 @@ getRow(40)->
 getRow(41)->
     #indexFunctionCfg {
     level = 41,
+    exp = 906000,
     demonDamLv = 12.4272933618583,
     demonResLv = 1,
     demonHPLv = 15.8217668693609,
@@ -1060,6 +1141,7 @@ getRow(41)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 387,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1074,6 +1156,7 @@ getRow(41)->
 getRow(42)->
     #indexFunctionCfg {
     level = 42,
+    exp = 960000,
     demonDamLv = 13.0764591905921,
     demonResLv = 1,
     demonHPLv = 16.7398498680046,
@@ -1086,6 +1169,7 @@ getRow(42)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 406,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1100,6 +1184,7 @@ getRow(42)->
 getRow(43)->
     #indexFunctionCfg {
     level = 43,
+    exp = 1010000,
     demonDamLv = 13.7359448953709,
     demonResLv = 1,
     demonHPLv = 17.6784416730917,
@@ -1112,6 +1197,7 @@ getRow(43)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 436,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1126,6 +1212,7 @@ getRow(43)->
 getRow(44)->
     #indexFunctionCfg {
     level = 44,
+    exp = 1070000,
     demonDamLv = 14.4057504761948,
     demonResLv = 1,
     demonHPLv = 18.6375422846221,
@@ -1138,6 +1225,7 @@ getRow(44)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 468,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1152,6 +1240,7 @@ getRow(44)->
 getRow(45)->
     #indexFunctionCfg {
     level = 45,
+    exp = 1120000,
     demonDamLv = 15.2668538061752,
     demonResLv = 1,
     demonHPLv = 20.5776750159768,
@@ -1164,6 +1253,7 @@ getRow(45)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 502,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1178,6 +1268,7 @@ getRow(45)->
 getRow(46)->
     #indexFunctionCfg {
     level = 46,
+    exp = 1180000,
     demonDamLv = 15.9655820739618,
     demonResLv = 1,
     demonHPLv = 21.6267624733006,
@@ -1190,6 +1281,7 @@ getRow(46)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 535,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1204,6 +1296,7 @@ getRow(46)->
 getRow(47)->
     #indexFunctionCfg {
     level = 47,
+    exp = 1240000,
     demonDamLv = 16.6747540202977,
     demonResLv = 1,
     demonHPLv = 22.6973629188684,
@@ -1216,6 +1309,7 @@ getRow(47)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 575,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1230,6 +1324,7 @@ getRow(47)->
 getRow(48)->
     #indexFunctionCfg {
     level = 48,
+    exp = 1300000,
     demonDamLv = 17.3943696451827,
     demonResLv = 1,
     demonHPLv = 23.7894763526801,
@@ -1242,6 +1337,7 @@ getRow(48)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 605,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1256,6 +1352,7 @@ getRow(48)->
 getRow(49)->
     #indexFunctionCfg {
     level = 49,
+    exp = 1370000,
     demonDamLv = 18.3404682820357,
     demonResLv = 1,
     demonHPLv = 26.131574011268,
@@ -1268,6 +1365,7 @@ getRow(49)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 645,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1282,6 +1380,7 @@ getRow(49)->
 getRow(50)->
     #indexFunctionCfg {
     level = 50,
+    exp = 1430000,
     demonDamLv = 19.0897979018721,
     demonResLv = 1,
     demonHPLv = 27.3227099023122,
@@ -1294,6 +1393,7 @@ getRow(50)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1308,6 +1408,7 @@ getRow(50)->
 getRow(51)->
     #indexFunctionCfg {
     level = 51,
+    exp = 15010000,
     demonDamLv = 19.849695686682,
     demonResLv = 1.4,
     demonHPLv = 28.5364200183269,
@@ -1320,6 +1421,7 @@ getRow(51)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1334,6 +1436,7 @@ getRow(51)->
 getRow(52)->
     #indexFunctionCfg {
     level = 52,
+    exp = 3330000,
     demonDamLv = 20.6201616364654,
     demonResLv = 1.8,
     demonHPLv = 29.772704359312,
@@ -1346,6 +1449,7 @@ getRow(52)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1360,6 +1464,7 @@ getRow(52)->
 getRow(53)->
     #indexFunctionCfg {
     level = 53,
+    exp = 3480000,
     demonDamLv = 21.6546850440987,
     demonResLv = 2.2,
     demonHPLv = 32.5718644302219,
@@ -1372,6 +1477,7 @@ getRow(53)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1386,6 +1492,7 @@ getRow(53)->
 getRow(54)->
     #indexFunctionCfg {
     level = 54,
+    exp = 3630000,
     demonDamLv = 22.455663561702,
     demonResLv = 2.6,
     demonHPLv = 33.9169031974604,
@@ -1398,6 +1505,7 @@ getRow(54)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1412,6 +1520,7 @@ getRow(54)->
 getRow(55)->
     #indexFunctionCfg {
     level = 55,
+    exp = 3790000,
     demonDamLv = 23.2673354203061,
     demonResLv = 3,
     demonHPLv = 35.2856366976109,
@@ -1424,6 +1533,7 @@ getRow(55)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1438,6 +1548,7 @@ getRow(55)->
 getRow(56)->
     #indexFunctionCfg {
     level = 56,
+    exp = 3940000,
     demonDamLv = 24.0897006199112,
     demonResLv = 3.4,
     demonHPLv = 36.6780649306734,
@@ -1450,6 +1561,7 @@ getRow(56)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1464,6 +1576,7 @@ getRow(56)->
 getRow(57)->
     #indexFunctionCfg {
     level = 57,
+    exp = 4100000,
     demonDamLv = 25.2161250977534,
     demonResLv = 3.8,
     demonHPLv = 39.9945520445811,
@@ -1476,6 +1589,7 @@ getRow(57)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1490,6 +1604,7 @@ getRow(57)->
 getRow(58)->
     #indexFunctionCfg {
     level = 58,
+    exp = 4260000,
     demonDamLv = 26.0698087874698,
     demonResLv = 4.2,
     demonHPLv = 41.5061963943453,
@@ -1502,6 +1617,7 @@ getRow(58)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1516,6 +1632,7 @@ getRow(58)->
 getRow(59)->
     #indexFunctionCfg {
     level = 59,
+    exp = 4430000,
     demonDamLv = 26.9343116895637,
     demonResLv = 4.6,
     demonHPLv = 43.0427175109066,
@@ -1528,6 +1645,7 @@ getRow(59)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1542,6 +1660,7 @@ getRow(59)->
 getRow(60)->
     #indexFunctionCfg {
     level = 60,
+    exp = 4590000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1554,6 +1673,7 @@ getRow(60)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1568,6 +1688,7 @@ getRow(60)->
 getRow(61)->
     #indexFunctionCfg {
     level = 61,
+    exp = 4760000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1580,6 +1701,7 @@ getRow(61)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1594,6 +1716,7 @@ getRow(61)->
 getRow(62)->
     #indexFunctionCfg {
     level = 62,
+    exp = 4930000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1606,6 +1729,7 @@ getRow(62)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1620,6 +1744,7 @@ getRow(62)->
 getRow(63)->
     #indexFunctionCfg {
     level = 63,
+    exp = 5100000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1632,6 +1757,7 @@ getRow(63)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1646,6 +1772,7 @@ getRow(63)->
 getRow(64)->
     #indexFunctionCfg {
     level = 64,
+    exp = 5280000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1658,6 +1785,7 @@ getRow(64)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1672,6 +1800,7 @@ getRow(64)->
 getRow(65)->
     #indexFunctionCfg {
     level = 65,
+    exp = 5450000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1684,6 +1813,7 @@ getRow(65)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1698,6 +1828,7 @@ getRow(65)->
 getRow(66)->
     #indexFunctionCfg {
     level = 66,
+    exp = 5630000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1710,6 +1841,7 @@ getRow(66)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1724,6 +1856,7 @@ getRow(66)->
 getRow(67)->
     #indexFunctionCfg {
     level = 67,
+    exp = 5810000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1736,6 +1869,7 @@ getRow(67)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1750,6 +1884,7 @@ getRow(67)->
 getRow(68)->
     #indexFunctionCfg {
     level = 68,
+    exp = 5990000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1762,6 +1897,7 @@ getRow(68)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1776,6 +1912,7 @@ getRow(68)->
 getRow(69)->
     #indexFunctionCfg {
     level = 69,
+    exp = 6180000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1788,6 +1925,7 @@ getRow(69)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1802,6 +1940,7 @@ getRow(69)->
 getRow(70)->
     #indexFunctionCfg {
     level = 70,
+    exp = 6370000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1814,6 +1953,7 @@ getRow(70)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1828,6 +1968,7 @@ getRow(70)->
 getRow(71)->
     #indexFunctionCfg {
     level = 71,
+    exp = 6550000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1840,6 +1981,7 @@ getRow(71)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1854,6 +1996,7 @@ getRow(71)->
 getRow(72)->
     #indexFunctionCfg {
     level = 72,
+    exp = 6750000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1866,6 +2009,7 @@ getRow(72)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1880,6 +2024,7 @@ getRow(72)->
 getRow(73)->
     #indexFunctionCfg {
     level = 73,
+    exp = 6940000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1892,6 +2037,7 @@ getRow(73)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1906,6 +2052,7 @@ getRow(73)->
 getRow(74)->
     #indexFunctionCfg {
     level = 74,
+    exp = 7130000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1918,6 +2065,7 @@ getRow(74)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,
@@ -1932,6 +2080,7 @@ getRow(74)->
 getRow(75)->
     #indexFunctionCfg {
     level = 75,
+    exp = 7330000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1944,6 +2093,7 @@ getRow(75)->
     heroDgDamLv = 6.42,
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
+    hPRecover = 685,
     offLineExpFree = 102,
     offLineExpFreeAll = 73440,
     offLineExpGold = 1.5,

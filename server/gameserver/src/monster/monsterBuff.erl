@@ -1015,7 +1015,12 @@ doTriggerBuff(MonsterCode,Buff, Cfg, true) ->
 					NewHp = Hp - BuffDamage,
 					case NewHp > 0 of
 						true ->
-							monsterState:setCurHp(MonsterCode, NewHp),
+							case monsterWorldBoss:isDirectDecHP(MonsterCode) of
+								true ->
+									monsterState:setCurHp(MonsterCode, NewHp);
+								_ ->
+									skip
+							end,
 							broadcastBuffDamage(
 								MonsterCode,
 								Buff#recBuff.buffID,
@@ -1024,7 +1029,7 @@ doTriggerBuff(MonsterCode,Buff, Cfg, true) ->
 							),
 							addEffect(MonsterCode, Buff, Cfg);
 						_ ->
-							monsterState:setCurHp(MonsterCode, 0),
+
 							broadcastBuffDamage(
 								MonsterCode,
 								Buff#recBuff.buffID,
@@ -1032,19 +1037,25 @@ doTriggerBuff(MonsterCode,Buff, Cfg, true) ->
 								-(BuffDamage)
 							),
 							addEffect(MonsterCode, Buff, Cfg),
-							case isDeathDelete(Cfg#buffCfg.buffDeathdel) of
+							case monsterWorldBoss:isDirectDecHP(MonsterCode) of
 								true ->
-									removeBuff(MonsterCode, Buff);
+									monsterState:setCurHp(MonsterCode, 0),
+									case isDeathDelete(Cfg#buffCfg.buffDeathdel) of
+										true ->
+											removeBuff(MonsterCode, Buff);
+										_ ->
+											skip
+									end,
+									monsterBattle:onDead(
+										MonsterCode,
+										Buff#recBuff.casterPid,
+										Buff#recBuff.casterCode,
+										Buff#recBuff.casterName,
+										Buff#recBuff.skillID
+									);
 								_ ->
 									skip
-							end,
-							monsterBattle:onDead(
-								MonsterCode,
-								Buff#recBuff.casterPid,
-								Buff#recBuff.casterCode,
-								Buff#recBuff.casterName,
-								Buff#recBuff.skillID
-							)
+							end
 					end;
 				_ ->
 					addEffect(MonsterCode, Buff, Cfg)

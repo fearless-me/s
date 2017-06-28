@@ -25,7 +25,7 @@
 		  Cmd::integer(),Bin::binary(),State::tuple().
 doTcpMsg( ?CMD_Web2LS_Crypto, #pk_Web2LS_Crypto{bodyJsonStr=Msg}, State) ->
 	?LOG_OUT("CMD_Web2LS_Crypto:~p",[Msg]),
-	Key = config:rpc_get_string("Web2LsKey", "defaultKeyMustBeErr"),
+	Key = config:getString("Web2LsKey", "defaultKeyMustBeErr"),
 	BinKey = list_to_binary( Key ),
 	case aesDecode( Msg,BinKey) of
 		error ->

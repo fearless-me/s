@@ -116,6 +116,7 @@
 	leaderID = 0,
 	leaderStartCopyTime = 0,
 	canBeSearch = 1, %% 默认可以被搜索
+	searchStartTime = 0,
 	ackStartCopyRoleList = [],
 	memberList = []
 }).
@@ -147,6 +148,7 @@
 -record(recRoleMatchTeam,{
 	roleID = 0,
 	pid = undefined,
+	startTime = 0,
 	queueTimeEndMs = 0,
 	mapList = []
 }).

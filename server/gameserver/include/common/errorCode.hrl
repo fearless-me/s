@@ -1621,7 +1621,7 @@
 %% 家族副本开启状态下不能再次开启
 -define(ErrorCode_GuildCopy_Already_Active, 19158).
 %% ====================================================================
-%% 玩家成就、爵位错误号范围：21001 ~ 22000
+%% 玩家成就、爵位错误号范围：21001 ~ 21500
 %% ====================================================================
 -define(ErrorCode_AchieveErrorNotExist, 21001).
 -define(ErrorCode_AchieveErrorNotComplete, 21002).
@@ -1635,6 +1635,30 @@
 -define(ErrorCode_VipTranmitFailed, 21006).
 %% 您的等级太低，无法传送到目标地图
 -define(ErrorCode_VipTranmitLevelLimit, 21007).
+%% ====================================================================
+%% 七日目标错误号范围：21501 ~ 21550
+%% ====================================================================
+%% 【请策划润色】领奖时发现配置中type为0表示无效配置
+-define(ErrorCode_SevenDayAimClose, 21501).
+%% 活动时间已经结束，感谢您的参与
+-define(ErrorCode_SevenDayAimTimeOut, 21502).
+%% 该目标不是当天目标，请下次参与
+-define(ErrorCode_SevenDayAimDayError, 21503).
+%% 没有达到条件，无法领取奖励
+-define(ErrorCode_SevenDayAimCannot, 21504).
+%% 已领取该奖励了，请勿重复领取
+-define(ErrorCode_SevenDayAimAlreadyReward, 21505).
+%% ====================================================================
+%% 30日登录送大礼错误号范围：21551 ~ 22000
+%% ====================================================================
+%% 活动时间已经结束，感谢您的参与
+-define(ErrorCode_ThirtyDayLoginGiftTimeOut, 21551).
+%% 没有达到条件，无法领取奖励
+-define(ErrorCode_ThirtyDayLoginGiftCannot, 21552).
+%% 请主人先领取上一个奖励！
+-define(ErrorCode_ThirtyDayLoginGiftNeedPrevious, 21553).
+%% 已领取该奖励了，请勿重复领取
+-define(ErrorCode_ThirtyDayLoginGiftAlreadyReward, 21554).
 %% ====================================================================
 %% 玩家排行榜相关tips范围：22001 ~ 23000
 %% ====================================================================
@@ -1659,24 +1683,24 @@
 -define(ErrorCode_MallBuy_Send_Iteam, 23004).
 %% 目标地图正在销毁流程中了，请稍候再试！
 -define(ErrorCode_TargetCopyMapIsInDestroy, 23005).
-%% 退出灵魂伙伴队伍失败
--define(ErrorCode_ExitCompanionFailed, 23006).
-%% 解散灵魂伙伴队伍成功
--define(ErrorCode_ExitAllCompanionSuccess, 23007).
-%% 解散灵魂伙伴队伍失败
--define(ErrorCode_ExitAllCompanionFailed, 23008).
-%% %s 已拥有一个灵魂伙伴队伍
--define(ErrorCode_InviteFriendFailed, 23009).
-%% %s 正在考虑是否加入灵魂伙伴队伍
--define(ErrorCode_TargetInKaoLuJoinYouCompanion, 23010).
-%% %s 接受了你的灵魂伙伴队伍邀请
--define(ErrorCode_TargetAgreeYouInvite, 23011).
-%% %s 拒绝了你的灵魂伙伴队伍邀请
--define(ErrorCode_TargetRefuseYouInvite, 23012).
-%% 加入成功
--define(ErrorCode_JoinCompanionSuccess, 23013).
-%% 加入失败
--define(ErrorCode_JoinCompanionFailed, 23014).
+%% 等级不足%u级，报名失败
+-define(ErrorCode_ApplyDanceFailedPlayerLevel, 23006).
+%% 活动尚未开始
+-define(ErrorCode_DanceActivityNotStart, 23007).
+%% 报名成功
+-define(ErrorCode_ApplyDanceSuccess, 23008).
+%% 已经报名，不可重复报名
+-define(ErrorCode_AlreadyApplyDance, 23009).
+%% 没有报名参加活动
+-define(ErrorCode_NotApplyDanceInArea, 23010).
+%% 进入广场，开始跳舞吧。
+-define(ErrorCode_InDanceArea, 23011).
+%% 离开广场舞区域，将不能获得经验
+-define(ErrorCode_OutDanceArea, 23012).
+%% 不在跳舞阶段
+-define(ErrorCode_NotInDancePhase, 23013).
+%% 不在跳舞区域
+-define(ErrorCode_NotInDanceArea, 23014).
 %% 灵魂伙伴队伍已解散
 -define(ErrorCode_JSCompanionTips, 23015).
 %% 你被驱逐出灵魂伙伴队伍
@@ -3192,6 +3216,15 @@
 		{21005, [u]},
 		{21006, []},
 		{21007, []},
+		{21501, []},
+		{21502, []},
+		{21503, []},
+		{21504, []},
+		{21505, []},
+		{21551, []},
+		{21552, []},
+		{21553, []},
+		{21554, []},
 		{22001, []},
 		{22002, []},
 		{22003, []},
@@ -3201,13 +3234,13 @@
 		{23003, []},
 		{23004, []},
 		{23005, []},
-		{23006, []},
+		{23006, [u]},
 		{23007, []},
 		{23008, []},
-		{23009, [s]},
-		{23010, [s]},
-		{23011, [s]},
-		{23012, [s]},
+		{23009, []},
+		{23010, []},
+		{23011, []},
+		{23012, []},
 		{23013, []},
 		{23014, []},
 		{23015, []},

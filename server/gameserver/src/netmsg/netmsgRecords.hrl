@@ -4,7 +4,7 @@
 -ifndef(NetmsgRecords).
 -define(NetmsgRecords,1).
 
--define(ProtoVersion,681).
+-define(ProtoVersion,699).
 
 %% 
 %% // 积累连击产生的正面效果 之 立即增加分值
@@ -808,6 +808,16 @@
 }).
 
 %% 
+%% // 告诉客户端当前随机舞蹈列表
+-define(CMD_GS2U_ActionList,55352).
+-record(pk_GS2U_ActionList,{
+	%% UInt32 正确ID
+	correctID,
+	%% UInt32 动作列表
+	danceIDs
+}).
+
+%% 
 %% //活动结束
 -define(CMD_GS2U_ActivityEnd,53764).
 -record(pk_GS2U_ActivityEnd,{
@@ -900,6 +910,14 @@
 	mapID,
 	%% UInt16进攻方可用人数
 	acctackerQuotaNum
+}).
+
+%% 
+%% // 目标打断舞蹈
+-define(CMD_GS2U_BreakDance,32524).
+-record(pk_GS2U_BreakDance,{
+	%% UInt64
+	roleID
 }).
 
 %% 
@@ -1200,6 +1218,8 @@
 	head,
 	%% Int32翅膀等级
 	wingLevel,
+	%% Int32 时装ID列表
+	fashionIDs,
 	%% PlayerKingBattleEquip 装备ID列表
 	equipIDList,
 	%% PlayerKingBattleEquipLevel装备等级列表
@@ -1273,6 +1293,8 @@
 	mirrorMaxHp,
 	%% UInt64防守镜像剩余生命值
 	mirrorLastHp,
+	%% Int32 时装ID列表
+	fashionIDs,
 	%% PlayerKingBattleEquip 装备ID列表
 	equipIDList,
 	%% PlayerKingBattleEquipLevel装备等级列表
@@ -1421,6 +1443,16 @@
 }).
 
 %% 
+%% // 选择的舞蹈结果
+-define(CMD_GS2U_SelectDanceID,18854).
+-record(pk_GS2U_SelectDanceID,{
+	%% UInt32
+	danceID,
+	%% Boolean 选择结果
+	correct
+}).
+
+%% 
 %% // 返回自己的信息
 -define(CMD_GS2U_SelfDarkness,61253).
 -record(pk_GS2U_SelfDarkness,{
@@ -1458,6 +1490,14 @@
 	max,
 	%% UInt16 id
 	missionid
+}).
+
+%% 
+%% // 准备切换舞蹈
+-define(CMD_GS2U_SwitchDance,26463).
+-record(pk_GS2U_SwitchDance,{
+	%% Byte 多少秒后切换舞蹈
+	second
 }).
 
 %% 
@@ -1632,6 +1672,14 @@
 }).
 
 %% 
+%% // 报名广场舞
+-define(CMD_U2GS_ApplyDance,8651).
+-record(pk_U2GS_ApplyDance,{
+	%% Byte 1当前在区域中，2不在区域
+	type
+}).
+
+%% 
 %% //王者战天下 请求当前进攻方、防守方可用人数
 -define(CMD_U2GS_AttackDefenderQuotaNumber,32440).
 -record(pk_U2GS_AttackDefenderQuotaNumber,{
@@ -1642,9 +1690,23 @@
 }).
 
 %% 
+%% // 打断舞蹈
+-define(CMD_U2GS_BreakDance,65134).
+-record(pk_U2GS_BreakDance,{
+}).
+
+%% 
 %% // 请求离开报名混沌战场
 -define(CMD_U2GS_CancelApply,474).
 -record(pk_U2GS_CancelApply,{
+}).
+
+%% 
+%% // 广场舞区域
+-define(CMD_U2GS_DanceArea,26150).
+-record(pk_U2GS_DanceArea,{
+	%% Byte 1进入，2离开
+	type
 }).
 
 %% 
@@ -1932,6 +1994,14 @@
 -record(pk_U2GS_SelectCamp,{
 	%% Byte 阵营:1正义联盟，2邪恶部落
 	camp
+}).
+
+%% 
+%% // 选择一种舞蹈
+-define(CMD_U2GS_SelectDanceID,32796).
+-record(pk_U2GS_SelectDanceID,{
+	%% UInt32
+	danceID
 }).
 
 %% 
@@ -2438,10 +2508,8 @@
 	type,
 	%% UInt16冲星次数
 	index,
-	%% UInt16冲星消耗材料ID
-	itemID,
-	%% UInt16冲星消耗材料数量
-	itemNum,
+	%% starCostItem
+	costList,
 	%% UInt32冲星消耗金币
 	coin,
 	%% Byte冲星结果(0:材料不够,失败1:金币不够,失败2:冲星当前进度成功3:冲星等级成功4:冲星失败)
@@ -3200,6 +3268,13 @@
 	sectionIndex,
 	%% Byte照片数据
 	data
+}).
+
+-record(pk_starCostItem,{
+	%% UInt16冲星消耗材料ID
+	itemID,
+	%% UInt16冲星消耗材料数量	
+	itemNum
 }).
 
 -record(pk_AttackResultList,{
@@ -3966,6 +4041,22 @@
 }).
 
 %% 
+%% // 副本进度之对话进度（show2）
+%% // 客户端在对话完成后主动请求完成进度
+%% // 服务端在收到客户端请求验证通过后，或者已存在的show2事件超时后，对地图内所有玩家推送该消息
+-define(CMD_U2GS2U_CopyMapScheduleShow2,12790).
+-record(pk_U2GS2U_CopyMapScheduleShow2,{
+	%% UInt16 所在地图ID
+	mapID,
+	%% UInt16 对应show2ID
+	show2ID,
+	%% UInt64 所在分组ID
+	groupID,
+	%% UInt32 所处进度ID（对应配置copymapScheduleInit.id）
+	scheduleID
+}).
+
+%% 
 %% // 动画播放结束
 -define(CMD_U2GS_CopyMapSchedulePlayAnimationOver,13404).
 -record(pk_U2GS_CopyMapSchedulePlayAnimationOver,{
@@ -4336,7 +4427,9 @@
 	%% Byte 分段索引
 	index,
 	%% Byte 音频数据
-	data
+	data,
+	%% Byte 双方关系
+	relation
 }).
 
 %% 
@@ -4362,7 +4455,9 @@
 	%% UInt32 时间戳
 	time,
 	%% String 内容
-	content
+	content,
+	%% Byte 双方关系
+	relation
 }).
 
 %% 
@@ -5252,6 +5347,14 @@
 	count,
 	%% Boolean true已领取；false未领取
 	listMark
+}).
+
+%% 
+%% // 每完成一个雪人的一种材料收集，通知客户端剩余材料数量，以展示剩余材料可以兑换的奖励
+-define(CMD_GS2U_Guild_SnowmanExtraRes_Sync,16743).
+-record(pk_GS2U_Guild_SnowmanExtraRes_Sync,{
+	%% UInt32 数量
+	count
 }).
 
 %% 
@@ -9405,7 +9508,9 @@
 	%% String 攻击者名字
 	attackName,
 	%% MoneyInit 丢失金钱列表
-	lostMoney
+	lostMoney,
+	%% UInt32 复活类型,0：死亡后不弹复活界面，实际为营地复活;1：营地复活;2：自动复活倒计时;4：原地复活;多项复活类型，则相加。
+	reviveType
 }).
 
 %% 
@@ -9685,6 +9790,35 @@
 }).
 
 %% 
+%% // 领取奖励成功的反馈消息，用于刷新界面
+-define(CMD_GS2U_SevenDayAimReward_Ack,8783).
+-record(pk_GS2U_SevenDayAimReward_Ack,{
+	%% UInt16 如同配置表seven_day_aim.id
+	id
+}).
+
+%% 
+%% // 上线推送七日目标状态
+-define(CMD_GS2U_SevenDayAimState_Sync,5899).
+-record(pk_GS2U_SevenDayAimState_Sync,{
+	%% UInt32 活动开始时间（从1970年1月1日至今的秒数，活动持续7*24小时）
+	timeBegin,
+	%% SevenDayAimUpdate 条件集（活动不在有效期内时为空）
+	conditions,
+	%% UInt16 已经领取的奖励对应配置ID集，参考seven_day_aim.id
+	alreadyReward
+}).
+
+%% 
+-define(CMD_GS2U_SevenDayAimUpdate_Sync,34075).
+-record(pk_GS2U_SevenDayAimUpdate_Sync,{
+	%% Int32 条件类型
+	type,
+	%% Int64 条件参数
+	args
+}).
+
+%% 
 -define(CMD_GS2U_ShiftTo,33489).
 -record(pk_GS2U_ShiftTo,{
 	%% UInt64瞬移目标Code
@@ -9741,6 +9875,28 @@
 -record(pk_GS2U_TaskUseItemList,{
 	%% TaskUseItem 视野范围内 使用物品 列表
 	useItemlist
+}).
+
+%% 
+%% // 七日目标 end
+%% ////////////////////////////////////////////////////////////
+%% ////////////////////////////////////////////////////////////
+%% // 30日登录大奖 begin
+%% // 上线推送状态
+-define(CMD_GS2U_ThirtyDayLoginGiftState_Sync,38996).
+-record(pk_GS2U_ThirtyDayLoginGiftState_Sync,{
+	%% UInt32 活动开始时间（从1970年1月1日至今的秒数，活动持续30*24小时）
+	timeBegin,
+	%% UInt16 领取到的奖励ID，对应配置表thirty_day_login_gift.id，奖励只能按升序领取
+	alreadyReward
+}).
+
+%% 
+%% // 领取奖励成功的反馈消息，用于刷新界面
+-define(CMD_GS2U_ThirtyDayLoginGift_Ack,50225).
+-record(pk_GS2U_ThirtyDayLoginGift_Ack,{
+	%% UInt16 如同配置表thirty_day_login_gift.id
+	id
 }).
 
 %% 
@@ -10209,6 +10365,13 @@
 	visible_equips,
 	%% refineLevel装备精炼等级（装备部位强化等级)
 	refine_levels
+}).
+
+-record(pk_SevenDayAimUpdate,{
+	%% Int32 条件类型
+	type,
+	%% Int64 条件参数
+	args
 }).
 
 -record(pk_TaskUseItem,{
@@ -10827,15 +10990,11 @@
 }).
 
 %% 
-%% // 客户端请求复活(普通营地复活)
+%% // 客户端请求复活
 -define(CMD_U2GS_RequestRevive,60126).
 -record(pk_U2GS_RequestRevive,{
-}).
-
-%% 
-%% // 客户端请求复活(花钱原地立即复活)
--define(CMD_U2GS_RequestReviveCost,52607).
--record(pk_U2GS_RequestReviveCost,{
+	%% UInt32 1：普通复活；2：收费复活；3：自动复活
+	reviveType
 }).
 
 %% 
@@ -10899,6 +11058,14 @@
 }).
 
 %% 
+%% // 领取奖励
+-define(CMD_U2GS_SevenDayAimReward_Request,18435).
+-record(pk_U2GS_SevenDayAimReward_Request,{
+	%% UInt16 如同配置表seven_day_aim.id
+	id
+}).
+
+%% 
 %% // 显示动作
 -define(CMD_U2GS_ShowAction,50705).
 -record(pk_U2GS_ShowAction,{
@@ -10931,6 +11098,14 @@
 	posX,
 	%% Single停止时的坐标点Y
 	posY
+}).
+
+%% 
+%% // 领取奖励
+-define(CMD_U2GS_ThirtyDayLoginGift_Request,16721).
+-record(pk_U2GS_ThirtyDayLoginGift_Request,{
+	%% UInt16 如同配置表thirty_day_login_gift.id
+	id
 }).
 
 %% 
@@ -12049,6 +12224,12 @@
 }).
 
 %% 
+%% //重置技能
+-define(CMD_U2GS_ResetSkill,21348).
+-record(pk_U2GS_ResetSkill,{
+}).
+
+%% 
 %% //升级技能
 -define(CMD_U2GS_UpSkill,800).
 -record(pk_U2GS_UpSkill,{
@@ -12474,7 +12655,9 @@
 -define(CMD_GS2U_QuickTeamMatchAck,546).
 -record(pk_GS2U_QuickTeamMatchAck,{
 	%% Int32
-	result
+	result,
+	%% UInt64
+	startTime
 }).
 
 %% 
@@ -12710,7 +12893,9 @@
 	%% Int32
 	copyMapID,
 	%% Int32
-	canBeSearched
+	canBeSearched,
+	%% UInt64
+	searchStartTime
 }).
 
 -record(pk_TeamMemberInfo,{

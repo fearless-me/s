@@ -701,6 +701,18 @@ getRow(dieBroadcast)->
     stringID = dieBroadcast,
     chs = "<t=0>,,[54ff90]{0}[-]审判了邪恶至极的</t><t=0>,,[54ff90]{1}[-]，让他损失了{2}金币。大家赶紧膜拜一下！</t>"
     };
+getRow(equipstronger_worldtext_inten)->
+    #serverstringsCfg {
+    id = 369,
+    stringID = equipstronger_worldtext_inten,
+    chs = "恭喜[54ff90]{0}[-]将全身装备精炼至[ff0000]+{1}[-]！"
+    };
+getRow(equipstronger_worldtext_star)->
+    #serverstringsCfg {
+    id = 370,
+    stringID = equipstronger_worldtext_star,
+    chs = "恭喜[54ff90]{0}[-]将全身装备升星至[ff0000]{1}[-]！"
+    };
 getRow(equipUpstar)->
     #serverstringsCfg {
     id = 135,
@@ -1991,6 +2003,48 @@ getRow(sixWarMailTitle)->
     stringID = sixWarMailTitle,
     chs = "列王纷争奖励"
     };
+getRow(square_dancing_string_1)->
+    #serverstringsCfg {
+    id = 362,
+    stringID = square_dancing_string_1,
+    chs = "限时广场舞活动即将在5分钟后开启，B酱在阿克勒港口等你哟O(∩_∩)O~~"
+    };
+getRow(square_dancing_string_2)->
+    #serverstringsCfg {
+    id = 363,
+    stringID = square_dancing_string_2,
+    chs = "限时广场舞活动即将在3分钟后开启，B酱在阿克勒港口等你哟O(∩_∩)O~~"
+    };
+getRow(square_dancing_string_3)->
+    #serverstringsCfg {
+    id = 364,
+    stringID = square_dancing_string_3,
+    chs = "限时广场舞活动即将在1分钟后开启，B酱在阿克勒港口等你哟O(∩_∩)O~~"
+    };
+getRow(square_dancing_string_4)->
+    #serverstringsCfg {
+    id = 365,
+    stringID = square_dancing_string_4,
+    chs = "限时广场舞活动已开启，快来阿克勒港口找B酱参与吧O(∩_∩)O~~"
+    };
+getRow(square_dancing_string_5)->
+    #serverstringsCfg {
+    id = 366,
+    stringID = square_dancing_string_5,
+    chs = "下一支舞蹈你准备好了么({0}S)…"
+    };
+getRow(square_dancing_string_6)->
+    #serverstringsCfg {
+    id = 367,
+    stringID = square_dancing_string_6,
+    chs = "你已离开活动区域…"
+    };
+getRow(square_dancing_string_7)->
+    #serverstringsCfg {
+    id = 368,
+    stringID = square_dancing_string_7,
+    chs = "是否前往阿克勒港口活动地图？"
+    };
 getRow(swordsmen)->
     #serverstringsCfg {
     id = 334,
@@ -2157,13 +2211,13 @@ getRow(worldBossRankAwardMailContent)->
     #serverstringsCfg {
     id = 169,
     stringID = worldBossRankAwardMailContent,
-    chs = "首领入侵排行榜奖励"
+    chs = "恭喜冒险者参与了首领入侵活动，获得了丰富的奖励！"
     };
 getRow(worldBossRankAwardTitle)->
     #serverstringsCfg {
     id = 168,
     stringID = worldBossRankAwardTitle,
-    chs = "首领入侵奖励"
+    chs = "首领入侵活动奖励"
     };
 getRow(worldsGuard_family_no)->
     #serverstringsCfg {
@@ -2290,6 +2344,8 @@ getKeyList()->[
     {designated_tradingContent},
     {designated_tradingTitle},
     {dieBroadcast},
+    {equipstronger_worldtext_inten},
+    {equipstronger_worldtext_star},
     {equipUpstar},
     {escort_Team_Start},
     {escortActivity_Start},
@@ -2505,6 +2561,13 @@ getKeyList()->[
     {sixWarMailContenteveryday},
     {sixWarMailContentgift},
     {sixWarMailTitle},
+    {square_dancing_string_1},
+    {square_dancing_string_2},
+    {square_dancing_string_3},
+    {square_dancing_string_4},
+    {square_dancing_string_5},
+    {square_dancing_string_6},
+    {square_dancing_string_7},
     {swordsmen},
     {tendingGoods_MailContent},
     {tendingGoods_MailTitle},
@@ -2654,6 +2717,8 @@ get1KeyList()->[
     designated_tradingContent,
     designated_tradingTitle,
     dieBroadcast,
+    equipstronger_worldtext_inten,
+    equipstronger_worldtext_star,
     equipUpstar,
     escort_Team_Start,
     escortActivity_Start,
@@ -2869,6 +2934,13 @@ get1KeyList()->[
     sixWarMailContenteveryday,
     sixWarMailContentgift,
     sixWarMailTitle,
+    square_dancing_string_1,
+    square_dancing_string_2,
+    square_dancing_string_3,
+    square_dancing_string_4,
+    square_dancing_string_5,
+    square_dancing_string_6,
+    square_dancing_string_7,
     swordsmen,
     tendingGoods_MailContent,
     tendingGoods_MailTitle,

@@ -32,7 +32,9 @@
 	initRoleSkill/1,
 
 	addSkillPointLevelUp/1,
+	getSkillPointTotal/1,
 	upSkill/2,
+	resetSkill/0,
 	autoUpSkill/1,
 	operateSlot/2,
 	openWakeSkill/0,
@@ -384,6 +386,99 @@ addSkillPointLevelUp(Level) ->
 	playerPropSync:setInt64(?PriProp_SkillPoint, OldSkillPoint + New),
 	ok.
 
+getSkillPointTotal(Level)->
+	lists:foldl(
+		fun(Lv, Acc) ->
+			case getCfg:getCfgByArgs(cfg_indexGrowth, Lv) of
+				#indexGrowthCfg{index62 = V} ->
+					Acc + V;
+				_ ->
+					Acc + 1
+			end
+		end, 0,lists:seq(1, Level)).
+
+resetSkill()->
+	case canResetSkill() of
+		{true, CostDiamond}->
+			case resetSkillCost(CostDiamond) of
+				true ->
+					doResetSkill();
+				_ ->
+					skip
+			end,
+			ok;
+		_ ->
+			skip
+	end,
+	ok.
+
+resetSkillCost(0)->
+	true;
+resetSkillCost(Diamond)->
+	playerMoney:useCoin(
+		?CoinUseTypeDiamond,
+		Diamond,
+		#recPLogTSMoney{
+			reason=?CoinSourceResetSkill,
+			target=?PLogTS_PlayerSelf,
+			source=?PLogTS_PlayerSelf
+		}
+	).
+
+canResetSkill()->
+	Level = playerState:getLevel(),
+	{OpenLevel, FreeLevel, CostDiamond} = getResetSkillCfg(),
+	if
+		Level < OpenLevel ->
+			{false, -1};
+		Level =< FreeLevel ->
+			{true, 0};
+		true ->
+			{true, CostDiamond}
+	end.
+
+doResetSkill()->
+	Career = playerState:getCareer(),
+	L1 = getCfg:get1KeyList(cfg_skill),
+	L2 = filterLearnedCareerSkill(Career, L1),
+	L3 = lists:foldl(
+		fun(SkillID, Acc) ->
+			case getCfg:getCfgByKey(cfg_skill, SkillID) of
+				#skillCfg{comboID = 0} ->
+					[SkillID | Acc];
+				_ ->
+					Acc
+			end
+		end, [], L2),
+	S1 = playerState:getSkill(),
+	S2 = lists:foldl(
+		fun(#recSkill{skillID = ID} = R, Acc)->
+			case lists:member(ID, L3) of
+				true ->
+					lists:keystore(
+						ID,
+						#recSkill.skillID,
+						Acc,
+						R#recSkill{level = 1}
+					);
+				_ ->
+					Acc
+			end
+		end, S1, S1),
+	playerState:setSkill(S2),
+	TotalSkillPoint = getSkillPointTotal(playerState:getLevel()),
+	playerPropSync:setInt64(?PriProp_SkillPoint, TotalSkillPoint),
+	sendSkillInfo2Client(),
+	playerForce:calcPlayerForce(true),
+	ok.
+
+getResetSkillCfg()->
+	case getCfg:getCfgByKey(cfg_globalsetup,skillpoints_reset) of
+		#globalsetupCfg{setpara = [OpenLevel, FreeLevel, CostDiamond | _]}->
+			{OpenLevel, FreeLevel, CostDiamond};
+		_ ->
+			{1000, 0, 99999999}
+	end.
 
 
 -spec upSkill(SkillID :: uint(), Type :: uint()) -> ok.
@@ -398,6 +493,7 @@ upSkill(SkillID, 11) ->
 					{NewSkillLevel, _} = doUpSkillAllInOne(SkillID, 20),
 					case NewSkillLevel > CurLevel of
 						true ->
+							playerForce:calcPlayerForce(true),
 							noticeSkilllv(SkillID, NewSkillLevel),
 							playerSkill:upgradeSkillBuff(SkillID, NewSkillLevel),
 							ok;
@@ -418,6 +514,7 @@ upSkill(SkillID, _Type) ->
 			{NewSkillLevel, ErrorCode} = doUpSkill(SkillID),
 			case NewSkillLevel > CurLevel of
 				true ->
+					playerForce:calcPlayerForce(true),
 					noticeSkilllv(SkillID, NewSkillLevel),
 					playerSkill:upgradeSkillBuff(SkillID, NewSkillLevel),
 					ok;
@@ -476,6 +573,7 @@ onRoleLevelUpBaseComboSkill(NewLevel) ->
 		fun(SkillID1) ->
 			doAutoLevelUpComboSkill(SkillID1, NewLevel)
 		end, L0),
+	playerForce:calcPlayerForce(true),
 	ok.
 
 doAutoLevelUpComboSkill(SkillID, NewSkillLevel) ->
@@ -1495,6 +1593,7 @@ makeSkillInfo() ->
 			1 -> %%策划屏蔽技能
 				AccIn;
 			_ ->
+				delPassEff(SkillID),
 				addPassSkill(SkillID, SkillType, Ex, Level),
 				case playerSkillLearn:checkSkillCarrer(Career, Class) orelse playerSkillLearn:checkAwakenSkillCarrer(Class) of
 					true ->

@@ -60,38 +60,20 @@ start_link() ->
 	{error, Reason :: term()}).
 init([]) ->
 	try
-		UserSup = {userSup,
-			{userSup, start_link, []},
-			permanent,
-			infinity,
-			supervisor,
-			[userSup]
-		},
-
-		UserMgrOtp = {
-			userMgrOtp,
-			{userMgrOtp, start_link, []},
-			permanent,
-			2000,
-			worker,
-			[userMgrOtp]
-		},
-
-
 		timer:sleep(1000),
-		ClientPort = config:rpc_get_int("ClientPort", 54801),
+		ClientPort = config:getInt("ClientPort", 54801),
 		?LOG_OUT("clientOtp port:~p", [ClientPort]),
 		ClientOtpOption = #listenTcpOptions{port = ClientPort, packetLen = 4, listenDelay = 0},
 		NetServerSup = {clientOtp1,
-			{socketSup, start_link, [netOtp, ClientOtpOption]},
+			{socketSup, start_link, [clientOtp, ClientOtpOption]},
 			permanent,
 			infinity,
 			supervisor,
-			[netOtp]
+			[clientOtp]
 		},
 
 		%% 这个必须放在最后
-		Web2LsPort = config:rpc_get_int("Web2LsPort", 9000),
+		Web2LsPort = config:getInt("Web2LsPort", 9000),
 		WebOtpOption = #listenTcpOptions{port = Web2LsPort, isSendSessionKey = false, listenDelay = 0},
 		?LOG_OUT("funcellWebOtp port:~p", [Web2LsPort]),
 		FuncellWebOtp = {
@@ -109,8 +91,6 @@ init([]) ->
 		{ok,
 			{SupFlags,
 				[
-					UserSup,
-					UserMgrOtp,
 					NetServerSup,
 					FuncellWebOtp
 				]}

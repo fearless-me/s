@@ -165,9 +165,9 @@
 %英雄副本
 -define(MapSubTypeHeroCopy,6).
 %%混沌战场
--define(MapSubTypeChaos, 7).
+-define(MapSubTypeChaos, 7).	%% 废弃
 %%军团单人副本/或者首领入侵
--define(MapSubTypeGuildOne, 8).
+-define(MapSubTypeWorldBoss, 8).
 %挑战副本
 -define(MapSubTypeChanllengeCopy,9).
 %% 护送玩法
@@ -180,24 +180,28 @@
 -define(MapSubTypeGuildWar, 14).
 %% 家族游乐场（原军团驻地）
 -define(MapSubTypeGuildFairground, 16).
+%% 竞技场
+-define(MapSubTypeLadder1V1, 18).
 %% 军团沙盘PVP
 -define(MapSubTypeGuildExpedition, 19).
 %%经验地图活动
 -define(MapSubTypeExpMap, 22).
-%%约会地下城
+%%约会地下城消消乐
 -define(MapSubTypeDate, 24).
+%%约会地下城推箱子
+-define(MapSubTypeDatebox, 25).
 %%铸币(副本)
 -define(MapSubTypeMint, 1001).  %% 废弃
 %%新兵(副本)
--define(MapSubTypeBoot, 1002).
+-define(MapSubTypeBoot, 1002).	%% 废弃
 %%星空(副本)
--define(MapSubTypeStar, 1003).
+-define(MapSubTypeStar, 1003).	%% 废弃
 %%藏宝(副本)
--define(MapSubTypeBooty, 1004).
+-define(MapSubTypeBooty, 1004).	%% 废弃
 %%多人军团(副本)
 -define(MapSubTypeGuild, 1005).
 %%灵魂伙伴，情缘副本
--define(MapSubTypeCompanion, 1006).
+-define(MapSubTypeCompanion, 1006).	%% 废弃
 %%勇士试炼副本
 -define(MapSubTypeWarrior, 1007).
 

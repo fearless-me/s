@@ -3,8 +3,10 @@
 
 %% 新增任务类型
 %% 1.task.hrl 增加定义
-%% 2.initTask1
-%% 2.updateTask
+%% 2.initTask_type
+%% 3.initTask_subtype_common / initTask_subtype_**
+%% 4.updateTask
+%% 5.addPlusNumber
 -module(playerTask).
 
 -include("playerPrivate.hrl").
@@ -16,8 +18,7 @@
 %%	onLogin/1,
 	acceptTask/2,
 	cancelTask/1,
-	submitTask/2,
-	gmSubmitTask/1,
+	submitTask/3,
 	sendAllCompleteTaskMsg/0,
 	sendAllAcceptedTaskMsg/0,
 	requestTalkToNpc/1,
@@ -26,30 +27,31 @@
 	getCollectObjectIDByCode/1,
 	canSubmitTask/2,
 	resetTask/1,
-	giveTaskAwardForLoopTask/1	% for playerLoopTask
+	giveTaskAwardForLoopTask/1    % for playerLoopTask
+]).
+
+-export([
+	gmSubmitTask/1,
+	gmAddCompleteTask/1
 ]).
 
 
 -export([
-	updateTask/2
+	updateTask/2,
+	updateTask/3
 ]).
 
-%%onLogin(Level) when Level  < 2 ->
-%%	case canAcceptTask(?FirstTaskID) of
-%%		{true, Task} ->
-%%			addNewTask(Task, false);
-%%		_ ->
-%%			skip
-%%	end;
-%%onLogin(_)-> skip.
+gmAddCompleteTask(TaskID) ->
+	addSubmittedTask(TaskID),
+	ok.
 
 -spec gmSubmitTask(TaskID) -> ok
-	when TaskID::uint().
+	when TaskID :: uint().
 gmSubmitTask(TaskID) when erlang:is_integer(TaskID) andalso TaskID > 0 ->
 	Task = getTaskFromAcceptedListByID(TaskID),
 	case Task of
 		#rec_task{} ->
-			completeTask(Task);
+			completeTask(Task, 0);	%% GM命令目前仅能提交单人任务
 		_ ->
 			skip
 	end,
@@ -61,7 +63,7 @@ sendAllCompleteTaskMsg() ->
 	L = playerState:getSubmittedTask(),
 	Fun = fun({Slot, V}, AccIn) ->
 		[#pk_SubmittedTaskInfo{slot = Slot, value = V} | AccIn]
-		  end,
+	      end,
 	List = lists:foldl(Fun, [], L),
 	playerMsg:sendNetMsg(#pk_GS2U_CompleteTaskList{list = List}),
 	ok.
@@ -83,29 +85,30 @@ requestTalkToNpc(Code) ->
 	}),
 
 	case playerState:getNpcByCode(Code) of
-		#recMapObject{id = NpcID}->
-			updateTask(?TaskType_Talk, NpcID);
+		#recMapObject{id = NpcID} ->
+			updateTask(?TaskSubType_Talk, NpcID);
 		_ ->
 			skip
 	end,
 	ok.
 
 %% ====================================================================
-updateTask(?TaskType_UseItem, Code) ->
+
+updateTask(Type, Key, Target)->
+	updateTask0(Type, Key, Target).
+
+updateTask(?TaskSubType_UseItem, Code) ->
 	case playerState:getUseItemByCode(Code) of
 		#recMapObject{id = UseObjID} ->
-			updateTask0(?TaskType_UseItem, UseObjID);
+			updateTask0(?TaskSubType_UseItem, UseObjID, 0);
 		_ ->
 			skip
 	end;
-%%updateTask(?TaskType_CollectItem, Code) ->
-%%	#recMapObject{id = CollectObjID} = playerState:getCollectByCode(Code),
-%%	updateTask0(?TaskType_CollectItem, CollectObjID),
-%%	refreshCollect(Code, CollectObjID);
-updateTask(Type, Target) -> updateTask0(Type, Target).
+updateTask(Type, Target) ->
+	updateTask0(Type, Target, Target).
 
-updateTask0(Type, Target)->
-	L = filterAcceptTask(Type, Target),
+updateTask0(Type, Key, Target) ->
+	L = filterAcceptTask(Type, Key, Target),
 	updateTask1(L).
 
 updateTask1([]) ->
@@ -114,14 +117,19 @@ updateTask1([#rec_task{} = Task | L]) ->
 	updateTask2(Task),
 	updateTask1(L).
 
-updateTask2(#rec_task{taskID = TaskID, taskSubType = SubType,
-	taskTargetCur = Cur, taskTargetMax = Max} = Task
+updateTask2(
+	#rec_task{
+		taskID = TaskID,
+		taskSubType = SubType,
+		taskTargetCur = Cur,
+		taskTargetMax = Max
+	} = Task
 ) ->
 	%%
 	case canAddPlus(TaskID) of
 		true ->
-			AddPlus = addPlusNumber(SubType, TaskID, Cur, Max),
-			NewTask = Task#rec_task{taskTargetCur = Cur + AddPlus},
+			NewCur = curNumber(0, SubType, TaskID, Cur, Max),
+			NewTask = Task#rec_task{taskTargetCur = NewCur},
 			%%
 			L1 = playerState:getAcceptedTask(),
 			L2 = lists:keystore(TaskID, #rec_task.taskID, L1, NewTask),
@@ -132,20 +140,25 @@ updateTask2(#rec_task{taskID = TaskID, taskSubType = SubType,
 			0
 	end.
 
-filterAcceptTask(Type, Param) ->
+filterAcceptTask(Type, FilterKey, FilterTarget) ->
 	L1 = playerState:getAcceptedTask(),
 	lists:filter(
 		fun(R) ->
 			#rec_task{
+				taskTarget = TaskTarget,
 				taskSubType = SubType,
-				taskKey = Key,
+				taskKey = TaskKey,
 				taskTargetCur = Cur,
 				taskTargetMax = Max
 			} = R,
-			SubType =:= Type andalso Param =:= Key andalso Cur < Max
+			SubType =:= Type andalso
+				TaskKey =:= FilterKey andalso
+				Cur < Max  andalso
+				(TaskTarget =:= 0 orelse TaskTarget =:= FilterTarget)
+
 		end, L1).
 
-canAddPlus(TaskID)->
+canAddPlus(TaskID) ->
 	PlayerLevel = playerState:getLevel(),
 	case getTaskCfgByID(TaskID) of
 		#taskCfg{level_limit = LevelLimit} ->
@@ -154,32 +167,35 @@ canAddPlus(TaskID)->
 			false
 	end.
 
-addPlusNumber(?TaskType_CollectItem, TaskID, Cur, Max) ->
+curNumber(TC, _Type, _TID, _Cur, _Max) when TC > 0->
+	TC;
+curNumber(_TC, ?TaskSubType_CollectItem, TaskID, Cur, Max) ->
 	case getTaskCfgByID(TaskID) of
 		#taskCfg{target_conf = Params} ->
 			case Params of
-				[_MonsterID,_ItemID, CMin, CMax] ->
+				[_MonsterID, _ItemID, CMin, CMax] ->
 					RX = misc:rand(CMin, CMax),
-					misc:clamp(RX, 1, Max - Cur);
+					Cur + misc:clamp(RX, 1, Max - Cur);
 				_ ->
-					1
+					Cur + 1
 			end;
 		_ ->
-			0
+			Cur
 	end;
-addPlusNumber(?TaskType_Drop, TaskID, Cur, Max) ->
+curNumber(_TC,?TaskSubType_Drop, TaskID, Cur, Max) ->
 	case getTaskCfgByID(TaskID) of
 		#taskCfg{target_conf = Params} ->
 			case Params of
 				[_] ->
-					misc:clamp(1, 1, Max - Cur);
+					Cur + misc:clamp(1, 1, Max - Cur);
 				_ ->
-					1
+					Cur + 1
 			end;
 		_ ->
-			0
+			Cur
 	end;
-addPlusNumber(_, _, _, _) -> 1.
+curNumber(_TC, _Type, _TID, Cur, _Max) ->
+	Cur + 1.
 
 
 %% ====================================================================
@@ -210,7 +226,7 @@ canCancelTask1(_) ->
 	true.
 
 %%
-resetTask(TaskID)->
+resetTask(TaskID) ->
 	case isAcceptedTaskByID(TaskID) of
 		true ->
 			doResetTask(TaskID);
@@ -218,7 +234,7 @@ resetTask(TaskID)->
 			{false, ?ErrorCode_TaskFailed_IsNotExit}
 	end.
 
-doResetTask(TaskID)->
+doResetTask(TaskID) ->
 	L1 = playerState:getAcceptedTask(),
 	Task = lists:keyfind(TaskID, #rec_task.taskID, L1),
 	NewTask = Task#rec_task{taskTargetCur = 0},
@@ -276,52 +292,42 @@ canAcceptTask(TaskID) ->
 %% ====================================================================
 
 %%提交完成任务
--spec submitTask(TaskID, Code) -> ok
-	when TaskID :: uint(), Code :: uint().
-submitTask(TaskID, Code) ->
+-spec submitTask(TaskID, Code, PartnerRoleID) -> ok
+	when TaskID :: uint(), Code :: uint(), PartnerRoleID :: uint64().
+submitTask(TaskID, Code, PartnerRoleID) ->
 	case canSubmitTask(TaskID, Code) of
-		{true, _} ->
+		{true, Task} ->
 			%%远程提交任务
-			doSubmitTask(TaskID);
+			completeTask(Task, PartnerRoleID);
 		{false, ErrorCode} ->
 			playerMsg:sendErrorCodeMsg(ErrorCode)
 	end,
 	ok.
 
 %% 是否能完成指定任务
--spec canSubmitTask(TaskID::uint(), Code::uint()) -> {boolean(), uint()}.
+-spec canSubmitTask(TaskID :: uint(), Code :: uint()) -> {boolean(), uint()}.
 canSubmitTask(TaskID, Code) ->
 	case isAcceptedTaskByID(TaskID) of
 		true ->
 			#taskCfg{submit_task_npc = NpcID} = getTaskCfgByID(TaskID),
 			%%近程提交
 			case checkNpcDist(NpcID, Code) of
-				{true,_} ->
-					{true, 0};
+				{true, _} ->
+					Task = getTaskFromAcceptedListByID(TaskID),
+					case isCanSubmit(Task) of
+						true ->
+							{true, Task};
+						_ ->
+							{false, ?ErrorCode_TaskFailed_NotCondition}
+					end;
 				{false, ErrorCode} ->
 					%%此处不能提交任务,返回错误码
 					{false, ErrorCode}
 			end;
 		false ->
-			{false,?ErrorCode_TaskFailed_NotAccept}
+			{false, ?ErrorCode_TaskFailed_NotAccept}
 	end.
 
-
-
-
-%% 该函数的内容注意与gmSubmitTask同步
--spec doSubmitTask(TaskID :: uint16()) -> boolean().
-doSubmitTask(TaskID) ->
-	Task = getTaskFromAcceptedListByID(TaskID),
-	case isCanSubmit(Task) of
-		true ->
-			completeTask(Task),
-			true;
-		false ->
-			?DEBUG_OUT("player:[~p] SubmitTask:~p,but not completed!", [playerState:getRoleID(), Task]),
-			playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_NotCondition),
-			false
-	end.
 
 %%判断任务个数是否达到提交个数
 -spec isCanSubmit(Task) -> boolean() when Task :: term().
@@ -347,7 +353,7 @@ initTask(TaskID) when TaskID > 0 ->
 				taskType = Cfg#taskCfg.type,
 				taskSubType = Cfg#taskCfg.sub_type
 			},
-			initTask1(Cfg#taskCfg.sub_type, TaskRec, Cfg);
+			initTask_type(Cfg#taskCfg.type, TaskRec, Cfg);
 		_E ->
 			undefined
 	end;
@@ -355,54 +361,114 @@ initTask(TaskID) ->
 	?ERROR_OUT("makeTask taskId:~p", [TaskID]),
 	undefined.
 
-%%
-initTask1(?TaskType_Monster, TaskRec, #taskCfg{target_conf = [MonsterID, MonsterNum]}) ->
-	TaskRec#rec_task{taskKey = MonsterID, taskTarget = MonsterID, taskTargetMax = MonsterNum};
-%%
-initTask1(?TaskType_Talk, TaskRec, #taskCfg{target_conf_params = [0,_]}) ->
-	TaskRec#rec_task{taskKey = 0, taskTarget = 0, taskTargetMax = 0};
-initTask1(?TaskType_Talk, TaskRec, #taskCfg{target_conf_params = [NpcDataID,_]}) ->
-	TaskRec#rec_task{taskKey = NpcDataID, taskTarget = NpcDataID, taskTargetMax = 1};
-%%
-initTask1(?TaskType_CollectItem, TaskRec, #taskCfg{target_conf = [ItemID, Num, _RandMin, _RandMax], target_conf_params = [CollectionID, _]}) ->
-	TaskRec#rec_task{taskKey = CollectionID, taskTarget = ItemID, taskTargetMax = Num};
-%%
-initTask1(?TaskType_Drop, TaskRec, #taskCfg{target_conf = [MonsterID, ItemID, Num,_Rate]}) ->
-	TaskRec#rec_task{taskKey = MonsterID, taskTarget = ItemID, taskTargetMax = Num};
-%%
-initTask1(?TaskType_UseItem, TaskRec, #taskCfg{target_conf = [ItemID, Num]}) ->
-	TaskRec#rec_task{taskKey = ItemID, taskTarget = ItemID, taskTargetMax = Num};
-%%
-initTask1(?TaskType_CopyMap, TaskRec, #taskCfg{target_conf = [CopyMapID]}) ->
-	TaskRec#rec_task{taskKey = CopyMapID, taskTarget = CopyMapID, taskTargetMax = 1};
-%%
-initTask1(?TaskType_MiniCopy, TaskRec, #taskCfg{target_conf = [MiniMapID]}) ->
-	TaskRec#rec_task{taskKey = MiniMapID, taskTarget = MiniMapID, taskTargetMax = 1};
-%%
-initTask1(?TaskType_Operation, TaskRec, #taskCfg{target_conf = [ItemID,_]}) ->
-	TaskRec#rec_task{taskKey = ItemID, taskTarget = ItemID, taskTargetMax = 0};
-%%
-initTask1(?TaskType_Active, TaskRec, #taskCfg{target_conf = [ActiveID]}) ->
-	TaskRec#rec_task{taskKey = ActiveID, taskTarget = ActiveID, taskTargetMax = 1};
-%%
-initTask1(?TaskType_CareerChang, TaskRec, #taskCfg{target_conf = [ChangeState]}) ->
-	TaskRec#rec_task{taskKey = ChangeState, taskTarget = ChangeState, taskTargetMax = 1};
-%%
-initTask1(?TaskType_Link, TaskRec, #taskCfg{target_conf = []}) ->
-	TaskRec#rec_task{taskKey = 0, taskTarget = 0, taskTargetMax = 0};
+%%%-------------------------------------------------------------------
+initTask_type(?TaskMainType_Main, TaskRec, Cfg) ->
+	initTask_subtype_common(TaskRec, Cfg);
+initTask_type(?TaskMainType_EveryDay, TaskRec, Cfg) ->
+	initTask_subtype_common(TaskRec, Cfg);
+initTask_type(?TaskMainType_Marriage, TaskRec, Cfg) ->
+	initTask_subtype_common(TaskRec, Cfg);
+initTask_type(?TaskMainType_Link, TaskRec, Cfg) ->
+	initTask_subtype_link(TaskRec, Cfg);
+initTask_type(_Type, TaskRec, Cfg) ->
+	initTask_subtype_common(TaskRec, Cfg).
 
 %%
-initTask1(TaskType, TaskRec, TaskCfg) ->
-	?ERROR_OUT("TaskType:~p~nTaskRec:~p~nTaskCfg:~p", [TaskType, TaskRec, TaskCfg]),
+initTask_subtype_link(TaskRec, _Cfg) ->
+	TaskRec#rec_task{taskKey = 0, taskTarget = 0, taskTargetMax = 0}.
+
+%%
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_Monster, target_conf = [MonsterID, MonsterNum]}
+) ->
+	TaskRec#rec_task{taskKey = MonsterID, taskTarget = MonsterID, taskTargetMax = MonsterNum};
+%%
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_Talk, target_conf_params = [0, _]}
+) ->
+	TaskRec#rec_task{taskKey = 0, taskTarget = 0, taskTargetMax = 0};
+
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_Talk, target_conf_params = [NpcDataID, _]}
+) ->
+	TaskRec#rec_task{taskKey = NpcDataID, taskTarget = NpcDataID, taskTargetMax = 1};
+%%
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{
+		sub_type = ?TaskSubType_CollectItem,
+		target_conf = [_ItemID, Num, _RandMin, _RandMax],
+		target_conf_params = [CollectionID, _]}
+) ->
+	TaskRec#rec_task{taskKey = CollectionID, taskTarget = 0, taskTargetMax = Num};
+%%
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_Drop, target_conf = [MonsterID, _ItemID, Num, _Rate]}
+) ->
+	TaskRec#rec_task{taskKey = MonsterID, taskTarget = 0, taskTargetMax = Num};
+%%
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_UseItem, target_conf = [ItemID, Num]}
+) ->
+	TaskRec#rec_task{taskKey = ItemID, taskTarget = ItemID, taskTargetMax = Num};
+%%
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_CopyMap, target_conf = [CopyMapID]}
+) ->
+	TaskRec#rec_task{taskKey = CopyMapID, taskTarget = CopyMapID, taskTargetMax = 1};
+%%
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_MiniCopy, target_conf = [MiniMapID]}
+) ->
+	TaskRec#rec_task{taskKey = MiniMapID, taskTarget = MiniMapID, taskTargetMax = 1};
+%%
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_Operation, target_conf = [ItemID, _]}
+) ->
+	TaskRec#rec_task{taskKey = ItemID, taskTarget = ItemID, taskTargetMax = 0};
+%%
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_CareerChang, target_conf = [ChangeState]}
+) ->
+	TaskRec#rec_task{taskKey = ChangeState, taskTarget = ChangeState, taskTargetMax = 1};
+%%
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_Active, target_conf = [ActiveID, Num]}
+) ->
+	TaskRec#rec_task{taskKey = ActiveID, taskTarget = ActiveID, taskTargetMax = Num};
+%%
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_System, target_conf = [?TaskSubType_System_Sub_Tinker, Quality]}
+) ->
+	TaskRec#rec_task{taskKey = ?TaskSubType_System_Sub_Tinker, taskTarget = Quality, taskTargetMax = Quality};
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_System, target_conf = [EventID], target_conf_params =[Num]}
+) ->
+	TaskRec#rec_task{taskKey = EventID, taskTarget = EventID, taskTargetMax = Num};
+%%
+initTask_subtype_common(TaskRec, TaskCfg) ->
+	?ERROR_OUT("TaskRec:~p,TaskCfg:~p", [TaskRec, TaskCfg]),
 	undefined.
 %% ====================================================================
 
 %%保存新接取的任务
 -spec addNewTask(TaskAccepted, Notify) -> ok
-	when TaskAccepted :: #rec_task{}, Notify::boolean().
-addNewTask(#rec_task{} = Task,Notify) ->
+	when TaskAccepted :: #rec_task{}, Notify :: boolean().
+addNewTask(#rec_task{} = Task, Notify) ->
 	%% 1添加任务
-	?DEBUG_OUT("addNewTask(~p,~p)",[playerState:getRoleID(), Task#rec_task.taskID]),
+	?DEBUG_OUT("addNewTask(~p,~p)", [playerState:getRoleID(), Task#rec_task.taskID]),
 	NewList = lists:keystore(Task#rec_task.taskID,
 		#rec_task.taskID,
 		playerState:getAcceptedTask(),
@@ -426,16 +492,65 @@ addNewTask(#rec_task{} = Task,Notify) ->
 		?TaskLogAccept),
 
 	onAddNewTask(Task#rec_task.taskID),
-	?DEBUG_OUT("completeTask444444444444444444444444444444444(~p)",[Task#rec_task.taskID]),
+	addOrDeletePet(Task#rec_task.taskID),
+	ok.
+
+addOrDeletePet(TaskID) ->
+	case getCfg:getCfgPStack(cfg_globalsetup, temporary_pet_taskid) of
+		#globalsetupCfg{setpara = TaskPetList} ->
+			case lists:keyfind(TaskID, 1, TaskPetList) of
+				{TaskID, OP, PetID} ->
+					case OP of
+						1 ->
+							%% 获得骑宠并出战上马
+							case playerPet:checkPetIsExist(PetID) of
+								false ->
+									case playerPet:petMake(PetID) of
+										false ->
+											?ERROR_OUT("addOrDeletePet:~p,~p", [playerState:getRoleID(), TaskID]),
+											ok;
+										_ ->
+											playerPet:petOnMount(),
+											ok
+									end;
+								_ -> skip
+							end;
+						2 ->
+							%% 删除骑宠
+							playerPet:delPetByID(PetID);
+						3 ->
+							%% 上马
+							playerPet:petSwitch(PetID);
+						4 ->
+							%% 下马
+							playerPet:petOffMount(false);
+						_ -> skip
+					end;
+				_ -> skip
+			end;
+		[] -> skip
+	end,
 	ok.
 
 onAddNewTask(TaskID) ->
-	case getTaskCfgByID(TaskID) of
-		#taskCfg{give_buff = BuffID} when BuffID > 0 ->
+	#taskCfg{
+		type = TaskType,
+		give_buff = BuffID
+	} = getTaskCfgByID(TaskID),
+	case BuffID > 0 of
+		true ->
 			playerBuff:addBuff(BuffID, 1);
 		_ ->
 			skip
-	end.
+	end,
+
+	case TaskType of
+		?TaskMainType_Marriage ->
+			playerDaily:incCounter(?DailyType_MarriageTask, 0, 1);
+		_ ->
+			skip
+	end,
+	ok.
 %% ====================================================================
 
 %%NPC检查
@@ -461,21 +576,23 @@ checkNpcDist(NpcDataID, NpcCode) ->
 %% ====================================================================
 
 %%保存新完成的任务
--spec completeTask(TaskAccepted) -> ok
-	when TaskAccepted :: #rec_task{}.
-completeTask(#rec_task{taskID = TaskID,taskType = TaskType}) ->
-	?DEBUG_OUT("completeTask(~p,~p)",[playerState:getRoleID(), TaskID]),
+-spec completeTask(TaskAccepted, PartnerRoleID) -> ok
+	when TaskAccepted :: #rec_task{}, PartnerRoleID :: uint64().
+completeTask(#rec_task{taskID = TaskID, taskType = TaskType}, PartnerRoleID) ->
+	?DEBUG_OUT("completeTask(~p,~p)", [playerState:getRoleID(), TaskID]),
 	try
 		addSubmittedTask(TaskID),
 		deleteTask(TaskID, ?TaskLogSubmit),
-		giveTaskAward(TaskID),
+		giveTaskAward(TaskID, PartnerRoleID),
 		playerGoddess:autoActiveCard(TaskID),
 		playerAchieve:achieveEvent(?Achieve_Task, [1]),
 		%%如果是日常任务，则自动接取下一个任务
-		playerLoopTask:onTaskComplete(TaskType, TaskID)
+		playerLoopTask:onTaskComplete(TaskType, TaskID),
+		playerSideTask:onTaskComplete(TaskType, TaskID),
+		ok
 	catch
 		_ : Error ->
-			?ERROR_OUT("~p",[Error])
+			?ERROR_OUT("~p", [Error])
 	end,
 	%%添加任务完成log
 	addNextTask(TaskID),
@@ -483,27 +600,27 @@ completeTask(#rec_task{taskID = TaskID,taskType = TaskType}) ->
 
 addNextTask(TaskID) ->
 	case getTaskCfgByID(TaskID) of
-		#taskCfg{auto_next = NextTask} when NextTask > 0 ->
-			doAcceptTask(NextTask);
+		#taskCfg{auto_next = L}  ->
+			[doAcceptTask(NextTask) || NextTask <- L, NextTask > 0 ];
 		_ ->
 			skip
 	end.
 
 %% ====================================================================
 %%添加提交任务
--spec addSubmittedTask(TaskID) -> ok when TaskID::uint16().
+-spec addSubmittedTask(TaskID) -> ok when TaskID :: uint16().
 addSubmittedTask(TaskID) ->
 	Slot = TaskID div 64,
 	Mod = TaskID rem 64,
 	L = playerState:getSubmittedTask(),
-	V = case lists:keyfind(Slot,1,L) of
-			{Slot,Value} ->
-				Value;
-			_ ->
-				0
-		end,
+	V = case lists:keyfind(Slot, 1, L) of
+		    {Slot, Value} ->
+			    Value;
+		    _ ->
+			    0
+	    end,
 	V1 = V bor (1 bsl Mod),
-	L1 = lists:keystore(Slot,1,L,{Slot,V1}),
+	L1 = lists:keystore(Slot, 1, L, {Slot, V1}),
 	playerState:setSubmittedTask(L1),
 	playerMsg:sendNetMsg(#pk_GS2U_AddNewCompleteTask{taskID = TaskID, result = 1}),
 	ok.
@@ -519,9 +636,9 @@ deleteTask(TaskID, Reason) ->
 
 %% ====================================================================
 %%任务奖励
--spec giveTaskAward(TaskID) -> ok
-	when TaskID :: uint().
-giveTaskAward(TaskID) ->
+-spec giveTaskAward(TaskID, PartnerRoleID) -> ok
+	when TaskID :: uint(), PartnerRoleID :: uint64()|0.
+giveTaskAward(TaskID, PartnerRoleID) ->
 	case getTaskCfgByID(TaskID) of
 		#taskCfg{
 			reward_exp = Exp,
@@ -540,7 +657,7 @@ giveTaskAward(TaskID) ->
 			rewardCoin(TaskID, CoinList),
 			rewardItem(TaskID, RewardItemList),
 			rewardEquip(TaskID, RewardEquipList),
-			rewardSpecial(TaskID, SpecialList),
+			rewardSpecial(TaskID, SpecialList, PartnerRoleID),
 			ok;
 		_ ->
 			skip
@@ -554,31 +671,37 @@ giveTaskAward(TaskID) ->
 giveTaskAwardForLoopTask(TaskID) ->
 	case getTaskCfgByID(TaskID) of
 		#taskCfg{type = ?TaskMainType_EveryDay} ->
-			giveTaskAward(TaskID);
+			giveTaskAward(TaskID, 0);	%% 环任务始终为单人任务，伙伴ID为0
 		_ ->
 			?ERROR_OUT("giveTaskAwardForLoopTask TaskID:~p is not loopTask", [TaskID])
 	end.
 
 rewardCoin(TaskID, CoinList) when is_list(CoinList) ->
-	Fun = fun({CoinType, CoinNumber}) ->
-		playerMoney:addCoin(abs(CoinType), CoinNumber,
-			#recPLogTSMoney{
-				reason = ?CoinSourceTask,
-				param = TaskID,
-				target = ?PLogTS_PlayerSelf,
-				source = ?PLogTS_Task
-			}
-		)
-		  end,
+	Fun =
+		fun({CoinType, CoinNumber}) ->
+			case CoinType of
+				?CoinTypeDiamond ->
+					?ERROR_OUT("taskID:~p, reward unbind diamond", [TaskID]);
+				_ ->
+					playerMoney:addCoin(abs(CoinType), CoinNumber,
+						#recPLogTSMoney{
+							reason = ?CoinSourceTask,
+							param = TaskID,
+							target = ?PLogTS_PlayerSelf,
+							source = ?PLogTS_Task
+						}
+					)
+			end
+		end,
 	lists:foreach(Fun, CoinList);
-rewardCoin(_,_)-> skip.
+rewardCoin(_, _) -> skip.
 
 rewardItem(TaskID, RewardItemList) when is_list(RewardItemList) ->
 
 	Fun = fun({ItemID, ItemNum}) ->
 		case erlang:is_integer(ItemID) andalso ItemNum > 0 of
 			true ->
-				Plog = #recPLogTSItem{
+				PLog = #recPLogTSItem{
 					old = 0,
 					new = ItemNum,
 					change = ItemNum,
@@ -589,13 +712,13 @@ rewardItem(TaskID, RewardItemList) when is_list(RewardItemList) ->
 					changReason = ?ItemSourceTask,
 					reasonParam = TaskID
 				},
-				playerPackage:addGoodsAndMail(ItemID, ItemNum, true, 0, Plog);
+				playerPackage:addGoodsAndMail(ItemID, ItemNum, true, 0, PLog);
 			_ ->
 				skip
 		end
-		  end,
+	      end,
 	lists:foreach(Fun, RewardItemList);
-rewardItem(_, _)-> skip.
+rewardItem(_, _) -> skip.
 %%装备奖励处理函数
 rewardEquip(TaskID, RewardList) when is_list(RewardList) ->
 	PlayerCareer = playerState:getCareer(),
@@ -617,38 +740,30 @@ rewardEquip(TaskID, RewardList) when is_list(RewardList) ->
 			false ->
 				skip
 		end
-		  end,
+	      end,
 	lists:foreach(Fun, RewardList),
 	ok;
-rewardEquip(_, _)-> skip.
+rewardEquip(_, _) -> skip.
 
-rewardSpecial(_TaskID, SpecialList) when is_list(SpecialList) ->
+rewardSpecial(_TaskID, SpecialList, PartnerRoleID) when is_list(SpecialList) ->
 	lists:foreach(
 		fun(Params) ->
-			rewardSpecial1(Params)
+			rewardSpecial1(Params, PartnerRoleID)
 		end, SpecialList);
-rewardSpecial(_, _) -> skip.
+rewardSpecial(_, _, _) -> skip.
 
-rewardSpecial1({?TaskReward_SPT_Buff, _P1, _P2}) ->
+rewardSpecial1({?TaskReward_SPT_Buff, _P1, _P2}, _PartnerRoleID) ->
 	ok;
-rewardSpecial1({?TaskReward_SPT_Livenes, _P1, Value}) ->
+rewardSpecial1({?TaskReward_SPT_Liveness, _P1, Value}, _PartnerRoleID) ->
 	playerliveness:addTotalLivenessValue(Value);
-rewardSpecial1({_P0, _P1, _P2}) ->
+rewardSpecial1({?TaskReward_SPT_MarriageCloseness, _P1, _Value}, 0) ->
+	?ERROR_OUT("?TaskReward_SPT_MarriageCloseness PartnerRoleID is 0");
+rewardSpecial1({?TaskReward_SPT_MarriageCloseness, _P1, Value}, PartnerRoleID) ->
+	RoleID = playerState:getRoleID(),
+	?DEBUG_OUT("[DebugForMarriage] RoleID:~w Task Reward Value:~w with PartnerRoleID:~w", [RoleID, Value, PartnerRoleID]),
+	playerMarriage:closenessAdd({RoleID, PartnerRoleID, Value, ?ClosenessSource_MarriageTask});
+rewardSpecial1({_P0, _P1, _P2}, _PartnerRoleID) ->
 	ok.
-
-%%
-%refreshCollect(Code, ObjectID)->
-%	%% 然后再更新采集物的显示，与通知地图完成了一次采集
-%	GroupID = case myEts:lookUpEts(playerState:getMapCollectEts(), Code) of
-%		          [#recMapObject{groupID = GID}] ->
-%			          GID;
-%		          _ ->
-%			          0
-%	          end,
-%
-%	%% 告诉地图进程，玩家采集了一个东西（注：原来的代码逻辑其实有问题，如果有多个相同的采集任务，就会出问题！）
-%	psMgr:sendMsg2PS(playerState:getMapPid(), collectItem, {Code, ObjectID, GroupID, 1}),
-%	ok.
 
 %-----------------------------------------------------------------------------
 makeMsgInfoFromRec(#rec_task{
@@ -718,7 +833,7 @@ getTaskFromAcceptedListByID(TaskID) ->
 getCollectObjectIDByCode(Code) ->
 	CollectItemEts = playerState:getMapCollectEts(),
 	case myEts:lookUpEts(CollectItemEts, Code) of
-		[#recMapObject{id = ObjectID}|_] ->
+		[#recMapObject{id = ObjectID} | _] ->
 			ObjectID;
 		_ ->
 			0

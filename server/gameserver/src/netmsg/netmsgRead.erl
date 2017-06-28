@@ -566,6 +566,16 @@ readNetMsg(?CMD_GS2U_ACCityMonsterSurplusTime,Bin0) ->
 		},
 	Bin1 };
 
+%GENERATED from file:activity.h => GS2U_ActionList
+readNetMsg(?CMD_GS2U_ActionList,Bin0) ->
+	{ V_correctID, Bin1 } = binary_read_uint( Bin0 ),
+	{ V_danceIDs, Bin2 } = binary_read_array(Bin1, fun(X) -> binary_read_uint( X ) end),
+	{ #pk_GS2U_ActionList {
+		correctID = V_correctID,
+		danceIDs = V_danceIDs
+		},
+	Bin2 };
+
 %GENERATED from file:activity.h => GS2U_ActivityEnd
 readNetMsg(?CMD_GS2U_ActivityEnd,Bin0) ->
 	{ #pk_GS2U_ActivityEnd {
@@ -662,6 +672,14 @@ readNetMsg(?CMD_GS2U_AttackerDefenderQuotaNumberAck,Bin0) ->
 		acctackerQuotaNum = V_acctackerQuotaNum
 		},
 	Bin3 };
+
+%GENERATED from file:activity.h => GS2U_BreakDance
+readNetMsg(?CMD_GS2U_BreakDance,Bin0) ->
+	{ V_roleID, Bin1 } = binary_read_uint64( Bin0 ),
+	{ #pk_GS2U_BreakDance {
+		roleID = V_roleID
+		},
+	Bin1 };
 
 %GENERATED from file:activity.h => GS2U_ChangeGuardianDeclaration
 readNetMsg(?CMD_GS2U_ChangeGuardianDeclaration,Bin0) ->
@@ -953,8 +971,9 @@ readNetMsg(?CMD_GS2U_KingBattleResult,Bin0) ->
 	{ V_sex, Bin9 } = binary_read_int8( Bin8 ),
 	{ V_head, Bin10 } = binary_read_int( Bin9 ),
 	{ V_wingLevel, Bin11 } = binary_read_int( Bin10 ),
-	{ V_equipIDList, Bin12 } = binary_read_array(Bin11, fun(X) -> readPlayerKingBattleEquip( X ) end),
-	{ V_equipLevelList, Bin13 } = binary_read_array(Bin12, fun(X) -> readPlayerKingBattleEquipLevel( X ) end),
+	{ V_fashionIDs, Bin12 } = binary_read_array(Bin11, fun(X) -> binary_read_int( X ) end),
+	{ V_equipIDList, Bin13 } = binary_read_array(Bin12, fun(X) -> readPlayerKingBattleEquip( X ) end),
+	{ V_equipLevelList, Bin14 } = binary_read_array(Bin13, fun(X) -> readPlayerKingBattleEquipLevel( X ) end),
 	{ #pk_GS2U_KingBattleResult {
 		isNewKing = V_isNewKing,
 		killNumOrHurt = V_killNumOrHurt,
@@ -967,10 +986,11 @@ readNetMsg(?CMD_GS2U_KingBattleResult,Bin0) ->
 		sex = V_sex,
 		head = V_head,
 		wingLevel = V_wingLevel,
+		fashionIDs = V_fashionIDs,
 		equipIDList = V_equipIDList,
 		equipLevelList = V_equipLevelList
 		},
-	Bin13 };
+	Bin14 };
 
 %GENERATED from file:activity.h => GS2U_LotteryMoney
 readNetMsg(?CMD_GS2U_LotteryMoney,Bin0) ->
@@ -1024,9 +1044,10 @@ readNetMsg(?CMD_GS2U_MarrorInfoAck,Bin0) ->
 	{ V_defendDays, Bin12 } = binary_read_uint( Bin11 ),
 	{ V_mirrorMaxHp, Bin13 } = binary_read_uint64( Bin12 ),
 	{ V_mirrorLastHp, Bin14 } = binary_read_uint64( Bin13 ),
-	{ V_equipIDList, Bin15 } = binary_read_array(Bin14, fun(X) -> readPlayerKingBattleEquip( X ) end),
-	{ V_equipLevelList, Bin16 } = binary_read_array(Bin15, fun(X) -> readPlayerKingBattleEquipLevel( X ) end),
-	{ V_declaration, Bin17 } = binary_read_string( Bin16 ),
+	{ V_fashionIDs, Bin15 } = binary_read_array(Bin14, fun(X) -> binary_read_int( X ) end),
+	{ V_equipIDList, Bin16 } = binary_read_array(Bin15, fun(X) -> readPlayerKingBattleEquip( X ) end),
+	{ V_equipLevelList, Bin17 } = binary_read_array(Bin16, fun(X) -> readPlayerKingBattleEquipLevel( X ) end),
+	{ V_declaration, Bin18 } = binary_read_string( Bin17 ),
 	{ #pk_GS2U_MarrorInfoAck {
 		nickName = V_nickName,
 		playerLevel = V_playerLevel,
@@ -1042,11 +1063,12 @@ readNetMsg(?CMD_GS2U_MarrorInfoAck,Bin0) ->
 		defendDays = V_defendDays,
 		mirrorMaxHp = V_mirrorMaxHp,
 		mirrorLastHp = V_mirrorLastHp,
+		fashionIDs = V_fashionIDs,
 		equipIDList = V_equipIDList,
 		equipLevelList = V_equipLevelList,
 		declaration = V_declaration
 		},
-	Bin17 };
+	Bin18 };
 
 %GENERATED from file:activity.h => GS2U_NoticeWildBossDead
 readNetMsg(?CMD_GS2U_NoticeWildBossDead,Bin0) ->
@@ -1190,6 +1212,16 @@ readNetMsg(?CMD_GS2U_SelectCamp,Bin0) ->
 		},
 	Bin4 };
 
+%GENERATED from file:activity.h => GS2U_SelectDanceID
+readNetMsg(?CMD_GS2U_SelectDanceID,Bin0) ->
+	{ V_danceID, Bin1 } = binary_read_uint( Bin0 ),
+	{ V_correct, Bin2 } = binary_read_bool( Bin1 ),
+	{ #pk_GS2U_SelectDanceID {
+		danceID = V_danceID,
+		correct = V_correct
+		},
+	Bin2 };
+
 %GENERATED from file:activity.h => GS2U_SelfDarkness
 readNetMsg(?CMD_GS2U_SelfDarkness,Bin0) ->
 	{ V_self, Bin1 } = readDarknessPlayerRank( Bin0 ),
@@ -1229,6 +1261,14 @@ readNetMsg(?CMD_GS2U_SevenMissionDataUpdate,Bin0) ->
 		missionid = V_missionid
 		},
 	Bin4 };
+
+%GENERATED from file:activity.h => GS2U_SwitchDance
+readNetMsg(?CMD_GS2U_SwitchDance,Bin0) ->
+	{ V_second, Bin1 } = binary_read_uint8( Bin0 ),
+	{ #pk_GS2U_SwitchDance {
+		second = V_second
+		},
+	Bin1 };
 
 %GENERATED from file:activity.h => GS2U_TriggerEvent
 readNetMsg(?CMD_GS2U_TriggerEvent,Bin0) ->
@@ -1295,6 +1335,14 @@ readNetMsg(?CMD_U2GS_AngelInvestmentGet,Bin0) ->
 		},
 	Bin1 };
 
+%GENERATED from file:activity.h => U2GS_ApplyDance
+readNetMsg(?CMD_U2GS_ApplyDance,Bin0) ->
+	{ V_type, Bin1 } = binary_read_uint8( Bin0 ),
+	{ #pk_U2GS_ApplyDance {
+		type = V_type
+		},
+	Bin1 };
+
 %GENERATED from file:activity.h => U2GS_AttackDefenderQuotaNumber
 readNetMsg(?CMD_U2GS_AttackDefenderQuotaNumber,Bin0) ->
 	{ V_activityID, Bin1 } = binary_read_uint16( Bin0 ),
@@ -1305,12 +1353,27 @@ readNetMsg(?CMD_U2GS_AttackDefenderQuotaNumber,Bin0) ->
 		},
 	Bin2 };
 
+%GENERATED from file:activity.h => U2GS_BreakDance
+readNetMsg(?CMD_U2GS_BreakDance,Bin0) ->
+	{ #pk_U2GS_BreakDance {
+
+		},
+	Bin0 };
+
 %GENERATED from file:activity.h => U2GS_CancelApply
 readNetMsg(?CMD_U2GS_CancelApply,Bin0) ->
 	{ #pk_U2GS_CancelApply {
 
 		},
 	Bin0 };
+
+%GENERATED from file:activity.h => U2GS_DanceArea
+readNetMsg(?CMD_U2GS_DanceArea,Bin0) ->
+	{ V_type, Bin1 } = binary_read_uint8( Bin0 ),
+	{ #pk_U2GS_DanceArea {
+		type = V_type
+		},
+	Bin1 };
 
 %GENERATED from file:activity.h => U2GS_DarknessRank
 readNetMsg(?CMD_U2GS_DarknessRank,Bin0) ->
@@ -1618,6 +1681,14 @@ readNetMsg(?CMD_U2GS_SelectCamp,Bin0) ->
 	{ V_camp, Bin1 } = binary_read_uint8( Bin0 ),
 	{ #pk_U2GS_SelectCamp {
 		camp = V_camp
+		},
+	Bin1 };
+
+%GENERATED from file:activity.h => U2GS_SelectDanceID
+readNetMsg(?CMD_U2GS_SelectDanceID,Bin0) ->
+	{ V_danceID, Bin1 } = binary_read_uint( Bin0 ),
+	{ #pk_U2GS_SelectDanceID {
+		danceID = V_danceID
 		},
 	Bin1 };
 
@@ -1934,20 +2005,18 @@ readNetMsg(?CMD_GS2U_EquipUpStarRes,Bin0) ->
 	{ V_equipUpStarInfo, Bin1 } = readEquipUpStarInfo( Bin0 ),
 	{ V_type, Bin2 } = binary_read_uint8( Bin1 ),
 	{ V_index, Bin3 } = binary_read_uint16( Bin2 ),
-	{ V_itemID, Bin4 } = binary_read_uint16( Bin3 ),
-	{ V_itemNum, Bin5 } = binary_read_uint16( Bin4 ),
-	{ V_coin, Bin6 } = binary_read_uint( Bin5 ),
-	{ V_res, Bin7 } = binary_read_uint8( Bin6 ),
+	{ V_costList, Bin4 } = binary_read_array(Bin3, fun(X) -> readstarCostItem( X ) end),
+	{ V_coin, Bin5 } = binary_read_uint( Bin4 ),
+	{ V_res, Bin6 } = binary_read_uint8( Bin5 ),
 	{ #pk_GS2U_EquipUpStarRes {
 		equipUpStarInfo = V_equipUpStarInfo,
 		type = V_type,
 		index = V_index,
-		itemID = V_itemID,
-		itemNum = V_itemNum,
+		costList = V_costList,
 		coin = V_coin,
 		res = V_res
 		},
-	Bin7 };
+	Bin6 };
 
 %GENERATED from file:bag.h => GS2U_ExchangeResult
 readNetMsg(?CMD_GS2U_ExchangeResult,Bin0) ->
@@ -3228,6 +3297,20 @@ readNetMsg(?CMD_GS2U_TowerInfo,Bin0) ->
 		},
 	Bin1 };
 
+%GENERATED from file:copy.h => U2GS2U_CopyMapScheduleShow2
+readNetMsg(?CMD_U2GS2U_CopyMapScheduleShow2,Bin0) ->
+	{ V_mapID, Bin1 } = binary_read_uint16( Bin0 ),
+	{ V_show2ID, Bin2 } = binary_read_uint16( Bin1 ),
+	{ V_groupID, Bin3 } = binary_read_uint64( Bin2 ),
+	{ V_scheduleID, Bin4 } = binary_read_uint( Bin3 ),
+	{ #pk_U2GS2U_CopyMapScheduleShow2 {
+		mapID = V_mapID,
+		show2ID = V_show2ID,
+		groupID = V_groupID,
+		scheduleID = V_scheduleID
+		},
+	Bin4 };
+
 %GENERATED from file:copy.h => U2GS_CopyMapSchedulePlayAnimationOver
 readNetMsg(?CMD_U2GS_CopyMapSchedulePlayAnimationOver,Bin0) ->
 	{ V_animationID, Bin1 } = binary_read_uint( Bin0 ),
@@ -3495,6 +3578,7 @@ readNetMsg(?CMD_GS2U_Friend2FormalChatVoice_AckR,Bin0) ->
 	{ V_count, Bin5 } = binary_read_uint8( Bin4 ),
 	{ V_index, Bin6 } = binary_read_uint8( Bin5 ),
 	{ V_data, Bin7 } = binary_read_array(Bin6, fun(X) -> binary_read_uint8( X ) end),
+	{ V_relation, Bin8 } = binary_read_uint8( Bin7 ),
 	{ #pk_GS2U_Friend2FormalChatVoice_AckR {
 		senderID = V_senderID,
 		receiverID = V_receiverID,
@@ -3502,9 +3586,10 @@ readNetMsg(?CMD_GS2U_Friend2FormalChatVoice_AckR,Bin0) ->
 		duration = V_duration,
 		count = V_count,
 		index = V_index,
-		data = V_data
+		data = V_data,
+		relation = V_relation
 		},
-	Bin7 };
+	Bin8 };
 
 %GENERATED from file:friend.h => GS2U_Friend2FormalChatVoice_AckS
 readNetMsg(?CMD_GS2U_Friend2FormalChatVoice_AckS,Bin0) ->
@@ -3524,13 +3609,15 @@ readNetMsg(?CMD_GS2U_Friend2FormalChat_Ack,Bin0) ->
 	{ V_receiverID, Bin2 } = binary_read_uint64( Bin1 ),
 	{ V_time, Bin3 } = binary_read_uint( Bin2 ),
 	{ V_content, Bin4 } = binary_read_string( Bin3 ),
+	{ V_relation, Bin5 } = binary_read_uint8( Bin4 ),
 	{ #pk_GS2U_Friend2FormalChat_Ack {
 		senderID = V_senderID,
 		receiverID = V_receiverID,
 		time = V_time,
-		content = V_content
+		content = V_content,
+		relation = V_relation
 		},
-	Bin4 };
+	Bin5 };
 
 %GENERATED from file:friend.h => GS2U_Friend2FormalForMarriage_Sync
 readNetMsg(?CMD_GS2U_Friend2FormalForMarriage_Sync,Bin0) ->
@@ -4316,6 +4403,14 @@ readNetMsg(?CMD_GS2U_Guild_SnowmanCompleteCount_Sync,Bin0) ->
 		listMark = V_listMark
 		},
 	Bin2 };
+
+%GENERATED from file:guild.h => GS2U_Guild_SnowmanExtraRes_Sync
+readNetMsg(?CMD_GS2U_Guild_SnowmanExtraRes_Sync,Bin0) ->
+	{ V_count, Bin1 } = binary_read_uint( Bin0 ),
+	{ #pk_GS2U_Guild_SnowmanExtraRes_Sync {
+		count = V_count
+		},
+	Bin1 };
 
 %GENERATED from file:guild.h => GS2U_Guild_SnowmanPlayer_Sync
 readNetMsg(?CMD_GS2U_Guild_SnowmanPlayer_Sync,Bin0) ->
@@ -7735,6 +7830,7 @@ readNetMsg(?CMD_GS2U_PlayerDead,Bin0) ->
 	{ V_attackCode, Bin5 } = binary_read_uint64( Bin4 ),
 	{ V_attackName, Bin6 } = binary_read_string( Bin5 ),
 	{ V_lostMoney, Bin7 } = binary_read_array(Bin6, fun(X) -> readMoneyInit( X ) end),
+	{ V_reviveType, Bin8 } = binary_read_uint( Bin7 ),
 	{ #pk_GS2U_PlayerDead {
 		deadTime = V_deadTime,
 		code = V_code,
@@ -7742,9 +7838,10 @@ readNetMsg(?CMD_GS2U_PlayerDead,Bin0) ->
 		reviveCost = V_reviveCost,
 		attackCode = V_attackCode,
 		attackName = V_attackName,
-		lostMoney = V_lostMoney
+		lostMoney = V_lostMoney,
+		reviveType = V_reviveType
 		},
-	Bin7 };
+	Bin8 };
 
 %GENERATED from file:player.h => GS2U_PlayerHp
 readNetMsg(?CMD_GS2U_PlayerHp,Bin0) ->
@@ -8024,6 +8121,36 @@ readNetMsg(?CMD_GS2U_SessionKey,Bin0) ->
 		},
 	Bin1 };
 
+%GENERATED from file:player.h => GS2U_SevenDayAimReward_Ack
+readNetMsg(?CMD_GS2U_SevenDayAimReward_Ack,Bin0) ->
+	{ V_id, Bin1 } = binary_read_uint16( Bin0 ),
+	{ #pk_GS2U_SevenDayAimReward_Ack {
+		id = V_id
+		},
+	Bin1 };
+
+%GENERATED from file:player.h => GS2U_SevenDayAimState_Sync
+readNetMsg(?CMD_GS2U_SevenDayAimState_Sync,Bin0) ->
+	{ V_timeBegin, Bin1 } = binary_read_uint( Bin0 ),
+	{ V_conditions, Bin2 } = binary_read_array(Bin1, fun(X) -> readSevenDayAimUpdate( X ) end),
+	{ V_alreadyReward, Bin3 } = binary_read_array(Bin2, fun(X) -> binary_read_uint16( X ) end),
+	{ #pk_GS2U_SevenDayAimState_Sync {
+		timeBegin = V_timeBegin,
+		conditions = V_conditions,
+		alreadyReward = V_alreadyReward
+		},
+	Bin3 };
+
+%GENERATED from file:player.h => GS2U_SevenDayAimUpdate_Sync
+readNetMsg(?CMD_GS2U_SevenDayAimUpdate_Sync,Bin0) ->
+	{ V_type, Bin1 } = binary_read_int( Bin0 ),
+	{ V_args, Bin2 } = binary_read_array(Bin1, fun(X) -> binary_read_int64( X ) end),
+	{ #pk_GS2U_SevenDayAimUpdate_Sync {
+		type = V_type,
+		args = V_args
+		},
+	Bin2 };
+
 %GENERATED from file:player.h => GS2U_ShiftTo
 readNetMsg(?CMD_GS2U_ShiftTo,Bin0) ->
 	{ V_code, Bin1 } = binary_read_uint64( Bin0 ),
@@ -8083,6 +8210,24 @@ readNetMsg(?CMD_GS2U_TaskUseItemList,Bin0) ->
 	{ V_useItemlist, Bin1 } = binary_read_array(Bin0, fun(X) -> readTaskUseItem( X ) end),
 	{ #pk_GS2U_TaskUseItemList {
 		useItemlist = V_useItemlist
+		},
+	Bin1 };
+
+%GENERATED from file:player.h => GS2U_ThirtyDayLoginGiftState_Sync
+readNetMsg(?CMD_GS2U_ThirtyDayLoginGiftState_Sync,Bin0) ->
+	{ V_timeBegin, Bin1 } = binary_read_uint( Bin0 ),
+	{ V_alreadyReward, Bin2 } = binary_read_uint16( Bin1 ),
+	{ #pk_GS2U_ThirtyDayLoginGiftState_Sync {
+		timeBegin = V_timeBegin,
+		alreadyReward = V_alreadyReward
+		},
+	Bin2 };
+
+%GENERATED from file:player.h => GS2U_ThirtyDayLoginGift_Ack
+readNetMsg(?CMD_GS2U_ThirtyDayLoginGift_Ack,Bin0) ->
+	{ V_id, Bin1 } = binary_read_uint16( Bin0 ),
+	{ #pk_GS2U_ThirtyDayLoginGift_Ack {
+		id = V_id
 		},
 	Bin1 };
 
@@ -8903,17 +9048,11 @@ readNetMsg(?CMD_U2GS_RequestRechargeHasGiftIDList,Bin0) ->
 
 %GENERATED from file:player.h => U2GS_RequestRevive
 readNetMsg(?CMD_U2GS_RequestRevive,Bin0) ->
+	{ V_reviveType, Bin1 } = binary_read_uint( Bin0 ),
 	{ #pk_U2GS_RequestRevive {
-
+		reviveType = V_reviveType
 		},
-	Bin0 };
-
-%GENERATED from file:player.h => U2GS_RequestReviveCost
-readNetMsg(?CMD_U2GS_RequestReviveCost,Bin0) ->
-	{ #pk_U2GS_RequestReviveCost {
-
-		},
-	Bin0 };
+	Bin1 };
 
 %GENERATED from file:player.h => U2GS_RequestTargetCopyMapScore
 readNetMsg(?CMD_U2GS_RequestTargetCopyMapScore,Bin0) ->
@@ -8978,6 +9117,14 @@ readNetMsg(?CMD_U2GS_SessionKeyAck,Bin0) ->
 		},
 	Bin2 };
 
+%GENERATED from file:player.h => U2GS_SevenDayAimReward_Request
+readNetMsg(?CMD_U2GS_SevenDayAimReward_Request,Bin0) ->
+	{ V_id, Bin1 } = binary_read_uint16( Bin0 ),
+	{ #pk_U2GS_SevenDayAimReward_Request {
+		id = V_id
+		},
+	Bin1 };
+
 %GENERATED from file:player.h => U2GS_ShowAction
 readNetMsg(?CMD_U2GS_ShowAction,Bin0) ->
 	{ V_actionIndex, Bin1 } = binary_read_uint( Bin0 ),
@@ -9013,6 +9160,14 @@ readNetMsg(?CMD_U2GS_StopMove,Bin0) ->
 		posY = V_posY
 		},
 	Bin3 };
+
+%GENERATED from file:player.h => U2GS_ThirtyDayLoginGift_Request
+readNetMsg(?CMD_U2GS_ThirtyDayLoginGift_Request,Bin0) ->
+	{ V_id, Bin1 } = binary_read_uint16( Bin0 ),
+	{ #pk_U2GS_ThirtyDayLoginGift_Request {
+		id = V_id
+		},
+	Bin1 };
 
 %GENERATED from file:player.h => U2GS_TradeBuy
 readNetMsg(?CMD_U2GS_TradeBuy,Bin0) ->
@@ -9780,6 +9935,13 @@ readNetMsg(?CMD_U2GS_ChangeSkillSlotRequest,Bin0) ->
 		},
 	Bin3 };
 
+%GENERATED from file:skill.h => U2GS_ResetSkill
+readNetMsg(?CMD_U2GS_ResetSkill,Bin0) ->
+	{ #pk_U2GS_ResetSkill {
+
+		},
+	Bin0 };
+
 %GENERATED from file:skill.h => U2GS_UpSkill
 readNetMsg(?CMD_U2GS_UpSkill,Bin0) ->
 	{ V_id, Bin1 } = binary_read_uint( Bin0 ),
@@ -10158,10 +10320,12 @@ readNetMsg(?CMD_GS2U_QueryTeamListAck,Bin0) ->
 %GENERATED from file:team.h => GS2U_QuickTeamMatchAck
 readNetMsg(?CMD_GS2U_QuickTeamMatchAck,Bin0) ->
 	{ V_result, Bin1 } = binary_read_int( Bin0 ),
+	{ V_startTime, Bin2 } = binary_read_uint64( Bin1 ),
 	{ #pk_GS2U_QuickTeamMatchAck {
-		result = V_result
+		result = V_result,
+		startTime = V_startTime
 		},
-	Bin1 };
+	Bin2 };
 
 %GENERATED from file:team.h => GS2U_RequestFightingCapacity
 readNetMsg(?CMD_GS2U_RequestFightingCapacity,Bin0) ->
@@ -11588,6 +11752,18 @@ readRecycleItem(Bin0) ->
 	{ #pk_RecycleItem {
 		slot = V_slot,
 		item = V_item
+		},
+	Bin2 }.
+
+%GENERATED from file:bag.h => starCostItem
+-spec readstarCostItem(Bin0) -> { #pk_starCostItem{},LeftBin }
+	when Bin0 :: binary(), LeftBin :: binary().
+readstarCostItem(Bin0) ->
+	{ V_itemID, Bin1 } = binary_read_uint16( Bin0 ),
+	{ V_itemNum, Bin2 } = binary_read_uint16( Bin1 ),
+	{ #pk_starCostItem {
+		itemID = V_itemID,
+		itemNum = V_itemNum
 		},
 	Bin2 }.
 
@@ -13377,6 +13553,18 @@ readRoleBaseInfo(Bin0) ->
 		},
 	Bin25 }.
 
+%GENERATED from file:player.h => SevenDayAimUpdate
+-spec readSevenDayAimUpdate(Bin0) -> { #pk_SevenDayAimUpdate{},LeftBin }
+	when Bin0 :: binary(), LeftBin :: binary().
+readSevenDayAimUpdate(Bin0) ->
+	{ V_type, Bin1 } = binary_read_int( Bin0 ),
+	{ V_args, Bin2 } = binary_read_array(Bin1, fun(X) -> binary_read_int64( X ) end),
+	{ #pk_SevenDayAimUpdate {
+		type = V_type,
+		args = V_args
+		},
+	Bin2 }.
+
 %GENERATED from file:player.h => TaskUseItem
 -spec readTaskUseItem(Bin0) -> { #pk_TaskUseItem{},LeftBin }
 	when Bin0 :: binary(), LeftBin :: binary().
@@ -14059,13 +14247,15 @@ readTeamBaseInfo(Bin0) ->
 	{ V_leaderID, Bin2 } = binary_read_uint64( Bin1 ),
 	{ V_copyMapID, Bin3 } = binary_read_int( Bin2 ),
 	{ V_canBeSearched, Bin4 } = binary_read_int( Bin3 ),
+	{ V_searchStartTime, Bin5 } = binary_read_uint64( Bin4 ),
 	{ #pk_TeamBaseInfo {
 		teamID = V_teamID,
 		leaderID = V_leaderID,
 		copyMapID = V_copyMapID,
-		canBeSearched = V_canBeSearched
+		canBeSearched = V_canBeSearched,
+		searchStartTime = V_searchStartTime
 		},
-	Bin4 }.
+	Bin5 }.
 
 %GENERATED from file:team.h => TeamMemberInfo
 -spec readTeamMemberInfo(Bin0) -> { #pk_TeamMemberInfo{},LeftBin }

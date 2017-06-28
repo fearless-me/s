@@ -12,7 +12,7 @@ getRow(0)->
     model_G = 1,
     effects_G = 1,
     modelY = 0,
-    skill = "[]"
+    skill = []
     };
 getRow(1)->
     #gorgeousCfg {
@@ -21,7 +21,7 @@ getRow(1)->
     model_G = 1,
     effects_G = 1,
     modelY = 0,
-    skill = "[]"
+    skill = []
     };
 getRow(2)->
     #gorgeousCfg {
@@ -30,7 +30,7 @@ getRow(2)->
     model_G = 2,
     effects_G = 1,
     modelY = 0,
-    skill = "[]"
+    skill = []
     };
 getRow(3)->
     #gorgeousCfg {
@@ -39,7 +39,7 @@ getRow(3)->
     model_G = 3,
     effects_G = 0.8,
     modelY = -460,
-    skill = "[]"
+    skill = []
     };
 getRow(4)->
     #gorgeousCfg {
@@ -48,7 +48,7 @@ getRow(4)->
     model_G = 4,
     effects_G = 0.7,
     modelY = -420,
-    skill = "[]"
+    skill = []
     };
 getRow(5)->
     #gorgeousCfg {
@@ -57,7 +57,7 @@ getRow(5)->
     model_G = 5,
     effects_G = 0.7,
     modelY = -280,
-    skill = "[]"
+    skill = []
     };
 getRow(6)->
     #gorgeousCfg {
@@ -66,7 +66,7 @@ getRow(6)->
     model_G = 5,
     effects_G = 0.7,
     modelY = -280,
-    skill = "[]"
+    skill = []
     };
 getRow(7)->
     #gorgeousCfg {
@@ -75,7 +75,7 @@ getRow(7)->
     model_G = 5,
     effects_G = 0.7,
     modelY = -280,
-    skill = "[]"
+    skill = []
     };
 getRow(8)->
     #gorgeousCfg {
@@ -84,7 +84,7 @@ getRow(8)->
     model_G = 5,
     effects_G = 0.7,
     modelY = -280,
-    skill = "[]"
+    skill = []
     };
 getRow(9)->
     #gorgeousCfg {
@@ -93,7 +93,7 @@ getRow(9)->
     model_G = 5,
     effects_G = 0.7,
     modelY = -280,
-    skill = "[]"
+    skill = []
     };
 getRow(10)->
     #gorgeousCfg {
@@ -102,7 +102,7 @@ getRow(10)->
     model_G = 5,
     effects_G = 0.7,
     modelY = -280,
-    skill = "[]"
+    skill = []
     };
 getRow(_)->[].
 

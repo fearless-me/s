@@ -16,14 +16,19 @@
 -export([handle_msg/2]).
 
 %% 服务器监控消息
-handle_msg({server_monitor_msg, _Pid, {_PidFrom, {_Type, _Value}}}, State)->
-	%UTCTime = time:getSyncUTCTimeFromDBS(),
+handle_msg({server_monitor_msg, _Pid, {_PidFrom, {Type, Value}}}, State)->
+	UTCTime = time:getSyncUTCTimeFromDBS(),
 
-%%	%% 写入数据库
-%%	SQL = io_lib:format("REPLACE INTO monitor (m_type, m_value, m_time) VALUES (~p,~p,~p)", [Type, Value, UTCTime]),
-%%	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
-%%	Desc = io_lib:format("REPLACE INTO monitorType:~p, Value:~p, UTCTime:~p", [Type, Value, UTCTime]),
-%%	dbMemCache:logResult(Desc, Ret, SQL),
+	%% 写入数据库
+	SQL = io_lib:format("REPLACE INTO monitor (m_type, m_value, m_time) VALUES (~p,~p,~p)", [Type, Value, UTCTime]),
+	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
+	dbMemCache:logResult("server_monitor_msg", Ret, SQL),
+
+	%% 更新版本号
+	SQL2 = io_lib:format("REPLACE INTO monitor (m_type, m_value, m_time) VALUES (~p,~p,~p)",
+		[?ServerMonitor_Version, version:getVersion(), UTCTime]),
+	Ret2 = emysql:execute(?GAMEDB_CONNECT_POOL, SQL2),
+	dbMemCache:logResult("server_version_msg", Ret2, SQL2),
 	{noreply, State};
 
 %%======================================================================================================================

@@ -89,7 +89,7 @@ checkUseExc(UserType, UseNum, UseParam1) when UserType =:= ?Item_Use_GetEXP orel
 				true ->
 					Career = playerState:getCareer(),
 					NowExp = playerState:getCurExp(),
-					#player_baseCfg{ exp = MaxExp } = getCfg:getCfgPStack(cfg_player_base, MaxLevel, Career),
+					MaxExp = playerBase:getCfgMaxExp(MaxLevel, Career),
 					case (NowExp + UseNum*UseParam1 > MaxExp) of
 						true ->
 							erlang:round((MaxExp - NowExp) div UseParam1);
@@ -171,7 +171,7 @@ checkMaxLevelExpSpill(true, UserType) ->
 						end,
 			case Level =:= MaxLevel of
 				true ->	
-					#player_baseCfg{ exp = MaxExp } = getCfg:getCfgPStack(cfg_player_base, Level, Career),
+					MaxExp = playerBase:getCfgMaxExp(Level, Career),
 					case  NowExp =:= MaxExp  of
 						true ->
 							?ErrorCode_BagItemExpInMax;
@@ -404,3 +404,4 @@ usedItemCallBack(?Item_Use_DarknessTransfer, 0, _UsedNum) ->
 	ok;
 usedItemCallBack(_UserType, _UseParam1, _UsedNum) ->
 	ok.
+

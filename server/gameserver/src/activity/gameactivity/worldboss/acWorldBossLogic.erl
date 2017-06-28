@@ -16,6 +16,8 @@
 -export([
 	init/0,
 	tick/0,
+	kickAll/0,
+	nextPhaseGo/0,
 	activityMapMsg/2,
 	activityChangeCallBack/1
 ]).
@@ -23,12 +25,15 @@
 	isOpen/0
 ]).
 
+-define(KickAllTime, 30*1000).
+-define(NextPhaseTime, 30*1000).
+
 -spec init() -> ok.
 init() ->
 	ets:new(?WorldBossEts, [protected, named_table, set, {keypos, #recWorldBossInfo.key}, {read_concurrency, true}]),
 	ets:new(?WorldBossTopEts, [protected, named_table, set, {keypos, #recWorldBossDamageTop.key}, {read_concurrency, true}]),
 	ets:new(?WorldBossDamageEts, [protected, named_table, set, {keypos, #recWorldBossDamage.roleID}, {read_concurrency, true}]),
-	reset(),
+	resetData(),
 	tickMsg(),
 	ok.
 
@@ -36,7 +41,7 @@ tickMsg() ->
 	erlang:send_after(?WorldBossTick, self(), tick).
 
 isOpen() ->
-	variant:getGlobalBitVariant(?Setting_GlobalBitVar_WorldBossWar_Running).
+	variant:getGlobalBitVariant(?Setting_GlobalBitVarReadOnly_LeaderBtn).
 
 %% 活动地图的消息
 -spec activityMapMsg(MsgType :: uint(), Data :: term()) -> ok.
@@ -48,7 +53,7 @@ activityMapMsg(?ACMapMsg_DestoryMap, MapPID) ->
 	?DEBUG_OUT("[ACMapMsg_DestoryMap]  mapPid = ~p", [MapPID]),
 	onDestroyMap(MapPID),
 	ok;
-activityMapMsg(?ACMapMsg_PlayerEnter, {RoleID, _MapPID, #recMapObject{}}) ->
+activityMapMsg(?ACMapMsg_PlayerEnter, {_RoleID, _MapPID, #recMapObject{}}) ->
 	ok;
 activityMapMsg(?ACMapMsg_HurtMonster, {_MapID, _MapPID, RoleID, MonsterCode, MonsterID, DamageValue}) ->
 	?DEBUG_OUT("ACMapMsg_HurtMonster  11:~w", [{MonsterID, DamageValue}]),
@@ -59,7 +64,7 @@ activityMapMsg(?ACMapMsg_HurtMonster, {_MapID, _MapPID, RoleID, MonsterCode, Mon
 			skip
 	end,
 	ok;
-activityMapMsg(?ACMapMsg_KillMonster, {MapID, _MapPID, AttackRoleID, MonsterCode, MonsterID}) ->
+activityMapMsg(?ACMapMsg_KillMonster, {MapID, _MapPID, _AttackRoleID, _MonsterCode, MonsterID}) ->
 	?DEBUG_OUT("ACMapMsg_KillMonster:~w", [{MapID, MonsterID}]),
 	ok;
 activityMapMsg(?ACMapMsg_Offline, RoleID) ->
@@ -76,7 +81,7 @@ activityChangeCallBack(?ActivityPhase_Close) ->
 activityChangeCallBack(?ActivityType_WorldBoss_1) ->
 	?DEBUG_OUT("activityChangeCallBack(ActivityType_WorldBoss_1)"),
 	acWorldBossState:setState(?ActivityType_WorldBoss_1),
-	reset(),
+	resetData(),
 	ready();
 activityChangeCallBack(?ActivityType_WorldBoss_2) ->
 	?DEBUG_OUT("activityChangeCallBack(ActivityType_WorldBoss_2)"),
@@ -175,7 +180,7 @@ doHurtBoss(RoleID, MonsterCode, MonsterID, DamageValue, CurHp) ->
 	ok.
 
 %%%-------------------------------------------------------------------
-onKilledMonster(AttackRoleID, MonsterCode, MonsterID) ->
+onKilledMonster(AttackRoleID, _MonsterCode, MonsterID) ->
 	case isWorldBoss(MonsterID) of
 		true ->
 			myEts:updateEts(
@@ -214,7 +219,7 @@ doTick(_) ->
 	ok.
 
 %%%-------------------------------------------------------------------
-reset() ->
+resetData() ->
 	acWorldBossState:setState(?ActivityPhase_Close),
 	acWorldBossState:setBossList([]),
 	myEts:deleteAllRecord(?WorldBossTopEts),
@@ -222,12 +227,21 @@ reset() ->
 	myEts:deleteAllRecord(?WorldBossEts),
 	ok.
 
-%%%-------------------------------------------------------------------
-ready() ->
-	%%初始化世界BOSS
-	psMgr:sendMsg2PS(?PsNamePlayerMgr, pidMsg2AllOLPlayer, {worldBossState, {1}}),
-	#worldbossCfg{setpara = [{BossID, X, Y} | _BL]}
+ready()->
+	#worldbossCfg{setpara = L}
 		= getCfg:getCfgByKey(cfg_worldboss, worldboss_list),
+	refresh(L).
+
+
+
+%%%-------------------------------------------------------------------
+refresh([])->
+	skip;
+refresh([{BossID, X, Y} | BL]) ->
+	%%初始化世界BOSS
+	myEts:deleteAllRecord(?WorldBossTopEts),
+	myEts:deleteAllRecord(?WorldBossDamageEts),
+	psMgr:sendMsg2PS(?PsNamePlayerMgr, pidMsg2AllOLPlayer, {worldBossState, {1}}),
 	#monsterCfg{maxHP = MaxHp} = getCfg:getCfgByKey(cfg_monster, BossID),
 	myEts:insertEts(
 		?WorldBossEts,
@@ -248,10 +262,14 @@ ready() ->
 			list = []
 		}
 	),
+	acWorldBossState:setBossList(BL),
 	core:sendBroadcastErrorCode(?ErrorCode_CnText4BossDoingNotice, []),
 	ok.
 
 %%%-------------------------------------------------------------------
+nextPhaseGo()->
+	going().
+
 going() ->
 	%%
 	ML = acWorldBossState:getMapList(),
@@ -276,14 +294,12 @@ syncHp() ->
 					psMgr:sendMsg2PS(Pid, worldBossSetHp, {DataID, CurHP})
 				end, ML);
 		_ ->
-			{false, 0}
+			skip
 	end,
 	ok.
 
 %%%-------------------------------------------------------------------
 finish(Reason) ->
-	acWorldBossState:setState(?ActivityPhase_Close),
-	psMgr:sendMsg2PS(?PsNamePlayerMgr, pidMsg2AllOLPlayer, {worldBossState, {0}}),
 	?LOG_OUT("worldboss finish [~p],[~w]",
 		[Reason, myEts:getAllRecord(?WorldBossEts)]),
 	clear(),
@@ -291,12 +307,46 @@ finish(Reason) ->
 	onFinish(Reason),
 	ok.
 
+
 onFinish(?FinishReason_Killed) ->
-	reset();
-onFinish(?FinishReason_Timeout) ->
-	reset().
+	L = acWorldBossState:getBossList(),
+	reGo(L),
+	ok;
+onFinish(_Reason) ->
+	gameOver(),
+	ok.
+
+%%%-------------------------------------------------------------------
+gameOver()->
+	erlang:send_after(?KickAllTime, self(), resetall),
+	psMgr:sendMsg2PS(?PsNamePlayerMgr, pidMsg2AllOLPlayer, {worldBossState, {0}}),
+	core:sendBroadcastErrorCode(?ErrorCode_CnText4BossFailEndNotice, []),
+	resetData().
+
+%%%-------------------------------------------------------------------
+reGo([])->
+	gameOver(),
+	ok;
+reGo(L)->
+	acWorldBossState:setState(?ActivityType_WorldBoss_2),
+	core:sendBroadcastErrorCode(?ErrorCode_CnText4BossScheduleEndNotice, []),
+	refresh(L),
+		erlang:send_after(?NextPhaseTime, self(), nextPhaseGo),
+	ok.
+
+%%%-------------------------------------------------------------------
+kickAll()->
+	ML = acWorldBossState:getMapList(),
+	lists:foreach(
+		fun(#recWorldBossMapInfo{mapPID = MapPid}) ->
+			psMgr:sendMsg2PS(MapPid, resetCopyMap, {})
+		end, ML),
+	ok.
+
 %%%-------------------------------------------------------------------
 clear() ->
+	acWorldBossState:setState(?ActivityPhase_Close),
+	psMgr:sendMsg2PS(?PsNamePlayerMgr, pidMsg2AllOLPlayer, {worldBossState, {0}}),
 	case myEts:readRecord(?WorldBossEts, ?WorldBossKey) of
 		#recWorldBossInfo{dataID = DataID} when DataID > 0 ->
 			ML = acWorldBossState:getMapList(),
@@ -310,51 +360,58 @@ clear() ->
 	ok.
 
 %%%-------------------------------------------------------------------
-reward(Reason) ->
+reward(_Reason) ->
 	L = sort(),
 	N = erlang:length(L),
-	doReward(L, 1),
+	#recWorldBossInfo{dataID = BossID} = myEts:readRecord(?WorldBossEts, ?WorldBossKey),
+	doReward(L, BossID, 1),
 
 	case N > 0 of
 		true ->
 			X = misc:rand(1, N),
 			#recWorldBossDamage{roleID = RoleID} = lists:nth(X, L),
-			doSendReward(RoleID, bossaward_sp),
+			doSendReward(RoleID, BossID, bossaward_sp),
 			ok;
 		_ ->
 			skip
 	end,
 	ok.
 
-doReward([], _N) ->
+doReward([], _BossID, _N) ->
 	ok;
-doReward([#recWorldBossDamage{roleID = RoleID} | L], 1) ->
-	doSendReward(RoleID, bossaward1),
-	doSendReward(RoleID, bossaward_normal),
+doReward([#recWorldBossDamage{roleID = RoleID} | L], BossID, 1) ->
+	doSendReward(RoleID, BossID, bossaward1),
+	doSendReward(RoleID, BossID, bossaward_normal),
 	Txt = stringCfg:getString(cnText4BossTopOneNotice, [getName(RoleID)]),
 	core:sendBroadcastNotice({16#ff3030, Txt}),
-	doReward(L, 2);
-doReward([#recWorldBossDamage{roleID = RoleID} | L], N) when N > 1 andalso N < 11 ->
-	doSendReward(RoleID, bossaward2),
-	doSendReward(RoleID, bossaward_normal),
-	doReward(L, N + 1);
-doReward([#recWorldBossDamage{roleID = RoleID} | L], N) when N > 11 andalso N < 21 ->
-	doSendReward(RoleID, bossaward3),
-	doSendReward(RoleID, bossaward_normal),
-	doReward(L, N + 1);
-doReward([#recWorldBossDamage{roleID = RoleID} | L], N) ->
-	doSendReward(RoleID, bossaward_normal),
-	doReward(L, N + 1).
+	doReward(L, BossID, 2);
+doReward([#recWorldBossDamage{roleID = RoleID} | L], BossID, N) when N < 11 ->
+	doSendReward(RoleID, BossID, bossaward2),
+	doSendReward(RoleID, BossID, bossaward_normal),
+	doReward(L, BossID, N + 1);
+doReward([#recWorldBossDamage{roleID = RoleID} | L], BossID,  N) when N < 21 ->
+	doSendReward(RoleID, BossID, bossaward3),
+	doSendReward(RoleID, BossID, bossaward_normal),
+	doReward(L, BossID, N + 1);
+doReward([#recWorldBossDamage{roleID = RoleID} | L], BossID, N) ->
+	doSendReward(RoleID, BossID, bossaward_normal),
+	doReward(L, BossID, N + 1).
 
-doSendReward(0, _Key) ->
+doSendReward(0, _BossID, _Key) ->
 	ok;
-doSendReward(RoleID, Key) ->
+doSendReward(RoleID, BossID, Key) ->
 	case getCfg:getCfgPStack(cfg_worldboss, Key) of
-		#worldbossCfg{setpara = [ItemID | _]} ->
-			sendRewardMail(RoleID, ItemID);
+		#worldbossCfg{setpara = L} ->
+			case lists:keyfind(BossID, 1, L) of
+				{_, ItemID}->
+					sendRewardMail(RoleID, ItemID);
+				_ ->
+					?ERROR_OUT("worldboss[~p] reward[~p] to role[~p] not exist",
+						[BossID, Key, RoleID])
+			end;
 		_ ->
-			?ERROR_OUT("worldboss reward[~p] to role[~p] not exist",
-				[Key, RoleID])
+			?ERROR_OUT("worldboss[~p] reward[~p] to role[~p] not exist",
+				[BossID, Key, RoleID])
 	end,
 	ok.
 

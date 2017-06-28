@@ -57,13 +57,13 @@ getRow(activereward)->
     #globalsetupCfg {
     id = 404,
     settype = activereward,
-    setpara = [{20,601},{40,602},{60,603},{80,604},{100,605}]
+    setpara = [{20,1200},{40,1201},{60,1202},{80,1203},{100,1204}]
     };
 getRow(activeSkill)->
     #globalsetupCfg {
     id = 47,
     settype = activeSkill,
-    setpara = [{1,3},{2,5},{3,8},{4,12},{5,1000},{5,1000}]
+    setpara = [{1,3},{2,4},{3,8},{4,12},{5,1000},{5,1000}]
     };
 getRow(activity_ipad)->
     #globalsetupCfg {
@@ -213,7 +213,7 @@ getRow(assassincd)->
     #globalsetupCfg {
     id = 9,
     settype = assassincd,
-    setpara = [0]
+    setpara = []
     };
 getRow(assassincost)->
     #globalsetupCfg {
@@ -261,7 +261,7 @@ getRow(azraelcd)->
     #globalsetupCfg {
     id = 12,
     settype = azraelcd,
-    setpara = [0]
+    setpara = []
     };
 getRow(azraelcost)->
     #globalsetupCfg {
@@ -753,7 +753,7 @@ getRow(blueFactor)->
     #globalsetupCfg {
     id = 116,
     settype = blueFactor,
-    setpara = [0]
+    setpara = []
     };
 getRow(bribery_cost_max)->
     #globalsetupCfg {
@@ -975,7 +975,7 @@ getRow(chat_task)->
     #globalsetupCfg {
     id = 505,
     settype = chat_task,
-    setpara = [0]
+    setpara = []
     };
 getRow(chatLimited_count)->
     #globalsetupCfg {
@@ -1011,7 +1011,7 @@ getRow(ck_nq)->
     #globalsetupCfg {
     id = 18,
     settype = ck_nq,
-    setpara = [0]
+    setpara = []
     };
 getRow(coinHand_box)->
     #globalsetupCfg {
@@ -1449,7 +1449,7 @@ getRow(date_nbox_refresh)->
     #globalsetupCfg {
     id = 818,
     settype = date_nbox_refresh,
-    setpara = [1,1,2,2,2,2]
+    setpara = [2,2,2,2,2]
     };
 getRow(date_nbox_scoreMax)->
     #globalsetupCfg {
@@ -1625,6 +1625,12 @@ getRow(equip_recheck_q)->
     settype = equip_recheck_q,
     setpara = [3]
     };
+getRow(equipinten_worldtext_limit)->
+    #globalsetupCfg {
+    id = 939,
+    settype = equipinten_worldtext_limit,
+    setpara = [10,15,20,25,30]
+    };
 getRow(equipRecastpropcast)->
     #globalsetupCfg {
     id = 880,
@@ -1648,6 +1654,12 @@ getRow(equipRecastrunecast2)->
     id = 883,
     settype = equipRecastrunecast2,
     setpara = [222,3]
+    };
+getRow(equipstar_worldtext_limit)->
+    #globalsetupCfg {
+    id = 938,
+    settype = equipstar_worldtext_limit,
+    setpara = [20,25,30,35,40,45,50]
     };
 getRow(escort_multiplayer_buf)->
     #globalsetupCfg {
@@ -1797,7 +1809,7 @@ getRow(fightall_attack)->
     #globalsetupCfg {
     id = 735,
     settype = fightall_attack,
-    setpara = [{217.0,85.0},{210.0,419.0}]
+    setpara = [{83,92},{76,97}]
     };
 getRow(fightall_attacker)->
     #globalsetupCfg {
@@ -1809,7 +1821,7 @@ getRow(fightall_defend)->
     #globalsetupCfg {
     id = 736,
     settype = fightall_defend,
-    setpara = [{82.0,225.0}]
+    setpara = [{83,92},{76,97}]
     };
 getRow(fightall_defender)->
     #globalsetupCfg {
@@ -1834,6 +1846,66 @@ getRow(fightall_map_id)->
     id = 742,
     settype = fightall_map_id,
     setpara = [8001]
+    };
+getRow(fightall_mirror_armor)->
+    #globalsetupCfg {
+    id = 0,
+    settype = fightall_mirror_armor,
+    setpara = [0.007]
+    };
+getRow(fightall_mirror_atk)->
+    #globalsetupCfg {
+    id = 0,
+    settype = fightall_mirror_atk,
+    setpara = [0.18]
+    };
+getRow(fightall_mirror_crit)->
+    #globalsetupCfg {
+    id = 0,
+    settype = fightall_mirror_crit,
+    setpara = [0.016]
+    };
+getRow(fightall_mirror_critdamage)->
+    #globalsetupCfg {
+    id = 0,
+    settype = fightall_mirror_critdamage,
+    setpara = [0.011]
+    };
+getRow(fightall_mirror_def)->
+    #globalsetupCfg {
+    id = 0,
+    settype = fightall_mirror_def,
+    setpara = [0.045]
+    };
+getRow(fightall_mirror_dodge)->
+    #globalsetupCfg {
+    id = 0,
+    settype = fightall_mirror_dodge,
+    setpara = [0.004]
+    };
+getRow(fightall_mirror_hit)->
+    #globalsetupCfg {
+    id = 0,
+    settype = fightall_mirror_hit,
+    setpara = [0.007]
+    };
+getRow(fightall_mirror_HP)->
+    #globalsetupCfg {
+    id = 0,
+    settype = fightall_mirror_HP,
+    setpara = [400]
+    };
+getRow(fightall_mirror_redef)->
+    #globalsetupCfg {
+    id = 0,
+    settype = fightall_mirror_redef,
+    setpara = [0.004]
+    };
+getRow(fightall_mirror_toughness)->
+    #globalsetupCfg {
+    id = 0,
+    settype = fightall_mirror_toughness,
+    setpara = [0.007]
     };
 getRow(fightall_open_count)->
     #globalsetupCfg {
@@ -1875,7 +1947,7 @@ getRow(firstbloodmonster)->
     #globalsetupCfg {
     id = 109,
     settype = firstbloodmonster,
-    setpara = [2610,2611,2612,2613,2614,3154,3155,3156,3157,5807,5808,5809,5810,5811,1051]
+    setpara = [2610,2611,2612,2613,2614,3154,3155,3156,3157,5807,5808,5809,5810,5811,1051,3402,3403]
     };
 getRow(fistplanes)->
     #globalsetupCfg {
@@ -2043,7 +2115,7 @@ getRow(friend2_formal_closeness_count)->
     #globalsetupCfg {
     id = 436,
     settype = friend2_formal_closeness_count,
-    setpara = [10]
+    setpara = [99999]
     };
 getRow(friend2_formal_count)->
     #globalsetupCfg {
@@ -2175,7 +2247,7 @@ getRow(fs_nq)->
     #globalsetupCfg {
     id = 17,
     settype = fs_nq,
-    setpara = [0]
+    setpara = []
     };
 getRow(gem_mixcost1)->
     #globalsetupCfg {
@@ -2313,7 +2385,7 @@ getRow(goblin_once_gift)->
     #globalsetupCfg {
     id = 922,
     settype = goblin_once_gift,
-    setpara = [{11000,1}]
+    setpara = [{2160,5}]
     };
 getRow(goblin_onceandten_money)->
     #globalsetupCfg {
@@ -2325,7 +2397,7 @@ getRow(goblin_ten_gift)->
     #globalsetupCfg {
     id = 923,
     settype = goblin_ten_gift,
-    setpara = [{11000,10}]
+    setpara = [{2160,50}]
     };
 getRow(goddess)->
     #globalsetupCfg {
@@ -2355,7 +2427,7 @@ getRow(greenFactor)->
     #globalsetupCfg {
     id = 115,
     settype = greenFactor,
-    setpara = [0]
+    setpara = []
     };
 getRow(gripSpeed)->
     #globalsetupCfg {
@@ -2471,6 +2543,18 @@ getRow(guild_contribute_max)->
     settype = guild_contribute_max,
     setpara = [100000]
     };
+getRow(guild_conversion_currency)->
+    #globalsetupCfg {
+    id = 933,
+    settype = guild_conversion_currency,
+    setpara = [12,24,1,9999]
+    };
+getRow(guild_conversion_item)->
+    #globalsetupCfg {
+    id = 934,
+    settype = guild_conversion_item,
+    setpara = [222,1,9999]
+    };
 getRow(guild_createCost)->
     #globalsetupCfg {
     id = 345,
@@ -2571,7 +2655,7 @@ getRow(guild_member_latelylogintime)->
     #globalsetupCfg {
     id = 367,
     settype = guild_member_latelylogintime,
-    setpara = [86400]
+    setpara = [259200]
     };
 getRow(guild_modifyname)->
     #globalsetupCfg {
@@ -2691,7 +2775,7 @@ getRow(guildbattleBaseConfig)->
     #globalsetupCfg {
     id = 352,
     settype = guildbattleBaseConfig,
-    setpara = [1500,10,100,1,1]
+    setpara = [1500,10,1,1,1]
     };
 getRow(guildbattlecollectids)->
     #globalsetupCfg {
@@ -2703,13 +2787,13 @@ getRow(guildbattleDefendBoss)->
     #globalsetupCfg {
     id = 351,
     settype = guildbattleDefendBoss,
-    setpara = [{3400,218,129}, {3402,66,240}, {3401,228,112}, {3403,45,255}]
+    setpara = [{3400,178,262}, {3402,110,265}, {3401,473,255}, {3403,550,265}]
     };
 getRow(guildbattlerevivepos)->
     #globalsetupCfg {
     id = 349,
     settype = guildbattlerevivepos,
-    setpara = [{545,262},{110,265}]
+    setpara = [{331,449},{324,83}]
     };
 getRow(guildbattleReward)->
     #globalsetupCfg {
@@ -2793,13 +2877,13 @@ getRow(hero_trigger1)->
     #globalsetupCfg {
     id = 783,
     settype = hero_trigger1,
-    setpara = [95]
+    setpara = [9999]
     };
 getRow(hero_trigger2)->
     #globalsetupCfg {
     id = 784,
     settype = hero_trigger2,
-    setpara = [75]
+    setpara = [9999]
     };
 getRow(hit_base)->
     #globalsetupCfg {
@@ -2889,13 +2973,13 @@ getRow(identity_sign_count)->
     #globalsetupCfg {
     id = 454,
     settype = identity_sign_count,
-    setpara = [48]
+    setpara = [74]
     };
 getRow(identity_tag_count)->
     #globalsetupCfg {
     id = 452,
     settype = identity_tag_count,
-    setpara = [8]
+    setpara = [10]
     };
 getRow(instance_level)->
     #globalsetupCfg {
@@ -2913,7 +2997,7 @@ getRow(intensify_lv0)->
     #globalsetupCfg {
     id = 131,
     settype = intensify_lv0,
-    setpara = [0]
+    setpara = []
     };
 getRow(intensify_lv1)->
     #globalsetupCfg {
@@ -3081,7 +3165,7 @@ getRow(jjc_objectdirection)->
     #globalsetupCfg {
     id = 773,
     settype = jjc_objectdirection,
-    setpara = [0]
+    setpara = []
     };
 getRow(jjc_open)->
     #globalsetupCfg {
@@ -3123,7 +3207,7 @@ getRow(jjs_nq)->
     #globalsetupCfg {
     id = 20,
     settype = jjs_nq,
-    setpara = [0]
+    setpara = []
     };
 getRow(killing_broadcast)->
     #globalsetupCfg {
@@ -3243,7 +3327,7 @@ getRow(knightcd)->
     #globalsetupCfg {
     id = 3,
     settype = knightcd,
-    setpara = [0]
+    setpara = []
     };
 getRow(knightcost)->
     #globalsetupCfg {
@@ -3333,13 +3417,13 @@ getRow(llc_nq)->
     #globalsetupCfg {
     id = 21,
     settype = llc_nq,
-    setpara = [0]
+    setpara = []
     };
 getRow(llcs_nq)->
     #globalsetupCfg {
     id = 22,
     settype = llcs_nq,
-    setpara = [0]
+    setpara = []
     };
 getRow(loading_image_x)->
     #globalsetupCfg {
@@ -3363,7 +3447,7 @@ getRow(magecd)->
     #globalsetupCfg {
     id = 6,
     settype = magecd,
-    setpara = [0]
+    setpara = []
     };
 getRow(magecost)->
     #globalsetupCfg {
@@ -3435,7 +3519,7 @@ getRow(marriage_FriendlinessDownWithTeam)->
     #globalsetupCfg {
     id = 394,
     settype = marriage_FriendlinessDownWithTeam,
-    setpara = [50]
+    setpara = [100]
     };
 getRow(marriage_FriendlinessLimit)->
     #globalsetupCfg {
@@ -3471,7 +3555,7 @@ getRow(marriage_TimeOut)->
     #globalsetupCfg {
     id = 390,
     settype = marriage_TimeOut,
-    setpara = [60]
+    setpara = [300]
     };
 getRow(materialCopyMapID)->
     #globalsetupCfg {
@@ -3483,7 +3567,7 @@ getRow(max1Chance)->
     #globalsetupCfg {
     id = 121,
     settype = max1Chance,
-    setpara = [0]
+    setpara = []
     };
 getRow(maxDamage)->
     #globalsetupCfg {
@@ -3495,7 +3579,7 @@ getRow(maxenchance)->
     #globalsetupCfg {
     id = 167,
     settype = maxenchance,
-    setpara = [24]
+    setpara = [25]
     };
 getRow(maxgridcellnum)->
     #globalsetupCfg {
@@ -3513,7 +3597,7 @@ getRow(mechaniccd)->
     #globalsetupCfg {
     id = 15,
     settype = mechaniccd,
-    setpara = [0]
+    setpara = []
     };
 getRow(mechaniccost)->
     #globalsetupCfg {
@@ -3537,7 +3621,7 @@ getRow(mirroring)->
     #globalsetupCfg {
     id = 734,
     settype = mirroring,
-    setpara = [{{101,1,1},{3350,186.0,224.0}},{{101,0,1},{3351,186.0,224.0}},{{201,1,1},{3352,186.0,224.0}},{{201,0,1},{3353,186.0,224.0}},{{301,1,1},{3354,186.0,224.0}},{{301,0,1},{3355,186.0,224.0}},{{101,1,2},{3356,186.0,224.0}},{{101,0,2},{3357,186.0,224.0}},{{201,1,2},{3358,186.0,224.0}},{{201,0,2},{3359,186.0,224.0}},{{301,1,2},{3360,186.0,224.0}},{{301,0,2},{3361,186.0,224.0}}]
+    setpara = [{{101,1,1},{3350,79.5,94}},{{101,0,1},{3351,79.5,94}},{{201,1,1},{3352,79.5,94}},{{201,0,1},{3353,79.5,94}},{{301,1,1},{3354,79.5,94}},{{301,0,1},{3355,79.5,94}},{{101,1,2},{3356,79.5,94}},{{101,0,2},{3357,79.5,94}},{{201,1,2},{3358,79.5,94}},{{201,0,2},{3359,79.5,94}},{{301,1,2},{3360,79.5,94}},{{301,0,2},{3361,79.5,94}}]
     };
 getRow(mirroring_minHp)->
     #globalsetupCfg {
@@ -3549,19 +3633,19 @@ getRow(mirroring_restore)->
     #globalsetupCfg {
     id = 739,
     settype = mirroring_restore,
-    setpara = [0]
+    setpara = []
     };
 getRow(mirroring_weak)->
     #globalsetupCfg {
     id = 740,
     settype = mirroring_weak,
-    setpara = [0]
+    setpara = []
     };
 getRow(mn_nq)->
     #globalsetupCfg {
     id = 19,
     settype = mn_nq,
-    setpara = [0]
+    setpara = []
     };
 getRow(moneyDungeon_StartPoint)->
     #globalsetupCfg {
@@ -3825,7 +3909,7 @@ getRow(orangeFactor)->
     #globalsetupCfg {
     id = 119,
     settype = orangeFactor,
-    setpara = [0]
+    setpara = []
     };
 getRow(oraRed1Affix)->
     #globalsetupCfg {
@@ -4029,13 +4113,13 @@ getRow(petEquipFactorA)->
     #globalsetupCfg {
     id = 219,
     settype = petEquipFactorA,
-    setpara = [0]
+    setpara = []
     };
 getRow(petEquipFactorB)->
     #globalsetupCfg {
     id = 220,
     settype = petEquipFactorB,
-    setpara = [0]
+    setpara = []
     };
 getRow(petleader_for_lord)->
     #globalsetupCfg {
@@ -4251,7 +4335,7 @@ getRow(petstronger_num)->
     #globalsetupCfg {
     id = 183,
     settype = petstronger_num,
-    setpara = [3]
+    setpara = [{1,0.07},{2,0.2},{3,0.5},{4,0.2},{5,0.03}]
     };
 getRow(petsun)->
     #globalsetupCfg {
@@ -4449,7 +4533,7 @@ getRow(purpleFactor)->
     #globalsetupCfg {
     id = 118,
     settype = purpleFactor,
-    setpara = [0]
+    setpara = []
     };
 getRow(push_buylevel)->
     #globalsetupCfg {
@@ -4491,7 +4575,7 @@ getRow(qs_nq)->
     #globalsetupCfg {
     id = 16,
     settype = qs_nq,
-    setpara = [0]
+    setpara = []
     };
 getRow(question_gift_n1)->
     #globalsetupCfg {
@@ -4540,12 +4624,6 @@ getRow(real_drop)->
     id = 567,
     settype = real_drop,
     setpara = [{0.3,1},{0.1,0.5},{0,0.3}]
-    };
-getRow(reborn_time)->
-    #globalsetupCfg {
-    id = 72,
-    settype = reborn_time,
-    setpara = [5000]
     };
 getRow(redEnvelope_FriendRemainTime)->
     #globalsetupCfg {
@@ -4605,7 +4683,7 @@ getRow(redFactor)->
     #globalsetupCfg {
     id = 117,
     settype = redFactor,
-    setpara = [0]
+    setpara = []
     };
 getRow(refush)->
     #globalsetupCfg {
@@ -4613,35 +4691,29 @@ getRow(refush)->
     settype = refush,
     setpara = [1]
     };
-getRow(relive_cd)->
-    #globalsetupCfg {
-    id = 70,
-    settype = relive_cd,
-    setpara = [60]
-    };
 getRow(relive_cost)->
     #globalsetupCfg {
     id = 69,
     settype = relive_cost,
-    setpara = [{6,1},{6,3},{6,5},{6,10},{6,15},{6,20}]
+    setpara = [5,10,10,15,15,20,20,20,30]
     };
 getRow(relive_cost_hp)->
     #globalsetupCfg {
     id = 67,
     settype = relive_cost_hp,
-    setpara = [1]
+    setpara = [100]
     };
 getRow(relive_hp)->
     #globalsetupCfg {
     id = 71,
     settype = relive_hp,
-    setpara = [1]
+    setpara = [100]
     };
 getRow(relive_time)->
     #globalsetupCfg {
     id = 68,
     settype = relive_time,
-    setpara = [0,3,5,10,15]
+    setpara = [5,8,12,17,23]
     };
 getRow(repelSpeed)->
     #globalsetupCfg {
@@ -4839,19 +4911,19 @@ getRow(server_list_area_sort_type)->
     #globalsetupCfg {
     id = 89,
     settype = server_list_area_sort_type,
-    setpara = [0]
+    setpara = []
     };
 getRow(server_list_sort_type)->
     #globalsetupCfg {
     id = 88,
     settype = server_list_sort_type,
-    setpara = [0]
+    setpara = []
     };
 getRow(shieldeledr)->
     #globalsetupCfg {
     id = 26,
     settype = shieldeledr,
-    setpara = [0]
+    setpara = []
     };
 getRow(shieldholydr)->
     #globalsetupCfg {
@@ -5039,6 +5111,12 @@ getRow(sixwar_uiaotocd)->
     settype = sixwar_uiaotocd,
     setpara = [3000]
     };
+getRow(skillpoints_reset)->
+    #globalsetupCfg {
+    id = 935,
+    settype = skillpoints_reset,
+    setpara = [10,40,100]
+    };
 getRow(sl_open)->
     #globalsetupCfg {
     id = 787,
@@ -5127,19 +5205,19 @@ getRow(square_dancing_5)->
     #globalsetupCfg {
     id = 930,
     settype = square_dancing_5,
-    setpara = [0]
+    setpara = []
     };
 getRow(square_dancing_6)->
     #globalsetupCfg {
     id = 931,
     settype = square_dancing_6,
-    setpara = [0]
+    setpara = []
     };
 getRow(square_dancing_7)->
     #globalsetupCfg {
     id = 932,
     settype = square_dancing_7,
-    setpara = [0]
+    setpara = []
     };
 getRow(startmap)->
     #globalsetupCfg {
@@ -5151,7 +5229,7 @@ getRow(sweep_level)->
     #globalsetupCfg {
     id = 553,
     settype = sweep_level,
-    setpara = [0]
+    setpara = []
     };
 getRow(sweeplv)->
     #globalsetupCfg {
@@ -5261,11 +5339,18 @@ getRow(teamtalklv)->
     settype = teamtalklv,
     setpara = [1]
     };
+getRow(temporary_pet_taskid)->
+    #globalsetupCfg {
+    id = 937,
+    settype = temporary_pet_taskid,
+    setpara = [{27, 1, 52003},{28, 4, 52003},{35, 2, 52003}]
+
+    };
 getRow(timemount_power)->
     #globalsetupCfg {
     id = 170,
     settype = timemount_power,
-    setpara = [0]
+    setpara = []
     };
 getRow(trans_add)->
     #globalsetupCfg {
@@ -5331,13 +5416,13 @@ getRow(treasure_free_counts)->
     #globalsetupCfg {
     id = 471,
     settype = treasure_free_counts,
-    setpara = [0]
+    setpara = []
     };
 getRow(treasure_once_gift)->
     #globalsetupCfg {
     id = 924,
     settype = treasure_once_gift,
-    setpara = [{11001,1},{11002,1}]
+    setpara = [{2161,5},{2162,2}]
     };
 getRow(treasure_onceandten_money)->
     #globalsetupCfg {
@@ -5349,7 +5434,7 @@ getRow(treasure_ten_gift)->
     #globalsetupCfg {
     id = 925,
     settype = treasure_ten_gift,
-    setpara = [{11001,10},{11002,10}]
+    setpara = [{2161,50},{2162,20}]
     };
 getRow(turn_speed)->
     #globalsetupCfg {
@@ -5373,7 +5458,7 @@ getRow(updategift_3)->
     #globalsetupCfg {
     id = 878,
     settype = updategift_3,
-    setpara = [0]
+    setpara = []
     };
 getRow(vip_sellnum)->
     #globalsetupCfg {
@@ -5457,19 +5542,7 @@ getRow(whiteFactor)->
     #globalsetupCfg {
     id = 114,
     settype = whiteFactor,
-    setpara = [0]
-    };
-getRow(wildboss_reward_lucky)->
-    #globalsetupCfg {
-    id = 716,
-    settype = wildboss_reward_lucky,
-    setpara = [1501]
-    };
-getRow(wildboss_reward_normal)->
-    #globalsetupCfg {
-    id = 715,
-    settype = wildboss_reward_normal,
-    setpara = [1502]
+    setpara = []
     };
 getRow(wildboss_times)->
     #globalsetupCfg {
@@ -5511,6 +5584,12 @@ getRow(wing_regeneratio)->
     #globalsetupCfg {
     id = 373,
     settype = wing_regeneratio
+    };
+getRow(world_guardian_one)->
+    #globalsetupCfg {
+    id = 936,
+    settype = world_guardian_one,
+    setpara = [100]
     };
 getRow(worldlevel_base)->
     #globalsetupCfg {
@@ -5803,10 +5882,12 @@ getKeyList()->[
     {engsavefactor},
     {equip_enchantmoney},
     {equip_recheck_q},
+    {equipinten_worldtext_limit},
     {equipRecastpropcast},
     {equipRecastrunecast0},
     {equipRecastrunecast1},
     {equipRecastrunecast2},
+    {equipstar_worldtext_limit},
     {escort_multiplayer_buf},
     {escort_multiplayer_event},
     {escort_multiplayer_item},
@@ -5838,6 +5919,16 @@ getKeyList()->[
     {fightall_InjuryStatistics},
     {fightall_lost},
     {fightall_map_id},
+    {fightall_mirror_armor},
+    {fightall_mirror_atk},
+    {fightall_mirror_crit},
+    {fightall_mirror_critdamage},
+    {fightall_mirror_def},
+    {fightall_mirror_dodge},
+    {fightall_mirror_hit},
+    {fightall_mirror_HP},
+    {fightall_mirror_redef},
+    {fightall_mirror_toughness},
     {fightall_open_count},
     {fightall_open_level},
     {fightall_statue},
@@ -5944,6 +6035,8 @@ getKeyList()->[
     {guild_cd},
     {guild_cd_master},
     {guild_contribute_max},
+    {guild_conversion_currency},
+    {guild_conversion_item},
     {guild_createCost},
     {guild_dia_onetime},
     {guild_diamax_day},
@@ -6289,7 +6382,6 @@ getKeyList()->[
     {randomshop_limit},
     {ranklevel_limit},
     {real_drop},
-    {reborn_time},
     {redEnvelope_FriendRemainTime},
     {redEnvelope_LevelLimit},
     {redEnvelope_PacketAmountMax},
@@ -6301,7 +6393,6 @@ getKeyList()->[
     {redEnvelope_WorldRemainTime},
     {redFactor},
     {refush},
-    {relive_cd},
     {relive_cost},
     {relive_cost_hp},
     {relive_hp},
@@ -6372,6 +6463,7 @@ getKeyList()->[
     {sixwar_reward_item},
     {sixwar_tocd},
     {sixwar_uiaotocd},
+    {skillpoints_reset},
     {sl_open},
     {snowman_notice},
     {soulactivity_skillopposite},
@@ -6409,6 +6501,7 @@ getKeyList()->[
     {teamExpFactor},
     {teamtalk_interval},
     {teamtalklv},
+    {temporary_pet_taskid},
     {timemount_power},
     {trans_add},
     {trans_modelscale},
@@ -6442,8 +6535,6 @@ getKeyList()->[
     {wedding_order_time_min},
     {wedding_teleportation_cooldown},
     {whiteFactor},
-    {wildboss_reward_lucky},
-    {wildboss_reward_normal},
     {wildboss_times},
     {wildboss_times_lucky},
     {wildboss_times_must},
@@ -6451,6 +6542,7 @@ getKeyList()->[
     {wing_interval},
     {wing_open_level},
     {wing_regeneratio},
+    {world_guardian_one},
     {worldlevel_base},
     {worldlevel_exp},
     {worldlevel_num}
@@ -6727,10 +6819,12 @@ get1KeyList()->[
     engsavefactor,
     equip_enchantmoney,
     equip_recheck_q,
+    equipinten_worldtext_limit,
     equipRecastpropcast,
     equipRecastrunecast0,
     equipRecastrunecast1,
     equipRecastrunecast2,
+    equipstar_worldtext_limit,
     escort_multiplayer_buf,
     escort_multiplayer_event,
     escort_multiplayer_item,
@@ -6762,6 +6856,16 @@ get1KeyList()->[
     fightall_InjuryStatistics,
     fightall_lost,
     fightall_map_id,
+    fightall_mirror_armor,
+    fightall_mirror_atk,
+    fightall_mirror_crit,
+    fightall_mirror_critdamage,
+    fightall_mirror_def,
+    fightall_mirror_dodge,
+    fightall_mirror_hit,
+    fightall_mirror_HP,
+    fightall_mirror_redef,
+    fightall_mirror_toughness,
     fightall_open_count,
     fightall_open_level,
     fightall_statue,
@@ -6868,6 +6972,8 @@ get1KeyList()->[
     guild_cd,
     guild_cd_master,
     guild_contribute_max,
+    guild_conversion_currency,
+    guild_conversion_item,
     guild_createCost,
     guild_dia_onetime,
     guild_diamax_day,
@@ -7213,7 +7319,6 @@ get1KeyList()->[
     randomshop_limit,
     ranklevel_limit,
     real_drop,
-    reborn_time,
     redEnvelope_FriendRemainTime,
     redEnvelope_LevelLimit,
     redEnvelope_PacketAmountMax,
@@ -7225,7 +7330,6 @@ get1KeyList()->[
     redEnvelope_WorldRemainTime,
     redFactor,
     refush,
-    relive_cd,
     relive_cost,
     relive_cost_hp,
     relive_hp,
@@ -7296,6 +7400,7 @@ get1KeyList()->[
     sixwar_reward_item,
     sixwar_tocd,
     sixwar_uiaotocd,
+    skillpoints_reset,
     sl_open,
     snowman_notice,
     soulactivity_skillopposite,
@@ -7333,6 +7438,7 @@ get1KeyList()->[
     teamExpFactor,
     teamtalk_interval,
     teamtalklv,
+    temporary_pet_taskid,
     timemount_power,
     trans_add,
     trans_modelscale,
@@ -7366,8 +7472,6 @@ get1KeyList()->[
     wedding_order_time_min,
     wedding_teleportation_cooldown,
     whiteFactor,
-    wildboss_reward_lucky,
-    wildboss_reward_normal,
     wildboss_times,
     wildboss_times_lucky,
     wildboss_times_must,
@@ -7375,6 +7479,7 @@ get1KeyList()->[
     wing_interval,
     wing_open_level,
     wing_regeneratio,
+    world_guardian_one,
     worldlevel_base,
     worldlevel_exp,
     worldlevel_num

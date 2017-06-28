@@ -13,7 +13,18 @@
         pos,
 
         %%: 奖励的掉落包
+        %%: dropid
         rewardID,
+
+        %%: user:
+        %%: 保底奖励
+        %%: itemid
+        normal,
+
+        %%: user:
+        %%: 幸运奖励
+        %%: itemid
+        lucky,
 
         %%: 刷新间隔时间，单位秒
         refreshTime,

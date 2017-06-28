@@ -197,8 +197,8 @@ killedMonster(MonsterID) ->
 	playerAchieve:achieveEvent(?Achieve_Act_Event14, [MonsterID, 1]),
 	playerAchieve:achieveEvent(?Achieve_DarkPrime, [MonsterID, 1]),
 	MapID = playerState:getMapID(),
-	playerTask:updateTask(?TaskType_Monster, MonsterID),
-	playerTask:updateTask(?TaskType_Drop, MonsterID),
+	playerTask:updateTask(?TaskSubType_Monster, MonsterID),
+	playerTask:updateTask(?TaskSubType_Drop, MonsterID),
 	playerMaterialCopy:killedMonster(MapID, MonsterID),
 	teamInterface:sendMsg2TeamInSameMapWithRoleID(
 		playerState:getRoleID(),
@@ -1010,10 +1010,13 @@ onDead(AttackerCode, AttackerPid, AttackerType, AttackerName, SkillID) ->
 
 					playerMap:syncPlayerToEts(),
 
+					%% 得到攻击者RoleID和姓名
+					AttackRoleID = playerBattle:getAttackRoleID(AttackerCode),
+
 					case playerState:getBattleLearnInfo() of
 						#recBattleLearn{} = BattleLearn ->
 							%% 自己死亡了
-							playerRevive:onDead(AttackerCode, AttackerName, true),
+							playerRevive:onDead(AttackerCode, AttackRoleID, AttackerName, true),
 
 							%%增加目标保护措施
 							playerBattleLearn:dealBattleLearnResult(BattleLearn, playerState:getGroupID());
@@ -1027,7 +1030,9 @@ onDead(AttackerCode, AttackerPid, AttackerType, AttackerName, SkillID) ->
 							end,
 
 							%% 自己死亡了
-							playerRevive:onDead(AttackerCode, AttackerName, false),
+							playerRevive:onDead(AttackerCode, AttackRoleID, AttackerName, false),
+
+							playerGuildExpedition:playerDead(AttackerCode, AttackRoleID),
 
 							BossIDList = getCfg:get1KeyList(cfg_wildboss),
 							IsBossTargetCode = isBossTarget(BossIDList, AttackerCode),

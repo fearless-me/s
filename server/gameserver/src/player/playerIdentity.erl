@@ -162,7 +162,7 @@ editIdentity_Tags(false, TagID) ->
 -spec editIdentity_Pics(OpType::type_idupt(), MD5::list(), Size::uint32(), Pos::uint8()) -> ok.
 editIdentity_Pics(_OpType, MD5, Size, Pos) ->
 	RoleID = playerState:getRoleID(),
-	%?DEBUG_OUT("[DebugForIdentity] editIdentity_Pics RoleID(~p) Data(~p)", [RoleID, {OpType, MD5, Size, Pos}]),
+	?LOG_OUT("[DebugForIdentity] editIdentity_Pics RoleID(~p) Data(~p)", [RoleID, {Size, Pos}]),
 	case Size > ?PicLimitSize of
 		true ->
 			error_code({?ErrorCode_IdentityPicUp_PicLimitSize, []});
@@ -202,11 +202,13 @@ editIdentity_Pics(_OpType, MD5, Size, Pos) ->
 									end,
 									psMgr:sendMsg2PS(?PsNameIdentity, identity_edit_pic, {RoleID, Pos, MD5Del, MD5});
 								_ ->
+									?LOG_OUT("[DebugForIdentity] editIdentity_Pics skip RoleID(~p) same data", [RoleID]),
 									skip
 							end
 %% 20161229 更改流程，编辑相册操作以覆盖方式进行 end
 					end;
 				_ ->
+					?LOG_OUT("[DebugForIdentity] editIdentity_Pics skip RoleID(~p) Data(~w)", [RoleID, MD5]),
 					skip
 			end
 	end,
@@ -215,7 +217,7 @@ editIdentity_Pics(_OpType, MD5, Size, Pos) ->
 %% 编辑相册反馈（仅需要上传数据的情况）
 -spec editIdentity_PicsAck({MD5::list(), IsExists::boolean()}) -> ok.
 editIdentity_PicsAck({MD5, false}) ->
-	%?DEBUG_OUT("[DebugForIdentity] editIdentity_PicsAck false RoleID(~p) MD5(~p)", [playerState:getRoleID(), MD5]),
+	?LOG_OUT("[DebugForIdentity] editIdentity_PicsAck false RoleID(~p)", [playerState:getRoleID()]),
 	%% 检查任务是否有效
 	case playerState2:getIdentityUporDownLoadTaskInfo() of
 		#upOrDownLoadTask{md5 = MD5, isOpen = false, upOrDown = true} = TaskInfo ->
@@ -224,24 +226,24 @@ editIdentity_PicsAck({MD5, false}) ->
 			Msg = #pk_GS2U_IdentityPicUpload_Ack{md5 = MD5, isComplete = false},
 			playerMsg:sendNetMsg(Msg);
 		_T ->
-			%?DEBUG_OUT("[DebugForIdentity] editIdentity_PicsAck RoleID(~p) MD5(~p)~n~p", [playerState:getRoleID(), MD5, _T]),
+			?WARN_OUT("[DebugForIdentity] editIdentity_PicsAck false RoleID(~p)~n~p", [playerState:getRoleID(), _T]),
 			skip
 	end,
 	ok;
 editIdentity_PicsAck({MD5, true}) ->
-	%?DEBUG_OUT("[DebugForIdentity] editIdentity_PicsAck true RoleID(~p) MD5(~p)", [playerState:getRoleID(), MD5]),
+	?LOG_OUT("[DebugForIdentity] editIdentity_PicsAck true RoleID(~p)", [playerState:getRoleID()]),
 	%% 删除任务直接提示上传成功
 	case playerState2:getIdentityUporDownLoadTaskInfo() of
 		#upOrDownLoadTask{md5 = MD5, isOpen = false, upOrDown = true} = TaskInfo ->
 			erlang:cancel_timer(TaskInfo#upOrDownLoadTask.timeR),
 
 			%% 照片上传成就
-			playerAchieve:achieveEvent(?Achieve_Social_Event1,[1]),
+			%%playerAchieve:achieveEvent(?Achieve_Social_Event1,[1]),
 			playerState2:setIdentityUporDownLoadTaskInfo(undefined),
 			Msg = #pk_GS2U_IdentityPicUpload_Ack{md5 = MD5, isComplete = true},
 			playerMsg:sendNetMsg(Msg);
 		_T ->
-			%?DEBUG_OUT("[DebugForIdentity] editIdentity_PicsAck RoleID(~p) MD5(~p)~n~p", [playerState:getRoleID(), MD5, _T]),
+			?WARN_OUT("[DebugForIdentity] editIdentity_PicsAck true RoleID(~p)~n~p", [playerState:getRoleID(), _T]),
 			skip
 	end,
 	ok.
@@ -257,7 +259,7 @@ editIdentityAck({_IDIT, _Data} = Msg) ->
 %% 上传图片
 -spec picUpload({MD5::list(), Count::uint16(), Index::uint16(), Data::list()}) -> ok.
 picUpload({MD5, _Count, Index, Data}) ->
-	%?DEBUG_OUT("[DebugForIdentity] picUpload RoleID(~p) Msg(~p)", [playerState:getRoleID(), {MD5, _Count, Index}]),
+	?LOG_OUT("[DebugForIdentity] picUpload RoleID(~p) Msg(~p)", [playerState:getRoleID(), {MD5, _Count, Index}]),
 	%% 检查任务是否有效
 	case playerState2:getIdentityUporDownLoadTaskInfo() of
 		#upOrDownLoadTask{md5 = MD5, isOpen = true, upOrDown = true, index = IndexOld} = TaskInfo when IndexOld =:= Index - 1 ->
@@ -276,6 +278,7 @@ picUpload({MD5, _Count, Index, Data}) ->
 						true ->
 							%% 数据不足，保存后等待下一波数据
 							TaskInfoNew = TaskInfo#upOrDownLoadTask{index = Index, size = SizeNew, data = DataNew},
+							?LOG_OUT("[DebugForIdentity] picUpload wait RoleID(~p) Msg(~p)", [playerState:getRoleID(), Index]),
 							playerState2:setIdentityUporDownLoadTaskInfo(TaskInfoNew);
 						_ ->
 							%% 关闭计时器并结束任务
@@ -285,6 +288,7 @@ picUpload({MD5, _Count, Index, Data}) ->
 							case erlang:binary_to_list(erlang:md5(DataNew)) of
 								MD5 ->
 									%% 数据校验通过，向公共进程请求保存数据
+									playerAchieve:achieveEvent(?Achieve_Social_Event1,[1]),
 									Msg = #pk_GS2U_IdentityPicUpload_Ack{md5 = MD5, isComplete = true},
 									playerMsg:sendNetMsg(Msg),
 									psMgr:sendMsg2PS(?PsNameIdentity, identity_picUp, {playerState:getRoleID(), MD5, DataNew, TaskInfo#upOrDownLoadTask.pos});
@@ -297,7 +301,7 @@ picUpload({MD5, _Count, Index, Data}) ->
 			end;
 		_T ->
 			%% 网络请求与缓冲的任务不符，忽略
-			%?DEBUG_OUT("[DebugForIdentity] picUpload RoleID(~p)~n~p~n~p", [playerState:getRoleID(), {MD5, Count, Index}, _T]),
+			?WARN_OUT("[DebugForIdentity] picUpload RoleID(~p)~n~p~n~p", [playerState:getRoleID(), {MD5, _Count, Index}, _T]),
 			skip
 	end,
 	ok.
@@ -449,9 +453,9 @@ picDownloadContinue({MD5}) ->
 %% 上传或下载任务超时
 -spec picOutTime() -> ok.
 picOutTime() ->
-	%?DEBUG_OUT("[DebugForIdentity] picOutTime RoleID(~p)", [playerState:getRoleID()]),
 	case playerState2:getIdentityUporDownLoadTaskInfo() of
-		#upOrDownLoadTask{upOrDown = UpOrDown} ->
+		#upOrDownLoadTask{upOrDown = UpOrDown} = _Rec ->
+			?LOG_OUT("[DebugForIdentity] picOutTime RoleID(~p)~n~p", [playerState:getRoleID(), _Rec]),
 			case UpOrDown of
 				true ->
 					error_code({?ErrorCode_IdentityPicUp_OutTime, []});
@@ -461,6 +465,7 @@ picOutTime() ->
 			time:getSyncUTCTimeFromDBS(),
 			playerState2:setIdentityUporDownLoadTaskInfo(undefined);
 		_ ->
+			?LOG_OUT("[DebugForIdentity] picOutTime RoleID(~p) skip", [playerState:getRoleID()]),
 			skip
 	end,
 	ok.

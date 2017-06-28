@@ -3,15 +3,16 @@
 -define(cfg_identity_area, 1).
 
 -record(identity_areaCfg, {
+        %%: id1，标记同省，界面省排序按此顺序
         id1,
 
+        %%: id2，界面市排序按此顺序
         id2,
 
-        %%: 字符串类型，以下举例
+        %%: 身份证省筛选中的省名称
         area1,
 
-        %%: mty:
-        %%: 字符串类型，以下举例
+        %%: 身份证市筛选中的市名称
         area2
 
  }).

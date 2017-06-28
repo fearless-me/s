@@ -81,10 +81,13 @@ loadPetTerritory() ->
 	gsSendMsg:sendMsg2DBServer(loadPetTerritory, 0, 0),
 	ok.
 
-loadRoleDataFromDBAck({#rec_base_role{roleID = RoleID} = Base, #rec_playerdata{} = PlayerData}) ->
+loadRoleDataFromDBAck({RoleID, PidFrom, {#rec_base_role{roleID = RoleID} = Base, #rec_playerdata{} = PlayerData}}) ->
 	?LOG_OUT("loadRoleDataFromDBAck:~p", [RoleID]),
 	ets:insert(ets_rec_base_role, Base),
 	ets:insert(ets_rec_playerdata, PlayerData),
+	?LOG_OUT("sendLoadOverMsgToPlayer:~p",[RoleID]),
+	%%发送读取结束标记
+	psMgr:sendMsg2PS(PidFrom,loadRoleAck,[{over,RoleID}]),
 	ok.
 
 loadPlayerDataAck(DataList) ->

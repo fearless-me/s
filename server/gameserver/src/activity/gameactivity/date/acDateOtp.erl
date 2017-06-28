@@ -242,7 +242,6 @@ handle_info({date_touch_box, Pid, Msg}, State) ->
 	{noreply,State};
 
 
-
 handle_info(Info, State) ->
 	?ERROR_OUT("~p ~p recv undefined msg:~p", [?MODULE, self(), Info]),
 	{noreply, State}.

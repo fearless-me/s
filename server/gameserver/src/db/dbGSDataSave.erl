@@ -141,7 +141,7 @@ savePlayerDataHandle({update, [#rec_ladder_1v1{}|_] = List}) ->
 				_ ->
 					skip
 			end,
-			SQL = io_lib:format("update ladder_1v1 set roleID=~p,exploit=~p,cur_win=~p,max_win=~p,win_times=~p,worship_times=~p where rankSort=~p",
+			SQL = io_lib:format("update ladder_1v1 set roleID=~p,exploit=~p,cur_win=~p,max_win=~p,win_times=~p,worship_times=~p,rankMin=~p where rankSort=~p",
 				[
 					R#rec_ladder_1v1.roleID,
 					erlang:min(Exploit, 2147483648),
@@ -149,6 +149,7 @@ savePlayerDataHandle({update, [#rec_ladder_1v1{}|_] = List}) ->
 					R#rec_ladder_1v1.max_win,
 					R#rec_ladder_1v1.win_times,
 					R#rec_ladder_1v1.worship_times,
+					R#rec_ladder_1v1.rankMin,
 					R#rec_ladder_1v1.rankSort
 				]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -161,7 +162,7 @@ savePlayerDataHandle({insert, #rec_ladder_1v1{} = Rec}) ->
 savePlayerDataHandle({insert, [#rec_ladder_1v1{}|_] = List}) ->
 	Fun =
 		fun(#rec_ladder_1v1{} = R, AccIn) ->
-			io_lib:format(",(~p,~p,~p,~p,~p,~p,~p)",
+			io_lib:format(",(~p,~p,~p,~p,~p,~p,~p,~p)",
 				[
 					R#rec_ladder_1v1.rankSort,
 					R#rec_ladder_1v1.roleID,
@@ -169,11 +170,12 @@ savePlayerDataHandle({insert, [#rec_ladder_1v1{}|_] = List}) ->
 					R#rec_ladder_1v1.cur_win,
 					R#rec_ladder_1v1.max_win,
 					R#rec_ladder_1v1.win_times,
-					R#rec_ladder_1v1.worship_times
+					R#rec_ladder_1v1.worship_times,
+					R#rec_ladder_1v1.rankMin
 				]) ++ AccIn
 		end,
 	[_|T] = lists:foldl(Fun,[],List),
-	SQL = io_lib:format("insert into ladder_1v1 (rankSort, roleID, exploit, cur_win, max_win, win_times, worship_times) values ~ts",[T]),
+	SQL = io_lib:format("insert into ladder_1v1 values ~ts",[T]),
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
 	dbMemCache:logResult("insert into ladder_1v1", Ret, SQL),
 	ok;
@@ -356,7 +358,7 @@ saveIdentityData_SQLForUpdate(?IDIT_HOMETOWN, {Hometown1, Hometown2}) ->
 saveIdentityData_SQLForUpdate(?IDIT_LOCATION, {Location1, Location2}) ->
 	io_lib:format("`location1`=~p,`location2`=~p", [Location1, Location2]);
 saveIdentityData_SQLForUpdate(?IDIT_TAGS, Tags) ->
-	io_lib:format("`tags`='~ts'", [Tags]);
+	io_lib:format("`tags`='~ts'", [misc:anti_sqlInjectionAttack(Tags)]);
 saveIdentityData_SQLForUpdate(?IDIT_PIC1, Pic) ->
 	io_lib:format("`pic1`='~ts'", [misc:listUnit8_to_stringASCII(Pic)]);
 saveIdentityData_SQLForUpdate(?IDIT_PIC2, Pic) ->
@@ -366,7 +368,7 @@ saveIdentityData_SQLForUpdate(?IDIT_PIC3, Pic) ->
 saveIdentityData_SQLForUpdate(?IDIT_FACE, Face) ->
 	io_lib:format("`face`='~ts'", [misc:listUnit8_to_stringASCII(Face)]);
 saveIdentityData_SQLForUpdate(?IDIT_SIGN, Sign) ->
-	io_lib:format("`sign`='~ts'", [Sign]);
+	io_lib:format("`sign`='~ts'", [misc:anti_sqlInjectionAttack(Sign)]);
 saveIdentityData_SQLForUpdate(IDIT, Data) ->
 	?ERROR_OUT("saveIdentityData_SQLForUpdate invalid argument ~p~n~p", [{IDIT, Data}, misc:getStackTrace()]),
 	[].
@@ -386,7 +388,7 @@ saveIdentityData_SQLForInsert(?IDIT_HOMETOWN, IdentityID, {Hometown1, Hometown2}
 saveIdentityData_SQLForInsert(?IDIT_LOCATION, IdentityID, {Location1, Location2}) ->
 	io_lib:format("insert into player_identity(`roleID`,`location1`,`location2`) values(~p,~p,~p)", [IdentityID, Location1, Location2]);
 saveIdentityData_SQLForInsert(?IDIT_TAGS, IdentityID, Tags) ->
-	io_lib:format("insert into player_identity(`roleID`,`tags`) values(~p,'~ts')", [IdentityID, Tags]);
+	io_lib:format("insert into player_identity(`roleID`,`tags`) values(~p,'~ts')", [IdentityID, misc:anti_sqlInjectionAttack(Tags)]);
 saveIdentityData_SQLForInsert(?IDIT_PIC1, IdentityID, Pic) ->
 	io_lib:format("insert into player_identity(`roleID`,`pic1`) values(~p,'~ts')", [IdentityID, misc:listUnit8_to_stringASCII(Pic)]);
 saveIdentityData_SQLForInsert(?IDIT_PIC2, IdentityID, Pic) ->
@@ -396,7 +398,7 @@ saveIdentityData_SQLForInsert(?IDIT_PIC3, IdentityID, Pic) ->
 saveIdentityData_SQLForInsert(?IDIT_FACE, IdentityID, Face) ->
 	io_lib:format("insert into player_identity(`roleID`,`face`) values(~p,'~ts')", [IdentityID, misc:listUnit8_to_stringASCII(Face)]);
 saveIdentityData_SQLForInsert(?IDIT_SIGN, IdentityID, Sign) ->
-	io_lib:format("insert into player_identity(`roleID`,`sign`) values(~p,'~ts')", [IdentityID, Sign]);
+	io_lib:format("insert into player_identity(`roleID`,`sign`) values(~p,'~ts')", [IdentityID, misc:anti_sqlInjectionAttack(Sign)]);
 saveIdentityData_SQLForInsert(IDIT, IdentityID, Data) ->
 	?ERROR_OUT("saveIdentityData_SQLForInsert invalid argument ~p~n~p", [{IDIT, IdentityID, Data}, misc:getStackTrace()]),
 	[].

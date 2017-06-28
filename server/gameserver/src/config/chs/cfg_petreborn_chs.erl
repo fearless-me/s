@@ -11,7 +11,7 @@ getRow(1,0)->
     lv = 0,
     star_up = 0,
     reborn = 0,
-    star = 0.7,
+    star = 0,
     quanlity = 1.1
     };
 getRow(1,1)->
@@ -19,8 +19,8 @@ getRow(1,1)->
     groupid = 1,
     lv = 1,
     star_up = 0,
-    reborn = 0.8,
-    star = 1.4,
+    reborn = 0.2,
+    star = 0.098,
     item_star = [{2160,1}],
     quanlity = 1.1
     };
@@ -29,8 +29,8 @@ getRow(1,2)->
     groupid = 1,
     lv = 2,
     star_up = 0,
-    reborn = 1.5,
-    star = 1.96,
+    reborn = 0.35,
+    star = 0.195,
     item_star = [{2160,3}],
     quanlity = 1.1
     };
@@ -39,8 +39,8 @@ getRow(1,3)->
     groupid = 1,
     lv = 3,
     star_up = 0,
-    reborn = 2,
-    star = 2.418,
+    reborn = 0.5,
+    star = 0.293,
     item_star = [{2160,5}],
     quanlity = 1.1
     };
@@ -49,8 +49,8 @@ getRow(1,4)->
     groupid = 1,
     lv = 4,
     star_up = 0,
-    reborn = 3,
-    star = 5.234,
+    reborn = 0.6,
+    star = 0.39,
     item_star = [{2160,7}],
     quanlity = 1.1
     };
@@ -59,8 +59,8 @@ getRow(1,5)->
     groupid = 1,
     lv = 5,
     star_up = 1,
-    reborn = 4,
-    star = 5.43,
+    reborn = 0.7,
+    star = 0.683,
     item_star = [{2160,11}],
     quanlity = 1.1
     };
@@ -70,7 +70,7 @@ getRow(1,6)->
     lv = 6,
     star_up = 0,
     reborn = 0,
-    star = 5.6,
+    star = 0.793,
     item_star = [{2160,7}],
     quanlity = 1.1
     };
@@ -80,7 +80,7 @@ getRow(1,7)->
     lv = 7,
     star_up = 0,
     reborn = 0,
-    star = 5.774,
+    star = 0.904,
     item_star = [{2160,11}],
     quanlity = 1.1
     };
@@ -90,7 +90,7 @@ getRow(1,8)->
     lv = 8,
     star_up = 0,
     reborn = 0,
-    star = 5.9,
+    star = 1.014,
     item_star = [{2160,15}],
     quanlity = 1.1
     };
@@ -100,7 +100,7 @@ getRow(1,9)->
     lv = 9,
     star_up = 0,
     reborn = 0,
-    star = 8.294,
+    star = 1.125,
     item_star = [{2160,19}],
     quanlity = 1.1
     };
@@ -110,7 +110,7 @@ getRow(1,10)->
     lv = 10,
     star_up = 1,
     reborn = 0,
-    star = 8.356,
+    star = 1.755,
     item_star = [{2160,27}],
     quanlity = 1.1
     };
@@ -120,7 +120,7 @@ getRow(1,11)->
     lv = 11,
     star_up = 0,
     reborn = 0,
-    star = 8.41,
+    star = 1.885,
     item_star = [{2160,19}],
     quanlity = 1.1
     };
@@ -130,7 +130,7 @@ getRow(1,12)->
     lv = 12,
     star_up = 0,
     reborn = 0,
-    star = 8.46,
+    star = 2.015,
     item_star = [{2160,28}],
     quanlity = 1.1
     };
@@ -140,7 +140,7 @@ getRow(1,13)->
     lv = 13,
     star_up = 0,
     reborn = 0,
-    star = 8.504,
+    star = 2.145,
     item_star = [{2160,37}],
     quanlity = 1.1
     };
@@ -150,7 +150,7 @@ getRow(1,14)->
     lv = 14,
     star_up = 0,
     reborn = 0,
-    star = 10.746,
+    star = 2.275,
     item_star = [{2160,46}],
     quanlity = 1.1
     };
@@ -160,7 +160,7 @@ getRow(1,15)->
     lv = 15,
     star_up = 1,
     reborn = 0,
-    star = 10.756,
+    star = 3.055,
     item_star = [{2160,54}],
     quanlity = 1.1
     };
@@ -170,7 +170,7 @@ getRow(1,16)->
     lv = 16,
     star_up = 0,
     reborn = 0,
-    star = 10.75,
+    star = 3.205,
     item_star = [{2160,46}],
     quanlity = 1.1
     };
@@ -180,7 +180,7 @@ getRow(1,17)->
     lv = 17,
     star_up = 0,
     reborn = 0,
-    star = 10.76,
+    star = 3.354,
     item_star = [{2160,59}],
     quanlity = 1.1
     };
@@ -190,7 +190,7 @@ getRow(1,18)->
     lv = 18,
     star_up = 0,
     reborn = 0,
-    star = 10.77,
+    star = 3.504,
     item_star = [{2160,72}],
     quanlity = 1.1
     };
@@ -200,7 +200,7 @@ getRow(1,19)->
     lv = 19,
     star_up = 0,
     reborn = 0,
-    star = 12.912,
+    star = 3.653,
     item_star = [{2160,85}],
     quanlity = 1.1
     };
@@ -210,7 +210,7 @@ getRow(1,20)->
     lv = 20,
     star_up = 1,
     reborn = 0,
-    star = 12.872,
+    star = 4.583,
     item_star = [{2160,111}],
     quanlity = 1.1
     };
@@ -220,7 +220,7 @@ getRow(1,21)->
     lv = 21,
     star_up = 0,
     reborn = 0,
-    star = 12.834,
+    star = 4.745,
     item_star = [{2160,85}],
     quanlity = 1.1
     };
@@ -230,7 +230,7 @@ getRow(1,22)->
     lv = 22,
     star_up = 0,
     reborn = 0,
-    star = 12.8,
+    star = 4.908,
     item_star = [{2160,102}],
     quanlity = 1.1
     };
@@ -240,7 +240,7 @@ getRow(1,23)->
     lv = 23,
     star_up = 0,
     reborn = 0,
-    star = 12.768,
+    star = 5.07,
     item_star = [{2160,119}],
     quanlity = 1.1
     };
@@ -250,7 +250,7 @@ getRow(1,24)->
     lv = 24,
     star_up = 0,
     reborn = 0,
-    star = 14.85,
+    star = 5.233,
     item_star = [{2160,136}],
     quanlity = 1.1
     };
@@ -260,7 +260,7 @@ getRow(2,0)->
     lv = 0,
     star_up = 0,
     reborn = 0,
-    star = 2,
+    star = 0,
     quanlity = 1.1
     };
 getRow(2,1)->
@@ -268,8 +268,8 @@ getRow(2,1)->
     groupid = 2,
     lv = 1,
     star_up = 0,
-    reborn = 3.2,
-    star = 4.08,
+    reborn = 0.2,
+    star = 0.098,
     item_star = [{2160,1}],
     quanlity = 1.1
     };
@@ -278,8 +278,8 @@ getRow(2,2)->
     groupid = 2,
     lv = 2,
     star_up = 0,
-    reborn = 5.5,
-    star = 5.67,
+    reborn = 0.35,
+    star = 0.195,
     item_star = [{2160,3}],
     quanlity = 1.1
     };
@@ -288,8 +288,8 @@ getRow(2,3)->
     groupid = 2,
     lv = 3,
     star_up = 0,
-    reborn = 12.7,
-    star = 7,
+    reborn = 0.5,
+    star = 0.293,
     item_star = [{2160,5}],
     quanlity = 1.1
     };
@@ -298,8 +298,8 @@ getRow(2,4)->
     groupid = 2,
     lv = 4,
     star_up = 0,
-    reborn = 23.3,
-    star = 15.17,
+    reborn = 0.6,
+    star = 0.39,
     item_star = [{2160,7}],
     quanlity = 1.1
     };
@@ -308,8 +308,8 @@ getRow(2,5)->
     groupid = 2,
     lv = 5,
     star_up = 1,
-    reborn = 36.4,
-    star = 15.75,
+    reborn = 0.7,
+    star = 0.683,
     item_star = [{2160,11}],
     quanlity = 1.1
     };
@@ -319,7 +319,7 @@ getRow(2,6)->
     lv = 6,
     star_up = 0,
     reborn = 0,
-    star = 16.17,
+    star = 0.793,
     item_star = [{2160,7}],
     quanlity = 1.1
     };
@@ -329,7 +329,7 @@ getRow(2,7)->
     lv = 7,
     star_up = 0,
     reborn = 0,
-    star = 16.75,
+    star = 0.904,
     item_star = [{2160,11}],
     quanlity = 1.1
     };
@@ -339,7 +339,7 @@ getRow(2,8)->
     lv = 8,
     star_up = 0,
     reborn = 0,
-    star = 17.08,
+    star = 1.014,
     item_star = [{2160,15}],
     quanlity = 1.1
     };
@@ -349,7 +349,7 @@ getRow(2,9)->
     lv = 9,
     star_up = 0,
     reborn = 0,
-    star = 24,
+    star = 1.125,
     item_star = [{2160,19}],
     quanlity = 1.1
     };
@@ -359,7 +359,7 @@ getRow(2,10)->
     lv = 10,
     star_up = 1,
     reborn = 0,
-    star = 24.17,
+    star = 1.755,
     item_star = [{2160,27}],
     quanlity = 1.1
     };
@@ -369,7 +369,7 @@ getRow(2,11)->
     lv = 11,
     star_up = 0,
     reborn = 0,
-    star = 24.33,
+    star = 1.885,
     item_star = [{2160,19}],
     quanlity = 1.1
     };
@@ -379,7 +379,7 @@ getRow(2,12)->
     lv = 12,
     star_up = 0,
     reborn = 0,
-    star = 24.5,
+    star = 2.015,
     item_star = [{2160,28}],
     quanlity = 1.1
     };
@@ -389,7 +389,7 @@ getRow(2,13)->
     lv = 13,
     star_up = 0,
     reborn = 0,
-    star = 24.58,
+    star = 2.145,
     item_star = [{2160,37}],
     quanlity = 1.1
     };
@@ -399,7 +399,7 @@ getRow(2,14)->
     lv = 14,
     star_up = 0,
     reborn = 0,
-    star = 31.08,
+    star = 2.275,
     item_star = [{2160,46}],
     quanlity = 1.1
     };
@@ -409,7 +409,7 @@ getRow(2,15)->
     lv = 15,
     star_up = 1,
     reborn = 0,
-    star = 31.17,
+    star = 3.055,
     item_star = [{2160,54}],
     quanlity = 1.1
     };
@@ -419,7 +419,7 @@ getRow(2,16)->
     lv = 16,
     star_up = 0,
     reborn = 0,
-    star = 31.08,
+    star = 3.205,
     item_star = [{2160,46}],
     quanlity = 1.1
     };
@@ -429,7 +429,7 @@ getRow(2,17)->
     lv = 17,
     star_up = 0,
     reborn = 0,
-    star = 31.17,
+    star = 3.354,
     item_star = [{2160,59}],
     quanlity = 1.1
     };
@@ -439,7 +439,7 @@ getRow(2,18)->
     lv = 18,
     star_up = 0,
     reborn = 0,
-    star = 31.17,
+    star = 3.504,
     item_star = [{2160,72}],
     quanlity = 1.1
     };
@@ -449,7 +449,7 @@ getRow(2,19)->
     lv = 19,
     star_up = 0,
     reborn = 0,
-    star = 37.33,
+    star = 3.653,
     item_star = [{2160,85}],
     quanlity = 1.1
     };
@@ -459,7 +459,7 @@ getRow(2,20)->
     lv = 20,
     star_up = 1,
     reborn = 0,
-    star = 37.42,
+    star = 4.583,
     item_star = [{2160,111}],
     quanlity = 1.1
     };
@@ -469,7 +469,7 @@ getRow(2,21)->
     lv = 21,
     star_up = 0,
     reborn = 0,
-    star = 37.42,
+    star = 4.745,
     item_star = [{2160,85}],
     quanlity = 1.1
     };
@@ -479,7 +479,7 @@ getRow(2,22)->
     lv = 22,
     star_up = 0,
     reborn = 0,
-    star = 37.42,
+    star = 4.908,
     item_star = [{2160,102}],
     quanlity = 1.1
     };
@@ -489,7 +489,7 @@ getRow(2,23)->
     lv = 23,
     star_up = 0,
     reborn = 0,
-    star = 37.42,
+    star = 5.07,
     item_star = [{2160,119}],
     quanlity = 1.1
     };
@@ -499,7 +499,7 @@ getRow(2,24)->
     lv = 24,
     star_up = 0,
     reborn = 0,
-    star = 43,
+    star = 5.233,
     item_star = [{2160,136}],
     quanlity = 1.1
     };
@@ -509,7 +509,7 @@ getRow(3,0)->
     lv = 0,
     star_up = 0,
     reborn = 0,
-    star = 2.4,
+    star = 0,
     quanlity = 1.1
     };
 getRow(3,1)->
@@ -517,8 +517,8 @@ getRow(3,1)->
     groupid = 3,
     lv = 1,
     star_up = 0,
-    reborn = 3.2,
-    star = 4.9,
+    reborn = 0.2,
+    star = 0.098,
     item_star = [{2161,1}],
     quanlity = 1.1
     };
@@ -527,8 +527,8 @@ getRow(3,2)->
     groupid = 3,
     lv = 2,
     star_up = 0,
-    reborn = 5.5,
-    star = 6.8,
+    reborn = 0.35,
+    star = 0.195,
     item_star = [{2161,3}],
     quanlity = 1.1
     };
@@ -537,8 +537,8 @@ getRow(3,3)->
     groupid = 3,
     lv = 3,
     star_up = 0,
-    reborn = 12.7,
-    star = 8.4,
+    reborn = 0.5,
+    star = 0.293,
     item_star = [{2161,5}],
     quanlity = 1.1
     };
@@ -547,8 +547,8 @@ getRow(3,4)->
     groupid = 3,
     lv = 4,
     star_up = 0,
-    reborn = 23.3,
-    star = 18.2,
+    reborn = 0.6,
+    star = 0.39,
     item_star = [{2161,7}],
     quanlity = 1.1
     };
@@ -557,8 +557,8 @@ getRow(3,5)->
     groupid = 3,
     lv = 5,
     star_up = 1,
-    reborn = 36.4,
-    star = 18.9,
+    reborn = 0.7,
+    star = 0.683,
     item_star = [{2161,11}],
     quanlity = 1.1
     };
@@ -568,7 +568,7 @@ getRow(3,6)->
     lv = 6,
     star_up = 0,
     reborn = 0,
-    star = 19.4,
+    star = 0.793,
     item_star = [{2161,7}],
     quanlity = 1.1
     };
@@ -578,7 +578,7 @@ getRow(3,7)->
     lv = 7,
     star_up = 0,
     reborn = 0,
-    star = 20.1,
+    star = 0.904,
     item_star = [{2161,11}],
     quanlity = 1.1
     };
@@ -588,7 +588,7 @@ getRow(3,8)->
     lv = 8,
     star_up = 0,
     reborn = 0,
-    star = 20.5,
+    star = 1.014,
     item_star = [{2161,15}],
     quanlity = 1.1
     };
@@ -598,7 +598,7 @@ getRow(3,9)->
     lv = 9,
     star_up = 0,
     reborn = 0,
-    star = 28.8,
+    star = 1.125,
     item_star = [{2161,19}],
     quanlity = 1.1
     };
@@ -608,7 +608,7 @@ getRow(3,10)->
     lv = 10,
     star_up = 1,
     reborn = 0,
-    star = 29,
+    star = 1.755,
     item_star = [{2161,27}],
     quanlity = 1.1
     };
@@ -618,7 +618,7 @@ getRow(3,11)->
     lv = 11,
     star_up = 0,
     reborn = 0,
-    star = 29.2,
+    star = 1.885,
     item_star = [{2161,19}],
     quanlity = 1.1
     };
@@ -628,7 +628,7 @@ getRow(3,12)->
     lv = 12,
     star_up = 0,
     reborn = 0,
-    star = 29.4,
+    star = 2.015,
     item_star = [{2161,28}],
     quanlity = 1.1
     };
@@ -638,7 +638,7 @@ getRow(3,13)->
     lv = 13,
     star_up = 0,
     reborn = 0,
-    star = 29.5,
+    star = 2.145,
     item_star = [{2161,37}],
     quanlity = 1.1
     };
@@ -648,7 +648,7 @@ getRow(3,14)->
     lv = 14,
     star_up = 0,
     reborn = 0,
-    star = 37.3,
+    star = 2.275,
     item_star = [{2161,46}],
     quanlity = 1.1
     };
@@ -658,7 +658,7 @@ getRow(3,15)->
     lv = 15,
     star_up = 1,
     reborn = 0,
-    star = 37.4,
+    star = 3.055,
     item_star = [{2161,54}],
     quanlity = 1.1
     };
@@ -668,7 +668,7 @@ getRow(3,16)->
     lv = 16,
     star_up = 0,
     reborn = 0,
-    star = 37.3,
+    star = 3.205,
     item_star = [{2161,46}],
     quanlity = 1.1
     };
@@ -678,7 +678,7 @@ getRow(3,17)->
     lv = 17,
     star_up = 0,
     reborn = 0,
-    star = 37.4,
+    star = 3.354,
     item_star = [{2161,59}],
     quanlity = 1.1
     };
@@ -688,7 +688,7 @@ getRow(3,18)->
     lv = 18,
     star_up = 0,
     reborn = 0,
-    star = 37.4,
+    star = 3.504,
     item_star = [{2161,72}],
     quanlity = 1.1
     };
@@ -698,7 +698,7 @@ getRow(3,19)->
     lv = 19,
     star_up = 0,
     reborn = 0,
-    star = 44.8,
+    star = 3.653,
     item_star = [{2161,85}],
     quanlity = 1.1
     };
@@ -708,7 +708,7 @@ getRow(3,20)->
     lv = 20,
     star_up = 1,
     reborn = 0,
-    star = 44.9,
+    star = 4.583,
     item_star = [{2161,111}],
     quanlity = 1.1
     };
@@ -718,7 +718,7 @@ getRow(3,21)->
     lv = 21,
     star_up = 0,
     reborn = 0,
-    star = 44.9,
+    star = 4.745,
     item_star = [{2161,85}],
     quanlity = 1.1
     };
@@ -728,7 +728,7 @@ getRow(3,22)->
     lv = 22,
     star_up = 0,
     reborn = 0,
-    star = 44.9,
+    star = 4.908,
     item_star = [{2161,102}],
     quanlity = 1.1
     };
@@ -738,7 +738,7 @@ getRow(3,23)->
     lv = 23,
     star_up = 0,
     reborn = 0,
-    star = 44.9,
+    star = 5.07,
     item_star = [{2161,119}],
     quanlity = 1.1
     };
@@ -748,7 +748,7 @@ getRow(3,24)->
     lv = 24,
     star_up = 0,
     reborn = 0,
-    star = 51.6,
+    star = 5.233,
     item_star = [{2161,136}],
     quanlity = 1.1
     };
@@ -758,7 +758,7 @@ getRow(4,0)->
     lv = 0,
     star_up = 0,
     reborn = 0,
-    star = 2.92,
+    star = 0,
     quanlity = 1.1
     };
 getRow(4,1)->
@@ -766,8 +766,8 @@ getRow(4,1)->
     groupid = 4,
     lv = 1,
     star_up = 0,
-    reborn = 3.2,
-    star = 5.83,
+    reborn = 0.2,
+    star = 0.098,
     item_star = [{2162,1}],
     quanlity = 1.1
     };
@@ -776,8 +776,8 @@ getRow(4,2)->
     groupid = 4,
     lv = 2,
     star_up = 0,
-    reborn = 5.5,
-    star = 8.17,
+    reborn = 0.35,
+    star = 0.195,
     item_star = [{2162,3}],
     quanlity = 1.1
     };
@@ -786,8 +786,8 @@ getRow(4,3)->
     groupid = 4,
     lv = 3,
     star_up = 0,
-    reborn = 12.7,
-    star = 10.08,
+    reborn = 0.5,
+    star = 0.293,
     item_star = [{2162,5}],
     quanlity = 1.1
     };
@@ -796,8 +796,8 @@ getRow(4,4)->
     groupid = 4,
     lv = 4,
     star_up = 0,
-    reborn = 23.3,
-    star = 21.81,
+    reborn = 0.6,
+    star = 0.39,
     item_star = [{2162,7}],
     quanlity = 1.1
     };
@@ -806,8 +806,8 @@ getRow(4,5)->
     groupid = 4,
     lv = 5,
     star_up = 1,
-    reborn = 36.4,
-    star = 22.63,
+    reborn = 0.7,
+    star = 0.683,
     item_star = [{2162,11}],
     quanlity = 1.1
     };
@@ -817,7 +817,7 @@ getRow(4,6)->
     lv = 6,
     star_up = 0,
     reborn = 0,
-    star = 23.33,
+    star = 0.793,
     item_star = [{2162,7}],
     quanlity = 1.1
     };
@@ -827,7 +827,7 @@ getRow(4,7)->
     lv = 7,
     star_up = 0,
     reborn = 0,
-    star = 24.06,
+    star = 0.904,
     item_star = [{2162,11}],
     quanlity = 1.1
     };
@@ -837,7 +837,7 @@ getRow(4,8)->
     lv = 8,
     star_up = 0,
     reborn = 0,
-    star = 24.58,
+    star = 1.014,
     item_star = [{2162,15}],
     quanlity = 1.1
     };
@@ -847,7 +847,7 @@ getRow(4,9)->
     lv = 9,
     star_up = 0,
     reborn = 0,
-    star = 34.56,
+    star = 1.125,
     item_star = [{2162,19}],
     quanlity = 1.1
     };
@@ -857,7 +857,7 @@ getRow(4,10)->
     lv = 10,
     star_up = 1,
     reborn = 0,
-    star = 34.82,
+    star = 1.755,
     item_star = [{2162,27}],
     quanlity = 1.1
     };
@@ -867,7 +867,7 @@ getRow(4,11)->
     lv = 11,
     star_up = 0,
     reborn = 0,
-    star = 35.04,
+    star = 1.885,
     item_star = [{2162,19}],
     quanlity = 1.1
     };
@@ -877,7 +877,7 @@ getRow(4,12)->
     lv = 12,
     star_up = 0,
     reborn = 0,
-    star = 35.25,
+    star = 2.015,
     item_star = [{2162,28}],
     quanlity = 1.1
     };
@@ -887,7 +887,7 @@ getRow(4,13)->
     lv = 13,
     star_up = 0,
     reborn = 0,
-    star = 35.43,
+    star = 2.145,
     item_star = [{2162,37}],
     quanlity = 1.1
     };
@@ -897,7 +897,7 @@ getRow(4,14)->
     lv = 14,
     star_up = 0,
     reborn = 0,
-    star = 44.78,
+    star = 2.275,
     item_star = [{2162,46}],
     quanlity = 1.1
     };
@@ -907,7 +907,7 @@ getRow(4,15)->
     lv = 15,
     star_up = 1,
     reborn = 0,
-    star = 44.82,
+    star = 3.055,
     item_star = [{2162,54}],
     quanlity = 1.1
     };
@@ -917,7 +917,7 @@ getRow(4,16)->
     lv = 16,
     star_up = 0,
     reborn = 0,
-    star = 44.79,
+    star = 3.205,
     item_star = [{2162,46}],
     quanlity = 1.1
     };
@@ -927,7 +927,7 @@ getRow(4,17)->
     lv = 17,
     star_up = 0,
     reborn = 0,
-    star = 44.83,
+    star = 3.354,
     item_star = [{2162,59}],
     quanlity = 1.1
     };
@@ -937,7 +937,7 @@ getRow(4,18)->
     lv = 18,
     star_up = 0,
     reborn = 0,
-    star = 44.88,
+    star = 3.504,
     item_star = [{2162,72}],
     quanlity = 1.1
     };
@@ -947,7 +947,7 @@ getRow(4,19)->
     lv = 19,
     star_up = 0,
     reborn = 0,
-    star = 53.8,
+    star = 3.653,
     item_star = [{2162,85}],
     quanlity = 1.1
     };
@@ -957,7 +957,7 @@ getRow(4,20)->
     lv = 20,
     star_up = 1,
     reborn = 0,
-    star = 53.83,
+    star = 4.583,
     item_star = [{2162,111}],
     quanlity = 1.1
     };
@@ -967,7 +967,7 @@ getRow(4,21)->
     lv = 21,
     star_up = 0,
     reborn = 0,
-    star = 53.83,
+    star = 4.745,
     item_star = [{2162,85}],
     quanlity = 1.1
     };
@@ -977,7 +977,7 @@ getRow(4,22)->
     lv = 22,
     star_up = 0,
     reborn = 0,
-    star = 53.83,
+    star = 4.908,
     item_star = [{2162,102}],
     quanlity = 1.1
     };
@@ -987,7 +987,7 @@ getRow(4,23)->
     lv = 23,
     star_up = 0,
     reborn = 0,
-    star = 53.83,
+    star = 5.07,
     item_star = [{2162,119}],
     quanlity = 1.1
     };
@@ -997,7 +997,7 @@ getRow(4,24)->
     lv = 24,
     star_up = 0,
     reborn = 0,
-    star = 61.88,
+    star = 5.233,
     item_star = [{2162,136}],
     quanlity = 1.1
     };
@@ -1007,7 +1007,7 @@ getRow(5,0)->
     lv = 0,
     star_up = 0,
     reborn = 0,
-    star = 3.5,
+    star = 0,
     quanlity = 1.1
     };
 getRow(5,1)->
@@ -1015,8 +1015,8 @@ getRow(5,1)->
     groupid = 5,
     lv = 1,
     star_up = 0,
-    reborn = 3.8,
-    star = 7,
+    reborn = 0.2,
+    star = 0.098,
     item_star = [{2162,1}],
     quanlity = 1.1
     };
@@ -1025,8 +1025,8 @@ getRow(5,2)->
     groupid = 5,
     lv = 2,
     star_up = 0,
-    reborn = 6.6,
-    star = 9.8,
+    reborn = 0.35,
+    star = 0.195,
     item_star = [{2162,3}],
     quanlity = 1.1
     };
@@ -1035,8 +1035,8 @@ getRow(5,3)->
     groupid = 5,
     lv = 3,
     star_up = 0,
-    reborn = 15.2,
-    star = 12.09,
+    reborn = 0.5,
+    star = 0.293,
     item_star = [{2162,5}],
     quanlity = 1.1
     };
@@ -1045,8 +1045,8 @@ getRow(5,4)->
     groupid = 5,
     lv = 4,
     star_up = 0,
-    reborn = 27.9,
-    star = 26.17,
+    reborn = 0.6,
+    star = 0.39,
     item_star = [{2162,7}],
     quanlity = 1.1
     };
@@ -1055,8 +1055,8 @@ getRow(5,5)->
     groupid = 5,
     lv = 5,
     star_up = 1,
-    reborn = 43.7,
-    star = 27.15,
+    reborn = 0.7,
+    star = 0.683,
     item_star = [{2162,11}],
     quanlity = 1.1
     };
@@ -1066,7 +1066,7 @@ getRow(5,6)->
     lv = 6,
     star_up = 0,
     reborn = 0,
-    star = 28,
+    star = 0.793,
     item_star = [{2162,7}],
     quanlity = 1.1
     };
@@ -1076,7 +1076,7 @@ getRow(5,7)->
     lv = 7,
     star_up = 0,
     reborn = 0,
-    star = 28.87,
+    star = 0.904,
     item_star = [{2162,11}],
     quanlity = 1.1
     };
@@ -1086,7 +1086,7 @@ getRow(5,8)->
     lv = 8,
     star_up = 0,
     reborn = 0,
-    star = 29.5,
+    star = 1.014,
     item_star = [{2162,15}],
     quanlity = 1.1
     };
@@ -1096,7 +1096,7 @@ getRow(5,9)->
     lv = 9,
     star_up = 0,
     reborn = 0,
-    star = 41.47,
+    star = 1.125,
     item_star = [{2162,19}],
     quanlity = 1.1
     };
@@ -1106,7 +1106,7 @@ getRow(5,10)->
     lv = 10,
     star_up = 1,
     reborn = 0,
-    star = 41.78,
+    star = 1.755,
     item_star = [{2162,27}],
     quanlity = 1.1
     };
@@ -1116,7 +1116,7 @@ getRow(5,11)->
     lv = 11,
     star_up = 0,
     reborn = 0,
-    star = 42.05,
+    star = 1.885,
     item_star = [{2162,19}],
     quanlity = 1.1
     };
@@ -1126,7 +1126,7 @@ getRow(5,12)->
     lv = 12,
     star_up = 0,
     reborn = 0,
-    star = 42.3,
+    star = 2.015,
     item_star = [{2162,28}],
     quanlity = 1.1
     };
@@ -1136,7 +1136,7 @@ getRow(5,13)->
     lv = 13,
     star_up = 0,
     reborn = 0,
-    star = 42.52,
+    star = 2.145,
     item_star = [{2162,37}],
     quanlity = 1.1
     };
@@ -1146,7 +1146,7 @@ getRow(5,14)->
     lv = 14,
     star_up = 0,
     reborn = 0,
-    star = 53.73,
+    star = 2.275,
     item_star = [{2162,46}],
     quanlity = 1.1
     };
@@ -1156,7 +1156,7 @@ getRow(5,15)->
     lv = 15,
     star_up = 1,
     reborn = 0,
-    star = 53.78,
+    star = 3.055,
     item_star = [{2162,54}],
     quanlity = 1.1
     };
@@ -1166,7 +1166,7 @@ getRow(5,16)->
     lv = 16,
     star_up = 0,
     reborn = 0,
-    star = 53.75,
+    star = 3.205,
     item_star = [{2162,46}],
     quanlity = 1.1
     };
@@ -1176,7 +1176,7 @@ getRow(5,17)->
     lv = 17,
     star_up = 0,
     reborn = 0,
-    star = 53.8,
+    star = 3.354,
     item_star = [{2162,59}],
     quanlity = 1.1
     };
@@ -1186,7 +1186,7 @@ getRow(5,18)->
     lv = 18,
     star_up = 0,
     reborn = 0,
-    star = 53.85,
+    star = 3.504,
     item_star = [{2162,72}],
     quanlity = 1.1
     };
@@ -1196,7 +1196,7 @@ getRow(5,19)->
     lv = 19,
     star_up = 0,
     reborn = 0,
-    star = 64.56,
+    star = 3.653,
     item_star = [{2162,85}],
     quanlity = 1.1
     };
@@ -1206,7 +1206,7 @@ getRow(5,20)->
     lv = 20,
     star_up = 1,
     reborn = 0,
-    star = 64.6,
+    star = 4.583,
     item_star = [{2162,111}],
     quanlity = 1.1
     };
@@ -1216,7 +1216,7 @@ getRow(5,21)->
     lv = 21,
     star_up = 0,
     reborn = 0,
-    star = 64.6,
+    star = 4.745,
     item_star = [{2162,85}],
     quanlity = 1.1
     };
@@ -1226,7 +1226,7 @@ getRow(5,22)->
     lv = 22,
     star_up = 0,
     reborn = 0,
-    star = 64.6,
+    star = 4.908,
     item_star = [{2162,102}],
     quanlity = 1.1
     };
@@ -1236,7 +1236,7 @@ getRow(5,23)->
     lv = 23,
     star_up = 0,
     reborn = 0,
-    star = 64.6,
+    star = 5.07,
     item_star = [{2162,119}],
     quanlity = 1.1
     };
@@ -1246,7 +1246,7 @@ getRow(5,24)->
     lv = 24,
     star_up = 0,
     reborn = 0,
-    star = 74.25,
+    star = 5.233,
     item_star = [{2162,136}],
     quanlity = 1.1
     };

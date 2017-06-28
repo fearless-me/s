@@ -14,6 +14,8 @@
 
 -type mapMgrType() :: ?PSNameNormalMapMgr | ?PSNameCopyMapMgr.
 
+%%配置处理进程
+-define(PsNameConfigOtp, configOtp).
 %%数据库服务器进程通信进程的进程名
 -define(PsNameDBS,gsDBServerPID).
 %%主进程的进程名

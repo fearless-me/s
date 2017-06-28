@@ -21,209 +21,209 @@ getRow(1,1)->
     id = 1,
     level = 1,
     icon = 4,
-    property = [{0,140,95}],
+    property = [{0,140,63}],
     guildlevel = 1,
     cost = 10,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级95点"
+    describe = "技能效果：角色增加暴击等级63点"
     };
 getRow(1,2)->
     #guildexchangeCfg {
     id = 1,
     level = 2,
     icon = 4,
-    property = [{0,140,123}],
+    property = [{0,140,114}],
     guildlevel = 1,
     cost = 16,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级123点"
+    describe = "技能效果：角色增加暴击等级114点"
     };
 getRow(1,3)->
     #guildexchangeCfg {
     id = 1,
     level = 3,
     icon = 4,
-    property = [{0,140,180}],
+    property = [{0,140,197}],
     guildlevel = 1,
     cost = 30,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级180点"
+    describe = "技能效果：角色增加暴击等级197点"
     };
 getRow(1,4)->
     #guildexchangeCfg {
     id = 1,
     level = 4,
     icon = 4,
-    property = [{0,140,257}],
+    property = [{0,140,300}],
     guildlevel = 1,
     cost = 44,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级257点"
+    describe = "技能效果：角色增加暴击等级300点"
     };
 getRow(1,5)->
     #guildexchangeCfg {
     id = 1,
     level = 5,
     icon = 4,
-    property = [{0,140,352}],
+    property = [{0,140,417}],
     guildlevel = 1,
     cost = 57,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级352点"
+    describe = "技能效果：角色增加暴击等级417点"
     };
 getRow(1,6)->
     #guildexchangeCfg {
     id = 1,
     level = 6,
     icon = 4,
-    property = [{0,140,461}],
+    property = [{0,140,546}],
     guildlevel = 1,
     cost = 71,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级461点"
+    describe = "技能效果：角色增加暴击等级546点"
     };
 getRow(1,7)->
     #guildexchangeCfg {
     id = 1,
     level = 7,
     icon = 4,
-    property = [{0,140,585}],
+    property = [{0,140,687}],
     guildlevel = 1,
     cost = 84,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级585点"
+    describe = "技能效果：角色增加暴击等级687点"
     };
 getRow(1,8)->
     #guildexchangeCfg {
     id = 1,
     level = 8,
     icon = 4,
-    property = [{0,140,723}],
+    property = [{0,140,837}],
     guildlevel = 1,
     cost = 98,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级723点"
+    describe = "技能效果：角色增加暴击等级837点"
     };
 getRow(1,9)->
     #guildexchangeCfg {
     id = 1,
     level = 9,
     icon = 4,
-    property = [{0,140,872}],
+    property = [{0,140,996}],
     guildlevel = 1,
     cost = 111,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级872点"
+    describe = "技能效果：角色增加暴击等级996点"
     };
 getRow(1,10)->
     #guildexchangeCfg {
     id = 1,
     level = 10,
     icon = 4,
-    property = [{0,140,1033}],
+    property = [{0,140,1163}],
     guildlevel = 1,
     cost = 125,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级1033点"
+    describe = "技能效果：角色增加暴击等级1163点"
     };
 getRow(1,11)->
     #guildexchangeCfg {
     id = 1,
     level = 11,
     icon = 4,
-    property = [{0,140,1205}],
+    property = [{0,140,1338}],
     guildlevel = 2,
     cost = 138,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级1205点"
+    describe = "技能效果：角色增加暴击等级1338点"
     };
 getRow(1,12)->
     #guildexchangeCfg {
     id = 1,
     level = 12,
     icon = 4,
-    property = [{0,140,1388}],
+    property = [{0,140,1520}],
     guildlevel = 2,
     cost = 152,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级1388点"
+    describe = "技能效果：角色增加暴击等级1520点"
     };
 getRow(1,13)->
     #guildexchangeCfg {
     id = 1,
     level = 13,
     icon = 4,
-    property = [{0,140,1581}],
+    property = [{0,140,1709}],
     guildlevel = 2,
     cost = 165,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级1581点"
+    describe = "技能效果：角色增加暴击等级1709点"
     };
 getRow(1,14)->
     #guildexchangeCfg {
     id = 1,
     level = 14,
     icon = 4,
-    property = [{0,140,1784}],
+    property = [{0,140,1904}],
     guildlevel = 2,
     cost = 179,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级1784点"
+    describe = "技能效果：角色增加暴击等级1904点"
     };
 getRow(1,15)->
     #guildexchangeCfg {
     id = 1,
     level = 15,
     icon = 4,
-    property = [{0,140,1997}],
+    property = [{0,140,2105}],
     guildlevel = 2,
     cost = 192,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级1997点"
+    describe = "技能效果：角色增加暴击等级2105点"
     };
 getRow(1,16)->
     #guildexchangeCfg {
     id = 1,
     level = 16,
     icon = 4,
-    property = [{0,140,2219}],
+    property = [{0,140,2312}],
     guildlevel = 2,
     cost = 206,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级2219点"
+    describe = "技能效果：角色增加暴击等级2312点"
     };
 getRow(1,17)->
     #guildexchangeCfg {
     id = 1,
     level = 17,
     icon = 4,
-    property = [{0,140,2449}],
+    property = [{0,140,2525}],
     guildlevel = 2,
     cost = 219,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级2449点"
+    describe = "技能效果：角色增加暴击等级2525点"
     };
 getRow(1,18)->
     #guildexchangeCfg {
     id = 1,
     level = 18,
     icon = 4,
-    property = [{0,140,2689}],
+    property = [{0,140,2743}],
     guildlevel = 2,
     cost = 233,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级2689点"
+    describe = "技能效果：角色增加暴击等级2743点"
     };
 getRow(1,19)->
     #guildexchangeCfg {
     id = 1,
     level = 19,
     icon = 4,
-    property = [{0,140,2938}],
+    property = [{0,140,2966}],
     guildlevel = 2,
     cost = 246,
     name = "家族暴击等级",
-    describe = "技能效果：角色增加暴击等级2938点"
+    describe = "技能效果：角色增加暴击等级2966点"
     };
 getRow(1,20)->
     #guildexchangeCfg {
@@ -252,209 +252,209 @@ getRow(2,1)->
     id = 2,
     level = 1,
     icon = 5,
-    property = [{0,141,67}],
+    property = [{0,141,45}],
     guildlevel = 1,
     cost = 10,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级67点"
+    describe = "技能效果：角色增加抗暴等级45点"
     };
 getRow(2,2)->
     #guildexchangeCfg {
     id = 2,
     level = 2,
     icon = 5,
-    property = [{0,141,87}],
+    property = [{0,141,80}],
     guildlevel = 1,
     cost = 16,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级87点"
+    describe = "技能效果：角色增加抗暴等级80点"
     };
 getRow(2,3)->
     #guildexchangeCfg {
     id = 2,
     level = 3,
     icon = 5,
-    property = [{0,141,127}],
+    property = [{0,141,139}],
     guildlevel = 1,
     cost = 30,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级127点"
+    describe = "技能效果：角色增加抗暴等级139点"
     };
 getRow(2,4)->
     #guildexchangeCfg {
     id = 2,
     level = 4,
     icon = 5,
-    property = [{0,141,181}],
+    property = [{0,141,211}],
     guildlevel = 1,
     cost = 44,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级181点"
+    describe = "技能效果：角色增加抗暴等级211点"
     };
 getRow(2,5)->
     #guildexchangeCfg {
     id = 2,
     level = 5,
     icon = 5,
-    property = [{0,141,248}],
+    property = [{0,141,294}],
     guildlevel = 1,
     cost = 57,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级248点"
+    describe = "技能效果：角色增加抗暴等级294点"
     };
 getRow(2,6)->
     #guildexchangeCfg {
     id = 2,
     level = 6,
     icon = 5,
-    property = [{0,141,325}],
+    property = [{0,141,385}],
     guildlevel = 1,
     cost = 71,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级325点"
+    describe = "技能效果：角色增加抗暴等级385点"
     };
 getRow(2,7)->
     #guildexchangeCfg {
     id = 2,
     level = 7,
     icon = 5,
-    property = [{0,141,412}],
+    property = [{0,141,484}],
     guildlevel = 1,
     cost = 84,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级412点"
+    describe = "技能效果：角色增加抗暴等级484点"
     };
 getRow(2,8)->
     #guildexchangeCfg {
     id = 2,
     level = 8,
     icon = 5,
-    property = [{0,141,509}],
+    property = [{0,141,590}],
     guildlevel = 1,
     cost = 98,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级509点"
+    describe = "技能效果：角色增加抗暴等级590点"
     };
 getRow(2,9)->
     #guildexchangeCfg {
     id = 2,
     level = 9,
     icon = 5,
-    property = [{0,141,614}],
+    property = [{0,141,702}],
     guildlevel = 1,
     cost = 111,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级614点"
+    describe = "技能效果：角色增加抗暴等级702点"
     };
 getRow(2,10)->
     #guildexchangeCfg {
     id = 2,
     level = 10,
     icon = 5,
-    property = [{0,141,728}],
+    property = [{0,141,820}],
     guildlevel = 1,
     cost = 125,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级728点"
+    describe = "技能效果：角色增加抗暴等级820点"
     };
 getRow(2,11)->
     #guildexchangeCfg {
     id = 2,
     level = 11,
     icon = 5,
-    property = [{0,141,849}],
+    property = [{0,141,943}],
     guildlevel = 2,
     cost = 138,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级849点"
+    describe = "技能效果：角色增加抗暴等级943点"
     };
 getRow(2,12)->
     #guildexchangeCfg {
     id = 2,
     level = 12,
     icon = 5,
-    property = [{0,141,978}],
+    property = [{0,141,1071}],
     guildlevel = 2,
     cost = 152,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级978点"
+    describe = "技能效果：角色增加抗暴等级1071点"
     };
 getRow(2,13)->
     #guildexchangeCfg {
     id = 2,
     level = 13,
     icon = 5,
-    property = [{0,141,1114}],
+    property = [{0,141,1204}],
     guildlevel = 2,
     cost = 165,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级1114点"
+    describe = "技能效果：角色增加抗暴等级1204点"
     };
 getRow(2,14)->
     #guildexchangeCfg {
     id = 2,
     level = 14,
     icon = 5,
-    property = [{0,141,1257}],
+    property = [{0,141,1342}],
     guildlevel = 2,
     cost = 179,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级1257点"
+    describe = "技能效果：角色增加抗暴等级1342点"
     };
 getRow(2,15)->
     #guildexchangeCfg {
     id = 2,
     level = 15,
     icon = 5,
-    property = [{0,141,1407}],
+    property = [{0,141,1483}],
     guildlevel = 2,
     cost = 192,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级1407点"
+    describe = "技能效果：角色增加抗暴等级1483点"
     };
 getRow(2,16)->
     #guildexchangeCfg {
     id = 2,
     level = 16,
     icon = 5,
-    property = [{0,141,1563}],
+    property = [{0,141,1629}],
     guildlevel = 2,
     cost = 206,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级1563点"
+    describe = "技能效果：角色增加抗暴等级1629点"
     };
 getRow(2,17)->
     #guildexchangeCfg {
     id = 2,
     level = 17,
     icon = 5,
-    property = [{0,141,1726}],
+    property = [{0,141,1779}],
     guildlevel = 2,
     cost = 219,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级1726点"
+    describe = "技能效果：角色增加抗暴等级1779点"
     };
 getRow(2,18)->
     #guildexchangeCfg {
     id = 2,
     level = 18,
     icon = 5,
-    property = [{0,141,1895}],
+    property = [{0,141,1933}],
     guildlevel = 2,
     cost = 233,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级1895点"
+    describe = "技能效果：角色增加抗暴等级1933点"
     };
 getRow(2,19)->
     #guildexchangeCfg {
     id = 2,
     level = 19,
     icon = 5,
-    property = [{0,141,2070}],
+    property = [{0,141,2090}],
     guildlevel = 2,
     cost = 246,
     name = "家族抗暴等级",
-    describe = "技能效果：角色增加抗暴等级2070点"
+    describe = "技能效果：角色增加抗暴等级2090点"
     };
 getRow(2,20)->
     #guildexchangeCfg {
@@ -483,209 +483,209 @@ getRow(3,1)->
     id = 3,
     level = 1,
     icon = 14,
-    property = [{0,142,57}],
+    property = [{0,142,38}],
     guildlevel = 1,
     cost = 10,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级57点"
+    describe = "技能效果：角色增加爆伤等级38点"
     };
 getRow(3,2)->
     #guildexchangeCfg {
     id = 3,
     level = 2,
     icon = 14,
-    property = [{0,142,74}],
+    property = [{0,142,69}],
     guildlevel = 1,
     cost = 16,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级74点"
+    describe = "技能效果：角色增加爆伤等级69点"
     };
 getRow(3,3)->
     #guildexchangeCfg {
     id = 3,
     level = 3,
     icon = 14,
-    property = [{0,142,109}],
+    property = [{0,142,119}],
     guildlevel = 1,
     cost = 30,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级109点"
+    describe = "技能效果：角色增加爆伤等级119点"
     };
 getRow(3,4)->
     #guildexchangeCfg {
     id = 3,
     level = 4,
     icon = 14,
-    property = [{0,142,155}],
+    property = [{0,142,181}],
     guildlevel = 1,
     cost = 44,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级155点"
+    describe = "技能效果：角色增加爆伤等级181点"
     };
 getRow(3,5)->
     #guildexchangeCfg {
     id = 3,
     level = 5,
     icon = 14,
-    property = [{0,142,212}],
+    property = [{0,142,252}],
     guildlevel = 1,
     cost = 57,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级212点"
+    describe = "技能效果：角色增加爆伤等级252点"
     };
 getRow(3,6)->
     #guildexchangeCfg {
     id = 3,
     level = 6,
     icon = 14,
-    property = [{0,142,279}],
+    property = [{0,142,330}],
     guildlevel = 1,
     cost = 71,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级279点"
+    describe = "技能效果：角色增加爆伤等级330点"
     };
 getRow(3,7)->
     #guildexchangeCfg {
     id = 3,
     level = 7,
     icon = 14,
-    property = [{0,142,354}],
+    property = [{0,142,415}],
     guildlevel = 1,
     cost = 84,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级354点"
+    describe = "技能效果：角色增加爆伤等级415点"
     };
 getRow(3,8)->
     #guildexchangeCfg {
     id = 3,
     level = 8,
     icon = 14,
-    property = [{0,142,437}],
+    property = [{0,142,506}],
     guildlevel = 1,
     cost = 98,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级437点"
+    describe = "技能效果：角色增加爆伤等级506点"
     };
 getRow(3,9)->
     #guildexchangeCfg {
     id = 3,
     level = 9,
     icon = 14,
-    property = [{0,142,527}],
+    property = [{0,142,602}],
     guildlevel = 1,
     cost = 111,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级527点"
+    describe = "技能效果：角色增加爆伤等级602点"
     };
 getRow(3,10)->
     #guildexchangeCfg {
     id = 3,
     level = 10,
     icon = 14,
-    property = [{0,142,624}],
+    property = [{0,142,703}],
     guildlevel = 1,
     cost = 125,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级624点"
+    describe = "技能效果：角色增加爆伤等级703点"
     };
 getRow(3,11)->
     #guildexchangeCfg {
     id = 3,
     level = 11,
     icon = 14,
-    property = [{0,142,729}],
+    property = [{0,142,809}],
     guildlevel = 2,
     cost = 138,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级729点"
+    describe = "技能效果：角色增加爆伤等级809点"
     };
 getRow(3,12)->
     #guildexchangeCfg {
     id = 3,
     level = 12,
     icon = 14,
-    property = [{0,142,839}],
+    property = [{0,142,919}],
     guildlevel = 2,
     cost = 152,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级839点"
+    describe = "技能效果：角色增加爆伤等级919点"
     };
 getRow(3,13)->
     #guildexchangeCfg {
     id = 3,
     level = 13,
     icon = 14,
-    property = [{0,142,956}],
+    property = [{0,142,1033}],
     guildlevel = 2,
     cost = 165,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级956点"
+    describe = "技能效果：角色增加爆伤等级1033点"
     };
 getRow(3,14)->
     #guildexchangeCfg {
     id = 3,
     level = 14,
     icon = 14,
-    property = [{0,142,1079}],
+    property = [{0,142,1151}],
     guildlevel = 2,
     cost = 179,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级1079点"
+    describe = "技能效果：角色增加爆伤等级1151点"
     };
 getRow(3,15)->
     #guildexchangeCfg {
     id = 3,
     level = 15,
     icon = 14,
-    property = [{0,142,1207}],
+    property = [{0,142,1273}],
     guildlevel = 2,
     cost = 192,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级1207点"
+    describe = "技能效果：角色增加爆伤等级1273点"
     };
 getRow(3,16)->
     #guildexchangeCfg {
     id = 3,
     level = 16,
     icon = 14,
-    property = [{0,142,1341}],
+    property = [{0,142,1398}],
     guildlevel = 2,
     cost = 206,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级1341点"
+    describe = "技能效果：角色增加爆伤等级1398点"
     };
 getRow(3,17)->
     #guildexchangeCfg {
     id = 3,
     level = 17,
     icon = 14,
-    property = [{0,142,1481}],
+    property = [{0,142,1527}],
     guildlevel = 2,
     cost = 219,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级1481点"
+    describe = "技能效果：角色增加爆伤等级1527点"
     };
 getRow(3,18)->
     #guildexchangeCfg {
     id = 3,
     level = 18,
     icon = 14,
-    property = [{0,142,1626}],
+    property = [{0,142,1658}],
     guildlevel = 2,
     cost = 233,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级1626点"
+    describe = "技能效果：角色增加爆伤等级1658点"
     };
 getRow(3,19)->
     #guildexchangeCfg {
     id = 3,
     level = 19,
     icon = 14,
-    property = [{0,142,1776}],
+    property = [{0,142,1793}],
     guildlevel = 2,
     cost = 246,
     name = "家族爆伤等级",
-    describe = "技能效果：角色增加爆伤等级1776点"
+    describe = "技能效果：角色增加爆伤等级1793点"
     };
 getRow(3,20)->
     #guildexchangeCfg {
@@ -714,209 +714,209 @@ getRow(4,1)->
     id = 4,
     level = 1,
     icon = 17,
-    property = [{0,143,49}],
+    property = [{0,143,32}],
     guildlevel = 2,
     cost = 10,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级49点"
+    describe = "技能效果：角色增加韧性等级32点"
     };
 getRow(4,2)->
     #guildexchangeCfg {
     id = 4,
     level = 2,
     icon = 17,
-    property = [{0,143,63}],
+    property = [{0,143,58}],
     guildlevel = 2,
     cost = 16,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级63点"
+    describe = "技能效果：角色增加韧性等级58点"
     };
 getRow(4,3)->
     #guildexchangeCfg {
     id = 4,
     level = 3,
     icon = 17,
-    property = [{0,143,92}],
+    property = [{0,143,101}],
     guildlevel = 2,
     cost = 30,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级92点"
+    describe = "技能效果：角色增加韧性等级101点"
     };
 getRow(4,4)->
     #guildexchangeCfg {
     id = 4,
     level = 4,
     icon = 17,
-    property = [{0,143,131}],
+    property = [{0,143,153}],
     guildlevel = 2,
     cost = 44,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级131点"
+    describe = "技能效果：角色增加韧性等级153点"
     };
 getRow(4,5)->
     #guildexchangeCfg {
     id = 4,
     level = 5,
     icon = 17,
-    property = [{0,143,180}],
+    property = [{0,143,213}],
     guildlevel = 2,
     cost = 57,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级180点"
+    describe = "技能效果：角色增加韧性等级213点"
     };
 getRow(4,6)->
     #guildexchangeCfg {
     id = 4,
     level = 6,
     icon = 17,
-    property = [{0,143,236}],
+    property = [{0,143,279}],
     guildlevel = 2,
     cost = 71,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级236点"
+    describe = "技能效果：角色增加韧性等级279点"
     };
 getRow(4,7)->
     #guildexchangeCfg {
     id = 4,
     level = 7,
     icon = 17,
-    property = [{0,143,299}],
+    property = [{0,143,351}],
     guildlevel = 2,
     cost = 84,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级299点"
+    describe = "技能效果：角色增加韧性等级351点"
     };
 getRow(4,8)->
     #guildexchangeCfg {
     id = 4,
     level = 8,
     icon = 17,
-    property = [{0,143,369}],
+    property = [{0,143,428}],
     guildlevel = 2,
     cost = 98,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级369点"
+    describe = "技能效果：角色增加韧性等级428点"
     };
 getRow(4,9)->
     #guildexchangeCfg {
     id = 4,
     level = 9,
     icon = 17,
-    property = [{0,143,446}],
+    property = [{0,143,509}],
     guildlevel = 2,
     cost = 111,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级446点"
+    describe = "技能效果：角色增加韧性等级509点"
     };
 getRow(4,10)->
     #guildexchangeCfg {
     id = 4,
     level = 10,
     icon = 17,
-    property = [{0,143,528}],
+    property = [{0,143,595}],
     guildlevel = 2,
     cost = 125,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级528点"
+    describe = "技能效果：角色增加韧性等级595点"
     };
 getRow(4,11)->
     #guildexchangeCfg {
     id = 4,
     level = 11,
     icon = 17,
-    property = [{0,143,616}],
+    property = [{0,143,684}],
     guildlevel = 3,
     cost = 138,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级616点"
+    describe = "技能效果：角色增加韧性等级684点"
     };
 getRow(4,12)->
     #guildexchangeCfg {
     id = 4,
     level = 12,
     icon = 17,
-    property = [{0,143,710}],
+    property = [{0,143,778}],
     guildlevel = 3,
     cost = 152,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级710点"
+    describe = "技能效果：角色增加韧性等级778点"
     };
 getRow(4,13)->
     #guildexchangeCfg {
     id = 4,
     level = 13,
     icon = 17,
-    property = [{0,143,809}],
+    property = [{0,143,874}],
     guildlevel = 3,
     cost = 165,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级809点"
+    describe = "技能效果：角色增加韧性等级874点"
     };
 getRow(4,14)->
     #guildexchangeCfg {
     id = 4,
     level = 14,
     icon = 17,
-    property = [{0,143,913}],
+    property = [{0,143,974}],
     guildlevel = 3,
     cost = 179,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级913点"
+    describe = "技能效果：角色增加韧性等级974点"
     };
 getRow(4,15)->
     #guildexchangeCfg {
     id = 4,
     level = 15,
     icon = 17,
-    property = [{0,143,1021}],
+    property = [{0,143,1077}],
     guildlevel = 3,
     cost = 192,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级1021点"
+    describe = "技能效果：角色增加韧性等级1077点"
     };
 getRow(4,16)->
     #guildexchangeCfg {
     id = 4,
     level = 16,
     icon = 17,
-    property = [{0,143,1135}],
+    property = [{0,143,1183}],
     guildlevel = 3,
     cost = 206,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级1135点"
+    describe = "技能效果：角色增加韧性等级1183点"
     };
 getRow(4,17)->
     #guildexchangeCfg {
     id = 4,
     level = 17,
     icon = 17,
-    property = [{0,143,1253}],
+    property = [{0,143,1292}],
     guildlevel = 3,
     cost = 219,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级1253点"
+    describe = "技能效果：角色增加韧性等级1292点"
     };
 getRow(4,18)->
     #guildexchangeCfg {
     id = 4,
     level = 18,
     icon = 17,
-    property = [{0,143,1376}],
+    property = [{0,143,1403}],
     guildlevel = 3,
     cost = 233,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级1376点"
+    describe = "技能效果：角色增加韧性等级1403点"
     };
 getRow(4,19)->
     #guildexchangeCfg {
     id = 4,
     level = 19,
     icon = 17,
-    property = [{0,143,1503}],
+    property = [{0,143,1518}],
     guildlevel = 3,
     cost = 246,
     name = "家族韧性等级",
-    describe = "技能效果：角色增加韧性等级1503点"
+    describe = "技能效果：角色增加韧性等级1518点"
     };
 getRow(4,20)->
     #guildexchangeCfg {
@@ -945,209 +945,209 @@ getRow(5,1)->
     id = 5,
     level = 1,
     icon = 46,
-    property = [{0,144,50}],
+    property = [{0,144,33}],
     guildlevel = 2,
     cost = 10,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级50点"
+    describe = "技能效果：角色增加命中等级33点"
     };
 getRow(5,2)->
     #guildexchangeCfg {
     id = 5,
     level = 2,
     icon = 46,
-    property = [{0,144,65}],
+    property = [{0,144,60}],
     guildlevel = 2,
     cost = 16,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级65点"
+    describe = "技能效果：角色增加命中等级60点"
     };
 getRow(5,3)->
     #guildexchangeCfg {
     id = 5,
     level = 3,
     icon = 46,
-    property = [{0,144,94}],
+    property = [{0,144,104}],
     guildlevel = 2,
     cost = 30,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级94点"
+    describe = "技能效果：角色增加命中等级104点"
     };
 getRow(5,4)->
     #guildexchangeCfg {
     id = 5,
     level = 4,
     icon = 46,
-    property = [{0,144,135}],
+    property = [{0,144,158}],
     guildlevel = 2,
     cost = 44,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级135点"
+    describe = "技能效果：角色增加命中等级158点"
     };
 getRow(5,5)->
     #guildexchangeCfg {
     id = 5,
     level = 5,
     icon = 46,
-    property = [{0,144,185}],
+    property = [{0,144,219}],
     guildlevel = 2,
     cost = 57,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级185点"
+    describe = "技能效果：角色增加命中等级219点"
     };
 getRow(5,6)->
     #guildexchangeCfg {
     id = 5,
     level = 6,
     icon = 46,
-    property = [{0,144,243}],
+    property = [{0,144,288}],
     guildlevel = 2,
     cost = 71,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级243点"
+    describe = "技能效果：角色增加命中等级288点"
     };
 getRow(5,7)->
     #guildexchangeCfg {
     id = 5,
     level = 7,
     icon = 46,
-    property = [{0,144,308}],
+    property = [{0,144,362}],
     guildlevel = 2,
     cost = 84,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级308点"
+    describe = "技能效果：角色增加命中等级362点"
     };
 getRow(5,8)->
     #guildexchangeCfg {
     id = 5,
     level = 8,
     icon = 46,
-    property = [{0,144,380}],
+    property = [{0,144,441}],
     guildlevel = 2,
     cost = 98,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级380点"
+    describe = "技能效果：角色增加命中等级441点"
     };
 getRow(5,9)->
     #guildexchangeCfg {
     id = 5,
     level = 9,
     icon = 46,
-    property = [{0,144,459}],
+    property = [{0,144,524}],
     guildlevel = 2,
     cost = 111,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级459点"
+    describe = "技能效果：角色增加命中等级524点"
     };
 getRow(5,10)->
     #guildexchangeCfg {
     id = 5,
     level = 10,
     icon = 46,
-    property = [{0,144,544}],
+    property = [{0,144,612}],
     guildlevel = 2,
     cost = 125,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级544点"
+    describe = "技能效果：角色增加命中等级612点"
     };
 getRow(5,11)->
     #guildexchangeCfg {
     id = 5,
     level = 11,
     icon = 46,
-    property = [{0,144,634}],
+    property = [{0,144,704}],
     guildlevel = 3,
     cost = 138,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级634点"
+    describe = "技能效果：角色增加命中等级704点"
     };
 getRow(5,12)->
     #guildexchangeCfg {
     id = 5,
     level = 12,
     icon = 46,
-    property = [{0,144,731}],
+    property = [{0,144,800}],
     guildlevel = 3,
     cost = 152,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级731点"
+    describe = "技能效果：角色增加命中等级800点"
     };
 getRow(5,13)->
     #guildexchangeCfg {
     id = 5,
     level = 13,
     icon = 46,
-    property = [{0,144,832}],
+    property = [{0,144,900}],
     guildlevel = 3,
     cost = 165,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级832点"
+    describe = "技能效果：角色增加命中等级900点"
     };
 getRow(5,14)->
     #guildexchangeCfg {
     id = 5,
     level = 14,
     icon = 46,
-    property = [{0,144,939}],
+    property = [{0,144,1002}],
     guildlevel = 3,
     cost = 179,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级939点"
+    describe = "技能效果：角色增加命中等级1002点"
     };
 getRow(5,15)->
     #guildexchangeCfg {
     id = 5,
     level = 15,
     icon = 46,
-    property = [{0,144,1051}],
+    property = [{0,144,1108}],
     guildlevel = 3,
     cost = 192,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级1051点"
+    describe = "技能效果：角色增加命中等级1108点"
     };
 getRow(5,16)->
     #guildexchangeCfg {
     id = 5,
     level = 16,
     icon = 46,
-    property = [{0,144,1168}],
+    property = [{0,144,1217}],
     guildlevel = 3,
     cost = 206,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级1168点"
+    describe = "技能效果：角色增加命中等级1217点"
     };
 getRow(5,17)->
     #guildexchangeCfg {
     id = 5,
     level = 17,
     icon = 46,
-    property = [{0,144,1290}],
+    property = [{0,144,1329}],
     guildlevel = 3,
     cost = 219,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级1290点"
+    describe = "技能效果：角色增加命中等级1329点"
     };
 getRow(5,18)->
     #guildexchangeCfg {
     id = 5,
     level = 18,
     icon = 46,
-    property = [{0,144,1416}],
+    property = [{0,144,1444}],
     guildlevel = 3,
     cost = 233,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级1416点"
+    describe = "技能效果：角色增加命中等级1444点"
     };
 getRow(5,19)->
     #guildexchangeCfg {
     id = 5,
     level = 19,
     icon = 46,
-    property = [{0,144,1547}],
+    property = [{0,144,1562}],
     guildlevel = 3,
     cost = 246,
     name = "家族命中等级",
-    describe = "技能效果：角色增加命中等级1547点"
+    describe = "技能效果：角色增加命中等级1562点"
     };
 getRow(5,20)->
     #guildexchangeCfg {
@@ -1176,209 +1176,209 @@ getRow(6,1)->
     id = 6,
     level = 1,
     icon = 54,
-    property = [{0,145,72}],
+    property = [{0,145,48}],
     guildlevel = 2,
     cost = 10,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级72点"
+    describe = "技能效果：角色增加闪避等级48点"
     };
 getRow(6,2)->
     #guildexchangeCfg {
     id = 6,
     level = 2,
     icon = 54,
-    property = [{0,145,93}],
+    property = [{0,145,86}],
     guildlevel = 2,
     cost = 16,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级93点"
+    describe = "技能效果：角色增加闪避等级86点"
     };
 getRow(6,3)->
     #guildexchangeCfg {
     id = 6,
     level = 3,
     icon = 54,
-    property = [{0,145,135}],
+    property = [{0,145,149}],
     guildlevel = 2,
     cost = 30,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级135点"
+    describe = "技能效果：角色增加闪避等级149点"
     };
 getRow(6,4)->
     #guildexchangeCfg {
     id = 6,
     level = 4,
     icon = 54,
-    property = [{0,145,194}],
+    property = [{0,145,226}],
     guildlevel = 2,
     cost = 44,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级194点"
+    describe = "技能效果：角色增加闪避等级226点"
     };
 getRow(6,5)->
     #guildexchangeCfg {
     id = 6,
     level = 5,
     icon = 54,
-    property = [{0,145,265}],
+    property = [{0,145,314}],
     guildlevel = 2,
     cost = 57,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级265点"
+    describe = "技能效果：角色增加闪避等级314点"
     };
 getRow(6,6)->
     #guildexchangeCfg {
     id = 6,
     level = 6,
     icon = 54,
-    property = [{0,145,348}],
+    property = [{0,145,412}],
     guildlevel = 2,
     cost = 71,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级348点"
+    describe = "技能效果：角色增加闪避等级412点"
     };
 getRow(6,7)->
     #guildexchangeCfg {
     id = 6,
     level = 7,
     icon = 54,
-    property = [{0,145,441}],
+    property = [{0,145,517}],
     guildlevel = 2,
     cost = 84,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级441点"
+    describe = "技能效果：角色增加闪避等级517点"
     };
 getRow(6,8)->
     #guildexchangeCfg {
     id = 6,
     level = 8,
     icon = 54,
-    property = [{0,145,544}],
+    property = [{0,145,631}],
     guildlevel = 2,
     cost = 98,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级544点"
+    describe = "技能效果：角色增加闪避等级631点"
     };
 getRow(6,9)->
     #guildexchangeCfg {
     id = 6,
     level = 9,
     icon = 54,
-    property = [{0,145,657}],
+    property = [{0,145,751}],
     guildlevel = 2,
     cost = 111,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级657点"
+    describe = "技能效果：角色增加闪避等级751点"
     };
 getRow(6,10)->
     #guildexchangeCfg {
     id = 6,
     level = 10,
     icon = 54,
-    property = [{0,145,778}],
+    property = [{0,145,877}],
     guildlevel = 2,
     cost = 125,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级778点"
+    describe = "技能效果：角色增加闪避等级877点"
     };
 getRow(6,11)->
     #guildexchangeCfg {
     id = 6,
     level = 11,
     icon = 54,
-    property = [{0,145,908}],
+    property = [{0,145,1008}],
     guildlevel = 3,
     cost = 138,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级908点"
+    describe = "技能效果：角色增加闪避等级1008点"
     };
 getRow(6,12)->
     #guildexchangeCfg {
     id = 6,
     level = 12,
     icon = 54,
-    property = [{0,145,1046}],
+    property = [{0,145,1145}],
     guildlevel = 3,
     cost = 152,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级1046点"
+    describe = "技能效果：角色增加闪避等级1145点"
     };
 getRow(6,13)->
     #guildexchangeCfg {
     id = 6,
     level = 13,
     icon = 54,
-    property = [{0,145,1191}],
+    property = [{0,145,1288}],
     guildlevel = 3,
     cost = 165,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级1191点"
+    describe = "技能效果：角色增加闪避等级1288点"
     };
 getRow(6,14)->
     #guildexchangeCfg {
     id = 6,
     level = 14,
     icon = 54,
-    property = [{0,145,1344}],
+    property = [{0,145,1435}],
     guildlevel = 3,
     cost = 179,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级1344点"
+    describe = "技能效果：角色增加闪避等级1435点"
     };
 getRow(6,15)->
     #guildexchangeCfg {
     id = 6,
     level = 15,
     icon = 54,
-    property = [{0,145,1504}],
+    property = [{0,145,1586}],
     guildlevel = 3,
     cost = 192,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级1504点"
+    describe = "技能效果：角色增加闪避等级1586点"
     };
 getRow(6,16)->
     #guildexchangeCfg {
     id = 6,
     level = 16,
     icon = 54,
-    property = [{0,145,1672}],
+    property = [{0,145,1742}],
     guildlevel = 3,
     cost = 206,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级1672点"
+    describe = "技能效果：角色增加闪避等级1742点"
     };
 getRow(6,17)->
     #guildexchangeCfg {
     id = 6,
     level = 17,
     icon = 54,
-    property = [{0,145,1846}],
+    property = [{0,145,1902}],
     guildlevel = 3,
     cost = 219,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级1846点"
+    describe = "技能效果：角色增加闪避等级1902点"
     };
 getRow(6,18)->
     #guildexchangeCfg {
     id = 6,
     level = 18,
     icon = 54,
-    property = [{0,145,2026}],
+    property = [{0,145,2067}],
     guildlevel = 3,
     cost = 233,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级2026点"
+    describe = "技能效果：角色增加闪避等级2067点"
     };
 getRow(6,19)->
     #guildexchangeCfg {
     id = 6,
     level = 19,
     icon = 54,
-    property = [{0,145,2213}],
+    property = [{0,145,2235}],
     guildlevel = 3,
     cost = 246,
     name = "家族闪避等级",
-    describe = "技能效果：角色增加闪避等级2213点"
+    describe = "技能效果：角色增加闪避等级2235点"
     };
 getRow(6,20)->
     #guildexchangeCfg {
@@ -1407,209 +1407,209 @@ getRow(7,1)->
     id = 7,
     level = 1,
     icon = 55,
-    property = [{0,146,48}],
+    property = [{0,146,32}],
     guildlevel = 3,
     cost = 10,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级48点"
+    describe = "技能效果：角色增加破甲等级32点"
     };
 getRow(7,2)->
     #guildexchangeCfg {
     id = 7,
     level = 2,
     icon = 55,
-    property = [{0,146,62}],
+    property = [{0,146,57}],
     guildlevel = 3,
     cost = 16,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级62点"
+    describe = "技能效果：角色增加破甲等级57点"
     };
 getRow(7,3)->
     #guildexchangeCfg {
     id = 7,
     level = 3,
     icon = 55,
-    property = [{0,146,90}],
+    property = [{0,146,99}],
     guildlevel = 3,
     cost = 30,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级90点"
+    describe = "技能效果：角色增加破甲等级99点"
     };
 getRow(7,4)->
     #guildexchangeCfg {
     id = 7,
     level = 4,
     icon = 55,
-    property = [{0,146,129}],
+    property = [{0,146,150}],
     guildlevel = 3,
     cost = 44,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级129点"
+    describe = "技能效果：角色增加破甲等级150点"
     };
 getRow(7,5)->
     #guildexchangeCfg {
     id = 7,
     level = 5,
     icon = 55,
-    property = [{0,146,176}],
+    property = [{0,146,209}],
     guildlevel = 3,
     cost = 57,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级176点"
+    describe = "技能效果：角色增加破甲等级209点"
     };
 getRow(7,6)->
     #guildexchangeCfg {
     id = 7,
     level = 6,
     icon = 55,
-    property = [{0,146,232}],
+    property = [{0,146,274}],
     guildlevel = 3,
     cost = 71,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级232点"
+    describe = "技能效果：角色增加破甲等级274点"
     };
 getRow(7,7)->
     #guildexchangeCfg {
     id = 7,
     level = 7,
     icon = 55,
-    property = [{0,146,294}],
+    property = [{0,146,345}],
     guildlevel = 3,
     cost = 84,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级294点"
+    describe = "技能效果：角色增加破甲等级345点"
     };
 getRow(7,8)->
     #guildexchangeCfg {
     id = 7,
     level = 8,
     icon = 55,
-    property = [{0,146,363}],
+    property = [{0,146,420}],
     guildlevel = 3,
     cost = 98,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级363点"
+    describe = "技能效果：角色增加破甲等级420点"
     };
 getRow(7,9)->
     #guildexchangeCfg {
     id = 7,
     level = 9,
     icon = 55,
-    property = [{0,146,438}],
+    property = [{0,146,500}],
     guildlevel = 3,
     cost = 111,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级438点"
+    describe = "技能效果：角色增加破甲等级500点"
     };
 getRow(7,10)->
     #guildexchangeCfg {
     id = 7,
     level = 10,
     icon = 55,
-    property = [{0,146,519}],
+    property = [{0,146,584}],
     guildlevel = 3,
     cost = 125,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级519点"
+    describe = "技能效果：角色增加破甲等级584点"
     };
 getRow(7,11)->
     #guildexchangeCfg {
     id = 7,
     level = 11,
     icon = 55,
-    property = [{0,146,605}],
+    property = [{0,146,672}],
     guildlevel = 4,
     cost = 138,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级605点"
+    describe = "技能效果：角色增加破甲等级672点"
     };
 getRow(7,12)->
     #guildexchangeCfg {
     id = 7,
     level = 12,
     icon = 55,
-    property = [{0,146,697}],
+    property = [{0,146,763}],
     guildlevel = 4,
     cost = 152,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级697点"
+    describe = "技能效果：角色增加破甲等级763点"
     };
 getRow(7,13)->
     #guildexchangeCfg {
     id = 7,
     level = 13,
     icon = 55,
-    property = [{0,146,794}],
+    property = [{0,146,858}],
     guildlevel = 4,
     cost = 165,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级794点"
+    describe = "技能效果：角色增加破甲等级858点"
     };
 getRow(7,14)->
     #guildexchangeCfg {
     id = 7,
     level = 14,
     icon = 55,
-    property = [{0,146,896}],
+    property = [{0,146,956}],
     guildlevel = 4,
     cost = 179,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级896点"
+    describe = "技能效果：角色增加破甲等级956点"
     };
 getRow(7,15)->
     #guildexchangeCfg {
     id = 7,
     level = 15,
     icon = 55,
-    property = [{0,146,1003}],
+    property = [{0,146,1057}],
     guildlevel = 4,
     cost = 192,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级1003点"
+    describe = "技能效果：角色增加破甲等级1057点"
     };
 getRow(7,16)->
     #guildexchangeCfg {
     id = 7,
     level = 16,
     icon = 55,
-    property = [{0,146,1114}],
+    property = [{0,146,1161}],
     guildlevel = 4,
     cost = 206,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级1114点"
+    describe = "技能效果：角色增加破甲等级1161点"
     };
 getRow(7,17)->
     #guildexchangeCfg {
     id = 7,
     level = 17,
     icon = 55,
-    property = [{0,146,1230}],
+    property = [{0,146,1268}],
     guildlevel = 4,
     cost = 219,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级1230点"
+    describe = "技能效果：角色增加破甲等级1268点"
     };
 getRow(7,18)->
     #guildexchangeCfg {
     id = 7,
     level = 18,
     icon = 55,
-    property = [{0,146,1351}],
+    property = [{0,146,1378}],
     guildlevel = 4,
     cost = 233,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级1351点"
+    describe = "技能效果：角色增加破甲等级1378点"
     };
 getRow(7,19)->
     #guildexchangeCfg {
     id = 7,
     level = 19,
     icon = 55,
-    property = [{0,146,1475}],
+    property = [{0,146,1490}],
     guildlevel = 4,
     cost = 246,
     name = "家族破甲等级",
-    describe = "技能效果：角色增加破甲等级1475点"
+    describe = "技能效果：角色增加破甲等级1490点"
     };
 getRow(7,20)->
     #guildexchangeCfg {
@@ -1638,209 +1638,209 @@ getRow(8,1)->
     id = 8,
     level = 1,
     icon = 59,
-    property = [{0,160,33}],
+    property = [{0,160,22}],
     guildlevel = 3,
     cost = 10,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级33点"
+    describe = "技能效果：角色增加坚固等级22点"
     };
 getRow(8,2)->
     #guildexchangeCfg {
     id = 8,
     level = 2,
     icon = 59,
-    property = [{0,160,43}],
+    property = [{0,160,40}],
     guildlevel = 3,
     cost = 16,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级43点"
+    describe = "技能效果：角色增加坚固等级40点"
     };
 getRow(8,3)->
     #guildexchangeCfg {
     id = 8,
     level = 3,
     icon = 59,
-    property = [{0,160,63}],
+    property = [{0,160,69}],
     guildlevel = 3,
     cost = 30,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级63点"
+    describe = "技能效果：角色增加坚固等级69点"
     };
 getRow(8,4)->
     #guildexchangeCfg {
     id = 8,
     level = 4,
     icon = 59,
-    property = [{0,160,91}],
+    property = [{0,160,106}],
     guildlevel = 3,
     cost = 44,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级91点"
+    describe = "技能效果：角色增加坚固等级106点"
     };
 getRow(8,5)->
     #guildexchangeCfg {
     id = 8,
     level = 5,
     icon = 59,
-    property = [{0,160,124}],
+    property = [{0,160,147}],
     guildlevel = 3,
     cost = 57,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级124点"
+    describe = "技能效果：角色增加坚固等级147点"
     };
 getRow(8,6)->
     #guildexchangeCfg {
     id = 8,
     level = 6,
     icon = 59,
-    property = [{0,160,163}],
+    property = [{0,160,193}],
     guildlevel = 3,
     cost = 71,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级163点"
+    describe = "技能效果：角色增加坚固等级193点"
     };
 getRow(8,7)->
     #guildexchangeCfg {
     id = 8,
     level = 7,
     icon = 59,
-    property = [{0,160,207}],
+    property = [{0,160,243}],
     guildlevel = 3,
     cost = 84,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级207点"
+    describe = "技能效果：角色增加坚固等级243点"
     };
 getRow(8,8)->
     #guildexchangeCfg {
     id = 8,
     level = 8,
     icon = 59,
-    property = [{0,160,255}],
+    property = [{0,160,296}],
     guildlevel = 3,
     cost = 98,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级255点"
+    describe = "技能效果：角色增加坚固等级296点"
     };
 getRow(8,9)->
     #guildexchangeCfg {
     id = 8,
     level = 9,
     icon = 59,
-    property = [{0,160,308}],
+    property = [{0,160,352}],
     guildlevel = 3,
     cost = 111,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级308点"
+    describe = "技能效果：角色增加坚固等级352点"
     };
 getRow(8,10)->
     #guildexchangeCfg {
     id = 8,
     level = 10,
     icon = 59,
-    property = [{0,160,365}],
+    property = [{0,160,411}],
     guildlevel = 3,
     cost = 125,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级365点"
+    describe = "技能效果：角色增加坚固等级411点"
     };
 getRow(8,11)->
     #guildexchangeCfg {
     id = 8,
     level = 11,
     icon = 59,
-    property = [{0,160,426}],
+    property = [{0,160,473}],
     guildlevel = 4,
     cost = 138,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级426点"
+    describe = "技能效果：角色增加坚固等级473点"
     };
 getRow(8,12)->
     #guildexchangeCfg {
     id = 8,
     level = 12,
     icon = 59,
-    property = [{0,160,490}],
+    property = [{0,160,537}],
     guildlevel = 4,
     cost = 152,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级490点"
+    describe = "技能效果：角色增加坚固等级537点"
     };
 getRow(8,13)->
     #guildexchangeCfg {
     id = 8,
     level = 13,
     icon = 59,
-    property = [{0,160,559}],
+    property = [{0,160,604}],
     guildlevel = 4,
     cost = 165,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级559点"
+    describe = "技能效果：角色增加坚固等级604点"
     };
 getRow(8,14)->
     #guildexchangeCfg {
     id = 8,
     level = 14,
     icon = 59,
-    property = [{0,160,630}],
+    property = [{0,160,673}],
     guildlevel = 4,
     cost = 179,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级630点"
+    describe = "技能效果：角色增加坚固等级673点"
     };
 getRow(8,15)->
     #guildexchangeCfg {
     id = 8,
     level = 15,
     icon = 59,
-    property = [{0,160,706}],
+    property = [{0,160,744}],
     guildlevel = 4,
     cost = 192,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级706点"
+    describe = "技能效果：角色增加坚固等级744点"
     };
 getRow(8,16)->
     #guildexchangeCfg {
     id = 8,
     level = 16,
     icon = 59,
-    property = [{0,160,784}],
+    property = [{0,160,817}],
     guildlevel = 4,
     cost = 206,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级784点"
+    describe = "技能效果：角色增加坚固等级817点"
     };
 getRow(8,17)->
     #guildexchangeCfg {
     id = 8,
     level = 17,
     icon = 59,
-    property = [{0,160,866}],
+    property = [{0,160,892}],
     guildlevel = 4,
     cost = 219,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级866点"
+    describe = "技能效果：角色增加坚固等级892点"
     };
 getRow(8,18)->
     #guildexchangeCfg {
     id = 8,
     level = 18,
     icon = 59,
-    property = [{0,160,950}],
+    property = [{0,160,969}],
     guildlevel = 4,
     cost = 233,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级950点"
+    describe = "技能效果：角色增加坚固等级969点"
     };
 getRow(8,19)->
     #guildexchangeCfg {
     id = 8,
     level = 19,
     icon = 59,
-    property = [{0,160,1038}],
+    property = [{0,160,1048}],
     guildlevel = 4,
     cost = 246,
     name = "家族坚固等级",
-    describe = "技能效果：角色增加坚固等级1038点"
+    describe = "技能效果：角色增加坚固等级1048点"
     };
 getRow(8,20)->
     #guildexchangeCfg {

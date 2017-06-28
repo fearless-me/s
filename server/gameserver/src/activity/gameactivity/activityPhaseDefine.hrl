@@ -63,4 +63,11 @@
 %% 姻缘_结婚现场（婚宴场地） ActivityType_WeddingSite
 -define(ActivityType_WeddingSite_1, 1).   % 正式开始
 
+%% 广场舞
+-define(ActivityType_Dance_1, 1).	%% 到达开时整点时间
+-define(ActivityType_Dance_2, 2).	%% 五分钟后开始
+-define(ActivityType_Dance_3, 3).	%% 三分钟后开始
+-define(ActivityType_Dance_4, 4).	%% 一分钟后开始
+-define(ActivityType_Dance_5, 5).	%% 正式开始
+
 -endif. %% ActivityPhaseDefine_hrl

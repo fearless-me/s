@@ -10,11 +10,14 @@
 -author("tiancheng").
 
 -include("copyMapScheduleDefine.hrl").
+-include("cfg_show2.hrl").
 
 %% API
 -export([
 	setCopyMapMaxSchedule/1,
 	initCopyMapSchedule/2,
+	initCopyMapSchedule/1,
+	show2/1,
 	initParallelScheduleConf/1,
 	initParallelScheduleConf/2,
 	getOpenBlockList/1,
@@ -52,75 +55,155 @@ initCopyMapSchedule(GroupID, Schedule) ->
 	MapID = gameMapLogic:getMapID(GroupID),
 	case copyMapScheduleComplete:getCopyMapScheduleConf(MapID, Schedule) of
 		{InitConf, _SettleConf} when InitConf > 0 ->
+
+			Args = #copyMapScheduleInit{
+				groupID = GroupID,
+				scheduleID = Schedule,
+				configID = InitConf
+			},
+
+			%% 清空上个进度死忘的友方怪物列表
+			copyMapScheduleState:setScheduleFriendMonsterIDList(GroupID, []),
+			%% 清空上个进度杀怪列表
+			copyMapScheduleState:setKilledMonsterList(GroupID, []),
+			%% 清空上个进度的采集列表
+			copyMapScheduleState:setCollectItemList(GroupID, []),
+
 			case getCfg:getCfgPStack(cfg_copymapScheduleInit, InitConf) of
-				#copymapScheduleInitCfg{addcollect = AddCollect,
-					openthedoor1 = OpenBlock1, openthedoor2 = OpenBlock2, openthedoor3 = OpenBlock3, openthedoor4 = OpenBlock4,
-					progress = ScheduleNotice, radius = Radius, camera_boss = CameraBoss, addmonster = AddMonster,
-					condition = Condition, event = Event, animation = AN, characters = Characters} = Conf ->
-%% 					?LOG_OUT("initCopyMapSchedule: ~p, ~p, ~p, ~p", [MapID, self(),
-%% 						Schedule, copyMapScheduleState:getMapScheduleMax(GroupID)]),
-
-					%% LUNA-897
-					%% LUNA-1699
-					%% 尝试触发事件
-					?DEBUG_OUT("[DebugForCopyMap] initCopyMapSchedule GroupID:~p InitConf:~p", [GroupID, InitConf]),
-					copyMapScheduleInit:tryDoEvent(Condition, Event, {true, InitConf}, mapState:getMapPlayerEts(), GroupID),
-
-					%% 清空上个进度死忘的友方怪物列表
-					copyMapScheduleState:setScheduleFriendMonsterIDList(GroupID, []),
-
-					%% 清空上个进度杀怪列表
-					copyMapScheduleState:setKilledMonsterList(GroupID, []),
-
-					%% 清空上个进度的采集列表
-					copyMapScheduleState:setCollectItemList(GroupID, []),
-
-					%% 刷怪
-					addMonsterToMap(GroupID, Conf),
-
-					%% 刷采集物
-					addCollectToMap(GroupID, AddCollect, Radius),
-
-					%% 阻档npc打开
-					openNpcBlock(GroupID, [OpenBlock1, OpenBlock2, OpenBlock3, OpenBlock4]),
-
-					startPlayAnimation(GroupID, mapState:getMapPlayerEts(), AN, Schedule),
-
-					startPlayCharacter(GroupID, mapState:getMapPlayerEts(), Characters, Schedule),
-
-					%% 进度完成提示
-					case ScheduleNotice of
-						[Plan, MaxPlan] ->
-							Msg = playerMsg:getErrorCodeMsg(?ErrorCode_CopyMapScheduleComplete, [MaxPlan, Plan]),
-							List = mapView:getGroupObject(mapState:getMapPlayerEts(), GroupID),
-							[mapView:sendNetMsgToNetPid(NetPid, Msg) || #recMapObject{netPid = NetPid} <- List];
+				#copymapScheduleInitCfg{play_show2 = Show2ID, cd_show2 = CD} ->
+					case getCfg:getCfgByKey(cfg_show2, Show2ID) of
+						#show2Cfg{} ->
+							?DEBUG_OUT("[DebugForShow2] initCopyMapSchedule/2 GroupID:~w InitConf:~w Show2ID:~w CD:~w", [GroupID, InitConf, Show2ID, CD]),
+							TimerRef = erlang:send_after(CD * 1000, self(), {show2, self(), {GroupID, InitConf, Show2ID}}),
+							mapState:setShow2Data(GroupID, {TimerRef, Args#copyMapScheduleInit{show2ID = Show2ID}});
 						_ ->
-							skip
-					end,
-
-					%% 特殊关卡
-					case CameraBoss of
-						1 ->
-							MonsterCode = case AddMonster of
-											  [ {O, _, _, _} | _] ->
-												  case gameMapLogic:getMonsterCodeByID(O) of
-													  [BossCode | _] -> BossCode;
-													  _ -> 0
-												  end;
-											  _ ->
-												  0
-										  end,
-							sendNetMsgToMapPlayer(mapState:getMapPlayerEts(), GroupID,
-								#pk_GS2U_CopySpecialSchedule{mapID = MapID, schedule = InitConf, code = MonsterCode});
-						_ -> skip
-					end,
-
-					ok;
+							initCopyMapSchedule(Args)
+					end;
 				_ ->
 					?ERROR_OUT("initCopyMapSchedule cannot find cfg[~p]",[InitConf]),
 					false
 			end;
 		_ ->
+			skip
+	end,
+	ok.
+
+%% 进度初始化
+-spec initCopyMapSchedule(#copyMapScheduleInit{}) -> ok.
+initCopyMapSchedule(#copyMapScheduleInit{groupID = GroupID, scheduleID = ScheduleID, configID = ConfigID}) ->
+	?DEBUG_OUT("[DebugForShow2] initCopyMapSchedule/1 hit GroupID:~w ConfigID:~w ScheduleID:~w", [GroupID, ConfigID, ScheduleID]),
+	#copymapScheduleInitCfg{
+		addcollect = AddCollect,
+		openthedoor1 = OpenBlock1,
+		openthedoor2 = OpenBlock2,
+		openthedoor3 = OpenBlock3,
+		openthedoor4 = OpenBlock4,
+		progress = ScheduleNotice,
+		radius = Radius,
+		camera_boss = CameraBoss,
+		addmonster = AddMonster,
+		condition = Condition,
+		event = Event,
+		animation = AN,
+		characters = Characters
+	} = Conf = getCfg:getCfgPStack(cfg_copymapScheduleInit, ConfigID),
+	MapID = gameMapLogic:getMapID(GroupID),
+
+	%?LOG_OUT(
+	%	"initCopyMapSchedule: ~p, ~p, ~p, ~p",
+	%	[
+	%		MapID,
+	%		self(),
+	%		ScheduleID,
+	%		copyMapScheduleState:getMapScheduleMax(GroupID)
+	%	]
+	%),
+
+	%% LUNA-897
+	%% LUNA-1699
+	%% 尝试触发事件
+	?DEBUG_OUT("[DebugForCopyMap] initCopyMapSchedule GroupID:~p ConfigID:~p", [GroupID, ConfigID]),
+	copyMapScheduleInit:tryDoEvent(Condition, Event, {true, ConfigID}, mapState:getMapPlayerEts(), GroupID),
+
+	%% 刷怪
+	addMonsterToMap(GroupID, Conf),
+
+	%% 刷采集物
+	addCollectToMap(GroupID, AddCollect, Radius),
+
+	%% 阻档npc打开
+	openNpcBlock(GroupID, [OpenBlock1, OpenBlock2, OpenBlock3, OpenBlock4]),
+
+	%% 播放动画
+	startPlayAnimation(GroupID, mapState:getMapPlayerEts(), AN, ScheduleID),
+
+	%% 播放字幕
+	startPlayCharacter(GroupID, mapState:getMapPlayerEts(), Characters, ScheduleID),
+
+	%% 进度完成提示
+	case ScheduleNotice of
+		[Plan, MaxPlan] ->
+			Msg = playerMsg:getErrorCodeMsg(?ErrorCode_CopyMapScheduleComplete, [MaxPlan, Plan]),
+			List = mapView:getGroupObject(mapState:getMapPlayerEts(), GroupID),
+			[mapView:sendNetMsgToNetPid(NetPid, Msg) || #recMapObject{netPid = NetPid} <- List];
+		_ ->
+			skip
+	end,
+
+	%% 特殊关卡
+	case CameraBoss of
+		1 ->
+			MonsterCode = case AddMonster of
+							  [ {O, _, _, _} | _] ->
+								  case gameMapLogic:getMonsterCodeByID(O) of
+									  [BossCode | _] -> BossCode;
+									  _ -> 0
+								  end;
+							  _ ->
+								  0
+						  end,
+			sendNetMsgToMapPlayer(mapState:getMapPlayerEts(), GroupID,
+				#pk_GS2U_CopySpecialSchedule{
+					mapID = MapID,
+					schedule = ConfigID,	%% 这里以前就填的是配置ID而不是进度ID
+					code = MonsterCode
+				});
+		_ ->
+			skip
+	end,
+	ok.
+
+%% 处理show2完成事件
+-spec show2({GroupID::uint(), ConfigID::uint(), Show2ID::uint()}) -> ok.
+show2({GroupID, ConfigID, Show2ID}) ->
+	case mapState:getShow2Data(GroupID) of
+		{TimerRef, #copyMapScheduleInit{groupID = GroupID, configID = ConfigID, show2ID = Show2ID} = Rec} ->
+			?DEBUG_OUT("[DebugForShow2] show2/1 hit GroupID:~w ConfigID:~w Show2ID:~w", [GroupID, ConfigID, Show2ID]),
+
+			%% 清除暂存数据
+			case erlang:is_reference(TimerRef) of
+				true ->
+					erlang:cancel_timer(TimerRef);
+				_ ->
+					skip
+			end,
+			mapState:delShow2Data(GroupID),
+
+			%% 通知客户端完成show2
+			MapID = gameMapLogic:getMapID(GroupID),
+			Msg = #pk_U2GS2U_CopyMapScheduleShow2{
+				mapID = MapID,
+				show2ID = Show2ID,
+				groupID = GroupID,
+				scheduleID = ConfigID
+			},
+			List = mapView:getGroupObject(mapState:getMapPlayerEts(), GroupID),
+			[mapView:sendNetMsgToNetPid(NetPid, Msg) || #recMapObject{netPid = NetPid} <- List],
+
+			%% 正式初始化进度
+			initCopyMapSchedule(Rec);
+		_ ->
+			?DEBUG_OUT("[DebugForShow2] show2/1 skip GroupID:~w ConfigID:~w Show2ID:~w", [GroupID, ConfigID, Show2ID]),
 			skip
 	end,
 	ok.
@@ -155,6 +238,7 @@ initParallelScheduleConf(GroupID) ->
 	ok.
 
 %% 完成了一个并行子进度，做一个初始化
+%% 不支持show2及类似需要等待的事件
 -spec initParallelScheduleConf(GroupID::uint(), InitID::uint()) -> ok.
 initParallelScheduleConf(GroupID, InitID) when erlang:is_integer(InitID) andalso InitID > 0 ->
 	case getCfg:getCfgPStack(cfg_copymapScheduleInit, InitID) of

@@ -74,7 +74,9 @@
 	getMonsterHateList/1,
 	getMonsterIDByCode/1,
 	getMarrorAttackerID/0,
-	setMarrorAttackerID/2
+	setMarrorAttackerID/2,
+
+	isMonsterShowMapHP/1
 ]).
 
 
@@ -479,4 +481,14 @@ setMarrorAttackerID(MonsterCode,AttackerID) ->
 			skip;
 		_ ->
 			monsterState:setAttackerID4Marror(code4Marror,AttackerID)
+	end.
+
+isMonsterShowMapHP(0) ->
+	false;
+isMonsterShowMapHP(undefined) ->
+	false;
+isMonsterShowMapHP(ID) ->
+	case getCfg:getCfgByKey(cfg_monster, ID) of
+		#monsterCfg{showHp = 1} -> true;
+		_ -> false
 	end.

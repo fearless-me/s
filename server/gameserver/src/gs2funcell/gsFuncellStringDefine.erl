@@ -110,6 +110,9 @@ getGoodsChangeStr(?ItemSourceSpiritAreaReward) ->"灵界活动奖励";
 getGoodsChangeStr(?ItemSourcePetTerritoryExploit) ->"新版骑宠领地-开采奖励";
 getGoodsChangeStr(?ItemSourcePetTerritoryPlunder) ->"新版骑宠领地-掠夺奖励";
 getGoodsChangeStr(?ItemSourceGuildGodblessSchedule) ->"家族系统-女神祈福-祈福进度奖励";
+getGoodsChangeStr(?ItemSourcePetToChip) ->"骑宠转换成碎片";
+getGoodsChangeStr(?ItemSourceSevenDayAimReward) ->"七日目标领奖道具奖励";
+getGoodsChangeStr(?ItemSourceThirtyDayLoginGift) ->"30日登录送大礼道具奖励";
 
 getGoodsChangeStr(?ItemUseReasonPlayer) ->"玩家使用消耗";
 getGoodsChangeStr(?ItemUseReasonMount) ->"坐骑使用消耗";
@@ -194,6 +197,9 @@ getCoinChangeResonStr(?CoinSourceGuildSnowmanDonate) ->"家族系统-堆雪人-�
 getCoinChangeResonStr(?CoinSourceGuildSnowmanSettle) ->"家族系统-堆雪人-结算奖励";
 getCoinChangeResonStr(?CoinSourceGuildFairgroundRide) ->"家族系统-游乐场-乘坐设备失败返回";
 getCoinChangeResonStr(?CoinSourceMoneyTree) ->"点金手";
+getCoinChangeResonStr(?CoinSourceResetSkill) ->"技能洗点";
+getCoinChangeResonStr(?CoinSourceSevenDayAimReward) ->"七日目标领奖货币奖励";
+getCoinChangeResonStr(?CoinSourceThirtyDayLoginGift) ->"30日登录送大礼货币奖励";
 
 getCoinChangeResonStr(?CoinUseEquipResolve) ->"装备分解消耗";
 getCoinChangeResonStr(?CoinUseEquipEnhance) ->"装备强化消耗";
@@ -263,6 +269,7 @@ getCoinChangeResonStr(?CoinUsePetTerritorySearch) ->"新版骑宠领地-搜索�
 getCoinChangeResonStr(?CoinBuyActionCount) ->"购买副本次数";
 getCoinChangeResonStr(?CoinUseGuildFairgroundRide) ->"家族系统-游乐场-乘坐设备消耗";
 getCoinChangeResonStr(?CoinUseMoneyTree) ->"点金手";
+getCoinChangeResonStr(?CoinUseWorldBossInspire) ->"首领入侵,鼓舞";
 getCoinChangeResonStr(Reason) ->
 	?ERROR_OUT("getCoinChangeResonStr:unknow[~w] ~p",[Reason, misc:getStackTrace()]),
 	"未知".

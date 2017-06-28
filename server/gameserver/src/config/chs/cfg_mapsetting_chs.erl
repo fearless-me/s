@@ -38,8 +38,8 @@ getRow(1)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 0,
     finish_time = 0,
     wait_time = 0,
@@ -47,8 +47,8 @@ getRow(1)->
     need_view = 3,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -60,8 +60,9 @@ getRow(1)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(2)->
     #mapsettingCfg {
@@ -96,8 +97,8 @@ getRow(2)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 0,
     finish_time = 0,
     wait_time = 0,
@@ -105,8 +106,8 @@ getRow(2)->
     need_view = 4,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1001,
     dropnum = 0,
     animation = 1001,
@@ -118,8 +119,9 @@ getRow(2)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(3)->
     #mapsettingCfg {
@@ -154,8 +156,8 @@ getRow(3)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 0,
     finish_time = 0,
     wait_time = 0,
@@ -163,8 +165,8 @@ getRow(3)->
     need_view = 3,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1002,
     dropnum = 0,
     animation = 1004,
@@ -176,8 +178,9 @@ getRow(3)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(4)->
     #mapsettingCfg {
@@ -212,8 +215,8 @@ getRow(4)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 0,
     finish_time = 0,
     wait_time = 0,
@@ -221,11 +224,11 @@ getRow(4)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
-    onevsone = 1003,
+    monster_element = [],
+    drop_show = [],
+    onevsone = 0,
     dropnum = 0,
-    animation = 1005,
+    animation = 0,
     daynight = 1,
     useVitality = 0,
     timestep = [0,0],
@@ -234,8 +237,9 @@ getRow(4)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(5)->
     #mapsettingCfg {
@@ -270,8 +274,8 @@ getRow(5)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 0,
     finish_time = 0,
     wait_time = 0,
@@ -279,8 +283,8 @@ getRow(5)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -292,8 +296,68 @@ getRow(5)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
+    };
+getRow(6)->
+    #mapsettingCfg {
+    id = 6,
+    type = 0,
+    subtype = 0,
+    name = "map340",
+    desc = "阿克勒城",
+    show_name = "阿克勒城",
+    instance_group = 0,
+    difficulty = 0,
+    res1 = "maps/map340_PathGrid.bytes",
+    res2 = "maps/map340_MapInfo.bytes",
+    useminimap = "map340",
+    cam_pitch = 30,
+    cam_yaw = 0,
+    role_direction = 3.14,
+    res3 = 1,
+    dropid = 0,
+    equipdropid = 0,
+    copyrand = 0,
+    playerEnter_MinLevel = 1,
+    playerEnter_MaxLevel = 150,
+    pkflag = 1,
+    music = "map320",
+    worldMapx = 0,
+    worldMapy = 0,
+    maxnum = 50,
+    if_single = 0,
+    daily_entercount = 0,
+    daily_entercount_group = 0,
+    daily_effectivecount = 0,
+    enter_Conditions = 0,
+    enter_Conditions_Param = 0,
+    scheduleConf = [],
+    parallelScheduleConf = [],
+    all_time = 0,
+    finish_time = 0,
+    wait_time = 0,
+    belongto = 0,
+    need_view = 4,
+    kill_thelastofus = 0,
+    matching = 0,
+    monster_element = [],
+    drop_show = [],
+    onevsone = 1001,
+    dropnum = 0,
+    animation = 1001,
+    daynight = 1,
+    useVitality = 0,
+    timestep = [0,0],
+    day = [0,0,0],
+    night = [0,0,0],
+    cam_yawmove = 180,
+    map_type = 0,
+    buytime = 0,
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(9)->
     #mapsettingCfg {
@@ -328,8 +392,8 @@ getRow(9)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 0,
     finish_time = 0,
     wait_time = 0,
@@ -337,8 +401,8 @@ getRow(9)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1007,
     dropnum = 0,
     animation = 0,
@@ -350,8 +414,9 @@ getRow(9)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(10)->
     #mapsettingCfg {
@@ -386,8 +451,8 @@ getRow(10)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 0,
     finish_time = 0,
     wait_time = 0,
@@ -395,8 +460,8 @@ getRow(10)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1006,
     dropnum = 0,
     animation = 1002,
@@ -408,8 +473,9 @@ getRow(10)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(22)->
     #mapsettingCfg {
@@ -417,8 +483,8 @@ getRow(22)->
     type = 3,
     subtype = 8,
     name = "map406",
-    desc = "首领入侵",
-    show_name = "光之囚笼",
+    desc = "女神树界",
+    show_name = "女神树界",
     instance_group = 0,
     difficulty = 0,
     res1 = "maps/map525_PathGrid.bytes",
@@ -437,15 +503,15 @@ getRow(22)->
     music = "map406",
     worldMapx = 9999,
     worldMapy = 9999,
-    maxnum = 30,
+    maxnum = 5,
     if_single = 0,
     daily_entercount = 0,
     daily_entercount_group = 0,
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 0,
     wait_time = 0,
@@ -453,8 +519,8 @@ getRow(22)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -466,8 +532,9 @@ getRow(22)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(23)->
     #mapsettingCfg {
@@ -475,8 +542,8 @@ getRow(23)->
     type = 2,
     subtype = 3,
     name = "map406",
-    desc = "首领入侵_1",
-    show_name = "光之囚笼",
+    desc = "女神树界",
+    show_name = "女神树界",
     instance_group = 0,
     difficulty = 0,
     res1 = "maps/map525_PathGrid.bytes",
@@ -495,15 +562,15 @@ getRow(23)->
     music = "map406",
     worldMapx = 9999,
     worldMapy = 9999,
-    maxnum = 10,
+    maxnum = 5,
     if_single = 0,
     daily_entercount = 0,
     daily_entercount_group = 0,
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 0,
@@ -511,8 +578,8 @@ getRow(23)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -524,8 +591,9 @@ getRow(23)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(101)->
     #mapsettingCfg {
@@ -560,15 +628,15 @@ getRow(101)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{101,101},{102,102},{103,103},{104,104},{105,105},{106,106},{108,108},{107,107}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 600,
-    finish_time = 10,
+    finish_time = 120,
     wait_time = 600,
     belongto = 0,
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
+    monster_element = [],
     drop_show = [{1,4,222,9100}],
     onevsone = 0,
     dropnum = 0,
@@ -581,8 +649,9 @@ getRow(101)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 4
     };
 getRow(102)->
     #mapsettingCfg {
@@ -616,16 +685,16 @@ getRow(102)->
     daily_effectivecount = 9999,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [{118,111},{111,111},{111,117},{111,111},{111,111},{117,108},{112,112}],
+    scheduleConf = [{118,21000},{111,111},{111,111},{111,117},{111,111},{111,111},{117,108},{112,112}],
     parallelScheduleConf = [{113,113}],
     all_time = 600,
-    finish_time = 10,
+    finish_time = 120,
     wait_time = 600,
     belongto = 0,
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
+    monster_element = [],
     drop_show = [{1,4,222,9101}],
     onevsone = 0,
     dropnum = 0,
@@ -638,8 +707,9 @@ getRow(102)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 4
     };
 getRow(103)->
     #mapsettingCfg {
@@ -674,15 +744,15 @@ getRow(103)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{121,121},{122,122},{123,123},{129,108},{124,124}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 600,
-    finish_time = 10,
+    finish_time = 120,
     wait_time = 600,
     belongto = 0,
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
+    monster_element = [],
     drop_show = [{1,4,222,225,9102}],
     onevsone = 0,
     dropnum = 0,
@@ -695,8 +765,9 @@ getRow(103)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 4
     };
 getRow(181)->
     #mapsettingCfg {
@@ -730,8 +801,8 @@ getRow(181)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 7200,
     finish_time = 10,
     wait_time = 300,
@@ -740,7 +811,7 @@ getRow(181)->
     kill_thelastofus = 0,
     matching = 1,
     monster_element = [{2,3},{3,1}],
-    drop_show = [0],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -752,8 +823,9 @@ getRow(181)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 1
+    buycost = [],
+    teamtype = 1,
+    fuhuo = 6
     };
 getRow(182)->
     #mapsettingCfg {
@@ -787,8 +859,8 @@ getRow(182)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 7200,
     finish_time = 10,
     wait_time = 300,
@@ -797,7 +869,7 @@ getRow(182)->
     kill_thelastofus = 0,
     matching = 1,
     monster_element = [{2,3},{3,1}],
-    drop_show = [0],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -809,8 +881,9 @@ getRow(182)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 6
     };
 getRow(183)->
     #mapsettingCfg {
@@ -844,8 +917,8 @@ getRow(183)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 7200,
     finish_time = 10,
     wait_time = 300,
@@ -854,7 +927,7 @@ getRow(183)->
     kill_thelastofus = 0,
     matching = 1,
     monster_element = [{2,3},{3,1}],
-    drop_show = [0],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -866,8 +939,9 @@ getRow(183)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 6
     };
 getRow(184)->
     #mapsettingCfg {
@@ -901,8 +975,8 @@ getRow(184)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 300,
     finish_time = 0,
     wait_time = 0,
@@ -910,8 +984,8 @@ getRow(184)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -923,8 +997,9 @@ getRow(184)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 0
     };
 getRow(201)->
     #mapsettingCfg {
@@ -958,22 +1033,22 @@ getRow(201)->
     daily_effectivecount = 2,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [{119,114},{114,114},{114,118},{114,114},{114,114},{117,108},{115,115}],
+    scheduleConf = [{118,21000},{114,114},{114,114},{114,118},{114,114},{114,114},{117,108},{115,115}],
     parallelScheduleConf = [{116,116}],
     all_time = 900,
-    finish_time = 10,
+    finish_time = 120,
     wait_time = 900,
     belongto = 0,
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
+    monster_element = [],
     drop_show = [{1,4,222,9101,9200}],
     onevsone = 0,
     dropnum = 0,
     animation = 3,
     daynight = 1,
-    useVitality = 15,
+    useVitality = 20,
     timestep = [0,0],
     day = [0,0,0],
     night = [0,0,0],
@@ -981,7 +1056,8 @@ getRow(201)->
     map_type = 0,
     buytime = 2,
     buycost = [{1,30},{2,50}],
-    teamtype = 1
+    teamtype = 1,
+    fuhuo = 4
     };
 getRow(202)->
     #mapsettingCfg {
@@ -1016,21 +1092,21 @@ getRow(202)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{125,125},{126,126},{127,127},{129,108},{128,128}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 900,
-    finish_time = 10,
+    finish_time = 120,
     wait_time = 900,
     belongto = 0,
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
+    monster_element = [],
     drop_show = [{1,4,222,225,9102,9200}],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
     daynight = 1,
-    useVitality = 15,
+    useVitality = 20,
     timestep = [0,0],
     day = [0,0,0],
     night = [0,0,0],
@@ -1038,11 +1114,12 @@ getRow(202)->
     map_type = 0,
     buytime = 2,
     buycost = [{1,50},{2,80}],
-    teamtype = 1
+    teamtype = 1,
+    fuhuo = 4
     };
-getRow(303)->
+getRow(300)->
     #mapsettingCfg {
-    id = 303,
+    id = 300,
     type = 2,
     subtype = 0,
     name = "map333",
@@ -1073,8 +1150,8 @@ getRow(303)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [{1,1}],
-    parallelScheduleConf = [0],
+    scheduleConf = [{300,300},{301,301}],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1082,8 +1159,8 @@ getRow(303)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1095,70 +1172,13 @@ getRow(303)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
-getRow(304)->
+getRow(301)->
     #mapsettingCfg {
-    id = 304,
-    type = 2,
-    subtype = 0,
-    name = "map333",
-    desc = "女神试练",
-    show_name = "阿克勒港口",
-    instance_group = 0,
-    difficulty = 0,
-    res1 = "maps/map333_PathGrid.bytes",
-    res2 = "maps/map333_MapInfo.bytes",
-    useminimap = "map333",
-    cam_pitch = 30,
-    cam_yaw = 0,
-    role_direction = 0,
-    res3 = 1,
-    dropid = 0,
-    equipdropid = 0,
-    copyrand = 0,
-    playerEnter_MinLevel = 1,
-    playerEnter_MaxLevel = 150,
-    pkflag = 1,
-    music = "map320",
-    worldMapx = 9999,
-    worldMapy = 9999,
-    maxnum = 1,
-    if_single = 0,
-    daily_entercount = 0,
-    daily_entercount_group = 0,
-    daily_effectivecount = 0,
-    enter_Conditions = 0,
-    enter_Conditions_Param = 0,
-    scheduleConf = [{2,2}],
-    parallelScheduleConf = [0],
-    all_time = 3600,
-    finish_time = 3,
-    wait_time = 120,
-    belongto = 2,
-    need_view = 0,
-    kill_thelastofus = 0,
-    matching = 0,
-    monster_element = [0],
-    drop_show = [0],
-    onevsone = 1000,
-    dropnum = 0,
-    animation = 0,
-    daynight = 1,
-    useVitality = 0,
-    timestep = [0,0],
-    day = [0,0,0],
-    night = [0,0,0],
-    cam_yawmove = 180,
-    map_type = 0,
-    buytime = 0,
-    buycost = [0],
-    teamtype = 0
-    };
-getRow(305)->
-    #mapsettingCfg {
-    id = 305,
+    id = 301,
     type = 2,
     subtype = 0,
     name = "map333",
@@ -1189,8 +1209,8 @@ getRow(305)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [{3,3}],
-    parallelScheduleConf = [0],
+    scheduleConf = [{302,302},{303,303}],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1198,8 +1218,8 @@ getRow(305)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1211,8 +1231,245 @@ getRow(305)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
+    };
+getRow(302)->
+    #mapsettingCfg {
+    id = 302,
+    type = 2,
+    subtype = 0,
+    name = "map333",
+    desc = "港口海盗",
+    show_name = "阿克勒港口",
+    instance_group = 0,
+    difficulty = 0,
+    res1 = "maps/map333_PathGrid.bytes",
+    res2 = "maps/map333_MapInfo.bytes",
+    useminimap = "map333",
+    cam_pitch = 30,
+    cam_yaw = 0,
+    role_direction = 0,
+    res3 = 1,
+    dropid = 0,
+    equipdropid = 0,
+    copyrand = 0,
+    playerEnter_MinLevel = 1,
+    playerEnter_MaxLevel = 150,
+    pkflag = 1,
+    music = "map320",
+    worldMapx = 9999,
+    worldMapy = 9999,
+    maxnum = 1,
+    if_single = 0,
+    daily_entercount = 0,
+    daily_entercount_group = 0,
+    daily_effectivecount = 0,
+    enter_Conditions = 0,
+    enter_Conditions_Param = 0,
+    scheduleConf = [{304,304}],
+    parallelScheduleConf = [],
+    all_time = 3600,
+    finish_time = 3,
+    wait_time = 120,
+    belongto = 2,
+    need_view = 0,
+    kill_thelastofus = 0,
+    matching = 0,
+    monster_element = [],
+    drop_show = [],
+    onevsone = 1000,
+    dropnum = 0,
+    animation = 0,
+    daynight = 1,
+    useVitality = 0,
+    timestep = [0,0],
+    day = [0,0,0],
+    night = [0,0,0],
+    cam_yawmove = 180,
+    map_type = 0,
+    buytime = 0,
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
+    };
+getRow(303)->
+    #mapsettingCfg {
+    id = 303,
+    type = 2,
+    subtype = 0,
+    name = "map333",
+    desc = "夏洛特的仓库",
+    show_name = "阿克勒港口",
+    instance_group = 0,
+    difficulty = 0,
+    res1 = "maps/map333_PathGrid.bytes",
+    res2 = "maps/map333_MapInfo.bytes",
+    useminimap = "map333",
+    cam_pitch = 30,
+    cam_yaw = 0,
+    role_direction = 0,
+    res3 = 1,
+    dropid = 0,
+    equipdropid = 0,
+    copyrand = 0,
+    playerEnter_MinLevel = 1,
+    playerEnter_MaxLevel = 150,
+    pkflag = 1,
+    music = "map320",
+    worldMapx = 9999,
+    worldMapy = 9999,
+    maxnum = 1,
+    if_single = 0,
+    daily_entercount = 0,
+    daily_entercount_group = 0,
+    daily_effectivecount = 0,
+    enter_Conditions = 0,
+    enter_Conditions_Param = 0,
+    scheduleConf = [{305,305}],
+    parallelScheduleConf = [],
+    all_time = 3600,
+    finish_time = 3,
+    wait_time = 120,
+    belongto = 2,
+    need_view = 0,
+    kill_thelastofus = 0,
+    matching = 0,
+    monster_element = [],
+    drop_show = [],
+    onevsone = 1000,
+    dropnum = 0,
+    animation = 0,
+    daynight = 1,
+    useVitality = 0,
+    timestep = [0,0],
+    day = [0,0,0],
+    night = [0,0,0],
+    cam_yawmove = 180,
+    map_type = 0,
+    buytime = 0,
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
+    };
+getRow(304)->
+    #mapsettingCfg {
+    id = 304,
+    type = 2,
+    subtype = 0,
+    name = "map333",
+    desc = "哭泣的苏珊",
+    show_name = "阿克勒港口",
+    instance_group = 0,
+    difficulty = 0,
+    res1 = "maps/map333_PathGrid.bytes",
+    res2 = "maps/map333_MapInfo.bytes",
+    useminimap = "map333",
+    cam_pitch = 30,
+    cam_yaw = 0,
+    role_direction = 0,
+    res3 = 1,
+    dropid = 0,
+    equipdropid = 0,
+    copyrand = 0,
+    playerEnter_MinLevel = 1,
+    playerEnter_MaxLevel = 150,
+    pkflag = 1,
+    music = "map320",
+    worldMapx = 9999,
+    worldMapy = 9999,
+    maxnum = 1,
+    if_single = 0,
+    daily_entercount = 0,
+    daily_entercount_group = 0,
+    daily_effectivecount = 0,
+    enter_Conditions = 0,
+    enter_Conditions_Param = 0,
+    scheduleConf = [{306,306}],
+    parallelScheduleConf = [],
+    all_time = 3600,
+    finish_time = 3,
+    wait_time = 120,
+    belongto = 2,
+    need_view = 0,
+    kill_thelastofus = 0,
+    matching = 0,
+    monster_element = [],
+    drop_show = [],
+    onevsone = 1000,
+    dropnum = 0,
+    animation = 0,
+    daynight = 1,
+    useVitality = 0,
+    timestep = [0,0],
+    day = [0,0,0],
+    night = [0,0,0],
+    cam_yawmove = 180,
+    map_type = 0,
+    buytime = 0,
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
+    };
+getRow(305)->
+    #mapsettingCfg {
+    id = 305,
+    type = 2,
+    subtype = 0,
+    name = "map333",
+    desc = "勇士的愤怒",
+    show_name = "阿克勒港口",
+    instance_group = 0,
+    difficulty = 0,
+    res1 = "maps/map333_PathGrid.bytes",
+    res2 = "maps/map333_MapInfo.bytes",
+    useminimap = "map333",
+    cam_pitch = 30,
+    cam_yaw = 0,
+    role_direction = 0,
+    res3 = 1,
+    dropid = 0,
+    equipdropid = 0,
+    copyrand = 0,
+    playerEnter_MinLevel = 1,
+    playerEnter_MaxLevel = 150,
+    pkflag = 1,
+    music = "map320",
+    worldMapx = 9999,
+    worldMapy = 9999,
+    maxnum = 1,
+    if_single = 0,
+    daily_entercount = 0,
+    daily_entercount_group = 0,
+    daily_effectivecount = 0,
+    enter_Conditions = 0,
+    enter_Conditions_Param = 0,
+    scheduleConf = [{307,307},{308,308},{309,309}],
+    parallelScheduleConf = [],
+    all_time = 3600,
+    finish_time = 3,
+    wait_time = 120,
+    belongto = 2,
+    need_view = 0,
+    kill_thelastofus = 0,
+    matching = 0,
+    monster_element = [],
+    drop_show = [],
+    onevsone = 1000,
+    dropnum = 0,
+    animation = 0,
+    daynight = 1,
+    useVitality = 0,
+    timestep = [0,0],
+    day = [0,0,0],
+    night = [0,0,0],
+    cam_yawmove = 180,
+    map_type = 0,
+    buytime = 0,
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(306)->
     #mapsettingCfg {
@@ -1220,7 +1477,7 @@ getRow(306)->
     type = 2,
     subtype = 0,
     name = "map333",
-    desc = "少女呼救",
+    desc = "阻止安娜",
     show_name = "阿克勒港口",
     instance_group = 0,
     difficulty = 0,
@@ -1247,8 +1504,8 @@ getRow(306)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [{4,4}],
-    parallelScheduleConf = [0],
+    scheduleConf = [{310,310}],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1256,8 +1513,8 @@ getRow(306)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1269,8 +1526,9 @@ getRow(306)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(307)->
     #mapsettingCfg {
@@ -1278,7 +1536,7 @@ getRow(307)->
     type = 2,
     subtype = 0,
     name = "map333",
-    desc = "阻止罗撒特",
+    desc = "真假项链",
     show_name = "阿克勒港口",
     instance_group = 0,
     difficulty = 0,
@@ -1305,8 +1563,8 @@ getRow(307)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [{50001,108},{5,5}],
-    parallelScheduleConf = [0],
+    scheduleConf = [{311,311}],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1314,8 +1572,8 @@ getRow(307)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1327,8 +1585,9 @@ getRow(307)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(308)->
     #mapsettingCfg {
@@ -1336,7 +1595,7 @@ getRow(308)->
     type = 2,
     subtype = 0,
     name = "map333",
-    desc = "魔族之力",
+    desc = "安娜的家",
     show_name = "阿克勒港口",
     instance_group = 0,
     difficulty = 0,
@@ -1363,8 +1622,8 @@ getRow(308)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [{6,6}],
-    parallelScheduleConf = [0],
+    scheduleConf = [{312,312},{313,313}],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1372,8 +1631,8 @@ getRow(308)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1385,8 +1644,9 @@ getRow(308)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(309)->
     #mapsettingCfg {
@@ -1394,7 +1654,7 @@ getRow(309)->
     type = 2,
     subtype = 0,
     name = "map333",
-    desc = "史莱姆大王",
+    desc = "狠毒的罗撒特",
     show_name = "阿克勒港口",
     instance_group = 0,
     difficulty = 0,
@@ -1421,8 +1681,8 @@ getRow(309)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [{7,7}],
-    parallelScheduleConf = [0],
+    scheduleConf = [{314,314}],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1430,8 +1690,8 @@ getRow(309)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1443,70 +1703,13 @@ getRow(309)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(310)->
     #mapsettingCfg {
     id = 310,
-    type = 2,
-    subtype = 0,
-    name = "map333",
-    desc = "追踪史莱姆",
-    show_name = "阿克勒港口",
-    instance_group = 0,
-    difficulty = 0,
-    res1 = "maps/map333_PathGrid.bytes",
-    res2 = "maps/map333_MapInfo.bytes",
-    useminimap = "map333",
-    cam_pitch = 30,
-    cam_yaw = 0,
-    role_direction = 0,
-    res3 = 1,
-    dropid = 0,
-    equipdropid = 0,
-    copyrand = 0,
-    playerEnter_MinLevel = 1,
-    playerEnter_MaxLevel = 150,
-    pkflag = 1,
-    music = "map320",
-    worldMapx = 9999,
-    worldMapy = 9999,
-    maxnum = 1,
-    if_single = 0,
-    daily_entercount = 0,
-    daily_entercount_group = 0,
-    daily_effectivecount = 0,
-    enter_Conditions = 0,
-    enter_Conditions_Param = 0,
-    scheduleConf = [{8,8}],
-    parallelScheduleConf = [0],
-    all_time = 3600,
-    finish_time = 3,
-    wait_time = 120,
-    belongto = 2,
-    need_view = 0,
-    kill_thelastofus = 0,
-    matching = 0,
-    monster_element = [0],
-    drop_show = [0],
-    onevsone = 1000,
-    dropnum = 0,
-    animation = 0,
-    daynight = 1,
-    useVitality = 0,
-    timestep = [0,0],
-    day = [0,0,0],
-    night = [0,0,0],
-    cam_yawmove = 180,
-    map_type = 0,
-    buytime = 0,
-    buycost = [0],
-    teamtype = 0
-    };
-getRow(311)->
-    #mapsettingCfg {
-    id = 311,
     type = 2,
     subtype = 0,
     name = "map333",
@@ -1537,8 +1740,8 @@ getRow(311)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [{9,9}],
-    parallelScheduleConf = [0],
+    scheduleConf = [{315,315},{316,316}],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1546,8 +1749,8 @@ getRow(311)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1559,66 +1762,9 @@ getRow(311)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
-    };
-getRow(312)->
-    #mapsettingCfg {
-    id = 312,
-    type = 2,
-    subtype = 0,
-    name = "map333",
-    desc = "港口遇袭",
-    show_name = "阿克勒港口",
-    instance_group = 0,
-    difficulty = 0,
-    res1 = "maps/map333_PathGrid.bytes",
-    res2 = "maps/map333_MapInfo.bytes",
-    useminimap = "map333",
-    cam_pitch = 30,
-    cam_yaw = 0,
-    role_direction = 0,
-    res3 = 1,
-    dropid = 0,
-    equipdropid = 0,
-    copyrand = 0,
-    playerEnter_MinLevel = 1,
-    playerEnter_MaxLevel = 150,
-    pkflag = 1,
-    music = "map320",
-    worldMapx = 9999,
-    worldMapy = 9999,
-    maxnum = 1,
-    if_single = 0,
-    daily_entercount = 0,
-    daily_entercount_group = 0,
-    daily_effectivecount = 0,
-    enter_Conditions = 0,
-    enter_Conditions_Param = 0,
-    scheduleConf = [{10,10}],
-    parallelScheduleConf = [0],
-    all_time = 3600,
-    finish_time = 3,
-    wait_time = 120,
-    belongto = 2,
-    need_view = 0,
-    kill_thelastofus = 0,
-    matching = 0,
-    monster_element = [0],
-    drop_show = [0],
-    onevsone = 1000,
-    dropnum = 0,
-    animation = 0,
-    daynight = 1,
-    useVitality = 0,
-    timestep = [0,0],
-    day = [0,0,0],
-    night = [0,0,0],
-    cam_yawmove = 180,
-    map_type = 0,
-    buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(313)->
     #mapsettingCfg {
@@ -1654,7 +1800,7 @@ getRow(313)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{11,11}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1662,8 +1808,8 @@ getRow(313)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1675,8 +1821,9 @@ getRow(313)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(314)->
     #mapsettingCfg {
@@ -1712,7 +1859,7 @@ getRow(314)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{12,12}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1720,8 +1867,8 @@ getRow(314)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1733,8 +1880,9 @@ getRow(314)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(315)->
     #mapsettingCfg {
@@ -1770,7 +1918,7 @@ getRow(315)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{13,13}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1778,8 +1926,8 @@ getRow(315)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1791,8 +1939,9 @@ getRow(315)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(316)->
     #mapsettingCfg {
@@ -1828,7 +1977,7 @@ getRow(316)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{14,14}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1836,8 +1985,8 @@ getRow(316)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1849,8 +1998,9 @@ getRow(316)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(317)->
     #mapsettingCfg {
@@ -1886,7 +2036,7 @@ getRow(317)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{15,15}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1894,8 +2044,8 @@ getRow(317)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1907,8 +2057,9 @@ getRow(317)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(318)->
     #mapsettingCfg {
@@ -1944,7 +2095,7 @@ getRow(318)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{16,16}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -1952,8 +2103,8 @@ getRow(318)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -1965,8 +2116,9 @@ getRow(318)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(319)->
     #mapsettingCfg {
@@ -2002,7 +2154,7 @@ getRow(319)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{17,17}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2010,8 +2162,8 @@ getRow(319)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2023,8 +2175,9 @@ getRow(319)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(320)->
     #mapsettingCfg {
@@ -2060,7 +2213,7 @@ getRow(320)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{18,18}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2068,8 +2221,8 @@ getRow(320)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2081,8 +2234,9 @@ getRow(320)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(321)->
     #mapsettingCfg {
@@ -2118,7 +2272,7 @@ getRow(321)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{19,19}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2126,8 +2280,8 @@ getRow(321)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2139,8 +2293,9 @@ getRow(321)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(322)->
     #mapsettingCfg {
@@ -2176,7 +2331,7 @@ getRow(322)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{20,20}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2184,8 +2339,8 @@ getRow(322)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2197,8 +2352,9 @@ getRow(322)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(323)->
     #mapsettingCfg {
@@ -2234,7 +2390,7 @@ getRow(323)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{21,21}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2242,8 +2398,8 @@ getRow(323)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2255,8 +2411,9 @@ getRow(323)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(324)->
     #mapsettingCfg {
@@ -2292,7 +2449,7 @@ getRow(324)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{22,22}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2300,8 +2457,8 @@ getRow(324)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2313,8 +2470,9 @@ getRow(324)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(325)->
     #mapsettingCfg {
@@ -2350,7 +2508,7 @@ getRow(325)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{23,23}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2358,8 +2516,8 @@ getRow(325)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2371,8 +2529,9 @@ getRow(325)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(326)->
     #mapsettingCfg {
@@ -2408,7 +2567,7 @@ getRow(326)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{24,24}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2416,8 +2575,8 @@ getRow(326)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2429,8 +2588,9 @@ getRow(326)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(327)->
     #mapsettingCfg {
@@ -2466,7 +2626,7 @@ getRow(327)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{25,25}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2474,8 +2634,8 @@ getRow(327)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2487,8 +2647,9 @@ getRow(327)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(328)->
     #mapsettingCfg {
@@ -2524,7 +2685,7 @@ getRow(328)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{26,26}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2532,8 +2693,8 @@ getRow(328)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2545,8 +2706,9 @@ getRow(328)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(329)->
     #mapsettingCfg {
@@ -2582,7 +2744,7 @@ getRow(329)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{27,27}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2590,8 +2752,8 @@ getRow(329)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2603,8 +2765,9 @@ getRow(329)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(330)->
     #mapsettingCfg {
@@ -2640,7 +2803,7 @@ getRow(330)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{28,28}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2648,8 +2811,8 @@ getRow(330)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2661,8 +2824,9 @@ getRow(330)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(331)->
     #mapsettingCfg {
@@ -2698,7 +2862,7 @@ getRow(331)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{29,29}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2706,8 +2870,8 @@ getRow(331)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2719,8 +2883,9 @@ getRow(331)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(332)->
     #mapsettingCfg {
@@ -2756,7 +2921,7 @@ getRow(332)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{30,30}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2764,8 +2929,8 @@ getRow(332)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2777,8 +2942,9 @@ getRow(332)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(333)->
     #mapsettingCfg {
@@ -2814,7 +2980,7 @@ getRow(333)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{31,31}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2822,8 +2988,8 @@ getRow(333)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2835,8 +3001,9 @@ getRow(333)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(334)->
     #mapsettingCfg {
@@ -2872,7 +3039,7 @@ getRow(334)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{32,32}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2880,8 +3047,8 @@ getRow(334)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2893,8 +3060,9 @@ getRow(334)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(335)->
     #mapsettingCfg {
@@ -2930,7 +3098,7 @@ getRow(335)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{33,33}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2938,8 +3106,8 @@ getRow(335)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -2951,8 +3119,9 @@ getRow(335)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(336)->
     #mapsettingCfg {
@@ -2988,7 +3157,7 @@ getRow(336)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{34,34}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -2996,8 +3165,8 @@ getRow(336)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3009,8 +3178,9 @@ getRow(336)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(337)->
     #mapsettingCfg {
@@ -3046,7 +3216,7 @@ getRow(337)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{35,35}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3054,8 +3224,8 @@ getRow(337)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3067,8 +3237,9 @@ getRow(337)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(338)->
     #mapsettingCfg {
@@ -3104,7 +3275,7 @@ getRow(338)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{36,36}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3112,8 +3283,8 @@ getRow(338)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3125,8 +3296,9 @@ getRow(338)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(339)->
     #mapsettingCfg {
@@ -3162,7 +3334,7 @@ getRow(339)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{37,37}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3170,8 +3342,8 @@ getRow(339)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3183,8 +3355,9 @@ getRow(339)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(340)->
     #mapsettingCfg {
@@ -3220,7 +3393,7 @@ getRow(340)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{38,38}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3228,8 +3401,8 @@ getRow(340)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3241,8 +3414,9 @@ getRow(340)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(341)->
     #mapsettingCfg {
@@ -3278,7 +3452,7 @@ getRow(341)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{39,39}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3286,8 +3460,8 @@ getRow(341)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3299,8 +3473,9 @@ getRow(341)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(342)->
     #mapsettingCfg {
@@ -3336,7 +3511,7 @@ getRow(342)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{40,40}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3344,8 +3519,8 @@ getRow(342)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3357,8 +3532,9 @@ getRow(342)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(343)->
     #mapsettingCfg {
@@ -3394,7 +3570,7 @@ getRow(343)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{41,41}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3402,8 +3578,8 @@ getRow(343)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3415,8 +3591,9 @@ getRow(343)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(344)->
     #mapsettingCfg {
@@ -3452,7 +3629,7 @@ getRow(344)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{42,42}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3460,8 +3637,8 @@ getRow(344)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3473,8 +3650,9 @@ getRow(344)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(345)->
     #mapsettingCfg {
@@ -3510,7 +3688,7 @@ getRow(345)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{43,43}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3518,8 +3696,8 @@ getRow(345)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3531,8 +3709,9 @@ getRow(345)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(346)->
     #mapsettingCfg {
@@ -3568,7 +3747,7 @@ getRow(346)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{44,44}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3576,8 +3755,8 @@ getRow(346)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3589,8 +3768,9 @@ getRow(346)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(347)->
     #mapsettingCfg {
@@ -3626,7 +3806,7 @@ getRow(347)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{45,45}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3634,8 +3814,8 @@ getRow(347)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3647,8 +3827,9 @@ getRow(347)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(348)->
     #mapsettingCfg {
@@ -3684,7 +3865,7 @@ getRow(348)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{46,46}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3692,8 +3873,8 @@ getRow(348)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3705,8 +3886,9 @@ getRow(348)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(349)->
     #mapsettingCfg {
@@ -3742,7 +3924,7 @@ getRow(349)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{47,47}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3750,8 +3932,8 @@ getRow(349)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3763,8 +3945,9 @@ getRow(349)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(405)->
     #mapsettingCfg {
@@ -3800,7 +3983,7 @@ getRow(405)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{15,15}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3808,8 +3991,8 @@ getRow(405)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3821,8 +4004,9 @@ getRow(405)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(410)->
     #mapsettingCfg {
@@ -3858,7 +4042,7 @@ getRow(410)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{20,20}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3866,8 +4050,8 @@ getRow(410)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3879,8 +4063,9 @@ getRow(410)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(411)->
     #mapsettingCfg {
@@ -3916,7 +4101,7 @@ getRow(411)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{21,21}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3924,8 +4109,8 @@ getRow(411)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3937,8 +4122,9 @@ getRow(411)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(413)->
     #mapsettingCfg {
@@ -3974,7 +4160,7 @@ getRow(413)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{23,23}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -3982,8 +4168,8 @@ getRow(413)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -3995,8 +4181,9 @@ getRow(413)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(500)->
     #mapsettingCfg {
@@ -4031,8 +4218,8 @@ getRow(500)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 43200,
     finish_time = 0,
     wait_time = 0,
@@ -4040,8 +4227,8 @@ getRow(500)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4053,8 +4240,9 @@ getRow(500)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(501)->
     #mapsettingCfg {
@@ -4089,8 +4277,8 @@ getRow(501)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 43200,
     finish_time = 0,
     wait_time = 0,
@@ -4098,8 +4286,8 @@ getRow(501)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4111,8 +4299,9 @@ getRow(501)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(502)->
     #mapsettingCfg {
@@ -4147,8 +4336,8 @@ getRow(502)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 43200,
     finish_time = 0,
     wait_time = 0,
@@ -4156,8 +4345,8 @@ getRow(502)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4169,8 +4358,9 @@ getRow(502)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(503)->
     #mapsettingCfg {
@@ -4205,8 +4395,8 @@ getRow(503)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 43200,
     finish_time = 0,
     wait_time = 0,
@@ -4214,8 +4404,8 @@ getRow(503)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4227,8 +4417,9 @@ getRow(503)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(504)->
     #mapsettingCfg {
@@ -4263,8 +4454,8 @@ getRow(504)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 43200,
     finish_time = 0,
     wait_time = 0,
@@ -4272,8 +4463,8 @@ getRow(504)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4285,8 +4476,9 @@ getRow(504)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(505)->
     #mapsettingCfg {
@@ -4321,8 +4513,8 @@ getRow(505)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 43200,
     finish_time = 0,
     wait_time = 0,
@@ -4330,8 +4522,8 @@ getRow(505)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4343,8 +4535,9 @@ getRow(505)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(506)->
     #mapsettingCfg {
@@ -4378,7 +4571,7 @@ getRow(506)->
     daily_effectivecount = 999,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
+    scheduleConf = [],
     all_time = 3600,
     finish_time = 5,
     wait_time = 0,
@@ -4386,8 +4579,8 @@ getRow(506)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4399,8 +4592,9 @@ getRow(506)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 0
     };
 getRow(507)->
     #mapsettingCfg {
@@ -4435,8 +4629,8 @@ getRow(507)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 43200,
     finish_time = 0,
     wait_time = 0,
@@ -4444,8 +4638,8 @@ getRow(507)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4457,8 +4651,9 @@ getRow(507)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 3
     };
 getRow(508)->
     #mapsettingCfg {
@@ -4493,8 +4688,8 @@ getRow(508)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 43200,
     finish_time = 0,
     wait_time = 0,
@@ -4502,8 +4697,8 @@ getRow(508)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4515,8 +4710,9 @@ getRow(508)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 3
     };
 getRow(509)->
     #mapsettingCfg {
@@ -4551,8 +4747,8 @@ getRow(509)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 43200,
     finish_time = 0,
     wait_time = 0,
@@ -4560,8 +4756,8 @@ getRow(509)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4573,8 +4769,9 @@ getRow(509)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 3
     };
 getRow(510)->
     #mapsettingCfg {
@@ -4609,8 +4806,8 @@ getRow(510)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 43200,
     finish_time = 0,
     wait_time = 0,
@@ -4618,8 +4815,8 @@ getRow(510)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4631,8 +4828,9 @@ getRow(510)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 3
     };
 getRow(520)->
     #mapsettingCfg {
@@ -4667,8 +4865,8 @@ getRow(520)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 50400,
     finish_time = 50400,
     wait_time = 50400,
@@ -4676,8 +4874,8 @@ getRow(520)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 102,
@@ -4690,7 +4888,8 @@ getRow(520)->
     map_type = 0,
     buytime = 1,
     buycost = [{1,30}],
-    teamtype = 0
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(528)->
     #mapsettingCfg {
@@ -4725,8 +4924,8 @@ getRow(528)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 960,
     finish_time = 10,
     wait_time = 1,
@@ -4734,7 +4933,7 @@ getRow(528)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
+    monster_element = [],
     drop_show = [{7000}],
     onevsone = 0,
     dropnum = 0,
@@ -4747,8 +4946,9 @@ getRow(528)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 1
+    buycost = [],
+    teamtype = 1,
+    fuhuo = 6
     };
 getRow(529)->
     #mapsettingCfg {
@@ -4783,8 +4983,8 @@ getRow(529)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 960,
     finish_time = 10,
     wait_time = 1,
@@ -4792,7 +4992,7 @@ getRow(529)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
+    monster_element = [],
     drop_show = [{7001}],
     onevsone = 0,
     dropnum = 0,
@@ -4805,8 +5005,9 @@ getRow(529)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 1
+    buycost = [],
+    teamtype = 1,
+    fuhuo = 6
     };
 getRow(530)->
     #mapsettingCfg {
@@ -4841,8 +5042,8 @@ getRow(530)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 960,
     finish_time = 10,
     wait_time = 1,
@@ -4850,7 +5051,7 @@ getRow(530)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
+    monster_element = [],
     drop_show = [{7002}],
     onevsone = 0,
     dropnum = 0,
@@ -4863,8 +5064,9 @@ getRow(530)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 1
+    buycost = [],
+    teamtype = 1,
+    fuhuo = 6
     };
 getRow(531)->
     #mapsettingCfg {
@@ -4899,8 +5101,8 @@ getRow(531)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 960,
     finish_time = 10,
     wait_time = 1,
@@ -4908,7 +5110,7 @@ getRow(531)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
+    monster_element = [],
     drop_show = [{7003}],
     onevsone = 0,
     dropnum = 0,
@@ -4921,8 +5123,9 @@ getRow(531)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 1
+    buycost = [],
+    teamtype = 1,
+    fuhuo = 6
     };
 getRow(532)->
     #mapsettingCfg {
@@ -4957,7 +5160,7 @@ getRow(532)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{19999,21000},{20000,20000},{20001,20000},{20002,20000},{20003,20000},{20004,20000},{20005,20000},{20006,20000},{20007,20000},{20008,20000},{20009,20000}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 600,
     finish_time = 10,
     wait_time = 600,
@@ -4965,8 +5168,8 @@ getRow(532)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -4979,7 +5182,8 @@ getRow(532)->
     map_type = 0,
     buytime = 1,
     buycost = [{1,40}],
-    teamtype = 0
+    teamtype = 0,
+    fuhuo = 2
     };
 getRow(533)->
     #mapsettingCfg {
@@ -5014,7 +5218,7 @@ getRow(533)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{19999,21000},{20010,20000},{20011,20000},{20012,20000},{20013,20000},{20014,20000},{20015,20000},{20016,20000},{20017,20000},{20018,20000},{20019,20000}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 600,
     finish_time = 10,
     wait_time = 600,
@@ -5022,8 +5226,8 @@ getRow(533)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5036,7 +5240,8 @@ getRow(533)->
     map_type = 0,
     buytime = 1,
     buycost = [{1,40}],
-    teamtype = 0
+    teamtype = 0,
+    fuhuo = 2
     };
 getRow(534)->
     #mapsettingCfg {
@@ -5071,7 +5276,7 @@ getRow(534)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{19999,21000},{20020,20000},{20021,20000},{20022,20000},{20023,20000},{20024,20000},{20025,20000},{20026,20000},{20027,20000},{20028,20000},{20029,20000}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 600,
     finish_time = 10,
     wait_time = 600,
@@ -5079,8 +5284,8 @@ getRow(534)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5093,7 +5298,8 @@ getRow(534)->
     map_type = 0,
     buytime = 1,
     buycost = [{1,40}],
-    teamtype = 0
+    teamtype = 0,
+    fuhuo = 2
     };
 getRow(535)->
     #mapsettingCfg {
@@ -5128,7 +5334,7 @@ getRow(535)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{19999,21000},{20030,20000},{20031,20000},{20032,20000},{20033,20000},{20034,20000},{20035,20000},{20036,20000},{20037,20000},{20038,20000},{20039,20000}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 600,
     finish_time = 10,
     wait_time = 600,
@@ -5136,8 +5342,8 @@ getRow(535)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5150,7 +5356,8 @@ getRow(535)->
     map_type = 0,
     buytime = 1,
     buycost = [{1,40}],
-    teamtype = 0
+    teamtype = 0,
+    fuhuo = 2
     };
 getRow(536)->
     #mapsettingCfg {
@@ -5185,7 +5392,7 @@ getRow(536)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{19999,21000},{20040,20000},{20041,20000},{20042,20000},{20043,20000},{20044,20000},{20045,20000},{20046,20000},{20047,20000},{20048,20000},{20049,20000}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 600,
     finish_time = 10,
     wait_time = 600,
@@ -5193,8 +5400,8 @@ getRow(536)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5207,7 +5414,8 @@ getRow(536)->
     map_type = 0,
     buytime = 1,
     buycost = [{1,40}],
-    teamtype = 0
+    teamtype = 0,
+    fuhuo = 2
     };
 getRow(537)->
     #mapsettingCfg {
@@ -5242,7 +5450,7 @@ getRow(537)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{19999,21000},{20050,20000},{20051,20000},{20052,20000},{20053,20000},{20054,20000},{20055,20000},{20056,20000},{20057,20000},{20058,20000},{20059,20000}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 600,
     finish_time = 10,
     wait_time = 600,
@@ -5250,8 +5458,8 @@ getRow(537)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5264,7 +5472,8 @@ getRow(537)->
     map_type = 0,
     buytime = 1,
     buycost = [{1,40}],
-    teamtype = 0
+    teamtype = 0,
+    fuhuo = 2
     };
 getRow(538)->
     #mapsettingCfg {
@@ -5299,7 +5508,7 @@ getRow(538)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{19999,21000},{20060,20000},{20061,20000},{20062,20000},{20063,20000},{20064,20000},{20065,20000},{20066,20000},{20067,20000},{20068,20000},{20069,20000}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 600,
     finish_time = 10,
     wait_time = 600,
@@ -5307,8 +5516,8 @@ getRow(538)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5321,7 +5530,8 @@ getRow(538)->
     map_type = 0,
     buytime = 1,
     buycost = [{1,40}],
-    teamtype = 0
+    teamtype = 0,
+    fuhuo = 2
     };
 getRow(539)->
     #mapsettingCfg {
@@ -5356,7 +5566,7 @@ getRow(539)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{19999,21000},{20070,20000},{20071,20000},{20072,20000},{20073,20000},{20074,20000},{20075,20000},{20076,20000},{20077,20000},{20078,20000},{20079,20000}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 600,
     finish_time = 10,
     wait_time = 600,
@@ -5364,8 +5574,8 @@ getRow(539)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5378,7 +5588,8 @@ getRow(539)->
     map_type = 0,
     buytime = 1,
     buycost = [{1,40}],
-    teamtype = 0
+    teamtype = 0,
+    fuhuo = 2
     };
 getRow(540)->
     #mapsettingCfg {
@@ -5412,17 +5623,17 @@ getRow(540)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 86400,
     finish_time = 10,
-    wait_time = 600,
+    wait_time = 0,
     belongto = 0,
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5434,14 +5645,15 @@ getRow(540)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(541)->
     #mapsettingCfg {
     id = 541,
     type = 3,
-    subtype = 24,
+    subtype = 25,
     name = "map527",
     desc = "游园惊梦",
     show_name = "游园惊梦",
@@ -5469,17 +5681,17 @@ getRow(541)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 86400,
     finish_time = 10,
-    wait_time = 600,
+    wait_time = 0,
     belongto = 0,
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5491,8 +5703,9 @@ getRow(541)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(550)->
     #mapsettingCfg {
@@ -5526,17 +5739,17 @@ getRow(550)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 86400,
     finish_time = 0,
-    wait_time = 600,
+    wait_time = 0,
     belongto = 0,
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5548,8 +5761,9 @@ getRow(550)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 1
+    buycost = [],
+    teamtype = 1,
+    fuhuo = 4
     };
 getRow(600)->
     #mapsettingCfg {
@@ -5585,7 +5799,7 @@ getRow(600)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{600,600}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -5593,8 +5807,8 @@ getRow(600)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -5606,66 +5820,9 @@ getRow(600)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
-    };
-getRow(601)->
-    #mapsettingCfg {
-    id = 601,
-    type = 2,
-    subtype = 0,
-    name = "map333",
-    desc = "安娜的魔宠",
-    show_name = "阿克勒港口",
-    instance_group = 0,
-    difficulty = 0,
-    res1 = "maps/map333_PathGrid.bytes",
-    res2 = "maps/map333_MapInfo.bytes",
-    useminimap = "map333",
-    cam_pitch = 30,
-    cam_yaw = 0,
-    role_direction = 0,
-    res3 = 1,
-    dropid = 0,
-    equipdropid = 0,
-    copyrand = 0,
-    playerEnter_MinLevel = 1,
-    playerEnter_MaxLevel = 150,
-    pkflag = 1,
-    music = "map320",
-    worldMapx = 9999,
-    worldMapy = 9999,
-    maxnum = 1,
-    if_single = 0,
-    daily_entercount = 0,
-    daily_entercount_group = 0,
-    daily_effectivecount = 0,
-    enter_Conditions = 0,
-    enter_Conditions_Param = 0,
-    scheduleConf = [{601,601}],
-    parallelScheduleConf = [0],
-    all_time = 3600,
-    finish_time = 3,
-    wait_time = 120,
-    belongto = 2,
-    need_view = 0,
-    kill_thelastofus = 0,
-    matching = 0,
-    monster_element = [0],
-    drop_show = [0],
-    onevsone = 1000,
-    dropnum = 0,
-    animation = 0,
-    daynight = 1,
-    useVitality = 0,
-    timestep = [0,0],
-    day = [0,0,0],
-    night = [0,0,0],
-    cam_yawmove = 180,
-    map_type = 0,
-    buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(1000)->
     #mapsettingCfg {
@@ -5700,8 +5857,8 @@ getRow(1000)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 345600,
     finish_time = 3,
     wait_time = 0,
@@ -5709,8 +5866,8 @@ getRow(1000)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5722,8 +5879,9 @@ getRow(1000)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(1001)->
     #mapsettingCfg {
@@ -5758,8 +5916,8 @@ getRow(1001)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 345600,
     finish_time = 3,
     wait_time = 0,
@@ -5767,8 +5925,8 @@ getRow(1001)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5780,8 +5938,9 @@ getRow(1001)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(1002)->
     #mapsettingCfg {
@@ -5816,8 +5975,8 @@ getRow(1002)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 345600,
     finish_time = 3,
     wait_time = 0,
@@ -5825,8 +5984,8 @@ getRow(1002)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5838,8 +5997,9 @@ getRow(1002)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(1003)->
     #mapsettingCfg {
@@ -5874,8 +6034,8 @@ getRow(1003)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 345600,
     finish_time = 3,
     wait_time = 0,
@@ -5883,8 +6043,8 @@ getRow(1003)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5896,8 +6056,9 @@ getRow(1003)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(1006)->
     #mapsettingCfg {
@@ -5932,8 +6093,8 @@ getRow(1006)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 345600,
     finish_time = 3,
     wait_time = 0,
@@ -5941,8 +6102,8 @@ getRow(1006)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -5954,8 +6115,9 @@ getRow(1006)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(1007)->
     #mapsettingCfg {
@@ -5990,8 +6152,8 @@ getRow(1007)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 345600,
     finish_time = 3,
     wait_time = 0,
@@ -5999,8 +6161,8 @@ getRow(1007)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -6012,8 +6174,9 @@ getRow(1007)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(5000)->
     #mapsettingCfg {
@@ -6049,7 +6212,7 @@ getRow(5000)->
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
     scheduleConf = [{5,5}],
-    parallelScheduleConf = [0],
+    parallelScheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 120,
@@ -6057,8 +6220,8 @@ getRow(5000)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 1000,
     dropnum = 0,
     animation = 0,
@@ -6070,8 +6233,9 @@ getRow(5000)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(6000)->
     #mapsettingCfg {
@@ -6105,7 +6269,7 @@ getRow(6000)->
     daily_effectivecount = 999,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
+    scheduleConf = [],
     all_time = 3600,
     finish_time = 3,
     wait_time = 5,
@@ -6113,8 +6277,8 @@ getRow(6000)->
     need_view = 0,
     kill_thelastofus = 1,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -6126,8 +6290,9 @@ getRow(6000)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(7000)->
     #mapsettingCfg {
@@ -6161,8 +6326,8 @@ getRow(7000)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 2710,
     finish_time = 5,
     wait_time = 0,
@@ -6170,8 +6335,8 @@ getRow(7000)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -6183,8 +6348,9 @@ getRow(7000)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
     };
 getRow(7001)->
     #mapsettingCfg {
@@ -6198,6 +6364,7 @@ getRow(7001)->
     difficulty = 0,
     res1 = "maps/map522_PathGrid.bytes",
     res2 = "maps/map522_MapInfo.bytes",
+    useminimap = "map522",
     cam_pitch = 30,
     cam_yaw = 10,
     role_direction = 0,
@@ -6218,8 +6385,8 @@ getRow(7001)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 43200,
     finish_time = 3,
     wait_time = 0,
@@ -6227,8 +6394,8 @@ getRow(7001)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 0,
     dropnum = 0,
     animation = 0,
@@ -6240,8 +6407,68 @@ getRow(7001)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    buycost = [0],
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 7
+    };
+getRow(7002)->
+    #mapsettingCfg {
+    id = 7002,
+    type = 3,
+    subtype = 14,
+    name = "map524",
+    desc = "军团战",
+    show_name = "军团战",
+    instance_group = 0,
+    difficulty = 0,
+    res1 = "maps/map524_PathGrid.bytes",
+    res2 = "maps/map524_MapInfo.bytes",
+    useminimap = "map524",
+    cam_pitch = 30,
+    cam_yaw = 10,
+    role_direction = 0,
+    res3 = 1,
+    dropid = 0,
+    equipdropid = 0,
+    copyrand = 0,
+    playerEnter_MinLevel = 1,
+    playerEnter_MaxLevel = 150,
+    pkflag = 2,
+    music = "map524",
+    worldMapx = 9999,
+    worldMapy = 9999,
+    maxnum = 200,
+    if_single = 0,
+    daily_entercount = 0,
+    daily_entercount_group = 0,
+    daily_effectivecount = 0,
+    enter_Conditions = 0,
+    enter_Conditions_Param = 0,
+    scheduleConf = [],
+    parallelScheduleConf = [],
+    all_time = 3600,
+    finish_time = 0,
+    wait_time = 0,
+    belongto = 0,
+    need_view = 0,
+    kill_thelastofus = 0,
+    matching = 0,
+    monster_element = [],
+    drop_show = [],
+    onevsone = 0,
+    dropnum = 0,
+    animation = 0,
+    daynight = 1,
+    useVitality = 0,
+    timestep = [0,0],
+    day = [0,0,0],
+    night = [0,0,0],
+    cam_yawmove = 180,
+    map_type = 0,
+    buytime = 0,
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 6
     };
 getRow(8001)->
     #mapsettingCfg {
@@ -6275,8 +6502,8 @@ getRow(8001)->
     daily_effectivecount = 0,
     enter_Conditions = 0,
     enter_Conditions_Param = 0,
-    scheduleConf = [0],
-    parallelScheduleConf = [0],
+    scheduleConf = [],
+    parallelScheduleConf = [],
     all_time = 40000,
     finish_time = 0,
     wait_time = 0,
@@ -6284,8 +6511,8 @@ getRow(8001)->
     need_view = 0,
     kill_thelastofus = 0,
     matching = 0,
-    monster_element = [0],
-    drop_show = [0],
+    monster_element = [],
+    drop_show = [],
     onevsone = 404,
     dropnum = 0,
     animation = 0,
@@ -6297,7 +6524,9 @@ getRow(8001)->
     cam_yawmove = 180,
     map_type = 0,
     buytime = 0,
-    teamtype = 0
+    buycost = [],
+    teamtype = 0,
+    fuhuo = 6
     };
 getRow(_)->[].
 
@@ -6307,6 +6536,7 @@ getKeyList()->[
     {3},
     {4},
     {5},
+    {6},
     {9},
     {10},
     {22},
@@ -6320,6 +6550,9 @@ getKeyList()->[
     {184},
     {201},
     {202},
+    {300},
+    {301},
+    {302},
     {303},
     {304},
     {305},
@@ -6328,8 +6561,6 @@ getKeyList()->[
     {308},
     {309},
     {310},
-    {311},
-    {312},
     {313},
     {314},
     {315},
@@ -6399,7 +6630,6 @@ getKeyList()->[
     {541},
     {550},
     {600},
-    {601},
     {1000},
     {1001},
     {1002},
@@ -6410,6 +6640,7 @@ getKeyList()->[
     {6000},
     {7000},
     {7001},
+    {7002},
     {8001}
     ].
 
@@ -6419,6 +6650,7 @@ get1KeyList()->[
     3,
     4,
     5,
+    6,
     9,
     10,
     22,
@@ -6432,6 +6664,9 @@ get1KeyList()->[
     184,
     201,
     202,
+    300,
+    301,
+    302,
     303,
     304,
     305,
@@ -6440,8 +6675,6 @@ get1KeyList()->[
     308,
     309,
     310,
-    311,
-    312,
     313,
     314,
     315,
@@ -6511,7 +6744,6 @@ get1KeyList()->[
     541,
     550,
     600,
-    601,
     1000,
     1001,
     1002,
@@ -6522,6 +6754,7 @@ get1KeyList()->[
     6000,
     7000,
     7001,
+    7002,
     8001
     ].
 

@@ -127,10 +127,10 @@ animationOver(GroupID, AN) ->
 				_ ->
 					skip
 			end;
-			%% 刷新子进度
-			%%	completeParallelScheduleConf(GroupID, ?CopyMapEndCond_CollectItem, ItemID, Number),
+		%% 刷新子进度
+		%%	completeParallelScheduleConf(GroupID, ?CopyMapEndCond_CollectItem, ItemID, Number),
 		_->
-		   skip
+			skip
 	end,
 	ok.
 
@@ -154,7 +154,7 @@ characterOver(GroupID, Schedule) ->
 					skip
 			end;
 		_->
-		   skip
+			skip
 	end,
 	ok.
 
@@ -549,15 +549,33 @@ getCopyMapProcessList(GroupID) ->
 	case getCopyMapScheduleConf(gameMapLogic:getMapID(GroupID), Plan) of
 		{_InitConf, SettleConf} when SettleConf > 0 ->
 			case getCfg:getCfgPStack(cfg_copymapScheduleSettle, SettleConf) of
+				#copymapScheduleSettleCfg{iskillall = 1, collect = C} ->
+					%% 需要全部杀完怪
+					NList = [#pk_CopyObj{targetID = 0,targetType = ?CopyMapKillAllMonster,curNumber = 0,allNumber = 0}],
+
+					%% 取当前采集的物品个数
+					case ?IsListValid(C) of
+						true ->
+							FunCollect =
+								fun({ItemID, NeedNumber}, List) ->
+									CurNumber = getCollectItemNum(GroupID, ItemID),
+									R = #pk_CopyObj{targetID = ItemID,targetType = ?CopyMapCollect,curNumber = CurNumber,allNumber = NeedNumber},
+									[R|List]
+								end,
+							lists:foldl(FunCollect, NList, C);
+						_ ->
+							NList
+					end;
 				#copymapScheduleSettleCfg{killmonster = K, collect = C, countdown = _CD, task = _T} ->
 					%% 取当前杀的怪物个数
 					NList = case ?IsListValid(K) of
 								true ->
-									Fun = fun({MonsterID, NeedNumber}, List) ->
-										CurNumber = getKilledMonsterNum(GroupID, MonsterID),
-										R = #pk_CopyObj{targetID = MonsterID,targetType = ?CopyMapMonster,curNumber = CurNumber,allNumber = NeedNumber},
-										[R|List]
-										  end,
+									Fun =
+										fun({MonsterID, NeedNumber}, List) ->
+											CurNumber = getKilledMonsterNum(GroupID, MonsterID),
+											R = #pk_CopyObj{targetID = MonsterID,targetType = ?CopyMapMonster,curNumber = CurNumber,allNumber = NeedNumber},
+											[R|List]
+										end,
 									lists:foldl(Fun, [], K);
 								_ ->
 									[]
@@ -566,11 +584,12 @@ getCopyMapProcessList(GroupID) ->
 					%% 取当前采集的物品个数
 					case ?IsListValid(C) of
 						true ->
-							FunCollect = fun({ItemID, NeedNumber}, List) ->
-								CurNumber = getCollectItemNum(GroupID, ItemID),
-								R = #pk_CopyObj{targetID = ItemID,targetType = ?CopyMapCollect,curNumber = CurNumber,allNumber = NeedNumber},
-								[R|List]
-										 end,
+							FunCollect =
+								fun({ItemID, NeedNumber}, List) ->
+									CurNumber = getCollectItemNum(GroupID, ItemID),
+									R = #pk_CopyObj{targetID = ItemID,targetType = ?CopyMapCollect,curNumber = CurNumber,allNumber = NeedNumber},
+									[R|List]
+								end,
 							lists:foldl(FunCollect, NList, C);
 						_ ->
 							NList
@@ -609,10 +628,12 @@ sendProcessToPlayer(GroupID) ->
 		#pk_GS2U_CopyMapProcess{} = R ->
 			MapPid = self(),
 			Ets = mapState:getMapPlayerEts(),
-			MatchSpec = ets:fun2ms(fun(Mapobject) when
-				Mapobject#recMapObject.mapPid =:= MapPid andalso Mapobject#recMapObject.groupID =:= GroupID ->
-				Mapobject#recMapObject.pid
-								   end),
+			MatchSpec = ets:fun2ms(
+				fun(MapObject) when
+					MapObject#recMapObject.mapPid =:= MapPid andalso MapObject#recMapObject.groupID =:= GroupID ->
+					MapObject#recMapObject.pid
+				end
+			),
 			List = myEts:selectEts(Ets, MatchSpec),
 			Fun =
 				fun(PID) ->

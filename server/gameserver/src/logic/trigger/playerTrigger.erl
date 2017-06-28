@@ -48,7 +48,8 @@ addGoodsAndMailByProgram(#triggerCfg{argu = [Source,Reason]} = Cfg, FromProgramA
 	{ok, ItemInfoList} = logicLib:getLogicArguValue(?LK_ADD_GOODS_AND_MAIL, FromProgramArgs),
 	GiveItemToPlayer =
 		fun({ItemId, ItemNumber, IsBindInt}) ->
-			Quality = case goods:getGoodsCfg(ItemId) of
+			GoodsCfg = goods:getGoodsCfg(ItemId),
+			Quality = case GoodsCfg of
 						  #equipmentCfg{qualityType = TempQuality} ->
 							  TempQuality;
 						  #itemCfg{} ->
@@ -57,21 +58,52 @@ addGoodsAndMailByProgram(#triggerCfg{argu = [Source,Reason]} = Cfg, FromProgramA
 							  ?ERROR_OUT("Error ItemId[~p] in ~p:give_goods_to_player", [ItemId, {?MODULE, ?LINE}]),
 							  throw("Error in getGoodsCfg")
 					  end,
-			Plog = #recPLogTSItem{
-				old = 0,
-				new = ItemNumber,
-				change = ItemNumber,
-				target = ?PLogTS_PlayerSelf,%%
-				source =Source,%%
-				gold = ItemId,
-				goldtype = 0,
-				changReason = Reason,
-				reasonParam = 0
-			},
-			IsBind = IsBindInt =:= 1,
-			playerPackage:addGoodsAndMail(ItemId, ItemNumber, IsBind, Quality, Plog)
+
+			CanSend =
+			case GoodsCfg of
+				#itemCfg{useType = ?Item_Use_PetMount, useParam1 = PetID, useParam2 = ChipID, useParam3 = ChipNumber} ->
+					case playerPet:checkPetIsExist(PetID) of
+						false -> true;
+						_ ->
+							%% 已经拥有该骑宠
+							PLog1 = #recPLogTSItem{
+								old = 0,
+								new = ChipNumber,
+								change = ChipNumber,
+								target = ?PLogTS_PlayerSelf,
+								source = ?PLogTS_PlayerSelf,
+								gold = 0,
+								goldtype = 0,
+								changReason = ?ItemSourcePetToChip,
+								reasonParam = Reason
+							},
+							playerPackage:addGoodsAndMail(ChipID, ChipNumber, true, 0, PLog1),
+							false
+					end;
+				_ -> true
+			end,
+
+			case CanSend of
+				true ->
+					PLog2 = #recPLogTSItem{
+						old = 0,
+						new = ItemNumber,
+						change = ItemNumber,
+						target = ?PLogTS_PlayerSelf,%%
+						source =Source,%%
+						gold = ItemId,
+						goldtype = 0,
+						changReason = Reason,
+						reasonParam = 0
+					},
+					IsBind = IsBindInt =:= 1,
+					playerPackage:addGoodsAndMail(ItemId, ItemNumber, IsBind, Quality, PLog2);
+				_ ->
+					skip
+			end,
+			ok
 		end,
-	[GiveItemToPlayer(E) || E <- ItemInfoList],
+	lists:foreach(GiveItemToPlayer, ItemInfoList),
 	triggerLib:getSuccessReturn(Cfg, FromProgramArgs, FromCondationArgu).
 
 %%通过程序给玩家发送道具邮件
@@ -97,7 +129,7 @@ sendGoodsMailByCfg(#triggerCfg{id = ID, argu = [MailTitleKey, MailContextKey, It
 			MailTitleFormatArgu=[],
 			MailContextFormatArgu=[]
 	end,
-	MailItems=playerMail:createMailGoods(ItemID, ItemNumber, IsBindInt =:= 0, RoleID, ItemSource) ,
+	MailItems=playerMail:createMailGoods(ItemID, ItemNumber, IsBindInt =:= 0, 0, RoleID, ItemSource) ,
 	Title = stringCfg:getString(MailTitleKey, MailTitleFormatArgu),
 	Content = stringCfg:getString(MailContextKey, MailContextFormatArgu),
 	mail:sendSystemMail(RoleID, Title, Content, MailItems, integer_to_list(ID)),

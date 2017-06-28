@@ -47,7 +47,7 @@ enterActiveMap(ActiveID,NpcCode) ->
 								true->
 									playerCopyMap:enterCopyMap(CopyMapID),
 %%									playerTask2:updateActiveTask(ActiveID),
-									playerTask:updateTask(?TaskType_Active, ActiveID),
+									playerTask:updateTask(?TaskSubType_Active, ActiveID),
 									playerliveness:livenessFinished(2,ActiveID,1);
 								ErrorCode->
 									playerMsg:sendErrorCodeMsg(ErrorCode)

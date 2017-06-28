@@ -153,9 +153,6 @@
 -define(EquipAffixOraRedRatio, 50).  %%套装定制几率
 -define(EquipAffixMaxCount, 6).      %%特殊装备和套装属性的最大个数
 
-%%精炼套装属性操作
--define(AddEquipProp,		0).  %%增加属性
--define(DelEquipProp,		1).  %%删除属性
 
 %%生成装备时附加属性前缀后缀组合
 -record(recAffixSplit,{

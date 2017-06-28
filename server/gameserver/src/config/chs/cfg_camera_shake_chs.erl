@@ -290,7 +290,7 @@ getRow(36)->
     id = 36,
     shake_type = 2,
     shake_time = 0.6,
-    shake_power = 1.5,
+    shake_power = 0.35,
     use_wave = 0
     };
 getRow(37)->
@@ -402,7 +402,7 @@ getRow(50)->
     id = 50,
     shake_type = 2,
     shake_time = 0.8,
-    shake_power = 2,
+    shake_power = 0.5,
     use_wave = 2
     };
 getRow(51)->
@@ -706,7 +706,7 @@ getRow(360)->
     id = 360,
     shake_type = 2,
     shake_time = 0.3,
-    shake_power = 2,
+    shake_power = 0.5,
     use_wave = 0
     };
 getRow(1000)->
@@ -714,7 +714,7 @@ getRow(1000)->
     id = 1000,
     shake_type = 2,
     shake_time = 1,
-    shake_power = 4,
+    shake_power = 1,
     use_wave = 0
     };
 getRow(1001)->
@@ -722,7 +722,7 @@ getRow(1001)->
     id = 1001,
     shake_type = 2,
     shake_time = 3,
-    shake_power = 3.5,
+    shake_power = 0.8,
     use_wave = 0
     };
 getRow(1002)->
@@ -730,7 +730,7 @@ getRow(1002)->
     id = 1002,
     shake_type = 2,
     shake_time = 0.5,
-    shake_power = 3,
+    shake_power = 0.7,
     use_wave = 0
     };
 getRow(1003)->
@@ -738,7 +738,7 @@ getRow(1003)->
     id = 1003,
     shake_type = 1,
     shake_time = 1,
-    shake_power = 4,
+    shake_power = 1,
     use_wave = 0
     };
 getRow(1004)->
@@ -746,7 +746,7 @@ getRow(1004)->
     id = 1004,
     shake_type = 2,
     shake_time = 1,
-    shake_power = 3.5,
+    shake_power = 0.8,
     use_wave = 0
     };
 getRow(1005)->
@@ -754,7 +754,7 @@ getRow(1005)->
     id = 1005,
     shake_type = 2,
     shake_time = 0.5,
-    shake_power = 3,
+    shake_power = 0.7,
     use_wave = 0
     };
 getRow(_)->[].

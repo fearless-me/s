@@ -77,7 +77,8 @@
 	destoryMap_goonCopyMap_Ack/1,
 	enterMapHook/1,
 	sendCopyMapDestroy2Client/0,
-	playAnimationOver/1
+	playAnimationOver/1,
+	show2/4	%% 客户端主动请求show2对话完成
 ]).
 
 -export([
@@ -98,6 +99,8 @@ init() ->
 			skip
 	end,
 	ok.
+
+
 %%进入场景的钩子
 enterMapHook({_, #recRequsetEnterMap{}}) ->
 	skip;
@@ -116,7 +119,9 @@ enterMapHook({MapID, MapPID}) ->
 			addCopyMapBuff();
 		_ ->
 			skip
-	end.
+	end,
+	playerWorldBossWar:onEnterMap(MapID),
+	playerliveness:livenessJoinEvent(MapID).
 
 completeCopyMapHook(CopyMapID) ->
 	playerState:setCurrentCopyMapDestroyTime(CopyMapID, undefined),
@@ -566,7 +571,7 @@ onPassCopyMap(Score, CopyMapID) when erlang:is_integer(Score) ->
 					completeCopyMapHook(CopyMapID),
 					%%更新完成副本的任务
 %%					playerTask2:updateCopyMapTask(CopyMapID),
-					playerTask:updateTask(?TaskType_CopyMap, CopyMapID),
+					playerTask:updateTask(?TaskSubType_CopyMap, CopyMapID),
 					%%发送伤害通知队友
 					SelfID = playerState:getRoleID(),
 					Hurt = playerState:getPlayerCopyMapStatHurt(),
@@ -581,7 +586,8 @@ onPassCopyMap(Score, CopyMapID) when erlang:is_integer(Score) ->
 %%					lists:foreach(Fun, TeamList),
 					teamInterface:sendMsg2TeamWithRoleID(SelfID, teamStatHurt, {SelfID, Hurt}, true),
 					case SubType of
-						?MapSubTypeNormal -> playerliveness:onFinishLiveness(?LivenessNormalCopy, 1);
+						?MapSubTypeNormal ->
+							playerliveness:onFinishLiveness(?LivenessNormalCopy, 1);
 						?MapSubTypeHeroCopy ->
 							playerliveness:onFinishLiveness(?LivenessHeroCopy, 1);
 						?MapSubTypeChanllengeCopy ->
@@ -589,10 +595,11 @@ onPassCopyMap(Score, CopyMapID) when erlang:is_integer(Score) ->
 						% 金币副本只是一个假装自己是副本的活动，此处不会被执行到，请移驾playerCopyMapReward:onPassCopyMap_MoneyDungeon
 						%?LivenessMoneyDungeon ->
 						%    playerliveness:onFinishLiveness(?LivenessMoneyDungeon, 1);
-						?MapSubTypeGuildOne ->
-							playerSevenDays:onMissionEvent(?SevenDayMission_Event_16, 1, ?MapSubTypeGuildOne),
-							playerliveness:onFinishLiveness(?LivenessArmyCopy, 1);
+%%						?MapSubTypeWorldBoss ->
+%%							playerSevenDays:onMissionEvent(?SevenDayMission_Event_16, 1, ?MapSubTypeWorldBoss),
+%%							playerliveness:onFinishLiveness(?LivenessArmyCopy, 1);
 						?MapSubTypeExpCopyMap ->
+							playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_LuoLi),
 							playerliveness:onFinishLiveness(?LivenessExpCopyMap, 1);
 						_ -> skip
 					end,
@@ -600,7 +607,7 @@ onPassCopyMap(Score, CopyMapID) when erlang:is_integer(Score) ->
 				?MapTypeCopyMap when IsAward =:= false ->
 					%%更新完成副本的任务
 %%					playerTask2:updateCopyMapTask(CopyMapID),
-					playerTask:updateTask(?TaskType_CopyMap, CopyMapID),
+					playerTask:updateTask(?TaskSubType_CopyMap, CopyMapID),
 					%%发送伤害通知队友
 					SelfID = playerState:getRoleID(),
 					Hurt = playerState:getPlayerCopyMapStatHurt(),
@@ -642,6 +649,7 @@ completeNormalCopyMap(Score, CopyMapID, SubType) ->
 
 	playerGuild:addPlayerContribute(?GuildSupplies_CopyMap, CopyMapID),
 
+	playerSevenDayAim:updateCondition(?SevenDayAim_CopyMap, [CopyMapID]),
 	ok.
 
 %% 完成了一次位面
@@ -655,7 +663,7 @@ completeBitMap(Score, BitMapID, SubType) ->
 
 	%% 更新任务
 %%	playerTask2:updateBitMapTask(BitMapID),
-	playerTask:updateTask(?TaskType_MiniCopy, BitMapID),
+	playerTask:updateTask(?TaskSubType_MiniCopy, BitMapID),
 	ok.
 
 %% 完成了一次时空裂痕
@@ -1153,3 +1161,20 @@ playAnimationOver(AN) ->
 		_ ->
 			skip
 	end.
+
+show2(MapID, Show2ID, GroupID, ScheduleID) ->
+	case playerState:getMapID() of
+		MapID ->
+			case playerState:getGroupID() of
+				GroupID ->
+					?DEBUG_OUT("[DebugForShow2] show2/4 hit MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w", [MapID, Show2ID, GroupID, ScheduleID]),
+					psMgr:sendMsg2PS(playerState:getMapPid(), show2, {GroupID, ScheduleID, Show2ID});
+				_ ->
+					?DEBUG_OUT("[DebugForShow2] show2/4 skip MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w", [MapID, Show2ID, GroupID, ScheduleID]),
+					skip
+			end;
+		_ ->
+			?DEBUG_OUT("[DebugForShow2] show2/4 skip MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w", [MapID, Show2ID, GroupID, ScheduleID]),
+			skip
+	end,
+	ok.

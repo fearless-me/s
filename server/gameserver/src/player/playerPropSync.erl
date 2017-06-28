@@ -150,6 +150,7 @@ init2() ->
 	setAny(?SerProp_ActiveFashionSuitList, []),
 	setInt64(?SerProp_Ladder1v1BestScort, 0),
 	setInt(?SerProp_LotterySys, 0),
+	setInt(?SerProp_DanceState, 0),
 
 	setInt(?SerProp_GoblinPayMoneyOnce, 0),
 	setInt(?SerProp_GoblinPayMoneyTenTimes, 0),
@@ -197,6 +198,20 @@ init2() ->
 
 	setAny(?SerProp_PetTerritoryVigor, [0, 0]),
 	setAny(?SerProp_PetTerritorySearch, []),
+
+	setAny(?SerProp_SevenDayAim_CopyMap, []),
+	setInt(?SerProp_SevenDayAim_WarriorTrial, 0),
+	setAny(?SerProp_SevenDayAim_FashionCount, []),
+	setInt64(?SerProp_SevenDayAim_Force, 0),
+	setAny(?SerProp_SevenDayAim_EquipQuality, [0, 0, 0, 0, 0, 0]),
+	setAny(?SerProp_SevenDayAim_PetAdd, []),
+	setInt(?SerProp_SevenDayAimTimeBegin, 0),
+	setAny(?SerProp_SevenDayAimAlreadyReward, []),
+	setAny(?SerProp_SevenDayAim_ProtectGod, 0),
+
+	setAny(?SerProp_SideTaskCompleteList, []),
+
+	setInt(?SerProp_ThirtyDayTimeAlreadyReward, 0),
 
 	ok.
 

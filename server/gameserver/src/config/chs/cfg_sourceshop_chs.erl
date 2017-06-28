@@ -11,6 +11,7 @@ getRow(1000)->
     groupid = 0,
     type = 1,
     sub_Groupid = 0,
+    name = "精炼石I",
     groupname = "普通兑换",
     itemid = 222,
     itemNumber = 1,
@@ -21,7 +22,7 @@ getRow(1000)->
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(1001)->
     #sourceshopCfg {
@@ -29,6 +30,7 @@ getRow(1001)->
     groupid = 0,
     type = 1,
     sub_Groupid = 0,
+    name = "精炼石II",
     groupname = "普通兑换",
     itemid = 224,
     itemNumber = 1,
@@ -39,7 +41,7 @@ getRow(1001)->
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(1002)->
     #sourceshopCfg {
@@ -47,6 +49,7 @@ getRow(1002)->
     groupid = 0,
     type = 1,
     sub_Groupid = 0,
+    name = "精炼石III",
     groupname = "普通兑换",
     itemid = 229,
     itemNumber = 1,
@@ -57,61 +60,7 @@ getRow(1002)->
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
-    };
-getRow(1003)->
-    #sourceshopCfg {
-    id = 1003,
-    groupid = 0,
-    type = 1,
-    sub_Groupid = 0,
-    groupname = "普通兑换",
-    itemid = 224,
-    itemNumber = 1,
-    ordernum = 4,
-    openlv = 1,
-    maxchange_day = 100,
-    payItem = [{222,6}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(1004)->
-    #sourceshopCfg {
-    id = 1004,
-    groupid = 0,
-    type = 1,
-    sub_Groupid = 0,
-    groupname = "普通兑换",
-    itemid = 229,
-    itemNumber = 1,
-    ordernum = 5,
-    openlv = 1,
-    maxchange_day = 100,
-    payItem = [{222,25}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(1005)->
-    #sourceshopCfg {
-    id = 1005,
-    groupid = 0,
-    type = 1,
-    sub_Groupid = 0,
-    groupname = "普通兑换",
-    itemid = 229,
-    itemNumber = 1,
-    ordernum = 6,
-    openlv = 1,
-    maxchange_day = 100,
-    payItem = [{224,5}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(1006)->
     #sourceshopCfg {
@@ -119,6 +68,7 @@ getRow(1006)->
     groupid = 0,
     type = 1,
     sub_Groupid = 0,
+    name = "兽灵精华I",
     groupname = "普通兑换",
     itemid = 2160,
     itemNumber = 1,
@@ -129,7 +79,7 @@ getRow(1006)->
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(1007)->
     #sourceshopCfg {
@@ -137,6 +87,7 @@ getRow(1007)->
     groupid = 0,
     type = 1,
     sub_Groupid = 0,
+    name = "兽灵精华II",
     groupname = "普通兑换",
     itemid = 2161,
     itemNumber = 1,
@@ -147,7 +98,7 @@ getRow(1007)->
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(1008)->
     #sourceshopCfg {
@@ -155,6 +106,7 @@ getRow(1008)->
     groupid = 0,
     type = 1,
     sub_Groupid = 0,
+    name = "兽灵精华III",
     groupname = "普通兑换",
     itemid = 2162,
     itemNumber = 1,
@@ -165,61 +117,26 @@ getRow(1008)->
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
-getRow(1009)->
+getRow(1013)->
     #sourceshopCfg {
-    id = 1009,
+    id = 1013,
     groupid = 0,
     type = 1,
     sub_Groupid = 0,
+    name = "银质婚戒",
     groupname = "普通兑换",
-    itemid = 2161,
+    itemid = 26000,
     itemNumber = 1,
-    ordernum = 10,
+    ordernum = 14,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{2160,6}],
+    maxchange_day = 1,
+    payItem = [{-1,50000}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
-    };
-getRow(1010)->
-    #sourceshopCfg {
-    id = 1010,
-    groupid = 0,
-    type = 1,
-    sub_Groupid = 0,
-    groupname = "普通兑换",
-    itemid = 2162,
-    itemNumber = 1,
-    ordernum = 11,
-    openlv = 1,
-    maxchange_day = 100,
-    payItem = [{2160,25}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(1012)->
-    #sourceshopCfg {
-    id = 1012,
-    groupid = 0,
-    type = 1,
-    sub_Groupid = 0,
-    groupname = "普通兑换",
-    itemid = 2162,
-    itemNumber = 1,
-    ordernum = 13,
-    openlv = 1,
-    maxchange_day = 100,
-    payItem = [{2161,5}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2000)->
     #sourceshopCfg {
@@ -227,18 +144,18 @@ getRow(2000)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "动感猪猪",
-    groupname = "碎片兑换",
-    itemid = 1811,
+    name = "兽灵精华I",
+    groupname = "硬币兑换",
+    itemid = 2160,
     itemNumber = 1,
     ordernum = 1,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1911,20}],
+    maxchange_day = 100,
+    payItem = [{2002,16}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2001)->
     #sourceshopCfg {
@@ -246,18 +163,18 @@ getRow(2001)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "爱心羊驼",
-    groupname = "碎片兑换",
-    itemid = 1812,
+    name = "兽灵精华II",
+    groupname = "硬币兑换",
+    itemid = 2161,
     itemNumber = 1,
     ordernum = 2,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1912,20}],
+    maxchange_day = 100,
+    payItem = [{2002,48}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2002)->
     #sourceshopCfg {
@@ -265,18 +182,18 @@ getRow(2002)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "独角兽",
-    groupname = "碎片兑换",
-    itemid = 1813,
+    name = "兽灵精华III",
+    groupname = "硬币兑换",
+    itemid = 2162,
     itemNumber = 1,
     ordernum = 3,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1913,20}],
+    maxchange_day = 100,
+    payItem = [{2002,144}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2003)->
     #sourceshopCfg {
@@ -284,18 +201,18 @@ getRow(2003)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "绒绒兔",
-    groupname = "碎片兑换",
-    itemid = 1821,
+    name = "骑宠提升石",
+    groupname = "硬币兑换",
+    itemid = 201,
     itemNumber = 1,
     ordernum = 4,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1921,25}],
+    maxchange_day = 100,
+    payItem = [{2002,50}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2004)->
     #sourceshopCfg {
@@ -303,18 +220,18 @@ getRow(2004)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "斗鱼",
-    groupname = "碎片兑换",
-    itemid = 1822,
+    name = "动感猪猪碎片",
+    groupname = "硬币兑换",
+    itemid = 1911,
     itemNumber = 1,
     ordernum = 5,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1922,25}],
+    maxchange_day = 100,
+    payItem = [{2002,20}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2005)->
     #sourceshopCfg {
@@ -322,18 +239,18 @@ getRow(2005)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "大尾巴狐",
-    groupname = "碎片兑换",
-    itemid = 1823,
+    name = "爱心羊驼碎片",
+    groupname = "硬币兑换",
+    itemid = 1912,
     itemNumber = 1,
     ordernum = 6,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1923,25}],
+    maxchange_day = 100,
+    payItem = [{2002,20}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2006)->
     #sourceshopCfg {
@@ -341,18 +258,18 @@ getRow(2006)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "机车狐",
-    groupname = "碎片兑换",
-    itemid = 1824,
+    name = "独角兽碎片",
+    groupname = "硬币兑换",
+    itemid = 1913,
     itemNumber = 1,
     ordernum = 7,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1924,25}],
+    maxchange_day = 100,
+    payItem = [{2002,20}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2007)->
     #sourceshopCfg {
@@ -360,18 +277,18 @@ getRow(2007)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "迷幻鸵鸟",
-    groupname = "碎片兑换",
-    itemid = 1825,
+    name = "绒绒兔碎片",
+    groupname = "硬币兑换",
+    itemid = 1921,
     itemNumber = 1,
     ordernum = 8,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1925,25}],
+    maxchange_day = 100,
+    payItem = [{2002,30}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2008)->
     #sourceshopCfg {
@@ -379,18 +296,18 @@ getRow(2008)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "沙滩鸵鸟",
-    groupname = "碎片兑换",
-    itemid = 1826,
+    name = "斗鱼碎片",
+    groupname = "硬币兑换",
+    itemid = 1922,
     itemNumber = 1,
     ordernum = 9,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1926,25}],
+    maxchange_day = 100,
+    payItem = [{2002,30}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2009)->
     #sourceshopCfg {
@@ -398,18 +315,18 @@ getRow(2009)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "飞行萝卜（双人）",
-    groupname = "碎片兑换",
-    itemid = 1827,
+    name = "大尾巴狐碎片",
+    groupname = "硬币兑换",
+    itemid = 1923,
     itemNumber = 1,
     ordernum = 10,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1927,25}],
+    maxchange_day = 100,
+    payItem = [{2002,30}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2010)->
     #sourceshopCfg {
@@ -417,18 +334,18 @@ getRow(2010)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "黄晶海马",
-    groupname = "碎片兑换",
-    itemid = 1831,
+    name = "机车狐碎片",
+    groupname = "硬币兑换",
+    itemid = 1924,
     itemNumber = 1,
     ordernum = 11,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1931,30}],
+    maxchange_day = 100,
+    payItem = [{2002,30}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2011)->
     #sourceshopCfg {
@@ -436,18 +353,18 @@ getRow(2011)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "海马绅士",
-    groupname = "碎片兑换",
-    itemid = 1832,
+    name = "迷幻鸵鸟碎片",
+    groupname = "硬币兑换",
+    itemid = 1925,
     itemNumber = 1,
     ordernum = 12,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1932,30}],
+    maxchange_day = 100,
+    payItem = [{2002,30}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2012)->
     #sourceshopCfg {
@@ -455,18 +372,18 @@ getRow(2012)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "小海龟",
-    groupname = "碎片兑换",
-    itemid = 1833,
+    name = "沙滩鸵鸟碎片",
+    groupname = "硬币兑换",
+    itemid = 1926,
     itemNumber = 1,
     ordernum = 13,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1933,30}],
+    maxchange_day = 100,
+    payItem = [{2002,30}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2013)->
     #sourceshopCfg {
@@ -474,18 +391,18 @@ getRow(2013)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "绵羊国王",
-    groupname = "碎片兑换",
-    itemid = 1834,
+    name = "飞行萝卜碎片",
+    groupname = "硬币兑换",
+    itemid = 1927,
     itemNumber = 1,
     ordernum = 14,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1934,30}],
+    maxchange_day = 100,
+    payItem = [{2002,30}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2014)->
     #sourceshopCfg {
@@ -493,18 +410,18 @@ getRow(2014)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "童话",
-    groupname = "碎片兑换",
-    itemid = 1835,
+    name = "黄晶海马碎片",
+    groupname = "硬币兑换",
+    itemid = 1931,
     itemNumber = 1,
     ordernum = 15,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1935,30}],
+    maxchange_day = 100,
+    payItem = [{2002,40}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2015)->
     #sourceshopCfg {
@@ -512,18 +429,18 @@ getRow(2015)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "粉红独角兽",
-    groupname = "碎片兑换",
-    itemid = 1836,
+    name = "海马绅士碎片",
+    groupname = "硬币兑换",
+    itemid = 1932,
     itemNumber = 1,
     ordernum = 16,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1936,30}],
+    maxchange_day = 100,
+    payItem = [{2002,40}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2016)->
     #sourceshopCfg {
@@ -531,18 +448,18 @@ getRow(2016)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "男款机车（双人）",
-    groupname = "碎片兑换",
-    itemid = 1837,
+    name = "小海龟碎片",
+    groupname = "硬币兑换",
+    itemid = 1933,
     itemNumber = 1,
     ordernum = 17,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1937,30}],
+    maxchange_day = 100,
+    payItem = [{2002,40}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2017)->
     #sourceshopCfg {
@@ -550,18 +467,18 @@ getRow(2017)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "女款机车（双人）",
-    groupname = "碎片兑换",
-    itemid = 1838,
+    name = "绵羊国王碎片",
+    groupname = "硬币兑换",
+    itemid = 1934,
     itemNumber = 1,
     ordernum = 18,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1938,30}],
+    maxchange_day = 100,
+    payItem = [{2002,40}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2018)->
     #sourceshopCfg {
@@ -569,18 +486,18 @@ getRow(2018)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "杂技大师",
-    groupname = "碎片兑换",
-    itemid = 1841,
+    name = "童话碎片",
+    groupname = "硬币兑换",
+    itemid = 1935,
     itemNumber = 1,
-    ordernum = 21,
+    ordernum = 19,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1941,40}],
+    maxchange_day = 100,
+    payItem = [{2002,40}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2019)->
     #sourceshopCfg {
@@ -588,18 +505,18 @@ getRow(2019)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "气球熊猫",
-    groupname = "碎片兑换",
-    itemid = 1842,
+    name = "粉红独角兽碎片",
+    groupname = "硬币兑换",
+    itemid = 1936,
     itemNumber = 1,
-    ordernum = 19,
+    ordernum = 20,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1942,30}],
+    maxchange_day = 100,
+    payItem = [{2002,40}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2020)->
     #sourceshopCfg {
@@ -607,18 +524,18 @@ getRow(2020)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "剑齿虎",
-    groupname = "碎片兑换",
-    itemid = 1843,
+    name = "男款机车碎片",
+    groupname = "硬币兑换",
+    itemid = 1937,
     itemNumber = 1,
-    ordernum = 20,
+    ordernum = 21,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1943,30}],
+    maxchange_day = 100,
+    payItem = [{2002,40}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2021)->
     #sourceshopCfg {
@@ -626,18 +543,18 @@ getRow(2021)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "贾斯丁.比象",
-    groupname = "碎片兑换",
-    itemid = 1844,
+    name = "女款机车碎片",
+    groupname = "硬币兑换",
+    itemid = 1938,
     itemNumber = 1,
     ordernum = 22,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1944,40}],
+    maxchange_day = 100,
+    payItem = [{2002,40}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2022)->
     #sourceshopCfg {
@@ -645,18 +562,18 @@ getRow(2022)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "杀象特",
-    groupname = "碎片兑换",
-    itemid = 1845,
+    name = "气球熊猫碎片",
+    groupname = "硬币兑换",
+    itemid = 1942,
     itemNumber = 1,
     ordernum = 23,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1945,40}],
+    maxchange_day = 100,
+    payItem = [{2002,40}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2023)->
     #sourceshopCfg {
@@ -664,18 +581,18 @@ getRow(2023)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "机械鸟",
-    groupname = "碎片兑换",
-    itemid = 1846,
+    name = "剑齿虎碎片",
+    groupname = "硬币兑换",
+    itemid = 1943,
     itemNumber = 1,
     ordernum = 24,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1946,40}],
+    maxchange_day = 100,
+    payItem = [{2002,40}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(2024)->
     #sourceshopCfg {
@@ -683,246 +600,18 @@ getRow(2024)->
     groupid = 1,
     type = 1,
     sub_Groupid = 0,
-    name = "西瓜鲨",
-    groupname = "碎片兑换",
-    itemid = 1847,
+    name = "杂技大师碎片",
+    groupname = "硬币兑换",
+    itemid = 1941,
     itemNumber = 1,
     ordernum = 25,
     openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1947,40}],
+    maxchange_day = 100,
+    payItem = [{2002,60}],
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
-    };
-getRow(2025)->
-    #sourceshopCfg {
-    id = 2025,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "钢铁狼",
-    groupname = "碎片兑换",
-    itemid = 1848,
-    itemNumber = 1,
-    ordernum = 26,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1948,40}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(2026)->
-    #sourceshopCfg {
-    id = 2026,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "天外飞碟",
-    groupname = "碎片兑换",
-    itemid = 1851,
-    itemNumber = 1,
-    ordernum = 31,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1951,50}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(2027)->
-    #sourceshopCfg {
-    id = 2027,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "机甲乔巴",
-    groupname = "碎片兑换",
-    itemid = 1852,
-    itemNumber = 1,
-    ordernum = 32,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1952,50}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(2028)->
-    #sourceshopCfg {
-    id = 2028,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "翼狮",
-    groupname = "碎片兑换",
-    itemid = 1853,
-    itemNumber = 1,
-    ordernum = 33,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1953,50}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(2029)->
-    #sourceshopCfg {
-    id = 2029,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "风伯",
-    groupname = "碎片兑换",
-    itemid = 1854,
-    itemNumber = 1,
-    ordernum = 27,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1954,40}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(2030)->
-    #sourceshopCfg {
-    id = 2030,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "寒冰踏焰",
-    groupname = "碎片兑换",
-    itemid = 1855,
-    itemNumber = 1,
-    ordernum = 28,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1955,40}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(2031)->
-    #sourceshopCfg {
-    id = 2031,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "鲸梦（双人）",
-    groupname = "碎片兑换",
-    itemid = 1856,
-    itemNumber = 1,
-    ordernum = 34,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1956,50}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(2032)->
-    #sourceshopCfg {
-    id = 2032,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "雪橇车（双人）",
-    groupname = "碎片兑换",
-    itemid = 1857,
-    itemNumber = 1,
-    ordernum = 29,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1957,40}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(2033)->
-    #sourceshopCfg {
-    id = 2033,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "贝斯",
-    groupname = "碎片兑换",
-    itemid = 1858,
-    itemNumber = 1,
-    ordernum = 30,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1958,40}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(2034)->
-    #sourceshopCfg {
-    id = 2034,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "机械游龙（双人）",
-    groupname = "碎片兑换",
-    itemid = 1859,
-    itemNumber = 1,
-    ordernum = 35,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1959,50}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(2035)->
-    #sourceshopCfg {
-    id = 2035,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "大钻风",
-    groupname = "碎片兑换",
-    itemid = 1860,
-    itemNumber = 1,
-    ordernum = 36,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1960,50}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(2037)->
-    #sourceshopCfg {
-    id = 2037,
-    groupid = 1,
-    type = 1,
-    sub_Groupid = 0,
-    name = "大黄蜂（双人）",
-    groupname = "碎片兑换",
-    itemid = 1862,
-    itemNumber = 1,
-    ordernum = 38,
-    openlv = 1,
-    maxchange_day = 20,
-    payItem = [{1962,50}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(3000)->
     #sourceshopCfg {
@@ -930,8 +619,8 @@ getRow(3000)->
     groupid = 2,
     type = 1,
     sub_Groupid = 0,
-    name = "动感猪猪",
-    groupname = "硬币兑换",
+    name = "请勿删除，groupid2占位置",
+    groupname = "兑换第三页签",
     itemid = 1811,
     itemNumber = 1,
     ordernum = 1,
@@ -941,691 +630,7 @@ getRow(3000)->
     maxchange = -1,
     level = 1,
     quality = 0,
-    material_ui = [0]
-    };
-getRow(3001)->
-    #sourceshopCfg {
-    id = 3001,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "爱心羊驼",
-    groupname = "硬币兑换",
-    itemid = 1812,
-    itemNumber = 1,
-    ordernum = 2,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,50}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3002)->
-    #sourceshopCfg {
-    id = 3002,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "独角兽",
-    groupname = "硬币兑换",
-    itemid = 1813,
-    itemNumber = 1,
-    ordernum = 3,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,50}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3003)->
-    #sourceshopCfg {
-    id = 3003,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "绒绒兔",
-    groupname = "硬币兑换",
-    itemid = 1821,
-    itemNumber = 1,
-    ordernum = 4,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,100}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3004)->
-    #sourceshopCfg {
-    id = 3004,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "斗鱼",
-    groupname = "硬币兑换",
-    itemid = 1822,
-    itemNumber = 1,
-    ordernum = 5,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,100}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3005)->
-    #sourceshopCfg {
-    id = 3005,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "大尾巴狐",
-    groupname = "硬币兑换",
-    itemid = 1823,
-    itemNumber = 1,
-    ordernum = 6,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,100}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3006)->
-    #sourceshopCfg {
-    id = 3006,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "机车狐",
-    groupname = "硬币兑换",
-    itemid = 1824,
-    itemNumber = 1,
-    ordernum = 7,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,100}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3007)->
-    #sourceshopCfg {
-    id = 3007,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "迷幻鸵鸟",
-    groupname = "硬币兑换",
-    itemid = 1825,
-    itemNumber = 1,
-    ordernum = 8,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,100}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3008)->
-    #sourceshopCfg {
-    id = 3008,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "沙滩鸵鸟",
-    groupname = "硬币兑换",
-    itemid = 1826,
-    itemNumber = 1,
-    ordernum = 9,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,100}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3009)->
-    #sourceshopCfg {
-    id = 3009,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "飞行萝卜（双人）",
-    groupname = "硬币兑换",
-    itemid = 1827,
-    itemNumber = 1,
-    ordernum = 10,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,100}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3010)->
-    #sourceshopCfg {
-    id = 3010,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "黄晶海马",
-    groupname = "硬币兑换",
-    itemid = 1831,
-    itemNumber = 1,
-    ordernum = 11,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,200}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3011)->
-    #sourceshopCfg {
-    id = 3011,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "海马绅士",
-    groupname = "硬币兑换",
-    itemid = 1832,
-    itemNumber = 1,
-    ordernum = 12,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,200}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3012)->
-    #sourceshopCfg {
-    id = 3012,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "小海龟",
-    groupname = "硬币兑换",
-    itemid = 1833,
-    itemNumber = 1,
-    ordernum = 13,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,200}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3013)->
-    #sourceshopCfg {
-    id = 3013,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "绵羊国王",
-    groupname = "硬币兑换",
-    itemid = 1834,
-    itemNumber = 1,
-    ordernum = 14,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,200}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3014)->
-    #sourceshopCfg {
-    id = 3014,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "童话",
-    groupname = "硬币兑换",
-    itemid = 1835,
-    itemNumber = 1,
-    ordernum = 15,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,200}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3015)->
-    #sourceshopCfg {
-    id = 3015,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "粉红独角兽",
-    groupname = "硬币兑换",
-    itemid = 1836,
-    itemNumber = 1,
-    ordernum = 16,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,200}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3016)->
-    #sourceshopCfg {
-    id = 3016,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "男款机车（双人）",
-    groupname = "硬币兑换",
-    itemid = 1837,
-    itemNumber = 1,
-    ordernum = 17,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,200}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3017)->
-    #sourceshopCfg {
-    id = 3017,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "女款机车（双人）",
-    groupname = "硬币兑换",
-    itemid = 1838,
-    itemNumber = 1,
-    ordernum = 18,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,200}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3018)->
-    #sourceshopCfg {
-    id = 3018,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "杂技大师",
-    groupname = "硬币兑换",
-    itemid = 1841,
-    itemNumber = 1,
-    ordernum = 22,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,800}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3019)->
-    #sourceshopCfg {
-    id = 3019,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "气球熊猫",
-    groupname = "硬币兑换",
-    itemid = 1842,
-    itemNumber = 1,
-    ordernum = 20,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,200}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3020)->
-    #sourceshopCfg {
-    id = 3020,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "剑齿虎",
-    groupname = "硬币兑换",
-    itemid = 1843,
-    itemNumber = 1,
-    ordernum = 21,
-    openlv = 1,
-    maxchange_day = 1,
-    payItem = [{2002,200}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3021)->
-    #sourceshopCfg {
-    id = 3021,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "贾斯丁.比象",
-    groupname = "硬币兑换",
-    itemid = 1844,
-    itemNumber = 1,
-    ordernum = 23,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,800}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3022)->
-    #sourceshopCfg {
-    id = 3022,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "杀象特",
-    groupname = "硬币兑换",
-    itemid = 1845,
-    itemNumber = 1,
-    ordernum = 24,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,800}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3023)->
-    #sourceshopCfg {
-    id = 3023,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "机械鸟",
-    groupname = "硬币兑换",
-    itemid = 1846,
-    itemNumber = 1,
-    ordernum = 25,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,800}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3024)->
-    #sourceshopCfg {
-    id = 3024,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "西瓜鲨",
-    groupname = "硬币兑换",
-    itemid = 1847,
-    itemNumber = 1,
-    ordernum = 26,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,800}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3025)->
-    #sourceshopCfg {
-    id = 3025,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "钢铁狼",
-    groupname = "硬币兑换",
-    itemid = 1848,
-    itemNumber = 1,
-    ordernum = 27,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,800}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3026)->
-    #sourceshopCfg {
-    id = 3026,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "天外飞碟",
-    groupname = "硬币兑换",
-    itemid = 1851,
-    itemNumber = 1,
-    ordernum = 32,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,5000}],
-    maxchange = -1,
-    level = 100,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3027)->
-    #sourceshopCfg {
-    id = 3027,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "机甲乔巴",
-    groupname = "硬币兑换",
-    itemid = 1852,
-    itemNumber = 1,
-    ordernum = 33,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,5000}],
-    maxchange = -1,
-    level = 100,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3028)->
-    #sourceshopCfg {
-    id = 3028,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "翼狮",
-    groupname = "硬币兑换",
-    itemid = 1853,
-    itemNumber = 1,
-    ordernum = 34,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,5000}],
-    maxchange = -1,
-    level = 100,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3029)->
-    #sourceshopCfg {
-    id = 3029,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "风伯",
-    groupname = "硬币兑换",
-    itemid = 1854,
-    itemNumber = 1,
-    ordernum = 28,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,800}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3030)->
-    #sourceshopCfg {
-    id = 3030,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "寒冰踏焰",
-    groupname = "硬币兑换",
-    itemid = 1855,
-    itemNumber = 1,
-    ordernum = 29,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,800}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3031)->
-    #sourceshopCfg {
-    id = 3031,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "鲸梦（双人）",
-    groupname = "硬币兑换",
-    itemid = 1856,
-    itemNumber = 1,
-    ordernum = 35,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,5000}],
-    maxchange = -1,
-    level = 100,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3032)->
-    #sourceshopCfg {
-    id = 3032,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "雪橇车（双人）",
-    groupname = "硬币兑换",
-    itemid = 1857,
-    itemNumber = 1,
-    ordernum = 30,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,800}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3033)->
-    #sourceshopCfg {
-    id = 3033,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "贝斯",
-    groupname = "硬币兑换",
-    itemid = 1858,
-    itemNumber = 1,
-    ordernum = 31,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,800}],
-    maxchange = -1,
-    level = 1,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3034)->
-    #sourceshopCfg {
-    id = 3034,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "机械游龙（双人）",
-    groupname = "硬币兑换",
-    itemid = 1859,
-    itemNumber = 1,
-    ordernum = 36,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,5000}],
-    maxchange = -1,
-    level = 100,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3035)->
-    #sourceshopCfg {
-    id = 3035,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "大钻风",
-    groupname = "硬币兑换",
-    itemid = 1860,
-    itemNumber = 1,
-    ordernum = 37,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,5000}],
-    maxchange = -1,
-    level = 100,
-    quality = 0,
-    material_ui = [0]
-    };
-getRow(3037)->
-    #sourceshopCfg {
-    id = 3037,
-    groupid = 2,
-    type = 1,
-    sub_Groupid = 0,
-    name = "大黄蜂（双人）",
-    groupname = "硬币兑换",
-    itemid = 1862,
-    itemNumber = 1,
-    ordernum = 39,
-    openlv = 100,
-    maxchange_day = 1,
-    payItem = [{2002,5000}],
-    maxchange = -1,
-    level = 100,
-    quality = 0,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(4000)->
     #sourceshopCfg {
@@ -1633,19 +638,18 @@ getRow(4000)->
     groupid = 3,
     type = 0,
     sub_Groupid = 1,
-    name = "请勿删除，占位置",
+    name = "请勿删除，groupid3占位置",
     groupname = "装备兑换",
     itemid = 31027,
     itemNumber = 1,
     ordernum = 1,
-    openlv = 30,
+    openlv = 1,
     maxchange_day = 1,
-    payItem = [{1,10000},{7000,200}],
+    payItem = [{2002,50}],
     maxchange = -1,
-    level = 30,
+    level = 1,
     quality = 3,
-    occupation = [101,111,112,121,122,123],
-    material_ui = [{-2,22,4},{7000,22,31}]
+    material_ui = []
     };
 getRow(5003)->
     #sourceshopCfg {
@@ -1663,7 +667,7 @@ getRow(5003)->
     payItem = [{-11,4}],
     maxchange = -1,
     level = 30,
-    quality = 3,
+    quality = 0,
     material_ui = [{-11,22,21}]
     };
 getRow(5004)->
@@ -1682,7 +686,7 @@ getRow(5004)->
     payItem = [{-11,6}],
     maxchange = -1,
     level = 30,
-    quality = 3,
+    quality = 0,
     material_ui = [{-11,22,21}]
     };
 getRow(5005)->
@@ -1701,7 +705,7 @@ getRow(5005)->
     payItem = [{-11,10}],
     maxchange = -1,
     level = 30,
-    quality = 3,
+    quality = 0,
     material_ui = [{-11,22,21}]
     };
 getRow(5006)->
@@ -1720,7 +724,7 @@ getRow(5006)->
     payItem = [{-11,25}],
     maxchange = -1,
     level = 30,
-    quality = 3,
+    quality = 0,
     material_ui = [{-11,22,21}]
     };
 getRow(5007)->
@@ -1739,7 +743,7 @@ getRow(5007)->
     payItem = [{-11,55}],
     maxchange = -1,
     level = 30,
-    quality = 3,
+    quality = 0,
     material_ui = [{-11,22,21}]
     };
 getRow(5100)->
@@ -1758,7 +762,7 @@ getRow(5100)->
     payItem = [{-11,20000}],
     maxchange = -1,
     level = 1,
-    quality = 4,
+    quality = 0,
     occupation = [101,111,112,121,122,123],
     material_ui = [{-11,22,21}]
     };
@@ -1778,7 +782,7 @@ getRow(5101)->
     payItem = [{-11,20000}],
     maxchange = -1,
     level = 1,
-    quality = 4,
+    quality = 0,
     occupation = [201,211,212,221,222,223],
     material_ui = [{-11,22,21}]
     };
@@ -1798,7 +802,7 @@ getRow(5102)->
     payItem = [{-11,20000}],
     maxchange = -1,
     level = 1,
-    quality = 4,
+    quality = 0,
     occupation = [301,311,312,321,322,323],
     material_ui = [{-11,22,21}]
     };
@@ -1818,7 +822,7 @@ getRow(6001)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6002)->
@@ -1837,7 +841,7 @@ getRow(6002)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6003)->
@@ -1856,7 +860,7 @@ getRow(6003)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6006)->
@@ -1875,7 +879,7 @@ getRow(6006)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6007)->
@@ -1894,7 +898,7 @@ getRow(6007)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6008)->
@@ -1913,7 +917,7 @@ getRow(6008)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6011)->
@@ -1932,7 +936,7 @@ getRow(6011)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6013)->
@@ -1951,7 +955,7 @@ getRow(6013)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6015)->
@@ -1970,7 +974,7 @@ getRow(6015)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6018)->
@@ -1989,7 +993,7 @@ getRow(6018)->
     payItem = [{-3,1200}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6019)->
@@ -2008,7 +1012,7 @@ getRow(6019)->
     payItem = [{-3,1200}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6020)->
@@ -2027,7 +1031,7 @@ getRow(6020)->
     payItem = [{-3,1200}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6021)->
@@ -2046,7 +1050,7 @@ getRow(6021)->
     payItem = [{-3,1200}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6022)->
@@ -2065,7 +1069,7 @@ getRow(6022)->
     payItem = [{-3,1200}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6025)->
@@ -2084,7 +1088,7 @@ getRow(6025)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6026)->
@@ -2103,7 +1107,7 @@ getRow(6026)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6027)->
@@ -2122,7 +1126,7 @@ getRow(6027)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6028)->
@@ -2141,7 +1145,7 @@ getRow(6028)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6029)->
@@ -2160,7 +1164,7 @@ getRow(6029)->
     payItem = [{20,1275}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6032)->
@@ -2179,7 +1183,7 @@ getRow(6032)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6033)->
@@ -2198,7 +1202,7 @@ getRow(6033)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6034)->
@@ -2217,7 +1221,7 @@ getRow(6034)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6035)->
@@ -2236,7 +1240,7 @@ getRow(6035)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6036)->
@@ -2255,7 +1259,7 @@ getRow(6036)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6039)->
@@ -2274,7 +1278,7 @@ getRow(6039)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6040)->
@@ -2293,7 +1297,7 @@ getRow(6040)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6041)->
@@ -2312,7 +1316,7 @@ getRow(6041)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6042)->
@@ -2331,7 +1335,7 @@ getRow(6042)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6043)->
@@ -2350,7 +1354,7 @@ getRow(6043)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6046)->
@@ -2369,7 +1373,7 @@ getRow(6046)->
     payItem = [{20,680}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6047)->
@@ -2388,7 +1392,7 @@ getRow(6047)->
     payItem = [{20,680}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6048)->
@@ -2407,7 +1411,7 @@ getRow(6048)->
     payItem = [{20,680}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6049)->
@@ -2426,7 +1430,7 @@ getRow(6049)->
     payItem = [{20,680}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6050)->
@@ -2445,7 +1449,7 @@ getRow(6050)->
     payItem = [{20,680}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6053)->
@@ -2464,7 +1468,7 @@ getRow(6053)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6054)->
@@ -2483,7 +1487,7 @@ getRow(6054)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6055)->
@@ -2502,7 +1506,7 @@ getRow(6055)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6056)->
@@ -2521,7 +1525,7 @@ getRow(6056)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6057)->
@@ -2540,7 +1544,7 @@ getRow(6057)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6067)->
@@ -2559,7 +1563,7 @@ getRow(6067)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6068)->
@@ -2578,7 +1582,7 @@ getRow(6068)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6069)->
@@ -2597,7 +1601,7 @@ getRow(6069)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6070)->
@@ -2616,7 +1620,7 @@ getRow(6070)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6071)->
@@ -2635,7 +1639,7 @@ getRow(6071)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6074)->
@@ -2651,10 +1655,10 @@ getRow(6074)->
     ordernum = 1,
     openlv = 1,
     maxchange_day = 1,
-    payItem = [{20,1275}],
+    payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6075)->
@@ -2670,10 +1674,10 @@ getRow(6075)->
     ordernum = 1,
     openlv = 1,
     maxchange_day = 1,
-    payItem = [{20,1275}],
+    payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6076)->
@@ -2689,10 +1693,10 @@ getRow(6076)->
     ordernum = 1,
     openlv = 1,
     maxchange_day = 1,
-    payItem = [{20,1275}],
+    payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6077)->
@@ -2708,10 +1712,10 @@ getRow(6077)->
     ordernum = 1,
     openlv = 1,
     maxchange_day = 1,
-    payItem = [{20,1275}],
+    payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6078)->
@@ -2727,10 +1731,10 @@ getRow(6078)->
     ordernum = 1,
     openlv = 1,
     maxchange_day = 1,
-    payItem = [{20,1275}],
+    payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6081)->
@@ -2749,7 +1753,7 @@ getRow(6081)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6082)->
@@ -2768,7 +1772,7 @@ getRow(6082)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6083)->
@@ -2787,7 +1791,7 @@ getRow(6083)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6084)->
@@ -2806,7 +1810,7 @@ getRow(6084)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6085)->
@@ -2825,7 +1829,7 @@ getRow(6085)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6088)->
@@ -2844,7 +1848,7 @@ getRow(6088)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6089)->
@@ -2863,7 +1867,7 @@ getRow(6089)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6090)->
@@ -2882,7 +1886,7 @@ getRow(6090)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6091)->
@@ -2901,7 +1905,7 @@ getRow(6091)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6092)->
@@ -2920,7 +1924,7 @@ getRow(6092)->
     payItem = [{-3,2800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6095)->
@@ -2939,7 +1943,7 @@ getRow(6095)->
     payItem = [{-3,800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6096)->
@@ -2958,7 +1962,7 @@ getRow(6096)->
     payItem = [{-3,800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6097)->
@@ -2977,7 +1981,7 @@ getRow(6097)->
     payItem = [{-3,800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6098)->
@@ -2996,7 +2000,7 @@ getRow(6098)->
     payItem = [{-3,800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6099)->
@@ -3015,7 +2019,7 @@ getRow(6099)->
     payItem = [{-3,800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6102)->
@@ -3034,7 +2038,7 @@ getRow(6102)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6103)->
@@ -3053,7 +2057,7 @@ getRow(6103)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6104)->
@@ -3072,7 +2076,7 @@ getRow(6104)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6105)->
@@ -3091,7 +2095,7 @@ getRow(6105)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6106)->
@@ -3110,7 +2114,7 @@ getRow(6106)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6109)->
@@ -3129,7 +2133,7 @@ getRow(6109)->
     payItem = [{20,680}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6110)->
@@ -3148,7 +2152,7 @@ getRow(6110)->
     payItem = [{20,680}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6111)->
@@ -3167,7 +2171,7 @@ getRow(6111)->
     payItem = [{20,680}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6112)->
@@ -3186,7 +2190,7 @@ getRow(6112)->
     payItem = [{20,680}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6113)->
@@ -3205,7 +2209,7 @@ getRow(6113)->
     payItem = [{20,680}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6116)->
@@ -3224,7 +2228,7 @@ getRow(6116)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6117)->
@@ -3243,7 +2247,7 @@ getRow(6117)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6118)->
@@ -3262,7 +2266,7 @@ getRow(6118)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6119)->
@@ -3281,7 +2285,7 @@ getRow(6119)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6120)->
@@ -3300,7 +2304,7 @@ getRow(6120)->
     payItem = [{20,255}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6123)->
@@ -3319,7 +2323,7 @@ getRow(6123)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6124)->
@@ -3338,7 +2342,7 @@ getRow(6124)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6125)->
@@ -3357,7 +2361,7 @@ getRow(6125)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6126)->
@@ -3376,7 +2380,7 @@ getRow(6126)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(6127)->
@@ -3395,7 +2399,7 @@ getRow(6127)->
     payItem = [{-3,3800}],
     maxchange = 1,
     level = 1,
-    quality = 3,
+    quality = 0,
     material_ui = [{-2,22,4},{7022,22,31}]
     };
 getRow(7001)->
@@ -3404,18 +2408,18 @@ getRow(7001)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "动感猪猪",
+    name = "动感猪猪碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 10,
     ordernum = 1,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1811,1}],
+    maxchange_day = 9999,
+    payItem = [{1911,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7002)->
     #sourceshopCfg {
@@ -3423,18 +2427,18 @@ getRow(7002)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "爱心羊驼",
+    name = "爱心羊驼碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 10,
     ordernum = 2,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1812,1}],
+    maxchange_day = 9999,
+    payItem = [{1912,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7003)->
     #sourceshopCfg {
@@ -3442,18 +2446,18 @@ getRow(7003)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "独角兽",
+    name = "独角兽碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 10,
     ordernum = 3,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1813,1}],
+    maxchange_day = 9999,
+    payItem = [{1913,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7004)->
     #sourceshopCfg {
@@ -3461,18 +2465,18 @@ getRow(7004)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "绒绒兔",
+    name = "绒绒兔碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 20,
     ordernum = 4,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1821,1}],
+    maxchange_day = 9999,
+    payItem = [{1921,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7005)->
     #sourceshopCfg {
@@ -3480,18 +2484,18 @@ getRow(7005)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "斗鱼",
+    name = "斗鱼碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 20,
     ordernum = 5,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1822,1}],
+    maxchange_day = 9999,
+    payItem = [{1922,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7006)->
     #sourceshopCfg {
@@ -3499,18 +2503,18 @@ getRow(7006)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "大尾巴狐",
+    name = "大尾巴狐碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 20,
     ordernum = 6,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1823,1}],
+    maxchange_day = 9999,
+    payItem = [{1923,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7007)->
     #sourceshopCfg {
@@ -3518,18 +2522,18 @@ getRow(7007)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "机车狐",
+    name = "机车狐碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 20,
     ordernum = 7,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1824,1}],
+    maxchange_day = 9999,
+    payItem = [{1924,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7008)->
     #sourceshopCfg {
@@ -3537,18 +2541,18 @@ getRow(7008)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "迷幻鸵鸟",
+    name = "迷幻鸵鸟碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 20,
     ordernum = 8,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1825,1}],
+    maxchange_day = 9999,
+    payItem = [{1925,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7009)->
     #sourceshopCfg {
@@ -3556,18 +2560,18 @@ getRow(7009)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "沙滩鸵鸟",
+    name = "沙滩鸵鸟碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 20,
     ordernum = 9,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1826,1}],
+    maxchange_day = 9999,
+    payItem = [{1926,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7010)->
     #sourceshopCfg {
@@ -3575,18 +2579,18 @@ getRow(7010)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "飞行萝卜（双人）",
+    name = "飞行萝卜碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 20,
     ordernum = 10,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1827,1}],
+    maxchange_day = 9999,
+    payItem = [{1927,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7011)->
     #sourceshopCfg {
@@ -3594,18 +2598,18 @@ getRow(7011)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "黄晶海马",
+    name = "黄晶海马碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 40,
     ordernum = 11,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1831,1}],
+    maxchange_day = 9999,
+    payItem = [{1931,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7012)->
     #sourceshopCfg {
@@ -3613,18 +2617,18 @@ getRow(7012)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "海马绅士",
+    name = "海马绅士碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 40,
     ordernum = 12,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1832,1}],
+    maxchange_day = 9999,
+    payItem = [{1932,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7013)->
     #sourceshopCfg {
@@ -3632,18 +2636,18 @@ getRow(7013)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "小海龟",
+    name = "小海龟碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 40,
     ordernum = 13,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1833,1}],
+    maxchange_day = 9999,
+    payItem = [{1933,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7014)->
     #sourceshopCfg {
@@ -3651,18 +2655,18 @@ getRow(7014)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "绵羊国王",
+    name = "绵羊国王碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 40,
     ordernum = 14,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1834,1}],
+    maxchange_day = 9999,
+    payItem = [{1934,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7015)->
     #sourceshopCfg {
@@ -3670,18 +2674,18 @@ getRow(7015)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "童话",
+    name = "童话碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 40,
     ordernum = 15,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1835,1}],
+    maxchange_day = 9999,
+    payItem = [{1935,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7016)->
     #sourceshopCfg {
@@ -3689,18 +2693,18 @@ getRow(7016)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "粉红独角兽",
+    name = "粉红独角兽碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 40,
     ordernum = 16,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1836,1}],
+    maxchange_day = 9999,
+    payItem = [{1936,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7017)->
     #sourceshopCfg {
@@ -3708,18 +2712,18 @@ getRow(7017)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "男款机车（双人）",
+    name = "男款机车碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 40,
     ordernum = 17,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1837,1}],
+    maxchange_day = 9999,
+    payItem = [{1937,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7018)->
     #sourceshopCfg {
@@ -3727,18 +2731,18 @@ getRow(7018)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "女款机车（双人）",
+    name = "女款机车碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 40,
     ordernum = 18,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1838,1}],
+    maxchange_day = 9999,
+    payItem = [{1938,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7019)->
     #sourceshopCfg {
@@ -3746,18 +2750,18 @@ getRow(7019)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "杂技大师",
+    name = "杂技大师碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 160,
     ordernum = 21,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1841,1}],
+    maxchange_day = 9999,
+    payItem = [{1941,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7020)->
     #sourceshopCfg {
@@ -3765,18 +2769,18 @@ getRow(7020)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "气球熊猫",
+    name = "气球熊猫碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 40,
     ordernum = 19,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1842,1}],
+    maxchange_day = 9999,
+    payItem = [{1942,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7021)->
     #sourceshopCfg {
@@ -3784,18 +2788,18 @@ getRow(7021)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "剑齿虎",
+    name = "剑齿虎碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 40,
     ordernum = 20,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1843,1}],
+    maxchange_day = 9999,
+    payItem = [{1943,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7022)->
     #sourceshopCfg {
@@ -3803,18 +2807,18 @@ getRow(7022)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "贾斯丁.比象",
+    name = "贾斯丁.比象碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 160,
     ordernum = 22,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1844,1}],
+    maxchange_day = 9999,
+    payItem = [{1944,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7023)->
     #sourceshopCfg {
@@ -3822,18 +2826,18 @@ getRow(7023)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "杀象特",
+    name = "杀象特碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 160,
     ordernum = 23,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1845,1}],
+    maxchange_day = 9999,
+    payItem = [{1945,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7024)->
     #sourceshopCfg {
@@ -3841,18 +2845,18 @@ getRow(7024)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "机械鸟",
+    name = "机械鸟碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 160,
     ordernum = 24,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1846,1}],
+    maxchange_day = 9999,
+    payItem = [{1946,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7025)->
     #sourceshopCfg {
@@ -3860,18 +2864,18 @@ getRow(7025)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "西瓜鲨",
+    name = "西瓜鲨碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 160,
     ordernum = 25,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1847,1}],
+    maxchange_day = 9999,
+    payItem = [{1947,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7026)->
     #sourceshopCfg {
@@ -3879,18 +2883,18 @@ getRow(7026)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "钢铁狼",
+    name = "钢铁狼碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 160,
     ordernum = 26,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1848,1}],
+    maxchange_day = 9999,
+    payItem = [{1948,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7027)->
     #sourceshopCfg {
@@ -3898,18 +2902,18 @@ getRow(7027)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "天外飞碟",
+    name = "机甲乔巴碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 350,
     ordernum = 32,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1851,1}],
+    maxchange_day = 9999,
+    payItem = [{1951,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7028)->
     #sourceshopCfg {
@@ -3917,18 +2921,18 @@ getRow(7028)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "机甲乔巴",
+    name = "翼狮碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 350,
     ordernum = 33,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1852,1}],
+    maxchange_day = 9999,
+    payItem = [{1952,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7029)->
     #sourceshopCfg {
@@ -3936,18 +2940,18 @@ getRow(7029)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "翼狮",
+    name = "鲸梦碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 350,
     ordernum = 34,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1853,1}],
+    maxchange_day = 9999,
+    payItem = [{1953,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7030)->
     #sourceshopCfg {
@@ -3955,18 +2959,18 @@ getRow(7030)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "风伯",
+    name = "风伯碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 160,
     ordernum = 27,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1854,1}],
+    maxchange_day = 9999,
+    payItem = [{1954,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7031)->
     #sourceshopCfg {
@@ -3974,18 +2978,18 @@ getRow(7031)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "寒冰踏焰",
+    name = "寒冰踏焰碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 160,
     ordernum = 28,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1855,1}],
+    maxchange_day = 9999,
+    payItem = [{1955,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7032)->
     #sourceshopCfg {
@@ -3993,18 +2997,18 @@ getRow(7032)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "鲸梦（双人）",
+    name = "天外飞碟碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 350,
     ordernum = 31,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1856,1}],
+    maxchange_day = 9999,
+    payItem = [{1956,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7033)->
     #sourceshopCfg {
@@ -4012,18 +3016,18 @@ getRow(7033)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "雪橇车（双人）",
+    name = "雪橇车碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 160,
     ordernum = 29,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1857,1}],
+    maxchange_day = 9999,
+    payItem = [{1957,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7034)->
     #sourceshopCfg {
@@ -4031,18 +3035,18 @@ getRow(7034)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "贝斯（双人）",
+    name = "贝斯碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 160,
     ordernum = 30,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1858,1}],
+    maxchange_day = 9999,
+    payItem = [{1958,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7035)->
     #sourceshopCfg {
@@ -4050,18 +3054,18 @@ getRow(7035)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "机械游龙（双人）",
+    name = "机械游龙碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 350,
     ordernum = 35,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1859,1}],
+    maxchange_day = 9999,
+    payItem = [{1959,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7036)->
     #sourceshopCfg {
@@ -4069,18 +3073,18 @@ getRow(7036)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "大钻风",
+    name = "大钻风碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 350,
     ordernum = 36,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1860,1}],
+    maxchange_day = 9999,
+    payItem = [{1960,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(7038)->
     #sourceshopCfg {
@@ -4088,18 +3092,18 @@ getRow(7038)->
     groupid = 7,
     type = 0,
     sub_Groupid = 0,
-    name = "大黄蜂（双人）",
+    name = "大黄蜂碎片",
     groupname = "通用",
     itemid = 2002,
     itemNumber = 350,
     ordernum = 38,
     openlv = 1,
-    maxchange_day = 100,
-    payItem = [{1862,1}],
+    maxchange_day = 9999,
+    payItem = [{1962,1}],
     maxchange = -1,
     level = 1,
     quality = 4,
-    material_ui = [0]
+    material_ui = []
     };
 getRow(_)->[].
 
@@ -4107,15 +3111,10 @@ getKeyList()->[
     {1000},
     {1001},
     {1002},
-    {1003},
-    {1004},
-    {1005},
     {1006},
     {1007},
     {1008},
-    {1009},
-    {1010},
-    {1012},
+    {1013},
     {2000},
     {2001},
     {2002},
@@ -4141,55 +3140,7 @@ getKeyList()->[
     {2022},
     {2023},
     {2024},
-    {2025},
-    {2026},
-    {2027},
-    {2028},
-    {2029},
-    {2030},
-    {2031},
-    {2032},
-    {2033},
-    {2034},
-    {2035},
-    {2037},
     {3000},
-    {3001},
-    {3002},
-    {3003},
-    {3004},
-    {3005},
-    {3006},
-    {3007},
-    {3008},
-    {3009},
-    {3010},
-    {3011},
-    {3012},
-    {3013},
-    {3014},
-    {3015},
-    {3016},
-    {3017},
-    {3018},
-    {3019},
-    {3020},
-    {3021},
-    {3022},
-    {3023},
-    {3024},
-    {3025},
-    {3026},
-    {3027},
-    {3028},
-    {3029},
-    {3030},
-    {3031},
-    {3032},
-    {3033},
-    {3034},
-    {3035},
-    {3037},
     {4000},
     {5003},
     {5004},
@@ -4326,15 +3277,10 @@ get1KeyList()->[
     1000,
     1001,
     1002,
-    1003,
-    1004,
-    1005,
     1006,
     1007,
     1008,
-    1009,
-    1010,
-    1012,
+    1013,
     2000,
     2001,
     2002,
@@ -4360,55 +3306,7 @@ get1KeyList()->[
     2022,
     2023,
     2024,
-    2025,
-    2026,
-    2027,
-    2028,
-    2029,
-    2030,
-    2031,
-    2032,
-    2033,
-    2034,
-    2035,
-    2037,
     3000,
-    3001,
-    3002,
-    3003,
-    3004,
-    3005,
-    3006,
-    3007,
-    3008,
-    3009,
-    3010,
-    3011,
-    3012,
-    3013,
-    3014,
-    3015,
-    3016,
-    3017,
-    3018,
-    3019,
-    3020,
-    3021,
-    3022,
-    3023,
-    3024,
-    3025,
-    3026,
-    3027,
-    3028,
-    3029,
-    3030,
-    3031,
-    3032,
-    3033,
-    3034,
-    3035,
-    3037,
     4000,
     5003,
     5004,

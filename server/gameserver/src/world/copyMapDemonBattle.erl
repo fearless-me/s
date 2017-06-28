@@ -205,10 +205,9 @@ createPropCallback_CopyMap(Difficulty) ->
 %% 世界等级改变指定怪物属性
 -spec createProp_WorldLevel(Code ::uint(), LevelList ::uint(), PropList ::list()) -> list().
 createProp_WorldLevel(Code, LevelList, PropList) ->
-        case erlang:is_list(LevelList) andalso erlang:length(LevelList) =:= 2 of
-            true ->
+        case LevelList of
+	        [IndexDamage, IndexMaxHp] ->
 				WorldLevel = core:getWorldLevel(),
-                [IndexDamage, IndexMaxHp] = LevelList,
                 case erlang:is_list(PropList) andalso erlang:length(PropList) > 0 of
                     true ->
 						monsterState:setLevel(Code, WorldLevel),

@@ -963,26 +963,19 @@ removeBuffList(BuffList) ->
 
 %%增加buff引起属性变化
 -spec addProp(BuffID :: uint(), PropList :: list(), IsNotify::boolean()) -> ok.
-addProp(BuffID, PropList,IsNotify) ->
+addProp(BuffID, PropList,_IsNotify) ->
 	{PlusList, MultiList} = battleProp:calcPropGroup(PropList, ?EquipOn),
-%%	NewBattleProp = battleProp:addBattlePropAddValue(BattleProp, PlusList),
-%%	NewBattleProp1 = battleProp:addBattlePropRateValue(NewBattleProp, MultList),
-%%	playerCalcProp:calcBattleProp(NewBattleProp1, false, true),
 	playerCalcProp:changeProp_CalcType(PropList, ?EquipOn, true),
-	playerForce:calcPlayerForce(IsNotify),
 	playerCalcProp:saveBuffProp(BuffID, PlusList, MultiList, add).
+%%	playerForce:calcPlayerForce(IsNotify).
 
 %%删除buff引起属性变化
 -spec deleteProp(BuffID :: uint(), PropList :: list(), IsNotify::boolean()) -> ok.
-deleteProp(BuffID, PropList,IsNotify) ->
-%%	BattleProp = playerCalcProp:getBattleProp(),
+deleteProp(BuffID, PropList,_IsNotify) ->
 	{PlusList, MultiList} = battleProp:calcPropGroup(PropList, ?EquipOff),
-%%	NewBattleProp = battleProp:addBattlePropAddValue(BattleProp, PlusList),
-%%	NewBattleProp1 = battleProp:delBattlePropRateValue(NewBattleProp, MultList),
-%%	playerCalcProp:calcBattleProp(NewBattleProp1, false, true),
 	playerCalcProp:changeProp_CalcType(PropList, ?EquipOff, true),
-	playerForce:calcPlayerForce(IsNotify),
 	playerCalcProp:saveBuffProp(BuffID, PlusList, MultiList, del).
+%%	playerForce:calcPlayerForce(IsNotify).
 
 %%更新buff属性
 -spec updateProp(BuffID :: uint(), PropList :: list(), OldPropList :: list()) -> ok.
@@ -1071,14 +1064,15 @@ broadcastBuffDamage(BuffID, Counter, BuffDamage) ->
 	CurHp = playerState:getCurHp(),
 	MaxHp = playerState:getMaxHp(),
 	HpPer = skill:getPercent(CurHp, MaxHp),
-	%%?DEBUG_OUT("code ~p has ~p buff hurt is ~p~n",[CasterCode, BuffID, BuffDamage]),
-	playerMsg:sendMsgToNearPlayer(#pk_GS2U_BuffHurt{
+	Msg = #pk_GS2U_BuffHurt{
 		code = CasterCode,
 		buffUID = Counter,
 		buffID = BuffID,
 		hp_per = HpPer,
 		damageHp = BuffDamage
-	}, true).
+	},
+	%%?DEBUG_OUT("code ~p has ~p buff hurt is ~p,~p~n",[CasterCode, BuffID, BuffDamage,Msg]),
+	playerMsg:sendMsgToNearPlayer(Msg, true).
 
 %%buff伤害计算
 buffHurt(
@@ -1313,19 +1307,19 @@ addEffect(#recBuff{effect = ?MODIFYHP, casterCode = Code, casterPid = Pid, caste
 	ModifyHp =
 		case ModifyValue > 0 of
 			true ->
-				ModifyValue * GetHealthFactor;
+				erlang:trunc(ModifyValue * GetHealthFactor);
 			_ ->
-				ModifyValue
+				erlang:trunc(ModifyValue)
 		end,
 
 	NewHp = erlang:trunc(misc:clamp(ModifyHp + Hp, 0, MaxHp)),
 	playerBattle:noticeBlood(NewHp, Hp),
 	playerState:setCurHp(NewHp),
+	broadcastBuffDamage(Buff#recBuff.buffID, Buff#recBuff.counter, ModifyHp),
 	case NewHp > 0 of
 		true ->
 			skip;
 		_ when Hp /= NewHp ->
-			broadcastBuffDamage(Buff#recBuff.buffID, Buff#recBuff.counter, ModifyHp),
 			playerBattle:onDead(Code, Pid, Type, Name, SkillID);
 
 		_ ->

@@ -35,6 +35,8 @@
 	donateAck/1,		%% 捐赠反馈
 
 	snow_settle/1,
+	convertCoin/1,
+	convertItem/1,
 
 	gmNext/0,			%% GM命令进入下一阶段
 	gmGetRes/1,         %% GM命令获得携带材料
@@ -44,6 +46,31 @@
 %%% ====================================================================
 %%% MSG functions
 %%% ====================================================================
+
+convertCoin({CoinType, CoinNumber})->
+	PLog = #recPLogTSMoney{
+		reason = ?CoinSourceGuildSnowmanDonate,
+		param = 0,
+		target = ?PLogTS_PlayerSelf,
+		source = ?PLogTS_Guild
+	},
+	playerMoney:addCoin(CoinType, CoinNumber, PLog),
+	ok.
+
+convertItem({ItemID,ItemCount})->
+	PLog = #recPLogTSItem{
+		old         = 0 ,
+		new         = ItemCount ,
+		change      = ItemCount ,
+		target      = ?PLogTS_PlayerSelf ,
+		source      = ?PLogTS_Snow ,
+		gold        = 0,
+		goldtype    = 0,
+		changReason = ?ItemSourceGuildSnowman,
+		reasonParam = 0
+	},
+	playerPackage:addGoodsAndMail(ItemID, ItemCount, false, 0, PLog),
+	ok.
 
 %% 在线玩家直接发奖，否则邮件
 snow_settle({RoleID, Title, Content, ItemReal, CoinReal}) ->

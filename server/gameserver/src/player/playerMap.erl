@@ -169,6 +169,7 @@ dealEnterMapAck(#enterMapInfo{
 
 			%% 更新成就进度
 			playerAchieve:achieveEvent(MapID),
+			playerSideTask:joinCompleteTask(MapID),
 			%%更新活跃
 			playerliveness:livenessJoinEvent(MapID),
 
@@ -183,14 +184,21 @@ dealEnterMapAck(#enterMapInfo{
 
 			%% 宠物进入分组
 			playerScene:onPlayerPetEnterGroup(),
+
+			%% 解除冥想
+			playerOfflineExp:endMeditation(),
+
+			%% 离开跳舞地图
+			playerDance:leaveDanceMap(),
+
+			%% 重置复活相关
+			playerPropSync:setInt(?SerProp_PlayerRevivePhase, 0),
+
 			playerMsg:sendNetMsg(#pk_Any_ChangeMap{mapId = MapID,x = X,y = Y}),
 			playerState:setWaitClientAckEnteredMap(true),
 
 			%% 最后处理双人坐骑进入
 			playerPetDouble:onChangeMap(),
-
-			%% 解除冥想
-			playerOfflineExp:endMeditation(),
 
 			%%设置等待客户端发送切换地图完成的消息的超时时间，如果超时则把玩家的状态设置为站立状态，让其可以由服务器切地图
 			TimerRef = erlang:send_after(?WaitClientSendEnteredMapTime,self(),waitClientEnteredMapTimeOut),
@@ -1738,7 +1746,7 @@ makePlayerBaseInfo() ->
 		}
 		  end,
 	NewList = lists:map(Fun, List),
-	#player_baseCfg{exp = Exp} = getCfg:getCfgPStack(cfg_player_base, playerState:getLevel(), playerState:getCareer()),
+	Exp = playerBase:getCfgMaxExp(playerState:getLevel(), playerState:getCareer()),
 
 	RoleID = playerState:getRoleID(),
 	FunMoney =
@@ -1936,6 +1944,7 @@ sendRoleInfo() ->
 
 	%%发送任务信息之前，检测是否可以领取环引导任务
 	playerLoopTask:acceptLink(),
+	playerMarriageTask:acceptLink(),
 	%%发送所有已接受任务
 %%	playerTask2:sendAllAcceptedTaskMsg(),
 	%%发送所有已完成的任务
@@ -2009,6 +2018,11 @@ sendRoleInfo() ->
 	%%
 	playerRedEnvelope:onPlayerLogin(),
 
+	%% 七日目标上线初始化
+	playerSevenDayAim:init(),
+	%% 30日大礼包上线初始化
+	%playerThirtyDayLoginGift:init(),
+
 	%% 玩家已经获得的收费表情和动作列表
 	ICL1 = playerPropSync:getProp(?SerProp_PlayerBQs),
 	ACL2 = playerPropSync:getProp(?SerProp_PlayerDZs),
@@ -2018,6 +2032,8 @@ sendRoleInfo() ->
 	playerOfflineExp:initLastOfflineExp(),
 
 	playerEquip:sendEquipRecastInit2Client(),
+
+	playerAcKingBattleAll:flashMirrorInfo(),
 
 %%	playerLotteryForTower:flashBeginTimeEndTimeMsg(),
 	playerMsg:sendNetMsg(#pk_GS2U_PlayerInitEnd{}),

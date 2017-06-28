@@ -10,7 +10,6 @@ getRow(1,0)->
     cardID = 1,
     level = 0,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [],
     stateMax = 0,
@@ -19,595 +18,535 @@ getRow(1,0)->
     icon = "Luna_Kind",
     cardPoint = 1,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,1)->
     #transformCfg {
     cardID = 1,
     level = 1,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,2675,0},{141,150,0},{143,108,0}],
+    property = [{135,802,0},{141,45,0},{143,32,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 1,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,2)->
     #transformCfg {
     cardID = 1,
     level = 2,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,10],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,2829,0},{141,158,0},{143,115,0}],
+    property = [{135,968,0},{141,54,0},{143,39,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 2,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,3)->
     #transformCfg {
     cardID = 1,
     level = 3,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,11],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,3111,0},{141,174,0},{143,126,0}],
+    property = [{135,1272,0},{141,71,0},{143,51,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 3,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,4)->
     #transformCfg {
     cardID = 1,
     level = 4,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,14],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,3476,0},{141,195,0},{143,141,0}],
+    property = [{135,1665,0},{141,93,0},{143,67,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 4,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,5)->
     #transformCfg {
     cardID = 1,
     level = 5,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,17],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,3908,0},{141,219,0},{143,159,0}],
+    property = [{135,2131,0},{141,119,0},{143,86,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 5,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,6)->
     #transformCfg {
     cardID = 1,
     level = 6,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,19],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,4398,0},{141,246,0},{143,179,0}],
+    property = [{135,2660,0},{141,149,0},{143,108,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 6,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,7)->
     #transformCfg {
     cardID = 1,
     level = 7,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,22],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,4940,0},{141,277,0},{143,201,0}],
+    property = [{135,3244,0},{141,182,0},{143,132,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 7,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,8)->
     #transformCfg {
     cardID = 1,
     level = 8,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,25],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,5530,0},{141,310,0},{143,225,0}],
+    property = [{135,3879,0},{141,217,0},{143,158,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 8,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,9)->
     #transformCfg {
     cardID = 1,
     level = 9,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,28],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,6163,0},{141,345,0},{143,251,0}],
+    property = [{135,4562,0},{141,255,0},{143,185,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 9,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,10)->
     #transformCfg {
     cardID = 1,
     level = 10,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,30],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,6837,0},{141,383,0},{143,278,0}],
+    property = [{135,5288,0},{141,296,0},{143,215,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 10,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,11)->
     #transformCfg {
     cardID = 1,
     level = 11,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,33],
     activeSkills = [31102],
     passiveSkills = [32112,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,7549,0},{141,423,0},{143,307,0}],
+    property = [{135,6056,0},{141,339,0},{143,246,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 11,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,12)->
     #transformCfg {
     cardID = 1,
     level = 12,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,36],
     activeSkills = [31102],
     passiveSkills = [32112,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,8299,0},{141,465,0},{143,338,0}],
+    property = [{135,6864,0},{141,385,0},{143,279,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 12,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,13)->
     #transformCfg {
     cardID = 1,
     level = 13,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,38],
     activeSkills = [31103],
     passiveSkills = [32113,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,9083,0},{141,509,0},{143,370,0}],
+    property = [{135,7709,0},{141,432,0},{143,314,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 13,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,14)->
     #transformCfg {
     cardID = 1,
     level = 14,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,41],
     activeSkills = [31103],
     passiveSkills = [32113,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,9900,0},{141,555,0},{143,403,0}],
+    property = [{135,8590,0},{141,482,0},{143,349,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 14,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,15)->
     #transformCfg {
     cardID = 1,
     level = 15,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,44],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,10750,0},{141,603,0},{143,438,0}],
+    property = [{135,9505,0},{141,533,0},{143,387,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 15,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,16)->
     #transformCfg {
     cardID = 1,
     level = 16,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,47],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,11630,0},{141,652,0},{143,473,0}],
+    property = [{135,10454,0},{141,586,0},{143,425,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 16,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,17)->
     #transformCfg {
     cardID = 1,
     level = 17,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,49],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,12541,0},{141,703,0},{143,510,0}],
+    property = [{135,11436,0},{141,641,0},{143,465,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 17,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,18)->
     #transformCfg {
     cardID = 1,
     level = 18,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,52],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,13480,0},{141,756,0},{143,549,0}],
+    property = [{135,12448,0},{141,698,0},{143,507,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 18,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,19)->
     #transformCfg {
     cardID = 1,
     level = 19,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,54],
     activeSkills = [31104],
     passiveSkills = [32114,32213],
     stateMax = 2,
     money = 0,
-    property = [{135,14447,0},{141,810,0},{143,588,0}],
+    property = [{135,13490,0},{141,757,0},{143,549,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 19,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,20)->
     #transformCfg {
     cardID = 1,
     level = 20,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,58],
     activeSkills = [31104],
     passiveSkills = [32114,32213],
     stateMax = 2,
     money = 0,
-    property = [{135,15442,0},{141,866,0},{143,629,0}],
+    property = [{135,14562,0},{141,817,0},{143,593,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 20,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,21)->
     #transformCfg {
     cardID = 1,
     level = 21,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,60],
     activeSkills = [31104],
     passiveSkills = [32114,32213,32311],
     stateMax = 3,
     money = 0,
-    property = [{135,16463,0},{141,923,0},{143,670,0}],
+    property = [{135,15663,0},{141,878,0},{143,638,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 21,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,22)->
     #transformCfg {
     cardID = 1,
     level = 22,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,62],
     activeSkills = [31104],
     passiveSkills = [32114,32213,32311],
     stateMax = 3,
     money = 0,
-    property = [{135,17510,0},{141,982,0},{143,713,0}],
+    property = [{135,16791,0},{141,942,0},{143,684,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 22,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,23)->
     #transformCfg {
     cardID = 1,
     level = 23,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,66],
     activeSkills = [31104],
     passiveSkills = [32114,32214,32312],
     stateMax = 3,
     money = 0,
-    property = [{135,18582,0},{141,1042,0},{143,757,0}],
+    property = [{135,17947,0},{141,1007,0},{143,731,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 23,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,24)->
     #transformCfg {
     cardID = 1,
     level = 24,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,68],
     activeSkills = [31104],
     passiveSkills = [32114,32214,32312],
     stateMax = 3,
     money = 0,
-    property = [{135,19679,0},{141,1104,0},{143,801,0}],
+    property = [{135,19129,0},{141,1073,0},{143,779,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 24,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,25)->
     #transformCfg {
     cardID = 1,
     level = 25,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,71],
     activeSkills = [31105],
     passiveSkills = [32115,32214,32313],
     stateMax = 3,
     money = 0,
-    property = [{135,20800,0},{141,1167,0},{143,847,0}],
+    property = [{135,20337,0},{141,1141,0},{143,828,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 25,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,26)->
     #transformCfg {
     cardID = 1,
     level = 26,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,73],
     activeSkills = [31105],
     passiveSkills = [32115,32214,32313],
     stateMax = 3,
     money = 0,
-    property = [{135,21944,0},{141,1231,0},{143,894,0}],
+    property = [{135,21571,0},{141,1210,0},{143,878,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 26,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,27)->
     #transformCfg {
     cardID = 1,
     level = 27,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,77],
     activeSkills = [31105],
     passiveSkills = [32115,32215,32314],
     stateMax = 3,
     money = 0,
-    property = [{135,23112,0},{141,1296,0},{143,941,0}],
+    property = [{135,22829,0},{141,1281,0},{143,930,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 27,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,28)->
     #transformCfg {
     cardID = 1,
     level = 28,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,78],
     activeSkills = [31105],
     passiveSkills = [32115,32215,32314],
     stateMax = 3,
     money = 0,
-    property = [{135,24302,0},{141,1363,0},{143,990,0}],
+    property = [{135,24112,0},{141,1353,0},{143,982,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 28,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,29)->
     #transformCfg {
     cardID = 1,
     level = 29,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,82],
     activeSkills = [31105],
     passiveSkills = [32115,32215,32315],
     stateMax = 3,
     money = 0,
-    property = [{135,25515,0},{141,1431,0},{143,1039,0}],
+    property = [{135,25419,0},{141,1426,0},{143,1035,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 29,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(1,30)->
     #transformCfg {
     cardID = 1,
     level = 30,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 101,
     fragment = [2101,85],
     activeSkills = [31105],
@@ -619,18 +558,16 @@ getRow(1,30)->
     icon = "Luna_Kind",
     cardPoint = 30,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(2,0)->
     #transformCfg {
     cardID = 2,
     level = 0,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     stateMax = 0,
     money = 0,
     name = "战争",
@@ -644,619 +581,560 @@ getRow(2,1)->
     cardID = 2,
     level = 1,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,267,0},{140,213,0},{142,128,0}],
+    property = [{136,80,0},{140,63,0},{142,38,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 1,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,2)->
     #transformCfg {
     cardID = 2,
     level = 2,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,10],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,282,0},{140,225,0},{142,136,0}],
+    property = [{136,96,0},{140,77,0},{142,46,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 2,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,3)->
     #transformCfg {
     cardID = 2,
     level = 3,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,11],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,311,0},{140,247,0},{142,149,0}],
+    property = [{136,127,0},{140,101,0},{142,61,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 3,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,4)->
     #transformCfg {
     cardID = 2,
     level = 4,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,14],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,347,0},{140,276,0},{142,167,0}],
+    property = [{136,166,0},{140,132,0},{142,80,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 4,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,5)->
     #transformCfg {
     cardID = 2,
     level = 5,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,17],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,390,0},{140,311,0},{142,188,0}],
+    property = [{136,213,0},{140,169,0},{142,102,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 5,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,6)->
     #transformCfg {
     cardID = 2,
     level = 6,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,19],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,439,0},{140,350,0},{142,211,0}],
+    property = [{136,266,0},{140,211,0},{142,128,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 6,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,7)->
     #transformCfg {
     cardID = 2,
     level = 7,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,22],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{136,494,0},{140,393,0},{142,237,0}],
+    property = [{136,324,0},{140,258,0},{142,156,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 7,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,8)->
     #transformCfg {
     cardID = 2,
     level = 8,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,25],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{136,553,0},{140,440,0},{142,266,0}],
+    property = [{136,387,0},{140,308,0},{142,186,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 8,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,9)->
     #transformCfg {
     cardID = 2,
     level = 9,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,28],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{136,616,0},{140,490,0},{142,296,0}],
+    property = [{136,456,0},{140,363,0},{142,219,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 9,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,10)->
     #transformCfg {
     cardID = 2,
     level = 10,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,30],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{136,683,0},{140,544,0},{142,329,0}],
+    property = [{136,528,0},{140,421,0},{142,254,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 10,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,11)->
     #transformCfg {
     cardID = 2,
     level = 11,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,33],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412,32511],
     stateMax = 2,
     money = 0,
-    property = [{136,754,0},{140,601,0},{142,363,0}],
+    property = [{136,605,0},{140,482,0},{142,291,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 11,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,12)->
     #transformCfg {
     cardID = 2,
     level = 12,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,36],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412,32511],
     stateMax = 2,
     money = 0,
-    property = [{136,829,0},{140,660,0},{142,399,0}],
+    property = [{136,686,0},{140,546,0},{142,330,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 12,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,13)->
     #transformCfg {
     cardID = 2,
     level = 13,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,38],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32511],
     stateMax = 2,
     money = 0,
-    property = [{136,908,0},{140,723,0},{142,437,0}],
+    property = [{136,770,0},{140,613,0},{142,371,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 13,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,14)->
     #transformCfg {
     cardID = 2,
     level = 14,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,41],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32511],
     stateMax = 2,
     money = 0,
-    property = [{136,990,0},{140,788,0},{142,476,0}],
+    property = [{136,859,0},{140,684,0},{142,413,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 14,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,15)->
     #transformCfg {
     cardID = 2,
     level = 15,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,44],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{136,1075,0},{140,856,0},{142,517,0}],
+    property = [{136,950,0},{140,756,0},{142,457,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 15,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,16)->
     #transformCfg {
     cardID = 2,
     level = 16,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,47],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{136,1163,0},{140,926,0},{142,560,0}],
+    property = [{136,1045,0},{140,832,0},{142,503,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 16,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,17)->
     #transformCfg {
     cardID = 2,
     level = 17,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,49],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{136,1254,0},{140,998,0},{142,603,0}],
+    property = [{136,1143,0},{140,910,0},{142,550,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 17,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,18)->
     #transformCfg {
     cardID = 2,
     level = 18,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,52],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{136,1348,0},{140,1073,0},{142,649,0}],
+    property = [{136,1244,0},{140,991,0},{142,599,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 18,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,19)->
     #transformCfg {
     cardID = 2,
     level = 19,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,54],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513],
     stateMax = 2,
     money = 0,
-    property = [{136,1444,0},{140,1150,0},{142,695,0}],
+    property = [{136,1349,0},{140,1074,0},{142,649,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 19,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,20)->
     #transformCfg {
     cardID = 2,
     level = 20,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,58],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513],
     stateMax = 2,
     money = 0,
-    property = [{136,1544,0},{140,1229,0},{142,743,0}],
+    property = [{136,1456,0},{140,1159,0},{142,701,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 20,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,21)->
     #transformCfg {
     cardID = 2,
     level = 21,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,60],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513,32611],
     stateMax = 3,
     money = 0,
-    property = [{136,1646,0},{140,1310,0},{142,792,0}],
+    property = [{136,1566,0},{140,1247,0},{142,754,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 21,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,22)->
     #transformCfg {
     cardID = 2,
     level = 22,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,62],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513,32611],
     stateMax = 3,
     money = 0,
-    property = [{136,1751,0},{140,1394,0},{142,843,0}],
+    property = [{136,1679,0},{140,1337,0},{142,808,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 22,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,23)->
     #transformCfg {
     cardID = 2,
     level = 23,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,66],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32514,32612],
     stateMax = 3,
     money = 0,
-    property = [{136,1858,0},{140,1479,0},{142,894,0}],
+    property = [{136,1794,0},{140,1429,0},{142,864,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 23,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,24)->
     #transformCfg {
     cardID = 2,
     level = 24,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,68],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32514,32612],
     stateMax = 3,
     money = 0,
-    property = [{136,1967,0},{140,1566,0},{142,947,0}],
+    property = [{136,1912,0},{140,1523,0},{142,921,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 24,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,25)->
     #transformCfg {
     cardID = 2,
     level = 25,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,71],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32514,32613],
     stateMax = 3,
     money = 0,
-    property = [{136,2080,0},{140,1656,0},{142,1001,0}],
+    property = [{136,2033,0},{140,1619,0},{142,979,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 25,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,26)->
     #transformCfg {
     cardID = 2,
     level = 26,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,73],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32514,32613],
     stateMax = 3,
     money = 0,
-    property = [{136,2194,0},{140,1747,0},{142,1056,0}],
+    property = [{136,2157,0},{140,1717,0},{142,1038,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 26,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,27)->
     #transformCfg {
     cardID = 2,
     level = 27,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,77],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32614],
     stateMax = 3,
     money = 0,
-    property = [{136,2311,0},{140,1840,0},{142,1112,0}],
+    property = [{136,2282,0},{140,1817,0},{142,1099,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 27,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,28)->
     #transformCfg {
     cardID = 2,
     level = 28,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,78],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32614],
     stateMax = 3,
     money = 0,
-    property = [{136,2430,0},{140,1935,0},{142,1170,0}],
+    property = [{136,2411,0},{140,1919,0},{142,1161,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 28,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,29)->
     #transformCfg {
     cardID = 2,
     level = 29,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,82],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32615],
     stateMax = 3,
     money = 0,
-    property = [{136,2551,0},{140,2031,0},{142,1228,0}],
+    property = [{136,2541,0},{140,2024,0},{142,1223,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 29,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(2,30)->
     #transformCfg {
     cardID = 2,
     level = 30,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 101,
     fragment = [2101,85],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32615],
     stateMax = 3,
@@ -1266,15 +1144,13 @@ getRow(2,30)->
     icon = "Luna_War",
     cardPoint = 30,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(3,0)->
     #transformCfg {
     cardID = 3,
     level = 0,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [],
     activeTaskList = [44,78],
@@ -1291,7 +1167,6 @@ getRow(3,1)->
     cardID = 3,
     level = 1,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [],
     activeTaskList = [44,78],
@@ -1299,20 +1174,18 @@ getRow(3,1)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,267,0},{144,112,0},{146,107,0}],
+    property = [{139,80,0},{144,33,0},{146,32,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 1,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,2)->
     #transformCfg {
     cardID = 3,
     level = 2,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,10],
     activeTaskList = [44,78],
@@ -1320,20 +1193,18 @@ getRow(3,2)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,282,0},{144,118,0},{146,113,0}],
+    property = [{139,96,0},{144,40,0},{146,38,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 2,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,3)->
     #transformCfg {
     cardID = 3,
     level = 3,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,11],
     activeTaskList = [44,78],
@@ -1341,20 +1212,18 @@ getRow(3,3)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,311,0},{144,130,0},{146,124,0}],
+    property = [{139,127,0},{144,53,0},{146,50,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 3,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,4)->
     #transformCfg {
     cardID = 3,
     level = 4,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,14],
     activeTaskList = [44,78],
@@ -1362,20 +1231,18 @@ getRow(3,4)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,347,0},{144,145,0},{146,139,0}],
+    property = [{139,166,0},{144,69,0},{146,66,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 4,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,5)->
     #transformCfg {
     cardID = 3,
     level = 5,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,17],
     activeTaskList = [44,78],
@@ -1383,20 +1250,18 @@ getRow(3,5)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,390,0},{144,163,0},{146,156,0}],
+    property = [{139,213,0},{144,89,0},{146,85,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 5,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,6)->
     #transformCfg {
     cardID = 3,
     level = 6,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,19],
     activeTaskList = [44,78],
@@ -1404,20 +1269,18 @@ getRow(3,6)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,439,0},{144,184,0},{146,175,0}],
+    property = [{139,266,0},{144,111,0},{146,106,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 6,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,7)->
     #transformCfg {
     cardID = 3,
     level = 7,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,22],
     activeTaskList = [44,78],
@@ -1425,20 +1288,18 @@ getRow(3,7)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,494,0},{144,207,0},{146,197,0}],
+    property = [{139,324,0},{144,136,0},{146,129,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 7,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,8)->
     #transformCfg {
     cardID = 3,
     level = 8,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,25],
     activeTaskList = [44,78],
@@ -1446,20 +1307,18 @@ getRow(3,8)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,553,0},{144,231,0},{146,221,0}],
+    property = [{139,387,0},{144,162,0},{146,155,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 8,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,9)->
     #transformCfg {
     cardID = 3,
     level = 9,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,28],
     activeTaskList = [44,78],
@@ -1467,20 +1326,18 @@ getRow(3,9)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,616,0},{144,258,0},{146,246,0}],
+    property = [{139,456,0},{144,191,0},{146,182,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 9,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,10)->
     #transformCfg {
     cardID = 3,
     level = 10,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,30],
     activeTaskList = [44,78],
@@ -1488,20 +1345,18 @@ getRow(3,10)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,683,0},{144,286,0},{146,273,0}],
+    property = [{139,528,0},{144,221,0},{146,211,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 10,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,11)->
     #transformCfg {
     cardID = 3,
     level = 11,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,33],
     activeTaskList = [44,78],
@@ -1509,20 +1364,18 @@ getRow(3,11)->
     passiveSkills = [32712,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,754,0},{144,316,0},{146,301,0}],
+    property = [{139,605,0},{144,253,0},{146,242,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 11,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,12)->
     #transformCfg {
     cardID = 3,
     level = 12,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,36],
     activeTaskList = [44,78],
@@ -1530,20 +1383,18 @@ getRow(3,12)->
     passiveSkills = [32712,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,829,0},{144,347,0},{146,331,0}],
+    property = [{139,686,0},{144,287,0},{146,274,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 12,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,13)->
     #transformCfg {
     cardID = 3,
     level = 13,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,38],
     activeTaskList = [44,78],
@@ -1551,20 +1402,18 @@ getRow(3,13)->
     passiveSkills = [32713,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,908,0},{144,380,0},{146,363,0}],
+    property = [{139,770,0},{144,323,0},{146,308,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 13,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,14)->
     #transformCfg {
     cardID = 3,
     level = 14,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,41],
     activeTaskList = [44,78],
@@ -1572,20 +1421,18 @@ getRow(3,14)->
     passiveSkills = [32713,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,990,0},{144,415,0},{146,396,0}],
+    property = [{139,859,0},{144,360,0},{146,343,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 14,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,15)->
     #transformCfg {
     cardID = 3,
     level = 15,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,44],
     activeTaskList = [44,78],
@@ -1593,20 +1440,18 @@ getRow(3,15)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1075,0},{144,450,0},{146,430,0}],
+    property = [{139,950,0},{144,398,0},{146,380,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 15,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,16)->
     #transformCfg {
     cardID = 3,
     level = 16,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,47],
     activeTaskList = [44,78],
@@ -1614,20 +1459,18 @@ getRow(3,16)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1163,0},{144,487,0},{146,465,0}],
+    property = [{139,1045,0},{144,438,0},{146,418,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 16,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,17)->
     #transformCfg {
     cardID = 3,
     level = 17,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,49],
     activeTaskList = [44,78],
@@ -1635,20 +1478,18 @@ getRow(3,17)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1254,0},{144,525,0},{146,501,0}],
+    property = [{139,1143,0},{144,479,0},{146,457,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 17,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,18)->
     #transformCfg {
     cardID = 3,
     level = 18,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,52],
     activeTaskList = [44,78],
@@ -1656,20 +1497,18 @@ getRow(3,18)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1348,0},{144,565,0},{146,539,0}],
+    property = [{139,1244,0},{144,521,0},{146,497,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 18,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,19)->
     #transformCfg {
     cardID = 3,
     level = 19,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,54],
     activeTaskList = [44,78],
@@ -1677,20 +1516,18 @@ getRow(3,19)->
     passiveSkills = [32714,32813],
     stateMax = 2,
     money = 0,
-    property = [{139,1444,0},{144,605,0},{146,577,0}],
+    property = [{139,1349,0},{144,565,0},{146,539,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 19,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,20)->
     #transformCfg {
     cardID = 3,
     level = 20,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,58],
     activeTaskList = [44,78],
@@ -1698,20 +1535,18 @@ getRow(3,20)->
     passiveSkills = [32714,32813],
     stateMax = 2,
     money = 0,
-    property = [{139,1544,0},{144,647,0},{146,617,0}],
+    property = [{139,1456,0},{144,610,0},{146,582,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 20,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,21)->
     #transformCfg {
     cardID = 3,
     level = 21,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,60],
     activeTaskList = [44,78],
@@ -1719,20 +1554,18 @@ getRow(3,21)->
     passiveSkills = [32714,32813,32911],
     stateMax = 3,
     money = 0,
-    property = [{139,1646,0},{144,690,0},{146,658,0}],
+    property = [{139,1566,0},{144,656,0},{146,626,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 21,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,22)->
     #transformCfg {
     cardID = 3,
     level = 22,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,62],
     activeTaskList = [44,78],
@@ -1740,20 +1573,18 @@ getRow(3,22)->
     passiveSkills = [32714,32813,32911],
     stateMax = 3,
     money = 0,
-    property = [{139,1751,0},{144,734,0},{146,700,0}],
+    property = [{139,1679,0},{144,704,0},{146,671,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 22,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,23)->
     #transformCfg {
     cardID = 3,
     level = 23,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,66],
     activeTaskList = [44,78],
@@ -1761,20 +1592,18 @@ getRow(3,23)->
     passiveSkills = [32714,32814,32912],
     stateMax = 3,
     money = 0,
-    property = [{139,1858,0},{144,779,0},{146,743,0}],
+    property = [{139,1794,0},{144,752,0},{146,717,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 23,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,24)->
     #transformCfg {
     cardID = 3,
     level = 24,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,68],
     activeTaskList = [44,78],
@@ -1782,20 +1611,18 @@ getRow(3,24)->
     passiveSkills = [32714,32814,32912],
     stateMax = 3,
     money = 0,
-    property = [{139,1967,0},{144,825,0},{146,787,0}],
+    property = [{139,1912,0},{144,802,0},{146,765,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 24,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,25)->
     #transformCfg {
     cardID = 3,
     level = 25,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,71],
     activeTaskList = [44,78],
@@ -1803,20 +1630,18 @@ getRow(3,25)->
     passiveSkills = [32715,32814,32913],
     stateMax = 3,
     money = 0,
-    property = [{139,2080,0},{144,872,0},{146,832,0}],
+    property = [{139,2033,0},{144,852,0},{146,813,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 25,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,26)->
     #transformCfg {
     cardID = 3,
     level = 26,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,73],
     activeTaskList = [44,78],
@@ -1824,20 +1649,18 @@ getRow(3,26)->
     passiveSkills = [32715,32814,32913],
     stateMax = 3,
     money = 0,
-    property = [{139,2194,0},{144,920,0},{146,877,0}],
+    property = [{139,2157,0},{144,904,0},{146,862,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 26,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,27)->
     #transformCfg {
     cardID = 3,
     level = 27,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,77],
     activeTaskList = [44,78],
@@ -1845,20 +1668,18 @@ getRow(3,27)->
     passiveSkills = [32715,32815,32914],
     stateMax = 3,
     money = 0,
-    property = [{139,2311,0},{144,969,0},{146,924,0}],
+    property = [{139,2282,0},{144,957,0},{146,913,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 27,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,28)->
     #transformCfg {
     cardID = 3,
     level = 28,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,78],
     activeTaskList = [44,78],
@@ -1866,20 +1687,18 @@ getRow(3,28)->
     passiveSkills = [32715,32815,32914],
     stateMax = 3,
     money = 0,
-    property = [{139,2430,0},{144,1019,0},{146,972,0}],
+    property = [{139,2411,0},{144,1011,0},{146,964,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 28,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,29)->
     #transformCfg {
     cardID = 3,
     level = 29,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,82],
     activeTaskList = [44,78],
@@ -1887,20 +1706,18 @@ getRow(3,29)->
     passiveSkills = [32715,32815,32915],
     stateMax = 3,
     money = 0,
-    property = [{139,2551,0},{144,1069,0},{146,1020,0}],
+    property = [{139,2541,0},{144,1065,0},{146,1016,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 29,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(3,30)->
     #transformCfg {
     cardID = 3,
     level = 30,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 101,
     fragment = [2101,85],
     activeTaskList = [44,78],
@@ -1913,15 +1730,13 @@ getRow(3,30)->
     icon = "Luna_Wisdom",
     cardPoint = 30,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(4,0)->
     #transformCfg {
     cardID = 4,
     level = 0,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [],
     activeTaskList = [79,110],
@@ -1938,7 +1753,6 @@ getRow(4,1)->
     cardID = 4,
     level = 1,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [],
     activeTaskList = [79,110],
@@ -1946,20 +1760,18 @@ getRow(4,1)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,267,0},{145,160,0},{160,75,0}],
+    property = [{138,80,0},{145,48,0},{160,22,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 1,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,2)->
     #transformCfg {
     cardID = 4,
     level = 2,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,10],
     activeTaskList = [79,110],
@@ -1967,20 +1779,18 @@ getRow(4,2)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,282,0},{145,169,0},{160,79,0}],
+    property = [{138,96,0},{145,58,0},{160,27,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 2,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,3)->
     #transformCfg {
     cardID = 4,
     level = 3,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,11],
     activeTaskList = [79,110],
@@ -1988,20 +1798,18 @@ getRow(4,3)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,311,0},{145,186,0},{160,87,0}],
+    property = [{138,127,0},{145,76,0},{160,35,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 3,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,4)->
     #transformCfg {
     cardID = 4,
     level = 4,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,14],
     activeTaskList = [79,110],
@@ -2009,20 +1817,18 @@ getRow(4,4)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,347,0},{145,208,0},{160,97,0}],
+    property = [{138,166,0},{145,99,0},{160,46,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 4,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,5)->
     #transformCfg {
     cardID = 4,
     level = 5,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,17],
     activeTaskList = [79,110],
@@ -2030,20 +1836,18 @@ getRow(4,5)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,390,0},{145,234,0},{160,110,0}],
+    property = [{138,213,0},{145,127,0},{160,60,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 5,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,6)->
     #transformCfg {
     cardID = 4,
     level = 6,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,19],
     activeTaskList = [79,110],
@@ -2051,20 +1855,18 @@ getRow(4,6)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,439,0},{145,263,0},{160,123,0}],
+    property = [{138,266,0},{145,159,0},{160,74,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 6,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,7)->
     #transformCfg {
     cardID = 4,
     level = 7,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,22],
     activeTaskList = [79,110],
@@ -2072,20 +1874,18 @@ getRow(4,7)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,494,0},{145,296,0},{160,139,0}],
+    property = [{138,324,0},{145,194,0},{160,91,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 7,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,8)->
     #transformCfg {
     cardID = 4,
     level = 8,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,25],
     activeTaskList = [79,110],
@@ -2093,20 +1893,18 @@ getRow(4,8)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,553,0},{145,331,0},{160,155,0}],
+    property = [{138,387,0},{145,232,0},{160,109,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 8,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,9)->
     #transformCfg {
     cardID = 4,
     level = 9,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,28],
     activeTaskList = [79,110],
@@ -2114,20 +1912,18 @@ getRow(4,9)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,616,0},{145,369,0},{160,173,0}],
+    property = [{138,456,0},{145,273,0},{160,128,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 9,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,10)->
     #transformCfg {
     cardID = 4,
     level = 10,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,30],
     activeTaskList = [79,110],
@@ -2135,20 +1931,18 @@ getRow(4,10)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,683,0},{145,410,0},{160,192,0}],
+    property = [{138,528,0},{145,317,0},{160,148,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 10,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,11)->
     #transformCfg {
     cardID = 4,
     level = 11,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,33],
     activeTaskList = [79,110],
@@ -2156,20 +1950,18 @@ getRow(4,11)->
     passiveSkills = [33012,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,754,0},{145,452,0},{160,212,0}],
+    property = [{138,605,0},{145,363,0},{160,170,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 11,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,12)->
     #transformCfg {
     cardID = 4,
     level = 12,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,36],
     activeTaskList = [79,110],
@@ -2177,20 +1969,18 @@ getRow(4,12)->
     passiveSkills = [33012,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,829,0},{145,497,0},{160,233,0}],
+    property = [{138,686,0},{145,411,0},{160,193,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 12,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,13)->
     #transformCfg {
     cardID = 4,
     level = 13,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,38],
     activeTaskList = [79,110],
@@ -2198,20 +1988,18 @@ getRow(4,13)->
     passiveSkills = [33013,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,908,0},{145,544,0},{160,255,0}],
+    property = [{138,770,0},{145,462,0},{160,217,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 13,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,14)->
     #transformCfg {
     cardID = 4,
     level = 14,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,41],
     activeTaskList = [79,110],
@@ -2219,20 +2007,18 @@ getRow(4,14)->
     passiveSkills = [33013,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,990,0},{145,594,0},{160,278,0}],
+    property = [{138,859,0},{145,515,0},{160,241,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 14,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,15)->
     #transformCfg {
     cardID = 4,
     level = 15,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,44],
     activeTaskList = [79,110],
@@ -2240,20 +2026,18 @@ getRow(4,15)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1075,0},{145,645,0},{160,302,0}],
+    property = [{138,950,0},{145,570,0},{160,267,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 15,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,16)->
     #transformCfg {
     cardID = 4,
     level = 16,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,47],
     activeTaskList = [79,110],
@@ -2261,20 +2045,18 @@ getRow(4,16)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1163,0},{145,697,0},{160,327,0}],
+    property = [{138,1045,0},{145,627,0},{160,294,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 16,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,17)->
     #transformCfg {
     cardID = 4,
     level = 17,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,49],
     activeTaskList = [79,110],
@@ -2282,20 +2064,18 @@ getRow(4,17)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1254,0},{145,752,0},{160,353,0}],
+    property = [{138,1143,0},{145,686,0},{160,321,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 17,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,18)->
     #transformCfg {
     cardID = 4,
     level = 18,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,52],
     activeTaskList = [79,110],
@@ -2303,20 +2083,18 @@ getRow(4,18)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1348,0},{145,808,0},{160,379,0}],
+    property = [{138,1244,0},{145,746,0},{160,350,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 18,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,19)->
     #transformCfg {
     cardID = 4,
     level = 19,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,54],
     activeTaskList = [79,110],
@@ -2324,20 +2102,18 @@ getRow(4,19)->
     passiveSkills = [33014,33113],
     stateMax = 2,
     money = 0,
-    property = [{138,1444,0},{145,866,0},{160,406,0}],
+    property = [{138,1349,0},{145,809,0},{160,379,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 19,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,20)->
     #transformCfg {
     cardID = 4,
     level = 20,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,58],
     activeTaskList = [79,110],
@@ -2345,20 +2121,18 @@ getRow(4,20)->
     passiveSkills = [33014,33113],
     stateMax = 2,
     money = 0,
-    property = [{138,1544,0},{145,926,0},{160,434,0}],
+    property = [{138,1456,0},{145,873,0},{160,409,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 20,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,21)->
     #transformCfg {
     cardID = 4,
     level = 21,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,60],
     activeTaskList = [79,110],
@@ -2366,20 +2140,18 @@ getRow(4,21)->
     passiveSkills = [33014,33113,33211],
     stateMax = 3,
     money = 0,
-    property = [{138,1646,0},{145,987,0},{160,463,0}],
+    property = [{138,1566,0},{145,939,0},{160,440,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 21,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,22)->
     #transformCfg {
     cardID = 4,
     level = 22,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,62],
     activeTaskList = [79,110],
@@ -2387,20 +2159,18 @@ getRow(4,22)->
     passiveSkills = [33014,33113,33211],
     stateMax = 3,
     money = 0,
-    property = [{138,1751,0},{145,1050,0},{160,492,0}],
+    property = [{138,1679,0},{145,1007,0},{160,472,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 22,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,23)->
     #transformCfg {
     cardID = 4,
     level = 23,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,66],
     activeTaskList = [79,110],
@@ -2408,20 +2178,18 @@ getRow(4,23)->
     passiveSkills = [33014,33114,33212],
     stateMax = 3,
     money = 0,
-    property = [{138,1858,0},{145,1114,0},{160,523,0}],
+    property = [{138,1794,0},{145,1076,0},{160,505,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 23,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,24)->
     #transformCfg {
     cardID = 4,
     level = 24,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,68],
     activeTaskList = [79,110],
@@ -2429,20 +2197,18 @@ getRow(4,24)->
     passiveSkills = [33014,33114,33212],
     stateMax = 3,
     money = 0,
-    property = [{138,1967,0},{145,1180,0},{160,553,0}],
+    property = [{138,1912,0},{145,1147,0},{160,538,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 24,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,25)->
     #transformCfg {
     cardID = 4,
     level = 25,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,71],
     activeTaskList = [79,110],
@@ -2450,20 +2216,18 @@ getRow(4,25)->
     passiveSkills = [33015,33114,33213],
     stateMax = 3,
     money = 0,
-    property = [{138,2080,0},{145,1248,0},{160,585,0}],
+    property = [{138,2033,0},{145,1220,0},{160,572,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 25,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,26)->
     #transformCfg {
     cardID = 4,
     level = 26,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,73],
     activeTaskList = [79,110],
@@ -2471,20 +2235,18 @@ getRow(4,26)->
     passiveSkills = [33015,33114,33213],
     stateMax = 3,
     money = 0,
-    property = [{138,2194,0},{145,1316,0},{160,617,0}],
+    property = [{138,2157,0},{145,1294,0},{160,607,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 26,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,27)->
     #transformCfg {
     cardID = 4,
     level = 27,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,77],
     activeTaskList = [79,110],
@@ -2492,20 +2254,18 @@ getRow(4,27)->
     passiveSkills = [33015,33115,33214],
     stateMax = 3,
     money = 0,
-    property = [{138,2311,0},{145,1386,0},{160,650,0}],
+    property = [{138,2282,0},{145,1369,0},{160,642,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 27,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,28)->
     #transformCfg {
     cardID = 4,
     level = 28,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,78],
     activeTaskList = [79,110],
@@ -2513,20 +2273,18 @@ getRow(4,28)->
     passiveSkills = [33015,33115,33214],
     stateMax = 3,
     money = 0,
-    property = [{138,2430,0},{145,1458,0},{160,684,0}],
+    property = [{138,2411,0},{145,1446,0},{160,678,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 28,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,29)->
     #transformCfg {
     cardID = 4,
     level = 29,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,82],
     activeTaskList = [79,110],
@@ -2534,20 +2292,18 @@ getRow(4,29)->
     passiveSkills = [33015,33115,33215],
     stateMax = 3,
     money = 0,
-    property = [{138,2551,0},{145,1530,0},{160,718,0}],
+    property = [{138,2541,0},{145,1525,0},{160,715,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 29,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(4,30)->
     #transformCfg {
     cardID = 4,
     level = 30,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 101,
     fragment = [2101,85],
     activeTaskList = [79,110],
@@ -2560,15 +2316,13 @@ getRow(4,30)->
     icon = "Luna_Night",
     cardPoint = 30,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(5,0)->
     #transformCfg {
     cardID = 5,
     level = 0,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [],
     stateMax = 0,
@@ -2584,587 +2338,528 @@ getRow(5,1)->
     cardID = 5,
     level = 1,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,2675,0},{141,150,0},{143,108,0}],
+    property = [{135,802,0},{141,45,0},{143,32,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 1,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,2)->
     #transformCfg {
     cardID = 5,
     level = 2,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,10],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,2829,0},{141,158,0},{143,115,0}],
+    property = [{135,968,0},{141,54,0},{143,39,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 2,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,3)->
     #transformCfg {
     cardID = 5,
     level = 3,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,11],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,3111,0},{141,174,0},{143,126,0}],
+    property = [{135,1272,0},{141,71,0},{143,51,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 3,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,4)->
     #transformCfg {
     cardID = 5,
     level = 4,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,14],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,3476,0},{141,195,0},{143,141,0}],
+    property = [{135,1665,0},{141,93,0},{143,67,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 4,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,5)->
     #transformCfg {
     cardID = 5,
     level = 5,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,17],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,3908,0},{141,219,0},{143,159,0}],
+    property = [{135,2131,0},{141,119,0},{143,86,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 5,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,6)->
     #transformCfg {
     cardID = 5,
     level = 6,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,19],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,4398,0},{141,246,0},{143,179,0}],
+    property = [{135,2660,0},{141,149,0},{143,108,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 6,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,7)->
     #transformCfg {
     cardID = 5,
     level = 7,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,22],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,4940,0},{141,277,0},{143,201,0}],
+    property = [{135,3244,0},{141,182,0},{143,132,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 7,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,8)->
     #transformCfg {
     cardID = 5,
     level = 8,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,25],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,5530,0},{141,310,0},{143,225,0}],
+    property = [{135,3879,0},{141,217,0},{143,158,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 8,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,9)->
     #transformCfg {
     cardID = 5,
     level = 9,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,28],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,6163,0},{141,345,0},{143,251,0}],
+    property = [{135,4562,0},{141,255,0},{143,185,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 9,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,10)->
     #transformCfg {
     cardID = 5,
     level = 10,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,30],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,6837,0},{141,383,0},{143,278,0}],
+    property = [{135,5288,0},{141,296,0},{143,215,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 10,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,11)->
     #transformCfg {
     cardID = 5,
     level = 11,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,33],
     activeSkills = [31102],
     passiveSkills = [32112,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,7549,0},{141,423,0},{143,307,0}],
+    property = [{135,6056,0},{141,339,0},{143,246,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 11,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,12)->
     #transformCfg {
     cardID = 5,
     level = 12,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,36],
     activeSkills = [31102],
     passiveSkills = [32112,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,8299,0},{141,465,0},{143,338,0}],
+    property = [{135,6864,0},{141,385,0},{143,279,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 12,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,13)->
     #transformCfg {
     cardID = 5,
     level = 13,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,38],
     activeSkills = [31103],
     passiveSkills = [32113,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,9083,0},{141,509,0},{143,370,0}],
+    property = [{135,7709,0},{141,432,0},{143,314,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 13,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,14)->
     #transformCfg {
     cardID = 5,
     level = 14,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,41],
     activeSkills = [31103],
     passiveSkills = [32113,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,9900,0},{141,555,0},{143,403,0}],
+    property = [{135,8590,0},{141,482,0},{143,349,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 14,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,15)->
     #transformCfg {
     cardID = 5,
     level = 15,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,44],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,10750,0},{141,603,0},{143,438,0}],
+    property = [{135,9505,0},{141,533,0},{143,387,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 15,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,16)->
     #transformCfg {
     cardID = 5,
     level = 16,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,47],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,11630,0},{141,652,0},{143,473,0}],
+    property = [{135,10454,0},{141,586,0},{143,425,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 16,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,17)->
     #transformCfg {
     cardID = 5,
     level = 17,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,49],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,12541,0},{141,703,0},{143,510,0}],
+    property = [{135,11436,0},{141,641,0},{143,465,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 17,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,18)->
     #transformCfg {
     cardID = 5,
     level = 18,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,52],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,13480,0},{141,756,0},{143,549,0}],
+    property = [{135,12448,0},{141,698,0},{143,507,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 18,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,19)->
     #transformCfg {
     cardID = 5,
     level = 19,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,54],
     activeSkills = [31104],
     passiveSkills = [32114,32213],
     stateMax = 2,
     money = 0,
-    property = [{135,14447,0},{141,810,0},{143,588,0}],
+    property = [{135,13490,0},{141,757,0},{143,549,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 19,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,20)->
     #transformCfg {
     cardID = 5,
     level = 20,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,58],
     activeSkills = [31104],
     passiveSkills = [32114,32213],
     stateMax = 2,
     money = 0,
-    property = [{135,15442,0},{141,866,0},{143,629,0}],
+    property = [{135,14562,0},{141,817,0},{143,593,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 20,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,21)->
     #transformCfg {
     cardID = 5,
     level = 21,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,60],
     activeSkills = [31104],
     passiveSkills = [32114,32213,32311],
     stateMax = 3,
     money = 0,
-    property = [{135,16463,0},{141,923,0},{143,670,0}],
+    property = [{135,15663,0},{141,878,0},{143,638,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 21,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,22)->
     #transformCfg {
     cardID = 5,
     level = 22,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,62],
     activeSkills = [31104],
     passiveSkills = [32114,32213,32311],
     stateMax = 3,
     money = 0,
-    property = [{135,17510,0},{141,982,0},{143,713,0}],
+    property = [{135,16791,0},{141,942,0},{143,684,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 22,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,23)->
     #transformCfg {
     cardID = 5,
     level = 23,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,66],
     activeSkills = [31104],
     passiveSkills = [32114,32214,32312],
     stateMax = 3,
     money = 0,
-    property = [{135,18582,0},{141,1042,0},{143,757,0}],
+    property = [{135,17947,0},{141,1007,0},{143,731,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 23,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,24)->
     #transformCfg {
     cardID = 5,
     level = 24,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,68],
     activeSkills = [31104],
     passiveSkills = [32114,32214,32312],
     stateMax = 3,
     money = 0,
-    property = [{135,19679,0},{141,1104,0},{143,801,0}],
+    property = [{135,19129,0},{141,1073,0},{143,779,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 24,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,25)->
     #transformCfg {
     cardID = 5,
     level = 25,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,71],
     activeSkills = [31105],
     passiveSkills = [32115,32214,32313],
     stateMax = 3,
     money = 0,
-    property = [{135,20800,0},{141,1167,0},{143,847,0}],
+    property = [{135,20337,0},{141,1141,0},{143,828,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 25,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,26)->
     #transformCfg {
     cardID = 5,
     level = 26,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,73],
     activeSkills = [31105],
     passiveSkills = [32115,32214,32313],
     stateMax = 3,
     money = 0,
-    property = [{135,21944,0},{141,1231,0},{143,894,0}],
+    property = [{135,21571,0},{141,1210,0},{143,878,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 26,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,27)->
     #transformCfg {
     cardID = 5,
     level = 27,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,77],
     activeSkills = [31105],
     passiveSkills = [32115,32215,32314],
     stateMax = 3,
     money = 0,
-    property = [{135,23112,0},{141,1296,0},{143,941,0}],
+    property = [{135,22829,0},{141,1281,0},{143,930,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 27,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,28)->
     #transformCfg {
     cardID = 5,
     level = 28,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,78],
     activeSkills = [31105],
     passiveSkills = [32115,32215,32314],
     stateMax = 3,
     money = 0,
-    property = [{135,24302,0},{141,1373,0},{143,990,0}],
+    property = [{135,24112,0},{141,1353,0},{143,982,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 28,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,29)->
     #transformCfg {
     cardID = 5,
     level = 29,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,82],
     activeSkills = [31105],
     passiveSkills = [32115,32215,32315],
     stateMax = 3,
     money = 0,
-    property = [{135,25515,0},{141,1431,0},{143,1039,0}],
+    property = [{135,25419,0},{141,1426,0},{143,1035,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 29,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(5,30)->
     #transformCfg {
     cardID = 5,
     level = 30,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 201,
     fragment = [2101,85],
     activeSkills = [31105],
@@ -3176,18 +2871,16 @@ getRow(5,30)->
     icon = "Luna_Kind",
     cardPoint = 30,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(6,0)->
     #transformCfg {
     cardID = 6,
     level = 0,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     stateMax = 0,
     money = 0,
     name = "战争",
@@ -3201,619 +2894,560 @@ getRow(6,1)->
     cardID = 6,
     level = 1,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{137,267,0},{140,213,0},{142,128,0}],
+    property = [{137,80,0},{140,63,0},{142,38,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 1,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,2)->
     #transformCfg {
     cardID = 6,
     level = 2,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,10],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{137,282,0},{140,225,0},{142,136,0}],
+    property = [{137,96,0},{140,77,0},{142,46,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 2,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,3)->
     #transformCfg {
     cardID = 6,
     level = 3,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,11],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{137,311,0},{140,247,0},{142,149,0}],
+    property = [{137,127,0},{140,101,0},{142,61,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 3,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,4)->
     #transformCfg {
     cardID = 6,
     level = 4,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,14],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{137,347,0},{140,276,0},{142,167,0}],
+    property = [{137,166,0},{140,132,0},{142,80,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 4,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,5)->
     #transformCfg {
     cardID = 6,
     level = 5,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,17],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{137,390,0},{140,311,0},{142,188,0}],
+    property = [{137,213,0},{140,169,0},{142,102,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 5,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,6)->
     #transformCfg {
     cardID = 6,
     level = 6,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,19],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{137,439,0},{140,350,0},{142,211,0}],
+    property = [{137,266,0},{140,211,0},{142,128,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 6,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,7)->
     #transformCfg {
     cardID = 6,
     level = 7,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,22],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{137,494,0},{140,393,0},{142,237,0}],
+    property = [{137,324,0},{140,258,0},{142,156,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 7,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,8)->
     #transformCfg {
     cardID = 6,
     level = 8,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,25],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{137,553,0},{140,440,0},{142,266,0}],
+    property = [{137,387,0},{140,308,0},{142,186,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 8,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,9)->
     #transformCfg {
     cardID = 6,
     level = 9,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,28],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{137,616,0},{140,490,0},{142,296,0}],
+    property = [{137,456,0},{140,363,0},{142,219,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 9,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,10)->
     #transformCfg {
     cardID = 6,
     level = 10,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,30],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{137,683,0},{140,544,0},{142,329,0}],
+    property = [{137,528,0},{140,421,0},{142,254,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 10,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,11)->
     #transformCfg {
     cardID = 6,
     level = 11,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,33],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412,32511],
     stateMax = 2,
     money = 0,
-    property = [{137,754,0},{140,601,0},{142,363,0}],
+    property = [{137,605,0},{140,482,0},{142,291,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 11,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,12)->
     #transformCfg {
     cardID = 6,
     level = 12,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,36],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412,32511],
     stateMax = 2,
     money = 0,
-    property = [{137,829,0},{140,660,0},{142,399,0}],
+    property = [{137,686,0},{140,546,0},{142,330,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 12,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,13)->
     #transformCfg {
     cardID = 6,
     level = 13,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,38],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32511],
     stateMax = 2,
     money = 0,
-    property = [{137,908,0},{140,723,0},{142,437,0}],
+    property = [{137,770,0},{140,613,0},{142,371,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 13,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,14)->
     #transformCfg {
     cardID = 6,
     level = 14,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,41],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32511],
     stateMax = 2,
     money = 0,
-    property = [{137,990,0},{140,788,0},{142,476,0}],
+    property = [{137,859,0},{140,684,0},{142,413,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 14,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,15)->
     #transformCfg {
     cardID = 6,
     level = 15,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,44],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{137,1075,0},{140,856,0},{142,517,0}],
+    property = [{137,950,0},{140,756,0},{142,457,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 15,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,16)->
     #transformCfg {
     cardID = 6,
     level = 16,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,47],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{137,1163,0},{140,926,0},{142,560,0}],
+    property = [{137,1045,0},{140,832,0},{142,503,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 16,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,17)->
     #transformCfg {
     cardID = 6,
     level = 17,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,49],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{137,1254,0},{140,998,0},{142,603,0}],
+    property = [{137,1143,0},{140,910,0},{142,550,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 17,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,18)->
     #transformCfg {
     cardID = 6,
     level = 18,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,52],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{137,1348,0},{140,1073,0},{142,649,0}],
+    property = [{137,1244,0},{140,991,0},{142,599,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 18,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,19)->
     #transformCfg {
     cardID = 6,
     level = 19,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,54],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513],
     stateMax = 2,
     money = 0,
-    property = [{137,1444,0},{140,1150,0},{142,695,0}],
+    property = [{137,1349,0},{140,1074,0},{142,649,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 19,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,20)->
     #transformCfg {
     cardID = 6,
     level = 20,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,58],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513],
     stateMax = 2,
     money = 0,
-    property = [{137,1544,0},{140,1229,0},{142,743,0}],
+    property = [{137,1456,0},{140,1159,0},{142,701,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 20,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,21)->
     #transformCfg {
     cardID = 6,
     level = 21,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,60],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513,32611],
     stateMax = 3,
     money = 0,
-    property = [{137,1646,0},{140,1310,0},{142,792,0}],
+    property = [{137,1566,0},{140,1247,0},{142,754,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 21,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,22)->
     #transformCfg {
     cardID = 6,
     level = 22,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,62],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513,32611],
     stateMax = 3,
     money = 0,
-    property = [{137,1751,0},{140,1394,0},{142,843,0}],
+    property = [{137,1679,0},{140,1337,0},{142,808,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 22,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,23)->
     #transformCfg {
     cardID = 6,
     level = 23,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,66],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32514,32612],
     stateMax = 3,
     money = 0,
-    property = [{137,1858,0},{140,1479,0},{142,894,0}],
+    property = [{137,1794,0},{140,1429,0},{142,864,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 23,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,24)->
     #transformCfg {
     cardID = 6,
     level = 24,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,68],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32514,32612],
     stateMax = 3,
     money = 0,
-    property = [{137,1967,0},{140,1566,0},{142,947,0}],
+    property = [{137,1912,0},{140,1523,0},{142,921,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 24,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,25)->
     #transformCfg {
     cardID = 6,
     level = 25,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,71],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32514,32613],
     stateMax = 3,
     money = 0,
-    property = [{137,2080,0},{140,1656,0},{142,1001,0}],
+    property = [{137,2033,0},{140,1619,0},{142,979,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 25,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,26)->
     #transformCfg {
     cardID = 6,
     level = 26,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,73],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32514,32613],
     stateMax = 3,
     money = 0,
-    property = [{137,2194,0},{140,1747,0},{142,1056,0}],
+    property = [{137,2157,0},{140,1717,0},{142,1038,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 26,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,27)->
     #transformCfg {
     cardID = 6,
     level = 27,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,77],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32614],
     stateMax = 3,
     money = 0,
-    property = [{137,2311,0},{140,1840,0},{142,1112,0}],
+    property = [{137,2282,0},{140,1817,0},{142,1099,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 27,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,28)->
     #transformCfg {
     cardID = 6,
     level = 28,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,78],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32614],
     stateMax = 3,
     money = 0,
-    property = [{137,2430,0},{140,1935,0},{142,1170,0}],
+    property = [{137,2411,0},{140,1919,0},{142,1161,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 28,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,29)->
     #transformCfg {
     cardID = 6,
     level = 29,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,82],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32615],
     stateMax = 3,
     money = 0,
-    property = [{137,2551,0},{140,2031,0},{142,1228,0}],
+    property = [{137,2541,0},{140,2024,0},{142,1223,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 29,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(6,30)->
     #transformCfg {
     cardID = 6,
     level = 30,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 201,
     fragment = [2101,85],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32615],
     stateMax = 3,
@@ -3823,15 +3457,13 @@ getRow(6,30)->
     icon = "Luna_War",
     cardPoint = 30,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(7,0)->
     #transformCfg {
     cardID = 7,
     level = 0,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [],
     activeTaskList = [44,78],
@@ -3848,7 +3480,6 @@ getRow(7,1)->
     cardID = 7,
     level = 1,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [],
     activeTaskList = [44,78],
@@ -3856,20 +3487,18 @@ getRow(7,1)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,267,0},{144,112,0},{146,107,0}],
+    property = [{139,80,0},{144,33,0},{146,32,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 1,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,2)->
     #transformCfg {
     cardID = 7,
     level = 2,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,10],
     activeTaskList = [44,78],
@@ -3877,20 +3506,18 @@ getRow(7,2)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,282,0},{144,118,0},{146,113,0}],
+    property = [{139,96,0},{144,40,0},{146,38,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 2,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,3)->
     #transformCfg {
     cardID = 7,
     level = 3,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,11],
     activeTaskList = [44,78],
@@ -3898,20 +3525,18 @@ getRow(7,3)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,311,0},{144,130,0},{146,124,0}],
+    property = [{139,127,0},{144,53,0},{146,50,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 3,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,4)->
     #transformCfg {
     cardID = 7,
     level = 4,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,14],
     activeTaskList = [44,78],
@@ -3919,20 +3544,18 @@ getRow(7,4)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,347,0},{144,145,0},{146,139,0}],
+    property = [{139,166,0},{144,69,0},{146,66,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 4,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,5)->
     #transformCfg {
     cardID = 7,
     level = 5,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,17],
     activeTaskList = [44,78],
@@ -3940,20 +3563,18 @@ getRow(7,5)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,390,0},{144,163,0},{146,156,0}],
+    property = [{139,213,0},{144,89,0},{146,85,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 5,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,6)->
     #transformCfg {
     cardID = 7,
     level = 6,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,19],
     activeTaskList = [44,78],
@@ -3961,20 +3582,18 @@ getRow(7,6)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,439,0},{144,184,0},{146,175,0}],
+    property = [{139,266,0},{144,111,0},{146,106,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 6,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,7)->
     #transformCfg {
     cardID = 7,
     level = 7,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,22],
     activeTaskList = [44,78],
@@ -3982,20 +3601,18 @@ getRow(7,7)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,494,0},{144,207,0},{146,197,0}],
+    property = [{139,324,0},{144,137,0},{146,129,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 7,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,8)->
     #transformCfg {
     cardID = 7,
     level = 8,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,25],
     activeTaskList = [44,78],
@@ -4003,20 +3620,18 @@ getRow(7,8)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,553,0},{144,231,0},{146,221,0}],
+    property = [{139,387,0},{144,162,0},{146,155,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 8,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,9)->
     #transformCfg {
     cardID = 7,
     level = 9,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,28],
     activeTaskList = [44,78],
@@ -4024,20 +3639,18 @@ getRow(7,9)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,616,0},{144,258,0},{146,246,0}],
+    property = [{139,456,0},{144,191,0},{146,182,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 9,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,10)->
     #transformCfg {
     cardID = 7,
     level = 10,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,30],
     activeTaskList = [44,78],
@@ -4045,20 +3658,18 @@ getRow(7,10)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,683,0},{144,286,0},{146,273,0}],
+    property = [{139,528,0},{144,221,0},{146,211,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 10,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,11)->
     #transformCfg {
     cardID = 7,
     level = 11,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,33],
     activeTaskList = [44,78],
@@ -4066,20 +3677,18 @@ getRow(7,11)->
     passiveSkills = [32712,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,754,0},{144,316,0},{146,301,0}],
+    property = [{139,605,0},{144,253,0},{146,242,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 11,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,12)->
     #transformCfg {
     cardID = 7,
     level = 12,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,36],
     activeTaskList = [44,78],
@@ -4087,20 +3696,18 @@ getRow(7,12)->
     passiveSkills = [32712,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,829,0},{144,347,0},{146,331,0}],
+    property = [{139,686,0},{144,287,0},{146,274,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 12,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,13)->
     #transformCfg {
     cardID = 7,
     level = 13,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,38],
     activeTaskList = [44,78],
@@ -4108,20 +3715,18 @@ getRow(7,13)->
     passiveSkills = [32713,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,908,0},{144,380,0},{146,363,0}],
+    property = [{139,770,0},{144,323,0},{146,308,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 13,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,14)->
     #transformCfg {
     cardID = 7,
     level = 14,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,41],
     activeTaskList = [44,78],
@@ -4129,20 +3734,18 @@ getRow(7,14)->
     passiveSkills = [32713,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,990,0},{144,415,0},{146,396,0}],
+    property = [{139,859,0},{144,360,0},{146,343,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 14,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,15)->
     #transformCfg {
     cardID = 7,
     level = 15,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,44],
     activeTaskList = [44,78],
@@ -4150,20 +3753,18 @@ getRow(7,15)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1075,0},{144,450,0},{146,430,0}],
+    property = [{139,950,0},{144,398,0},{146,380,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 15,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,16)->
     #transformCfg {
     cardID = 7,
     level = 16,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,47],
     activeTaskList = [44,78],
@@ -4171,20 +3772,18 @@ getRow(7,16)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1163,0},{144,487,0},{146,465,0}],
+    property = [{139,1045,0},{144,438,0},{146,418,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 16,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,17)->
     #transformCfg {
     cardID = 7,
     level = 17,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,49],
     activeTaskList = [44,78],
@@ -4192,20 +3791,18 @@ getRow(7,17)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1254,0},{144,525,0},{146,501,0}],
+    property = [{139,1143,0},{144,479,0},{146,457,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 17,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,18)->
     #transformCfg {
     cardID = 7,
     level = 18,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,52],
     activeTaskList = [44,78],
@@ -4213,20 +3810,18 @@ getRow(7,18)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1348,0},{144,565,0},{146,539,0}],
+    property = [{139,1244,0},{144,521,0},{146,497,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 18,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,19)->
     #transformCfg {
     cardID = 7,
     level = 19,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,54],
     activeTaskList = [44,78],
@@ -4234,20 +3829,18 @@ getRow(7,19)->
     passiveSkills = [32714,32813],
     stateMax = 2,
     money = 0,
-    property = [{139,1444,0},{144,605,0},{146,577,0}],
+    property = [{139,1349,0},{144,565,0},{146,539,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 19,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,20)->
     #transformCfg {
     cardID = 7,
     level = 20,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,58],
     activeTaskList = [44,78],
@@ -4255,20 +3848,18 @@ getRow(7,20)->
     passiveSkills = [32714,32813],
     stateMax = 2,
     money = 0,
-    property = [{139,1544,0},{144,647,0},{146,617,0}],
+    property = [{139,1456,0},{144,610,0},{146,582,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 20,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,21)->
     #transformCfg {
     cardID = 7,
     level = 21,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,60],
     activeTaskList = [44,78],
@@ -4276,20 +3867,18 @@ getRow(7,21)->
     passiveSkills = [32714,32813,32911],
     stateMax = 3,
     money = 0,
-    property = [{139,1646,0},{144,690,0},{146,658,0}],
+    property = [{139,1566,0},{144,656,0},{146,626,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 21,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,22)->
     #transformCfg {
     cardID = 7,
     level = 22,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,62],
     activeTaskList = [44,78],
@@ -4297,20 +3886,18 @@ getRow(7,22)->
     passiveSkills = [32714,32813,32911],
     stateMax = 3,
     money = 0,
-    property = [{139,1751,0},{144,734,0},{146,700,0}],
+    property = [{139,1679,0},{144,704,0},{146,671,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 22,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,23)->
     #transformCfg {
     cardID = 7,
     level = 23,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,66],
     activeTaskList = [44,78],
@@ -4318,20 +3905,18 @@ getRow(7,23)->
     passiveSkills = [32714,32814,32912],
     stateMax = 3,
     money = 0,
-    property = [{139,1858,0},{144,779,0},{146,743,0}],
+    property = [{139,1794,0},{144,752,0},{146,717,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 23,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,24)->
     #transformCfg {
     cardID = 7,
     level = 24,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,68],
     activeTaskList = [44,78],
@@ -4339,20 +3924,18 @@ getRow(7,24)->
     passiveSkills = [32714,32814,32912],
     stateMax = 3,
     money = 0,
-    property = [{139,1967,0},{144,825,0},{146,787,0}],
+    property = [{139,1912,0},{144,802,0},{146,765,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 24,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,25)->
     #transformCfg {
     cardID = 7,
     level = 25,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,71],
     activeTaskList = [44,78],
@@ -4360,20 +3943,18 @@ getRow(7,25)->
     passiveSkills = [32715,32814,32913],
     stateMax = 3,
     money = 0,
-    property = [{139,2080,0},{144,872,0},{146,832,0}],
+    property = [{139,2033,0},{144,852,0},{146,813,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 25,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,26)->
     #transformCfg {
     cardID = 7,
     level = 26,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,73],
     activeTaskList = [44,78],
@@ -4381,20 +3962,18 @@ getRow(7,26)->
     passiveSkills = [32715,32814,32913],
     stateMax = 3,
     money = 0,
-    property = [{139,2194,0},{144,920,0},{146,877,0}],
+    property = [{139,2157,0},{144,904,0},{146,862,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 26,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,27)->
     #transformCfg {
     cardID = 7,
     level = 27,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,77],
     activeTaskList = [44,78],
@@ -4402,20 +3981,18 @@ getRow(7,27)->
     passiveSkills = [32715,32815,32914],
     stateMax = 3,
     money = 0,
-    property = [{139,2311,0},{144,969,0},{146,924,0}],
+    property = [{139,2282,0},{144,957,0},{146,913,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 27,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,28)->
     #transformCfg {
     cardID = 7,
     level = 28,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,78],
     activeTaskList = [44,78],
@@ -4423,20 +4000,18 @@ getRow(7,28)->
     passiveSkills = [32715,32815,32914],
     stateMax = 3,
     money = 0,
-    property = [{139,2430,0},{144,1019,0},{146,972,0}],
+    property = [{139,2411,0},{144,1011,0},{146,964,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 28,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,29)->
     #transformCfg {
     cardID = 7,
     level = 29,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,82],
     activeTaskList = [44,78],
@@ -4444,20 +4019,18 @@ getRow(7,29)->
     passiveSkills = [32715,32815,32915],
     stateMax = 3,
     money = 0,
-    property = [{139,2551,0},{144,1069,0},{146,1020,0}],
+    property = [{139,2541,0},{144,1065,0},{146,1016,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 29,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(7,30)->
     #transformCfg {
     cardID = 7,
     level = 30,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 201,
     fragment = [2101,85],
     activeTaskList = [44,78],
@@ -4470,15 +4043,13 @@ getRow(7,30)->
     icon = "Luna_Wisdom",
     cardPoint = 30,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(8,0)->
     #transformCfg {
     cardID = 8,
     level = 0,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [],
     activeTaskList = [79,110],
@@ -4495,7 +4066,6 @@ getRow(8,1)->
     cardID = 8,
     level = 1,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [],
     activeTaskList = [79,110],
@@ -4503,20 +4073,18 @@ getRow(8,1)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,267,0},{145,160,0},{160,75,0}],
+    property = [{138,80,0},{145,48,0},{160,22,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 1,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,2)->
     #transformCfg {
     cardID = 8,
     level = 2,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,10],
     activeTaskList = [79,110],
@@ -4524,20 +4092,18 @@ getRow(8,2)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,282,0},{145,169,0},{160,79,0}],
+    property = [{138,96,0},{145,58,0},{160,27,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 2,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,3)->
     #transformCfg {
     cardID = 8,
     level = 3,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,11],
     activeTaskList = [79,110],
@@ -4545,20 +4111,18 @@ getRow(8,3)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,311,0},{145,186,0},{160,87,0}],
+    property = [{138,127,0},{145,76,0},{160,35,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 3,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,4)->
     #transformCfg {
     cardID = 8,
     level = 4,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,14],
     activeTaskList = [79,110],
@@ -4566,20 +4130,18 @@ getRow(8,4)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,347,0},{145,208,0},{160,97,0}],
+    property = [{138,166,0},{145,99,0},{160,46,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 4,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,5)->
     #transformCfg {
     cardID = 8,
     level = 5,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,17],
     activeTaskList = [79,110],
@@ -4587,20 +4149,18 @@ getRow(8,5)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,390,0},{145,234,0},{160,110,0}],
+    property = [{138,213,0},{145,127,0},{160,60,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 5,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,6)->
     #transformCfg {
     cardID = 8,
     level = 6,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,19],
     activeTaskList = [79,110],
@@ -4608,20 +4168,18 @@ getRow(8,6)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,439,0},{145,263,0},{160,123,0}],
+    property = [{138,266,0},{145,159,0},{160,74,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 6,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,7)->
     #transformCfg {
     cardID = 8,
     level = 7,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,22],
     activeTaskList = [79,110],
@@ -4629,20 +4187,18 @@ getRow(8,7)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,494,0},{145,296,0},{160,139,0}],
+    property = [{138,324,0},{145,194,0},{160,91,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 7,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,8)->
     #transformCfg {
     cardID = 8,
     level = 8,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,25],
     activeTaskList = [79,110],
@@ -4650,20 +4206,18 @@ getRow(8,8)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,553,0},{145,331,0},{160,155,0}],
+    property = [{138,387,0},{145,232,0},{160,109,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 8,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,9)->
     #transformCfg {
     cardID = 8,
     level = 9,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,28],
     activeTaskList = [79,110],
@@ -4671,20 +4225,18 @@ getRow(8,9)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,616,0},{145,369,0},{160,173,0}],
+    property = [{138,456,0},{145,273,0},{160,128,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 9,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,10)->
     #transformCfg {
     cardID = 8,
     level = 10,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,30],
     activeTaskList = [79,110],
@@ -4692,20 +4244,18 @@ getRow(8,10)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,683,0},{145,410,0},{160,192,0}],
+    property = [{138,528,0},{145,317,0},{160,148,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 10,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,11)->
     #transformCfg {
     cardID = 8,
     level = 11,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,33],
     activeTaskList = [79,110],
@@ -4713,20 +4263,18 @@ getRow(8,11)->
     passiveSkills = [33012,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,754,0},{145,452,0},{160,212,0}],
+    property = [{138,605,0},{145,363,0},{160,170,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 11,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,12)->
     #transformCfg {
     cardID = 8,
     level = 12,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,36],
     activeTaskList = [79,110],
@@ -4734,20 +4282,18 @@ getRow(8,12)->
     passiveSkills = [33012,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,829,0},{145,497,0},{160,233,0}],
+    property = [{138,686,0},{145,411,0},{160,193,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 12,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,13)->
     #transformCfg {
     cardID = 8,
     level = 13,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,38],
     activeTaskList = [79,110],
@@ -4755,20 +4301,18 @@ getRow(8,13)->
     passiveSkills = [33013,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,908,0},{145,544,0},{160,255,0}],
+    property = [{138,770,0},{145,462,0},{160,217,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 13,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,14)->
     #transformCfg {
     cardID = 8,
     level = 14,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,41],
     activeTaskList = [79,110],
@@ -4776,20 +4320,18 @@ getRow(8,14)->
     passiveSkills = [33013,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,990,0},{145,594,0},{160,278,0}],
+    property = [{138,859,0},{145,515,0},{160,241,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 14,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,15)->
     #transformCfg {
     cardID = 8,
     level = 15,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,44],
     activeTaskList = [79,110],
@@ -4797,20 +4339,18 @@ getRow(8,15)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1075,0},{145,645,0},{160,302,0}],
+    property = [{138,950,0},{145,570,0},{160,267,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 15,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,16)->
     #transformCfg {
     cardID = 8,
     level = 16,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,47],
     activeTaskList = [79,110],
@@ -4818,20 +4358,18 @@ getRow(8,16)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1163,0},{145,697,0},{160,327,0}],
+    property = [{138,1045,0},{145,627,0},{160,294,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 16,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,17)->
     #transformCfg {
     cardID = 8,
     level = 17,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,49],
     activeTaskList = [79,110],
@@ -4839,20 +4377,18 @@ getRow(8,17)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1254,0},{145,752,0},{160,353,0}],
+    property = [{138,1143,0},{145,686,0},{160,321,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 17,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,18)->
     #transformCfg {
     cardID = 8,
     level = 18,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,52],
     activeTaskList = [79,110],
@@ -4860,20 +4396,18 @@ getRow(8,18)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1348,0},{145,808,0},{160,379,0}],
+    property = [{138,1244,0},{145,746,0},{160,350,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 18,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,19)->
     #transformCfg {
     cardID = 8,
     level = 19,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,54],
     activeTaskList = [79,110],
@@ -4881,20 +4415,18 @@ getRow(8,19)->
     passiveSkills = [33014,33113],
     stateMax = 2,
     money = 0,
-    property = [{138,1444,0},{145,866,0},{160,406,0}],
+    property = [{138,1349,0},{145,809,0},{160,379,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 19,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,20)->
     #transformCfg {
     cardID = 8,
     level = 20,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,58],
     activeTaskList = [79,110],
@@ -4902,20 +4434,18 @@ getRow(8,20)->
     passiveSkills = [33014,33113],
     stateMax = 2,
     money = 0,
-    property = [{138,1544,0},{145,926,0},{160,434,0}],
+    property = [{138,1456,0},{145,873,0},{160,409,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 20,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,21)->
     #transformCfg {
     cardID = 8,
     level = 21,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,60],
     activeTaskList = [79,110],
@@ -4923,20 +4453,18 @@ getRow(8,21)->
     passiveSkills = [33014,33113,33211],
     stateMax = 3,
     money = 0,
-    property = [{138,1646,0},{145,987,0},{160,463,0}],
+    property = [{138,1566,0},{145,939,0},{160,440,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 21,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,22)->
     #transformCfg {
     cardID = 8,
     level = 22,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,62],
     activeTaskList = [79,110],
@@ -4944,20 +4472,18 @@ getRow(8,22)->
     passiveSkills = [33014,33113,33211],
     stateMax = 3,
     money = 0,
-    property = [{138,1751,0},{145,1050,0},{160,492,0}],
+    property = [{138,1679,0},{145,1007,0},{160,472,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 22,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,23)->
     #transformCfg {
     cardID = 8,
     level = 23,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,66],
     activeTaskList = [79,110],
@@ -4965,20 +4491,18 @@ getRow(8,23)->
     passiveSkills = [33014,33114,33212],
     stateMax = 3,
     money = 0,
-    property = [{138,1858,0},{145,1114,0},{160,523,0}],
+    property = [{138,1794,0},{145,1076,0},{160,505,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 23,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,24)->
     #transformCfg {
     cardID = 8,
     level = 24,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,68],
     activeTaskList = [79,110],
@@ -4986,20 +4510,18 @@ getRow(8,24)->
     passiveSkills = [33014,33114,33212],
     stateMax = 3,
     money = 0,
-    property = [{138,1967,0},{145,1180,0},{160,553,0}],
+    property = [{138,1912,0},{145,1147,0},{160,538,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 24,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,25)->
     #transformCfg {
     cardID = 8,
     level = 25,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,71],
     activeTaskList = [79,110],
@@ -5007,20 +4529,18 @@ getRow(8,25)->
     passiveSkills = [33015,33114,33213],
     stateMax = 3,
     money = 0,
-    property = [{138,2080,0},{145,1248,0},{160,585,0}],
+    property = [{138,2033,0},{145,1220,0},{160,572,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 25,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,26)->
     #transformCfg {
     cardID = 8,
     level = 26,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,73],
     activeTaskList = [79,110],
@@ -5028,20 +4548,18 @@ getRow(8,26)->
     passiveSkills = [33015,33114,33213],
     stateMax = 3,
     money = 0,
-    property = [{138,2194,0},{145,1316,0},{160,617,0}],
+    property = [{138,2157,0},{145,1294,0},{160,607,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 26,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,27)->
     #transformCfg {
     cardID = 8,
     level = 27,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,77],
     activeTaskList = [79,110],
@@ -5049,20 +4567,18 @@ getRow(8,27)->
     passiveSkills = [33015,33115,33214],
     stateMax = 3,
     money = 0,
-    property = [{138,2311,0},{145,1386,0},{160,650,0}],
+    property = [{138,2282,0},{145,1379,0},{160,642,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 27,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,28)->
     #transformCfg {
     cardID = 8,
     level = 28,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,78],
     activeTaskList = [79,110],
@@ -5070,20 +4586,18 @@ getRow(8,28)->
     passiveSkills = [33015,33115,33214],
     stateMax = 3,
     money = 0,
-    property = [{138,2430,0},{145,1458,0},{160,684,0}],
+    property = [{138,2411,0},{145,1446,0},{160,678,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 28,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,29)->
     #transformCfg {
     cardID = 8,
     level = 29,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,82],
     activeTaskList = [79,110],
@@ -5091,20 +4605,18 @@ getRow(8,29)->
     passiveSkills = [33015,33115,33215],
     stateMax = 3,
     money = 0,
-    property = [{138,2551,0},{145,1530,0},{160,718,0}],
+    property = [{138,2541,0},{145,1525,0},{160,715,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 29,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(8,30)->
     #transformCfg {
     cardID = 8,
     level = 30,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 201,
     fragment = [2101,85],
     activeTaskList = [79,110],
@@ -5117,15 +4629,13 @@ getRow(8,30)->
     icon = "Luna_Night",
     cardPoint = 30,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(9,0)->
     #transformCfg {
     cardID = 9,
     level = 0,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [],
     stateMax = 0,
@@ -5141,587 +4651,528 @@ getRow(9,1)->
     cardID = 9,
     level = 1,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,2675,0},{141,150,0},{143,108,0}],
+    property = [{135,802,0},{141,45,0},{143,32,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 1,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,2)->
     #transformCfg {
     cardID = 9,
     level = 2,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,10],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,2829,0},{141,158,0},{143,115,0}],
+    property = [{135,968,0},{141,54,0},{143,39,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 2,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,3)->
     #transformCfg {
     cardID = 9,
     level = 3,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,11],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,3111,0},{141,174,0},{143,126,0}],
+    property = [{135,1272,0},{141,71,0},{143,51,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 3,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,4)->
     #transformCfg {
     cardID = 9,
     level = 4,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,14],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,3476,0},{141,195,0},{143,141,0}],
+    property = [{135,1665,0},{141,93,0},{143,67,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 4,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,5)->
     #transformCfg {
     cardID = 9,
     level = 5,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,17],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,3908,0},{141,219,0},{143,159,0}],
+    property = [{135,2131,0},{141,119,0},{143,86,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 5,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,6)->
     #transformCfg {
     cardID = 9,
     level = 6,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,19],
     activeSkills = [31101],
     passiveSkills = [32111],
     stateMax = 1,
     money = 0,
-    property = [{135,4398,0},{141,246,0},{143,179,0}],
+    property = [{135,2660,0},{141,149,0},{143,108,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 6,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,7)->
     #transformCfg {
     cardID = 9,
     level = 7,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,22],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,4940,0},{141,277,0},{143,201,0}],
+    property = [{135,3244,0},{141,182,0},{143,132,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 7,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,8)->
     #transformCfg {
     cardID = 9,
     level = 8,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,25],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,5530,0},{141,310,0},{143,225,0}],
+    property = [{135,3879,0},{141,217,0},{143,158,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 8,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,9)->
     #transformCfg {
     cardID = 9,
     level = 9,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,28],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,6163,0},{141,345,0},{143,251,0}],
+    property = [{135,4562,0},{141,255,0},{143,185,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 9,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,10)->
     #transformCfg {
     cardID = 9,
     level = 10,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,30],
     activeSkills = [31102],
     passiveSkills = [32112],
     stateMax = 1,
     money = 0,
-    property = [{135,6837,0},{141,383,0},{143,278,0}],
+    property = [{135,5288,0},{141,296,0},{143,215,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 10,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,11)->
     #transformCfg {
     cardID = 9,
     level = 11,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,33],
     activeSkills = [31102],
     passiveSkills = [32112,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,7549,0},{141,423,0},{143,307,0}],
+    property = [{135,6056,0},{141,339,0},{143,246,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 11,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,12)->
     #transformCfg {
     cardID = 9,
     level = 12,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,36],
     activeSkills = [31102],
     passiveSkills = [32112,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,8299,0},{141,465,0},{143,338,0}],
+    property = [{135,6864,0},{141,385,0},{143,279,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 12,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,13)->
     #transformCfg {
     cardID = 9,
     level = 13,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,38],
     activeSkills = [31103],
     passiveSkills = [32113,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,9083,0},{141,509,0},{143,370,0}],
+    property = [{135,7709,0},{141,432,0},{143,314,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 13,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,14)->
     #transformCfg {
     cardID = 9,
     level = 14,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,41],
     activeSkills = [31103],
     passiveSkills = [32113,32211],
     stateMax = 2,
     money = 0,
-    property = [{135,9900,0},{141,555,0},{143,403,0}],
+    property = [{135,8590,0},{141,482,0},{143,349,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 14,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,15)->
     #transformCfg {
     cardID = 9,
     level = 15,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,44],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,10750,0},{141,603,0},{143,438,0}],
+    property = [{135,9505,0},{141,533,0},{143,387,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 15,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,16)->
     #transformCfg {
     cardID = 9,
     level = 16,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,47],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,11630,0},{141,652,0},{143,473,0}],
+    property = [{135,10454,0},{141,586,0},{143,425,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 16,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,17)->
     #transformCfg {
     cardID = 9,
     level = 17,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,49],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,12541,0},{141,703,0},{143,510,0}],
+    property = [{135,11436,0},{141,641,0},{143,465,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 17,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,18)->
     #transformCfg {
     cardID = 9,
     level = 18,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,52],
     activeSkills = [31103],
     passiveSkills = [32113,32212],
     stateMax = 2,
     money = 0,
-    property = [{135,13480,0},{141,756,0},{143,549,0}],
+    property = [{135,12448,0},{141,698,0},{143,507,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 18,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,19)->
     #transformCfg {
     cardID = 9,
     level = 19,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,54],
     activeSkills = [31104],
     passiveSkills = [32114,32213],
     stateMax = 2,
     money = 0,
-    property = [{135,14447,0},{141,810,0},{143,588,0}],
+    property = [{135,13490,0},{141,757,0},{143,549,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 19,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,20)->
     #transformCfg {
     cardID = 9,
     level = 20,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,58],
     activeSkills = [31104],
     passiveSkills = [32114,32213],
     stateMax = 2,
     money = 0,
-    property = [{135,15442,0},{141,866,0},{143,629,0}],
+    property = [{135,14562,0},{141,817,0},{143,593,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 20,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,21)->
     #transformCfg {
     cardID = 9,
     level = 21,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,60],
     activeSkills = [31104],
     passiveSkills = [32114,32213,32311],
     stateMax = 3,
     money = 0,
-    property = [{135,16463,0},{141,923,0},{143,670,0}],
+    property = [{135,15663,0},{141,878,0},{143,638,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 21,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,22)->
     #transformCfg {
     cardID = 9,
     level = 22,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,62],
     activeSkills = [31104],
     passiveSkills = [32114,32213,32311],
     stateMax = 3,
     money = 0,
-    property = [{135,17510,0},{141,982,0},{143,713,0}],
+    property = [{135,16791,0},{141,942,0},{143,684,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 22,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,23)->
     #transformCfg {
     cardID = 9,
     level = 23,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,66],
     activeSkills = [31104],
     passiveSkills = [32114,32214,32312],
     stateMax = 3,
     money = 0,
-    property = [{135,18582,0},{141,1042,0},{143,757,0}],
+    property = [{135,17947,0},{141,1007,0},{143,731,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 23,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,24)->
     #transformCfg {
     cardID = 9,
     level = 24,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,68],
     activeSkills = [31104],
     passiveSkills = [32114,32214,32312],
     stateMax = 3,
     money = 0,
-    property = [{135,19679,0},{141,1104,0},{143,801,0}],
+    property = [{135,19129,0},{141,1073,0},{143,779,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 24,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,25)->
     #transformCfg {
     cardID = 9,
     level = 25,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,71],
     activeSkills = [31105],
     passiveSkills = [32115,32214,32313],
     stateMax = 3,
     money = 0,
-    property = [{135,20800,0},{141,1167,0},{143,847,0}],
+    property = [{135,20337,0},{141,1141,0},{143,828,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 25,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,26)->
     #transformCfg {
     cardID = 9,
     level = 26,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,73],
     activeSkills = [31105],
     passiveSkills = [32115,32214,32313],
     stateMax = 3,
     money = 0,
-    property = [{135,21944,0},{141,1231,0},{143,894,0}],
+    property = [{135,21571,0},{141,1210,0},{143,878,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 26,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,27)->
     #transformCfg {
     cardID = 9,
     level = 27,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,77],
     activeSkills = [31105],
     passiveSkills = [32115,32215,32314],
     stateMax = 3,
     money = 0,
-    property = [{135,23112,0},{141,1296,0},{143,941,0}],
+    property = [{135,22829,0},{141,1281,0},{143,930,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 27,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,28)->
     #transformCfg {
     cardID = 9,
     level = 28,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,78],
     activeSkills = [31105],
     passiveSkills = [32115,32215,32314],
     stateMax = 3,
     money = 0,
-    property = [{135,24302,0},{141,1363,0},{143,990,0}],
+    property = [{135,24112,0},{141,1353,0},{143,982,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 28,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,29)->
     #transformCfg {
     cardID = 9,
     level = 29,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,82],
     activeSkills = [31105],
     passiveSkills = [32115,32215,32315],
     stateMax = 3,
     money = 0,
-    property = [{135,25515,0},{141,1431,0},{143,1039,0}],
+    property = [{135,25419,0},{141,1426,0},{143,1035,0}],
     name = "仁慈",
     icon = "Luna_Kind",
     cardPoint = 29,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(9,30)->
     #transformCfg {
     cardID = 9,
     level = 30,
     task_open = 1,
-    model = "[m_3013,m_3014,m_3015]",
     class = 301,
     fragment = [2101,85],
     activeSkills = [31105],
@@ -5733,18 +5184,16 @@ getRow(9,30)->
     icon = "Luna_Kind",
     cardPoint = 30,
     des1 = "仁慈之心关爱世人，温暖柔和的目光令人心怀光明。",
-    des2 = "成长所需：女神祝福_仁慈",
-    playerTX = "[state/vfx_28_28,other/vfx_26_42,other/vfx_26_43]"
+    des2 = "成长所需：女神祝福_仁慈"
     };
 getRow(10,0)->
     #transformCfg {
     cardID = 10,
     level = 0,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     stateMax = 0,
     money = 0,
     name = "战争",
@@ -5758,619 +5207,560 @@ getRow(10,1)->
     cardID = 10,
     level = 1,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,267,0},{140,213,0},{142,128,0}],
+    property = [{136,80,0},{140,63,0},{142,38,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 1,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,2)->
     #transformCfg {
     cardID = 10,
     level = 2,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,10],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,282,0},{140,225,0},{142,136,0}],
+    property = [{136,96,0},{140,77,0},{142,46,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 2,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,3)->
     #transformCfg {
     cardID = 10,
     level = 3,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,11],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,311,0},{140,247,0},{142,149,0}],
+    property = [{136,127,0},{140,101,0},{142,61,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 3,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,4)->
     #transformCfg {
     cardID = 10,
     level = 4,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,14],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,347,0},{140,276,0},{142,167,0}],
+    property = [{136,166,0},{140,132,0},{142,80,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 4,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,5)->
     #transformCfg {
     cardID = 10,
     level = 5,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,17],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,390,0},{140,311,0},{142,188,0}],
+    property = [{136,213,0},{140,169,0},{142,102,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 5,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,6)->
     #transformCfg {
     cardID = 10,
     level = 6,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,19],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31201],
     passiveSkills = [32411],
     stateMax = 1,
     money = 0,
-    property = [{136,439,0},{140,350,0},{142,211,0}],
+    property = [{136,266,0},{140,211,0},{142,128,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 6,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,7)->
     #transformCfg {
     cardID = 10,
     level = 7,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,22],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{136,494,0},{140,393,0},{142,237,0}],
+    property = [{136,324,0},{140,258,0},{142,156,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 7,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,8)->
     #transformCfg {
     cardID = 10,
     level = 8,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,25],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{136,553,0},{140,440,0},{142,266,0}],
+    property = [{136,387,0},{140,308,0},{142,186,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 8,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,9)->
     #transformCfg {
     cardID = 10,
     level = 9,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,28],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{136,616,0},{140,490,0},{142,296,0}],
+    property = [{136,456,0},{140,363,0},{142,219,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 9,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,10)->
     #transformCfg {
     cardID = 10,
     level = 10,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,30],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412],
     stateMax = 1,
     money = 0,
-    property = [{136,683,0},{140,544,0},{142,329,0}],
+    property = [{136,528,0},{140,421,0},{142,254,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 10,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,11)->
     #transformCfg {
     cardID = 10,
     level = 11,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,33],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412,32511],
     stateMax = 2,
     money = 0,
-    property = [{136,754,0},{140,601,0},{142,363,0}],
+    property = [{136,605,0},{140,482,0},{142,291,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 11,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,12)->
     #transformCfg {
     cardID = 10,
     level = 12,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,36],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31202],
     passiveSkills = [32412,32511],
     stateMax = 2,
     money = 0,
-    property = [{136,829,0},{140,660,0},{142,399,0}],
+    property = [{136,686,0},{140,546,0},{142,330,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 12,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,13)->
     #transformCfg {
     cardID = 10,
     level = 13,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,38],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32511],
     stateMax = 2,
     money = 0,
-    property = [{136,908,0},{140,723,0},{142,437,0}],
+    property = [{136,770,0},{140,613,0},{142,371,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 13,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,14)->
     #transformCfg {
     cardID = 10,
     level = 14,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,41],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32511],
     stateMax = 2,
     money = 0,
-    property = [{136,990,0},{140,788,0},{142,476,0}],
+    property = [{136,859,0},{140,684,0},{142,413,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 14,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,15)->
     #transformCfg {
     cardID = 10,
     level = 15,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,44],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{136,1075,0},{140,856,0},{142,517,0}],
+    property = [{136,950,0},{140,756,0},{142,457,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 15,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,16)->
     #transformCfg {
     cardID = 10,
     level = 16,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,47],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{136,1163,0},{140,926,0},{142,560,0}],
+    property = [{136,1045,0},{140,832,0},{142,503,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 16,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,17)->
     #transformCfg {
     cardID = 10,
     level = 17,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,49],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{136,1254,0},{140,998,0},{142,603,0}],
+    property = [{136,1143,0},{140,910,0},{142,550,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 17,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,18)->
     #transformCfg {
     cardID = 10,
     level = 18,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,52],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31203],
     passiveSkills = [32413,32512],
     stateMax = 2,
     money = 0,
-    property = [{136,1348,0},{140,1073,0},{142,649,0}],
+    property = [{136,1244,0},{140,991,0},{142,599,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 18,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,19)->
     #transformCfg {
     cardID = 10,
     level = 19,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,54],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513],
     stateMax = 2,
     money = 0,
-    property = [{136,1444,0},{140,1150,0},{142,695,0}],
+    property = [{136,1349,0},{140,1074,0},{142,649,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 19,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,20)->
     #transformCfg {
     cardID = 10,
     level = 20,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,58],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513],
     stateMax = 2,
     money = 0,
-    property = [{136,1544,0},{140,1229,0},{142,743,0}],
+    property = [{136,1456,0},{140,1159,0},{142,701,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 20,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,21)->
     #transformCfg {
     cardID = 10,
     level = 21,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,60],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513,32611],
     stateMax = 3,
     money = 0,
-    property = [{136,1646,0},{140,1310,0},{142,792,0}],
+    property = [{136,1566,0},{140,1247,0},{142,754,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 21,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,22)->
     #transformCfg {
     cardID = 10,
     level = 22,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,62],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32513,32611],
     stateMax = 3,
     money = 0,
-    property = [{136,1751,0},{140,1394,0},{142,843,0}],
+    property = [{136,1679,0},{140,1337,0},{142,808,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 22,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,23)->
     #transformCfg {
     cardID = 10,
     level = 23,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,66],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32514,32612],
     stateMax = 3,
     money = 0,
-    property = [{136,1858,0},{140,1479,0},{142,894,0}],
+    property = [{136,1794,0},{140,1429,0},{142,864,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 23,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,24)->
     #transformCfg {
     cardID = 10,
     level = 24,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,68],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31204],
     passiveSkills = [32414,32514,32612],
     stateMax = 3,
     money = 0,
-    property = [{136,1967,0},{140,1566,0},{142,947,0}],
+    property = [{136,1912,0},{140,1523,0},{142,921,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 24,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,25)->
     #transformCfg {
     cardID = 10,
     level = 25,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,71],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32514,32613],
     stateMax = 3,
     money = 0,
-    property = [{136,2080,0},{140,1656,0},{142,1001,0}],
+    property = [{136,2033,0},{140,1619,0},{142,979,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 25,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,26)->
     #transformCfg {
     cardID = 10,
     level = 26,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,73],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32514,32613],
     stateMax = 3,
     money = 0,
-    property = [{136,2194,0},{140,1747,0},{142,1056,0}],
+    property = [{136,2157,0},{140,1717,0},{142,1038,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 26,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,27)->
     #transformCfg {
     cardID = 10,
     level = 27,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,77],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32614],
     stateMax = 3,
     money = 0,
-    property = [{136,2311,0},{140,1840,0},{142,1112,0}],
+    property = [{136,2282,0},{140,1817,0},{142,1099,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 27,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,28)->
     #transformCfg {
     cardID = 10,
     level = 28,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,78],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32614],
     stateMax = 3,
     money = 0,
-    property = [{136,2430,0},{140,1935,0},{142,1170,0}],
+    property = [{136,2411,0},{140,1919,0},{142,1161,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 28,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,29)->
     #transformCfg {
     cardID = 10,
     level = 29,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,82],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32615],
     stateMax = 3,
     money = 0,
-    property = [{136,2551,0},{140,2031,0},{142,1228,0}],
+    property = [{136,2541,0},{140,2024,0},{142,1223,0}],
     name = "战争",
     icon = "Luna_War",
     cardPoint = 29,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(10,30)->
     #transformCfg {
     cardID = 10,
     level = 30,
     task_open = 1,
-    model = "[m_3008,m_3009,m_3010]",
     class = 301,
     fragment = [2101,85],
-    activeTaskList = [22,43],
+    activeTaskList = [18,38],
     activeSkills = [31205],
     passiveSkills = [32415,32515,32615],
     stateMax = 3,
@@ -6380,15 +5770,13 @@ getRow(10,30)->
     icon = "Luna_War",
     cardPoint = 30,
     des1 = "亲吻胜利者的剑与盾，以战争横扫一切，换取终焉的和平。",
-    des2 = "成长所需：女神祝福_战争",
-    playerTX = "[state/vfx_28_29,other/vfx_26_44,other/vfx_26_45]"
+    des2 = "成长所需：女神祝福_战争"
     };
 getRow(11,0)->
     #transformCfg {
     cardID = 11,
     level = 0,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [],
     activeTaskList = [44,78],
@@ -6405,7 +5793,6 @@ getRow(11,1)->
     cardID = 11,
     level = 1,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [],
     activeTaskList = [44,78],
@@ -6413,20 +5800,18 @@ getRow(11,1)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,267,0},{144,112,0},{146,107,0}],
+    property = [{139,80,0},{144,33,0},{146,32,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 1,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,2)->
     #transformCfg {
     cardID = 11,
     level = 2,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,10],
     activeTaskList = [44,78],
@@ -6434,20 +5819,18 @@ getRow(11,2)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,282,0},{144,118,0},{146,113,0}],
+    property = [{139,96,0},{144,40,0},{146,38,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 2,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,3)->
     #transformCfg {
     cardID = 11,
     level = 3,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,11],
     activeTaskList = [44,78],
@@ -6455,20 +5838,18 @@ getRow(11,3)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,311,0},{144,130,0},{146,124,0}],
+    property = [{139,127,0},{144,53,0},{146,50,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 3,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,4)->
     #transformCfg {
     cardID = 11,
     level = 4,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,14],
     activeTaskList = [44,78],
@@ -6476,20 +5857,18 @@ getRow(11,4)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,347,0},{144,145,0},{146,139,0}],
+    property = [{139,166,0},{144,69,0},{146,66,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 4,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,5)->
     #transformCfg {
     cardID = 11,
     level = 5,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,17],
     activeTaskList = [44,78],
@@ -6497,20 +5876,18 @@ getRow(11,5)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,390,0},{144,163,0},{146,156,0}],
+    property = [{139,213,0},{144,89,0},{146,85,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 5,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,6)->
     #transformCfg {
     cardID = 11,
     level = 6,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,19],
     activeTaskList = [44,78],
@@ -6518,20 +5895,18 @@ getRow(11,6)->
     passiveSkills = [32711],
     stateMax = 1,
     money = 0,
-    property = [{139,439,0},{144,184,0},{146,175,0}],
+    property = [{139,266,0},{144,111,0},{146,106,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 6,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,7)->
     #transformCfg {
     cardID = 11,
     level = 7,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,22],
     activeTaskList = [44,78],
@@ -6539,20 +5914,18 @@ getRow(11,7)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,494,0},{144,207,0},{146,197,0}],
+    property = [{139,324,0},{144,136,0},{146,129,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 7,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,8)->
     #transformCfg {
     cardID = 11,
     level = 8,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,25],
     activeTaskList = [44,78],
@@ -6560,20 +5933,18 @@ getRow(11,8)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,553,0},{144,231,0},{146,221,0}],
+    property = [{139,387,0},{144,162,0},{146,155,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 8,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,9)->
     #transformCfg {
     cardID = 11,
     level = 9,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,28],
     activeTaskList = [44,78],
@@ -6581,20 +5952,18 @@ getRow(11,9)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,616,0},{144,258,0},{146,246,0}],
+    property = [{139,456,0},{144,191,0},{146,182,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 9,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,10)->
     #transformCfg {
     cardID = 11,
     level = 10,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,30],
     activeTaskList = [44,78],
@@ -6602,20 +5971,18 @@ getRow(11,10)->
     passiveSkills = [32712],
     stateMax = 1,
     money = 0,
-    property = [{139,683,0},{144,286,0},{146,273,0}],
+    property = [{139,528,0},{144,221,0},{146,211,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 10,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,11)->
     #transformCfg {
     cardID = 11,
     level = 11,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,33],
     activeTaskList = [44,78],
@@ -6623,20 +5990,18 @@ getRow(11,11)->
     passiveSkills = [32712,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,754,0},{144,316,0},{146,301,0}],
+    property = [{139,605,0},{144,253,0},{146,242,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 11,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,12)->
     #transformCfg {
     cardID = 11,
     level = 12,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,36],
     activeTaskList = [44,78],
@@ -6644,20 +6009,18 @@ getRow(11,12)->
     passiveSkills = [32712,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,829,0},{144,347,0},{146,331,0}],
+    property = [{139,686,0},{144,287,0},{146,274,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 12,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,13)->
     #transformCfg {
     cardID = 11,
     level = 13,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,38],
     activeTaskList = [44,78],
@@ -6665,20 +6028,18 @@ getRow(11,13)->
     passiveSkills = [32713,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,908,0},{144,380,0},{146,363,0}],
+    property = [{139,770,0},{144,323,0},{146,308,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 13,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,14)->
     #transformCfg {
     cardID = 11,
     level = 14,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,41],
     activeTaskList = [44,78],
@@ -6686,20 +6047,18 @@ getRow(11,14)->
     passiveSkills = [32713,32811],
     stateMax = 2,
     money = 0,
-    property = [{139,990,0},{144,415,0},{146,396,0}],
+    property = [{139,859,0},{144,360,0},{146,343,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 14,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,15)->
     #transformCfg {
     cardID = 11,
     level = 15,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,44],
     activeTaskList = [44,78],
@@ -6707,20 +6066,18 @@ getRow(11,15)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1075,0},{144,450,0},{146,430,0}],
+    property = [{139,950,0},{144,398,0},{146,380,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 15,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,16)->
     #transformCfg {
     cardID = 11,
     level = 16,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,47],
     activeTaskList = [44,78],
@@ -6728,20 +6085,18 @@ getRow(11,16)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1163,0},{144,487,0},{146,465,0}],
+    property = [{139,1045,0},{144,438,0},{146,418,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 16,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,17)->
     #transformCfg {
     cardID = 11,
     level = 17,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,49],
     activeTaskList = [44,78],
@@ -6749,20 +6104,18 @@ getRow(11,17)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1254,0},{144,525,0},{146,501,0}],
+    property = [{139,1143,0},{144,479,0},{146,457,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 17,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,18)->
     #transformCfg {
     cardID = 11,
     level = 18,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,52],
     activeTaskList = [44,78],
@@ -6770,20 +6123,18 @@ getRow(11,18)->
     passiveSkills = [32713,32812],
     stateMax = 2,
     money = 0,
-    property = [{139,1348,0},{144,565,0},{146,539,0}],
+    property = [{139,1244,0},{144,521,0},{146,497,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 18,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,19)->
     #transformCfg {
     cardID = 11,
     level = 19,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,54],
     activeTaskList = [44,78],
@@ -6791,20 +6142,18 @@ getRow(11,19)->
     passiveSkills = [32714,32813],
     stateMax = 2,
     money = 0,
-    property = [{139,1444,0},{144,605,0},{146,577,0}],
+    property = [{139,1349,0},{144,565,0},{146,539,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 19,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,20)->
     #transformCfg {
     cardID = 11,
     level = 20,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,58],
     activeTaskList = [44,78],
@@ -6812,20 +6161,18 @@ getRow(11,20)->
     passiveSkills = [32714,32813],
     stateMax = 2,
     money = 0,
-    property = [{139,1544,0},{144,647,0},{146,617,0}],
+    property = [{139,1456,0},{144,610,0},{146,582,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 20,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,21)->
     #transformCfg {
     cardID = 11,
     level = 21,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,60],
     activeTaskList = [44,78],
@@ -6833,20 +6180,18 @@ getRow(11,21)->
     passiveSkills = [32714,32813,32911],
     stateMax = 3,
     money = 0,
-    property = [{139,1646,0},{144,690,0},{146,658,0}],
+    property = [{139,1566,0},{144,656,0},{146,626,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 21,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,22)->
     #transformCfg {
     cardID = 11,
     level = 22,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,62],
     activeTaskList = [44,78],
@@ -6854,20 +6199,18 @@ getRow(11,22)->
     passiveSkills = [32714,32813,32911],
     stateMax = 3,
     money = 0,
-    property = [{139,1751,0},{144,734,0},{146,700,0}],
+    property = [{139,1679,0},{144,704,0},{146,671,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 22,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,23)->
     #transformCfg {
     cardID = 11,
     level = 23,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,66],
     activeTaskList = [44,78],
@@ -6875,20 +6218,18 @@ getRow(11,23)->
     passiveSkills = [32714,32814,32912],
     stateMax = 3,
     money = 0,
-    property = [{139,1858,0},{144,779,0},{146,743,0}],
+    property = [{139,1794,0},{144,752,0},{146,717,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 23,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,24)->
     #transformCfg {
     cardID = 11,
     level = 24,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,68],
     activeTaskList = [44,78],
@@ -6896,20 +6237,18 @@ getRow(11,24)->
     passiveSkills = [32714,32814,32912],
     stateMax = 3,
     money = 0,
-    property = [{139,1967,0},{144,825,0},{146,787,0}],
+    property = [{139,1912,0},{144,802,0},{146,765,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 24,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,25)->
     #transformCfg {
     cardID = 11,
     level = 25,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,71],
     activeTaskList = [44,78],
@@ -6917,20 +6256,18 @@ getRow(11,25)->
     passiveSkills = [32715,32814,32913],
     stateMax = 3,
     money = 0,
-    property = [{139,2080,0},{144,872,0},{146,832,0}],
+    property = [{139,2033,0},{144,852,0},{146,813,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 25,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,26)->
     #transformCfg {
     cardID = 11,
     level = 26,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,73],
     activeTaskList = [44,78],
@@ -6938,20 +6275,18 @@ getRow(11,26)->
     passiveSkills = [32715,32814,32913],
     stateMax = 3,
     money = 0,
-    property = [{139,2194,0},{144,920,0},{146,877,0}],
+    property = [{139,2157,0},{144,904,0},{146,862,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 26,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,27)->
     #transformCfg {
     cardID = 11,
     level = 27,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,77],
     activeTaskList = [44,78],
@@ -6959,20 +6294,18 @@ getRow(11,27)->
     passiveSkills = [32715,32815,32914],
     stateMax = 3,
     money = 0,
-    property = [{139,2311,0},{144,969,0},{146,924,0}],
+    property = [{139,2282,0},{144,957,0},{146,913,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 27,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,28)->
     #transformCfg {
     cardID = 11,
     level = 28,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,78],
     activeTaskList = [44,78],
@@ -6980,20 +6313,18 @@ getRow(11,28)->
     passiveSkills = [32715,32815,32914],
     stateMax = 3,
     money = 0,
-    property = [{139,2430,0},{144,1019,0},{146,972,0}],
+    property = [{139,2411,0},{144,1011,0},{146,964,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 28,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,29)->
     #transformCfg {
     cardID = 11,
     level = 29,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,82],
     activeTaskList = [44,78],
@@ -7001,20 +6332,18 @@ getRow(11,29)->
     passiveSkills = [32715,32815,32915],
     stateMax = 3,
     money = 0,
-    property = [{139,2551,0},{144,1069,0},{146,1020,0}],
+    property = [{139,2541,0},{144,1065,0},{146,1016,0}],
     name = "智慧",
     icon = "Luna_Wisdom",
     cardPoint = 29,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(11,30)->
     #transformCfg {
     cardID = 11,
     level = 30,
     task_open = 1,
-    model = "[m_3023,m_3024,m_3025]",
     class = 301,
     fragment = [2101,85],
     activeTaskList = [44,78],
@@ -7027,15 +6356,13 @@ getRow(11,30)->
     icon = "Luna_Wisdom",
     cardPoint = 30,
     des1 = "魔力之泉源于智慧，魔法与元素臣服于此，听凭召唤。",
-    des2 = "成长所需：女神祝福_智慧",
-    playerTX = "[state/vfx_28_30,other/vfx_26_46,other/vfx_26_47]"
+    des2 = "成长所需：女神祝福_智慧"
     };
 getRow(12,0)->
     #transformCfg {
     cardID = 12,
     level = 0,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [],
     activeTaskList = [79,110],
@@ -7052,7 +6379,6 @@ getRow(12,1)->
     cardID = 12,
     level = 1,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [],
     activeTaskList = [79,110],
@@ -7060,20 +6386,18 @@ getRow(12,1)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,267,0},{145,160,0},{160,75,0}],
+    property = [{138,80,0},{145,48,0},{160,22,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 1,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,2)->
     #transformCfg {
     cardID = 12,
     level = 2,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,10],
     activeTaskList = [79,110],
@@ -7081,20 +6405,18 @@ getRow(12,2)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,282,0},{145,169,0},{160,79,0}],
+    property = [{138,96,0},{145,58,0},{160,27,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 2,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,3)->
     #transformCfg {
     cardID = 12,
     level = 3,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,11],
     activeTaskList = [79,110],
@@ -7102,20 +6424,18 @@ getRow(12,3)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,311,0},{145,186,0},{160,87,0}],
+    property = [{138,127,0},{145,76,0},{160,35,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 3,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,4)->
     #transformCfg {
     cardID = 12,
     level = 4,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,14],
     activeTaskList = [79,110],
@@ -7123,20 +6443,18 @@ getRow(12,4)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,347,0},{145,208,0},{160,97,0}],
+    property = [{138,166,0},{145,99,0},{160,46,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 4,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,5)->
     #transformCfg {
     cardID = 12,
     level = 5,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,17],
     activeTaskList = [79,110],
@@ -7144,20 +6462,18 @@ getRow(12,5)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,390,0},{145,234,0},{160,110,0}],
+    property = [{138,213,0},{145,127,0},{160,60,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 5,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,6)->
     #transformCfg {
     cardID = 12,
     level = 6,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,19],
     activeTaskList = [79,110],
@@ -7165,20 +6481,18 @@ getRow(12,6)->
     passiveSkills = [33011],
     stateMax = 1,
     money = 0,
-    property = [{138,439,0},{145,263,0},{160,123,0}],
+    property = [{138,266,0},{145,159,0},{160,74,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 6,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,7)->
     #transformCfg {
     cardID = 12,
     level = 7,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,22],
     activeTaskList = [79,110],
@@ -7186,20 +6500,18 @@ getRow(12,7)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,494,0},{145,296,0},{160,139,0}],
+    property = [{138,324,0},{145,194,0},{160,91,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 7,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,8)->
     #transformCfg {
     cardID = 12,
     level = 8,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,25],
     activeTaskList = [79,110],
@@ -7207,20 +6519,18 @@ getRow(12,8)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,553,0},{145,331,0},{160,155,0}],
+    property = [{138,387,0},{145,232,0},{160,109,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 8,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,9)->
     #transformCfg {
     cardID = 12,
     level = 9,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,28],
     activeTaskList = [79,110],
@@ -7228,20 +6538,18 @@ getRow(12,9)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,616,0},{145,369,0},{160,173,0}],
+    property = [{138,456,0},{145,273,0},{160,128,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 9,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,10)->
     #transformCfg {
     cardID = 12,
     level = 10,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,30],
     activeTaskList = [79,110],
@@ -7249,20 +6557,18 @@ getRow(12,10)->
     passiveSkills = [33012],
     stateMax = 1,
     money = 0,
-    property = [{138,683,0},{145,410,0},{160,192,0}],
+    property = [{138,528,0},{145,317,0},{160,148,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 10,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,11)->
     #transformCfg {
     cardID = 12,
     level = 11,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,33],
     activeTaskList = [79,110],
@@ -7270,20 +6576,18 @@ getRow(12,11)->
     passiveSkills = [33012,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,754,0},{145,452,0},{160,212,0}],
+    property = [{138,605,0},{145,363,0},{160,170,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 11,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,12)->
     #transformCfg {
     cardID = 12,
     level = 12,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,36],
     activeTaskList = [79,110],
@@ -7291,20 +6595,18 @@ getRow(12,12)->
     passiveSkills = [33012,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,829,0},{145,497,0},{160,233,0}],
+    property = [{138,686,0},{145,411,0},{160,193,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 12,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,13)->
     #transformCfg {
     cardID = 12,
     level = 13,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,38],
     activeTaskList = [79,110],
@@ -7312,20 +6614,18 @@ getRow(12,13)->
     passiveSkills = [33013,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,908,0},{145,544,0},{160,255,0}],
+    property = [{138,770,0},{145,462,0},{160,217,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 13,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,14)->
     #transformCfg {
     cardID = 12,
     level = 14,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,41],
     activeTaskList = [79,110],
@@ -7333,20 +6633,18 @@ getRow(12,14)->
     passiveSkills = [33013,33111],
     stateMax = 2,
     money = 0,
-    property = [{138,990,0},{145,594,0},{160,278,0}],
+    property = [{138,859,0},{145,515,0},{160,241,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 14,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,15)->
     #transformCfg {
     cardID = 12,
     level = 15,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,44],
     activeTaskList = [79,110],
@@ -7354,20 +6652,18 @@ getRow(12,15)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1075,0},{145,645,0},{160,302,0}],
+    property = [{138,950,0},{145,570,0},{160,267,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 15,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,16)->
     #transformCfg {
     cardID = 12,
     level = 16,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,47],
     activeTaskList = [79,110],
@@ -7375,20 +6671,18 @@ getRow(12,16)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1163,0},{145,697,0},{160,327,0}],
+    property = [{138,1045,0},{145,627,0},{160,294,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 16,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,17)->
     #transformCfg {
     cardID = 12,
     level = 17,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,49],
     activeTaskList = [79,110],
@@ -7396,20 +6690,18 @@ getRow(12,17)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1254,0},{145,752,0},{160,353,0}],
+    property = [{138,1143,0},{145,686,0},{160,321,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 17,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,18)->
     #transformCfg {
     cardID = 12,
     level = 18,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,52],
     activeTaskList = [79,110],
@@ -7417,20 +6709,18 @@ getRow(12,18)->
     passiveSkills = [33013,33112],
     stateMax = 2,
     money = 0,
-    property = [{138,1348,0},{145,808,0},{160,379,0}],
+    property = [{138,1244,0},{145,746,0},{160,350,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 18,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,19)->
     #transformCfg {
     cardID = 12,
     level = 19,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,54],
     activeTaskList = [79,110],
@@ -7438,20 +6728,18 @@ getRow(12,19)->
     passiveSkills = [33014,33113],
     stateMax = 2,
     money = 0,
-    property = [{138,1444,0},{145,866,0},{160,406,0}],
+    property = [{138,1349,0},{145,809,0},{160,379,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 19,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,20)->
     #transformCfg {
     cardID = 12,
     level = 20,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,58],
     activeTaskList = [79,110],
@@ -7459,20 +6747,18 @@ getRow(12,20)->
     passiveSkills = [33014,33113],
     stateMax = 2,
     money = 0,
-    property = [{138,1544,0},{145,926,0},{160,434,0}],
+    property = [{138,1456,0},{145,873,0},{160,409,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 20,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,21)->
     #transformCfg {
     cardID = 12,
     level = 21,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,60],
     activeTaskList = [79,110],
@@ -7480,20 +6766,18 @@ getRow(12,21)->
     passiveSkills = [33014,33113,33211],
     stateMax = 3,
     money = 0,
-    property = [{138,1646,0},{145,987,0},{160,463,0}],
+    property = [{138,1566,0},{145,939,0},{160,440,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 21,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,22)->
     #transformCfg {
     cardID = 12,
     level = 22,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,62],
     activeTaskList = [79,110],
@@ -7501,20 +6785,18 @@ getRow(12,22)->
     passiveSkills = [33014,33113,33211],
     stateMax = 3,
     money = 0,
-    property = [{138,1751,0},{145,1050,0},{160,492,0}],
+    property = [{138,1679,0},{145,1007,0},{160,472,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 22,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,23)->
     #transformCfg {
     cardID = 12,
     level = 23,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,66],
     activeTaskList = [79,110],
@@ -7522,20 +6804,18 @@ getRow(12,23)->
     passiveSkills = [33014,33114,33212],
     stateMax = 3,
     money = 0,
-    property = [{138,1858,0},{145,1114,0},{160,523,0}],
+    property = [{138,1794,0},{145,1076,0},{160,505,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 23,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,24)->
     #transformCfg {
     cardID = 12,
     level = 24,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,68],
     activeTaskList = [79,110],
@@ -7543,20 +6823,18 @@ getRow(12,24)->
     passiveSkills = [33014,33114,33212],
     stateMax = 3,
     money = 0,
-    property = [{138,1967,0},{145,1180,0},{160,553,0}],
+    property = [{138,1912,0},{145,1147,0},{160,538,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 24,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,25)->
     #transformCfg {
     cardID = 12,
     level = 25,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,71],
     activeTaskList = [79,110],
@@ -7564,20 +6842,18 @@ getRow(12,25)->
     passiveSkills = [33015,33114,33213],
     stateMax = 3,
     money = 0,
-    property = [{138,2080,0},{145,1248,0},{160,585,0}],
+    property = [{138,2033,0},{145,1220,0},{160,572,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 25,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,26)->
     #transformCfg {
     cardID = 12,
     level = 26,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,73],
     activeTaskList = [79,110],
@@ -7585,20 +6861,18 @@ getRow(12,26)->
     passiveSkills = [33015,33114,33213],
     stateMax = 3,
     money = 0,
-    property = [{138,2194,0},{145,1316,0},{160,617,0}],
+    property = [{138,2157,0},{145,1294,0},{160,607,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 26,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,27)->
     #transformCfg {
     cardID = 12,
     level = 27,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,77],
     activeTaskList = [79,110],
@@ -7606,20 +6880,18 @@ getRow(12,27)->
     passiveSkills = [33015,33115,33214],
     stateMax = 3,
     money = 0,
-    property = [{138,2311,0},{145,1386,0},{160,650,0}],
+    property = [{138,2282,0},{145,1369,0},{160,642,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 27,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,28)->
     #transformCfg {
     cardID = 12,
     level = 28,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,78],
     activeTaskList = [79,110],
@@ -7627,20 +6899,18 @@ getRow(12,28)->
     passiveSkills = [33015,33115,33214],
     stateMax = 3,
     money = 0,
-    property = [{138,2430,0},{145,1458,0},{160,684,0}],
+    property = [{138,2411,0},{145,1446,0},{160,678,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 28,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,29)->
     #transformCfg {
     cardID = 12,
     level = 29,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,82],
     activeTaskList = [79,110],
@@ -7648,20 +6918,18 @@ getRow(12,29)->
     passiveSkills = [33015,33115,33215],
     stateMax = 3,
     money = 0,
-    property = [{138,2551,0},{145,1530,0},{160,718,0}],
+    property = [{138,2541,0},{145,1525,0},{160,715,0}],
     name = "暗夜",
     icon = "Luna_Night",
     cardPoint = 29,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(12,30)->
     #transformCfg {
     cardID = 12,
     level = 30,
     task_open = 1,
-    model = "[m_3028,m_3029,m_3030]",
     class = 301,
     fragment = [2101,85],
     activeTaskList = [79,110],
@@ -7674,8 +6942,7 @@ getRow(12,30)->
     icon = "Luna_Night",
     cardPoint = 30,
     des1 = "暗夜降临，万物归于宁静，倾听世界的真意。",
-    des2 = "成长所需：女神祝福_暗夜",
-    playerTX = "[state/vfx_28_31,other/vfx_26_48,other/vfx_26_49]"
+    des2 = "成长所需：女神祝福_暗夜"
     };
 getRow(_,_)->[].
 

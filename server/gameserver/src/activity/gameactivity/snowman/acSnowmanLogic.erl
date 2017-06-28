@@ -243,6 +243,7 @@ donate(FromPid, {RoleID, SubState, SnowmanID}) ->
 										ListPlayerInfoNew0;
 									_ ->
 										ListSZero = resZero(),
+										onStateFinish(SubState, SubStateNew, ListPlayerInfoNew0),
 										[R#recMapPlayerInfo{resource = ListSZero} || R <- ListPlayerInfoNew0]
 								end,
 							spawnMonsterOrCollect(SubStateNew, MapPid),
@@ -273,6 +274,89 @@ donate(FromPid, {RoleID, SubState, SnowmanID}) ->
 			skip
 	end,
 	ok.
+
+%onStateFinish(_OldStage, _OldState, _PlayerList)->
+%	ok;
+onStateFinish(_OldStage, _NewState, PlayerList)->
+	lists:foreach(
+		fun(#recMapPlayerInfo{roleID = RoleID,resource = L}) ->
+			NR = lists:sum(L),
+			doGiveResourceConvertReward(NR, RoleID)
+		end,   PlayerList),
+	ok.
+
+doGiveResourceConvertReward(0, _RoleID)->
+	skip;
+doGiveResourceConvertReward(NR, RoleID)->
+%%	Title = stringCfg:getString(guild_snowman_headline),
+%%	Content = stringCfg:getString(guild_snowman_award),
+	{CoinType, Number, CoinRate, CoinLimit} = getConversionCoin(),
+	{ItemID, ItemRate,  ItemLimit} = getConversionItem(),
+	CoinNumber = erlang:trunc(NR * CoinRate * Number),
+	ItemNumber = erlang:trunc(NR * ItemRate),
+
+	case core:queryOnLineRoleByRoleID(RoleID) of
+		#rec_OnlinePlayer{pid = PlayerPid, netPid = NetPid} ->
+
+			playerMsg:sendNetMsg(NetPid, #pk_GS2U_Guild_SnowmanExtraRes_Sync{count = NR}),
+
+			case CoinNumber > 0 of
+				true when is_pid(PlayerPid) ->
+					psMgr:sendMsg2PS(
+						PlayerPid,
+						snowManConvertCoin,
+						{CoinType, erlang:min(CoinNumber, CoinLimit)}
+					);
+%%			MailCoin = playerMail:createMailCoin(
+%%				CoinType,
+%%				erlang:min(CoinNumber, CoinLimit)
+%%			),
+%%			mail:sendSystemMail(RoleID, Title, Content, [MailCoin], "");
+				_ ->
+					skip
+			end,
+
+			case ItemNumber > 0 of
+				true when is_pid(PlayerPid) ->
+					psMgr:sendMsg2PS(
+						PlayerPid,
+						snowManConvertItem,
+						{ItemID, erlang:min(ItemNumber, ItemLimit)}
+					);
+%%			MailItemList = playerMail:createMailGoods(
+%%				ItemID,
+%%				erlang:min(ItemNumber, ItemLimit),
+%%				false,
+%%				0,
+%%				RoleID,
+%%				?ItemSourceGuildSnowman
+%%			),
+%%			mail:sendSystemMail(RoleID, Title, Content, MailItemList, "");
+				_ ->
+					skip
+			end;
+
+		_ ->
+			skip
+	end,
+	ok.
+
+
+getConversionCoin()->
+	case getCfg:getCfgByKey(cfg_globalsetup, guild_conversion_currency) of
+		#globalsetupCfg{setpara = [V]}->
+			V;
+		_ ->
+			{?CoinTypeGold, 0, 0, 0}
+	end.
+
+getConversionItem()->
+	case getCfg:getCfgByKey(cfg_globalsetup, guild_conversion_currency) of
+		#globalsetupCfg{setpara = [V]}->
+			V;
+		_ ->
+			{0, 0, 0}
+	end.
 
 %%----------------------------------------------------------------------------------------------
 %% GM命令进入下一阶段

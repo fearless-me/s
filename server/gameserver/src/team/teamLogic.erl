@@ -71,7 +71,10 @@ tickMatch(
 								NetPid when erlang:is_pid(NetPid) ->
 									playerMsg:sendNetMsg(
 										NetPid,
-										#pk_GS2U_QuickTeamMatchAck{result = ?MatchState_TimeOut}
+										#pk_GS2U_QuickTeamMatchAck{
+											result = ?MatchState_TimeOut,
+											startTime = 0
+										}
 									);
 								_ ->
 									skip
@@ -91,7 +94,10 @@ cancelMatchTeam({RoleID, NetPid, IsNotify}) ->
 	case IsNotify of
 		true ->
 			playerMsg:sendNetMsg(
-				NetPid, #pk_GS2U_QuickTeamMatchAck{result = ?MatchState_NotIn}
+				NetPid, #pk_GS2U_QuickTeamMatchAck{
+					result = ?MatchState_NotIn,
+					startTime = 0
+				}
 			);
 		_ ->
 			skip
@@ -143,15 +149,17 @@ modifyCopyMapCount(CopyMapID, MemberInfo, MCL)->
 
 doJoinSystemMatch(RoleID, NetPid, MemberInfo, MapList) ->
 	playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_TeamSystemMatchTeamForU),
+	Now = time:getSyncTimeFromDBS(),
 	myEts:insertEts(
 		?Ets_RoleMatchTeam,
 		#recRoleMatchTeam{
 			roleID = RoleID,
 			pid = MemberInfo#recTeamMemberInfo.pid,
+			startTime = Now,
 			queueTimeEndMs = time2:getTimestampMS() + ?InQueueTime,
 			mapList = MapList
 		}),
-	Msg = #pk_GS2U_QuickTeamMatchAck{ result = ?MatchState_InQueue},
+	Msg = #pk_GS2U_QuickTeamMatchAck{ result = ?MatchState_InQueue, startTime = Now},
 	playerMsg:sendNetMsg(NetPid, Msg),
 	ok.
 
@@ -209,6 +217,7 @@ doCreateNewTeam(CopyMapID, TargetRoleID, #recTeamMemberInfo{
 		teamID = NewTeamID,
 		copyMapID = CopyMapID,
 		leaderID = RoleID,
+		searchStartTime = time:getSyncTimeFromDBS(),
 		memberList = [MemberInfo]
 	},
 	myEts:deleteRecord(?Ets_RoleMatchTeam, RoleID),
@@ -897,7 +906,10 @@ canSetSearchFlag(RoleID) ->
 doSetSearchFlag(Flag, _NetPid,
 	#recTeamInfo{leaderID = LeaderID, teamID = TeamID} = TeamInfo
 ) ->
-	NewTeamInfo = TeamInfo#recTeamInfo{canBeSearch = Flag},
+	NewTeamInfo = TeamInfo#recTeamInfo{
+		canBeSearch = Flag,
+		searchStartTime = time:getSyncTimeFromDBS()
+	},
 	myEts:insertEts(?Ets_TeamList, NewTeamInfo),
 	teamInterface:sendNetMsg2TeamWithRoleID(
 		LeaderID

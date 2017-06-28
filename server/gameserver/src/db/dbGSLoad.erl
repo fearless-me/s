@@ -10,6 +10,7 @@
 -author("ZhongYuanWei").
 
 -include("dbPrivate.hrl").
+-include("gsDef.hrl").
 
 %% API
 -export([initGSLoadPrepare/0]).
@@ -99,9 +100,14 @@ getRoleListReload(#recRoleList{accountID = AccountID} = Rec) ->
 -spec getRoleData(RoleID, PidFrom,PlayerDataOtp::pid()) -> ok when
 	RoleID :: non_neg_integer(), PidFrom ::pid().
 getRoleData(RoleID,PidFrom,PlayerDataOtp) when erlang:is_integer(RoleID) ->
-	?DEBUG_OUT("getRoleData"),
-	dbRoleDataCache:getRoleDataFromDB(RoleID, PlayerDataOtp),
-	libDB:sendLoadOverMsgToPlayer(RoleID,PidFrom),
+	?DEBUG_OUT("getRoleData:~p", [RoleID]),
+	case dbRoleDataCache:getRoleDataFromDB(RoleID, PlayerDataOtp) of
+		false ->
+			skip;
+		Data ->
+			%% 返回给GS,发给gs:playerDataMgrOtp进程
+			psMgr:sendMsg2PS(?PlayerDataMgr, loadRoleDataFromDBAck, {RoleID, PidFrom, Data})
+	end,
 	ok.
 
 %% ====================================================================

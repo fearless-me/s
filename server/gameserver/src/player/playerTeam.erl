@@ -1034,8 +1034,13 @@ friendState(TargetID, _) ->
 %%%-------------------------------------------------------------------
 queryMatch() ->
 	RoleID = playerState:getRoleID(),
-	State = teamInterface:queryMatchState(RoleID),
-	playerMsg:sendNetMsg(#pk_GS2U_QuickTeamMatchAck{result = State}).
+	{State, StartTime} = teamInterface:queryMatchState(RoleID),
+	playerMsg:sendNetMsg(
+		#pk_GS2U_QuickTeamMatchAck{
+			result = State,
+			startTime = StartTime
+		}
+	).
 %%%-------------------------------------------------------------------
 %%%-------------------------------------------------------------------
 canGoToMap(MapID) ->

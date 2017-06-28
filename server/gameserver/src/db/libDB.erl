@@ -14,7 +14,6 @@
 %% API
 -export([
 	initPrepare/0,
-	sendLoadOverMsgToPlayer/2,
 	logExecResult/3,
 	logExecResultEx/4,
 	logResult/4,
@@ -32,14 +31,6 @@ initPrepare() ->
 	dbLSSave:initLSSavePrepare(),
     dbGSDataLoad:initGSLoadPrepare(),
     dbGSDataSave:initGSSavePrepare(),
-	ok.
-
-%%发送读取结束标记
--spec sendLoadOverMsgToPlayer(RoleID,PidFrom) -> ok when
-	RoleID::uint(),PidFrom::pid().
-sendLoadOverMsgToPlayer(RoleID,PidFrom) ->
-	psMgr:sendMsg2PS(PidFrom,loadRoleAck,[{over,RoleID}]),
-	?LOG_OUT("sendLoadOverMsgToPlayer:~p",[RoleID]),
 	ok.
 
 %%大家没事不要用这个函数了

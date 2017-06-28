@@ -216,6 +216,8 @@ livenessJoinEvent(MapID)->
             onFinishLiveness(?LivenessProtectLamb,1);
         #mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeWarrior} ->
             onFinishLiveness(?LivenessBraveTrain,1);
+        #mapsettingCfg{type = ?MapTypeActivity, subtype = ?MapSubTypeWorldBoss} ->
+            onFinishLiveness(?LivenessLeaderInvade, 1);
         _ ->
             skip
     end,
@@ -229,7 +231,7 @@ livenessFinished(Type,SubType,CompleteCondition)->
                 {1,6}->?LivenessHeroCopy;
                 {1,9}->?LivenessChallageCopy;
                 {2,1}->?LivenessProtectLamb;%小羊
-                {2,2}->?LivenessLeaderInvade;%入侵
+%%                {2,2}->?LivenessLeaderInvade;%入侵
                 {2,4}->?LivenessMoneyDungeon;
                 %{2,8}->?LivenessFationCopy;%阵营
                 {2,13}->?LivenessBraveTrain;%试练

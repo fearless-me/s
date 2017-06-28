@@ -353,7 +353,11 @@
 -define(Prop_ItemHPRecoverFactor, 159).        %%药品回复加成
 -define(Prop_ArmorLevel, 160).        %%护甲
 
--define(PropMax, 160).
+%% 下面这个三个直接用于伤害判定
+-define(Prop_CriticalProb,161).          %% 暴击概率
+-define(Prob_DodgeProb, 162).            %% 闪避概率
+-define(Prop_ArmorPenetrationProb, 163). %% 破甲概率
+-define(PropMax, 163).
 
 -type battle_prop() :: ?Prop_Min .. ?PropMax.
 

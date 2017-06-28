@@ -221,3 +221,15 @@ getFriend2OnlineListRoleIDNear() ->
 
 %% 新版好友系统 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% 七日目标
+%% 上线初始化之前不接受条件更新
+setSevenDayAimIsInit(Is) ->
+    put('SevenDayAimIsInit', Is).
+getSevenDayAimIsInit() ->
+    case get('SevenDayAimIsInit') of
+        undefined ->
+            false;
+        Is ->
+            Is
+    end.

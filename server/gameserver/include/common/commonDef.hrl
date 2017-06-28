@@ -11,6 +11,18 @@
 -define(SyncTimeInterval,10000).
 -endif.
 
+%% 服务器类型，普通服
+-define(ServerType_Normal, 1).
+%% 跨服中心服
+-define(ServerType_CrossCenter, 2).
+%% 跨服普通服
+-define(ServerType_CrossNormal, 3).
+
+%% 服务器监控，数据保存
+-define(ServerMonitor_Save, 1).
+%% 服务器监控，服务器版本
+-define(ServerMonitor_Version, 2).
+
 %% 玩家货币最大上限20亿
 -define(PlayerCoinMax, 2000000000).
 
@@ -192,6 +204,13 @@
 -record(recKeyValue, {
 	key,
 	value
+}).
+
+%% 配置表结构
+-record(recConfigValue, {
+	key,
+	value,
+	index
 }).
 
 %%已经领取的活动ID

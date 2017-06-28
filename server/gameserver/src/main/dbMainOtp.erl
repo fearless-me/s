@@ -291,40 +291,44 @@ getCacheDataLoaded()->
 %% 检验并设置最近启服时间
 -spec checkAndSetRecentlytime() -> boolean().
 checkAndSetRecentlytime() ->
-	#rec_serverinfo{starttime = LastStartTime, endtime = LastEndTime} = getServerInfo(),
-	case LastEndTime =:= 0 of
-		true -> ?ERROR_OUT("Last abnormal end server!");
-		_ -> skip
-	end,
-
-	NowTime = time2:getTimestampSec(),
-
-	getDBInfo(),
-
-	globalSetup:insert(?GSKey_RecentServerStartTime, NowTime),
-	globalSetup:insert(?GSKey_LastServerEndTime, LastEndTime),
-
-	case NowTime >= LastStartTime andalso NowTime >= LastEndTime of
+	case getDBInfo() of
 		true ->
-			%% 插入新记录
-			?WARN_OUT("NowTime:~p,LastStartTime:~p,LastEndTime:~p,isok:~p", [NowTime, LastStartTime, LastEndTime, true]),
-			SQL = io_lib:format("call insertAndGetServerInfo(~p);", [NowTime]),
-			Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
-			dbMemCache:logResult("INSERT and SELECT serverinfo", Ret, SQL),
-			{Result,_LeftResult} = mysql:nextResult(Ret),
-			[#rec_serverinfo{id = ID}] = emysql_util:as_record(Result, rec_serverinfo, record_info(fields, rec_serverinfo)),
+			#rec_serverinfo{starttime = LastStartTime, endtime = LastEndTime} = getServerInfo(),
+			case LastEndTime =:= 0 of
+				true -> ?ERROR_OUT("Last abnormal end server!");
+				_ -> skip
+			end,
 
-			globalSetup:insert(?GSKey_ServerStartIndex, ID),
-			?WARN_OUT("recent start server time=~p, id=~p", [NowTime, ID]),
+			NowTime = time2:getTimestampSec(),
 
-			%% 校验最大的UID类型(考虑到合服的情况很不好判断，不校验了)
-			true;
+			globalSetup:insert(?GSKey_RecentServerStartTime, NowTime),
+			globalSetup:insert(?GSKey_LastServerEndTime, LastEndTime),
+
+			case NowTime >= LastStartTime andalso NowTime >= LastEndTime of
+				true ->
+					%% 插入新记录
+					?WARN_OUT("NowTime:~p,LastStartTime:~p,LastEndTime:~p,isok:~p", [NowTime, LastStartTime, LastEndTime, true]),
+					SQL = io_lib:format("call insertAndGetServerInfo(~p);", [NowTime]),
+					Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
+					dbMemCache:logResult("INSERT and SELECT serverinfo", Ret, SQL),
+					{Result,_LeftResult} = mysql:nextResult(Ret),
+					[#rec_serverinfo{id = ID}] = emysql_util:as_record(Result, rec_serverinfo, record_info(fields, rec_serverinfo)),
+
+					globalSetup:insert(?GSKey_ServerStartIndex, ID),
+					?WARN_OUT("recent start server time=~p, id=~p", [NowTime, ID]),
+
+					%% 校验最大的UID类型(考虑到合服的情况很不好判断，不校验了)
+					true;
+				_ ->
+					?ERROR_OUT("the server time is not correct,now[~p/~ts], laststartime[~p/~ts],lastenttime(~p/~ts)",
+						[NowTime,time2:secToMysqlTimeStr(NowTime  + ?One_Day_Second * ?DAYS_FROM_0_TO_1970),
+							LastStartTime, time2:convertSecToTimeStr(LastStartTime + ?One_Day_Second * ?DAYS_FROM_0_TO_1970),
+							LastEndTime,time2:convertSecToTimeStr(LastEndTime + ?One_Day_Second * ?DAYS_FROM_0_TO_1970)]),
+					timer:sleep(5000),
+					false
+			end;
 		_ ->
-			?ERROR_OUT("the server time is not correct,now[~p/~ts], laststartime[~p/~ts],lastenttime(~p/~ts)",
-				[NowTime,time2:secToMysqlTimeStr(NowTime  + ?One_Day_Second * ?DAYS_FROM_0_TO_1970),
-					LastStartTime, time2:convertSecToTimeStr(LastStartTime + ?One_Day_Second * ?DAYS_FROM_0_TO_1970),
-					LastEndTime,time2:convertSecToTimeStr(LastEndTime + ?One_Day_Second * ?DAYS_FROM_0_TO_1970)]),
-			timer:sleep(5000),
+			?ERROR_OUT("getDBInfo failed!"),
 			false
 	end.
 
@@ -357,7 +361,7 @@ recordEndServerTime() ->
 	ok.
 
 %% 获取数据库配置
--spec getDBInfo() -> ok.
+-spec getDBInfo() -> boolean().
 getDBInfo() ->
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, "SELECT * FROM db_info"),
 	{Result, _LeftResult} = mysql:nextResult(Ret),
@@ -367,12 +371,26 @@ getDBInfo() ->
 		dbID = DBID,
 		maxPlayer = MaxPlayer
 	}] = emysql_util:as_record(Result, rec_db_info, record_info(fields, rec_db_info)),
-	ServerName = erlang:binary_to_list(Name),
 
-	globalSetup:insert(?GSKey_adbID, ADBID),
-	globalSetup:insert(?GSKey_dbID, DBID),
-	globalSetup:insert(?GSKey_serverName, ServerName),
-	globalSetup:insert(?GSKey_maxPlayer, MaxPlayer),
+	%% 先校验ADBID与DBID与运维的是否对应
+	case config:getOperationsInt("ADBID", 0) of
+		ADBID ->
+			case config:getOperationsInt("DBID", 0) of
+				DBID ->
+					ServerName = erlang:binary_to_list(Name),
 
-	?WARN_OUT("DBinfo ADBID=~p, DBID=~p, ServerName=~ts, MaxPlayer=~p", [ADBID, DBID, ServerName, MaxPlayer]),
-	ok.
+					globalSetup:insert(?GSKey_adbID, ADBID),
+					globalSetup:insert(?GSKey_dbID, DBID),
+					globalSetup:insert(?GSKey_serverName, ServerName),
+					globalSetup:insert(?GSKey_maxPlayer, MaxPlayer),
+
+					?WARN_OUT("DBinfo ADBID=~p, DBID=~p, ServerName=~ts, MaxPlayer=~p", [ADBID, DBID, ServerName, MaxPlayer]),
+					true;
+				OP_DBID ->
+					?ERROR_OUT("dbid not match ~p /= ~p", [DBID, OP_DBID]),
+					false
+			end;
+		OP_ADBID ->
+			?ERROR_OUT("adbid not match ~p /= ~p", [ADBID, OP_ADBID]),
+			false
+	end.

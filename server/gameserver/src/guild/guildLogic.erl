@@ -645,6 +645,8 @@ useRide(_FromPid, #recUseRide{
 			%% 扣除资源并升级设施
 			[#rec_guild{} = GuildOld] = ets:lookup(rec_guild, GuildID),
 			GuildNew = GuildOld#rec_guild{resource = Res - NeedRes},
+			ets:insert(rec_guild, GuildNew),
+
 			RideOld = guildState:queryRide(GuildID, RideID),
 			RideNew = RideOld#rec_guild_ride{rideLevel = RideLevel + 1},
 			gsSendMsg:sendMsg2DBServer(saveGuildData, 0, [GuildNew, RideNew]),

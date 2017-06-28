@@ -33,8 +33,9 @@
 	defender_buy_buff_one_key/0,
 	defender_buy_mirror_buff/0,
 	defender_buy_mirror_buff_one_key/0,
-	repair_mirror/0,
-	flashBuffInfo/0
+	repair_mirror/1,
+	flashBuffInfo/0,
+	setKingDeclaration/1
 ]).
 
 %%同步下发各活动状态
@@ -46,25 +47,24 @@ synAllActivityState() ->
 			case canSendToClient(AID) of
 				true ->
 					#activityCfg{id = CfgID, mapidlist = ListMapID} = getCfg:getCfgByArgs(cfg_activity, AID),
-					case ListMapID of
-						[] ->
-							skip;
-						[MapID | _] ->
-							PhaseValue =
-								case myEts:lookUpEts(?AcEts, CfgID) of
-									[#rec_activity{phase = Phase} | _] when Phase > 0 ->
-										%%活动阶段phase值>0表示活动开启中，其他为没开启
-										Phase;
-									_ ->
-										0
-								end,
-							Msg = #pk_GS2U_ActivityState{
-								activityID = CfgID,
-								mapID = MapID,
-								phase = PhaseValue
-							},
-							playerMsg:sendNetMsg(Msg)
-					end;
+					MapID =
+						case ListMapID of
+							[] -> 0;
+							[MID | _] -> MID
+						end,
+					PhaseValue =
+						case myEts:lookUpEts(?AcEts, CfgID) of
+							[#rec_activity{phase = Phase} | _] when Phase > 0 ->
+								%%活动阶段phase值>0表示活动开启中，其他为没开启
+								Phase;
+							_ -> 0
+						end,
+					Msg = #pk_GS2U_ActivityState{
+						activityID = CfgID,
+						mapID = MapID,
+						phase = PhaseValue
+					},
+					playerMsg:sendNetMsg(Msg);
 				_ ->
 					skip
 			end
@@ -143,13 +143,13 @@ getKingRevivePt() ->
 	RoleID = playerState:getRoleID(),
 	L =
 		case edb:readAllRecord(rec_guard_mirror) of
-			[#rec_guard_mirror{roleID = KingRoleID} | _] when KingRoleID =:= RoleID ->
-				%%防守方复活时的无敌buff
-				psMgr:sendMsg2PS(self(), addBuff, {playerState:getLevel(), 221}),
-				globalCfg:getGlobalCfgList(fightall_defend);
-			_ ->
-				globalCfg:getGlobalCfgList(fightall_attack)
-		end,
+		            [#rec_guard_mirror{roleID = KingRoleID} | _] when KingRoleID =:= RoleID ->
+			            %%防守方复活时的无敌buff
+			            psMgr:sendMsg2PS(self(), addBuff, {playerState:getLevel(), 221}),
+			            globalCfg:getGlobalCfgList(fightall_defend);
+		            _ ->
+			            globalCfg:getGlobalCfgList(fightall_attack)
+	            end,
 	Index = misc:rand(1, erlang:length(L)),
 	lists:nth(Index, L).
 
@@ -221,6 +221,7 @@ onEnterAcMap(AcKingBattleAllMapID) ->
 %%				true -> playerTeam2:leaveTeam(?TeamTypeNormal);
 %%				_ -> skip
 %%			end,
+			playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_ShiJieShouHu),
 			playerLogAdd:addLogParticipatorInfo(?LogParticipator_FightAll),
 %%      playerliveness:onFinishLiveness(?LivenessFightAll, 1),
 			ok;
@@ -280,6 +281,26 @@ giveMarrorFlower() ->
 	end,
 	ok.
 
+%%设置守护宣言
+-spec setKingDeclaration(Declaration::string()) -> ok.
+setKingDeclaration(Declaration)->
+	CurrentRoleID = playerState:getRoleID(),
+	{ok,State}= activityLogic:getActivePhase(?ActivityType_KingBattleAll) ,
+	case acKingBattleAllLogic:getDefenderInfo(CurrentRoleID) of
+		{ok, #rec_guard_mirror{} = Mirror} when ?ActivityPhase_KingBattleAll_5  =/= State->
+			acKingBattleAllLogic:updateDefenderInfo(Mirror#rec_guard_mirror{declaration = Declaration}),
+			Msg  = #pk_GS2U_ChangeGuardianDeclaration{
+						isChange = true
+					},
+			playerMsg:sendNetMsg(Msg);
+		_->
+			Msg  = #pk_GS2U_ChangeGuardianDeclaration{
+			isChange = false
+			},
+			playerMsg:sendNetMsg(Msg)
+	end,
+
+ok.
 
 %%等级，名字，战力
 -spec flashMirrorInfo() -> ok|skip.
@@ -287,7 +308,7 @@ flashMirrorInfo() ->
 	CurrentRole = playerState:getRoleID(),
 
 	case acKingBattleAllLogic:getCurrentDefenderInfo() of
-		{ok, #rec_guard_mirror{roleID = RoleID,guardTimes = DefnedDays,hpNumber = CurrentHp,fightForce = LastFightForce}}  ->
+		{ok, #rec_guard_mirror{roleID = RoleID,guardTimes = DefnedDays,hpNumber = CurrentHp,fightForce = LastFightForce,declaration =  Declaration}}  ->
 			if
 				CurrentRole =:=RoleID ->
 					FightForce = playerPropSync:getProp(?SerProp_PlayerHistoryForce);
@@ -296,15 +317,18 @@ flashMirrorInfo() ->
 			end,
 			?DEBUG_OUT("FightForce=======~p~n",[{FightForce,CurrentHp}]),
 			MaxHp = acKingBattleAllLogic:playerForce2MirroeHp(FightForce),
-			[#rec_base_role{roleName = Name, level = Level,career = Career,race = Race,sex = Sex,head = Head}] = ets:lookup(ets_rec_base_role, RoleID),
+			#?RoleKeyRec{roleName = Name, level = Level,career = Career,race = Race,sex = Sex,head = Head} = core:queryRoleKeyInfoByRoleID(RoleID),
+
+			%%[#rec_base_role{roleName = Name, level = Level,career = Career,race = Race,sex = Sex,head = Head}] = ets:lookup(ets_rec_base_role, RoleID),
 			case ets:lookup(ets_rec_OnlinePlayer, RoleID) of
 				[#rec_OnlinePlayer{}] ->
 					Code=1;
 				_ ->
 					Code =0
 			end,
+
 			GuildName = guildLogic:getGuildNameByRoleID(RoleID),
-			{ok,#king_battle_mirror_appearance{equipIDList =EquipList,equipLevelList = EquipLevelIDList,wingLevel=WingLevel }}=acKingBattleAllLogic:getMirrorAppearance(RoleID),
+			{ok,#king_battle_mirror_appearance{equipIDList =EquipList,equipLevelList = EquipLevelIDList , fashionIDList = FashionIDList,  wingLevel=WingLevel }}=acKingBattleAllLogic:getMirrorAppearance(RoleID),
 			MsgEquipmentList = [#pk_PlayerKingBattleEquip{equipID =EquipID,quality = Quarlity }||#recVisibleEquip{equipID = EquipID,quality = Quarlity}<-EquipList],
 			MsgEquipLevelIDLis=[#pk_PlayerKingBattleEquipLevel{type = EqType,level = EqLv}||{ EqType, EqLv}<-EquipLevelIDList] ,
 			playerMsg:sendNetMsg(#pk_GS2U_MarrorInfoAck{
@@ -332,10 +356,14 @@ flashMirrorInfo() ->
 				mirrorMaxHp=MaxHp,
 				%% UInt64防守镜像剩余生命值
 				mirrorLastHp=erlang:trunc(CurrentHp),
+				%%时装
+				fashionIDs = FashionIDList,
 				%% PlayerKingBattleEquip 装备ID列表
 				equipIDList=MsgEquipmentList,
 				%% PlayerKingBattleEquipLevel装备等级列表
-				equipLevelList=MsgEquipLevelIDLis
+				equipLevelList=MsgEquipLevelIDLis,
+				%%守护宣言
+				declaration = binToString(Declaration)
 			});
 		_ ->
 			playerMsg:sendErrorCodeMsg(?ErrorCode_KingBattleNoKing)
@@ -371,17 +399,35 @@ defender_buy_mirror_buff_one_key() ->
 	R = logicLib:runLogicGroup(?LOGIC_GROUP_ID_AC_KING_BATTLE_BUY_MIRROR_BUFF_ONE_KEY, [Argu]),
 	flashBuffInfo(),
 	?DEBUG_OUT("==========defender_buy_mirror_buff_one_key=====~p~n", [R]).
+
+
+
 %%获取数据时需要先将数据发送给客户端一次。
-repair_mirror() ->
+repair_mirror(IsRepairAll )->
 %%  KingBattleHpPerCoin=500,?CoinTypeDiamond
+	%%world_guardian_one
 	{CoinType, KingBattleHpPerCoin} = globalCfg:getGlobalCfg(kingBattleRepairMirrorCfg),
+	World_guardian_one = globalCfg:getGlobalCfg(world_guardian_one),
 	CurrentRoleID = playerState:getRoleID(),
 	{ok,State}= activityLogic:getActivePhase(?ActivityType_KingBattleAll) ,
 	case acKingBattleAllLogic:getDefenderInfo(CurrentRoleID) of
 		{ok, #rec_guard_mirror{hpNumber = HpNumber} = Mirror} when ?ActivityPhase_KingBattleAll_5  =/= State->
 			FightForce = playerPropSync:getProp(?SerProp_PlayerHistoryForce),
 			MaxHp = acKingBattleAllLogic:playerForce2MirroeHp(FightForce),
-			RepairHp = MaxHp - HpNumber,
+			RepairHp=
+			case IsRepairAll of true
+				  ->
+					MaxHp - HpNumber;
+                  _->
+	                 OneRepairHp =  KingBattleHpPerCoin * World_guardian_one,
+	                 NeedHp =  MaxHp - HpNumber,
+	                 if
+	                 OneRepairHp > NeedHp ->
+		                 NeedHp;
+					 true ->
+						OneRepairHp
+					end
+			end,
 			?DEBUG_OUT("========repair_mirror==1111=====~p~n",[{MaxHp,HpNumber,FightForce,RepairHp,KingBattleHpPerCoin,CoinType, playerState:getCoin(CoinType)}]),
 			if
 				RepairHp > 0 ->
@@ -397,7 +443,14 @@ repair_mirror() ->
 					if
 						CurrenCoin > ReapirNeedCoin ->
 							UseCoin = ReapirNeedCoin,
-							NewHp = MaxHp;
+
+							NewHp =
+							case IsRepairAll of true
+                                ->
+								MaxHp;
+								_->
+									HpNumber +RepairHp
+							end;
 						true ->
 							UseCoin = CurrenCoin,
 							NewHp = HpNumber + erlang:trunc(UseCoin * KingBattleHpPerCoin)

@@ -49,7 +49,8 @@ checkLadderDelRoleData(List) ->
                                 cur_win = 0,				%%当前连胜 smallint(5) unsigned
                                 max_win = 0,				%%最大连胜 smallint(5) unsigned
                                 win_times = 0,				%%累计胜利 smallint(5) unsigned
-                                worship_times = 0			%%被膜拜总次数 smallint(5) unsigned
+                                worship_times = 0,			%%被膜拜总次数 smallint(5) unsigned
+								rankMin = 0
                             },
                             ?LOG_OUT("player is del,but in ladder:~p -> ~p", [Ladder, NRec]),
                             ets:insert(ets_rec_ladder_1v1, NRec),

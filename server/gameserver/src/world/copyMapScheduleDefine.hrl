@@ -20,6 +20,8 @@
 -define(CopyMapMonster, 1).
 %% 采集物
 -define(CopyMapCollect, 2).
+%% 需要杀死所有怪
+-define(CopyMapKillAllMonster, 3).
 
 %%完成副本条件
 -define(CopyMapEndCond_Undefined, 0).       % 0未定义
@@ -45,6 +47,18 @@
 	isComplete  = false,    % 是否已经完成
 	killMonster = []::[#recKCcalc{}|_],     % 杀怪列表[#recKCcalc{}|_]
 	collectItem = []::[#recKCcalc{}, ...]   % 采集列表[{collectitemid, num}|_]
+}).
+
+%% show2优化 LUNA-2725
+%% 原show2相关事件服务端不作处理，仅客户端显示对话，但同时包含了show2事件的进度可能已经刷怪，导致玩家被迫死亡
+%% 针对上述情况，策划并不希望将show2事件配置为单独的进度，防止副本进度计数方面的不统一
+%% 因此，服务端将会在show2事件有效时，延迟初始化其它内容，这里定义的结构就暂存了初始化其它内容所需的参数
+%% 注：只支持mapsetting.scheduleConf，mapsetting.parallelScheduleConf
+-record(copyMapScheduleInit, {
+	groupID		= 0	:: uint(),
+	scheduleID	= 0	:: uint(),
+	configID	= 0	:: uint(),
+	show2ID		= 0	:: uint()
 }).
 
 -endif. %% Define_copyMapScheduleDefine_hrl_____

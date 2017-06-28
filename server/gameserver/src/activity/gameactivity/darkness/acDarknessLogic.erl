@@ -1326,7 +1326,7 @@ getSpecialBossDropStr(ItemDropID, EquipDropList) ->
 			false->
 				""
 		end,
-	case erlang:is_list(EquipDropList) andalso EquipDropList =/= [0] of
+	case erlang:is_list(EquipDropList) andalso EquipDropList =/= [] of
 		true->
 			Fun2 =
 				fun(EquipDropID, Acc) ->

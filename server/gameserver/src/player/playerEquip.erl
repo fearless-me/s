@@ -35,7 +35,7 @@
 %%装备精炼
 -export([
 	initEquipRefine/0,
-	equipRefine/1,
+	equipRefine/2,
 	equipRefineOneKey/0,
 	sendRefineList/1,
 	equipRecastInit/0,
@@ -55,7 +55,7 @@ initRoleDefaultEquip() ->
 	case getCfg:getCfgPStack(cfg_player_desc, CareerID) of
 		#player_descCfg{equip = EquipIDList} when erlang:is_list(EquipIDList)
 			andalso erlang:length(EquipIDList) > 0 ->
-			[initEquip(CareerID, EquipID) || EquipID <- EquipIDList],
+			[initEquip(CareerID, EquipID) || EquipID <- EquipIDList, EquipID > 0],
 			playerForce:calcPlayerForce(?PlayerEquipForce, true);
 		_ ->
 			skip
@@ -760,163 +760,205 @@ equipComboSkill(ComSkillID, Op) ->
 initEquipRefine() ->
 	RefineList = playerState:getEquipRefine(),
 	RefineSuitLevel = getSuitRefineLevel(RefineList),
-	[changePosRefineProp(PosLevel, Type, ?AddEquipProp) || {Type, PosLevel} <- RefineList],
-	[changeSuitRefineProp(Level, ?AddEquipProp) || Level <- lists:seq(1, RefineSuitLevel)],
+%%	[changePosRefineProp(PosLevel, Type, ?AddEquipProp) || {Type, PosLevel} <- RefineList],
+	[changeSuitRefineProp(Level, ?EquipOn) || Level <- lists:seq(1, RefineSuitLevel)],
 	sendRefineList(RefineList).
 
 %%装备精炼
--spec equipRefine(Type :: uint()) -> ok.
-equipRefine(Type) ->
-	equipRefine(Type, checkEquipRefineType(Type)).
-equipRefine(Type, true) ->
-	RList = playerState:getEquipRefine(),
-	Lv = getPosRefineLevel(Type, RList),
-	case getCfg:getCfgByKey(cfg_equipIntenLevel, Lv + 1) of
-		#equipIntenLevelCfg{} = Cfg ->
-			case Lv >= playerState:getLevel() of
+
+canEquipRefine(Type) ->
+	case checkEquipRefineType(Type) of
+		true ->
+			RList = playerState:getEquipRefine(),
+			Lv = getPosRefineLevel(Type, RList),
+			case Lv < playerState:getLevel() of
 				true ->
-					playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipNotPlayerLevel);
+					case getCfg:getCfgByKey(cfg_equipIntenLevel, Lv + 1) of
+						#equipIntenLevelCfg{} = Cfg ->
+							case checkEquipRefineMaterial(Cfg) of
+								CList when is_list(CList) ->
+									{true, Lv, CList, RList};
+								false ->
+									{false, ?ErrorCode_BagEquipRefineMaterialNotEnougth}
+							end;
+						_ ->
+							{false,?ErrorCode_BagEquipRefineHasMax}
+					end;
 				_ ->
-					case checkEquipRefineMaterial(Cfg) of
-						CList when is_list(CList) ->
-							equipRefine(Type, Lv, CList, RList),
-							playerSevenDays:onMissionEvent(?SevenDayMission_Event_1, 1, 0);
-						false ->
-							playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineMaterialNotEnougth)
-					end
+					{false, ?ErrorCode_BagEquipNotPlayerLevel}
 			end;
 		_ ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineHasMax)
-	end;
-equipRefine(_, _) ->
-	playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineTypeNotExist).
-equipRefine(Type, Lv, CList, RList) ->
-	equipRefineSpec(RList),
-	playerAchieve:achieveEvent(?Achieve_StrMan, [1]),
-	OldSuitLevel = getSuitRefineLevel(RList),
-	%%目前装备跟精炼部位没有关系
-	NewRList = lists:keystore(Type, 1, RList, {Type, Lv + 1}),
-	playerState:setEquipRefine(NewRList),
-	CurSuitLevel = getSuitRefineLevel(NewRList),
-	%%套装加成
-	case OldSuitLevel =:= CurSuitLevel of
-		false ->
-			playerGameNotice:sendGameNotice(?SuitRefineLevel_Notice, CurSuitLevel, 0, 0),
-			playerAchieve:achieveEvent(?Achieve_StrongestKing, [1]),
-			changeSuitRefineProp(CurSuitLevel, ?AddEquipProp);
+			{false, ?ErrorCode_BagEquipRefineTypeNotExist}
+	end.
+
+
+equipRefine(Type, IsNotify) ->
+	case canEquipRefine(Type) of
+		{true, Lv, CList, RList} ->
+			doEquipRefine(Type, Lv, CList, RList);
+		{_, ErrorCode} when IsNotify ->
+			playerMsg:sendErrorCodeMsg(ErrorCode);
 		_ ->
 			skip
 	end,
-	%%部位加成
-	changePosRefineProp(Lv, Type, ?DelEquipProp),
-	changePosRefineProp(Lv + 1, Type, ?AddEquipProp),
+	ok.
+
+
+doEquipRefine(Type, Lv, CList, RList) ->
+	equipRefineSpec(RList),
+	playerAchieve:achieveEvent(?Achieve_StrMan, [1]),
+	OldSuitLevel = getSuitRefineLevel(RList),
+
+	%%目前装备跟精炼部位没有关系
+	NewRList = lists:keystore(Type, 1, RList, {Type, Lv + 1}),
+	playerState:setEquipRefine(NewRList),
+	%%套装加成
+	CurSuitLevel = getSuitRefineLevel(NewRList),
+	case OldSuitLevel =/= CurSuitLevel of
+		true ->
+			playerGameNotice:sendGameNotice(?SuitRefineLevel_Notice, CurSuitLevel, 0, 0),
+			playerAchieve:achieveEvent(?Achieve_StrongestKing, [1]),
+			playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_EquipRedefine, 1),
+			changeSuitRefineProp(CurSuitLevel, ?EquipOn),
+
+			#globalsetupCfg{setpara = L} = getCfg:getCfgByKey(cfg_globalsetup, equipinten_worldtext_limit   ),
+			case lists:member(CurSuitLevel, L) of
+				true->
+					N = stringCfg:getString(equipstronger_worldtext_inten, [playerState:getName(), CurSuitLevel]),
+					core:sendBroadcastNotice(N);
+				_ ->
+					skip
+			end;
+		_ ->
+			skip
+	end,
+
+	case getEquipByType(Type) of
+		{true, _Equip} ->
+			%%部位加成
+			changePosRefineProp(Lv, Type, ?EquipOff),
+			changePosRefineProp(Lv + 1, Type, ?EquipOn);
+		_ ->
+			skip
+	end,
 	delItem(CList, ?ItemDeleteReasonRefine),
 	playerSave:saveRefine(Type, Lv + 1),
 	sendRefineResult(Type, Lv + 1),
+	playerSevenDayAim:updateCondition(?SevenDayAim_EquipRefine, []),
 	playerForce:calcPlayerForce(?PlayerStrForce, true).
 
 %% 装备一键精炼
 equipRefineOneKey() ->
-	RList0 = playerState:getEquipRefine(),
-	TypeListFull = [?EquipTypeWeapon, ?EquipTypeHelmet, ?EquipTypeEarrings, ?EquipTypeArmor, ?EquipTypeNecklace, ?EquipTypeTrousers, ?EquipTypeRing, ?EquipTypeBoots],
-	FunFill =
-		fun(Type, AccIn) ->
-			case lists:keyfind(Type, 1, RList0) of
-				false ->
-					[{Type, 0} | AccIn];
-				V ->
-					[V | AccIn]
-			end
-		end,
-	RList1 = lists:foldl(FunFill, [], TypeListFull),
-	FunFindMin =
-		fun({_, Level}, LevelMin) ->
-			case Level < LevelMin of
-				true ->
-					Level;
-				_ ->
-					LevelMin
-			end
-		end,
-	
-	LevelMax = lists:max(getCfg:get1KeyList(cfg_equipIntenLevel)),
-	LevelMin = lists:foldl(FunFindMin, LevelMax, RList1),
-	LevelRole = playerState:getLevel(),
-	?DEBUG_OUT("[DebugForDebugForRefine] equipRefineOneKey LevelRole(~p) LevelMin(~p) LevelMax(~p) RList1(~p)", [LevelRole, LevelMin, LevelMax, RList1]),
-	case LevelRole =< LevelMin of
-		true ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipNotPlayerLevel);
-		_ ->
-			FunGetMin =
-				fun({Type, Level}, {RList2, RList3}) ->
-					case Level of
-						LevelMin ->
-							{[Type | RList2], RList3};
-						_ ->
-							{RList2, [{Type, Level} | RList3]}
-					end
-				end,
-			{RList2, RList3} = lists:foldl(FunGetMin, {[], []}, RList1),
-			case RList2 of
-				[] ->
-					playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineHasMax);
-				_ ->
-					case getCfg:getCfgByKey(cfg_equipIntenLevel, LevelMin + 1) of
-						#equipIntenLevelCfg{} = Cfg ->
-							RefineCount = erlang:length(RList2),
-							case checkEquipRefineOneKeyMaterial(Cfg, RefineCount) of
-								CList when is_list(CList) ->
-									equipRefineOneKey(RList2, RefineCount, RList3, LevelMin, CList, RList1),
-									playerSevenDays:onMissionEvent(?SevenDayMission_Event_1, RefineCount, 0);
-								false ->
-									playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineMaterialNotEnougth)
-							end;
-						_ ->
-							playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineHasMax)
-					end
-			end
-	end,
+	L = lists:seq(?EquipTypeStart,?EquipTypeMax),
+	lists:foreach(fun(Type) -> equipRefine(Type, false) end, L),
 	ok.
-equipRefineOneKey(TypeList, Count, RList3, Lv, CList, RList) ->
-	equipRefineSpec(RList),
-	playerAchieve:achieveEvent(?Achieve_StrMan, [Count]),
-	OldSuitLevel = getSuitRefineLevel(RList),
-	%%目前装备跟精炼部位没有关系
-	FunNewRListA =
-		fun(TypeIn, AccIn) ->
-			[{TypeIn, Lv + 1} | AccIn]
-		end,
-	NewRListA = lists:foldl(FunNewRListA, [], TypeList),
-	NewRList = NewRListA ++ RList3,
-	delItem(CList, ?ItemDeleteReasonRefine),    %% 扣除资源
-	playerState:setEquipRefine(NewRList),
-	CurSuitLevel = getSuitRefineLevel(NewRList),
-	%%套装加成
-	case OldSuitLevel =:= CurSuitLevel of
-		false ->
-			playerGameNotice:sendGameNotice(?SuitRefineLevel_Notice, CurSuitLevel, 0, 0),
-			playerAchieve:achieveEvent(?Achieve_StrongestKing, [1]),
-			changeSuitRefineProp(CurSuitLevel, ?AddEquipProp);
-		_ ->
-			skip
-	end,
-	%%部位加成
-	FunRefineProp =
-		fun(TypeIn) ->
-			changePosRefineProp(Lv, TypeIn, ?DelEquipProp),
-			changePosRefineProp(Lv + 1, TypeIn, ?AddEquipProp),
-			playerSave:saveRefine(TypeIn, Lv + 1)
-		end,
-	lists:foreach(FunRefineProp, TypeList),
-	%%消息
-	Msg = #pk_GS2U_EquipRefineResultOneKey{
-		code = playerState:getPlayerCode(),
-		typeList = TypeList,
-		levelOld = Lv,
-		levelNew = Lv + 1
-	},
-	playerMsg:sendMsgToNearPlayer(Msg, true),
-	playerForce:calcPlayerForce(?PlayerStrForce, true).
+%%equipRefineOneKey() ->
+%%	RList0 = playerState:getEquipRefine(),
+%%	TypeListFull = [?EquipTypeWeapon, ?EquipTypeHelmet, ?EquipTypeEarrings, ?EquipTypeArmor, ?EquipTypeNecklace, ?EquipTypeTrousers, ?EquipTypeRing, ?EquipTypeBoots],
+%%	FunFill =
+%%		fun(Type, AccIn) ->
+%%			case lists:keyfind(Type, 1, RList0) of
+%%				false ->
+%%					[{Type, 0} | AccIn];
+%%				V ->
+%%					[V | AccIn]
+%%			end
+%%		end,
+%%	RList1 = lists:foldl(FunFill, [], TypeListFull),
+%%	FunFindMin =
+%%		fun({_, Level}, LevelMin) ->
+%%			case Level < LevelMin of
+%%				true ->
+%%					Level;
+%%				_ ->
+%%					LevelMin
+%%			end
+%%		end,
+%%
+%%	LevelMax = lists:max(getCfg:get1KeyList(cfg_equipIntenLevel)),
+%%	LevelMin = lists:foldl(FunFindMin, LevelMax, RList1),
+%%	LevelRole = playerState:getLevel(),
+%%	?DEBUG_OUT("[DebugForDebugForRefine] equipRefineOneKey LevelRole(~p) LevelMin(~p) LevelMax(~p) RList1(~p)", [LevelRole, LevelMin, LevelMax, RList1]),
+%%	case LevelRole =< LevelMin of
+%%		true ->
+%%			playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipNotPlayerLevel);
+%%		_ ->
+%%			FunGetMin =
+%%				fun({Type, Level}, {RList2, RList3}) ->
+%%					case Level of
+%%						LevelMin ->
+%%							{[Type | RList2], RList3};
+%%						_ ->
+%%							{RList2, [{Type, Level} | RList3]}
+%%					end
+%%				end,
+%%			{RList2, RList3} = lists:foldl(FunGetMin, {[], []}, RList1),
+%%			case RList2 of
+%%				[] ->
+%%					playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineHasMax);
+%%				_ ->
+%%					case getCfg:getCfgByKey(cfg_equipIntenLevel, LevelMin + 1) of
+%%						#equipIntenLevelCfg{} = Cfg ->
+%%							RefineCount = erlang:length(RList2),
+%%							case checkEquipRefineOneKeyMaterial(Cfg, RefineCount) of
+%%								CList when is_list(CList) ->
+%%									equipRefineOneKey(RList2, RefineCount, RList3, LevelMin, CList, RList1),
+%%									playerSevenDays:onMissionEvent(?SevenDayMission_Event_1, RefineCount, 0);
+%%								false ->
+%%									playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineMaterialNotEnougth)
+%%							end;
+%%						_ ->
+%%							playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineHasMax)
+%%					end
+%%			end
+%%	end,
+%%	ok.
+%%equipRefineOneKey(TypeList, Count, RList3, Lv, CList, RList) ->
+%%	equipRefineSpec(RList),
+%%	playerAchieve:achieveEvent(?Achieve_StrMan, [Count]),
+%%	OldSuitLevel = getSuitRefineLevel(RList),
+%%	%%目前装备跟精炼部位没有关系
+%%	FunNewRListA =
+%%		fun(TypeIn, AccIn) ->
+%%			[{TypeIn, Lv + 1} | AccIn]
+%%		end,
+%%	NewRListA = lists:foldl(FunNewRListA, [], TypeList),
+%%	NewRList = NewRListA ++ RList3,
+%%	delItem(CList, ?ItemDeleteReasonRefine),    %% 扣除资源
+%%	playerState:setEquipRefine(NewRList),
+%%	CurSuitLevel = getSuitRefineLevel(NewRList),
+%%	%%套装加成
+%%	case OldSuitLevel =:= CurSuitLevel of
+%%		false ->
+%%			playerGameNotice:sendGameNotice(?SuitRefineLevel_Notice, CurSuitLevel, 0, 0),
+%%			playerAchieve:achieveEvent(?Achieve_StrongestKing, [1]),
+%%			changeSuitRefineProp(CurSuitLevel, ?EquipOn);
+%%		_ ->
+%%			skip
+%%	end,
+%%	%%部位加成
+%%	FunRefineProp =
+%%		fun(TypeIn) ->
+%%			case getEquipByType(TypeIn) of
+%%				{true, _Equip} ->
+%%					%%部位加成
+%%					changePosRefineProp(Lv, TypeIn, ?EquipOff),
+%%					changePosRefineProp(Lv + 1, TypeIn, ?EquipOn);
+%%				_ ->
+%%					skip
+%%			end,
+%%			playerSave:saveRefine(TypeIn, Lv + 1)
+%%		end,
+%%	lists:foreach(FunRefineProp, TypeList),
+%%	%%消息
+%%	Msg = #pk_GS2U_EquipRefineResultOneKey{
+%%		code = playerState:getPlayerCode(),
+%%		typeList = TypeList,
+%%		levelOld = Lv,
+%%		levelNew = Lv + 1
+%%	},
+%%	playerMsg:sendMsgToNearPlayer(Msg, true),
+%%	playerForce:calcPlayerForce(?PlayerStrForce, true).
 
 equipRefineSpec(RL) ->
 	PropValue = playerPropSync:getProp(?SerProp_LoadRefineFlag),
@@ -937,6 +979,7 @@ equipRefineSpec(RL) ->
 				0 ->
 					skip;
 				_ ->
+					playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_EquipRedefine, SuitLv),
 					playerAchieve:achieveEvent(?Achieve_StrongestKing, [SuitLv])
 			end,
 			playerPropSync:setInt(?SerProp_LoadRefineFlag, 1);
@@ -952,17 +995,45 @@ checkEquipRefineType(_Type) ->
 	%%?DEBUG_OUT("[DebugForRefine] Type(~p)", [_Type]),
 	false.
 
--spec checkEquipRefineMaterial(Cfg :: #equipIntenLevelCfg{}) -> false | list().
-checkEquipRefineMaterial(#equipIntenLevelCfg{materialCost = MaterialCost}) ->
-	checkEquipRefineMaterial(MaterialCost, []).
-checkEquipRefineMaterial([], CostList) ->
+
+checkEquipRefineMaterial(
+	#equipIntenLevelCfg{
+		materialCost = MaterialCost,
+		materialTransform = SubCost
+}) ->
+	checkEquipRefineMaterial(MaterialCost, SubCost, []).
+
+%%修改成只支持主消耗一种道具，
+checkEquipRefineMaterial([], _SubMaterial,  CostList) ->
 	CostList;
-checkEquipRefineMaterial([{ID, Num} | List], CostList) ->
+checkEquipRefineMaterial([{ID, Num} | _], [], CostList) ->
 	case playerPackage:getItemNumByID(ID) >= Num of
 		true ->
-			checkEquipRefineMaterial(List, [{ID, Num} | CostList]);
+			[{ID, Num} | CostList];
 		_ ->
 			false
+	end;
+checkEquipRefineMaterial([{AID, ANum} | _], [{BID, BNum} | _], CostList) ->
+	HaveA = playerPackage:getItemNumByID(AID),
+	case HaveA >= ANum of
+		true ->
+			[{AID, ANum} | CostList];
+		%% A不够B来凑
+		_ ->
+			LeftA = ANum - HaveA,
+			NeedB = LeftA * BNum,
+			HaveB = playerPackage:getItemNumByID(BID),
+			case HaveB >= NeedB of
+				true ->
+					if
+						HaveA > 0 ->
+							[{AID, HaveA},{BID, NeedB} | CostList];
+						true ->
+							[{BID, NeedB} | CostList]
+					end;
+				_ ->
+					false
+			end
 	end.
 
 -spec checkEquipRefineOneKeyMaterial(Cfg :: #equipIntenLevelCfg{}, Count :: uint()) -> false | list().
@@ -984,7 +1055,7 @@ checkEquipRefineOneKeyMaterial([{ID, Num} | List], Count, CostList) ->
 initEquipStar() ->
 	L = playerState:getEquipStarList(),
 	Slv = getSuitUpStarLv(L),
-	[changeSuitStarProp(Lv, ?AddEquipProp) || Lv <- lists:seq(1, Slv)],
+	[changeSuitStarProp(Lv, ?EquipOn) || Lv <- lists:seq(1, Slv)],
 	sendEquipUpStarList(L).
 
 %%装备冲星
@@ -1004,9 +1075,9 @@ equipStar(Pos, Type) ->
 			Tuple ->
 				Tuple
 		end,
-	case getCfg:getCfgByArgs(cfg_equipstar, EquipStar#recEquipStar.star) of
+	case getCfg:getCfgByArgs(cfg_equipstar, EquipStar#recEquipStar.star, Pos) of
 		#equipstarCfg{limit_level = LimitLv} = EquipStarCfg when Lv >= LimitLv ->
-			case getCfg:getCfgByArgs(cfg_equipstar, EquipStar#recEquipStar.star + 1) of
+			case getCfg:getCfgByArgs(cfg_equipstar, EquipStar#recEquipStar.star + 1, Pos) of
 				#equipstarCfg{} ->
 					equipStar(Type, EquipStar, EquipStarCfg),
 					playerSevenDays:onMissionEvent(?SevenDayMission_Event_10, 1, 0);
@@ -1019,15 +1090,59 @@ equipStar(Pos, Type) ->
 			playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipStarMaxLevel)
 	end.
 
+itemB2A(0, _TransB)->
+	0;
+itemB2A(_HaveB, 0)->
+	0;
+itemB2A(HaveB, TransB)->
+	erlang:trunc(HaveB/TransB).
+
+itemA2ABList(ItemA, HaveA, NeedA, 0, _HaveB, _TransB)->
+	case HaveA >= NeedA of
+		true ->
+			[{ItemA, NeedA}];
+		_ ->
+			false %%不应该到这里
+	end;
+itemA2ABList(ItemA, HaveA, NeedA, _ItemB, _HaveB, 0)->
+	case HaveA >= NeedA of
+		true ->
+			[{ItemA, NeedA}];
+		_ ->
+			false  %%不应该到这里
+	end;
+itemA2ABList(ItemA, HaveA, NeedA, ItemB, HaveB, TransB)->
+	case HaveA >= NeedA of
+		true ->
+			[{ItemA, NeedA}];
+		%% A不够B来凑
+		_ ->
+			LeftA = NeedA - HaveA,
+			NeedB = LeftA * TransB,
+			if
+				HaveB < NeedB->
+					false;%%不应该到这里
+				HaveA > 0 ->
+					[{ItemA, HaveA},{ItemB, NeedB}];
+				true ->
+					[{ItemB, NeedB}]
+			end
+	end.
+
 %%单次冲星
 equipStar(
 	?EachUpStar,
-	#recEquipStar{bless = Bless, prog = Prog, star = Star} = EquipStar,
-	#equipstarCfg{cost_item = ItemID, fail_odd = FailOdd} = EquipStarCfg
+	#recEquipStar{bless = Bless, star = Star} = EquipStar,
+	#equipstarCfg{
+		cost_item = ItemID, fail_odd = FailOdd,
+		transform_item = TItemID, transform_num = TNumber
+	} = EquipStarCfg
 ) ->
-	Num = playerPackage:getItemNumByID(ItemID),
+	HaveA = playerPackage:getItemNumByID(ItemID),
+	HaveB = playerPackage:getItemNumByID(TItemID),
+	Num = HaveA + itemB2A(HaveB, TNumber),
 	Coin = playerState:getCoin(?CoinTypeGold),
-	case eachEquipStar(Bless, Prog, Num, Coin, 0, EquipStarCfg) of
+	case eachEquipStar(Bless, Num, Coin, 0, EquipStarCfg) of
 		{?UpStar_NoItem_Fail, _, _, _} ->
 			playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipStarMaterialNotEnougth);
 		{?UpStar_NoCoin_Fail, _, _, _} ->
@@ -1035,11 +1150,6 @@ equipStar(
 		Other ->
 			{Res, Index1, ReNum1, ReCoin1, NewEquipStar} =
 				case Other of
-					{?UpStar_Prog_Succ, Index, ReNum, ReCoin} ->
-						{?UpStar_Prog_Succ, Index, ReNum, ReCoin, EquipStar#recEquipStar{
-							bless = 0,
-							prog = Prog + 1
-						}};
 					{?UpStar_Lv_Succ, Index, ReNum, ReCoin} ->
 						{?UpStar_Lv_Succ, Index, ReNum, ReCoin, EquipStar#recEquipStar{
 							bless = 0,
@@ -1048,40 +1158,42 @@ equipStar(
 						}};
 					{?UpStar_Fail, Index, ReNum, ReCoin} ->
 						{?UpStar_Fail, Index, ReNum, ReCoin, EquipStar#recEquipStar{
-							bless = Bless + trunc(FailOdd*1000),
+							bless = Bless + trunc(FailOdd * 1000),
 							prog = 0
 						}}
 				end,
-			equipStarRes(?EachUpStar, ItemID, Num - ReNum1, Coin - ReCoin1, Index1, Res, NewEquipStar)
+			CostItemList = itemA2ABList(ItemID, HaveA, Num - ReNum1, TItemID, HaveB, TNumber),
+			equipStarRes(?EachUpStar, CostItemList, Coin - ReCoin1, Index1, Res, NewEquipStar)
 	end;
 %%一键冲星
 equipStar(
 	?QuickUpStar,
 	EquipStar,
-	#equipstarCfg{cost_item = ItemID} = EquipStarCfg
+	#equipstarCfg{
+		cost_item = ItemID,
+		transform_item = TItemID, transform_num = TNumber
+	} = EquipStarCfg
 ) ->
-	Num = playerPackage:getItemNumByID(ItemID),
+	HaveA = playerPackage:getItemNumByID(ItemID),
+	HaveB = playerPackage:getItemNumByID(TItemID),
+	Num = HaveA + itemB2A(HaveB, TNumber),
+	
 	Coin = playerState:getCoin(?CoinTypeGold),
 	{Res, Index, ReNum, ReCoin, NewEquipStar} = equipStar(Num, Coin, 0, EquipStar, EquipStarCfg),
-	equipStarRes(?QuickUpStar, ItemID, Num - ReNum, Coin - ReCoin, Index, Res, NewEquipStar).
+	CostItemList = itemA2ABList(ItemID, HaveA, Num - ReNum, TItemID, HaveB, TNumber),
+	equipStarRes(?QuickUpStar, CostItemList, Coin - ReCoin, Index, Res, NewEquipStar).
 
 equipStar(
 	Num,
 	Coin,
 	Index,
-	#recEquipStar{bless = Bless, prog = Prog, star = Star} = EquipStar,
+	#recEquipStar{bless = Bless, star = Star} = EquipStar,
 	#equipstarCfg{fail_odd = FailOdd} = EquipStarCfg
 ) ->
-	case eachEquipStar(Bless, Prog, Num, Coin, Index, EquipStarCfg) of
-		{?UpStar_Prog_Succ, Index1, ReNum, ReCoin} ->
-			NewEquipStar = EquipStar#recEquipStar{
-				bless = 0,
-				prog = Prog + 1
-			},
-			equipStar(ReNum, ReCoin, Index1, NewEquipStar, EquipStarCfg);
+	case eachEquipStar(Bless, Num, Coin, Index, EquipStarCfg) of
 		{?UpStar_Fail, Index1, ReNum, ReCoin} ->
 			NewEquipStar = EquipStar#recEquipStar{
-				bless = Bless + trunc(FailOdd*1000),
+				bless = Bless + trunc(FailOdd * 1000),
 				prog = 0
 			},
 			equipStar(ReNum, ReCoin, Index1, NewEquipStar, EquipStarCfg);
@@ -1097,9 +1209,11 @@ equipStar(
 	end.
 
 %%装备冲星结果
-equipStarRes(Type, CostItemID, CostNum, CostCoin, Index, Res, #recEquipStar{pos = Pos} = EquipStar) ->
+equipStarRes(_Type, false, _CostCoin, _Index, _Res, _EquipStar) ->
+	playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipStarMaterialNotEnougth);
+equipStarRes(Type, CostItemList, CostCoin, Index, Res, #recEquipStar{pos = Pos} = EquipStar) ->
 	%%删除物品
-	delItem([{CostItemID, CostNum}], ?ItemDeleteReasonEquipUpStar),
+	delItem(CostItemList, ?ItemDeleteReasonEquipUpStar),
 
 	%%删除金币
 	true = playerMoney:useCoin(?CoinUseTypeGold, CostCoin,
@@ -1133,21 +1247,30 @@ equipStarRes(Type, CostItemID, CostNum, CostCoin, Index, Res, #recEquipStar{pos 
 				end,
 			if
 				Old =/= New ->
-					changeSuitStarProp(New, ?AddEquipProp);
+					playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_EquipStar, New),
+					changeSuitStarProp(New, ?EquipOn);
 				true ->
 					skip
 			end,
 			if
 				Old =/= New andalso (New rem 5) =:= 0 andalso New > 0 ->
-					%%勇士[00ff00]<t=9>[~p],[~p],【~ts】</t>[-]将全身装备冲星至[00ff00]【~ts】[-]，创造新的传奇。
-					case getCfg:getCfgByArgs(cfg_equipstar, New) of
-						#equipstarCfg{desc = Desc1} ->
-							Desc = Desc1;
+%%					%%勇士[00ff00]<t=9>[~p],[~p],【~ts】</t>[-]将全身装备冲星至[00ff00]【~ts】[-]，创造新的传奇。
+					#globalsetupCfg{setpara = L} = getCfg:getCfgByKey(cfg_globalsetup, equipstar_worldtext_limit),
+					case lists:member(New, L) of
+						true->
+							case getCfg:getCfgByArgs(cfg_equipstar, New, Pos) of
+								#equipstarCfg{desc = Desc1} ->
+									Desc = Desc1;
+								_ ->
+									Desc = ""
+							end,
+							N = stringCfg:getString(equipstronger_, [playerState:getName(), Desc]),
+							core:sendBroadcastNotice(N);
 						_ ->
-							Desc = ""
-					end,
-					N = stringCfg:getString(equipUpstar, [playerState:getRoleID(), playerState:getPlayerCode(), playerState:getName(), Desc]),
-					core:sendBroadcastNotice(N);
+							skip
+					end;
+%%					N = stringCfg:getString(equipUpstar, [playerState:getRoleID(), playerState:getPlayerCode(), playerState:getName(), Desc]),
+%%					core:sendBroadcastNotice(N);
 				true ->
 					skip
 			end;
@@ -1158,12 +1281,12 @@ equipStarRes(Type, CostItemID, CostNum, CostCoin, Index, Res, #recEquipStar{pos 
 	playerSave:saveEquipStar(EquipStar),
 
 	%%发送消息
-	sendEquipUpStarRes(EquipStar, Type, Index, CostItemID, CostNum, CostCoin, Res).
+	sendEquipUpStarRes(EquipStar, Type, Index, CostItemList, CostCoin, Res),
+	playerSevenDayAim:updateCondition(?SevenDayAim_EquipStar, []).
 
 %%装备单次冲星结果
 eachEquipStar(
 	_Bless,
-	_Prog,
 	Num,
 	Coin,
 	Index,
@@ -1172,7 +1295,6 @@ eachEquipStar(
 	{?UpStar_NoItem_Fail, Index, Num, Coin};
 eachEquipStar(
 	_Bless,
-	_Prog,
 	Num,
 	Coin,
 	Index,
@@ -1181,28 +1303,13 @@ eachEquipStar(
 	}
 ) when Coin < CostCoin ->
 	{?UpStar_NoCoin_Fail, Index, Num, Coin};
-%%eachEquipStar(
-%%	Bless,
-%%	_Prog,
-%%	Num,
-%%	Coin,
-%%	Index,
-%%	#equipstarCfg{
-%%		fail_odd = FailOdd,
-%%		fail_min = FailTimes,
-%%		cost_num = CostNum,
-%%		cost_coin = CostCoin
-%%	}
-%%) when Bless >= trunc(FailOdd * FailTimes * 1000) ->
-%%	{?UpStar_Lv_Succ, Index + 1, Num - CostNum, Coin - CostCoin};
 eachEquipStar(
 	Bless,
-	Prog,
 	Num,
 	Coin,
 	Index,
 	#equipstarCfg{
-		progress = Progress,
+		progress = _Progress,
 		fail_odd = FailOdd,
 		fail_min = FailTimes,
 		cost_num = CostNum,
@@ -1212,31 +1319,23 @@ eachEquipStar(
 	{?UpStar_Fail, Index + 1, Num - CostNum, Coin - CostCoin};
 eachEquipStar(
 	Bless,
-	Prog,
 	Num,
 	Coin,
 	Index,
 	#equipstarCfg{
-		progress = Progress,
 		odd = Odd,
 		cost_num = CostNum,
 		cost_coin = CostCoin
 	}
 ) ->
-	eachEquipStar(Prog, random:uniform(100), Odd * 100 + Bless / 10, Index, Progress, Num, Coin, CostNum, CostCoin).
+	eachEquipStar(random:uniform(100), Odd * 100 + Bless / 10, Index, Num, Coin, CostNum, CostCoin).
 
 eachEquipStar(
-	Prog, R, Odd, Index, Progress,
-	Num, Coin, CostNum, CostCoin
-) when R =< Odd andalso (Progress - Prog) =:= 1 ->
-	{?UpStar_Lv_Succ, Index + 1, Num - CostNum, Coin - CostCoin};
-eachEquipStar(
-	_Prog, R, Odd, Index, _Progress,
+	R, Odd, Index,
 	Num, Coin, CostNum, CostCoin
 ) when R =< Odd ->
-	{?UpStar_Prog_Succ, Index + 1, Num - CostNum, Coin - CostCoin};
-eachEquipStar(
-	_Prog, _R, _Odd, Index, _Progress,
+	{?UpStar_Lv_Succ, Index + 1, Num - CostNum, Coin - CostCoin};
+eachEquipStar( _R, _Odd, Index,
 	Num, Coin, CostNum, CostCoin
 ) ->
 	{?UpStar_Fail, Index + 1, Num - CostNum, Coin - CostCoin}.
@@ -1268,8 +1367,8 @@ makeEquipBaseProp(EquipID, _Quality, EquipUID) ->
 
 -spec makeEquipEnahanceProp(#rec_equip_base_info{}, Quality) -> #rec_equip_enhance_info{} when
 	Quality :: equipQuality().
-makeEquipEnahanceProp(#rec_equip_base_info{equipUID = EquipUID} = BaseProp, Quality) ->
-	EquipQuailtyRatio = getEquipQuailtyRatio(Quality), %%装备品质加成系数
+makeEquipEnahanceProp(#rec_equip_base_info{equipUID = EquipUID} = BaseProp, _Quality) ->
+	EquipQuailtyRatio = 0,%getEquipQuailtyRatio(Quality), %%装备品质加成系数
 	#rec_equip_enhance_info{
 		equipUID = EquipUID,
 		propKey1 = BaseProp#rec_equip_base_info.propKey1,
@@ -1438,53 +1537,54 @@ makeEquipExtProp(_EquipID, _Quality, _EquipUID) ->
 %%防御加成
 -spec addDefensiveBonusProp(EnhanceProp, ExtProp) -> #rec_equip_enhance_info{} when
 	EnhanceProp :: #rec_equip_enhance_info{}, ExtProp :: #rec_equip_ext_info{}.
-addDefensiveBonusProp(#rec_equip_enhance_info{} = EnhanceProp,
-	#rec_equip_ext_info{
-		propKey1 = PpropKey1, propValue1 = PropValue1,
-		propKey2 = PpropKey2, propValue2 = PropValue2,
-		propKey3 = PpropKey3, propValue3 = PropValue3,
-		propKey4 = PpropKey4, propValue4 = PropValue4,
-		propKey5 = PpropKey5, propValue5 = PropValue5,
-		propKey6 = PpropKey6, propValue6 = PropValue6
-	}) ->
-	[IsCanAddDefen, DefenValue] =
-		if
-			PpropKey1 =:= ?EquipDefensiveBonusID ->
-				[true, PropValue1];
-			PpropKey2 =:= ?EquipDefensiveBonusID ->
-				[true, PropValue2];
-			PpropKey3 =:= ?EquipDefensiveBonusID ->
-				[true, PropValue3];
-			PpropKey4 =:= ?EquipDefensiveBonusID ->
-				[true, PropValue4];
-			PpropKey5 =:= ?EquipDefensiveBonusID ->
-				[true, PropValue5];
-			PpropKey6 =:= ?EquipDefensiveBonusID ->
-				[true, PropValue6];
-			true ->
-				[false, 0]
-		end,
-	Fun = fun(Key, Value) ->
-		case lists:member(Key, ?EquipDefenList) of
-			true ->
-				Value * (1 + DefenValue);
-			_ ->
-				Value
-		end
-	      end,
-
-	if
-		IsCanAddDefen =:= true ->
-			EnhanceProp#rec_equip_enhance_info{
-				propValue1 = Fun(EnhanceProp#rec_equip_enhance_info.propKey1, EnhanceProp#rec_equip_enhance_info.propValue1),
-				propValue2 = Fun(EnhanceProp#rec_equip_enhance_info.propKey2, EnhanceProp#rec_equip_enhance_info.propValue2),
-				propValue3 = Fun(EnhanceProp#rec_equip_enhance_info.propKey3, EnhanceProp#rec_equip_enhance_info.propValue3),
-				propValue4 = Fun(EnhanceProp#rec_equip_enhance_info.propKey4, EnhanceProp#rec_equip_enhance_info.propValue4),
-				propValue5 = Fun(EnhanceProp#rec_equip_enhance_info.propKey5, EnhanceProp#rec_equip_enhance_info.propValue5)
-			};
-		true ->
-			EnhanceProp
-	end.
+addDefensiveBonusProp(#rec_equip_enhance_info{} = EnhanceProp, _Ext) ->
+	EnhanceProp.
+%%	#rec_equip_ext_info{
+%%		propKey1 = PpropKey1, propValue1 = PropValue1,
+%%		propKey2 = PpropKey2, propValue2 = PropValue2,
+%%		propKey3 = PpropKey3, propValue3 = PropValue3,
+%%		propKey4 = PpropKey4, propValue4 = PropValue4,
+%%		propKey5 = PpropKey5, propValue5 = PropValue5,
+%%		propKey6 = PpropKey6, propValue6 = PropValue6
+%%	}) ->
+%%	[IsCanAddDefen, DefenValue] =
+%%		if
+%%			PpropKey1 =:= ?EquipDefensiveBonusID ->
+%%				[true, PropValue1];
+%%			PpropKey2 =:= ?EquipDefensiveBonusID ->
+%%				[true, PropValue2];
+%%			PpropKey3 =:= ?EquipDefensiveBonusID ->
+%%				[true, PropValue3];
+%%			PpropKey4 =:= ?EquipDefensiveBonusID ->
+%%				[true, PropValue4];
+%%			PpropKey5 =:= ?EquipDefensiveBonusID ->
+%%				[true, PropValue5];
+%%			PpropKey6 =:= ?EquipDefensiveBonusID ->
+%%				[true, PropValue6];
+%%			true ->
+%%				[false, 0]
+%%		end,
+%%	Fun = fun(Key, Value) ->
+%%		case lists:member(Key, ?EquipDefenList) of
+%%			true ->
+%%				Value * (1 + DefenValue);
+%%			_ ->
+%%				Value
+%%		end
+%%	      end,
+%%
+%%	if
+%%		IsCanAddDefen =:= true ->
+%%			EnhanceProp#rec_equip_enhance_info{
+%%				propValue1 = Fun(EnhanceProp#rec_equip_enhance_info.propKey1, EnhanceProp#rec_equip_enhance_info.propValue1),
+%%				propValue2 = Fun(EnhanceProp#rec_equip_enhance_info.propKey2, EnhanceProp#rec_equip_enhance_info.propValue2),
+%%				propValue3 = Fun(EnhanceProp#rec_equip_enhance_info.propKey3, EnhanceProp#rec_equip_enhance_info.propValue3),
+%%				propValue4 = Fun(EnhanceProp#rec_equip_enhance_info.propKey4, EnhanceProp#rec_equip_enhance_info.propValue4),
+%%				propValue5 = Fun(EnhanceProp#rec_equip_enhance_info.propKey5, EnhanceProp#rec_equip_enhance_info.propValue5)
+%%			};
+%%		true ->
+%%			EnhanceProp
+%%	end.
 
 %%%%根据附加属性产生规则，产生一条附加属性
 %%-spec makeEquipAffixes(SpecialAffixes, FrontNum, AfterNum, EquipID, ExcludedData, EquipAffixClass) -> {ResultFrontAffixes, ResultAfterAffixes} when
@@ -2268,88 +2368,109 @@ sendVisibleEquipOffMessage(Type) ->
 -spec equipChangeProp(Equip :: #recSaveEquip{}, Operate :: ?EquipOn | ?EquipOff, IsNotify :: boolean()) -> ok.
 equipChangeProp(#recSaveEquip{
 	itemID = ItemID,
-	quality = Quality,
-	extProp = ExtProp,
+	quality = _Quality,
+	extProp = _ExtProp,
 	baseProp = BaseProp,
-	enhanceProp = EnhanceProp
+	enhanceProp = _EnhanceProp
 }, Operate, IsNotify) ->
 	playerState:setEquips(getPlayerEquip()),
-	#rec_equip_ext_info{
-		propKey1 = ExtPropKey1,
-		propValue1 = ExtPropValue1,
-		calcType1 = ExtCalcType1,
-		propKey2 = ExtPropKey2,
-		propValue2 = ExtPropValue2,
-		calcType2 = ExtCalcType2,
-		propKey3 = ExtPropKey3,
-		propValue3 = ExtPropValue3,
-		calcType3 = ExtCalcType3,
-		propKey4 = ExtPropKey4,
-		propValue4 = ExtPropValue4,
-		calcType4 = ExtCalcType4,
-		propKey5 = ExtPropKey5,
-		propValue5 = ExtPropValue5,
-		calcType5 = ExtCalcType5,
-		propKey6 = ExtPropKey6,
-		propValue6 = ExtPropValue6,
-		calcType6 = ExtCalcType6
-	} = ExtProp,
+%%	#rec_equip_ext_info{
+%%		propKey1 = ExtPropKey1,
+%%		propValue1 = ExtPropValue1,
+%%		calcType1 = ExtCalcType1,
+%%		propKey2 = ExtPropKey2,
+%%		propValue2 = ExtPropValue2,
+%%		calcType2 = ExtCalcType2,
+%%		propKey3 = ExtPropKey3,
+%%		propValue3 = ExtPropValue3,
+%%		calcType3 = ExtCalcType3,
+%%		propKey4 = ExtPropKey4,
+%%		propValue4 = ExtPropValue4,
+%%		calcType4 = ExtCalcType4,
+%%		propKey5 = ExtPropKey5,
+%%		propValue5 = ExtPropValue5,
+%%		calcType5 = ExtCalcType5,
+%%		propKey6 = ExtPropKey6,
+%%		propValue6 = ExtPropValue6,
+%%		calcType6 = ExtCalcType6
+%%	} = ExtProp,
 	case getCfg:getCfgPStack(cfg_equipment, ItemID) of
 		#equipmentCfg{type = Type} ->
 			PosLevel = getPosStarLevel(Type, playerState:getEquipStarList()),
-			Mult =
-				case getCfg:getCfgByArgs(cfg_equipstar, PosLevel) of
-					#equipstarCfg{ratio = Ratio} ->
-						Ratio;
+			StartProps =
+				case getCfg:getCfgByArgs(cfg_equipstar, PosLevel, Type) of
+					#equipstarCfg{starProps = SPL} when is_list(SPL) ->
+						SPL;
 					_ ->
-						0
+						[]
 				end,
-			QuaRatio = getEquipQuailtyRatio(Quality),
+
+			EquipStartProps = playerCalcProp:makePropsGroup_Equip(
+				BaseProp,
+				StartProps,
+				Operate
+			),
+
+%%			QuaRatio = getEquipQuailtyRatio(Quality),
 			#rec_equip_base_info{
-				propValue1 = BasePropValue1,
-				propValue2 = BasePropValue2,
-				propValue3 = BasePropValue3,
-				propValue4 = BasePropValue4,
-				propValue5 = BasePropValue5
+				propKey1 = K1, propValue1 = V1,
+				propKey2 = K2, propValue2 = V2,
+				propKey3 = K3, propValue3 = V3,
+				propKey4 = K4, propValue4 = V4,
+				propKey5 = K5, propValue5 = V5
 			} = BaseProp,
-			Fun = fun(Val) ->
-				Val * (1 + QuaRatio) * (1 + Mult)
-			      end,
-			#rec_equip_enhance_info{
-				propKey1 = EnhancePropKey1,
-				propValue1 = EnhancePropValue1,
-				propKey2 = EnhancePropKey2,
-				propValue2 = EnhancePropValue2,
-				propKey3 = EnhancePropKey3,
-				propValue3 = EnhancePropValue3,
-				propKey4 = EnhancePropKey4,
-				propValue4 = EnhancePropValue4,
-				propKey5 = EnhancePropKey5,
-				propValue5 = EnhancePropValue5
-			} = addDefensiveBonusProp(
-				EnhanceProp#rec_equip_enhance_info{
-					propValue1 = Fun(BasePropValue1),
-					propValue2 = Fun(BasePropValue2),
-					propValue3 = Fun(BasePropValue3),
-					propValue4 = Fun(BasePropValue4),
-					propValue5 = Fun(BasePropValue5)},
-				ExtProp),
 
-			EnhanceProp1 =
-				[{EnhancePropKey1, EnhancePropValue1, ?PropCalcType_Add},
-					{EnhancePropKey2, EnhancePropValue2, ?PropCalcType_Add},
-					{EnhancePropKey3, EnhancePropValue3, ?PropCalcType_Add},
-					{EnhancePropKey4, EnhancePropValue4, ?PropCalcType_Add},
-					{EnhancePropKey5, EnhancePropValue5, ?PropCalcType_Add}],
-
-			ExtProp1 =
-				[{ExtPropKey1, ExtPropValue1, ExtCalcType1},
-					{ExtPropKey2, ExtPropValue2, ExtCalcType2},
-					{ExtPropKey3, ExtPropValue3, ExtCalcType3},
-					{ExtPropKey4, ExtPropValue4, ExtCalcType4},
-					{ExtPropKey5, ExtPropValue5, ExtCalcType5},
-					{ExtPropKey6, ExtPropValue6, ExtCalcType6}],
-			playerCalcProp:changeProp_CalcType(EnhanceProp1, ExtProp1, Operate, IsNotify);
+			EnhanceProp1 =  [
+				{K1,V1, ?PropCalcType_Add},
+				{K2,V2, ?PropCalcType_Add},
+				{K3,V3, ?PropCalcType_Add},
+				{K4,V4, ?PropCalcType_Add},
+				{K5,V5, ?PropCalcType_Add}
+			],
+			
+%%			Fun =
+%%				fun(Val) ->
+%%					Val * (1 + QuaRatio)
+%%				end,
+%%			#rec_equip_enhance_info{
+%%				propKey1 = EnhancePropKey1,
+%%				propValue1 = EnhancePropValue1,
+%%				propKey2 = EnhancePropKey2,
+%%				propValue2 = EnhancePropValue2,
+%%				propKey3 = EnhancePropKey3,
+%%				propValue3 = EnhancePropValue3,
+%%				propKey4 = EnhancePropKey4,
+%%				propValue4 = EnhancePropValue4,
+%%				propKey5 = EnhancePropKey5,
+%%				propValue5 = EnhancePropValue5
+%%			} = addDefensiveBonusProp(
+%%				EnhanceProp#rec_equip_enhance_info{
+%%					propValue1 = Fun(BasePropValue1),
+%%					propValue2 = Fun(BasePropValue2),
+%%					propValue3 = Fun(BasePropValue3),
+%%					propValue4 = Fun(BasePropValue4),
+%%					propValue5 = Fun(BasePropValue5)},
+%%				ExtProp),
+%%				[{EnhancePropKey1, EnhancePropValue1, ?PropCalcType_Add},
+%%					{EnhancePropKey2, EnhancePropValue2, ?PropCalcType_Add},
+%%					{EnhancePropKey3, EnhancePropValue3, ?PropCalcType_Add},
+%%					{EnhancePropKey4, EnhancePropValue4, ?PropCalcType_Add},
+%%					{EnhancePropKey5, EnhancePropValue5, ?PropCalcType_Add}],
+%%
+%%			ExtProp1 =
+%%				[{ExtPropKey1, ExtPropValue1, ExtCalcType1},
+%%					{ExtPropKey2, ExtPropValue2, ExtCalcType2},
+%%					{ExtPropKey3, ExtPropValue3, ExtCalcType3},
+%%					{ExtPropKey4, ExtPropValue4, ExtCalcType4},
+%%					{ExtPropKey5, ExtPropValue5, ExtCalcType5},
+%%					{ExtPropKey6, ExtPropValue6, ExtCalcType6}],
+			RedefineProps = getPosRefineProp(Type),
+			playerCalcProp:changeProp_CalcType(
+				EnhanceProp1,
+				EquipStartProps ++ RedefineProps,
+				Operate,
+				IsNotify
+			);
 		_ ->
 			?ERROR_OUT("equipChangeProp not find item:roleID=~p,roleName=~ts,itemID=~p",
 				[playerState:getRoleID(), playerState:getName(), ItemID]),
@@ -2394,29 +2515,23 @@ equipChangeProp(#recSaveEquip{
 -spec changePosRefineProp(PosLevel :: uint(), Type :: uint(), Opreate :: uint()) -> ok.
 changePosRefineProp(0, _, _) ->
 	ok;
-changePosRefineProp(PosLevel, Type, ?AddEquipProp) ->
-	playerCalcProp:changeProp_CalcType(getPosRefineProp(PosLevel, Type), ?EquipOn, true);
-changePosRefineProp(PosLevel, Type, ?DelEquipProp) ->
-	playerCalcProp:changeProp_CalcType(getPosRefineProp(PosLevel, Type), ?EquipOff, true).
+changePosRefineProp(PosLevel, Type, Operate) ->
+	playerCalcProp:changeProp_CalcType(getPosRefineProp(PosLevel, Type), Operate, true).
 
 %%改变装备精炼套装属性加成
 -spec changeSuitRefineProp(SuitLevel :: uint(), Operate :: uint()) -> ok.
 changeSuitRefineProp(0, _) ->
 	skip;
-changeSuitRefineProp(SuitLevel, ?AddEquipProp) ->
+changeSuitRefineProp(SuitLevel, Operate) ->
 	#equipIntenLevelCfg{allBonus = Bonus} = getCfg:getCfgByKey(cfg_equipIntenLevel, SuitLevel),
-	playerCalcProp:changeProp_CalcType(Bonus, ?EquipOn, true);
-changeSuitRefineProp(SuitLevel, ?DelEquipProp) ->
-	#equipIntenLevelCfg{allBonus = Bonus} = getCfg:getCfgByKey(cfg_equipIntenLevel, SuitLevel),
-	playerCalcProp:changeProp_CalcType(Bonus, ?EquipOff, true).
+	playerCalcProp:changeProp_CalcType(Bonus, Operate, true).
 
 %%改变装备重新部位套装属性
--spec changeSuitStarProp(SuitLevel :: uint(), Operate :: uint()) -> ok.
 changeSuitStarProp(0, _) ->
 	skip;
-changeSuitStarProp(SuitLevel, ?AddEquipProp) ->
-	#equipstarCfg{allbonus = Bonus} = getCfg:getCfgByArgs(cfg_equipstar, SuitLevel),
-	playerCalcProp:changeProp_CalcType(Bonus, ?EquipOn, true).
+changeSuitStarProp(SuitLevel, Operate) ->
+	#equipstarCfg{allbonus = Bonus} = getCfg:getCfgByArgs(cfg_equipstar, SuitLevel, ?EquipTypeWeapon),
+	playerCalcProp:changeProp_CalcType(Bonus, Operate, true).
 
 
 %%获取装备精炼部位等级
@@ -2440,7 +2555,14 @@ getPosStarLevel(Pos, L) ->
 	end.
 
 %%获取装备精炼部位属性值根据部位等级
+getPosRefineProp(Type)->
+	RList = playerState:getEquipRefine(),
+	Lv = getPosRefineLevel(Type, RList),
+	getPosRefineProp(Lv, Type).
+
 -spec getPosRefineProp(PosLevel :: uint(), Type :: uint()) -> {float(), list()}.
+getPosRefineProp(0, _Type) ->
+	[];
 getPosRefineProp(PosLevel, Type) ->
 	Career = playerState:getCareer(),
 	#equipNewIntenCfg{
@@ -2453,23 +2575,23 @@ getPosRefineProp(PosLevel, Type) ->
 		chestBonus = ChestBonus,
 		mainHandBonus = MainHandBonus
 	} = getCfg:getCfgPStack(cfg_equipNewInten, ?Career2CareerBase(Career)),
-		case Type of
-			?EquipTypeWeapon ->
-				getPosProp(PosLevel, MainHandBonus);
-			?EquipTypeEarrings ->
-				getPosProp(PosLevel, OffHandBonus);
-			?EquipTypeArmor ->
-				getPosProp(PosLevel, ChestBonus);
-			?EquipTypeBoots ->
-				getPosProp(PosLevel, BootBonus);
-			?EquipTypeRing ->
-				getPosProp(PosLevel, RingBonus);
-			?EquipTypeNecklace ->
-				getPosProp(PosLevel, AmuletBonus);
-			?EquipTypeTrousers ->
-				getPosProp(PosLevel, PantBonus);
-			?EquipTypeHelmet ->
-				getPosProp(PosLevel, HelmBonus)
+	case Type of
+		?EquipTypeWeapon ->
+			getPosProp(PosLevel, MainHandBonus);
+		?EquipTypeEarrings ->
+			getPosProp(PosLevel, OffHandBonus);
+		?EquipTypeArmor ->
+			getPosProp(PosLevel, ChestBonus);
+		?EquipTypeBoots ->
+			getPosProp(PosLevel, BootBonus);
+		?EquipTypeRing ->
+			getPosProp(PosLevel, RingBonus);
+		?EquipTypeNecklace ->
+			getPosProp(PosLevel, AmuletBonus);
+		?EquipTypeTrousers ->
+			getPosProp(PosLevel, PantBonus);
+		?EquipTypeHelmet ->
+			getPosProp(PosLevel, HelmBonus)
 	end.
 
 getPosProp(_PosLevel, undefined) ->
@@ -2585,25 +2707,24 @@ sendEquipUpStarList(L) ->
 	},
 	playerMsg:sendNetMsg(Msg).
 
--spec sendEquipUpStarRes(#recEquipStar{}, Type :: uint(), Index :: uint(), ItemID :: uint(), ItemNum :: uint(), Coin :: uint(), Res :: uint()) -> ok.
 sendEquipUpStarRes(#recEquipStar{
 	pos = Pos,
 	bless = Bless,
 	prog = Prog,
 	star = Star
-}, Type, Index, ItemID, ItemNum, Coin, Res) ->
+}, Type, Index, List, Coin, Res) ->
 	Info = #pk_EquipUpStarInfo{
 		pos = Pos,
 		level = Star,
 		prog = Prog,
 		bless = Bless
 	},
+	CostList = [#pk_starCostItem{itemID = ItemID, itemNum = ItemNum} || {ItemID, ItemNum} <- List],
 	Msg = #pk_GS2U_EquipUpStarRes{
 		equipUpStarInfo = Info,
 		type = Type,
 		index = Index,
-		itemID = ItemID,
-		itemNum = ItemNum,
+		costList = CostList,
 		coin = Coin,
 		res = Res
 	},

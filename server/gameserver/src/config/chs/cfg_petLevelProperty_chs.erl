@@ -8,20 +8,11 @@
 getRow(1)->
     #petLevelPropertyCfg {
     level = 1,
-    maxHP = 0,
-    phyDef = 0,
-    holyDef = 0,
-    shadDef = 0,
-    eleDef = 0,
-    phycDam = 0,
-    holyDam = 0,
-    shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 0,
-    physicalAttack = 0,
-    magicAttack = 0,
-    physicalDefence = 0,
-    magicDefence = 0,
+    maxHP2 = 400,
+    physicalAttack = 40,
+    magicAttack = 40,
+    physicalDefence = 40,
+    magicDefence = 40,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -30,11 +21,8 @@ getRow(1)->
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 20,
-    mPRecover = 20
-    };
-getRow(2)->
-    #petLevelPropertyCfg {
-    level = 2,
+    mPRecover = 20,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -43,12 +31,16 @@ getRow(2)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 0,
-    physicalAttack = 0,
-    magicAttack = 0,
-    physicalDefence = 0,
-    magicDefence = 0,
+    eleDam = 0
+    };
+getRow(2)->
+    #petLevelPropertyCfg {
+    level = 2,
+    maxHP2 = 50,
+    physicalAttack = 5,
+    magicAttack = 5,
+    physicalDefence = 5,
+    magicDefence = 5,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -56,12 +48,9 @@ getRow(2)->
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
-    hPRecover = 30,
-    mPRecover = 30
-    };
-getRow(3)->
-    #petLevelPropertyCfg {
-    level = 3,
+    hPRecover = 10,
+    mPRecover = 10,
+    growLevel = 10,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -70,12 +59,16 @@ getRow(3)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 0,
-    physicalAttack = 0,
-    magicAttack = 0,
-    physicalDefence = 0,
-    magicDefence = 0,
+    eleDam = 0
+    };
+getRow(3)->
+    #petLevelPropertyCfg {
+    level = 3,
+    maxHP2 = 500,
+    physicalAttack = 50,
+    magicAttack = 50,
+    physicalDefence = 50,
+    magicDefence = 50,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -84,11 +77,8 @@ getRow(3)->
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 40,
-    mPRecover = 40
-    };
-getRow(4)->
-    #petLevelPropertyCfg {
-    level = 4,
+    mPRecover = 40,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -97,12 +87,16 @@ getRow(4)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 0,
-    physicalAttack = 0,
-    magicAttack = 0,
-    physicalDefence = 0,
-    magicDefence = 0,
+    eleDam = 0
+    };
+getRow(4)->
+    #petLevelPropertyCfg {
+    level = 4,
+    maxHP2 = 550,
+    physicalAttack = 55,
+    magicAttack = 55,
+    physicalDefence = 55,
+    magicDefence = 55,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -111,11 +105,8 @@ getRow(4)->
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 50,
-    mPRecover = 50
-    };
-getRow(5)->
-    #petLevelPropertyCfg {
-    level = 5,
+    mPRecover = 50,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -124,12 +115,16 @@ getRow(5)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 0,
-    physicalAttack = 0,
-    magicAttack = 0,
-    physicalDefence = 0,
-    magicDefence = 0,
+    eleDam = 0
+    };
+getRow(5)->
+    #petLevelPropertyCfg {
+    level = 5,
+    maxHP2 = 600,
+    physicalAttack = 60,
+    magicAttack = 60,
+    physicalDefence = 60,
+    magicDefence = 60,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -138,11 +133,8 @@ getRow(5)->
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 60,
-    mPRecover = 60
-    };
-getRow(6)->
-    #petLevelPropertyCfg {
-    level = 6,
+    mPRecover = 60,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -151,12 +143,16 @@ getRow(6)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 0,
-    physicalAttack = 0,
-    magicAttack = 0,
-    physicalDefence = 0,
-    magicDefence = 0,
+    eleDam = 0
+    };
+getRow(6)->
+    #petLevelPropertyCfg {
+    level = 6,
+    maxHP2 = 650,
+    physicalAttack = 65,
+    magicAttack = 65,
+    physicalDefence = 65,
+    magicDefence = 65,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -165,11 +161,8 @@ getRow(6)->
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 70,
-    mPRecover = 70
-    };
-getRow(7)->
-    #petLevelPropertyCfg {
-    level = 7,
+    mPRecover = 70,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -178,12 +171,16 @@ getRow(7)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 0,
-    physicalAttack = 0,
-    magicAttack = 0,
-    physicalDefence = 0,
-    magicDefence = 0,
+    eleDam = 0
+    };
+getRow(7)->
+    #petLevelPropertyCfg {
+    level = 7,
+    maxHP2 = 700,
+    physicalAttack = 70,
+    magicAttack = 70,
+    physicalDefence = 70,
+    magicDefence = 70,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -192,11 +189,8 @@ getRow(7)->
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 80,
-    mPRecover = 80
-    };
-getRow(8)->
-    #petLevelPropertyCfg {
-    level = 8,
+    mPRecover = 80,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -205,12 +199,16 @@ getRow(8)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 0,
-    physicalAttack = 0,
-    magicAttack = 0,
-    physicalDefence = 0,
-    magicDefence = 0,
+    eleDam = 0
+    };
+getRow(8)->
+    #petLevelPropertyCfg {
+    level = 8,
+    maxHP2 = 750,
+    physicalAttack = 75,
+    magicAttack = 75,
+    physicalDefence = 75,
+    magicDefence = 75,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -219,11 +217,8 @@ getRow(8)->
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 90,
-    mPRecover = 90
-    };
-getRow(9)->
-    #petLevelPropertyCfg {
-    level = 9,
+    mPRecover = 90,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -232,12 +227,16 @@ getRow(9)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 0,
-    physicalAttack = 0,
-    magicAttack = 0,
-    physicalDefence = 0,
-    magicDefence = 0,
+    eleDam = 0
+    };
+getRow(9)->
+    #petLevelPropertyCfg {
+    level = 9,
+    maxHP2 = 800,
+    physicalAttack = 80,
+    magicAttack = 80,
+    physicalDefence = 80,
+    magicDefence = 80,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -246,11 +245,8 @@ getRow(9)->
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 100,
-    mPRecover = 100
-    };
-getRow(10)->
-    #petLevelPropertyCfg {
-    level = 10,
+    mPRecover = 100,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -259,12 +255,16 @@ getRow(10)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 0,
-    physicalAttack = 0,
-    magicAttack = 0,
-    physicalDefence = 0,
-    magicDefence = 0,
+    eleDam = 0
+    };
+getRow(10)->
+    #petLevelPropertyCfg {
+    level = 10,
+    maxHP2 = 850,
+    physicalAttack = 85,
+    magicAttack = 85,
+    physicalDefence = 85,
+    magicDefence = 85,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -273,11 +273,8 @@ getRow(10)->
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 110,
-    mPRecover = 110
-    };
-getRow(11)->
-    #petLevelPropertyCfg {
-    level = 11,
+    mPRecover = 110,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -286,12 +283,16 @@ getRow(11)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 0,
-    physicalAttack = 0,
-    magicAttack = 0,
-    physicalDefence = 0,
-    magicDefence = 0,
+    eleDam = 0
+    };
+getRow(11)->
+    #petLevelPropertyCfg {
+    level = 11,
+    maxHP2 = 900,
+    physicalAttack = 90,
+    magicAttack = 90,
+    physicalDefence = 90,
+    magicDefence = 90,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -300,11 +301,8 @@ getRow(11)->
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 120,
-    mPRecover = 120
-    };
-getRow(12)->
-    #petLevelPropertyCfg {
-    level = 12,
+    mPRecover = 120,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -313,25 +311,26 @@ getRow(12)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 6195,
-    physicalAttack = 103,
-    magicAttack = 103,
-    physicalDefence = 64,
-    magicDefence = 64,
-    hitLevel = 38,
-    criticalLevel = 51,
+    eleDam = 0
+    };
+getRow(12)->
+    #petLevelPropertyCfg {
+    level = 12,
+    maxHP2 = 950,
+    physicalAttack = 95,
+    magicAttack = 95,
+    physicalDefence = 95,
+    magicDefence = 95,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 130,
-    mPRecover = 130
-    };
-getRow(13)->
-    #petLevelPropertyCfg {
-    level = 13,
+    mPRecover = 130,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -340,25 +339,26 @@ getRow(13)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 6464,
-    physicalAttack = 107,
-    magicAttack = 107,
-    physicalDefence = 67,
-    magicDefence = 67,
-    hitLevel = 40,
-    criticalLevel = 54,
+    eleDam = 0
+    };
+getRow(13)->
+    #petLevelPropertyCfg {
+    level = 13,
+    maxHP2 = 1000,
+    physicalAttack = 100,
+    magicAttack = 100,
+    physicalDefence = 100,
+    magicDefence = 100,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 140,
-    mPRecover = 140
-    };
-getRow(14)->
-    #petLevelPropertyCfg {
-    level = 14,
+    mPRecover = 140,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -367,25 +367,26 @@ getRow(14)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 6734,
-    physicalAttack = 112,
-    magicAttack = 112,
-    physicalDefence = 70,
-    magicDefence = 70,
-    hitLevel = 42,
-    criticalLevel = 56,
+    eleDam = 0
+    };
+getRow(14)->
+    #petLevelPropertyCfg {
+    level = 14,
+    maxHP2 = 1050,
+    physicalAttack = 105,
+    magicAttack = 105,
+    physicalDefence = 105,
+    magicDefence = 105,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 150,
-    mPRecover = 150
-    };
-getRow(15)->
-    #petLevelPropertyCfg {
-    level = 15,
+    mPRecover = 150,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -394,25 +395,26 @@ getRow(15)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 7003,
-    physicalAttack = 116,
-    magicAttack = 116,
-    physicalDefence = 72,
-    magicDefence = 72,
-    hitLevel = 43,
-    criticalLevel = 57,
+    eleDam = 0
+    };
+getRow(15)->
+    #petLevelPropertyCfg {
+    level = 15,
+    maxHP2 = 1100,
+    physicalAttack = 110,
+    magicAttack = 110,
+    physicalDefence = 110,
+    magicDefence = 110,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 160,
-    mPRecover = 160
-    };
-getRow(16)->
-    #petLevelPropertyCfg {
-    level = 16,
+    mPRecover = 160,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -421,25 +423,26 @@ getRow(16)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 7272,
-    physicalAttack = 121,
-    magicAttack = 121,
-    physicalDefence = 75,
-    magicDefence = 75,
-    hitLevel = 45,
-    criticalLevel = 60,
+    eleDam = 0
+    };
+getRow(16)->
+    #petLevelPropertyCfg {
+    level = 16,
+    maxHP2 = 1150,
+    physicalAttack = 115,
+    magicAttack = 115,
+    physicalDefence = 115,
+    magicDefence = 115,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 170,
-    mPRecover = 170
-    };
-getRow(17)->
-    #petLevelPropertyCfg {
-    level = 17,
+    mPRecover = 170,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -448,25 +451,26 @@ getRow(17)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 7542,
-    physicalAttack = 125,
-    magicAttack = 125,
-    physicalDefence = 78,
-    magicDefence = 78,
-    hitLevel = 46,
-    criticalLevel = 62,
+    eleDam = 0
+    };
+getRow(17)->
+    #petLevelPropertyCfg {
+    level = 17,
+    maxHP2 = 1200,
+    physicalAttack = 120,
+    magicAttack = 120,
+    physicalDefence = 120,
+    magicDefence = 120,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 180,
-    mPRecover = 180
-    };
-getRow(18)->
-    #petLevelPropertyCfg {
-    level = 18,
+    mPRecover = 180,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -475,25 +479,26 @@ getRow(18)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 7811,
-    physicalAttack = 130,
-    magicAttack = 130,
-    physicalDefence = 81,
-    magicDefence = 81,
-    hitLevel = 48,
-    criticalLevel = 65,
+    eleDam = 0
+    };
+getRow(18)->
+    #petLevelPropertyCfg {
+    level = 18,
+    maxHP2 = 1250,
+    physicalAttack = 125,
+    magicAttack = 125,
+    physicalDefence = 125,
+    magicDefence = 125,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 190,
-    mPRecover = 190
-    };
-getRow(19)->
-    #petLevelPropertyCfg {
-    level = 19,
+    mPRecover = 190,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -502,25 +507,26 @@ getRow(19)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 8080,
-    physicalAttack = 134,
-    magicAttack = 134,
-    physicalDefence = 84,
-    magicDefence = 84,
-    hitLevel = 50,
-    criticalLevel = 67,
+    eleDam = 0
+    };
+getRow(19)->
+    #petLevelPropertyCfg {
+    level = 19,
+    maxHP2 = 1300,
+    physicalAttack = 130,
+    magicAttack = 130,
+    physicalDefence = 130,
+    magicDefence = 130,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 200,
-    mPRecover = 200
-    };
-getRow(20)->
-    #petLevelPropertyCfg {
-    level = 20,
+    mPRecover = 200,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -529,25 +535,26 @@ getRow(20)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 8350,
-    physicalAttack = 139,
-    magicAttack = 139,
-    physicalDefence = 86,
-    magicDefence = 86,
-    hitLevel = 52,
-    criticalLevel = 69,
+    eleDam = 0
+    };
+getRow(20)->
+    #petLevelPropertyCfg {
+    level = 20,
+    maxHP2 = 1350,
+    physicalAttack = 135,
+    magicAttack = 135,
+    physicalDefence = 135,
+    magicDefence = 135,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 210,
-    mPRecover = 210
-    };
-getRow(21)->
-    #petLevelPropertyCfg {
-    level = 21,
+    mPRecover = 210,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -556,25 +563,26 @@ getRow(21)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 8619,
-    physicalAttack = 143,
-    magicAttack = 143,
-    physicalDefence = 89,
-    magicDefence = 89,
-    hitLevel = 54,
-    criticalLevel = 72,
+    eleDam = 0
+    };
+getRow(21)->
+    #petLevelPropertyCfg {
+    level = 21,
+    maxHP2 = 1400,
+    physicalAttack = 140,
+    magicAttack = 140,
+    physicalDefence = 140,
+    magicDefence = 140,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 220,
-    mPRecover = 220
-    };
-getRow(22)->
-    #petLevelPropertyCfg {
-    level = 22,
+    mPRecover = 220,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -583,25 +591,26 @@ getRow(22)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 8889,
-    physicalAttack = 148,
-    magicAttack = 148,
-    physicalDefence = 92,
-    magicDefence = 92,
-    hitLevel = 55,
-    criticalLevel = 73,
+    eleDam = 0
+    };
+getRow(22)->
+    #petLevelPropertyCfg {
+    level = 22,
+    maxHP2 = 1450,
+    physicalAttack = 145,
+    magicAttack = 145,
+    physicalDefence = 145,
+    magicDefence = 145,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 230,
-    mPRecover = 230
-    };
-getRow(23)->
-    #petLevelPropertyCfg {
-    level = 23,
+    mPRecover = 230,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -610,25 +619,26 @@ getRow(23)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 9158,
-    physicalAttack = 152,
-    magicAttack = 152,
-    physicalDefence = 95,
-    magicDefence = 95,
-    hitLevel = 57,
-    criticalLevel = 76,
+    eleDam = 0
+    };
+getRow(23)->
+    #petLevelPropertyCfg {
+    level = 23,
+    maxHP2 = 1500,
+    physicalAttack = 150,
+    magicAttack = 150,
+    physicalDefence = 150,
+    magicDefence = 150,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 240,
-    mPRecover = 240
-    };
-getRow(24)->
-    #petLevelPropertyCfg {
-    level = 24,
+    mPRecover = 240,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -637,25 +647,26 @@ getRow(24)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 9427,
-    physicalAttack = 157,
-    magicAttack = 157,
-    physicalDefence = 98,
-    magicDefence = 98,
-    hitLevel = 58,
-    criticalLevel = 78,
+    eleDam = 0
+    };
+getRow(24)->
+    #petLevelPropertyCfg {
+    level = 24,
+    maxHP2 = 1550,
+    physicalAttack = 155,
+    magicAttack = 155,
+    physicalDefence = 155,
+    magicDefence = 155,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 250,
-    mPRecover = 250
-    };
-getRow(25)->
-    #petLevelPropertyCfg {
-    level = 25,
+    mPRecover = 250,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -664,25 +675,26 @@ getRow(25)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 9697,
-    physicalAttack = 161,
-    magicAttack = 161,
-    physicalDefence = 101,
-    magicDefence = 101,
-    hitLevel = 60,
-    criticalLevel = 80,
+    eleDam = 0
+    };
+getRow(25)->
+    #petLevelPropertyCfg {
+    level = 25,
+    maxHP2 = 1600,
+    physicalAttack = 160,
+    magicAttack = 160,
+    physicalDefence = 160,
+    magicDefence = 160,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 260,
-    mPRecover = 260
-    };
-getRow(26)->
-    #petLevelPropertyCfg {
-    level = 26,
+    mPRecover = 260,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -691,25 +703,26 @@ getRow(26)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 9966,
-    physicalAttack = 166,
-    magicAttack = 166,
-    physicalDefence = 103,
-    magicDefence = 103,
-    hitLevel = 62,
-    criticalLevel = 83,
+    eleDam = 0
+    };
+getRow(26)->
+    #petLevelPropertyCfg {
+    level = 26,
+    maxHP2 = 1650,
+    physicalAttack = 165,
+    magicAttack = 165,
+    physicalDefence = 165,
+    magicDefence = 165,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 270,
-    mPRecover = 270
-    };
-getRow(27)->
-    #petLevelPropertyCfg {
-    level = 27,
+    mPRecover = 270,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -718,25 +731,26 @@ getRow(27)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 10235,
+    eleDam = 0
+    };
+getRow(27)->
+    #petLevelPropertyCfg {
+    level = 27,
+    maxHP2 = 1700,
     physicalAttack = 170,
     magicAttack = 170,
-    physicalDefence = 106,
-    magicDefence = 106,
-    hitLevel = 63,
-    criticalLevel = 85,
+    physicalDefence = 170,
+    magicDefence = 170,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 280,
-    mPRecover = 280
-    };
-getRow(28)->
-    #petLevelPropertyCfg {
-    level = 28,
+    mPRecover = 280,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -745,25 +759,26 @@ getRow(28)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 10505,
+    eleDam = 0
+    };
+getRow(28)->
+    #petLevelPropertyCfg {
+    level = 28,
+    maxHP2 = 1750,
     physicalAttack = 175,
     magicAttack = 175,
-    physicalDefence = 109,
-    magicDefence = 109,
-    hitLevel = 65,
-    criticalLevel = 87,
+    physicalDefence = 175,
+    magicDefence = 175,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 290,
-    mPRecover = 290
-    };
-getRow(29)->
-    #petLevelPropertyCfg {
-    level = 29,
+    mPRecover = 290,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -772,25 +787,26 @@ getRow(29)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 10774,
-    physicalAttack = 179,
-    magicAttack = 179,
-    physicalDefence = 112,
-    magicDefence = 112,
-    hitLevel = 67,
-    criticalLevel = 89,
+    eleDam = 0
+    };
+getRow(29)->
+    #petLevelPropertyCfg {
+    level = 29,
+    maxHP2 = 1800,
+    physicalAttack = 180,
+    magicAttack = 180,
+    physicalDefence = 180,
+    magicDefence = 180,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 300,
-    mPRecover = 300
-    };
-getRow(30)->
-    #petLevelPropertyCfg {
-    level = 30,
+    mPRecover = 300,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -799,25 +815,26 @@ getRow(30)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 11043,
-    physicalAttack = 184,
-    magicAttack = 184,
-    physicalDefence = 115,
-    magicDefence = 115,
-    hitLevel = 69,
-    criticalLevel = 91,
+    eleDam = 0
+    };
+getRow(30)->
+    #petLevelPropertyCfg {
+    level = 30,
+    maxHP2 = 1850,
+    physicalAttack = 185,
+    magicAttack = 185,
+    physicalDefence = 185,
+    magicDefence = 185,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 310,
-    mPRecover = 310
-    };
-getRow(31)->
-    #petLevelPropertyCfg {
-    level = 31,
+    mPRecover = 310,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -826,25 +843,26 @@ getRow(31)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 11313,
-    physicalAttack = 188,
-    magicAttack = 188,
-    physicalDefence = 117,
-    magicDefence = 117,
-    hitLevel = 71,
-    criticalLevel = 94,
+    eleDam = 0
+    };
+getRow(31)->
+    #petLevelPropertyCfg {
+    level = 31,
+    maxHP2 = 1900,
+    physicalAttack = 190,
+    magicAttack = 190,
+    physicalDefence = 190,
+    magicDefence = 190,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 320,
-    mPRecover = 320
-    };
-getRow(32)->
-    #petLevelPropertyCfg {
-    level = 32,
+    mPRecover = 320,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -853,25 +871,26 @@ getRow(32)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 11582,
-    physicalAttack = 193,
-    magicAttack = 193,
-    physicalDefence = 120,
-    magicDefence = 120,
-    hitLevel = 72,
-    criticalLevel = 96,
+    eleDam = 0
+    };
+getRow(32)->
+    #petLevelPropertyCfg {
+    level = 32,
+    maxHP2 = 1950,
+    physicalAttack = 195,
+    magicAttack = 195,
+    physicalDefence = 195,
+    magicDefence = 195,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 330,
-    mPRecover = 330
-    };
-getRow(33)->
-    #petLevelPropertyCfg {
-    level = 33,
+    mPRecover = 330,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -880,25 +899,26 @@ getRow(33)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 11852,
-    physicalAttack = 197,
-    magicAttack = 197,
-    physicalDefence = 123,
-    magicDefence = 123,
-    hitLevel = 73,
-    criticalLevel = 99,
+    eleDam = 0
+    };
+getRow(33)->
+    #petLevelPropertyCfg {
+    level = 33,
+    maxHP2 = 2000,
+    physicalAttack = 200,
+    magicAttack = 200,
+    physicalDefence = 200,
+    magicDefence = 200,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 340,
-    mPRecover = 340
-    };
-getRow(34)->
-    #petLevelPropertyCfg {
-    level = 34,
+    mPRecover = 340,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -907,25 +927,26 @@ getRow(34)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 12121,
-    physicalAttack = 202,
-    magicAttack = 202,
-    physicalDefence = 126,
-    magicDefence = 126,
-    hitLevel = 75,
-    criticalLevel = 101,
+    eleDam = 0
+    };
+getRow(34)->
+    #petLevelPropertyCfg {
+    level = 34,
+    maxHP2 = 2050,
+    physicalAttack = 205,
+    magicAttack = 205,
+    physicalDefence = 205,
+    magicDefence = 205,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 350,
-    mPRecover = 350
-    };
-getRow(35)->
-    #petLevelPropertyCfg {
-    level = 35,
+    mPRecover = 350,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -934,25 +955,26 @@ getRow(35)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 12390,
-    physicalAttack = 206,
-    magicAttack = 206,
-    physicalDefence = 129,
-    magicDefence = 129,
-    hitLevel = 77,
-    criticalLevel = 102,
+    eleDam = 0
+    };
+getRow(35)->
+    #petLevelPropertyCfg {
+    level = 35,
+    maxHP2 = 2100,
+    physicalAttack = 210,
+    magicAttack = 210,
+    physicalDefence = 210,
+    magicDefence = 210,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 360,
-    mPRecover = 360
-    };
-getRow(36)->
-    #petLevelPropertyCfg {
-    level = 36,
+    mPRecover = 360,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -961,25 +983,26 @@ getRow(36)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 12660,
-    physicalAttack = 211,
-    magicAttack = 211,
-    physicalDefence = 131,
-    magicDefence = 131,
-    hitLevel = 79,
-    criticalLevel = 105,
+    eleDam = 0
+    };
+getRow(36)->
+    #petLevelPropertyCfg {
+    level = 36,
+    maxHP2 = 2150,
+    physicalAttack = 215,
+    magicAttack = 215,
+    physicalDefence = 215,
+    magicDefence = 215,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 370,
-    mPRecover = 370
-    };
-getRow(37)->
-    #petLevelPropertyCfg {
-    level = 37,
+    mPRecover = 370,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -988,25 +1011,26 @@ getRow(37)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 12929,
-    physicalAttack = 215,
-    magicAttack = 215,
-    physicalDefence = 134,
-    magicDefence = 134,
-    hitLevel = 80,
-    criticalLevel = 107,
+    eleDam = 0
+    };
+getRow(37)->
+    #petLevelPropertyCfg {
+    level = 37,
+    maxHP2 = 2200,
+    physicalAttack = 220,
+    magicAttack = 220,
+    physicalDefence = 220,
+    magicDefence = 220,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 380,
-    mPRecover = 380
-    };
-getRow(38)->
-    #petLevelPropertyCfg {
-    level = 38,
+    mPRecover = 380,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1015,25 +1039,26 @@ getRow(38)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 13198,
-    physicalAttack = 219,
-    magicAttack = 219,
-    physicalDefence = 137,
-    magicDefence = 137,
-    hitLevel = 82,
-    criticalLevel = 110,
+    eleDam = 0
+    };
+getRow(38)->
+    #petLevelPropertyCfg {
+    level = 38,
+    maxHP2 = 2250,
+    physicalAttack = 225,
+    magicAttack = 225,
+    physicalDefence = 225,
+    magicDefence = 225,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 390,
-    mPRecover = 390
-    };
-getRow(39)->
-    #petLevelPropertyCfg {
-    level = 39,
+    mPRecover = 390,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1042,25 +1067,26 @@ getRow(39)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 13468,
-    physicalAttack = 224,
-    magicAttack = 224,
-    physicalDefence = 140,
-    magicDefence = 140,
-    hitLevel = 84,
-    criticalLevel = 112,
+    eleDam = 0
+    };
+getRow(39)->
+    #petLevelPropertyCfg {
+    level = 39,
+    maxHP2 = 2300,
+    physicalAttack = 230,
+    magicAttack = 230,
+    physicalDefence = 230,
+    magicDefence = 230,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 400,
-    mPRecover = 400
-    };
-getRow(40)->
-    #petLevelPropertyCfg {
-    level = 40,
+    mPRecover = 400,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1069,25 +1095,26 @@ getRow(40)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 13737,
-    physicalAttack = 228,
-    magicAttack = 228,
-    physicalDefence = 143,
-    magicDefence = 143,
-    hitLevel = 86,
-    criticalLevel = 114,
+    eleDam = 0
+    };
+getRow(40)->
+    #petLevelPropertyCfg {
+    level = 40,
+    maxHP2 = 2350,
+    physicalAttack = 235,
+    magicAttack = 235,
+    physicalDefence = 235,
+    magicDefence = 235,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 410,
-    mPRecover = 410
-    };
-getRow(41)->
-    #petLevelPropertyCfg {
-    level = 41,
+    mPRecover = 410,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1096,25 +1123,26 @@ getRow(41)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 14006,
-    physicalAttack = 233,
-    magicAttack = 233,
-    physicalDefence = 145,
-    magicDefence = 145,
-    hitLevel = 87,
-    criticalLevel = 116,
+    eleDam = 0
+    };
+getRow(41)->
+    #petLevelPropertyCfg {
+    level = 41,
+    maxHP2 = 2400,
+    physicalAttack = 240,
+    magicAttack = 240,
+    physicalDefence = 240,
+    magicDefence = 240,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 420,
-    mPRecover = 420
-    };
-getRow(42)->
-    #petLevelPropertyCfg {
-    level = 42,
+    mPRecover = 420,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1123,25 +1151,26 @@ getRow(42)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 14276,
-    physicalAttack = 237,
-    magicAttack = 237,
-    physicalDefence = 148,
-    magicDefence = 148,
-    hitLevel = 88,
-    criticalLevel = 118,
+    eleDam = 0
+    };
+getRow(42)->
+    #petLevelPropertyCfg {
+    level = 42,
+    maxHP2 = 2450,
+    physicalAttack = 245,
+    magicAttack = 245,
+    physicalDefence = 245,
+    magicDefence = 245,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 430,
-    mPRecover = 430
-    };
-getRow(43)->
-    #petLevelPropertyCfg {
-    level = 43,
+    mPRecover = 430,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1150,25 +1179,26 @@ getRow(43)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 14545,
-    physicalAttack = 242,
-    magicAttack = 242,
-    physicalDefence = 151,
-    magicDefence = 151,
-    hitLevel = 90,
-    criticalLevel = 121,
+    eleDam = 0
+    };
+getRow(43)->
+    #petLevelPropertyCfg {
+    level = 43,
+    maxHP2 = 2500,
+    physicalAttack = 250,
+    magicAttack = 250,
+    physicalDefence = 250,
+    magicDefence = 250,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 440,
-    mPRecover = 440
-    };
-getRow(44)->
-    #petLevelPropertyCfg {
-    level = 44,
+    mPRecover = 440,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1177,25 +1207,26 @@ getRow(44)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 14815,
-    physicalAttack = 246,
-    magicAttack = 246,
-    physicalDefence = 154,
-    magicDefence = 154,
-    hitLevel = 92,
-    criticalLevel = 123,
+    eleDam = 0
+    };
+getRow(44)->
+    #petLevelPropertyCfg {
+    level = 44,
+    maxHP2 = 2550,
+    physicalAttack = 255,
+    magicAttack = 255,
+    physicalDefence = 255,
+    magicDefence = 255,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 450,
-    mPRecover = 450
-    };
-getRow(45)->
-    #petLevelPropertyCfg {
-    level = 45,
+    mPRecover = 450,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1204,25 +1235,26 @@ getRow(45)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 15084,
-    physicalAttack = 251,
-    magicAttack = 251,
-    physicalDefence = 157,
-    magicDefence = 157,
-    hitLevel = 94,
-    criticalLevel = 125,
+    eleDam = 0
+    };
+getRow(45)->
+    #petLevelPropertyCfg {
+    level = 45,
+    maxHP2 = 2600,
+    physicalAttack = 260,
+    magicAttack = 260,
+    physicalDefence = 260,
+    magicDefence = 260,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 460,
-    mPRecover = 460
-    };
-getRow(46)->
-    #petLevelPropertyCfg {
-    level = 46,
+    mPRecover = 460,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1231,25 +1263,26 @@ getRow(46)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 15353,
-    physicalAttack = 255,
-    magicAttack = 255,
-    physicalDefence = 159,
-    magicDefence = 159,
-    hitLevel = 96,
-    criticalLevel = 128,
+    eleDam = 0
+    };
+getRow(46)->
+    #petLevelPropertyCfg {
+    level = 46,
+    maxHP2 = 2650,
+    physicalAttack = 265,
+    magicAttack = 265,
+    physicalDefence = 265,
+    magicDefence = 265,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 470,
-    mPRecover = 470
-    };
-getRow(47)->
-    #petLevelPropertyCfg {
-    level = 47,
+    mPRecover = 470,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1258,25 +1291,26 @@ getRow(47)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 15623,
-    physicalAttack = 260,
-    magicAttack = 260,
-    physicalDefence = 162,
-    magicDefence = 162,
-    hitLevel = 97,
-    criticalLevel = 129,
+    eleDam = 0
+    };
+getRow(47)->
+    #petLevelPropertyCfg {
+    level = 47,
+    maxHP2 = 2700,
+    physicalAttack = 270,
+    magicAttack = 270,
+    physicalDefence = 270,
+    magicDefence = 270,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 480,
-    mPRecover = 480
-    };
-getRow(48)->
-    #petLevelPropertyCfg {
-    level = 48,
+    mPRecover = 480,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1285,25 +1319,26 @@ getRow(48)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 15892,
-    physicalAttack = 264,
-    magicAttack = 264,
-    physicalDefence = 165,
-    magicDefence = 165,
-    hitLevel = 99,
-    criticalLevel = 132,
+    eleDam = 0
+    };
+getRow(48)->
+    #petLevelPropertyCfg {
+    level = 48,
+    maxHP2 = 2750,
+    physicalAttack = 275,
+    magicAttack = 275,
+    physicalDefence = 275,
+    magicDefence = 275,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 490,
-    mPRecover = 490
-    };
-getRow(49)->
-    #petLevelPropertyCfg {
-    level = 49,
+    mPRecover = 490,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1312,25 +1347,26 @@ getRow(49)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 16161,
-    physicalAttack = 269,
-    magicAttack = 269,
-    physicalDefence = 168,
-    magicDefence = 168,
-    hitLevel = 101,
-    criticalLevel = 134,
+    eleDam = 0
+    };
+getRow(49)->
+    #petLevelPropertyCfg {
+    level = 49,
+    maxHP2 = 2800,
+    physicalAttack = 280,
+    magicAttack = 280,
+    physicalDefence = 280,
+    magicDefence = 280,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 500,
-    mPRecover = 500
-    };
-getRow(50)->
-    #petLevelPropertyCfg {
-    level = 50,
+    mPRecover = 500,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1339,25 +1375,26 @@ getRow(50)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 16431,
-    physicalAttack = 273,
-    magicAttack = 273,
-    physicalDefence = 171,
-    magicDefence = 171,
-    hitLevel = 102,
-    criticalLevel = 136,
+    eleDam = 0
+    };
+getRow(50)->
+    #petLevelPropertyCfg {
+    level = 50,
+    maxHP2 = 2850,
+    physicalAttack = 285,
+    magicAttack = 285,
+    physicalDefence = 285,
+    magicDefence = 285,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 510,
-    mPRecover = 510
-    };
-getRow(51)->
-    #petLevelPropertyCfg {
-    level = 51,
+    mPRecover = 510,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1366,25 +1403,26 @@ getRow(51)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 20376,
-    physicalAttack = 617,
-    magicAttack = 617,
-    physicalDefence = 385,
-    magicDefence = 385,
-    hitLevel = 154,
-    criticalLevel = 231,
+    eleDam = 0
+    };
+getRow(51)->
+    #petLevelPropertyCfg {
+    level = 51,
+    maxHP2 = 2900,
+    physicalAttack = 290,
+    magicAttack = 290,
+    physicalDefence = 290,
+    magicDefence = 290,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 520,
-    mPRecover = 520
-    };
-getRow(52)->
-    #petLevelPropertyCfg {
-    level = 52,
+    mPRecover = 520,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1393,25 +1431,26 @@ getRow(52)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 20740,
-    physicalAttack = 628,
-    magicAttack = 628,
-    physicalDefence = 392,
-    magicDefence = 392,
-    hitLevel = 157,
-    criticalLevel = 235,
+    eleDam = 0
+    };
+getRow(52)->
+    #petLevelPropertyCfg {
+    level = 52,
+    maxHP2 = 2950,
+    physicalAttack = 295,
+    magicAttack = 295,
+    physicalDefence = 295,
+    magicDefence = 295,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 530,
-    mPRecover = 530
-    };
-getRow(53)->
-    #petLevelPropertyCfg {
-    level = 53,
+    mPRecover = 530,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1420,25 +1459,26 @@ getRow(53)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 21104,
-    physicalAttack = 639,
-    magicAttack = 639,
-    physicalDefence = 399,
-    magicDefence = 399,
-    hitLevel = 159,
-    criticalLevel = 239,
+    eleDam = 0
+    };
+getRow(53)->
+    #petLevelPropertyCfg {
+    level = 53,
+    maxHP2 = 3000,
+    physicalAttack = 300,
+    magicAttack = 300,
+    physicalDefence = 300,
+    magicDefence = 300,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 540,
-    mPRecover = 540
-    };
-getRow(54)->
-    #petLevelPropertyCfg {
-    level = 54,
+    mPRecover = 540,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1447,25 +1487,26 @@ getRow(54)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 21468,
-    physicalAttack = 650,
-    magicAttack = 650,
-    physicalDefence = 406,
-    magicDefence = 406,
-    hitLevel = 162,
-    criticalLevel = 243,
+    eleDam = 0
+    };
+getRow(54)->
+    #petLevelPropertyCfg {
+    level = 54,
+    maxHP2 = 3050,
+    physicalAttack = 305,
+    magicAttack = 305,
+    physicalDefence = 305,
+    magicDefence = 305,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 550,
-    mPRecover = 550
-    };
-getRow(55)->
-    #petLevelPropertyCfg {
-    level = 55,
+    mPRecover = 550,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1474,25 +1515,26 @@ getRow(55)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 21832,
-    physicalAttack = 661,
-    magicAttack = 661,
-    physicalDefence = 413,
-    magicDefence = 413,
-    hitLevel = 165,
-    criticalLevel = 248,
+    eleDam = 0
+    };
+getRow(55)->
+    #petLevelPropertyCfg {
+    level = 55,
+    maxHP2 = 3100,
+    physicalAttack = 310,
+    magicAttack = 310,
+    physicalDefence = 310,
+    magicDefence = 310,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 560,
-    mPRecover = 560
-    };
-getRow(56)->
-    #petLevelPropertyCfg {
-    level = 56,
+    mPRecover = 560,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1501,25 +1543,26 @@ getRow(56)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 22195,
-    physicalAttack = 672,
-    magicAttack = 672,
-    physicalDefence = 420,
-    magicDefence = 420,
-    hitLevel = 168,
-    criticalLevel = 252,
+    eleDam = 0
+    };
+getRow(56)->
+    #petLevelPropertyCfg {
+    level = 56,
+    maxHP2 = 3150,
+    physicalAttack = 315,
+    magicAttack = 315,
+    physicalDefence = 315,
+    magicDefence = 315,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 570,
-    mPRecover = 570
-    };
-getRow(57)->
-    #petLevelPropertyCfg {
-    level = 57,
+    mPRecover = 570,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1528,25 +1571,26 @@ getRow(57)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 22559,
-    physicalAttack = 683,
-    magicAttack = 683,
-    physicalDefence = 427,
-    magicDefence = 427,
-    hitLevel = 170,
-    criticalLevel = 256,
+    eleDam = 0
+    };
+getRow(57)->
+    #petLevelPropertyCfg {
+    level = 57,
+    maxHP2 = 3200,
+    physicalAttack = 320,
+    magicAttack = 320,
+    physicalDefence = 320,
+    magicDefence = 320,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 580,
-    mPRecover = 580
-    };
-getRow(58)->
-    #petLevelPropertyCfg {
-    level = 58,
+    mPRecover = 580,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1555,25 +1599,26 @@ getRow(58)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 22923,
-    physicalAttack = 694,
-    magicAttack = 694,
-    physicalDefence = 434,
-    magicDefence = 434,
-    hitLevel = 173,
-    criticalLevel = 260,
+    eleDam = 0
+    };
+getRow(58)->
+    #petLevelPropertyCfg {
+    level = 58,
+    maxHP2 = 3250,
+    physicalAttack = 325,
+    magicAttack = 325,
+    physicalDefence = 325,
+    magicDefence = 325,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 590,
-    mPRecover = 590
-    };
-getRow(59)->
-    #petLevelPropertyCfg {
-    level = 59,
+    mPRecover = 590,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1582,25 +1627,26 @@ getRow(59)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 23287,
-    physicalAttack = 705,
-    magicAttack = 705,
-    physicalDefence = 441,
-    magicDefence = 441,
-    hitLevel = 176,
-    criticalLevel = 264,
+    eleDam = 0
+    };
+getRow(59)->
+    #petLevelPropertyCfg {
+    level = 59,
+    maxHP2 = 3300,
+    physicalAttack = 330,
+    magicAttack = 330,
+    physicalDefence = 330,
+    magicDefence = 330,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 600,
-    mPRecover = 600
-    };
-getRow(60)->
-    #petLevelPropertyCfg {
-    level = 60,
+    mPRecover = 600,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1609,25 +1655,26 @@ getRow(60)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 23651,
-    physicalAttack = 716,
-    magicAttack = 716,
-    physicalDefence = 447,
-    magicDefence = 447,
-    hitLevel = 179,
-    criticalLevel = 268,
+    eleDam = 0
+    };
+getRow(60)->
+    #petLevelPropertyCfg {
+    level = 60,
+    maxHP2 = 3350,
+    physicalAttack = 335,
+    magicAttack = 335,
+    physicalDefence = 335,
+    magicDefence = 335,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 610,
-    mPRecover = 610
-    };
-getRow(61)->
-    #petLevelPropertyCfg {
-    level = 61,
+    mPRecover = 610,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1636,25 +1683,26 @@ getRow(61)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 24015,
-    physicalAttack = 727,
-    magicAttack = 727,
-    physicalDefence = 454,
-    magicDefence = 454,
-    hitLevel = 181,
-    criticalLevel = 272,
+    eleDam = 0
+    };
+getRow(61)->
+    #petLevelPropertyCfg {
+    level = 61,
+    maxHP2 = 3400,
+    physicalAttack = 340,
+    magicAttack = 340,
+    physicalDefence = 340,
+    magicDefence = 340,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 620,
-    mPRecover = 620
-    };
-getRow(62)->
-    #petLevelPropertyCfg {
-    level = 62,
+    mPRecover = 620,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1663,25 +1711,26 @@ getRow(62)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 24379,
-    physicalAttack = 738,
-    magicAttack = 738,
-    physicalDefence = 461,
-    magicDefence = 461,
-    hitLevel = 184,
-    criticalLevel = 277,
+    eleDam = 0
+    };
+getRow(62)->
+    #petLevelPropertyCfg {
+    level = 62,
+    maxHP2 = 3450,
+    physicalAttack = 345,
+    magicAttack = 345,
+    physicalDefence = 345,
+    magicDefence = 345,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 630,
-    mPRecover = 630
-    };
-getRow(63)->
-    #petLevelPropertyCfg {
-    level = 63,
+    mPRecover = 630,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1690,25 +1739,26 @@ getRow(63)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 24742,
-    physicalAttack = 749,
-    magicAttack = 749,
-    physicalDefence = 468,
-    magicDefence = 468,
-    hitLevel = 187,
-    criticalLevel = 281,
+    eleDam = 0
+    };
+getRow(63)->
+    #petLevelPropertyCfg {
+    level = 63,
+    maxHP2 = 3500,
+    physicalAttack = 350,
+    magicAttack = 350,
+    physicalDefence = 350,
+    magicDefence = 350,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 640,
-    mPRecover = 640
-    };
-getRow(64)->
-    #petLevelPropertyCfg {
-    level = 64,
+    mPRecover = 640,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1717,25 +1767,26 @@ getRow(64)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 25106,
-    physicalAttack = 760,
-    magicAttack = 760,
-    physicalDefence = 475,
-    magicDefence = 475,
-    hitLevel = 190,
-    criticalLevel = 285,
+    eleDam = 0
+    };
+getRow(64)->
+    #petLevelPropertyCfg {
+    level = 64,
+    maxHP2 = 3550,
+    physicalAttack = 355,
+    magicAttack = 355,
+    physicalDefence = 355,
+    magicDefence = 355,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 650,
-    mPRecover = 650
-    };
-getRow(65)->
-    #petLevelPropertyCfg {
-    level = 65,
+    mPRecover = 650,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1744,25 +1795,26 @@ getRow(65)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 25470,
-    physicalAttack = 771,
-    magicAttack = 771,
-    physicalDefence = 482,
-    magicDefence = 482,
-    hitLevel = 192,
-    criticalLevel = 289,
+    eleDam = 0
+    };
+getRow(65)->
+    #petLevelPropertyCfg {
+    level = 65,
+    maxHP2 = 3600,
+    physicalAttack = 360,
+    magicAttack = 360,
+    physicalDefence = 360,
+    magicDefence = 360,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 660,
-    mPRecover = 660
-    };
-getRow(66)->
-    #petLevelPropertyCfg {
-    level = 66,
+    mPRecover = 660,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1771,25 +1823,26 @@ getRow(66)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 25834,
-    physicalAttack = 782,
-    magicAttack = 782,
-    physicalDefence = 489,
-    magicDefence = 489,
-    hitLevel = 195,
-    criticalLevel = 293,
+    eleDam = 0
+    };
+getRow(66)->
+    #petLevelPropertyCfg {
+    level = 66,
+    maxHP2 = 3650,
+    physicalAttack = 365,
+    magicAttack = 365,
+    physicalDefence = 365,
+    magicDefence = 365,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 670,
-    mPRecover = 670
-    };
-getRow(67)->
-    #petLevelPropertyCfg {
-    level = 67,
+    mPRecover = 670,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1798,25 +1851,26 @@ getRow(67)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 26198,
-    physicalAttack = 793,
-    magicAttack = 793,
-    physicalDefence = 496,
-    magicDefence = 496,
-    hitLevel = 198,
-    criticalLevel = 297,
+    eleDam = 0
+    };
+getRow(67)->
+    #petLevelPropertyCfg {
+    level = 67,
+    maxHP2 = 3700,
+    physicalAttack = 370,
+    magicAttack = 370,
+    physicalDefence = 370,
+    magicDefence = 370,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 680,
-    mPRecover = 680
-    };
-getRow(68)->
-    #petLevelPropertyCfg {
-    level = 68,
+    mPRecover = 680,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1825,25 +1879,26 @@ getRow(68)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 26562,
-    physicalAttack = 804,
-    magicAttack = 804,
-    physicalDefence = 503,
-    magicDefence = 503,
-    hitLevel = 201,
-    criticalLevel = 301,
+    eleDam = 0
+    };
+getRow(68)->
+    #petLevelPropertyCfg {
+    level = 68,
+    maxHP2 = 3750,
+    physicalAttack = 375,
+    magicAttack = 375,
+    physicalDefence = 375,
+    magicDefence = 375,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 690,
-    mPRecover = 690
-    };
-getRow(69)->
-    #petLevelPropertyCfg {
-    level = 69,
+    mPRecover = 690,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1852,25 +1907,26 @@ getRow(69)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 26926,
-    physicalAttack = 815,
-    magicAttack = 815,
-    physicalDefence = 509,
-    magicDefence = 509,
-    hitLevel = 203,
-    criticalLevel = 305,
+    eleDam = 0
+    };
+getRow(69)->
+    #petLevelPropertyCfg {
+    level = 69,
+    maxHP2 = 3800,
+    physicalAttack = 380,
+    magicAttack = 380,
+    physicalDefence = 380,
+    magicDefence = 380,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 700,
-    mPRecover = 700
-    };
-getRow(70)->
-    #petLevelPropertyCfg {
-    level = 70,
+    mPRecover = 700,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1879,25 +1935,26 @@ getRow(70)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 27290,
-    physicalAttack = 826,
-    magicAttack = 826,
-    physicalDefence = 516,
-    magicDefence = 516,
-    hitLevel = 206,
-    criticalLevel = 310,
+    eleDam = 0
+    };
+getRow(70)->
+    #petLevelPropertyCfg {
+    level = 70,
+    maxHP2 = 3850,
+    physicalAttack = 385,
+    magicAttack = 385,
+    physicalDefence = 385,
+    magicDefence = 385,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 710,
-    mPRecover = 710
-    };
-getRow(71)->
-    #petLevelPropertyCfg {
-    level = 71,
+    mPRecover = 710,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1906,25 +1963,26 @@ getRow(71)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 27653,
-    physicalAttack = 837,
-    magicAttack = 837,
-    physicalDefence = 523,
-    magicDefence = 523,
-    hitLevel = 209,
-    criticalLevel = 314,
+    eleDam = 0
+    };
+getRow(71)->
+    #petLevelPropertyCfg {
+    level = 71,
+    maxHP2 = 3900,
+    physicalAttack = 390,
+    magicAttack = 390,
+    physicalDefence = 390,
+    magicDefence = 390,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 720,
-    mPRecover = 720
-    };
-getRow(72)->
-    #petLevelPropertyCfg {
-    level = 72,
+    mPRecover = 720,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1933,25 +1991,26 @@ getRow(72)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 28017,
-    physicalAttack = 848,
-    magicAttack = 848,
-    physicalDefence = 530,
-    magicDefence = 530,
-    hitLevel = 212,
-    criticalLevel = 318,
+    eleDam = 0
+    };
+getRow(72)->
+    #petLevelPropertyCfg {
+    level = 72,
+    maxHP2 = 3950,
+    physicalAttack = 395,
+    magicAttack = 395,
+    physicalDefence = 395,
+    magicDefence = 395,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 730,
-    mPRecover = 730
-    };
-getRow(73)->
-    #petLevelPropertyCfg {
-    level = 73,
+    mPRecover = 730,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1960,25 +2019,26 @@ getRow(73)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 28381,
-    physicalAttack = 860,
-    magicAttack = 860,
-    physicalDefence = 537,
-    magicDefence = 537,
-    hitLevel = 214,
-    criticalLevel = 322,
+    eleDam = 0
+    };
+getRow(73)->
+    #petLevelPropertyCfg {
+    level = 73,
+    maxHP2 = 4000,
+    physicalAttack = 400,
+    magicAttack = 400,
+    physicalDefence = 400,
+    magicDefence = 400,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 740,
-    mPRecover = 740
-    };
-getRow(74)->
-    #petLevelPropertyCfg {
-    level = 74,
+    mPRecover = 740,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -1987,25 +2047,26 @@ getRow(74)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 28745,
-    physicalAttack = 871,
-    magicAttack = 871,
-    physicalDefence = 544,
-    magicDefence = 544,
-    hitLevel = 217,
-    criticalLevel = 326,
+    eleDam = 0
+    };
+getRow(74)->
+    #petLevelPropertyCfg {
+    level = 74,
+    maxHP2 = 4050,
+    physicalAttack = 405,
+    magicAttack = 405,
+    physicalDefence = 405,
+    magicDefence = 405,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 750,
-    mPRecover = 750
-    };
-getRow(75)->
-    #petLevelPropertyCfg {
-    level = 75,
+    mPRecover = 750,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2014,25 +2075,26 @@ getRow(75)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 29109,
-    physicalAttack = 882,
-    magicAttack = 882,
-    physicalDefence = 551,
-    magicDefence = 551,
-    hitLevel = 220,
-    criticalLevel = 330,
+    eleDam = 0
+    };
+getRow(75)->
+    #petLevelPropertyCfg {
+    level = 75,
+    maxHP2 = 4100,
+    physicalAttack = 410,
+    magicAttack = 410,
+    physicalDefence = 410,
+    magicDefence = 410,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 760,
-    mPRecover = 760
-    };
-getRow(76)->
-    #petLevelPropertyCfg {
-    level = 76,
+    mPRecover = 760,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2041,25 +2103,26 @@ getRow(76)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 29473,
-    physicalAttack = 893,
-    magicAttack = 893,
-    physicalDefence = 558,
-    magicDefence = 558,
-    hitLevel = 223,
-    criticalLevel = 334,
+    eleDam = 0
+    };
+getRow(76)->
+    #petLevelPropertyCfg {
+    level = 76,
+    maxHP2 = 4150,
+    physicalAttack = 415,
+    magicAttack = 415,
+    physicalDefence = 415,
+    magicDefence = 415,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 770,
-    mPRecover = 770
-    };
-getRow(77)->
-    #petLevelPropertyCfg {
-    level = 77,
+    mPRecover = 770,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2068,25 +2131,26 @@ getRow(77)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 29837,
-    physicalAttack = 904,
-    magicAttack = 904,
-    physicalDefence = 565,
-    magicDefence = 565,
-    hitLevel = 226,
-    criticalLevel = 339,
+    eleDam = 0
+    };
+getRow(77)->
+    #petLevelPropertyCfg {
+    level = 77,
+    maxHP2 = 4200,
+    physicalAttack = 420,
+    magicAttack = 420,
+    physicalDefence = 420,
+    magicDefence = 420,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 780,
-    mPRecover = 780
-    };
-getRow(78)->
-    #petLevelPropertyCfg {
-    level = 78,
+    mPRecover = 780,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2095,25 +2159,26 @@ getRow(78)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 30200,
-    physicalAttack = 915,
-    magicAttack = 915,
-    physicalDefence = 571,
-    magicDefence = 571,
-    hitLevel = 228,
-    criticalLevel = 343,
+    eleDam = 0
+    };
+getRow(78)->
+    #petLevelPropertyCfg {
+    level = 78,
+    maxHP2 = 4250,
+    physicalAttack = 425,
+    magicAttack = 425,
+    physicalDefence = 425,
+    magicDefence = 425,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 790,
-    mPRecover = 790
-    };
-getRow(79)->
-    #petLevelPropertyCfg {
-    level = 79,
+    mPRecover = 790,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2122,25 +2187,26 @@ getRow(79)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 30564,
-    physicalAttack = 926,
-    magicAttack = 926,
-    physicalDefence = 578,
-    magicDefence = 578,
-    hitLevel = 231,
-    criticalLevel = 347,
+    eleDam = 0
+    };
+getRow(79)->
+    #petLevelPropertyCfg {
+    level = 79,
+    maxHP2 = 4300,
+    physicalAttack = 430,
+    magicAttack = 430,
+    physicalDefence = 430,
+    magicDefence = 430,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 800,
-    mPRecover = 800
-    };
-getRow(80)->
-    #petLevelPropertyCfg {
-    level = 80,
+    mPRecover = 800,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2149,25 +2215,26 @@ getRow(80)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 30928,
-    physicalAttack = 937,
-    magicAttack = 937,
-    physicalDefence = 585,
-    magicDefence = 585,
-    hitLevel = 234,
-    criticalLevel = 351,
+    eleDam = 0
+    };
+getRow(80)->
+    #petLevelPropertyCfg {
+    level = 80,
+    maxHP2 = 4350,
+    physicalAttack = 435,
+    magicAttack = 435,
+    physicalDefence = 435,
+    magicDefence = 435,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 810,
-    mPRecover = 810
-    };
-getRow(81)->
-    #petLevelPropertyCfg {
-    level = 81,
+    mPRecover = 810,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2176,25 +2243,26 @@ getRow(81)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 31292,
-    physicalAttack = 948,
-    magicAttack = 948,
-    physicalDefence = 592,
-    magicDefence = 592,
-    hitLevel = 237,
-    criticalLevel = 355,
+    eleDam = 0
+    };
+getRow(81)->
+    #petLevelPropertyCfg {
+    level = 81,
+    maxHP2 = 4400,
+    physicalAttack = 440,
+    magicAttack = 440,
+    physicalDefence = 440,
+    magicDefence = 440,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 820,
-    mPRecover = 820
-    };
-getRow(82)->
-    #petLevelPropertyCfg {
-    level = 82,
+    mPRecover = 820,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2203,25 +2271,26 @@ getRow(82)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 31656,
-    physicalAttack = 959,
-    magicAttack = 959,
-    physicalDefence = 599,
-    magicDefence = 599,
-    hitLevel = 239,
-    criticalLevel = 359,
+    eleDam = 0
+    };
+getRow(82)->
+    #petLevelPropertyCfg {
+    level = 82,
+    maxHP2 = 4450,
+    physicalAttack = 445,
+    magicAttack = 445,
+    physicalDefence = 445,
+    magicDefence = 445,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 830,
-    mPRecover = 830
-    };
-getRow(83)->
-    #petLevelPropertyCfg {
-    level = 83,
+    mPRecover = 830,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2230,25 +2299,26 @@ getRow(83)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 32020,
-    physicalAttack = 970,
-    magicAttack = 970,
-    physicalDefence = 606,
-    magicDefence = 606,
-    hitLevel = 242,
-    criticalLevel = 363,
+    eleDam = 0
+    };
+getRow(83)->
+    #petLevelPropertyCfg {
+    level = 83,
+    maxHP2 = 4500,
+    physicalAttack = 450,
+    magicAttack = 450,
+    physicalDefence = 450,
+    magicDefence = 450,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 840,
-    mPRecover = 840
-    };
-getRow(84)->
-    #petLevelPropertyCfg {
-    level = 84,
+    mPRecover = 840,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2257,25 +2327,26 @@ getRow(84)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 32384,
-    physicalAttack = 981,
-    magicAttack = 981,
-    physicalDefence = 613,
-    magicDefence = 613,
-    hitLevel = 245,
-    criticalLevel = 367,
+    eleDam = 0
+    };
+getRow(84)->
+    #petLevelPropertyCfg {
+    level = 84,
+    maxHP2 = 4550,
+    physicalAttack = 455,
+    magicAttack = 455,
+    physicalDefence = 455,
+    magicDefence = 455,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 850,
-    mPRecover = 850
-    };
-getRow(85)->
-    #petLevelPropertyCfg {
-    level = 85,
+    mPRecover = 850,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2284,25 +2355,26 @@ getRow(85)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 32748,
-    physicalAttack = 992,
-    magicAttack = 992,
-    physicalDefence = 620,
-    magicDefence = 620,
-    hitLevel = 248,
-    criticalLevel = 372,
+    eleDam = 0
+    };
+getRow(85)->
+    #petLevelPropertyCfg {
+    level = 85,
+    maxHP2 = 4600,
+    physicalAttack = 460,
+    magicAttack = 460,
+    physicalDefence = 460,
+    magicDefence = 460,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 860,
-    mPRecover = 860
-    };
-getRow(86)->
-    #petLevelPropertyCfg {
-    level = 86,
+    mPRecover = 860,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2311,25 +2383,26 @@ getRow(86)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 33111,
-    physicalAttack = 1003,
-    magicAttack = 1003,
-    physicalDefence = 627,
-    magicDefence = 627,
-    hitLevel = 250,
-    criticalLevel = 376,
+    eleDam = 0
+    };
+getRow(86)->
+    #petLevelPropertyCfg {
+    level = 86,
+    maxHP2 = 4650,
+    physicalAttack = 465,
+    magicAttack = 465,
+    physicalDefence = 465,
+    magicDefence = 465,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 870,
-    mPRecover = 870
-    };
-getRow(87)->
-    #petLevelPropertyCfg {
-    level = 87,
+    mPRecover = 870,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2338,25 +2411,26 @@ getRow(87)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 33475,
-    physicalAttack = 1014,
-    magicAttack = 1014,
-    physicalDefence = 634,
-    magicDefence = 634,
-    hitLevel = 253,
-    criticalLevel = 380,
+    eleDam = 0
+    };
+getRow(87)->
+    #petLevelPropertyCfg {
+    level = 87,
+    maxHP2 = 4700,
+    physicalAttack = 470,
+    magicAttack = 470,
+    physicalDefence = 470,
+    magicDefence = 470,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 880,
-    mPRecover = 880
-    };
-getRow(88)->
-    #petLevelPropertyCfg {
-    level = 88,
+    mPRecover = 880,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2365,25 +2439,26 @@ getRow(88)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 33839,
-    physicalAttack = 1025,
-    magicAttack = 1025,
-    physicalDefence = 640,
-    magicDefence = 640,
-    hitLevel = 256,
-    criticalLevel = 384,
+    eleDam = 0
+    };
+getRow(88)->
+    #petLevelPropertyCfg {
+    level = 88,
+    maxHP2 = 4750,
+    physicalAttack = 475,
+    magicAttack = 475,
+    physicalDefence = 475,
+    magicDefence = 475,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 890,
-    mPRecover = 890
-    };
-getRow(89)->
-    #petLevelPropertyCfg {
-    level = 89,
+    mPRecover = 890,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2392,25 +2467,26 @@ getRow(89)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 34203,
-    physicalAttack = 1036,
-    magicAttack = 1036,
-    physicalDefence = 647,
-    magicDefence = 647,
-    hitLevel = 259,
-    criticalLevel = 388,
+    eleDam = 0
+    };
+getRow(89)->
+    #petLevelPropertyCfg {
+    level = 89,
+    maxHP2 = 4800,
+    physicalAttack = 480,
+    magicAttack = 480,
+    physicalDefence = 480,
+    magicDefence = 480,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 900,
-    mPRecover = 900
-    };
-getRow(90)->
-    #petLevelPropertyCfg {
-    level = 90,
+    mPRecover = 900,
+    growLevel = 0,
     maxHP = 0,
     phyDef = 0,
     holyDef = 0,
@@ -2419,25 +2495,54 @@ getRow(90)->
     phycDam = 0,
     holyDam = 0,
     shadDam = 0,
-    eleDam = 0,
-    maxHP2 = 34567,
-    physicalAttack = 1047,
-    magicAttack = 1047,
-    physicalDefence = 654,
-    magicDefence = 654,
-    hitLevel = 261,
-    criticalLevel = 392,
+    eleDam = 0
+    };
+getRow(90)->
+    #petLevelPropertyCfg {
+    level = 90,
+    maxHP2 = 4850,
+    physicalAttack = 485,
+    magicAttack = 485,
+    physicalDefence = 485,
+    magicDefence = 485,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
     hPRecover = 910,
-    mPRecover = 910
+    mPRecover = 910,
+    growLevel = 0,
+    maxHP = 0,
+    phyDef = 0,
+    holyDef = 0,
+    shadDef = 0,
+    eleDef = 0,
+    phycDam = 0,
+    holyDam = 0,
+    shadDam = 0,
+    eleDam = 0
     };
 getRow(91)->
     #petLevelPropertyCfg {
     level = 91,
+    maxHP2 = 4900,
+    physicalAttack = 490,
+    magicAttack = 490,
+    physicalDefence = 490,
+    magicDefence = 490,
+    hitLevel = 0,
+    criticalLevel = 0,
+    criticalDamageLevel = 0,
+    armorPenetrationLevel = 0,
+    dodgeLevel = 0,
+    criticalResistLevel = 0,
+    tenaciousLevel = 0,
+    hPRecover = 920,
+    mPRecover = 920,
+    growLevel = 0,
     maxHP = 47903,
     phyDef = 1703,
     holyDef = 1703,
@@ -2446,25 +2551,26 @@ getRow(91)->
     phycDam = 1596,
     holyDam = 1596,
     shadDam = 1596,
-    eleDam = 0,
-    maxHP2 = 34931,
-    physicalAttack = 1058,
-    magicAttack = 1058,
-    physicalDefence = 661,
-    magicDefence = 661,
-    hitLevel = 264,
-    criticalLevel = 396,
+    eleDam = 0
+    };
+getRow(92)->
+    #petLevelPropertyCfg {
+    level = 92,
+    maxHP2 = 4950,
+    physicalAttack = 495,
+    magicAttack = 495,
+    physicalDefence = 495,
+    magicDefence = 495,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
-    hPRecover = 920,
-    mPRecover = 920
-    };
-getRow(92)->
-    #petLevelPropertyCfg {
-    level = 92,
+    hPRecover = 930,
+    mPRecover = 930,
+    growLevel = 0,
     maxHP = 50424,
     phyDef = 1792,
     holyDef = 1792,
@@ -2473,25 +2579,26 @@ getRow(92)->
     phycDam = 1680,
     holyDam = 1680,
     shadDam = 1680,
-    eleDam = 0,
-    maxHP2 = 35295,
-    physicalAttack = 1069,
-    magicAttack = 1069,
-    physicalDefence = 668,
-    magicDefence = 668,
-    hitLevel = 267,
-    criticalLevel = 401,
+    eleDam = 0
+    };
+getRow(93)->
+    #petLevelPropertyCfg {
+    level = 93,
+    maxHP2 = 5000,
+    physicalAttack = 500,
+    magicAttack = 500,
+    physicalDefence = 500,
+    magicDefence = 500,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
-    hPRecover = 930,
-    mPRecover = 930
-    };
-getRow(93)->
-    #petLevelPropertyCfg {
-    level = 93,
+    hPRecover = 940,
+    mPRecover = 940,
+    growLevel = 0,
     maxHP = 53078,
     phyDef = 1887,
     holyDef = 1887,
@@ -2500,25 +2607,26 @@ getRow(93)->
     phycDam = 1769,
     holyDam = 1769,
     shadDam = 1769,
-    eleDam = 0,
-    maxHP2 = 35658,
-    physicalAttack = 1080,
-    magicAttack = 1080,
-    physicalDefence = 675,
-    magicDefence = 675,
-    hitLevel = 270,
-    criticalLevel = 405,
+    eleDam = 0
+    };
+getRow(94)->
+    #petLevelPropertyCfg {
+    level = 94,
+    maxHP2 = 5050,
+    physicalAttack = 505,
+    magicAttack = 505,
+    physicalDefence = 505,
+    magicDefence = 505,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
-    hPRecover = 940,
-    mPRecover = 940
-    };
-getRow(94)->
-    #petLevelPropertyCfg {
-    level = 94,
+    hPRecover = 950,
+    mPRecover = 950,
+    growLevel = 0,
     maxHP = 55871,
     phyDef = 1986,
     holyDef = 1986,
@@ -2527,25 +2635,26 @@ getRow(94)->
     phycDam = 1862,
     holyDam = 1862,
     shadDam = 1862,
-    eleDam = 0,
-    maxHP2 = 36022,
-    physicalAttack = 1091,
-    magicAttack = 1091,
-    physicalDefence = 682,
-    magicDefence = 682,
-    hitLevel = 272,
-    criticalLevel = 409,
+    eleDam = 0
+    };
+getRow(95)->
+    #petLevelPropertyCfg {
+    level = 95,
+    maxHP2 = 5100,
+    physicalAttack = 510,
+    magicAttack = 510,
+    physicalDefence = 510,
+    magicDefence = 510,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
-    hPRecover = 950,
-    mPRecover = 950
-    };
-getRow(95)->
-    #petLevelPropertyCfg {
-    level = 95,
+    hPRecover = 960,
+    mPRecover = 960,
+    growLevel = 0,
     maxHP = 58812,
     phyDef = 2091,
     holyDef = 2091,
@@ -2554,25 +2663,26 @@ getRow(95)->
     phycDam = 1960,
     holyDam = 1960,
     shadDam = 1960,
-    eleDam = 0,
-    maxHP2 = 36386,
-    physicalAttack = 1102,
-    magicAttack = 1102,
-    physicalDefence = 689,
-    magicDefence = 689,
-    hitLevel = 275,
-    criticalLevel = 413,
+    eleDam = 0
+    };
+getRow(96)->
+    #petLevelPropertyCfg {
+    level = 96,
+    maxHP2 = 5150,
+    physicalAttack = 515,
+    magicAttack = 515,
+    physicalDefence = 515,
+    magicDefence = 515,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
-    hPRecover = 960,
-    mPRecover = 960
-    };
-getRow(96)->
-    #petLevelPropertyCfg {
-    level = 96,
+    hPRecover = 970,
+    mPRecover = 970,
+    growLevel = 0,
     maxHP = 61907,
     phyDef = 2201,
     holyDef = 2201,
@@ -2581,25 +2691,26 @@ getRow(96)->
     phycDam = 2063,
     holyDam = 2063,
     shadDam = 2063,
-    eleDam = 0,
-    maxHP2 = 36750,
-    physicalAttack = 1113,
-    magicAttack = 1113,
-    physicalDefence = 696,
-    magicDefence = 696,
-    hitLevel = 278,
-    criticalLevel = 417,
+    eleDam = 0
+    };
+getRow(97)->
+    #petLevelPropertyCfg {
+    level = 97,
+    maxHP2 = 5200,
+    physicalAttack = 520,
+    magicAttack = 520,
+    physicalDefence = 520,
+    magicDefence = 520,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
-    hPRecover = 970,
-    mPRecover = 970
-    };
-getRow(97)->
-    #petLevelPropertyCfg {
-    level = 97,
+    hPRecover = 980,
+    mPRecover = 980,
+    growLevel = 0,
     maxHP = 65166,
     phyDef = 2317,
     holyDef = 2317,
@@ -2608,25 +2719,26 @@ getRow(97)->
     phycDam = 2172,
     holyDam = 2172,
     shadDam = 2172,
-    eleDam = 0,
-    maxHP2 = 37114,
-    physicalAttack = 1124,
-    magicAttack = 1124,
-    physicalDefence = 702,
-    magicDefence = 702,
-    hitLevel = 281,
-    criticalLevel = 421,
+    eleDam = 0
+    };
+getRow(98)->
+    #petLevelPropertyCfg {
+    level = 98,
+    maxHP2 = 5250,
+    physicalAttack = 525,
+    magicAttack = 525,
+    physicalDefence = 525,
+    magicDefence = 525,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
-    hPRecover = 980,
-    mPRecover = 980
-    };
-getRow(98)->
-    #petLevelPropertyCfg {
-    level = 98,
+    hPRecover = 990,
+    mPRecover = 990,
+    growLevel = 0,
     maxHP = 68596,
     phyDef = 2438,
     holyDef = 2438,
@@ -2635,25 +2747,26 @@ getRow(98)->
     phycDam = 2286,
     holyDam = 2286,
     shadDam = 2286,
-    eleDam = 0,
-    maxHP2 = 37478,
-    physicalAttack = 1135,
-    magicAttack = 1135,
-    physicalDefence = 709,
-    magicDefence = 709,
-    hitLevel = 283,
-    criticalLevel = 425,
+    eleDam = 0
+    };
+getRow(99)->
+    #petLevelPropertyCfg {
+    level = 99,
+    maxHP2 = 5300,
+    physicalAttack = 530,
+    magicAttack = 530,
+    physicalDefence = 530,
+    magicDefence = 530,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
-    hPRecover = 990,
-    mPRecover = 990
-    };
-getRow(99)->
-    #petLevelPropertyCfg {
-    level = 99,
+    hPRecover = 1000,
+    mPRecover = 1000,
+    growLevel = 0,
     maxHP = 72206,
     phyDef = 2567,
     holyDef = 2567,
@@ -2662,25 +2775,26 @@ getRow(99)->
     phycDam = 2406,
     holyDam = 2406,
     shadDam = 2406,
-    eleDam = 0,
-    maxHP2 = 37842,
-    physicalAttack = 1146,
-    magicAttack = 1146,
-    physicalDefence = 716,
-    magicDefence = 716,
-    hitLevel = 286,
-    criticalLevel = 430,
+    eleDam = 0
+    };
+getRow(100)->
+    #petLevelPropertyCfg {
+    level = 100,
+    maxHP2 = 5350,
+    physicalAttack = 535,
+    magicAttack = 535,
+    physicalDefence = 535,
+    magicDefence = 535,
+    hitLevel = 0,
+    criticalLevel = 0,
     criticalDamageLevel = 0,
     armorPenetrationLevel = 0,
     dodgeLevel = 0,
     criticalResistLevel = 0,
     tenaciousLevel = 0,
-    hPRecover = 1000,
-    mPRecover = 1000
-    };
-getRow(100)->
-    #petLevelPropertyCfg {
-    level = 100,
+    hPRecover = 1010,
+    mPRecover = 1010,
+    growLevel = 0,
     maxHP = 76006,
     phyDef = 2702,
     holyDef = 2702,
@@ -2689,21 +2803,7 @@ getRow(100)->
     phycDam = 2533,
     holyDam = 2533,
     shadDam = 2533,
-    eleDam = 0,
-    maxHP2 = 38206,
-    physicalAttack = 1157,
-    magicAttack = 1157,
-    physicalDefence = 723,
-    magicDefence = 723,
-    hitLevel = 289,
-    criticalLevel = 434,
-    criticalDamageLevel = 0,
-    armorPenetrationLevel = 0,
-    dodgeLevel = 0,
-    criticalResistLevel = 0,
-    tenaciousLevel = 0,
-    hPRecover = 1010,
-    mPRecover = 1010
+    eleDam = 0
     };
 getRow(_)->[].
 

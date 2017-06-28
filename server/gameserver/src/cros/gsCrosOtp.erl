@@ -83,7 +83,7 @@ init([]) ->
 
 	case core:isCross() of
 		false ->
-			case config:rpc_get_string("CrosNode", "" ) of
+			case config:getString("CrosNode", "" ) of
 				"" ->
 					?WARN_OUT("~p node found CrosNode!", [?MODULE]);
 				NodeStr ->

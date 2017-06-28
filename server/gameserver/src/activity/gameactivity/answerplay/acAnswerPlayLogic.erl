@@ -172,7 +172,7 @@ sendAnswerReward() ->
                         Acc
                 end
 		   end,
-    ResultDict = dict:foldl(Funs, [],ResultDicts),
+    ResultDict = dict:fold(Funs, [],ResultDicts),
 	Onlist = getOnlinePlayerlist(ResultDict),
 	case Onlist of
 		[] ->
@@ -426,7 +426,7 @@ deleteDictResult() ->
 	Fun = fun(_Key ,#recAnswerResult{roleID = RoleID}, DD) ->
 		dict:erase(RoleID, DD)
 	end,
-	NDict = dict:foldl(Fun, Dict, Dict),
+	NDict = dict:fold(Fun, Dict, Dict),
 	setAnswerResult(NDict),
 	ok.
 %%玩家上线同步答题信息

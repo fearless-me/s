@@ -166,9 +166,11 @@ completeSchedule() ->
 
 	%% 清技能CD和回血
 	playerBase:clearSkillCDAndRestoreHp(),
+	playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_NvShenJinBi, MissionID),
 
 	%%通知客户端
 	playerMsg:sendNetMsg(#pk_GS2U_WarriorTrialSuccess{result = true}),
+	playerSevenDayAim:updateCondition(?SevenDayAim_WarriorTrial, [MissionID - 1]),
 	ok.
 %%开始扫荡关卡
 -spec beginSweepMission() -> ok.
@@ -191,6 +193,7 @@ beginSweepMission() ->
 			R =
 				case Result of
 					#pk_GS2U_RequestAutoDealAck{} ->
+						playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_NvShenJinBi, MissionID),
 						%%扫荡成功
 						WarriorTrialInfo = getWarriorTrialInfo(),
 						#rec_warrior_trial{trialSchedule = RecordSchedule, tswkTrialSchedule = TTS} = WarriorTrialInfo,

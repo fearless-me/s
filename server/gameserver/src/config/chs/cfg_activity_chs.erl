@@ -17,7 +17,7 @@ getRow(1)->
     stage = [10],
     mapidlist = [4000],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(2)->
     #activityCfg {
@@ -31,7 +31,7 @@ getRow(2)->
     stage = [10,1190,600],
     mapidlist = [20],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(3)->
     #activityCfg {
@@ -40,26 +40,26 @@ getRow(3)->
     type = 0,
     cycletype = 2,
     cycletime = 0,
-    starttime = [{0,10}],
-    lenghtime = 43200,
-    stage = [60,43020,120],
+    starttime = [{0,20}],
+    lenghtime = 1800,
+    stage = [60,1620,120],
     mapidlist = [22],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(4)->
     #activityCfg {
     id = 4,
     name = "军团战",
     type = 0,
-    cycletype = 0,
+    cycletype = 3,
     cycletime = 0,
     starttime = [{1,10},{3,10},{5,10},{6,10},{7,10}],
     lenghtime = 37800,
     stage = [34200,1800,1800],
-    mapidlist = [8002],
+    mapidlist = [7002],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(5)->
     #activityCfg {
@@ -73,7 +73,7 @@ getRow(5)->
     stage = [200,150,100,50,1200,60],
     mapidlist = [8001],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(6)->
     #activityCfg {
@@ -85,9 +85,9 @@ getRow(6)->
     starttime = [{0,12},{0,16},{0,19},{0,22}],
     lenghtime = 2100,
     stage = [1500,300,300],
-    mapidlist = [0],
+    mapidlist = [],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(7)->
     #activityCfg {
@@ -101,7 +101,7 @@ getRow(7)->
     stage = [1],
     mapidlist = [6001],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(8)->
     #activityCfg {
@@ -112,10 +112,10 @@ getRow(8)->
     cycletime = 0,
     starttime = [{0,12}],
     lenghtime = 50400,
-    stage = [0],
+    stage = [],
     mapidlist = [501,502,503,504,505],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(9)->
     #activityCfg {
@@ -126,10 +126,10 @@ getRow(9)->
     cycletime = 0,
     starttime = [{0,10}],
     lenghtime = 43230,
-    stage = [0],
-    mapidlist = [0],
+    stage = [],
+    mapidlist = [],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(10)->
     #activityCfg {
@@ -143,7 +143,7 @@ getRow(10)->
     stage = [3300,300,900,300],
     mapidlist = [4010],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(11)->
     #activityCfg {
@@ -157,7 +157,7 @@ getRow(11)->
     stage = [1],
     mapidlist = [6016],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(12)->
     #activityCfg {
@@ -171,7 +171,7 @@ getRow(12)->
     stage = [1],
     mapidlist = [6018,6019,6020],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(13)->
     #activityCfg {
@@ -185,7 +185,7 @@ getRow(13)->
     stage = [1800,10],
     mapidlist = [6030,6031,6032,6033,6034,6035],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(14)->
     #activityCfg {
@@ -194,12 +194,12 @@ getRow(14)->
     type = 0,
     cycletype = 6,
     cycletime = 0,
-    starttime = [0],
+    starttime = [],
     lenghtime = 86400,
-    stage = [0],
+    stage = [],
     mapidlist = [540,541],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(15)->
     #activityCfg {
@@ -210,10 +210,10 @@ getRow(15)->
     cycletime = 0,
     starttime = [{0,20}],
     lenghtime = 1800,
-    stage = [0],
+    stage = [],
     mapidlist = [8000],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(16)->
     #activityCfg {
@@ -224,10 +224,10 @@ getRow(16)->
     cycletime = 0,
     starttime = [{0,8}],
     lenghtime = 1800,
-    stage = [0],
+    stage = [],
     mapidlist = [9001],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(17)->
     #activityCfg {
@@ -238,10 +238,10 @@ getRow(17)->
     cycletime = 0,
     starttime = [{0,0}],
     lenghtime = 86400,
-    stage = [0],
+    stage = [],
     mapidlist = [520],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(18)->
     #activityCfg {
@@ -252,10 +252,10 @@ getRow(18)->
     cycletime = 0,
     starttime = [{0,0}],
     lenghtime = 86400,
-    stage = [0],
+    stage = [],
     mapidlist = [528,529,530,531],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(19)->
     #activityCfg {
@@ -269,7 +269,7 @@ getRow(19)->
     stage = [1800,10,1800,2,120],
     mapidlist = [7000],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(20)->
     #activityCfg {
@@ -280,10 +280,10 @@ getRow(20)->
     cycletime = 0,
     starttime = [{0,0}],
     lenghtime = 86400,
-    stage = [0],
+    stage = [],
     mapidlist = [550],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(21)->
     #activityCfg {
@@ -294,10 +294,10 @@ getRow(21)->
     cycletime = 0,
     starttime = [{0,0}],
     lenghtime = 86400,
-    stage = [0],
+    stage = [],
     mapidlist = [6000],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(22)->
     #activityCfg {
@@ -307,11 +307,11 @@ getRow(22)->
     cycletype = 2,
     cycletime = 0,
     starttime = [{0,11},{0,17}],
-    lenghtime = 2400,
-    stage = [1500,120,120,60,600],
-    mapidlist = [0],
+    lenghtime = 2390,
+    stage = [1500,120,120,60,590],
+    mapidlist = [],
     condition = 0,
-    awardlist = 0
+    awardlist = []
     };
 getRow(_)->[].
 

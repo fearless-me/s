@@ -48,90 +48,90 @@ getMinDamage() ->
 getMaxDamage() ->
 	getGlobalCfg(maxDamage).
 
-%% 获取白色装备基础属性加成系数
--spec getWhiteFactor() -> float() | not_found.
-getWhiteFactor() ->
-	getGlobalCfg(whiteFactor).
+%%%% 获取白色装备基础属性加成系数
+%%-spec getWhiteFactor() -> float() | not_found.
+%%getWhiteFactor() ->
+%%	getGlobalCfg(whiteFactor).
+%%
+%%%% 获取绿色装备基础属性加成系数
+%%-spec getGreenFactor() -> float() | not_found.
+%%getGreenFactor() ->
+%%	getGlobalCfg(greenFactor).
 
-%% 获取绿色装备基础属性加成系数
--spec getGreenFactor() -> float() | not_found.
-getGreenFactor() ->
-	getGlobalCfg(greenFactor).
+%%%% 获取蓝色装备基础属性加成系数
+%%-spec getBlueFactor() -> float() | not_found.
+%%getBlueFactor() ->
+%%	getGlobalCfg(blueFactor).
 
-%% 获取蓝色装备基础属性加成系数
--spec getBlueFactor() -> float() | not_found.
-getBlueFactor() ->
-	getGlobalCfg(blueFactor).
+%%%% 获取紫色装备基础属性加成系数
+%%-spec getPurpleFactor() -> float() | not_found.
+%%getPurpleFactor() ->
+%%	getGlobalCfg(purpleFactor).
 
-%% 获取紫色装备基础属性加成系数
--spec getPurpleFactor() -> float() | not_found.
-getPurpleFactor() ->
-	getGlobalCfg(purpleFactor).
-
-%% 获取黄色装备基础属性加成系数
--spec getOrangeFactor() -> float() | not_found.
-getOrangeFactor() ->
-	getGlobalCfg(orangeFactor).
-
-%% 获取红色装备基础属性加成系数
--spec getRedFactor() -> float() | not_found.
-getRedFactor() ->
-	getGlobalCfg(redFactor).
+%%%% 获取黄色装备基础属性加成系数
+%%-spec getOrangeFactor() -> float() | not_found.
+%%getOrangeFactor() ->
+%%	getGlobalCfg(orangeFactor).
+%%
+%%%% 获取红色装备基础属性加成系数
+%%-spec getRedFactor() -> float() | not_found.
+%%getRedFactor() ->
+%%	getGlobalCfg(redFactor).
 
 %% 获取装备符合自身职业的几率
--spec getShlfChance() -> float() | not_found.
-getShlfChance() ->
-	getGlobalCfg(shlfChance).
+%%-spec getShlfChance() -> float() | not_found.
+%%getShlfChance() ->
+%%	getGlobalCfg(shlfChance).
 
-%% 获取选择Max1的几率
--spec getMax1Chance() -> float() | not_found.
-getMax1Chance() ->
-	getGlobalCfg(max1Chance).
+%%%% 获取选择Max1的几率
+%%-spec getMax1Chance() -> float() | not_found.
+%%getMax1Chance() ->
+%%	getGlobalCfg(max1Chance).
 
-%% 获取绿色装备1前几率
--spec getGreenAffix() -> list() | not_found.
-getGreenAffix() ->
-	getGlobalCfgList(greenAffix).
+%%%% 获取绿色装备1前几率
+%%-spec getGreenAffix() -> list() | not_found.
+%%getGreenAffix() ->
+%%	getGlobalCfgList(greenAffix).
+%%
+%%%% 获取蓝色装备1前1后几率
+%%-spec getBlueAffix() -> list() | not_found.
+%%getBlueAffix() ->
+%%	getGlobalCfgList(blueAffix).
+%%
+%%%% 获取紫色装备2前2后几率
+%%-spec getPurpleAffix() -> list() | not_found.
+%%getPurpleAffix() ->
+%%	getGlobalCfgList(purpleAffix).
+%%
+%%%% 获取橙色红色装备1前几率
+%%-spec getOraRed1Affix() -> list() | not_found.
+%%getOraRed1Affix() ->
+%%	getGlobalCfgList(oraRed1Affix).
+%%
+%%%% 获取橙色红色装备1后几率
+%%-spec getOraRed2Affix() -> list() | not_found.
+%%getOraRed2Affix() ->
+%%	getGlobalCfgList(oraRed2Affix).
+%%
+%%%% 获取橙色红色装备2前1后几率
+%%-spec getOraRed3Affix() -> list() | not_found.
+%%getOraRed3Affix() ->
+%%	getGlobalCfgList(oraRed3Affix).
+%%
+%%%% 获取橙色红色装备2前2后几率
+%%-spec getOraRed4Affix() -> list() | not_found.
+%%getOraRed4Affix() ->
+%%	getGlobalCfgList(oraRed4Affix).
 
-%% 获取蓝色装备1前1后几率
--spec getBlueAffix() -> list() | not_found.
-getBlueAffix() ->
-	getGlobalCfgList(blueAffix).
-
-%% 获取紫色装备2前2后几率
--spec getPurpleAffix() -> list() | not_found.
-getPurpleAffix() ->
-	getGlobalCfgList(purpleAffix).
-
-%% 获取橙色红色装备1前几率
--spec getOraRed1Affix() -> list() | not_found.
-getOraRed1Affix() ->
-	getGlobalCfgList(oraRed1Affix).
-
-%% 获取橙色红色装备1后几率
--spec getOraRed2Affix() -> list() | not_found.
-getOraRed2Affix() ->
-	getGlobalCfgList(oraRed2Affix).
-
-%% 获取橙色红色装备2前1后几率
--spec getOraRed3Affix() -> list() | not_found.
-getOraRed3Affix() ->
-	getGlobalCfgList(oraRed3Affix).
-
-%% 获取橙色红色装备2前2后几率
--spec getOraRed4Affix() -> list() | not_found.
-getOraRed4Affix() ->
-	getGlobalCfgList(oraRed4Affix).
-
-%% 获取橙色红色装备3前2后几率
--spec getOraRed5Affix() -> list() | not_found.
-getOraRed5Affix() ->
-	getGlobalCfgList(oraRed5Affix).
-
-%% 获取橙色红色装备3前3后几率
--spec getOraRed6Affix() -> list() | not_found.
-getOraRed6Affix() ->
-	getGlobalCfgList(oraRed6Affix).
+%%%% 获取橙色红色装备3前2后几率
+%%-spec getOraRed5Affix() -> list() | not_found.
+%%getOraRed5Affix() ->
+%%	getGlobalCfgList(oraRed5Affix).
+%%
+%%%% 获取橙色红色装备3前3后几率
+%%-spec getOraRed6Affix() -> list() | not_found.
+%%getOraRed6Affix() ->
+%%	getGlobalCfgList(oraRed6Affix).
 
 %% 获取主属性伤害转换数
 -spec getPropToDam() -> float() | not_found.

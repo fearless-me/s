@@ -32,6 +32,7 @@ loadRoleFromMem(RoleID) ->
 			onLoadRoleBase(BaseRole),
 			ok;
 		_ ->
+			?ERROR_OUT("loadRoleFromMem:~p", [RoleID]),
 			skip
 	end,
 	ok.

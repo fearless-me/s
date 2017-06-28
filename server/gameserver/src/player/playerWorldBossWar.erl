@@ -13,7 +13,8 @@
 	noticeClient/1,
 	onLoginRoleCanIn/0,
 	tickSecond/0,
-	activityFlagSync/1
+	activityFlagSync/1,
+	onEnterMap/1
 %%	worldBossDamageRank/1,
 %%	loadworldBossDamage/0,
 %%	saveMyworldBossDamage/1,
@@ -25,6 +26,16 @@
 -define(WorldBossSyncTick, 5).
 
 
+onEnterMap(MapID)->
+	case getCfg:getCfgPStack(cfg_mapsetting, MapID) of
+		#mapsettingCfg{type = ?MapTypeActivity, subtype = ?MapSubTypeWorldBoss} ->
+			skip;
+		_ ->
+			playerDaily:zeroDailyCount(?DailyType_WorldBossInSpire, ?CoinUseTypeGold),
+			playerDaily:zeroDailyCount(?DailyType_WorldBossInSpire, ?CoinUseTypeDiamond),
+			playerBuff:delBuff(?WoldBossInspire)
+	end,
+	ok.
 
 %%新登录玩家自检
 onLoginRoleCanIn() ->
@@ -127,7 +138,7 @@ mePos(Me, [#recWorldBossDamage{} | L], N) ->
 	mePos(Me, L, N + 1).
 
 openFlag() ->
-	case variant:getGlobalBitVariant(?Setting_GlobalBitVar_WorldBossWar_Running) of
+	case variant:getGlobalBitVariant(?Setting_GlobalBitVarReadOnly_LeaderBtn) of
 		true ->
 			case myEts:getCount(?WorldBossEts) > 0 of
 				true ->

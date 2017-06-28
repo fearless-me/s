@@ -8,62 +8,62 @@
 getRow(1)->
     #identity_zodiacCfg {
     id = 1,
-    name = "白羊"
+    name = "水瓶座"
     };
 getRow(2)->
     #identity_zodiacCfg {
     id = 2,
-    name = "金牛"
+    name = "双鱼座"
     };
 getRow(3)->
     #identity_zodiacCfg {
     id = 3,
-    name = "双子"
+    name = "白羊座"
     };
 getRow(4)->
     #identity_zodiacCfg {
     id = 4,
-    name = "巨蟹"
+    name = "金牛座"
     };
 getRow(5)->
     #identity_zodiacCfg {
     id = 5,
-    name = "狮子"
+    name = "双子座"
     };
 getRow(6)->
     #identity_zodiacCfg {
     id = 6,
-    name = "处女"
+    name = "巨蟹座"
     };
 getRow(7)->
     #identity_zodiacCfg {
     id = 7,
-    name = "天秤"
+    name = "狮子座"
     };
 getRow(8)->
     #identity_zodiacCfg {
     id = 8,
-    name = "天蝎"
+    name = "处女座"
     };
 getRow(9)->
     #identity_zodiacCfg {
     id = 9,
-    name = "射手"
+    name = "天秤座"
     };
 getRow(10)->
     #identity_zodiacCfg {
     id = 10,
-    name = "摩羯"
+    name = "天蝎座"
     };
 getRow(11)->
     #identity_zodiacCfg {
     id = 11,
-    name = "水瓶"
+    name = "射手座"
     };
 getRow(12)->
     #identity_zodiacCfg {
     id = 12,
-    name = "双鱼"
+    name = "摩羯座"
     };
 getRow(_)->[].
 

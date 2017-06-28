@@ -16,8 +16,8 @@
 
 %% 活动类型定义
 -define(ActivityType_Start, 1).
--define(ActivityType_HDBattle, 1).				%% 混沌战场
--define(ActivityType_CityMonster, 2).			%% 主城刷怪
+-define(ActivityType_HDBattle, 1).				%% 混沌战场	废弃
+-define(ActivityType_CityMonster, 2).			%% 主城刷怪/守卫碧空城
 -define(ActivityType_GiveIPad, 3).				%% 首领入侵
 -define(ActivityType_GuildBattle, 4).           %% 军团战
 -define(ActivityType_KingBattleAll, 5).         %% 王者战天下
@@ -40,7 +40,8 @@
 -define(ActivityType_Snowman,19).       %% 堆雪人
 -define(ActivityType_SpiritArea,20).       %% 灵界活动
 -define(ActivityType_PetTerritory,21).       %% 新版骑宠领地
--define(ActivityType_End, 21).
+-define(ActivityType_Dance,22).       %% 限时广场舞
+-define(ActivityType_End, 22).
 -type activityType() :: ?ActivityType_Start .. ?ActivityType_End.
 
 %% 全局变量控制活动开启与关闭(该占位未设置值，表示活动开启)，每个全局开关，控制32种活动的开启与关闭
@@ -63,7 +64,8 @@
 			{14, ?ActivityType_Date},
 			{19, ?ActivityType_Snowman},
 			{20, ?ActivityType_SpiritArea},
-			{21, ?ActivityType_PetTerritory}
+			{21, ?ActivityType_PetTerritory},
+			{22, ?ActivityType_Dance}
 		]
 	}
 ]).

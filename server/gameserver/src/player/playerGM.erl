@@ -75,7 +75,8 @@
 		{"ar", fun accuReward/1, "accuReward", "领奖"},
 		{"resetpb", fun resetpb/1, "resetpb", "重置双人坐骑状态"},
 		{"petab", fun petab/1, "petass", "骑宠助战"},
-		{"fashionsuit", fun fashionSuit/1, "fashionsuit", "激活时装套装"}
+		{"fashionsuit", fun fashionSuit/1, "fashionsuit", "激活时装套装"},
+		{"resetskill", fun resetSkill/1, "resetskill", "重置技能"}
 %% 		{"uplv_guild_tec_skill",				fun uplv_guild_tec_skill/1,					"uplv_guild_tec_skill","升级工会技能" },
 %% 		{"use_guild_feast",					fun use_guild_feast/1,						"use_guild_feast","工会宴席" },
 %% 		{"drink_guild_wine",				fun drink_guild_wine/1,					"drink_guild_bottle","喝酒" },
@@ -190,9 +191,11 @@
 		{"getalltask", fun getalltask/1, "getalltask", "查看已接受的任务ID"},
 		{"submittask", fun submittask/1, "submittask TaskID", "提交任务"},
 		{"submittask2", fun submittask2/1, "submittask TaskID", "提交任务"},
+		{"submittaskall", fun submitTaskAll/1, "submittaskall TaskID", "提交所有任务"},
 		{"wakeup", fun wakeup/1, "wakeup", "开启女神功能，旧有的觉醒技能挪到了器灵（原神器）系统"},
 		{"newmail", fun newmail/1, "newmail ToRoleName Title Content MailNum", "邮件相关GM命令"},
 		{"newsysmail", fun newsysmail/1, "newsysmail ToRoleName Title ItemUID1 ItemID1 ItemUID2 ItemID2 MoneyNumber", "发送一封系统邮件"},
+		{"maildiamond", fun maildiamond/1, "maildiamond number", "邮件给全服的人发送非绑定钻石"},
 		{"enterguildhome", fun enterguildhome/1, "enterguildhome targetGuildID", "进入目标军团驻地"},
 		{"useguildride", fun useguildride/1, "useguildride ID type", "使用游乐场设施 ID：设施ID type：1使用；2取消使用；3升级"},
 		%{"clearguildtask", fun clearguildtask/1, "clearguildtask", "清空放弃任务CD"},
@@ -299,6 +302,10 @@
 		{"signin_reset", fun signin_reset/1, "signin_reset 0重置当日签到状态，1重置当月签到记录与领奖记录", "重置"},
 		{"signin_reward", fun signin_reward/1, "signin_reward", "领奖"},
 		{"signin_seven", fun signin_seven/1, "signin_seven", "七日签到"},
+
+		{"sevendayaim", fun sevendayaim/1, "sevendayaim", "七日目标"},
+		{"thirtydaylogingift", fun thirtydaylogingift/1, "thirtydaylogingift", "30日登录大礼包"},
+
 		%% 签到模块GM指令 end
 
 		%% 姻缘系统GM指令 begin
@@ -1102,7 +1109,7 @@ setlevel(Params) when erlang:length(Params) >= 1 ->
 	[SzLevel | _] = Params,
 	?LOG_OUT("setlevel gm..."),
 	{Level, _Rest} = string:to_integer(SzLevel),
-	LevelList = getCfg:get1KeyList(cfg_player_base),
+	LevelList = getCfg:get1KeyList(cfg_indexFunction),
 	Max = lists:max(LevelList),
 	Level2 = erlang:min(Level, Max),
 	case playerState:getLevel() < Level2 of
@@ -1179,6 +1186,15 @@ submittask(Params) when erlang:length(Params) >= 1 ->
 submittask2(Params) when erlang:length(Params) >= 1 ->
 	ok.
 
+submitTaskAll(Params) when erlang:length(Params) >= 1 ->
+	[SzTaskID | _] = Params,
+	{MaxTaskID, _Rest} = string:to_integer(SzTaskID),
+	lists:foreach(
+		fun(TaskID) ->
+			playerTask:gmAddCompleteTask(TaskID)
+		end, lists:seq(1, MaxTaskID)),
+	playerTask:acceptTask(MaxTaskID + 1, 0),
+	ok.
 %%开启觉醒功能
 wakeup(_Params) ->
 	playerGoddess:gmWakeUp(),
@@ -1406,10 +1422,36 @@ newsysmail(Params) when erlang:length(Params) >= 7 ->
 	[SValue4 | Other4] = Other3,
 	[SValue5 | Other5] = Other4,
 	[SValue6 | Other6] = Other5,
-	[SValue7 | _Other7] = Other6,
+	[SValue7 | Other7] = Other6,
+	[SValue8 | _Other8] = Other7,
 	playerMail:gmSendSysMail2Other(SValue1, SValue2, "syscontent", "",
-		string_to_integer(SValue3), string_to_integer(SValue4), string_to_integer(SValue5), string_to_integer(SValue6), string_to_integer(SValue7)),
+		string_to_integer(SValue3), string_to_integer(SValue4),
+		string_to_integer(SValue5), string_to_integer(SValue6),
+		string_to_integer(SValue7), string_to_integer(SValue8)),
 	ok.
+
+maildiamond(Params) when erlang:length(Params) >= 1 ->
+	%% 给全服玩家发送非绑定钻石
+	[SValue1 | _Other1] = Params,
+	Number = string_to_integer(SValue1),
+	case Number > 0 of
+		true ->
+			Title = stringCfg:getString(cnTextLuckyCoinUnname),
+			F =
+				fun(#rec_RoleName{roleName = Name}, _) ->
+					playerMail:gmSendSysMail2Other(Name, Title, Title, "",
+						0, 0,
+						0, 0,
+						?CoinTypeDiamond, Number),
+					ok
+				end,
+			ets:foldl(F, 0, ets_rec_RoleName),
+
+%%			execGMCmd("addcoin", ["3", SValue1]),	%% 非绑钻
+			ok;
+		_ ->
+			skip
+	end.
 
 querymail(Params) when erlang:length(Params) >= 1 ->
 	[SValue1 | _Other1] = Params,
@@ -2098,7 +2140,7 @@ ladderquery(Params) when erlang:length(Params) >= 2 ->
 		end,
 	case T of
 		#rec_ladder_1v1{roleID = RoleID} ->
-			io_lib:format("ladderquery:rank=~p, roleID=~p, name=~ts, exploit=~p, cur=~p, max=~p, all=~p, worship=~p",
+			io_lib:format("ladderquery:rank=~p, roleID=~p, name=~ts, exploit=~p, cur=~p, max=~p, all=~p, worship=~p, rankmin=~p",
 				[
 					T#rec_ladder_1v1.rankSort,
 					RoleID,
@@ -2107,7 +2149,8 @@ ladderquery(Params) when erlang:length(Params) >= 2 ->
 					T#rec_ladder_1v1.cur_win,
 					T#rec_ladder_1v1.max_win,
 					T#rec_ladder_1v1.win_times,
-					T#rec_ladder_1v1.worship_times
+					T#rec_ladder_1v1.worship_times,
+					T#rec_ladder_1v1.rankMin
 				]);
 		_ -> false
 	end.
@@ -2986,13 +3029,19 @@ crack2() ->
 	lists:foreach(Fun, L),
 
 	%% 开启聊天
-	#globalsetupCfg{setpara = [ChatTaskID]} = getCfg:getCfgPStack(cfg_globalsetup, chat_task),
-	case playerTask:acceptTask(ChatTaskID, 0) of
-		false ->
-			skip;
+
+	case getCfg:getCfgPStack(cfg_globalsetup, chat_task) of
+		#globalsetupCfg{setpara = [ChatTaskID]} ->
+			case playerTask:acceptTask(ChatTaskID, 0) of
+				false ->
+					skip;
+				_ ->
+					playerTask:gmSubmitTask(ChatTaskID)
+			end;
 		_ ->
-			playerTask:gmSubmitTask(ChatTaskID)
+			skip
 	end,
+
 	ok.
 
 %% -ifdef(RELEASE).
@@ -3173,9 +3222,19 @@ tt(Params) when erlang:length(Params) >= 0 ->
 %	ok.
 
 tt2(Params) when erlang:length(Params) >= 0 ->
-	execGMCmd("addattack", ["100000000"]),
-	execGMCmd("adddef", ["100000000"]),
-	execGMCmd("addspeed", ["20"]),
+%%	execGMCmd("addattack", ["100000000"]),
+%%	execGMCmd("adddef", ["100000000"]),
+%%	execGMCmd("addspeed", ["20"]),
+	playerBuff:addProp(1,
+		[
+			{?Prop_MaxHP, 99999999, 0},
+			{?Prop_MoveSpeed, 20, 0},
+			{?Prop_MagicAttack, 9999999, 0},
+			{?Prop_PhysicalAttack, 9999999, 0},
+			{?Prop_PhysicalDefence, 9999999, 0},
+			{?Prop_MagicDefence, 9999999, 0}
+		]
+		, true),
 	ok.
 
 addequip(Params) when erlang:length(Params) >= 1 ->
@@ -3974,8 +4033,13 @@ usepetbook(Params) ->
 		erlang:list_to_integer(ID)),
 	ok.
 
-onkeyrefine(_Params) ->
-	playerEquip:equipRefineOneKey(),
+onkeyrefine(Params) ->
+	case Params of
+		[] ->
+			playerEquip:equipRefineOneKey();
+		[Pos | _]->
+			playerEquip:equipRefine(erlang:list_to_integer(Pos), true)
+	end,
 	ok.
 
 tz(_Params) ->
@@ -4099,6 +4163,18 @@ signin_seven(Params) ->
 	[P1 | _] = Params,
 	DayCount = erlang:list_to_integer(P1),
 	playerSignIn:playerSevenDaySignIn(DayCount),
+	ok.
+
+sevendayaim(Params) ->
+	[P1 | _] = Params,
+	ID = erlang:list_to_integer(P1),
+	playerSevenDayAim:reward(ID),
+	ok.
+
+thirtydaylogingift(Params) ->
+	[P1 | _] = Params,
+	ID = erlang:list_to_integer(P1),
+	%playerThirtyDayLoginGift:reward(ID),
 	ok.
 
 % 查询 0查询领地信息；2查询掠夺记录；3查询防守记录
@@ -4755,6 +4831,9 @@ fashionSuit(A) ->
 	[Op | _] = T1,
 	playerFashion:activeFashionSuit(list_to_integer(ID),
 		misc:convertBoolFromInt( list_to_integer(Op) )).
+
+resetSkill(_) ->
+	playerSkillLearn:resetSkill().
 
 cc(A) ->
 	[NewCareer | _] = A,

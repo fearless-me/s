@@ -11,7 +11,7 @@ getRow(1)->
     effect = 0,
     name = "角色信息",
     sort = 0,
-    icon = 1,
+    icon = 0,
     type = 1,
     parameters = 1,
     panelType = "CharacterPanel"
@@ -32,7 +32,7 @@ getRow(3)->
     id = 3,
     effect = 0,
     name = "社交",
-    sort = 4,
+    sort = 0,
     icon = 1,
     type = 1,
     parameters = 1,
@@ -43,8 +43,8 @@ getRow(4)->
     id = 4,
     effect = 0,
     name = "任务",
-    sort = 1,
-    icon = 7,
+    sort = 0,
+    icon = 0,
     type = 1,
     parameters = 1,
     panelType = "MissionLogPanel"
@@ -65,8 +65,8 @@ getRow(6)->
     id = 6,
     effect = 0,
     name = "邮件",
-    sort = 17,
-    icon = 2,
+    sort = 0,
+    icon = 0,
     type = 1,
     parameters = 1,
     panelType = "MailPanel"
@@ -77,7 +77,7 @@ getRow(7)->
     effect = 0,
     name = "技能",
     sort = 0,
-    icon = 10,
+    icon = 0,
     type = 1,
     parameters = 2,
     panelType = "SkillPanel"
@@ -96,21 +96,21 @@ getRow(8)->
 getRow(9)->
     #mainMenuCfg {
     id = 9,
-    effect = 0,
-    name = "装备精炼",
-    sort = 13,
-    icon = 14,
+    effect = 1,
+    name = "强化",
+    sort = 0,
+    icon = 10,
     type = 3,
     parameters = 27,
-    panelType = "ImprovePanel"
+    panelType = "StrengthenPanel"
     };
 getRow(10)->
     #mainMenuCfg {
     id = 10,
     effect = 0,
     name = "队伍",
-    sort = 8,
-    icon = 37,
+    sort = 0,
+    icon = 0,
     type = 1,
     parameters = 11,
     panelType = "TeamPanel"
@@ -119,11 +119,11 @@ getRow(11)->
     #mainMenuCfg {
     id = 11,
     effect = 0,
-    name = "交易行",
-    sort = 16,
+    name = "交易行（暂时屏蔽）",
+    sort = 198,
     icon = 14,
     type = 1,
-    parameters = 100,
+    parameters = 1000,
     panelType = "BussyPanel"
     };
 getRow(12)->
@@ -351,7 +351,7 @@ getRow(34)->
     sort = 201,
     icon = 11,
     type = 3,
-    parameters = 45,
+    parameters = 42,
     panelType = "WeaponImprovePanel"
     };
 getRow(35)->
@@ -369,8 +369,8 @@ getRow(36)->
     #mainMenuCfg {
     id = 36,
     effect = 1,
-    name = "装备兑换（废弃）",
-    sort = 6,
+    name = "装备兑换（屏蔽）",
+    sort = 199,
     icon = 0,
     type = 1,
     parameters = 1000,
@@ -380,9 +380,9 @@ getRow(37)->
     #mainMenuCfg {
     id = 37,
     effect = 0,
-    name = "骑宠远征",
+    name = "骑宠远征（废弃）",
     sort = 0,
-    icon = 23,
+    icon = 0,
     type = 1,
     parameters = 1,
     panelType = "MAndPPVEPanel"
@@ -422,8 +422,8 @@ getRow(41)->
     id = 41,
     effect = 0,
     name = "每日必做",
-    sort = 7,
-    icon = 29,
+    sort = 0,
+    icon = 0,
     type = 1,
     parameters = 20
     };
@@ -538,9 +538,9 @@ getRow(52)->
     effect = 0,
     name = "时装",
     sort = 0,
-    icon = 10,
+    icon = 0,
     type = 3,
-    parameters = 139
+    parameters = 34
     };
 getRow(53)->
     #mainMenuCfg {
@@ -558,8 +558,8 @@ getRow(54)->
     id = 54,
     effect = 0,
     name = "约会地下城",
-    sort = 7,
-    icon = 22,
+    sort = 0,
+    icon = 0,
     type = 1,
     parameters = 32,
     panelType = "DateUndergroundCity"
@@ -585,6 +585,28 @@ getRow(56)->
     type = 1,
     parameters = 16,
     panelType = "PetTerritoryPanel"
+    };
+getRow(57)->
+    #mainMenuCfg {
+    id = 57,
+    effect = 30,
+    name = "兑换第三页签（屏蔽）",
+    sort = 0,
+    icon = 0,
+    type = 1,
+    parameters = 1000,
+    panelType = "ResExchangePanel"
+    };
+getRow(58)->
+    #mainMenuCfg {
+    id = 58,
+    effect = 2,
+    name = "七日大奖",
+    sort = 105,
+    icon = 16,
+    type = 1,
+    parameters = 12,
+    panelType = "SevenDayTagertPanel"
     };
 getRow(_)->[].
 
@@ -642,7 +664,9 @@ getKeyList()->[
     {53},
     {54},
     {55},
-    {56}
+    {56},
+    {57},
+    {58}
     ].
 
 get1KeyList()->[
@@ -699,6 +723,8 @@ get1KeyList()->[
     53,
     54,
     55,
-    56
+    56,
+    57,
+    58
     ].
 

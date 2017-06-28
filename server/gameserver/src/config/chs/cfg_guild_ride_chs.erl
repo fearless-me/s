@@ -19,15 +19,15 @@ getRow(1,1)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61501,
     des = "转啊~转啊~我的骄傲放纵！",
     rewardDes = "旋转超过[00ff00]30秒[-]可获得旋转BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转木马",
     background = "guild_trojan",
-    camera = [{-0.6,1.8,-0.64},{1.24,113,0.45}]
+    camera = [{-3.87,3.49,-12.45},{6.5,20.33,0.45}]
     };
 getRow(1,2)->
     #guild_rideCfg {
@@ -43,15 +43,15 @@ getRow(1,2)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61502,
     des = "转啊~转啊~我的骄傲放纵！",
     rewardDes = "旋转超过[00ff00]30秒[-]可获得旋转BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转木马",
     background = "guild_trojan",
-    camera = [{-0.6,1.8,-0.64},{1.24,113,0.45}]
+    camera = [{-3.87,3.49,-12.45},{6.5,20.33,0.45}]
     };
 getRow(1,3)->
     #guild_rideCfg {
@@ -67,15 +67,15 @@ getRow(1,3)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61503,
     des = "转啊~转啊~我的骄傲放纵！",
     rewardDes = "旋转超过[00ff00]30秒[-]可获得旋转BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转木马",
     background = "guild_trojan",
-    camera = [{-0.6,1.8,-0.64},{1.24,113,0.45}]
+    camera = [{-3.87,3.49,-12.45},{6.5,20.33,0.45}]
     };
 getRow(1,4)->
     #guild_rideCfg {
@@ -91,15 +91,15 @@ getRow(1,4)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61504,
     des = "转啊~转啊~我的骄傲放纵！",
     rewardDes = "旋转超过[00ff00]30秒[-]可获得旋转BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转木马",
     background = "guild_trojan",
-    camera = [{-0.6,1.8,-0.64},{1.24,113,0.45}]
+    camera = [{-3.87,3.49,-12.45},{6.5,20.33,0.45}]
     };
 getRow(1,5)->
     #guild_rideCfg {
@@ -115,15 +115,15 @@ getRow(1,5)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61505,
     des = "转啊~转啊~我的骄傲放纵！",
     rewardDes = "旋转超过[00ff00]30秒[-]可获得旋转BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转木马",
     background = "guild_trojan",
-    camera = [{-0.6,1.8,-0.64},{1.24,113,0.45}]
+    camera = [{-3.87,3.49,-12.45},{6.5,20.33,0.45}]
     };
 getRow(1,6)->
     #guild_rideCfg {
@@ -139,15 +139,15 @@ getRow(1,6)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61506,
     des = "转啊~转啊~我的骄傲放纵！",
     rewardDes = "旋转超过[00ff00]30秒[-]可获得旋转BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转木马",
     background = "guild_trojan",
-    camera = [{-0.6,1.8,-0.64},{1.24,113,0.45}]
+    camera = [{-3.87,3.49,-12.45},{6.5,20.33,0.45}]
     };
 getRow(1,7)->
     #guild_rideCfg {
@@ -163,15 +163,15 @@ getRow(1,7)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61507,
     des = "转啊~转啊~我的骄傲放纵！",
     rewardDes = "旋转超过[00ff00]30秒[-]可获得旋转BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转木马",
     background = "guild_trojan",
-    camera = [{-0.6,1.8,-0.64},{1.24,113,0.45}]
+    camera = [{-3.87,3.49,-12.45},{6.5,20.33,0.45}]
     };
 getRow(2,1)->
     #guild_rideCfg {
@@ -187,7 +187,7 @@ getRow(2,1)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61601,
     des = "慢悠悠的，我带你上天！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -195,7 +195,7 @@ getRow(2,1)->
     animation_1 = 1,
     name = "摩天轮",
     background = "guild_wheel",
-    camera = [{0.04,3.69,3.31},{16,-175.76,2}]
+    camera = [{8.31,4.12,0.26},{10.3,94.5,0.45}]
     };
 getRow(2,2)->
     #guild_rideCfg {
@@ -211,7 +211,7 @@ getRow(2,2)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61602,
     des = "慢悠悠的，我带你上天！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -219,7 +219,7 @@ getRow(2,2)->
     animation_1 = 1,
     name = "摩天轮",
     background = "guild_wheel",
-    camera = [{0.04,3.69,3.31},{16,-175.76,2}]
+    camera = [{8.31,4.12,0.26},{10.3,94.5,0.45}]
     };
 getRow(2,3)->
     #guild_rideCfg {
@@ -235,7 +235,7 @@ getRow(2,3)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61603,
     des = "慢悠悠的，我带你上天！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -243,7 +243,7 @@ getRow(2,3)->
     animation_1 = 1,
     name = "摩天轮",
     background = "guild_wheel",
-    camera = [{0.04,3.69,3.31},{16,-175.76,2}]
+    camera = [{8.31,4.12,0.26},{10.3,94.5,0.45}]
     };
 getRow(2,4)->
     #guild_rideCfg {
@@ -259,7 +259,7 @@ getRow(2,4)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61604,
     des = "慢悠悠的，我带你上天！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -267,7 +267,7 @@ getRow(2,4)->
     animation_1 = 1,
     name = "摩天轮",
     background = "guild_wheel",
-    camera = [{0.04,3.69,3.31},{16,-175.76,2}]
+    camera = [{8.31,4.12,0.26},{10.3,94.5,0.45}]
     };
 getRow(2,5)->
     #guild_rideCfg {
@@ -283,7 +283,7 @@ getRow(2,5)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61605,
     des = "慢悠悠的，我带你上天！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -291,7 +291,7 @@ getRow(2,5)->
     animation_1 = 1,
     name = "摩天轮",
     background = "guild_wheel",
-    camera = [{0.04,3.69,3.31},{16,-175.76,2}]
+    camera = [{8.31,4.12,0.26},{10.3,94.5,0.45}]
     };
 getRow(2,6)->
     #guild_rideCfg {
@@ -307,7 +307,7 @@ getRow(2,6)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61606,
     des = "慢悠悠的，我带你上天！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -315,7 +315,7 @@ getRow(2,6)->
     animation_1 = 1,
     name = "摩天轮",
     background = "guild_wheel",
-    camera = [{0.04,3.69,3.31},{16,-175.76,2}]
+    camera = [{8.31,4.12,0.26},{10.3,94.5,0.45}]
     };
 getRow(2,7)->
     #guild_rideCfg {
@@ -331,7 +331,7 @@ getRow(2,7)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61607,
     des = "慢悠悠的，我带你上天！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -339,7 +339,7 @@ getRow(2,7)->
     animation_1 = 1,
     name = "摩天轮",
     background = "guild_wheel",
-    camera = [{0.04,3.69,3.31},{16,-175.76,2}]
+    camera = [{8.31,4.12,0.26},{10.3,94.5,0.45}]
     };
 getRow(3,1)->
     #guild_rideCfg {
@@ -355,7 +355,7 @@ getRow(3,1)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61701,
     des = "摇摆不定的船，就如你那荡漾的心！",
     rewardDes = "心坚意定，乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -379,7 +379,7 @@ getRow(3,2)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61702,
     des = "摇摆不定的船，就如你那荡漾的心！",
     rewardDes = "心坚意定，乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -403,7 +403,7 @@ getRow(3,3)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61703,
     des = "摇摆不定的船，就如你那荡漾的心！",
     rewardDes = "心坚意定，乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -427,7 +427,7 @@ getRow(3,4)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61704,
     des = "摇摆不定的船，就如你那荡漾的心！",
     rewardDes = "心坚意定，乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -451,7 +451,7 @@ getRow(3,5)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61705,
     des = "摇摆不定的船，就如你那荡漾的心！",
     rewardDes = "心坚意定，乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -475,7 +475,7 @@ getRow(3,6)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61706,
     des = "摇摆不定的船，就如你那荡漾的心！",
     rewardDes = "心坚意定，乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -499,7 +499,7 @@ getRow(3,7)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61707,
     des = "摇摆不定的船，就如你那荡漾的心！",
     rewardDes = "心坚意定，乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -523,15 +523,15 @@ getRow(4,1)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61801,
     des = "放开双手，我在远方等你！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转飞椅",
     background = "guild_chair",
-    camera = [{0,2.5,-2},{0,0,0}]
+    camera = [{-5.71,13.46,-13.5},{36.5,25.62,-37.4}]
     };
 getRow(4,2)->
     #guild_rideCfg {
@@ -547,15 +547,15 @@ getRow(4,2)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61802,
     des = "放开双手，我在远方等你！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转飞椅",
     background = "guild_chair",
-    camera = [{0,2.5,-2},{0,0,0}]
+    camera = [{-5.71,13.46,-13.5},{36.5,25.62,-37.4}]
     };
 getRow(4,3)->
     #guild_rideCfg {
@@ -571,15 +571,15 @@ getRow(4,3)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61803,
     des = "放开双手，我在远方等你！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转飞椅",
     background = "guild_chair",
-    camera = [{0,2.5,-2},{0,0,0}]
+    camera = [{-5.71,13.46,-13.5},{36.5,25.62,-37.4}]
     };
 getRow(4,4)->
     #guild_rideCfg {
@@ -595,15 +595,15 @@ getRow(4,4)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61804,
     des = "放开双手，我在远方等你！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转飞椅",
     background = "guild_chair",
-    camera = [{0,2.5,-2},{0,0,0}]
+    camera = [{-5.71,13.46,-13.5},{36.5,25.62,-37.4}]
     };
 getRow(4,5)->
     #guild_rideCfg {
@@ -619,15 +619,15 @@ getRow(4,5)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61805,
     des = "放开双手，我在远方等你！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转飞椅",
     background = "guild_chair",
-    camera = [{0,2.5,-2},{0,0,0}]
+    camera = [{-5.71,13.46,-13.5},{36.5,25.62,-37.4}]
     };
 getRow(4,6)->
     #guild_rideCfg {
@@ -643,15 +643,15 @@ getRow(4,6)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61806,
     des = "放开双手，我在远方等你！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转飞椅",
     background = "guild_chair",
-    camera = [{0,2.5,-2},{0,0,0}]
+    camera = [{-5.71,13.46,-13.5},{36.5,25.62,-37.4}]
     };
 getRow(4,7)->
     #guild_rideCfg {
@@ -667,15 +667,15 @@ getRow(4,7)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61807,
     des = "放开双手，我在远方等你！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
-    playspeed = 0.2,
+    playspeed = 0.1,
     animation_1 = 1,
     name = "旋转飞椅",
     background = "guild_chair",
-    camera = [{0,2.5,-2},{0,0,0}]
+    camera = [{-5.71,13.46,-13.5},{36.5,25.62,-37.4}]
     };
 getRow(5,1)->
     #guild_rideCfg {
@@ -691,7 +691,7 @@ getRow(5,1)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61901,
     des = "呜呜呜~~开车啦！乘客们，请坐好！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -699,7 +699,7 @@ getRow(5,1)->
     animation_1 = 1,
     name = "青龙列车",
     background = "guild_train",
-    camera = [{-0.68,7.64,-13.18},{0,0,0}]
+    camera = [{-21.32,9.26,-22.42},{11,48.7,0}]
     };
 getRow(5,2)->
     #guild_rideCfg {
@@ -715,7 +715,7 @@ getRow(5,2)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61902,
     des = "呜呜呜~~开车啦！乘客们，请坐好！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -723,7 +723,7 @@ getRow(5,2)->
     animation_1 = 1,
     name = "青龙列车",
     background = "guild_train",
-    camera = [{-0.68,7.64,-13.18},{0,0,0}]
+    camera = [{-21.32,9.26,-22.42},{11,48.7,0}]
     };
 getRow(5,3)->
     #guild_rideCfg {
@@ -739,7 +739,7 @@ getRow(5,3)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61903,
     des = "呜呜呜~~开车啦！乘客们，请坐好！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -747,7 +747,7 @@ getRow(5,3)->
     animation_1 = 1,
     name = "青龙列车",
     background = "guild_train",
-    camera = [{-0.68,7.64,-13.18},{0,0,0}]
+    camera = [{-21.32,9.26,-22.42},{11,48.7,0}]
     };
 getRow(5,4)->
     #guild_rideCfg {
@@ -763,7 +763,7 @@ getRow(5,4)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61904,
     des = "呜呜呜~~开车啦！乘客们，请坐好！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -771,7 +771,7 @@ getRow(5,4)->
     animation_1 = 1,
     name = "青龙列车",
     background = "guild_train",
-    camera = [{-0.68,7.64,-13.18},{0,0,0}]
+    camera = [{-21.32,9.26,-22.42},{11,48.7,0}]
     };
 getRow(5,5)->
     #guild_rideCfg {
@@ -787,7 +787,7 @@ getRow(5,5)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61905,
     des = "呜呜呜~~开车啦！乘客们，请坐好！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -795,7 +795,7 @@ getRow(5,5)->
     animation_1 = 1,
     name = "青龙列车",
     background = "guild_train",
-    camera = [{-0.68,7.64,-13.18},{0,0,0}]
+    camera = [{-21.32,9.26,-22.42},{11,48.7,0}]
     };
 getRow(5,6)->
     #guild_rideCfg {
@@ -811,7 +811,7 @@ getRow(5,6)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61906,
     des = "呜呜呜~~开车啦！乘客们，请坐好！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -819,7 +819,7 @@ getRow(5,6)->
     animation_1 = 1,
     name = "青龙列车",
     background = "guild_train",
-    camera = [{-0.68,7.64,-13.18},{0,0,0}]
+    camera = [{-21.32,9.26,-22.42},{11,48.7,0}]
     };
 getRow(5,7)->
     #guild_rideCfg {
@@ -835,7 +835,7 @@ getRow(5,7)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 61907,
     des = "呜呜呜~~开车啦！乘客们，请坐好！",
     rewardDes = "乘坐[00ff00]30秒[-]以上，可获得BUFF！",
     weapon_hiden = 1,
@@ -843,7 +843,7 @@ getRow(5,7)->
     animation_1 = 1,
     name = "青龙列车",
     background = "guild_train",
-    camera = [{-0.68,7.64,-13.18},{0,0,0}]
+    camera = [{-21.32,9.26,-22.42},{11,48.7,0}]
     };
 getRow(6,1)->
     #guild_rideCfg {
@@ -859,7 +859,7 @@ getRow(6,1)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 62001,
     des = "浓浓的爱的味道！",
     rewardDes = "不同的爱给你不同的味道，不同的BUFF！",
     weapon_hiden = 1,
@@ -883,7 +883,7 @@ getRow(6,2)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 62002,
     des = "浓浓的爱的味道！",
     rewardDes = "不同的爱给你不同的味道，不同的BUFF！",
     weapon_hiden = 1,
@@ -907,7 +907,7 @@ getRow(6,3)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 62003,
     des = "浓浓的爱的味道！",
     rewardDes = "不同的爱给你不同的味道，不同的BUFF！",
     weapon_hiden = 1,
@@ -931,7 +931,7 @@ getRow(6,4)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 62004,
     des = "浓浓的爱的味道！",
     rewardDes = "不同的爱给你不同的味道，不同的BUFF！",
     weapon_hiden = 1,
@@ -955,7 +955,7 @@ getRow(6,5)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 62005,
     des = "浓浓的爱的味道！",
     rewardDes = "不同的爱给你不同的味道，不同的BUFF！",
     weapon_hiden = 1,
@@ -979,7 +979,7 @@ getRow(6,6)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 62006,
     des = "浓浓的爱的味道！",
     rewardDes = "不同的爱给你不同的味道，不同的BUFF！",
     weapon_hiden = 1,
@@ -1003,7 +1003,7 @@ getRow(6,7)->
     upgradePower = 3,
     timeMin = 60,
     timeMax = 120,
-    buffID = 61111,
+    buffID = 62007,
     des = "浓浓的爱的味道！",
     rewardDes = "不同的爱给你不同的味道，不同的BUFF！",
     weapon_hiden = 1,

@@ -566,8 +566,13 @@ getLevel() ->
 -spec setLevel(Level) -> OldVal | undefined when
 		   Level :: uint(), OldVal :: uint().
 setLevel(Level) when erlang:is_integer(Level) andalso Level >= 0 ->
-	%OldLevel = getLevel(),
 	Ret = put(playerLevel,Level),
+	case Ret < Level of
+		true ->
+			playerSevenDayAim:updateCondition(?SevenDayAim_RoleLevel, []);
+		_ ->
+			skip
+	end,
 	Ret.
 
 % 获取角色性别
@@ -760,7 +765,9 @@ setCoin(CoinType,CoinNum) when CoinType > 0 andalso CoinType =< ?CoinTypeMax
 % 获取角色当前HP值
 -spec getCurHp() -> Val | undefined when Val :: uint().
 getCurHp() ->
-	get(playerCurHp).
+	Hp = get(playerCurHp),
+	MaxHp = erlang:trunc(getBattlePropTotal(?Prop_MaxHP)),
+	erlang:min(Hp, MaxHp).
 
 % 设置角色当前HP值，此函数只能在活着的状态才能调用
 -spec setCurHp(Hp) -> ok when

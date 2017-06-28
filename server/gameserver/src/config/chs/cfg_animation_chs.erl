@@ -98,7 +98,7 @@ getRow(10002)->
 getRow(10003)->
     #animationCfg {
     id = 10003,
-    name = "gangkouzhizhan_1",
+    name = "baohuhuochuan_1",
     isloop = 0
     };
 getRow(_)->[].

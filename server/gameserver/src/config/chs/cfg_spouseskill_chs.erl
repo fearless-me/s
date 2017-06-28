@@ -13,7 +13,7 @@ getRow(1,1)->
     skillid = 13500,
     exp = 0,
     intimacy = 1,
-    property = [{135,0.14,1}],
+    property = [{135,1400,0}],
     name = "情比金坚（生命）",
     level = 35
     };
@@ -25,7 +25,7 @@ getRow(1,2)->
     skillid = 13500,
     exp = 10,
     intimacy = 2,
-    property = [{135,0.141,1}],
+    property = [{135,1410,0}],
     name = "情比金坚（生命）",
     level = 36
     };
@@ -37,7 +37,7 @@ getRow(1,3)->
     skillid = 13500,
     exp = 20,
     intimacy = 3,
-    property = [{135,0.142,1}],
+    property = [{135,1420,0}],
     name = "情比金坚（生命）",
     level = 36
     };
@@ -49,7 +49,7 @@ getRow(1,4)->
     skillid = 13500,
     exp = 30,
     intimacy = 4,
-    property = [{135,0.145,1}],
+    property = [{135,1450,0}],
     name = "情比金坚（生命）",
     level = 37
     };
@@ -61,7 +61,7 @@ getRow(1,5)->
     skillid = 13500,
     exp = 35,
     intimacy = 5,
-    property = [{135,0.148,1}],
+    property = [{135,1480,0}],
     name = "情比金坚（生命）",
     level = 37
     };
@@ -73,7 +73,7 @@ getRow(1,6)->
     skillid = 13500,
     exp = 45,
     intimacy = 6,
-    property = [{135,0.152,1}],
+    property = [{135,1520,0}],
     name = "情比金坚（生命）",
     level = 38
     };
@@ -85,7 +85,7 @@ getRow(1,7)->
     skillid = 13500,
     exp = 55,
     intimacy = 7,
-    property = [{135,0.156,1}],
+    property = [{135,1560,0}],
     name = "情比金坚（生命）",
     level = 38
     };
@@ -97,7 +97,7 @@ getRow(1,8)->
     skillid = 13500,
     exp = 65,
     intimacy = 8,
-    property = [{135,0.161,1}],
+    property = [{135,1610,0}],
     name = "情比金坚（生命）",
     level = 39
     };
@@ -109,7 +109,7 @@ getRow(1,9)->
     skillid = 13500,
     exp = 75,
     intimacy = 9,
-    property = [{135,0.166,1}],
+    property = [{135,1660,0}],
     name = "情比金坚（生命）",
     level = 39
     };
@@ -121,7 +121,7 @@ getRow(1,10)->
     skillid = 13500,
     exp = 85,
     intimacy = 10,
-    property = [{135,0.172,1}],
+    property = [{135,1720,0}],
     name = "情比金坚（生命）",
     level = 40
     };
@@ -133,7 +133,7 @@ getRow(1,11)->
     skillid = 13500,
     exp = 95,
     intimacy = 11,
-    property = [{135,0.178,1}],
+    property = [{135,1780,0}],
     name = "情比金坚（生命）",
     level = 40
     };
@@ -145,7 +145,7 @@ getRow(1,12)->
     skillid = 13500,
     exp = 105,
     intimacy = 12,
-    property = [{135,0.184,1}],
+    property = [{135,1840,0}],
     name = "情比金坚（生命）",
     level = 41
     };
@@ -157,7 +157,7 @@ getRow(1,13)->
     skillid = 13500,
     exp = 115,
     intimacy = 13,
-    property = [{135,0.191,1}],
+    property = [{135,1910,0}],
     name = "情比金坚（生命）",
     level = 41
     };
@@ -169,7 +169,7 @@ getRow(1,14)->
     skillid = 13500,
     exp = 125,
     intimacy = 14,
-    property = [{135,0.199,1}],
+    property = [{135,1990,0}],
     name = "情比金坚（生命）",
     level = 42
     };
@@ -181,7 +181,7 @@ getRow(1,15)->
     skillid = 13500,
     exp = 140,
     intimacy = 15,
-    property = [{135,0.207,1}],
+    property = [{135,2070,0}],
     name = "情比金坚（生命）",
     level = 42
     };
@@ -193,7 +193,7 @@ getRow(1,16)->
     skillid = 13500,
     exp = 150,
     intimacy = 16,
-    property = [{135,0.215,1}],
+    property = [{135,2150,0}],
     name = "情比金坚（生命）",
     level = 43
     };
@@ -205,7 +205,7 @@ getRow(1,17)->
     skillid = 13500,
     exp = 160,
     intimacy = 17,
-    property = [{135,0.224,1}],
+    property = [{135,2240,0}],
     name = "情比金坚（生命）",
     level = 43
     };
@@ -217,7 +217,7 @@ getRow(1,18)->
     skillid = 13500,
     exp = 170,
     intimacy = 18,
-    property = [{135,0.233,1}],
+    property = [{135,2330,0}],
     name = "情比金坚（生命）",
     level = 44
     };
@@ -229,7 +229,7 @@ getRow(1,19)->
     skillid = 13500,
     exp = 180,
     intimacy = 19,
-    property = [{135,0.242,1}],
+    property = [{135,2420,0}],
     name = "情比金坚（生命）",
     level = 44
     };
@@ -241,7 +241,7 @@ getRow(1,20)->
     skillid = 13500,
     exp = 190,
     intimacy = 20,
-    property = [{135,0.252,1}],
+    property = [{135,2520,0}],
     name = "情比金坚（生命）",
     level = 45
     };
@@ -253,7 +253,7 @@ getRow(1,21)->
     skillid = 13500,
     exp = 205,
     intimacy = 21,
-    property = [{135,0.263,1}],
+    property = [{135,2630,0}],
     name = "情比金坚（生命）",
     level = 45
     };
@@ -265,7 +265,7 @@ getRow(1,22)->
     skillid = 13500,
     exp = 215,
     intimacy = 22,
-    property = [{135,0.273,1}],
+    property = [{135,2730,0}],
     name = "情比金坚（生命）",
     level = 46
     };
@@ -277,7 +277,7 @@ getRow(1,23)->
     skillid = 13500,
     exp = 225,
     intimacy = 23,
-    property = [{135,0.284,1}],
+    property = [{135,2840,0}],
     name = "情比金坚（生命）",
     level = 46
     };
@@ -289,7 +289,7 @@ getRow(1,24)->
     skillid = 13500,
     exp = 235,
     intimacy = 24,
-    property = [{135,0.295,1}],
+    property = [{135,2950,0}],
     name = "情比金坚（生命）",
     level = 47
     };
@@ -301,7 +301,7 @@ getRow(1,25)->
     skillid = 13500,
     exp = 245,
     intimacy = 25,
-    property = [{135,0.307,1}],
+    property = [{135,3070,0}],
     name = "情比金坚（生命）",
     level = 47
     };
@@ -313,7 +313,7 @@ getRow(1,26)->
     skillid = 13500,
     exp = 260,
     intimacy = 26,
-    property = [{135,0.319,1}],
+    property = [{135,3190,0}],
     name = "情比金坚（生命）",
     level = 48
     };
@@ -325,7 +325,7 @@ getRow(1,27)->
     skillid = 13500,
     exp = 270,
     intimacy = 27,
-    property = [{135,0.331,1}],
+    property = [{135,3310,0}],
     name = "情比金坚（生命）",
     level = 48
     };
@@ -337,7 +337,7 @@ getRow(1,28)->
     skillid = 13500,
     exp = 280,
     intimacy = 28,
-    property = [{135,0.344,1}],
+    property = [{135,3440,0}],
     name = "情比金坚（生命）",
     level = 49
     };
@@ -349,7 +349,7 @@ getRow(1,29)->
     skillid = 13500,
     exp = 290,
     intimacy = 29,
-    property = [{135,0.357,1}],
+    property = [{135,3570,0}],
     name = "情比金坚（生命）",
     level = 49
     };
@@ -361,7 +361,7 @@ getRow(1,30)->
     skillid = 13500,
     exp = 305,
     intimacy = 30,
-    property = [{135,0.37,1}],
+    property = [{135,3700,0}],
     name = "情比金坚（生命）",
     level = 50
     };
@@ -373,7 +373,7 @@ getRow(1,31)->
     skillid = 13500,
     exp = 315,
     intimacy = 31,
-    property = [{135,0.384,1}],
+    property = [{135,3840,0}],
     name = "情比金坚（生命）",
     level = 50
     };
@@ -385,7 +385,7 @@ getRow(1,32)->
     skillid = 13500,
     exp = 325,
     intimacy = 32,
-    property = [{135,0.398,1}],
+    property = [{135,3980,0}],
     name = "情比金坚（生命）",
     level = 51
     };
@@ -397,7 +397,7 @@ getRow(1,33)->
     skillid = 13500,
     exp = 340,
     intimacy = 33,
-    property = [{135,0.412,1}],
+    property = [{135,4120,0}],
     name = "情比金坚（生命）",
     level = 51
     };
@@ -409,7 +409,7 @@ getRow(1,34)->
     skillid = 13500,
     exp = 350,
     intimacy = 34,
-    property = [{135,0.427,1}],
+    property = [{135,4270,0}],
     name = "情比金坚（生命）",
     level = 52
     };
@@ -421,7 +421,7 @@ getRow(1,35)->
     skillid = 13500,
     exp = 360,
     intimacy = 35,
-    property = [{135,0.442,1}],
+    property = [{135,4420,0}],
     name = "情比金坚（生命）",
     level = 52
     };
@@ -433,7 +433,7 @@ getRow(1,36)->
     skillid = 13500,
     exp = 375,
     intimacy = 36,
-    property = [{135,0.457,1}],
+    property = [{135,4570,0}],
     name = "情比金坚（生命）",
     level = 53
     };
@@ -445,7 +445,7 @@ getRow(1,37)->
     skillid = 13500,
     exp = 385,
     intimacy = 37,
-    property = [{135,0.473,1}],
+    property = [{135,4730,0}],
     name = "情比金坚（生命）",
     level = 53
     };
@@ -457,7 +457,7 @@ getRow(1,38)->
     skillid = 13500,
     exp = 395,
     intimacy = 38,
-    property = [{135,0.489,1}],
+    property = [{135,4890,0}],
     name = "情比金坚（生命）",
     level = 54
     };
@@ -469,7 +469,7 @@ getRow(1,39)->
     skillid = 13500,
     exp = 410,
     intimacy = 39,
-    property = [{135,0.505,1}],
+    property = [{135,5050,0}],
     name = "情比金坚（生命）",
     level = 54
     };
@@ -481,7 +481,7 @@ getRow(1,40)->
     skillid = 13500,
     exp = 420,
     intimacy = 40,
-    property = [{135,0.521,1}],
+    property = [{135,5210,0}],
     name = "情比金坚（生命）",
     level = 55
     };
@@ -493,7 +493,7 @@ getRow(1,41)->
     skillid = 13500,
     exp = 430,
     intimacy = 41,
-    property = [{135,0.538,1}],
+    property = [{135,5380,0}],
     name = "情比金坚（生命）",
     level = 55
     };
@@ -505,7 +505,7 @@ getRow(1,42)->
     skillid = 13500,
     exp = 445,
     intimacy = 42,
-    property = [{135,0.555,1}],
+    property = [{135,5550,0}],
     name = "情比金坚（生命）",
     level = 56
     };
@@ -517,7 +517,7 @@ getRow(1,43)->
     skillid = 13500,
     exp = 455,
     intimacy = 43,
-    property = [{135,0.573,1}],
+    property = [{135,5730,0}],
     name = "情比金坚（生命）",
     level = 56
     };
@@ -529,7 +529,7 @@ getRow(1,44)->
     skillid = 13500,
     exp = 465,
     intimacy = 44,
-    property = [{135,0.59,1}],
+    property = [{135,5900,0}],
     name = "情比金坚（生命）",
     level = 57
     };
@@ -541,7 +541,7 @@ getRow(1,45)->
     skillid = 13500,
     exp = 480,
     intimacy = 45,
-    property = [{135,0.608,1}],
+    property = [{135,6080,0}],
     name = "情比金坚（生命）",
     level = 57
     };
@@ -553,7 +553,7 @@ getRow(1,46)->
     skillid = 13500,
     exp = 490,
     intimacy = 46,
-    property = [{135,0.626,1}],
+    property = [{135,6260,0}],
     name = "情比金坚（生命）",
     level = 58
     };
@@ -565,7 +565,7 @@ getRow(1,47)->
     skillid = 13500,
     exp = 505,
     intimacy = 47,
-    property = [{135,0.645,1}],
+    property = [{135,6450,0}],
     name = "情比金坚（生命）",
     level = 58
     };
@@ -577,7 +577,7 @@ getRow(1,48)->
     skillid = 13500,
     exp = 515,
     intimacy = 48,
-    property = [{135,0.664,1}],
+    property = [{135,6640,0}],
     name = "情比金坚（生命）",
     level = 59
     };
@@ -589,7 +589,7 @@ getRow(1,49)->
     skillid = 13500,
     exp = 525,
     intimacy = 49,
-    property = [{135,0.683,1}],
+    property = [{135,6830,0}],
     name = "情比金坚（生命）",
     level = 59
     };
@@ -601,7 +601,7 @@ getRow(1,50)->
     skillid = 13500,
     exp = 540,
     intimacy = 50,
-    property = [{135,0.702,1}],
+    property = [{135,7020,0}],
     name = "情比金坚（生命）",
     level = 60
     };
@@ -613,7 +613,7 @@ getRow(1,51)->
     skillid = 13500,
     exp = 550,
     intimacy = 51,
-    property = [{135,0.722,1}],
+    property = [{135,7220,0}],
     name = "情比金坚（生命）",
     level = 60
     };
@@ -625,7 +625,7 @@ getRow(1,52)->
     skillid = 13500,
     exp = 565,
     intimacy = 52,
-    property = [{135,0.742,1}],
+    property = [{135,7420,0}],
     name = "情比金坚（生命）",
     level = 61
     };
@@ -637,7 +637,7 @@ getRow(1,53)->
     skillid = 13500,
     exp = 575,
     intimacy = 53,
-    property = [{135,0.762,1}],
+    property = [{135,7620,0}],
     name = "情比金坚（生命）",
     level = 61
     };
@@ -649,7 +649,7 @@ getRow(1,54)->
     skillid = 13500,
     exp = 590,
     intimacy = 54,
-    property = [{135,0.782,1}],
+    property = [{135,7820,0}],
     name = "情比金坚（生命）",
     level = 62
     };
@@ -661,7 +661,7 @@ getRow(1,55)->
     skillid = 13500,
     exp = 600,
     intimacy = 55,
-    property = [{135,0.803,1}],
+    property = [{135,8030,0}],
     name = "情比金坚（生命）",
     level = 62
     };
@@ -673,7 +673,7 @@ getRow(1,56)->
     skillid = 13500,
     exp = 610,
     intimacy = 56,
-    property = [{135,0.824,1}],
+    property = [{135,8240,0}],
     name = "情比金坚（生命）",
     level = 63
     };
@@ -685,7 +685,7 @@ getRow(1,57)->
     skillid = 13500,
     exp = 625,
     intimacy = 57,
-    property = [{135,0.845,1}],
+    property = [{135,8450,0}],
     name = "情比金坚（生命）",
     level = 63
     };
@@ -697,7 +697,7 @@ getRow(1,58)->
     skillid = 13500,
     exp = 635,
     intimacy = 58,
-    property = [{135,0.867,1}],
+    property = [{135,8670,0}],
     name = "情比金坚（生命）",
     level = 64
     };
@@ -709,7 +709,7 @@ getRow(1,59)->
     skillid = 13500,
     exp = 650,
     intimacy = 59,
-    property = [{135,0.889,1}],
+    property = [{135,8890,0}],
     name = "情比金坚（生命）",
     level = 64
     };
@@ -721,7 +721,7 @@ getRow(1,60)->
     skillid = 13500,
     exp = 660,
     intimacy = 60,
-    property = [{135,0.911,1}],
+    property = [{135,9110,0}],
     name = "情比金坚（生命）",
     level = 65
     };
@@ -733,7 +733,7 @@ getRow(1,61)->
     skillid = 13500,
     exp = 675,
     intimacy = 61,
-    property = [{135,0.933,1}],
+    property = [{135,9330,0}],
     name = "情比金坚（生命）",
     level = 65
     };
@@ -745,7 +745,7 @@ getRow(1,62)->
     skillid = 13500,
     exp = 685,
     intimacy = 62,
-    property = [{135,0.956,1}],
+    property = [{135,9560,0}],
     name = "情比金坚（生命）",
     level = 66
     };
@@ -757,7 +757,7 @@ getRow(1,63)->
     skillid = 13500,
     exp = 700,
     intimacy = 63,
-    property = [{135,0.979,1}],
+    property = [{135,9790,0}],
     name = "情比金坚（生命）",
     level = 66
     };
@@ -769,7 +769,7 @@ getRow(1,64)->
     skillid = 13500,
     exp = 710,
     intimacy = 64,
-    property = [{135,1.002,1}],
+    property = [{135,10020,0}],
     name = "情比金坚（生命）",
     level = 67
     };
@@ -781,7 +781,7 @@ getRow(1,65)->
     skillid = 13500,
     exp = 725,
     intimacy = 65,
-    property = [{135,1.025,1}],
+    property = [{135,10250,0}],
     name = "情比金坚（生命）",
     level = 67
     };
@@ -793,7 +793,7 @@ getRow(1,66)->
     skillid = 13500,
     exp = 735,
     intimacy = 66,
-    property = [{135,1.049,1}],
+    property = [{135,10490,0}],
     name = "情比金坚（生命）",
     level = 68
     };
@@ -805,7 +805,7 @@ getRow(1,67)->
     skillid = 13500,
     exp = 750,
     intimacy = 67,
-    property = [{135,1.073,1}],
+    property = [{135,10730,0}],
     name = "情比金坚（生命）",
     level = 68
     };
@@ -817,7 +817,7 @@ getRow(1,68)->
     skillid = 13500,
     exp = 760,
     intimacy = 68,
-    property = [{135,1.097,1}],
+    property = [{135,10970,0}],
     name = "情比金坚（生命）",
     level = 69
     };
@@ -829,7 +829,7 @@ getRow(1,69)->
     skillid = 13500,
     exp = 770,
     intimacy = 69,
-    property = [{135,1.121,1}],
+    property = [{135,11210,0}],
     name = "情比金坚（生命）",
     level = 69
     };
@@ -841,7 +841,7 @@ getRow(1,70)->
     skillid = 13500,
     exp = 785,
     intimacy = 70,
-    property = [{135,1.146,1}],
+    property = [{135,11460,0}],
     name = "情比金坚（生命）",
     level = 70
     };
@@ -853,7 +853,7 @@ getRow(1,71)->
     skillid = 13500,
     exp = 795,
     intimacy = 71,
-    property = [{135,1.171,1}],
+    property = [{135,11710,0}],
     name = "情比金坚（生命）",
     level = 70
     };
@@ -865,7 +865,7 @@ getRow(1,72)->
     skillid = 13500,
     exp = 810,
     intimacy = 72,
-    property = [{135,1.196,1}],
+    property = [{135,11960,0}],
     name = "情比金坚（生命）",
     level = 71
     };
@@ -877,7 +877,7 @@ getRow(1,73)->
     skillid = 13500,
     exp = 820,
     intimacy = 73,
-    property = [{135,1.221,1}],
+    property = [{135,12210,0}],
     name = "情比金坚（生命）",
     level = 71
     };
@@ -889,7 +889,7 @@ getRow(1,74)->
     skillid = 13500,
     exp = 835,
     intimacy = 74,
-    property = [{135,1.247,1}],
+    property = [{135,12470,0}],
     name = "情比金坚（生命）",
     level = 72
     };
@@ -901,7 +901,7 @@ getRow(1,75)->
     skillid = 13500,
     exp = 845,
     intimacy = 75,
-    property = [{135,1.273,1}],
+    property = [{135,12730,0}],
     name = "情比金坚（生命）",
     level = 72
     };
@@ -913,7 +913,7 @@ getRow(1,76)->
     skillid = 13500,
     exp = 860,
     intimacy = 76,
-    property = [{135,1.299,1}],
+    property = [{135,12990,0}],
     name = "情比金坚（生命）",
     level = 73
     };
@@ -925,7 +925,7 @@ getRow(1,77)->
     skillid = 13500,
     exp = 875,
     intimacy = 77,
-    property = [{135,1.326,1}],
+    property = [{135,13260,0}],
     name = "情比金坚（生命）",
     level = 73
     };
@@ -937,7 +937,7 @@ getRow(1,78)->
     skillid = 13500,
     exp = 885,
     intimacy = 78,
-    property = [{135,1.352,1}],
+    property = [{135,13520,0}],
     name = "情比金坚（生命）",
     level = 74
     };
@@ -949,7 +949,7 @@ getRow(1,79)->
     skillid = 13500,
     exp = 900,
     intimacy = 79,
-    property = [{135,1.379,1}],
+    property = [{135,13790,0}],
     name = "情比金坚（生命）",
     level = 74
     };
@@ -961,7 +961,7 @@ getRow(1,80)->
     skillid = 13500,
     exp = 910,
     intimacy = 80,
-    property = [{135,1.406,1}],
+    property = [{135,14060,0}],
     name = "情比金坚（生命）",
     level = 75
     };
@@ -973,7 +973,7 @@ getRow(1,81)->
     skillid = 13500,
     exp = 910,
     intimacy = 81,
-    property = [{135,17,1}],
+    property = [{135,170000,0}],
     name = "情比金坚（生命）",
     level = 75
     };
@@ -985,7 +985,7 @@ getRow(1,82)->
     skillid = 13500,
     exp = 33725,
     intimacy = 82,
-    property = [{135,17.2,1}],
+    property = [{135,172000,0}],
     name = "情比金坚（生命）",
     level = 76
     };
@@ -997,7 +997,7 @@ getRow(1,83)->
     skillid = 13500,
     exp = 33725,
     intimacy = 83,
-    property = [{135,17.4,1}],
+    property = [{135,174000,0}],
     name = "情比金坚（生命）",
     level = 76
     };
@@ -1009,7 +1009,7 @@ getRow(1,84)->
     skillid = 13500,
     exp = 33725,
     intimacy = 84,
-    property = [{135,17.6,1}],
+    property = [{135,176000,0}],
     name = "情比金坚（生命）",
     level = 77
     };
@@ -1021,7 +1021,7 @@ getRow(1,85)->
     skillid = 13500,
     exp = 33725,
     intimacy = 85,
-    property = [{135,17.8,1}],
+    property = [{135,178000,0}],
     name = "情比金坚（生命）",
     level = 77
     };
@@ -1033,7 +1033,7 @@ getRow(1,86)->
     skillid = 13500,
     exp = 33725,
     intimacy = 86,
-    property = [{135,18,1}],
+    property = [{135,180000,0}],
     name = "情比金坚（生命）",
     level = 78
     };
@@ -1045,7 +1045,7 @@ getRow(1,87)->
     skillid = 13500,
     exp = 33725,
     intimacy = 87,
-    property = [{135,18.2,1}],
+    property = [{135,182000,0}],
     name = "情比金坚（生命）",
     level = 78
     };
@@ -1057,7 +1057,7 @@ getRow(1,88)->
     skillid = 13500,
     exp = 33725,
     intimacy = 88,
-    property = [{135,18.4,1}],
+    property = [{135,184000,0}],
     name = "情比金坚（生命）",
     level = 79
     };
@@ -1069,7 +1069,7 @@ getRow(1,89)->
     skillid = 13500,
     exp = 33725,
     intimacy = 89,
-    property = [{135,18.6,1}],
+    property = [{135,186000,0}],
     name = "情比金坚（生命）",
     level = 79
     };
@@ -1081,7 +1081,7 @@ getRow(1,90)->
     skillid = 13500,
     exp = 33725,
     intimacy = 90,
-    property = [{135,18.8,1}],
+    property = [{135,188000,0}],
     name = "情比金坚（生命）",
     level = 80
     };
@@ -1093,7 +1093,7 @@ getRow(2,1)->
     skillid = 13501,
     exp = 0,
     intimacy = 1,
-    property = [{136,0.14,1}],
+    property = [{136,140,0}],
     name = "情比金坚（物攻）",
     level = 35
     };
@@ -1105,7 +1105,7 @@ getRow(2,2)->
     skillid = 13501,
     exp = 10,
     intimacy = 2,
-    property = [{136,0.141,1}],
+    property = [{136,141,0}],
     name = "情比金坚（物攻）",
     level = 36
     };
@@ -1117,7 +1117,7 @@ getRow(2,3)->
     skillid = 13501,
     exp = 20,
     intimacy = 3,
-    property = [{136,0.142,1}],
+    property = [{136,142,0}],
     name = "情比金坚（物攻）",
     level = 36
     };
@@ -1129,7 +1129,7 @@ getRow(2,4)->
     skillid = 13501,
     exp = 30,
     intimacy = 4,
-    property = [{136,0.145,1}],
+    property = [{136,145,0}],
     name = "情比金坚（物攻）",
     level = 37
     };
@@ -1141,7 +1141,7 @@ getRow(2,5)->
     skillid = 13501,
     exp = 35,
     intimacy = 5,
-    property = [{136,0.148,1}],
+    property = [{136,148,0}],
     name = "情比金坚（物攻）",
     level = 37
     };
@@ -1153,7 +1153,7 @@ getRow(2,6)->
     skillid = 13501,
     exp = 45,
     intimacy = 6,
-    property = [{136,0.152,1}],
+    property = [{136,152,0}],
     name = "情比金坚（物攻）",
     level = 38
     };
@@ -1165,7 +1165,7 @@ getRow(2,7)->
     skillid = 13501,
     exp = 55,
     intimacy = 7,
-    property = [{136,0.156,1}],
+    property = [{136,156,0}],
     name = "情比金坚（物攻）",
     level = 38
     };
@@ -1177,7 +1177,7 @@ getRow(2,8)->
     skillid = 13501,
     exp = 65,
     intimacy = 8,
-    property = [{136,0.161,1}],
+    property = [{136,161,0}],
     name = "情比金坚（物攻）",
     level = 39
     };
@@ -1189,7 +1189,7 @@ getRow(2,9)->
     skillid = 13501,
     exp = 75,
     intimacy = 9,
-    property = [{136,0.166,1}],
+    property = [{136,166,0}],
     name = "情比金坚（物攻）",
     level = 39
     };
@@ -1201,7 +1201,7 @@ getRow(2,10)->
     skillid = 13501,
     exp = 85,
     intimacy = 10,
-    property = [{136,0.172,1}],
+    property = [{136,172,0}],
     name = "情比金坚（物攻）",
     level = 40
     };
@@ -1213,7 +1213,7 @@ getRow(2,11)->
     skillid = 13501,
     exp = 95,
     intimacy = 11,
-    property = [{136,0.178,1}],
+    property = [{136,178,0}],
     name = "情比金坚（物攻）",
     level = 40
     };
@@ -1225,7 +1225,7 @@ getRow(2,12)->
     skillid = 13501,
     exp = 105,
     intimacy = 12,
-    property = [{136,0.184,1}],
+    property = [{136,184,0}],
     name = "情比金坚（物攻）",
     level = 41
     };
@@ -1237,7 +1237,7 @@ getRow(2,13)->
     skillid = 13501,
     exp = 115,
     intimacy = 13,
-    property = [{136,0.191,1}],
+    property = [{136,191,0}],
     name = "情比金坚（物攻）",
     level = 41
     };
@@ -1249,7 +1249,7 @@ getRow(2,14)->
     skillid = 13501,
     exp = 125,
     intimacy = 14,
-    property = [{136,0.199,1}],
+    property = [{136,199,0}],
     name = "情比金坚（物攻）",
     level = 42
     };
@@ -1261,7 +1261,7 @@ getRow(2,15)->
     skillid = 13501,
     exp = 140,
     intimacy = 15,
-    property = [{136,0.207,1}],
+    property = [{136,207,0}],
     name = "情比金坚（物攻）",
     level = 42
     };
@@ -1273,7 +1273,7 @@ getRow(2,16)->
     skillid = 13501,
     exp = 150,
     intimacy = 16,
-    property = [{136,0.215,1}],
+    property = [{136,215,0}],
     name = "情比金坚（物攻）",
     level = 43
     };
@@ -1285,7 +1285,7 @@ getRow(2,17)->
     skillid = 13501,
     exp = 160,
     intimacy = 17,
-    property = [{136,0.224,1}],
+    property = [{136,224,0}],
     name = "情比金坚（物攻）",
     level = 43
     };
@@ -1297,7 +1297,7 @@ getRow(2,18)->
     skillid = 13501,
     exp = 170,
     intimacy = 18,
-    property = [{136,0.233,1}],
+    property = [{136,233,0}],
     name = "情比金坚（物攻）",
     level = 44
     };
@@ -1309,7 +1309,7 @@ getRow(2,19)->
     skillid = 13501,
     exp = 180,
     intimacy = 19,
-    property = [{136,0.242,1}],
+    property = [{136,242,0}],
     name = "情比金坚（物攻）",
     level = 44
     };
@@ -1321,7 +1321,7 @@ getRow(2,20)->
     skillid = 13501,
     exp = 190,
     intimacy = 20,
-    property = [{136,0.252,1}],
+    property = [{136,252,0}],
     name = "情比金坚（物攻）",
     level = 45
     };
@@ -1333,7 +1333,7 @@ getRow(2,21)->
     skillid = 13501,
     exp = 205,
     intimacy = 21,
-    property = [{136,0.263,1}],
+    property = [{136,263,0}],
     name = "情比金坚（物攻）",
     level = 45
     };
@@ -1345,7 +1345,7 @@ getRow(2,22)->
     skillid = 13501,
     exp = 215,
     intimacy = 22,
-    property = [{136,0.273,1}],
+    property = [{136,273,0}],
     name = "情比金坚（物攻）",
     level = 46
     };
@@ -1357,7 +1357,7 @@ getRow(2,23)->
     skillid = 13501,
     exp = 225,
     intimacy = 23,
-    property = [{136,0.284,1}],
+    property = [{136,284,0}],
     name = "情比金坚（物攻）",
     level = 46
     };
@@ -1369,7 +1369,7 @@ getRow(2,24)->
     skillid = 13501,
     exp = 235,
     intimacy = 24,
-    property = [{136,0.295,1}],
+    property = [{136,295,0}],
     name = "情比金坚（物攻）",
     level = 47
     };
@@ -1381,7 +1381,7 @@ getRow(2,25)->
     skillid = 13501,
     exp = 245,
     intimacy = 25,
-    property = [{136,0.307,1}],
+    property = [{136,307,0}],
     name = "情比金坚（物攻）",
     level = 47
     };
@@ -1393,7 +1393,7 @@ getRow(2,26)->
     skillid = 13501,
     exp = 260,
     intimacy = 26,
-    property = [{136,0.319,1}],
+    property = [{136,319,0}],
     name = "情比金坚（物攻）",
     level = 48
     };
@@ -1405,7 +1405,7 @@ getRow(2,27)->
     skillid = 13501,
     exp = 270,
     intimacy = 27,
-    property = [{136,0.331,1}],
+    property = [{136,331,0}],
     name = "情比金坚（物攻）",
     level = 48
     };
@@ -1417,7 +1417,7 @@ getRow(2,28)->
     skillid = 13501,
     exp = 280,
     intimacy = 28,
-    property = [{136,0.344,1}],
+    property = [{136,344,0}],
     name = "情比金坚（物攻）",
     level = 49
     };
@@ -1429,7 +1429,7 @@ getRow(2,29)->
     skillid = 13501,
     exp = 290,
     intimacy = 29,
-    property = [{136,0.357,1}],
+    property = [{136,357,0}],
     name = "情比金坚（物攻）",
     level = 49
     };
@@ -1441,7 +1441,7 @@ getRow(2,30)->
     skillid = 13501,
     exp = 305,
     intimacy = 30,
-    property = [{136,0.37,1}],
+    property = [{136,370,0}],
     name = "情比金坚（物攻）",
     level = 50
     };
@@ -1453,7 +1453,7 @@ getRow(2,31)->
     skillid = 13501,
     exp = 315,
     intimacy = 31,
-    property = [{136,0.384,1}],
+    property = [{136,384,0}],
     name = "情比金坚（物攻）",
     level = 50
     };
@@ -1465,7 +1465,7 @@ getRow(2,32)->
     skillid = 13501,
     exp = 325,
     intimacy = 32,
-    property = [{136,0.398,1}],
+    property = [{136,398,0}],
     name = "情比金坚（物攻）",
     level = 51
     };
@@ -1477,7 +1477,7 @@ getRow(2,33)->
     skillid = 13501,
     exp = 340,
     intimacy = 33,
-    property = [{136,0.412,1}],
+    property = [{136,412,0}],
     name = "情比金坚（物攻）",
     level = 51
     };
@@ -1489,7 +1489,7 @@ getRow(2,34)->
     skillid = 13501,
     exp = 350,
     intimacy = 34,
-    property = [{136,0.427,1}],
+    property = [{136,427,0}],
     name = "情比金坚（物攻）",
     level = 52
     };
@@ -1501,7 +1501,7 @@ getRow(2,35)->
     skillid = 13501,
     exp = 360,
     intimacy = 35,
-    property = [{136,0.442,1}],
+    property = [{136,442,0}],
     name = "情比金坚（物攻）",
     level = 52
     };
@@ -1513,7 +1513,7 @@ getRow(2,36)->
     skillid = 13501,
     exp = 375,
     intimacy = 36,
-    property = [{136,0.457,1}],
+    property = [{136,457,0}],
     name = "情比金坚（物攻）",
     level = 53
     };
@@ -1525,7 +1525,7 @@ getRow(2,37)->
     skillid = 13501,
     exp = 385,
     intimacy = 37,
-    property = [{136,0.473,1}],
+    property = [{136,473,0}],
     name = "情比金坚（物攻）",
     level = 53
     };
@@ -1537,7 +1537,7 @@ getRow(2,38)->
     skillid = 13501,
     exp = 395,
     intimacy = 38,
-    property = [{136,0.489,1}],
+    property = [{136,489,0}],
     name = "情比金坚（物攻）",
     level = 54
     };
@@ -1549,7 +1549,7 @@ getRow(2,39)->
     skillid = 13501,
     exp = 410,
     intimacy = 39,
-    property = [{136,0.505,1}],
+    property = [{136,505,0}],
     name = "情比金坚（物攻）",
     level = 54
     };
@@ -1561,7 +1561,7 @@ getRow(2,40)->
     skillid = 13501,
     exp = 420,
     intimacy = 40,
-    property = [{136,0.521,1}],
+    property = [{136,521,0}],
     name = "情比金坚（物攻）",
     level = 55
     };
@@ -1573,7 +1573,7 @@ getRow(2,41)->
     skillid = 13501,
     exp = 430,
     intimacy = 41,
-    property = [{136,0.538,1}],
+    property = [{136,538,0}],
     name = "情比金坚（物攻）",
     level = 55
     };
@@ -1585,7 +1585,7 @@ getRow(2,42)->
     skillid = 13501,
     exp = 445,
     intimacy = 42,
-    property = [{136,0.555,1}],
+    property = [{136,555,0}],
     name = "情比金坚（物攻）",
     level = 56
     };
@@ -1597,7 +1597,7 @@ getRow(2,43)->
     skillid = 13501,
     exp = 455,
     intimacy = 43,
-    property = [{136,0.573,1}],
+    property = [{136,573,0}],
     name = "情比金坚（物攻）",
     level = 56
     };
@@ -1609,7 +1609,7 @@ getRow(2,44)->
     skillid = 13501,
     exp = 465,
     intimacy = 44,
-    property = [{136,0.59,1}],
+    property = [{136,590,0}],
     name = "情比金坚（物攻）",
     level = 57
     };
@@ -1621,7 +1621,7 @@ getRow(2,45)->
     skillid = 13501,
     exp = 480,
     intimacy = 45,
-    property = [{136,0.608,1}],
+    property = [{136,608,0}],
     name = "情比金坚（物攻）",
     level = 57
     };
@@ -1633,7 +1633,7 @@ getRow(2,46)->
     skillid = 13501,
     exp = 490,
     intimacy = 46,
-    property = [{136,0.626,1}],
+    property = [{136,626,0}],
     name = "情比金坚（物攻）",
     level = 58
     };
@@ -1645,7 +1645,7 @@ getRow(2,47)->
     skillid = 13501,
     exp = 505,
     intimacy = 47,
-    property = [{136,0.645,1}],
+    property = [{136,645,0}],
     name = "情比金坚（物攻）",
     level = 58
     };
@@ -1657,7 +1657,7 @@ getRow(2,48)->
     skillid = 13501,
     exp = 515,
     intimacy = 48,
-    property = [{136,0.664,1}],
+    property = [{136,664,0}],
     name = "情比金坚（物攻）",
     level = 59
     };
@@ -1669,7 +1669,7 @@ getRow(2,49)->
     skillid = 13501,
     exp = 525,
     intimacy = 49,
-    property = [{136,0.683,1}],
+    property = [{136,683,0}],
     name = "情比金坚（物攻）",
     level = 59
     };
@@ -1681,7 +1681,7 @@ getRow(2,50)->
     skillid = 13501,
     exp = 540,
     intimacy = 50,
-    property = [{136,0.702,1}],
+    property = [{136,702,0}],
     name = "情比金坚（物攻）",
     level = 60
     };
@@ -1693,7 +1693,7 @@ getRow(2,51)->
     skillid = 13501,
     exp = 550,
     intimacy = 51,
-    property = [{136,0.722,1}],
+    property = [{136,722,0}],
     name = "情比金坚（物攻）",
     level = 60
     };
@@ -1705,7 +1705,7 @@ getRow(2,52)->
     skillid = 13501,
     exp = 565,
     intimacy = 52,
-    property = [{136,0.742,1}],
+    property = [{136,742,0}],
     name = "情比金坚（物攻）",
     level = 61
     };
@@ -1717,7 +1717,7 @@ getRow(2,53)->
     skillid = 13501,
     exp = 575,
     intimacy = 53,
-    property = [{136,0.762,1}],
+    property = [{136,762,0}],
     name = "情比金坚（物攻）",
     level = 61
     };
@@ -1729,7 +1729,7 @@ getRow(2,54)->
     skillid = 13501,
     exp = 590,
     intimacy = 54,
-    property = [{136,0.782,1}],
+    property = [{136,782,0}],
     name = "情比金坚（物攻）",
     level = 62
     };
@@ -1741,7 +1741,7 @@ getRow(2,55)->
     skillid = 13501,
     exp = 600,
     intimacy = 55,
-    property = [{136,0.803,1}],
+    property = [{136,803,0}],
     name = "情比金坚（物攻）",
     level = 62
     };
@@ -1753,7 +1753,7 @@ getRow(2,56)->
     skillid = 13501,
     exp = 610,
     intimacy = 56,
-    property = [{136,0.824,1}],
+    property = [{136,824,0}],
     name = "情比金坚（物攻）",
     level = 63
     };
@@ -1765,7 +1765,7 @@ getRow(2,57)->
     skillid = 13501,
     exp = 625,
     intimacy = 57,
-    property = [{136,0.845,1}],
+    property = [{136,845,0}],
     name = "情比金坚（物攻）",
     level = 63
     };
@@ -1777,7 +1777,7 @@ getRow(2,58)->
     skillid = 13501,
     exp = 635,
     intimacy = 58,
-    property = [{136,0.867,1}],
+    property = [{136,867,0}],
     name = "情比金坚（物攻）",
     level = 64
     };
@@ -1789,7 +1789,7 @@ getRow(2,59)->
     skillid = 13501,
     exp = 650,
     intimacy = 59,
-    property = [{136,0.889,1}],
+    property = [{136,889,0}],
     name = "情比金坚（物攻）",
     level = 64
     };
@@ -1801,7 +1801,7 @@ getRow(2,60)->
     skillid = 13501,
     exp = 660,
     intimacy = 60,
-    property = [{136,0.911,1}],
+    property = [{136,911,0}],
     name = "情比金坚（物攻）",
     level = 65
     };
@@ -1813,7 +1813,7 @@ getRow(2,61)->
     skillid = 13501,
     exp = 675,
     intimacy = 61,
-    property = [{136,0.933,1}],
+    property = [{136,933,0}],
     name = "情比金坚（物攻）",
     level = 65
     };
@@ -1825,7 +1825,7 @@ getRow(2,62)->
     skillid = 13501,
     exp = 685,
     intimacy = 62,
-    property = [{136,0.956,1}],
+    property = [{136,956,0}],
     name = "情比金坚（物攻）",
     level = 66
     };
@@ -1837,7 +1837,7 @@ getRow(2,63)->
     skillid = 13501,
     exp = 700,
     intimacy = 63,
-    property = [{136,0.979,1}],
+    property = [{136,979,0}],
     name = "情比金坚（物攻）",
     level = 66
     };
@@ -1849,7 +1849,7 @@ getRow(2,64)->
     skillid = 13501,
     exp = 710,
     intimacy = 64,
-    property = [{136,1.002,1}],
+    property = [{136,1002,0}],
     name = "情比金坚（物攻）",
     level = 67
     };
@@ -1861,7 +1861,7 @@ getRow(2,65)->
     skillid = 13501,
     exp = 725,
     intimacy = 65,
-    property = [{136,1.025,1}],
+    property = [{136,1025,0}],
     name = "情比金坚（物攻）",
     level = 67
     };
@@ -1873,7 +1873,7 @@ getRow(2,66)->
     skillid = 13501,
     exp = 735,
     intimacy = 66,
-    property = [{136,1.049,1}],
+    property = [{136,1049,0}],
     name = "情比金坚（物攻）",
     level = 68
     };
@@ -1885,7 +1885,7 @@ getRow(2,67)->
     skillid = 13501,
     exp = 750,
     intimacy = 67,
-    property = [{136,1.073,1}],
+    property = [{136,1073,0}],
     name = "情比金坚（物攻）",
     level = 68
     };
@@ -1897,7 +1897,7 @@ getRow(2,68)->
     skillid = 13501,
     exp = 760,
     intimacy = 68,
-    property = [{136,1.097,1}],
+    property = [{136,1097,0}],
     name = "情比金坚（物攻）",
     level = 69
     };
@@ -1909,7 +1909,7 @@ getRow(2,69)->
     skillid = 13501,
     exp = 770,
     intimacy = 69,
-    property = [{136,1.121,1}],
+    property = [{136,1121,0}],
     name = "情比金坚（物攻）",
     level = 69
     };
@@ -1921,7 +1921,7 @@ getRow(2,70)->
     skillid = 13501,
     exp = 785,
     intimacy = 70,
-    property = [{136,1.146,1}],
+    property = [{136,1146,0}],
     name = "情比金坚（物攻）",
     level = 70
     };
@@ -1933,7 +1933,7 @@ getRow(2,71)->
     skillid = 13501,
     exp = 795,
     intimacy = 71,
-    property = [{136,1.171,1}],
+    property = [{136,1171,0}],
     name = "情比金坚（物攻）",
     level = 70
     };
@@ -1945,7 +1945,7 @@ getRow(2,72)->
     skillid = 13501,
     exp = 810,
     intimacy = 72,
-    property = [{136,1.196,1}],
+    property = [{136,1196,0}],
     name = "情比金坚（物攻）",
     level = 71
     };
@@ -1957,7 +1957,7 @@ getRow(2,73)->
     skillid = 13501,
     exp = 820,
     intimacy = 73,
-    property = [{136,1.221,1}],
+    property = [{136,1221,0}],
     name = "情比金坚（物攻）",
     level = 71
     };
@@ -1969,7 +1969,7 @@ getRow(2,74)->
     skillid = 13501,
     exp = 835,
     intimacy = 74,
-    property = [{136,1.247,1}],
+    property = [{136,1247,0}],
     name = "情比金坚（物攻）",
     level = 72
     };
@@ -1981,7 +1981,7 @@ getRow(2,75)->
     skillid = 13501,
     exp = 845,
     intimacy = 75,
-    property = [{136,1.273,1}],
+    property = [{136,1273,0}],
     name = "情比金坚（物攻）",
     level = 72
     };
@@ -1993,7 +1993,7 @@ getRow(2,76)->
     skillid = 13501,
     exp = 860,
     intimacy = 76,
-    property = [{136,1.299,1}],
+    property = [{136,1299,0}],
     name = "情比金坚（物攻）",
     level = 73
     };
@@ -2005,7 +2005,7 @@ getRow(2,77)->
     skillid = 13501,
     exp = 875,
     intimacy = 77,
-    property = [{136,1.326,1}],
+    property = [{136,1326,0}],
     name = "情比金坚（物攻）",
     level = 73
     };
@@ -2017,7 +2017,7 @@ getRow(2,78)->
     skillid = 13501,
     exp = 885,
     intimacy = 78,
-    property = [{136,1.352,1}],
+    property = [{136,1352,0}],
     name = "情比金坚（物攻）",
     level = 74
     };
@@ -2029,7 +2029,7 @@ getRow(2,79)->
     skillid = 13501,
     exp = 900,
     intimacy = 79,
-    property = [{136,1.379,1}],
+    property = [{136,1379,0}],
     name = "情比金坚（物攻）",
     level = 74
     };
@@ -2041,7 +2041,7 @@ getRow(2,80)->
     skillid = 13501,
     exp = 910,
     intimacy = 80,
-    property = [{136,1.406,1}],
+    property = [{136,1406,0}],
     name = "情比金坚（物攻）",
     level = 75
     };
@@ -2053,7 +2053,7 @@ getRow(2,81)->
     skillid = 13501,
     exp = 910,
     intimacy = 81,
-    property = [{136,17,1}],
+    property = [{136,17000,0}],
     name = "情比金坚（物攻）",
     level = 75
     };
@@ -2065,7 +2065,7 @@ getRow(2,82)->
     skillid = 13501,
     exp = 33725,
     intimacy = 82,
-    property = [{136,17.2,1}],
+    property = [{136,17200,0}],
     name = "情比金坚（物攻）",
     level = 76
     };
@@ -2077,7 +2077,7 @@ getRow(2,83)->
     skillid = 13501,
     exp = 33725,
     intimacy = 83,
-    property = [{136,17.4,1}],
+    property = [{136,17400,0}],
     name = "情比金坚（物攻）",
     level = 76
     };
@@ -2089,7 +2089,7 @@ getRow(2,84)->
     skillid = 13501,
     exp = 33725,
     intimacy = 84,
-    property = [{136,17.6,1}],
+    property = [{136,17600,0}],
     name = "情比金坚（物攻）",
     level = 77
     };
@@ -2101,7 +2101,7 @@ getRow(2,85)->
     skillid = 13501,
     exp = 33725,
     intimacy = 85,
-    property = [{136,17.8,1}],
+    property = [{136,17800,0}],
     name = "情比金坚（物攻）",
     level = 77
     };
@@ -2113,7 +2113,7 @@ getRow(2,86)->
     skillid = 13501,
     exp = 33725,
     intimacy = 86,
-    property = [{136,18,1}],
+    property = [{136,18000,0}],
     name = "情比金坚（物攻）",
     level = 78
     };
@@ -2125,7 +2125,7 @@ getRow(2,87)->
     skillid = 13501,
     exp = 33725,
     intimacy = 87,
-    property = [{136,18.2,1}],
+    property = [{136,18200,0}],
     name = "情比金坚（物攻）",
     level = 78
     };
@@ -2137,7 +2137,7 @@ getRow(2,88)->
     skillid = 13501,
     exp = 33725,
     intimacy = 88,
-    property = [{136,18.4,1}],
+    property = [{136,18400,0}],
     name = "情比金坚（物攻）",
     level = 79
     };
@@ -2149,7 +2149,7 @@ getRow(2,89)->
     skillid = 13501,
     exp = 33725,
     intimacy = 89,
-    property = [{136,18.6,1}],
+    property = [{136,18600,0}],
     name = "情比金坚（物攻）",
     level = 79
     };
@@ -2161,7 +2161,7 @@ getRow(2,90)->
     skillid = 13501,
     exp = 33725,
     intimacy = 90,
-    property = [{136,18.8,1}],
+    property = [{136,18800,0}],
     name = "情比金坚（物攻）",
     level = 80
     };
@@ -2173,7 +2173,7 @@ getRow(3,1)->
     skillid = 13502,
     exp = 0,
     intimacy = 1,
-    property = [{137,0.14,1}],
+    property = [{137,140,0}],
     name = "情比金坚（法攻）",
     level = 35
     };
@@ -2185,7 +2185,7 @@ getRow(3,2)->
     skillid = 13502,
     exp = 10,
     intimacy = 2,
-    property = [{137,0.141,1}],
+    property = [{137,141,0}],
     name = "情比金坚（法攻）",
     level = 36
     };
@@ -2197,7 +2197,7 @@ getRow(3,3)->
     skillid = 13502,
     exp = 20,
     intimacy = 3,
-    property = [{137,0.142,1}],
+    property = [{137,142,0}],
     name = "情比金坚（法攻）",
     level = 36
     };
@@ -2209,7 +2209,7 @@ getRow(3,4)->
     skillid = 13502,
     exp = 30,
     intimacy = 4,
-    property = [{137,0.145,1}],
+    property = [{137,145,0}],
     name = "情比金坚（法攻）",
     level = 37
     };
@@ -2221,7 +2221,7 @@ getRow(3,5)->
     skillid = 13502,
     exp = 35,
     intimacy = 5,
-    property = [{137,0.148,1}],
+    property = [{137,148,0}],
     name = "情比金坚（法攻）",
     level = 37
     };
@@ -2233,7 +2233,7 @@ getRow(3,6)->
     skillid = 13502,
     exp = 45,
     intimacy = 6,
-    property = [{137,0.152,1}],
+    property = [{137,152,0}],
     name = "情比金坚（法攻）",
     level = 38
     };
@@ -2245,7 +2245,7 @@ getRow(3,7)->
     skillid = 13502,
     exp = 55,
     intimacy = 7,
-    property = [{137,0.156,1}],
+    property = [{137,156,0}],
     name = "情比金坚（法攻）",
     level = 38
     };
@@ -2257,7 +2257,7 @@ getRow(3,8)->
     skillid = 13502,
     exp = 65,
     intimacy = 8,
-    property = [{137,0.161,1}],
+    property = [{137,161,0}],
     name = "情比金坚（法攻）",
     level = 39
     };
@@ -2269,7 +2269,7 @@ getRow(3,9)->
     skillid = 13502,
     exp = 75,
     intimacy = 9,
-    property = [{137,0.166,1}],
+    property = [{137,166,0}],
     name = "情比金坚（法攻）",
     level = 39
     };
@@ -2281,7 +2281,7 @@ getRow(3,10)->
     skillid = 13502,
     exp = 85,
     intimacy = 10,
-    property = [{137,0.172,1}],
+    property = [{137,172,0}],
     name = "情比金坚（法攻）",
     level = 40
     };
@@ -2293,7 +2293,7 @@ getRow(3,11)->
     skillid = 13502,
     exp = 95,
     intimacy = 11,
-    property = [{137,0.178,1}],
+    property = [{137,178,0}],
     name = "情比金坚（法攻）",
     level = 40
     };
@@ -2305,7 +2305,7 @@ getRow(3,12)->
     skillid = 13502,
     exp = 105,
     intimacy = 12,
-    property = [{137,0.184,1}],
+    property = [{137,184,0}],
     name = "情比金坚（法攻）",
     level = 41
     };
@@ -2317,7 +2317,7 @@ getRow(3,13)->
     skillid = 13502,
     exp = 115,
     intimacy = 13,
-    property = [{137,0.191,1}],
+    property = [{137,191,0}],
     name = "情比金坚（法攻）",
     level = 41
     };
@@ -2329,7 +2329,7 @@ getRow(3,14)->
     skillid = 13502,
     exp = 125,
     intimacy = 14,
-    property = [{137,0.199,1}],
+    property = [{137,199,0}],
     name = "情比金坚（法攻）",
     level = 42
     };
@@ -2341,7 +2341,7 @@ getRow(3,15)->
     skillid = 13502,
     exp = 140,
     intimacy = 15,
-    property = [{137,0.207,1}],
+    property = [{137,207,0}],
     name = "情比金坚（法攻）",
     level = 42
     };
@@ -2353,7 +2353,7 @@ getRow(3,16)->
     skillid = 13502,
     exp = 150,
     intimacy = 16,
-    property = [{137,0.215,1}],
+    property = [{137,215,0}],
     name = "情比金坚（法攻）",
     level = 43
     };
@@ -2365,7 +2365,7 @@ getRow(3,17)->
     skillid = 13502,
     exp = 160,
     intimacy = 17,
-    property = [{137,0.224,1}],
+    property = [{137,224,0}],
     name = "情比金坚（法攻）",
     level = 43
     };
@@ -2377,7 +2377,7 @@ getRow(3,18)->
     skillid = 13502,
     exp = 170,
     intimacy = 18,
-    property = [{137,0.233,1}],
+    property = [{137,233,0}],
     name = "情比金坚（法攻）",
     level = 44
     };
@@ -2389,7 +2389,7 @@ getRow(3,19)->
     skillid = 13502,
     exp = 180,
     intimacy = 19,
-    property = [{137,0.242,1}],
+    property = [{137,242,0}],
     name = "情比金坚（法攻）",
     level = 44
     };
@@ -2401,7 +2401,7 @@ getRow(3,20)->
     skillid = 13502,
     exp = 190,
     intimacy = 20,
-    property = [{137,0.252,1}],
+    property = [{137,252,0}],
     name = "情比金坚（法攻）",
     level = 45
     };
@@ -2413,7 +2413,7 @@ getRow(3,21)->
     skillid = 13502,
     exp = 205,
     intimacy = 21,
-    property = [{137,0.263,1}],
+    property = [{137,263,0}],
     name = "情比金坚（法攻）",
     level = 45
     };
@@ -2425,7 +2425,7 @@ getRow(3,22)->
     skillid = 13502,
     exp = 215,
     intimacy = 22,
-    property = [{137,0.273,1}],
+    property = [{137,273,0}],
     name = "情比金坚（法攻）",
     level = 46
     };
@@ -2437,7 +2437,7 @@ getRow(3,23)->
     skillid = 13502,
     exp = 225,
     intimacy = 23,
-    property = [{137,0.284,1}],
+    property = [{137,284,0}],
     name = "情比金坚（法攻）",
     level = 46
     };
@@ -2449,7 +2449,7 @@ getRow(3,24)->
     skillid = 13502,
     exp = 235,
     intimacy = 24,
-    property = [{137,0.295,1}],
+    property = [{137,295,0}],
     name = "情比金坚（法攻）",
     level = 47
     };
@@ -2461,7 +2461,7 @@ getRow(3,25)->
     skillid = 13502,
     exp = 245,
     intimacy = 25,
-    property = [{137,0.307,1}],
+    property = [{137,307,0}],
     name = "情比金坚（法攻）",
     level = 47
     };
@@ -2473,7 +2473,7 @@ getRow(3,26)->
     skillid = 13502,
     exp = 260,
     intimacy = 26,
-    property = [{137,0.319,1}],
+    property = [{137,319,0}],
     name = "情比金坚（法攻）",
     level = 48
     };
@@ -2485,7 +2485,7 @@ getRow(3,27)->
     skillid = 13502,
     exp = 270,
     intimacy = 27,
-    property = [{137,0.331,1}],
+    property = [{137,331,0}],
     name = "情比金坚（法攻）",
     level = 48
     };
@@ -2497,7 +2497,7 @@ getRow(3,28)->
     skillid = 13502,
     exp = 280,
     intimacy = 28,
-    property = [{137,0.344,1}],
+    property = [{137,344,0}],
     name = "情比金坚（法攻）",
     level = 49
     };
@@ -2509,7 +2509,7 @@ getRow(3,29)->
     skillid = 13502,
     exp = 290,
     intimacy = 29,
-    property = [{137,0.357,1}],
+    property = [{137,357,0}],
     name = "情比金坚（法攻）",
     level = 49
     };
@@ -2521,7 +2521,7 @@ getRow(3,30)->
     skillid = 13502,
     exp = 305,
     intimacy = 30,
-    property = [{137,0.37,1}],
+    property = [{137,370,0}],
     name = "情比金坚（法攻）",
     level = 50
     };
@@ -2533,7 +2533,7 @@ getRow(3,31)->
     skillid = 13502,
     exp = 315,
     intimacy = 31,
-    property = [{137,0.384,1}],
+    property = [{137,384,0}],
     name = "情比金坚（法攻）",
     level = 50
     };
@@ -2545,7 +2545,7 @@ getRow(3,32)->
     skillid = 13502,
     exp = 325,
     intimacy = 32,
-    property = [{137,0.398,1}],
+    property = [{137,398,0}],
     name = "情比金坚（法攻）",
     level = 51
     };
@@ -2557,7 +2557,7 @@ getRow(3,33)->
     skillid = 13502,
     exp = 340,
     intimacy = 33,
-    property = [{137,0.412,1}],
+    property = [{137,412,0}],
     name = "情比金坚（法攻）",
     level = 51
     };
@@ -2569,7 +2569,7 @@ getRow(3,34)->
     skillid = 13502,
     exp = 350,
     intimacy = 34,
-    property = [{137,0.427,1}],
+    property = [{137,427,0}],
     name = "情比金坚（法攻）",
     level = 52
     };
@@ -2581,7 +2581,7 @@ getRow(3,35)->
     skillid = 13502,
     exp = 360,
     intimacy = 35,
-    property = [{137,0.442,1}],
+    property = [{137,442,0}],
     name = "情比金坚（法攻）",
     level = 52
     };
@@ -2593,7 +2593,7 @@ getRow(3,36)->
     skillid = 13502,
     exp = 375,
     intimacy = 36,
-    property = [{137,0.457,1}],
+    property = [{137,457,0}],
     name = "情比金坚（法攻）",
     level = 53
     };
@@ -2605,7 +2605,7 @@ getRow(3,37)->
     skillid = 13502,
     exp = 385,
     intimacy = 37,
-    property = [{137,0.473,1}],
+    property = [{137,473,0}],
     name = "情比金坚（法攻）",
     level = 53
     };
@@ -2617,7 +2617,7 @@ getRow(3,38)->
     skillid = 13502,
     exp = 395,
     intimacy = 38,
-    property = [{137,0.489,1}],
+    property = [{137,489,0}],
     name = "情比金坚（法攻）",
     level = 54
     };
@@ -2629,7 +2629,7 @@ getRow(3,39)->
     skillid = 13502,
     exp = 410,
     intimacy = 39,
-    property = [{137,0.505,1}],
+    property = [{137,505,0}],
     name = "情比金坚（法攻）",
     level = 54
     };
@@ -2641,7 +2641,7 @@ getRow(3,40)->
     skillid = 13502,
     exp = 420,
     intimacy = 40,
-    property = [{137,0.521,1}],
+    property = [{137,521,0}],
     name = "情比金坚（法攻）",
     level = 55
     };
@@ -2653,7 +2653,7 @@ getRow(3,41)->
     skillid = 13502,
     exp = 430,
     intimacy = 41,
-    property = [{137,0.538,1}],
+    property = [{137,538,0}],
     name = "情比金坚（法攻）",
     level = 55
     };
@@ -2665,7 +2665,7 @@ getRow(3,42)->
     skillid = 13502,
     exp = 445,
     intimacy = 42,
-    property = [{137,0.555,1}],
+    property = [{137,555,0}],
     name = "情比金坚（法攻）",
     level = 56
     };
@@ -2677,7 +2677,7 @@ getRow(3,43)->
     skillid = 13502,
     exp = 455,
     intimacy = 43,
-    property = [{137,0.573,1}],
+    property = [{137,573,0}],
     name = "情比金坚（法攻）",
     level = 56
     };
@@ -2689,7 +2689,7 @@ getRow(3,44)->
     skillid = 13502,
     exp = 465,
     intimacy = 44,
-    property = [{137,0.59,1}],
+    property = [{137,590,0}],
     name = "情比金坚（法攻）",
     level = 57
     };
@@ -2701,7 +2701,7 @@ getRow(3,45)->
     skillid = 13502,
     exp = 480,
     intimacy = 45,
-    property = [{137,0.608,1}],
+    property = [{137,608,0}],
     name = "情比金坚（法攻）",
     level = 57
     };
@@ -2713,7 +2713,7 @@ getRow(3,46)->
     skillid = 13502,
     exp = 490,
     intimacy = 46,
-    property = [{137,0.626,1}],
+    property = [{137,626,0}],
     name = "情比金坚（法攻）",
     level = 58
     };
@@ -2725,7 +2725,7 @@ getRow(3,47)->
     skillid = 13502,
     exp = 505,
     intimacy = 47,
-    property = [{137,0.645,1}],
+    property = [{137,645,0}],
     name = "情比金坚（法攻）",
     level = 58
     };
@@ -2737,7 +2737,7 @@ getRow(3,48)->
     skillid = 13502,
     exp = 515,
     intimacy = 48,
-    property = [{137,0.664,1}],
+    property = [{137,664,0}],
     name = "情比金坚（法攻）",
     level = 59
     };
@@ -2749,7 +2749,7 @@ getRow(3,49)->
     skillid = 13502,
     exp = 525,
     intimacy = 49,
-    property = [{137,0.683,1}],
+    property = [{137,683,0}],
     name = "情比金坚（法攻）",
     level = 59
     };
@@ -2761,7 +2761,7 @@ getRow(3,50)->
     skillid = 13502,
     exp = 540,
     intimacy = 50,
-    property = [{137,0.702,1}],
+    property = [{137,702,0}],
     name = "情比金坚（法攻）",
     level = 60
     };
@@ -2773,7 +2773,7 @@ getRow(3,51)->
     skillid = 13502,
     exp = 550,
     intimacy = 51,
-    property = [{137,0.722,1}],
+    property = [{137,722,0}],
     name = "情比金坚（法攻）",
     level = 60
     };
@@ -2785,7 +2785,7 @@ getRow(3,52)->
     skillid = 13502,
     exp = 565,
     intimacy = 52,
-    property = [{137,0.742,1}],
+    property = [{137,742,0}],
     name = "情比金坚（法攻）",
     level = 61
     };
@@ -2797,7 +2797,7 @@ getRow(3,53)->
     skillid = 13502,
     exp = 575,
     intimacy = 53,
-    property = [{137,0.762,1}],
+    property = [{137,762,0}],
     name = "情比金坚（法攻）",
     level = 61
     };
@@ -2809,7 +2809,7 @@ getRow(3,54)->
     skillid = 13502,
     exp = 590,
     intimacy = 54,
-    property = [{137,0.782,1}],
+    property = [{137,782,0}],
     name = "情比金坚（法攻）",
     level = 62
     };
@@ -2821,7 +2821,7 @@ getRow(3,55)->
     skillid = 13502,
     exp = 600,
     intimacy = 55,
-    property = [{137,0.803,1}],
+    property = [{137,803,0}],
     name = "情比金坚（法攻）",
     level = 62
     };
@@ -2833,7 +2833,7 @@ getRow(3,56)->
     skillid = 13502,
     exp = 610,
     intimacy = 56,
-    property = [{137,0.824,1}],
+    property = [{137,824,0}],
     name = "情比金坚（法攻）",
     level = 63
     };
@@ -2845,7 +2845,7 @@ getRow(3,57)->
     skillid = 13502,
     exp = 625,
     intimacy = 57,
-    property = [{137,0.845,1}],
+    property = [{137,845,0}],
     name = "情比金坚（法攻）",
     level = 63
     };
@@ -2857,7 +2857,7 @@ getRow(3,58)->
     skillid = 13502,
     exp = 635,
     intimacy = 58,
-    property = [{137,0.867,1}],
+    property = [{137,867,0}],
     name = "情比金坚（法攻）",
     level = 64
     };
@@ -2869,7 +2869,7 @@ getRow(3,59)->
     skillid = 13502,
     exp = 650,
     intimacy = 59,
-    property = [{137,0.889,1}],
+    property = [{137,889,0}],
     name = "情比金坚（法攻）",
     level = 64
     };
@@ -2881,7 +2881,7 @@ getRow(3,60)->
     skillid = 13502,
     exp = 660,
     intimacy = 60,
-    property = [{137,0.911,1}],
+    property = [{137,911,0}],
     name = "情比金坚（法攻）",
     level = 65
     };
@@ -2893,7 +2893,7 @@ getRow(3,61)->
     skillid = 13502,
     exp = 675,
     intimacy = 61,
-    property = [{137,0.933,1}],
+    property = [{137,933,0}],
     name = "情比金坚（法攻）",
     level = 65
     };
@@ -2905,7 +2905,7 @@ getRow(3,62)->
     skillid = 13502,
     exp = 685,
     intimacy = 62,
-    property = [{137,0.956,1}],
+    property = [{137,956,0}],
     name = "情比金坚（法攻）",
     level = 66
     };
@@ -2917,7 +2917,7 @@ getRow(3,63)->
     skillid = 13502,
     exp = 700,
     intimacy = 63,
-    property = [{137,0.979,1}],
+    property = [{137,979,0}],
     name = "情比金坚（法攻）",
     level = 66
     };
@@ -2929,7 +2929,7 @@ getRow(3,64)->
     skillid = 13502,
     exp = 710,
     intimacy = 64,
-    property = [{137,1.002,1}],
+    property = [{137,1002,0}],
     name = "情比金坚（法攻）",
     level = 67
     };
@@ -2941,7 +2941,7 @@ getRow(3,65)->
     skillid = 13502,
     exp = 725,
     intimacy = 65,
-    property = [{137,1.025,1}],
+    property = [{137,1025,0}],
     name = "情比金坚（法攻）",
     level = 67
     };
@@ -2953,7 +2953,7 @@ getRow(3,66)->
     skillid = 13502,
     exp = 735,
     intimacy = 66,
-    property = [{137,1.049,1}],
+    property = [{137,1049,0}],
     name = "情比金坚（法攻）",
     level = 68
     };
@@ -2965,7 +2965,7 @@ getRow(3,67)->
     skillid = 13502,
     exp = 750,
     intimacy = 67,
-    property = [{137,1.073,1}],
+    property = [{137,1073,0}],
     name = "情比金坚（法攻）",
     level = 68
     };
@@ -2977,7 +2977,7 @@ getRow(3,68)->
     skillid = 13502,
     exp = 760,
     intimacy = 68,
-    property = [{137,1.097,1}],
+    property = [{137,1097,0}],
     name = "情比金坚（法攻）",
     level = 69
     };
@@ -2989,7 +2989,7 @@ getRow(3,69)->
     skillid = 13502,
     exp = 770,
     intimacy = 69,
-    property = [{137,1.121,1}],
+    property = [{137,1121,0}],
     name = "情比金坚（法攻）",
     level = 69
     };
@@ -3001,7 +3001,7 @@ getRow(3,70)->
     skillid = 13502,
     exp = 785,
     intimacy = 70,
-    property = [{137,1.146,1}],
+    property = [{137,1146,0}],
     name = "情比金坚（法攻）",
     level = 70
     };
@@ -3013,7 +3013,7 @@ getRow(3,71)->
     skillid = 13502,
     exp = 795,
     intimacy = 71,
-    property = [{137,1.171,1}],
+    property = [{137,1171,0}],
     name = "情比金坚（法攻）",
     level = 70
     };
@@ -3025,7 +3025,7 @@ getRow(3,72)->
     skillid = 13502,
     exp = 810,
     intimacy = 72,
-    property = [{137,1.196,1}],
+    property = [{137,1196,0}],
     name = "情比金坚（法攻）",
     level = 71
     };
@@ -3037,7 +3037,7 @@ getRow(3,73)->
     skillid = 13502,
     exp = 820,
     intimacy = 73,
-    property = [{137,1.221,1}],
+    property = [{137,1221,0}],
     name = "情比金坚（法攻）",
     level = 71
     };
@@ -3049,7 +3049,7 @@ getRow(3,74)->
     skillid = 13502,
     exp = 835,
     intimacy = 74,
-    property = [{137,1.247,1}],
+    property = [{137,1247,0}],
     name = "情比金坚（法攻）",
     level = 72
     };
@@ -3061,7 +3061,7 @@ getRow(3,75)->
     skillid = 13502,
     exp = 845,
     intimacy = 75,
-    property = [{137,1.273,1}],
+    property = [{137,1273,0}],
     name = "情比金坚（法攻）",
     level = 72
     };
@@ -3073,7 +3073,7 @@ getRow(3,76)->
     skillid = 13502,
     exp = 860,
     intimacy = 76,
-    property = [{137,1.299,1}],
+    property = [{137,1299,0}],
     name = "情比金坚（法攻）",
     level = 73
     };
@@ -3085,7 +3085,7 @@ getRow(3,77)->
     skillid = 13502,
     exp = 875,
     intimacy = 77,
-    property = [{137,1.326,1}],
+    property = [{137,1326,0}],
     name = "情比金坚（法攻）",
     level = 73
     };
@@ -3097,7 +3097,7 @@ getRow(3,78)->
     skillid = 13502,
     exp = 885,
     intimacy = 78,
-    property = [{137,1.352,1}],
+    property = [{137,1352,0}],
     name = "情比金坚（法攻）",
     level = 74
     };
@@ -3109,7 +3109,7 @@ getRow(3,79)->
     skillid = 13502,
     exp = 900,
     intimacy = 79,
-    property = [{137,1.379,1}],
+    property = [{137,1379,0}],
     name = "情比金坚（法攻）",
     level = 74
     };
@@ -3121,7 +3121,7 @@ getRow(3,80)->
     skillid = 13502,
     exp = 910,
     intimacy = 80,
-    property = [{137,1.406,1}],
+    property = [{137,1406,0}],
     name = "情比金坚（法攻）",
     level = 75
     };
@@ -3133,7 +3133,7 @@ getRow(3,81)->
     skillid = 13502,
     exp = 910,
     intimacy = 81,
-    property = [{137,17,1}],
+    property = [{137,17000,0}],
     name = "情比金坚（法攻）",
     level = 75
     };
@@ -3145,7 +3145,7 @@ getRow(3,82)->
     skillid = 13502,
     exp = 33725,
     intimacy = 82,
-    property = [{137,17.2,1}],
+    property = [{137,17200,0}],
     name = "情比金坚（法攻）",
     level = 76
     };
@@ -3157,7 +3157,7 @@ getRow(3,83)->
     skillid = 13502,
     exp = 33725,
     intimacy = 83,
-    property = [{137,17.4,1}],
+    property = [{137,17400,0}],
     name = "情比金坚（法攻）",
     level = 76
     };
@@ -3169,7 +3169,7 @@ getRow(3,84)->
     skillid = 13502,
     exp = 33725,
     intimacy = 84,
-    property = [{137,17.6,1}],
+    property = [{137,17600,0}],
     name = "情比金坚（法攻）",
     level = 77
     };
@@ -3181,7 +3181,7 @@ getRow(3,85)->
     skillid = 13502,
     exp = 33725,
     intimacy = 85,
-    property = [{137,17.8,1}],
+    property = [{137,17800,0}],
     name = "情比金坚（法攻）",
     level = 77
     };
@@ -3193,7 +3193,7 @@ getRow(3,86)->
     skillid = 13502,
     exp = 33725,
     intimacy = 86,
-    property = [{137,18,1}],
+    property = [{137,18000,0}],
     name = "情比金坚（法攻）",
     level = 78
     };
@@ -3205,7 +3205,7 @@ getRow(3,87)->
     skillid = 13502,
     exp = 33725,
     intimacy = 87,
-    property = [{137,18.2,1}],
+    property = [{137,18200,0}],
     name = "情比金坚（法攻）",
     level = 78
     };
@@ -3217,7 +3217,7 @@ getRow(3,88)->
     skillid = 13502,
     exp = 33725,
     intimacy = 88,
-    property = [{137,18.4,1}],
+    property = [{137,18400,0}],
     name = "情比金坚（法攻）",
     level = 79
     };
@@ -3229,7 +3229,7 @@ getRow(3,89)->
     skillid = 13502,
     exp = 33725,
     intimacy = 89,
-    property = [{137,18.6,1}],
+    property = [{137,18600,0}],
     name = "情比金坚（法攻）",
     level = 79
     };
@@ -3241,7 +3241,7 @@ getRow(3,90)->
     skillid = 13502,
     exp = 33725,
     intimacy = 90,
-    property = [{137,18.8,1}],
+    property = [{137,18800,0}],
     name = "情比金坚（法攻）",
     level = 80
     };
@@ -3253,7 +3253,7 @@ getRow(4,1)->
     skillid = 13503,
     exp = 0,
     intimacy = 1,
-    property = [{139,0.14,1}],
+    property = [{139,140,0}],
     name = "情比金坚（物防）",
     level = 35
     };
@@ -3265,7 +3265,7 @@ getRow(4,2)->
     skillid = 13503,
     exp = 10,
     intimacy = 2,
-    property = [{139,0.141,1}],
+    property = [{139,141,0}],
     name = "情比金坚（物防）",
     level = 36
     };
@@ -3277,7 +3277,7 @@ getRow(4,3)->
     skillid = 13503,
     exp = 20,
     intimacy = 3,
-    property = [{139,0.142,1}],
+    property = [{139,142,0}],
     name = "情比金坚（物防）",
     level = 36
     };
@@ -3289,7 +3289,7 @@ getRow(4,4)->
     skillid = 13503,
     exp = 30,
     intimacy = 4,
-    property = [{139,0.145,1}],
+    property = [{139,145,0}],
     name = "情比金坚（物防）",
     level = 37
     };
@@ -3301,7 +3301,7 @@ getRow(4,5)->
     skillid = 13503,
     exp = 35,
     intimacy = 5,
-    property = [{139,0.148,1}],
+    property = [{139,148,0}],
     name = "情比金坚（物防）",
     level = 37
     };
@@ -3313,7 +3313,7 @@ getRow(4,6)->
     skillid = 13503,
     exp = 45,
     intimacy = 6,
-    property = [{139,0.152,1}],
+    property = [{139,152,0}],
     name = "情比金坚（物防）",
     level = 38
     };
@@ -3325,7 +3325,7 @@ getRow(4,7)->
     skillid = 13503,
     exp = 55,
     intimacy = 7,
-    property = [{139,0.156,1}],
+    property = [{139,156,0}],
     name = "情比金坚（物防）",
     level = 38
     };
@@ -3337,7 +3337,7 @@ getRow(4,8)->
     skillid = 13503,
     exp = 65,
     intimacy = 8,
-    property = [{139,0.161,1}],
+    property = [{139,161,0}],
     name = "情比金坚（物防）",
     level = 39
     };
@@ -3349,7 +3349,7 @@ getRow(4,9)->
     skillid = 13503,
     exp = 75,
     intimacy = 9,
-    property = [{139,0.166,1}],
+    property = [{139,166,0}],
     name = "情比金坚（物防）",
     level = 39
     };
@@ -3361,7 +3361,7 @@ getRow(4,10)->
     skillid = 13503,
     exp = 85,
     intimacy = 10,
-    property = [{139,0.172,1}],
+    property = [{139,172,0}],
     name = "情比金坚（物防）",
     level = 40
     };
@@ -3373,7 +3373,7 @@ getRow(4,11)->
     skillid = 13503,
     exp = 95,
     intimacy = 11,
-    property = [{139,0.178,1}],
+    property = [{139,178,0}],
     name = "情比金坚（物防）",
     level = 40
     };
@@ -3385,7 +3385,7 @@ getRow(4,12)->
     skillid = 13503,
     exp = 105,
     intimacy = 12,
-    property = [{139,0.184,1}],
+    property = [{139,184,0}],
     name = "情比金坚（物防）",
     level = 41
     };
@@ -3397,7 +3397,7 @@ getRow(4,13)->
     skillid = 13503,
     exp = 115,
     intimacy = 13,
-    property = [{139,0.191,1}],
+    property = [{139,191,0}],
     name = "情比金坚（物防）",
     level = 41
     };
@@ -3409,7 +3409,7 @@ getRow(4,14)->
     skillid = 13503,
     exp = 125,
     intimacy = 14,
-    property = [{139,0.199,1}],
+    property = [{139,199,0}],
     name = "情比金坚（物防）",
     level = 42
     };
@@ -3421,7 +3421,7 @@ getRow(4,15)->
     skillid = 13503,
     exp = 140,
     intimacy = 15,
-    property = [{139,0.207,1}],
+    property = [{139,207,0}],
     name = "情比金坚（物防）",
     level = 42
     };
@@ -3433,7 +3433,7 @@ getRow(4,16)->
     skillid = 13503,
     exp = 150,
     intimacy = 16,
-    property = [{139,0.215,1}],
+    property = [{139,215,0}],
     name = "情比金坚（物防）",
     level = 43
     };
@@ -3445,7 +3445,7 @@ getRow(4,17)->
     skillid = 13503,
     exp = 160,
     intimacy = 17,
-    property = [{139,0.224,1}],
+    property = [{139,224,0}],
     name = "情比金坚（物防）",
     level = 43
     };
@@ -3457,7 +3457,7 @@ getRow(4,18)->
     skillid = 13503,
     exp = 170,
     intimacy = 18,
-    property = [{139,0.233,1}],
+    property = [{139,233,0}],
     name = "情比金坚（物防）",
     level = 44
     };
@@ -3469,7 +3469,7 @@ getRow(4,19)->
     skillid = 13503,
     exp = 180,
     intimacy = 19,
-    property = [{139,0.242,1}],
+    property = [{139,242,0}],
     name = "情比金坚（物防）",
     level = 44
     };
@@ -3481,7 +3481,7 @@ getRow(4,20)->
     skillid = 13503,
     exp = 190,
     intimacy = 20,
-    property = [{139,0.252,1}],
+    property = [{139,252,0}],
     name = "情比金坚（物防）",
     level = 45
     };
@@ -3493,7 +3493,7 @@ getRow(4,21)->
     skillid = 13503,
     exp = 205,
     intimacy = 21,
-    property = [{139,0.263,1}],
+    property = [{139,263,0}],
     name = "情比金坚（物防）",
     level = 45
     };
@@ -3505,7 +3505,7 @@ getRow(4,22)->
     skillid = 13503,
     exp = 215,
     intimacy = 22,
-    property = [{139,0.273,1}],
+    property = [{139,273,0}],
     name = "情比金坚（物防）",
     level = 46
     };
@@ -3517,7 +3517,7 @@ getRow(4,23)->
     skillid = 13503,
     exp = 225,
     intimacy = 23,
-    property = [{139,0.284,1}],
+    property = [{139,284,0}],
     name = "情比金坚（物防）",
     level = 46
     };
@@ -3529,7 +3529,7 @@ getRow(4,24)->
     skillid = 13503,
     exp = 235,
     intimacy = 24,
-    property = [{139,0.295,1}],
+    property = [{139,295,0}],
     name = "情比金坚（物防）",
     level = 47
     };
@@ -3541,7 +3541,7 @@ getRow(4,25)->
     skillid = 13503,
     exp = 245,
     intimacy = 25,
-    property = [{139,0.307,1}],
+    property = [{139,307,0}],
     name = "情比金坚（物防）",
     level = 47
     };
@@ -3553,7 +3553,7 @@ getRow(4,26)->
     skillid = 13503,
     exp = 260,
     intimacy = 26,
-    property = [{139,0.319,1}],
+    property = [{139,319,0}],
     name = "情比金坚（物防）",
     level = 48
     };
@@ -3565,7 +3565,7 @@ getRow(4,27)->
     skillid = 13503,
     exp = 270,
     intimacy = 27,
-    property = [{139,0.331,1}],
+    property = [{139,331,0}],
     name = "情比金坚（物防）",
     level = 48
     };
@@ -3577,7 +3577,7 @@ getRow(4,28)->
     skillid = 13503,
     exp = 280,
     intimacy = 28,
-    property = [{139,0.344,1}],
+    property = [{139,344,0}],
     name = "情比金坚（物防）",
     level = 49
     };
@@ -3589,7 +3589,7 @@ getRow(4,29)->
     skillid = 13503,
     exp = 290,
     intimacy = 29,
-    property = [{139,0.357,1}],
+    property = [{139,357,0}],
     name = "情比金坚（物防）",
     level = 49
     };
@@ -3601,7 +3601,7 @@ getRow(4,30)->
     skillid = 13503,
     exp = 305,
     intimacy = 30,
-    property = [{139,0.37,1}],
+    property = [{139,370,0}],
     name = "情比金坚（物防）",
     level = 50
     };
@@ -3613,7 +3613,7 @@ getRow(4,31)->
     skillid = 13503,
     exp = 315,
     intimacy = 31,
-    property = [{139,0.384,1}],
+    property = [{139,384,0}],
     name = "情比金坚（物防）",
     level = 50
     };
@@ -3625,7 +3625,7 @@ getRow(4,32)->
     skillid = 13503,
     exp = 325,
     intimacy = 32,
-    property = [{139,0.398,1}],
+    property = [{139,398,0}],
     name = "情比金坚（物防）",
     level = 51
     };
@@ -3637,7 +3637,7 @@ getRow(4,33)->
     skillid = 13503,
     exp = 340,
     intimacy = 33,
-    property = [{139,0.412,1}],
+    property = [{139,412,0}],
     name = "情比金坚（物防）",
     level = 51
     };
@@ -3649,7 +3649,7 @@ getRow(4,34)->
     skillid = 13503,
     exp = 350,
     intimacy = 34,
-    property = [{139,0.427,1}],
+    property = [{139,427,0}],
     name = "情比金坚（物防）",
     level = 52
     };
@@ -3661,7 +3661,7 @@ getRow(4,35)->
     skillid = 13503,
     exp = 360,
     intimacy = 35,
-    property = [{139,0.442,1}],
+    property = [{139,442,0}],
     name = "情比金坚（物防）",
     level = 52
     };
@@ -3673,7 +3673,7 @@ getRow(4,36)->
     skillid = 13503,
     exp = 375,
     intimacy = 36,
-    property = [{139,0.457,1}],
+    property = [{139,457,0}],
     name = "情比金坚（物防）",
     level = 53
     };
@@ -3685,7 +3685,7 @@ getRow(4,37)->
     skillid = 13503,
     exp = 385,
     intimacy = 37,
-    property = [{139,0.473,1}],
+    property = [{139,473,0}],
     name = "情比金坚（物防）",
     level = 53
     };
@@ -3697,7 +3697,7 @@ getRow(4,38)->
     skillid = 13503,
     exp = 395,
     intimacy = 38,
-    property = [{139,0.489,1}],
+    property = [{139,489,0}],
     name = "情比金坚（物防）",
     level = 54
     };
@@ -3709,7 +3709,7 @@ getRow(4,39)->
     skillid = 13503,
     exp = 410,
     intimacy = 39,
-    property = [{139,0.505,1}],
+    property = [{139,505,0}],
     name = "情比金坚（物防）",
     level = 54
     };
@@ -3721,7 +3721,7 @@ getRow(4,40)->
     skillid = 13503,
     exp = 420,
     intimacy = 40,
-    property = [{139,0.521,1}],
+    property = [{139,521,0}],
     name = "情比金坚（物防）",
     level = 55
     };
@@ -3733,7 +3733,7 @@ getRow(4,41)->
     skillid = 13503,
     exp = 430,
     intimacy = 41,
-    property = [{139,0.538,1}],
+    property = [{139,538,0}],
     name = "情比金坚（物防）",
     level = 55
     };
@@ -3745,7 +3745,7 @@ getRow(4,42)->
     skillid = 13503,
     exp = 445,
     intimacy = 42,
-    property = [{139,0.555,1}],
+    property = [{139,555,0}],
     name = "情比金坚（物防）",
     level = 56
     };
@@ -3757,7 +3757,7 @@ getRow(4,43)->
     skillid = 13503,
     exp = 455,
     intimacy = 43,
-    property = [{139,0.573,1}],
+    property = [{139,573,0}],
     name = "情比金坚（物防）",
     level = 56
     };
@@ -3769,7 +3769,7 @@ getRow(4,44)->
     skillid = 13503,
     exp = 465,
     intimacy = 44,
-    property = [{139,0.59,1}],
+    property = [{139,590,0}],
     name = "情比金坚（物防）",
     level = 57
     };
@@ -3781,7 +3781,7 @@ getRow(4,45)->
     skillid = 13503,
     exp = 480,
     intimacy = 45,
-    property = [{139,0.608,1}],
+    property = [{139,608,0}],
     name = "情比金坚（物防）",
     level = 57
     };
@@ -3793,7 +3793,7 @@ getRow(4,46)->
     skillid = 13503,
     exp = 490,
     intimacy = 46,
-    property = [{139,0.626,1}],
+    property = [{139,626,0}],
     name = "情比金坚（物防）",
     level = 58
     };
@@ -3805,7 +3805,7 @@ getRow(4,47)->
     skillid = 13503,
     exp = 505,
     intimacy = 47,
-    property = [{139,0.645,1}],
+    property = [{139,645,0}],
     name = "情比金坚（物防）",
     level = 58
     };
@@ -3817,7 +3817,7 @@ getRow(4,48)->
     skillid = 13503,
     exp = 515,
     intimacy = 48,
-    property = [{139,0.664,1}],
+    property = [{139,664,0}],
     name = "情比金坚（物防）",
     level = 59
     };
@@ -3829,7 +3829,7 @@ getRow(4,49)->
     skillid = 13503,
     exp = 525,
     intimacy = 49,
-    property = [{139,0.683,1}],
+    property = [{139,683,0}],
     name = "情比金坚（物防）",
     level = 59
     };
@@ -3841,7 +3841,7 @@ getRow(4,50)->
     skillid = 13503,
     exp = 540,
     intimacy = 50,
-    property = [{139,0.702,1}],
+    property = [{139,702,0}],
     name = "情比金坚（物防）",
     level = 60
     };
@@ -3853,7 +3853,7 @@ getRow(4,51)->
     skillid = 13503,
     exp = 550,
     intimacy = 51,
-    property = [{139,0.722,1}],
+    property = [{139,722,0}],
     name = "情比金坚（物防）",
     level = 60
     };
@@ -3865,7 +3865,7 @@ getRow(4,52)->
     skillid = 13503,
     exp = 565,
     intimacy = 52,
-    property = [{139,0.742,1}],
+    property = [{139,742,0}],
     name = "情比金坚（物防）",
     level = 61
     };
@@ -3877,7 +3877,7 @@ getRow(4,53)->
     skillid = 13503,
     exp = 575,
     intimacy = 53,
-    property = [{139,0.762,1}],
+    property = [{139,762,0}],
     name = "情比金坚（物防）",
     level = 61
     };
@@ -3889,7 +3889,7 @@ getRow(4,54)->
     skillid = 13503,
     exp = 590,
     intimacy = 54,
-    property = [{139,0.782,1}],
+    property = [{139,782,0}],
     name = "情比金坚（物防）",
     level = 62
     };
@@ -3901,7 +3901,7 @@ getRow(4,55)->
     skillid = 13503,
     exp = 600,
     intimacy = 55,
-    property = [{139,0.803,1}],
+    property = [{139,803,0}],
     name = "情比金坚（物防）",
     level = 62
     };
@@ -3913,7 +3913,7 @@ getRow(4,56)->
     skillid = 13503,
     exp = 610,
     intimacy = 56,
-    property = [{139,0.824,1}],
+    property = [{139,824,0}],
     name = "情比金坚（物防）",
     level = 63
     };
@@ -3925,7 +3925,7 @@ getRow(4,57)->
     skillid = 13503,
     exp = 625,
     intimacy = 57,
-    property = [{139,0.845,1}],
+    property = [{139,845,0}],
     name = "情比金坚（物防）",
     level = 63
     };
@@ -3937,7 +3937,7 @@ getRow(4,58)->
     skillid = 13503,
     exp = 635,
     intimacy = 58,
-    property = [{139,0.867,1}],
+    property = [{139,867,0}],
     name = "情比金坚（物防）",
     level = 64
     };
@@ -3949,7 +3949,7 @@ getRow(4,59)->
     skillid = 13503,
     exp = 650,
     intimacy = 59,
-    property = [{139,0.889,1}],
+    property = [{139,889,0}],
     name = "情比金坚（物防）",
     level = 64
     };
@@ -3961,7 +3961,7 @@ getRow(4,60)->
     skillid = 13503,
     exp = 660,
     intimacy = 60,
-    property = [{139,0.911,1}],
+    property = [{139,911,0}],
     name = "情比金坚（物防）",
     level = 65
     };
@@ -3973,7 +3973,7 @@ getRow(4,61)->
     skillid = 13503,
     exp = 675,
     intimacy = 61,
-    property = [{139,0.933,1}],
+    property = [{139,933,0}],
     name = "情比金坚（物防）",
     level = 65
     };
@@ -3985,7 +3985,7 @@ getRow(4,62)->
     skillid = 13503,
     exp = 685,
     intimacy = 62,
-    property = [{139,0.956,1}],
+    property = [{139,956,0}],
     name = "情比金坚（物防）",
     level = 66
     };
@@ -3997,7 +3997,7 @@ getRow(4,63)->
     skillid = 13503,
     exp = 700,
     intimacy = 63,
-    property = [{139,0.979,1}],
+    property = [{139,979,0}],
     name = "情比金坚（物防）",
     level = 66
     };
@@ -4009,7 +4009,7 @@ getRow(4,64)->
     skillid = 13503,
     exp = 710,
     intimacy = 64,
-    property = [{139,1.002,1}],
+    property = [{139,1002,0}],
     name = "情比金坚（物防）",
     level = 67
     };
@@ -4021,7 +4021,7 @@ getRow(4,65)->
     skillid = 13503,
     exp = 725,
     intimacy = 65,
-    property = [{139,1.025,1}],
+    property = [{139,1025,0}],
     name = "情比金坚（物防）",
     level = 67
     };
@@ -4033,7 +4033,7 @@ getRow(4,66)->
     skillid = 13503,
     exp = 735,
     intimacy = 66,
-    property = [{139,1.049,1}],
+    property = [{139,1049,0}],
     name = "情比金坚（物防）",
     level = 68
     };
@@ -4045,7 +4045,7 @@ getRow(4,67)->
     skillid = 13503,
     exp = 750,
     intimacy = 67,
-    property = [{139,1.073,1}],
+    property = [{139,1073,0}],
     name = "情比金坚（物防）",
     level = 68
     };
@@ -4057,7 +4057,7 @@ getRow(4,68)->
     skillid = 13503,
     exp = 760,
     intimacy = 68,
-    property = [{139,1.097,1}],
+    property = [{139,1097,0}],
     name = "情比金坚（物防）",
     level = 69
     };
@@ -4069,7 +4069,7 @@ getRow(4,69)->
     skillid = 13503,
     exp = 770,
     intimacy = 69,
-    property = [{139,1.121,1}],
+    property = [{139,1121,0}],
     name = "情比金坚（物防）",
     level = 69
     };
@@ -4081,7 +4081,7 @@ getRow(4,70)->
     skillid = 13503,
     exp = 785,
     intimacy = 70,
-    property = [{139,1.146,1}],
+    property = [{139,1146,0}],
     name = "情比金坚（物防）",
     level = 70
     };
@@ -4093,7 +4093,7 @@ getRow(4,71)->
     skillid = 13503,
     exp = 795,
     intimacy = 71,
-    property = [{139,1.171,1}],
+    property = [{139,1171,0}],
     name = "情比金坚（物防）",
     level = 70
     };
@@ -4105,7 +4105,7 @@ getRow(4,72)->
     skillid = 13503,
     exp = 810,
     intimacy = 72,
-    property = [{139,1.196,1}],
+    property = [{139,1196,0}],
     name = "情比金坚（物防）",
     level = 71
     };
@@ -4117,7 +4117,7 @@ getRow(4,73)->
     skillid = 13503,
     exp = 820,
     intimacy = 73,
-    property = [{139,1.221,1}],
+    property = [{139,1221,0}],
     name = "情比金坚（物防）",
     level = 71
     };
@@ -4129,7 +4129,7 @@ getRow(4,74)->
     skillid = 13503,
     exp = 835,
     intimacy = 74,
-    property = [{139,1.247,1}],
+    property = [{139,1247,0}],
     name = "情比金坚（物防）",
     level = 72
     };
@@ -4141,7 +4141,7 @@ getRow(4,75)->
     skillid = 13503,
     exp = 845,
     intimacy = 75,
-    property = [{139,1.273,1}],
+    property = [{139,1273,0}],
     name = "情比金坚（物防）",
     level = 72
     };
@@ -4153,7 +4153,7 @@ getRow(4,76)->
     skillid = 13503,
     exp = 860,
     intimacy = 76,
-    property = [{139,1.299,1}],
+    property = [{139,1299,0}],
     name = "情比金坚（物防）",
     level = 73
     };
@@ -4165,7 +4165,7 @@ getRow(4,77)->
     skillid = 13503,
     exp = 875,
     intimacy = 77,
-    property = [{139,1.326,1}],
+    property = [{139,1326,0}],
     name = "情比金坚（物防）",
     level = 73
     };
@@ -4177,7 +4177,7 @@ getRow(4,78)->
     skillid = 13503,
     exp = 885,
     intimacy = 78,
-    property = [{139,1.352,1}],
+    property = [{139,1352,0}],
     name = "情比金坚（物防）",
     level = 74
     };
@@ -4189,7 +4189,7 @@ getRow(4,79)->
     skillid = 13503,
     exp = 900,
     intimacy = 79,
-    property = [{139,1.379,1}],
+    property = [{139,1379,0}],
     name = "情比金坚（物防）",
     level = 74
     };
@@ -4201,7 +4201,7 @@ getRow(4,80)->
     skillid = 13503,
     exp = 910,
     intimacy = 80,
-    property = [{139,1.406,1}],
+    property = [{139,1406,0}],
     name = "情比金坚（物防）",
     level = 75
     };
@@ -4213,7 +4213,7 @@ getRow(4,81)->
     skillid = 13503,
     exp = 910,
     intimacy = 81,
-    property = [{138,17,1}],
+    property = [{138,17000,0}],
     name = "情比金坚（物防）",
     level = 75
     };
@@ -4225,7 +4225,7 @@ getRow(4,82)->
     skillid = 13503,
     exp = 33725,
     intimacy = 82,
-    property = [{138,17.2,1}],
+    property = [{138,17200,0}],
     name = "情比金坚（物防）",
     level = 76
     };
@@ -4237,7 +4237,7 @@ getRow(4,83)->
     skillid = 13503,
     exp = 33725,
     intimacy = 83,
-    property = [{138,17.4,1}],
+    property = [{138,17400,0}],
     name = "情比金坚（物防）",
     level = 76
     };
@@ -4249,7 +4249,7 @@ getRow(4,84)->
     skillid = 13503,
     exp = 33725,
     intimacy = 84,
-    property = [{138,17.6,1}],
+    property = [{138,17600,0}],
     name = "情比金坚（物防）",
     level = 77
     };
@@ -4261,7 +4261,7 @@ getRow(4,85)->
     skillid = 13503,
     exp = 33725,
     intimacy = 85,
-    property = [{138,17.8,1}],
+    property = [{138,17800,0}],
     name = "情比金坚（物防）",
     level = 77
     };
@@ -4273,7 +4273,7 @@ getRow(4,86)->
     skillid = 13503,
     exp = 33725,
     intimacy = 86,
-    property = [{138,18,1}],
+    property = [{138,18000,0}],
     name = "情比金坚（物防）",
     level = 78
     };
@@ -4285,7 +4285,7 @@ getRow(4,87)->
     skillid = 13503,
     exp = 33725,
     intimacy = 87,
-    property = [{138,18.2,1}],
+    property = [{138,18200,0}],
     name = "情比金坚（物防）",
     level = 78
     };
@@ -4297,7 +4297,7 @@ getRow(4,88)->
     skillid = 13503,
     exp = 33725,
     intimacy = 88,
-    property = [{138,18.4,1}],
+    property = [{138,18400,0}],
     name = "情比金坚（物防）",
     level = 79
     };
@@ -4309,7 +4309,7 @@ getRow(4,89)->
     skillid = 13503,
     exp = 33725,
     intimacy = 89,
-    property = [{138,18.6,1}],
+    property = [{138,18600,0}],
     name = "情比金坚（物防）",
     level = 79
     };
@@ -4321,7 +4321,7 @@ getRow(4,90)->
     skillid = 13503,
     exp = 33725,
     intimacy = 90,
-    property = [{138,18.8,1}],
+    property = [{138,18800,0}],
     name = "情比金坚（物防）",
     level = 80
     };

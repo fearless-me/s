@@ -12,11 +12,13 @@
 -behaviour(supervisor).
 
 %% API
--export([start_link/2]).
+-export([start_link/0]).
 
 %% Supervisor callbacks
--export([init/1,
-		 stop/0]).
+-export([
+	init/1,
+	stop/0
+]).
 
 -define(SERVER, 		?MODULE).
 -define(MAX_RESTART,    1000). %% usually 4, now set not restart
@@ -32,11 +34,10 @@
 %%
 %% @end
 %%--------------------------------------------------------------------
--spec start_link(Title,CfgFile) ->
-	{ok, Pid :: pid()} | ignore | {error, Reason :: term()} when
-	Title::string(),CfgFile::string().
-start_link(Title,CfgFile) ->
-	supervisor:start_link({local, ?SERVER}, ?MODULE, [Title,CfgFile]).
+-spec start_link() ->
+	{ok, Pid :: pid()} | ignore | {error, Reason :: term()}.
+start_link() ->
+	supervisor:start_link({local, ?SERVER}, ?MODULE, []).
 
 %%%===================================================================
 %%% Supervisor callbacks
@@ -59,22 +60,9 @@ start_link(Title,CfgFile) ->
 	}} |
 	ignore |
 	{error, Reason :: term()}).
-init([Title,CfgFile]) ->
-	hdlt_logger:initEnv(Title),
-	application:start(localLog),
-
-	%% gameserverCfg进程
-	GameserverCfg = {
-		config,                         						% Id       = internal id
-		{config, start_link, [CfgFile]},						% StartFun = {M, F, A}
-		permanent,                               				% Restart  = permanent | transient | temporary
-		2000,                                    				% Shutdown = brutal_kill | int() >= 0 | infinity
-		worker,                                  				% Type     = worker | supervisor
-		[config]                           						% Modules  = [Module] | dynamic
-	},
-
+init([]) ->
 	%%后台GC进程
-	BGGC = {
+	BAG = {
 		backgroundGCOtp,
 		{backgroundGCOtp,start_link,[]},
 		permanent,                               				% Restart  = permanent | transient | temporary
@@ -92,13 +80,12 @@ init([Title,CfgFile]) ->
 		worker,                                  				% Type     = worker | supervisor
 		[monitorVMOtp]                           			    % Modules  = [Module] | dynamic
 	},
-	
+
 	{ok,
 		{
 			{one_for_one, ?MAX_RESTART, ?MAX_TIME},
 			[
-				GameserverCfg,
-				BGGC,
+				BAG,
 				MonitorVM
 			]
 		}

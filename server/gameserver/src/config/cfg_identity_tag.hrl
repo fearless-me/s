@@ -3,12 +3,13 @@
 -define(cfg_identity_tag, 1).
 
 -record(identity_tagCfg, {
+        %%: id列
         id,
 
-        %%: 标签名，字符串
+        %%: 身份证标签筛选中的标签名称
         tag,
 
-        %%: 对应资源名
+        %%: 无用字段，资源名称
         resouce
 
  }).

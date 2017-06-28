@@ -295,6 +295,7 @@ levelupWeapon_levelup(
 			wakeSkillLv = WakeSkillLevel
 		},
 	playerMsg:sendNetMsg(Msg),
+	playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_GodWeapon),
 	%% 记录日志
 	LogGodWeapon =
 		#rec_log_god_weapon{
@@ -307,7 +308,8 @@ levelupWeapon_levelup(
 			costCoin = CostCoinReal,
 			time = time:getLogTimeSec()
 		},
-	dbLog:sendSaveLogWeaponInfo(LogGodWeapon).
+	dbLog:sendSaveLogWeaponInfo(LogGodWeapon),
+	playerSevenDayAim:updateCondition(?SevenDayAim_GodWeapon, []).
 
 levelupWeapon_levelup_skill(WeaponID, NewLevel) ->
 	case NewLevel > 1 of

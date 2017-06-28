@@ -52,18 +52,18 @@ checkActiveOpenTime(DateActiveID) ->
 					TimeWeekStart_LocalFrom0 = time:getWeekBeginSecondsByDay(DateTimeNow) + ?ResetTimeHour * 3600,
 					TimeDelta = TimeNow_LocalFrom0 - TimeWeekStart_LocalFrom0 + 1,
 					DayOfWeek = erlang:trunc(TimeDelta / (24 * 3600)) + 1,
-					DayOfWeek_ =          %% 记周日为0
-						case DayOfWeek of
-							7 ->
-								0;
-							_ ->
-								DayOfWeek
-						end,
+					%%DayOfWeek_ =          %% 记周日为0
+					%%	case DayOfWeek of
+					%%		7 ->
+					%%			0;
+					%%		_ ->
+					%%			DayOfWeek
+					%%	end,
 					%?DEBUG_OUT("[DebugForDate] ~p", [{TimeNow_LocalFrom0, TimeWeekStart_LocalFrom0, DateTimeNow, DayOfWeek, List}]),
 					FunFind =
 						fun(Day, {Mark, _}) ->
 							case Day of
-								DayOfWeek_ ->
+								DayOfWeek ->
 									{true, 0};
 								_ ->
 									{Mark, 0}

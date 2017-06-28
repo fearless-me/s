@@ -6,12 +6,11 @@
         %%: 玩家等级
         level,
 
+        maxLevel,
+
         %%: 职业：BY姜泓妃
         %%: 职业ID与play_desc中一致
         class,
-
-        %%: 升级到下一级所需经验
-        exp,
 
         %%: 生命上限
         maxHP,
@@ -40,66 +39,19 @@
         %%: 抗爆等级
         criticalResistLevel,
 
-        %%: Administrator:
-        %%: 爆伤等级
-        criticalDamageLevel,
+        maxHPMultiply,
 
-        %%: Administrator:
-        %%: 韧性等级
-        tenaciousLevel,
+        physicalAttackMultiply,
 
-        %%: Administrator:
-        %%: 命中等级
-        hitLevel,
+        magicAttackMultiply,
 
-        %%: Administrator:
-        %%: 闪避等级
-        dodgeLevel,
+        physicalDefenceMultiply,
 
-        %%: Administrator:
-        %%: 破甲等级
-        armorPenetrationLevel,
+        magicDefenceMultiply,
 
-        %%: admin:
-        firmLevel,
+        criticalLevelMultiply,
 
-        %%: Administrator:
-        %%: 生命秒回值
-        hPRecover,
-
-        %%: Administrator:
-        mPRecover,
-
-        %%: 角色天生额外带有的属性
-        %%: [属性id，值，加法或乘法值]
-        %%: 0 加法
-        %%: 1 乘法
-        exraAttribute,
-
-        %%: 掉宝率
-        dropRate,
-
-        %%: 坚韧
-        tough,
-
-        %%: 唐斯然:
-        %%: 命中初始值
-        score,
-
-        %%: 力量
-        strength,
-
-        %%: 敏捷
-        agility,
-
-        %%: 智力
-        intelligence,
-
-        %%: 体质
-        constitution,
-
-        %%: 法力上限
-        maxMana
+        criticalResistLevelMultiply
 
  }).
 

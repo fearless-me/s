@@ -9,31 +9,31 @@ getRow(bossaward_normal)->
     #worldbossCfg {
     id = 5,
     settype = bossaward_normal,
-    setpara = [1704]
+    setpara = [{722,1704},{723,604}]
     };
 getRow(bossaward_sp)->
     #worldbossCfg {
     id = 6,
     settype = bossaward_sp,
-    setpara = [1705]
+    setpara = [{722,1705},{723,605}]
     };
 getRow(bossaward1)->
     #worldbossCfg {
     id = 2,
     settype = bossaward1,
-    setpara = [1701]
+    setpara = [{722,1701},{723,601}]
     };
 getRow(bossaward2)->
     #worldbossCfg {
     id = 3,
     settype = bossaward2,
-    setpara = [1702]
+    setpara = [{722,1702},{723,602}]
     };
 getRow(bossaward3)->
     #worldbossCfg {
     id = 4,
     settype = bossaward3,
-    setpara = [1703]
+    setpara = [{722,1703},{723,603}]
     };
 getRow(worldboss_buyattack)->
     #worldbossCfg {
@@ -45,7 +45,7 @@ getRow(worldboss_list)->
     #worldbossCfg {
     id = 1,
     settype = worldboss_list,
-    setpara = [{722,79,94}]
+    setpara = [{722,79,94},{723,79,94}]
     };
 getRow(_)->[].
 

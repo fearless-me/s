@@ -275,48 +275,47 @@ deletePetByTerritory(RoleID, TerritoryID) ->
 %% 删除玩家对应攻防记录
 -spec deleteHistory(TimeLine::uint32()) -> ok.
 deleteHistory(TimeLine) ->
-	%% 删除掠夺记录
-	FunFindA2 =
-		fun(#rec_player_territory_history_a{timeEvent = TimeEvent} = Rec, R) ->
-			case TimeEvent < TimeLine of
-				true ->
-					R;
-				_ ->
-					[Rec | R]
-			end
-		end,
-	FunFindA1 =
-		fun(#recTerritoryData{value = ListHistory}, AccR) ->
-			lists:foldl(FunFindA2, [], ListHistory) ++ AccR
-		end,
 	FunDelete =
 		fun
 			(#recTerritoryData{roleID = RoleID, value = []}, Ets) ->
 				ets:delete(Ets, RoleID),
 				Ets;
-			(Rec, Ets) ->
+			(#recTerritoryData{} = Rec, Ets) ->
 				ets:insert(Ets, Rec),
+				Ets;
+			(RoleID, Ets) ->
+				ets:delete(Ets, RoleID),
 				Ets
 		end,
-	ListA = ets:foldl(FunFindA1, [], ?EtsTerritoryHistoryAData),
-	lists:foldl(FunDelete, ?EtsTerritoryHistoryAData, ListA),
-	%% 删除防守记录
-	FunFindD2 =
-		fun(#rec_player_territory_history_d{timeEvent = TimeEvent} = Rec, R) ->
-			case TimeEvent < TimeLine of
-				true ->
-					R;
-				_ ->
-					[Rec | R]
+	FunFind =
+		fun(#recTerritoryData{roleID = RoleID, value = ListHistory} = Rec, AccR) ->
+			case deleteHistory(ListHistory, TimeLine) of
+				[] ->
+					[RoleID | AccR];
+				ListHistory ->
+					AccR;
+				ListHistoryNew ->
+					[Rec#recTerritoryData{value = ListHistoryNew} | AccR]
 			end
 		end,
-	FunFindD1 =
-		fun(#recTerritoryData{value = ListHistory}, AccR) ->
-			lists:foldl(FunFindD2, [], ListHistory) ++ AccR
-		end,
-	ListD = ets:foldl(FunFindD1, [], ?EtsTerritoryHistoryDData),
+	%% 删除掠夺记录
+	ListA = ets:foldl(FunFind, [], ?EtsTerritoryHistoryAData),
+	lists:foldl(FunDelete, ?EtsTerritoryHistoryAData, ListA),
+	%% 删除防守记录
+	ListD = ets:foldl(FunFind, [], ?EtsTerritoryHistoryDData),
 	lists:foldl(FunDelete, ?EtsTerritoryHistoryDData, ListD),
 	ok.
+
+deleteHistory([], _TimeLine) ->
+	[];
+deleteHistory([#rec_player_territory_history_a{timeEvent = TimeEvent} | T], TimeLine)
+	when TimeEvent < TimeLine ->
+	deleteHistory(T, TimeLine);
+deleteHistory([#rec_player_territory_history_d{timeEvent = TimeEvent} | T], TimeLine)
+	when TimeEvent < TimeLine ->
+	deleteHistory(T, TimeLine);
+deleteHistory([H | T], TimeLine) ->
+	[H | deleteHistory(T, TimeLine)].
 
 %%% ====================================================================
 %%% 领地数据管理（内存相关）

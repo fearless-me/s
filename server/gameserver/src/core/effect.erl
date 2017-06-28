@@ -82,10 +82,12 @@ skillEffect(HitList, EffIDList, IsMainTarget) ->
 %%根据技能效果ID列表获取效果
 -spec getEffList(EffIDList) -> list() when
 	EffIDList :: list().
-getEffList(EffIDList) ->
+getEffList(EffIDList) when is_list(EffIDList) ->
 	lists:map(fun(Key) ->
 		getCfg:getCfgPStack(cfg_skill_effect, Key)
-	          end, EffIDList).
+	          end, EffIDList);
+getEffList(_E)->
+	[].
 
 %% ====================================================================
 %% Internal functions

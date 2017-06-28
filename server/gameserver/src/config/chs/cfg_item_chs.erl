@@ -38,7 +38,7 @@ getRow(1)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2)->
     #itemCfg {
@@ -73,7 +73,7 @@ getRow(2)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3)->
     #itemCfg {
@@ -213,7 +213,7 @@ getRow(11)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(12)->
     #itemCfg {
@@ -248,7 +248,7 @@ getRow(12)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(13)->
     #itemCfg {
@@ -283,7 +283,7 @@ getRow(13)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(14)->
     #itemCfg {
@@ -318,7 +318,7 @@ getRow(14)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(19)->
     #itemCfg {
@@ -354,7 +354,7 @@ getRow(19)->
     txt = "成功激活成长礼包",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(20)->
     #itemCfg {
@@ -424,7 +424,7 @@ getRow(31)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(32)->
     #itemCfg {
@@ -459,7 +459,7 @@ getRow(32)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(49)->
     #itemCfg {
@@ -494,7 +494,7 @@ getRow(49)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(52)->
     #itemCfg {
@@ -529,7 +529,7 @@ getRow(52)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(55)->
     #itemCfg {
@@ -564,7 +564,7 @@ getRow(55)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(57)->
     #itemCfg {
@@ -599,7 +599,7 @@ getRow(57)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(58)->
     #itemCfg {
@@ -634,7 +634,7 @@ getRow(58)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(62)->
     #itemCfg {
@@ -669,7 +669,7 @@ getRow(62)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(63)->
     #itemCfg {
@@ -739,7 +739,7 @@ getRow(64)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(71)->
     #itemCfg {
@@ -774,7 +774,7 @@ getRow(71)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(72)->
     #itemCfg {
@@ -949,7 +949,7 @@ getRow(83)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(84)->
     #itemCfg {
@@ -984,13 +984,13 @@ getRow(84)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(101)->
     #itemCfg {
     id = 101,
     name = "1级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复700点生命值",
+    desc = "极为有效的治疗药水，能够恢复800点生命值",
     product = "商店购买获得",
     iconPath = 17,
     maxAmount = 999,
@@ -1000,7 +1000,7 @@ getRow(101)->
     isQuestItem = 0,
     useType = 3,
     useParam1 = 1,
-    useParam2 = 700,
+    useParam2 = 800,
     useParam3 = 0,
     useParam4 = 1,
     useMaxCount = 1,
@@ -1019,13 +1019,13 @@ getRow(101)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(102)->
     #itemCfg {
     id = 102,
     name = "10级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复2000点生命值",
+    desc = "极为有效的治疗药水，能够恢复1500点生命值",
     product = "商店购买获得",
     iconPath = 18,
     maxAmount = 999,
@@ -1035,7 +1035,7 @@ getRow(102)->
     isQuestItem = 0,
     useType = 3,
     useParam1 = 1,
-    useParam2 = 2000,
+    useParam2 = 1500,
     useParam3 = 0,
     useParam4 = 2,
     useMaxCount = 1,
@@ -1054,13 +1054,13 @@ getRow(102)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(103)->
     #itemCfg {
     id = 103,
     name = "20级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复5000点生命值",
+    desc = "极为有效的治疗药水，能够恢复5400点生命值",
     product = "商店购买获得",
     iconPath = 19,
     maxAmount = 999,
@@ -1070,7 +1070,7 @@ getRow(103)->
     isQuestItem = 0,
     useType = 3,
     useParam1 = 1,
-    useParam2 = 5000,
+    useParam2 = 5400,
     useParam3 = 0,
     useParam4 = 3,
     useMaxCount = 1,
@@ -1089,13 +1089,13 @@ getRow(103)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(104)->
     #itemCfg {
     id = 104,
     name = "30级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复12000点生命值",
+    desc = "极为有效的治疗药水，能够恢复19200点生命值",
     product = "商店购买获得",
     iconPath = 20,
     maxAmount = 999,
@@ -1105,7 +1105,7 @@ getRow(104)->
     isQuestItem = 0,
     useType = 3,
     useParam1 = 1,
-    useParam2 = 12000,
+    useParam2 = 19200,
     useParam3 = 0,
     useParam4 = 4,
     useMaxCount = 1,
@@ -1124,13 +1124,13 @@ getRow(104)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(105)->
     #itemCfg {
     id = 105,
     name = "40级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复29000点生命值",
+    desc = "极为有效的治疗药水，能够恢复42800点生命值",
     product = "商店购买获得",
     iconPath = 153,
     maxAmount = 999,
@@ -1140,7 +1140,7 @@ getRow(105)->
     isQuestItem = 0,
     useType = 3,
     useParam1 = 1,
-    useParam2 = 29000,
+    useParam2 = 42800,
     useParam3 = 0,
     useParam4 = 5,
     useMaxCount = 1,
@@ -1159,13 +1159,13 @@ getRow(105)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(106)->
     #itemCfg {
     id = 106,
     name = "45级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复41000点生命值",
+    desc = "极为有效的治疗药水，能够恢复57000点生命值",
     product = "商店购买获得",
     iconPath = 154,
     maxAmount = 999,
@@ -1175,7 +1175,7 @@ getRow(106)->
     isQuestItem = 0,
     useType = 3,
     useParam1 = 1,
-    useParam2 = 41000,
+    useParam2 = 57000,
     useParam3 = 0,
     useParam4 = 6,
     useMaxCount = 1,
@@ -1194,13 +1194,13 @@ getRow(106)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(107)->
     #itemCfg {
     id = 107,
     name = "50级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复57000点生命值",
+    desc = "极为有效的治疗药水，能够恢复72600点生命值",
     product = "商店购买获得",
     iconPath = 155,
     maxAmount = 999,
@@ -1210,7 +1210,7 @@ getRow(107)->
     isQuestItem = 0,
     useType = 3,
     useParam1 = 1,
-    useParam2 = 57000,
+    useParam2 = 72600,
     useParam3 = 0,
     useParam4 = 7,
     useMaxCount = 1,
@@ -1228,8 +1228,8 @@ getRow(107)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(108)->
     #itemCfg {
@@ -1263,8 +1263,8 @@ getRow(108)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(109)->
     #itemCfg {
@@ -1299,7 +1299,7 @@ getRow(109)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(110)->
     #itemCfg {
@@ -1334,7 +1334,7 @@ getRow(110)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(111)->
     #itemCfg {
@@ -1369,7 +1369,7 @@ getRow(111)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(112)->
     #itemCfg {
@@ -1404,7 +1404,7 @@ getRow(112)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(113)->
     #itemCfg {
@@ -1439,7 +1439,7 @@ getRow(113)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(114)->
     #itemCfg {
@@ -1474,7 +1474,7 @@ getRow(114)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(115)->
     #itemCfg {
@@ -1508,8 +1508,8 @@ getRow(115)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(116)->
     #itemCfg {
@@ -1543,8 +1543,8 @@ getRow(116)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(129)->
     #itemCfg {
@@ -1614,7 +1614,7 @@ getRow(130)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(131)->
     #itemCfg {
@@ -1648,8 +1648,8 @@ getRow(131)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(201)->
     #itemCfg {
@@ -1964,7 +1964,7 @@ getRow(240)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(241)->
     #itemCfg {
@@ -1998,8 +1998,8 @@ getRow(241)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(242)->
     #itemCfg {
@@ -2034,7 +2034,7 @@ getRow(242)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(250)->
     #itemCfg {
@@ -2069,7 +2069,7 @@ getRow(250)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(251)->
     #itemCfg {
@@ -2103,8 +2103,8 @@ getRow(251)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(252)->
     #itemCfg {
@@ -2139,7 +2139,7 @@ getRow(252)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(270)->
     #itemCfg {
@@ -2174,7 +2174,7 @@ getRow(270)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(271)->
     #itemCfg {
@@ -2209,7 +2209,7 @@ getRow(271)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(272)->
     #itemCfg {
@@ -2243,8 +2243,8 @@ getRow(272)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(273)->
     #itemCfg {
@@ -2279,7 +2279,7 @@ getRow(273)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(274)->
     #itemCfg {
@@ -2314,7 +2314,7 @@ getRow(274)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(275)->
     #itemCfg {
@@ -2349,7 +2349,7 @@ getRow(275)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(276)->
     #itemCfg {
@@ -2384,7 +2384,7 @@ getRow(276)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(277)->
     #itemCfg {
@@ -2419,7 +2419,7 @@ getRow(277)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(278)->
     #itemCfg {
@@ -2454,7 +2454,7 @@ getRow(278)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(279)->
     #itemCfg {
@@ -2489,7 +2489,7 @@ getRow(279)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(306)->
     #itemCfg {
@@ -2524,13 +2524,13 @@ getRow(306)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(310)->
     #itemCfg {
     id = 310,
     name = "祈愿礼包",
-    desc = "家族活跃度达到10时领取，打开获得40家族贡献。",
+    desc = "家族活跃度达到10时领取，打开获得30家族贡献。",
     product = "游戏中获得",
     iconPath = 91,
     maxAmount = 99,
@@ -2559,7 +2559,7 @@ getRow(310)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(311)->
     #itemCfg {
@@ -2594,13 +2594,13 @@ getRow(311)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(312)->
     #itemCfg {
     id = 312,
     name = "祈愿礼包",
-    desc = "家族活跃度达到30时领取，打开获得90家族贡献和15绑定钻石。",
+    desc = "家族活跃度达到30时领取，打开获得80家族贡献和15绑定钻石。",
     product = "游戏中获得",
     iconPath = 91,
     maxAmount = 99,
@@ -2629,13 +2629,13 @@ getRow(312)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(313)->
     #itemCfg {
     id = 313,
     name = "祈愿礼包",
-    desc = "家族活跃度达到40时领取，打开获得120家族贡献和25绑定钻石。",
+    desc = "家族活跃度达到40时领取，打开获得100家族贡献和30绑定钻石。",
     product = "游戏中获得",
     iconPath = 91,
     maxAmount = 99,
@@ -2663,8 +2663,8 @@ getRow(313)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(400)->
     #itemCfg {
@@ -2699,7 +2699,7 @@ getRow(400)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(401)->
     #itemCfg {
@@ -2734,7 +2734,7 @@ getRow(401)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(402)->
     #itemCfg {
@@ -2769,7 +2769,7 @@ getRow(402)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(601)->
     #itemCfg {
@@ -2804,7 +2804,7 @@ getRow(601)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(602)->
     #itemCfg {
@@ -2839,7 +2839,7 @@ getRow(602)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(603)->
     #itemCfg {
@@ -2874,7 +2874,7 @@ getRow(603)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(604)->
     #itemCfg {
@@ -2909,7 +2909,7 @@ getRow(604)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(605)->
     #itemCfg {
@@ -2944,7 +2944,7 @@ getRow(605)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(606)->
     #itemCfg {
@@ -2979,7 +2979,7 @@ getRow(606)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(607)->
     #itemCfg {
@@ -3014,7 +3014,7 @@ getRow(607)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(608)->
     #itemCfg {
@@ -3049,7 +3049,7 @@ getRow(608)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(611)->
     #itemCfg {
@@ -3084,7 +3084,7 @@ getRow(611)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(612)->
     #itemCfg {
@@ -3119,7 +3119,7 @@ getRow(612)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(613)->
     #itemCfg {
@@ -3154,7 +3154,7 @@ getRow(613)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(614)->
     #itemCfg {
@@ -3189,7 +3189,7 @@ getRow(614)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(615)->
     #itemCfg {
@@ -3224,7 +3224,7 @@ getRow(615)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(616)->
     #itemCfg {
@@ -3259,7 +3259,7 @@ getRow(616)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(617)->
     #itemCfg {
@@ -3294,7 +3294,7 @@ getRow(617)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(618)->
     #itemCfg {
@@ -3329,7 +3329,7 @@ getRow(618)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(700)->
     #itemCfg {
@@ -3365,7 +3365,7 @@ getRow(700)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(701)->
     #itemCfg {
@@ -3401,7 +3401,7 @@ getRow(701)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(702)->
     #itemCfg {
@@ -3436,8 +3436,8 @@ getRow(702)->
     baozhusound = "item_baozhu_1",
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(800)->
     #itemCfg {
@@ -3472,7 +3472,7 @@ getRow(800)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(801)->
     #itemCfg {
@@ -3507,7 +3507,7 @@ getRow(801)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(802)->
     #itemCfg {
@@ -3542,7 +3542,7 @@ getRow(802)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(803)->
     #itemCfg {
@@ -3577,7 +3577,7 @@ getRow(803)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(804)->
     #itemCfg {
@@ -3612,7 +3612,7 @@ getRow(804)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(900)->
     #itemCfg {
@@ -3648,7 +3648,7 @@ getRow(900)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(901)->
     #itemCfg {
@@ -3684,7 +3684,7 @@ getRow(901)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(902)->
     #itemCfg {
@@ -3720,7 +3720,7 @@ getRow(902)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(903)->
     #itemCfg {
@@ -3756,7 +3756,7 @@ getRow(903)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(904)->
     #itemCfg {
@@ -3792,7 +3792,7 @@ getRow(904)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(905)->
     #itemCfg {
@@ -3828,7 +3828,7 @@ getRow(905)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(906)->
     #itemCfg {
@@ -3864,7 +3864,7 @@ getRow(906)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(907)->
     #itemCfg {
@@ -3900,7 +3900,7 @@ getRow(907)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(950)->
     #itemCfg {
@@ -3936,7 +3936,7 @@ getRow(950)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(951)->
     #itemCfg {
@@ -3972,7 +3972,7 @@ getRow(951)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(952)->
     #itemCfg {
@@ -4008,7 +4008,7 @@ getRow(952)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(953)->
     #itemCfg {
@@ -4044,7 +4044,7 @@ getRow(953)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(954)->
     #itemCfg {
@@ -4080,7 +4080,7 @@ getRow(954)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(955)->
     #itemCfg {
@@ -4116,7 +4116,7 @@ getRow(955)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(956)->
     #itemCfg {
@@ -4152,7 +4152,7 @@ getRow(956)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(957)->
     #itemCfg {
@@ -4188,7 +4188,7 @@ getRow(957)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1111)->
     #itemCfg {
@@ -4223,7 +4223,7 @@ getRow(1111)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1113)->
     #itemCfg {
@@ -4258,7 +4258,7 @@ getRow(1113)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1115)->
     #itemCfg {
@@ -4293,7 +4293,7 @@ getRow(1115)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1121)->
     #itemCfg {
@@ -4328,7 +4328,7 @@ getRow(1121)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1122)->
     #itemCfg {
@@ -4363,7 +4363,7 @@ getRow(1122)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1123)->
     #itemCfg {
@@ -4398,7 +4398,7 @@ getRow(1123)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1124)->
     #itemCfg {
@@ -4433,7 +4433,7 @@ getRow(1124)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1125)->
     #itemCfg {
@@ -4468,7 +4468,7 @@ getRow(1125)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1126)->
     #itemCfg {
@@ -4503,7 +4503,7 @@ getRow(1126)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1127)->
     #itemCfg {
@@ -4538,7 +4538,7 @@ getRow(1127)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1159)->
     #itemCfg {
@@ -4573,7 +4573,7 @@ getRow(1159)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1160)->
     #itemCfg {
@@ -4608,7 +4608,7 @@ getRow(1160)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1161)->
     #itemCfg {
@@ -4643,7 +4643,7 @@ getRow(1161)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1162)->
     #itemCfg {
@@ -4678,7 +4678,7 @@ getRow(1162)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1163)->
     #itemCfg {
@@ -4713,7 +4713,7 @@ getRow(1163)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1164)->
     #itemCfg {
@@ -4748,7 +4748,7 @@ getRow(1164)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1165)->
     #itemCfg {
@@ -4783,7 +4783,7 @@ getRow(1165)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1166)->
     #itemCfg {
@@ -4818,7 +4818,7 @@ getRow(1166)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1167)->
     #itemCfg {
@@ -4853,7 +4853,7 @@ getRow(1167)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1168)->
     #itemCfg {
@@ -4888,7 +4888,7 @@ getRow(1168)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1169)->
     #itemCfg {
@@ -4923,7 +4923,7 @@ getRow(1169)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1170)->
     #itemCfg {
@@ -4958,7 +4958,7 @@ getRow(1170)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1171)->
     #itemCfg {
@@ -4993,7 +4993,7 @@ getRow(1171)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1172)->
     #itemCfg {
@@ -5028,7 +5028,7 @@ getRow(1172)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1185)->
     #itemCfg {
@@ -5063,7 +5063,7 @@ getRow(1185)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1186)->
     #itemCfg {
@@ -5098,7 +5098,7 @@ getRow(1186)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1187)->
     #itemCfg {
@@ -5133,7 +5133,7 @@ getRow(1187)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1188)->
     #itemCfg {
@@ -5168,7 +5168,7 @@ getRow(1188)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1189)->
     #itemCfg {
@@ -5203,7 +5203,7 @@ getRow(1189)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1191)->
     #itemCfg {
@@ -5238,22 +5238,22 @@ getRow(1191)->
     useJumpPage = 17,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1200)->
     #itemCfg {
     id = 1200,
-    name = "10级普通补给箱",
-    desc = "使用后获得1个精炼石I，有几率随机获得一件10级装备。",
-    product = "副本获得",
-    iconPath = 22,
+    name = "20活跃度奖励",
+    desc = "领取后自动开启，获得20000金币。",
+    product = "活跃度获得",
+    iconPath = 4027,
     maxAmount = 999,
-    quality = 1,
+    quality = 2,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
     useType = 8,
-    useParam1 = 300000,
+    useParam1 = 380001,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -5271,24 +5271,24 @@ getRow(1200)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1201)->
     #itemCfg {
     id = 1201,
-    name = "20级普通补给箱",
-    desc = "使用后获得2个精炼石I，有几率随机获得一件20级装备。",
-    product = "副本获得",
-    iconPath = 22,
+    name = "40活跃度奖励",
+    desc = "领取后自动开启，获得精炼石I*50。",
+    product = "活跃度获得",
+    iconPath = 4027,
     maxAmount = 999,
-    quality = 1,
+    quality = 2,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
     useType = 8,
-    useParam1 = 300001,
+    useParam1 = 380002,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -5306,24 +5306,24 @@ getRow(1201)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1202)->
     #itemCfg {
     id = 1202,
-    name = "30级普通补给箱",
-    desc = "使用后获得2个精炼石I，有几率随机获得一件30级装备。",
-    product = "副本获得",
-    iconPath = 22,
+    name = "60活跃度奖励",
+    desc = "领取后自动开启，获得时装碎片*100。",
+    product = "活跃度获得",
+    iconPath = 4027,
     maxAmount = 999,
-    quality = 1,
+    quality = 3,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
     useType = 8,
-    useParam1 = 300002,
+    useParam1 = 380003,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -5341,24 +5341,24 @@ getRow(1202)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1203)->
     #itemCfg {
     id = 1203,
-    name = "40级普通补给箱",
-    desc = "使用后获得3个精炼石I，有几率随机获得一件40级装备。",
-    product = "副本获得",
-    iconPath = 22,
+    name = "80活跃度奖励",
+    desc = "领取后自动开启，获得高级宠物碎片箱*15。",
+    product = "活跃度获得",
+    iconPath = 4027,
     maxAmount = 999,
-    quality = 1,
+    quality = 3,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
     useType = 8,
-    useParam1 = 300003,
+    useParam1 = 380004,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -5376,24 +5376,24 @@ getRow(1203)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1204)->
     #itemCfg {
     id = 1204,
-    name = "50级普通补给箱",
-    desc = "使用后获得4个精炼石I，有几率随机获得一件50级装备。",
-    product = "副本获得",
-    iconPath = 22,
+    name = "100活跃度奖励",
+    desc = "领取后自动开启，获得绑定钻石*500。",
+    product = "活跃度获得",
+    iconPath = 4026,
     maxAmount = 999,
-    quality = 1,
+    quality = 4,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
     useType = 8,
-    useParam1 = 300004,
+    useParam1 = 380005,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -5411,79 +5411,9 @@ getRow(1204)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
-    };
-getRow(1205)->
-    #itemCfg {
-    id = 1205,
-    name = "60级普通补给箱",
-    desc = "使用后获得5个精炼石I，有几率随机获得一件60级装备。",
-    product = "副本获得",
-    iconPath = 22,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 8,
-    detailedType = 0,
-    isQuestItem = 0,
-    useType = 8,
-    useParam1 = 300005,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 0,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 0,
-    operate = 0,
-    needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
-    };
-getRow(1206)->
-    #itemCfg {
-    id = 1206,
-    name = "70级普通补给箱",
-    desc = "使用后获得6个精炼石I，有几率随机获得一件70级装备。",
-    product = "副本获得",
-    iconPath = 22,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 8,
-    detailedType = 0,
-    isQuestItem = 0,
-    useType = 8,
-    useParam1 = 300006,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 0,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 0,
-    operate = 0,
-    needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1208)->
     #itemCfg {
@@ -5518,7 +5448,7 @@ getRow(1208)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1209)->
     #itemCfg {
@@ -5553,7 +5483,7 @@ getRow(1209)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1210)->
     #itemCfg {
@@ -5588,7 +5518,7 @@ getRow(1210)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1211)->
     #itemCfg {
@@ -5623,7 +5553,7 @@ getRow(1211)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1212)->
     #itemCfg {
@@ -5658,7 +5588,7 @@ getRow(1212)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1213)->
     #itemCfg {
@@ -5693,7 +5623,7 @@ getRow(1213)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1217)->
     #itemCfg {
@@ -5727,8 +5657,8 @@ getRow(1217)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1218)->
     #itemCfg {
@@ -5762,8 +5692,8 @@ getRow(1218)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1219)->
     #itemCfg {
@@ -5797,8 +5727,8 @@ getRow(1219)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1220)->
     #itemCfg {
@@ -5832,8 +5762,8 @@ getRow(1220)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1400)->
     #itemCfg {
@@ -5867,8 +5797,8 @@ getRow(1400)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1401)->
     #itemCfg {
@@ -5902,8 +5832,8 @@ getRow(1401)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1402)->
     #itemCfg {
@@ -5937,8 +5867,8 @@ getRow(1402)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1403)->
     #itemCfg {
@@ -5972,8 +5902,8 @@ getRow(1403)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1404)->
     #itemCfg {
@@ -6007,8 +5937,8 @@ getRow(1404)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1405)->
     #itemCfg {
@@ -6042,8 +5972,8 @@ getRow(1405)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1406)->
     #itemCfg {
@@ -6078,7 +6008,7 @@ getRow(1406)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1407)->
     #itemCfg {
@@ -6113,7 +6043,7 @@ getRow(1407)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1408)->
     #itemCfg {
@@ -6148,7 +6078,7 @@ getRow(1408)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1409)->
     #itemCfg {
@@ -6183,7 +6113,7 @@ getRow(1409)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1410)->
     #itemCfg {
@@ -6218,7 +6148,7 @@ getRow(1410)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1500)->
     #itemCfg {
@@ -6252,14 +6182,14 @@ getRow(1500)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1501)->
     #itemCfg {
     id = 1501,
     name = "首领幸运宝箱",
-    desc = "击杀野外首领获得的幸运宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
+    desc = "击杀35级野外首领获得的幸运宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6288,13 +6218,13 @@ getRow(1501)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1502)->
     #itemCfg {
     id = 1502,
     name = "首领普通宝箱",
-    desc = "击杀野外首领获得的普通宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
+    desc = "击杀35级野外首领获得的普通宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6323,7 +6253,7 @@ getRow(1502)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1503)->
     #itemCfg {
@@ -6357,8 +6287,8 @@ getRow(1503)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1504)->
     #itemCfg {
@@ -6393,7 +6323,7 @@ getRow(1504)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1505)->
     #itemCfg {
@@ -6428,7 +6358,7 @@ getRow(1505)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1506)->
     #itemCfg {
@@ -6462,8 +6392,8 @@ getRow(1506)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1507)->
     #itemCfg {
@@ -6498,7 +6428,7 @@ getRow(1507)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1508)->
     #itemCfg {
@@ -6533,7 +6463,7 @@ getRow(1508)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1509)->
     #itemCfg {
@@ -6567,8 +6497,8 @@ getRow(1509)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1510)->
     #itemCfg {
@@ -6603,7 +6533,7 @@ getRow(1510)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1511)->
     #itemCfg {
@@ -6638,7 +6568,7 @@ getRow(1511)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1512)->
     #itemCfg {
@@ -6672,8 +6602,8 @@ getRow(1512)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1513)->
     #itemCfg {
@@ -6708,7 +6638,7 @@ getRow(1513)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1514)->
     #itemCfg {
@@ -6743,13 +6673,13 @@ getRow(1514)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1701)->
     #itemCfg {
     id = 1701,
-    name = "虚空王者宝箱",
-    desc = "挑战虚空首领，造成伤害第1名玩家获得的宝箱，可获得金币和大量升星石I。",
+    name = "树界王者宝箱",
+    desc = "击杀入侵女神树界的首领boss，造成伤害第1名所获的宝箱，开启后获得巨量月亮石，精炼石I，兽灵精华I，升星石I，以及巨量金币！",
     product = "首领入侵获得",
     iconPath = 98,
     maxAmount = 999,
@@ -6758,7 +6688,7 @@ getRow(1701)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 8,
-    useParam1 = 310003,
+    useParam1 = 370001,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -6778,13 +6708,13 @@ getRow(1701)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1702)->
     #itemCfg {
     id = 1702,
-    name = "虚空大宝箱",
-    desc = "挑战虚空首领，造成伤害第2~10名玩家获得的宝箱，可获得金币和大量升星石I。",
+    name = "树界精灵宝箱",
+    desc = "击杀入侵女神树界的首领boss，造成伤害第2~10名所获的宝箱，开启后获得大量月亮石，精炼石I，兽灵精华I，升星石I，以及大量金币！",
     product = "首领入侵获得",
     iconPath = 97,
     maxAmount = 999,
@@ -6793,7 +6723,7 @@ getRow(1702)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 8,
-    useParam1 = 310004,
+    useParam1 = 370002,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -6813,13 +6743,13 @@ getRow(1702)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1703)->
     #itemCfg {
     id = 1703,
-    name = "虚空中宝箱",
-    desc = "挑战虚空首领，造成伤害第11~20名玩家获得的宝箱，可获得金币和大量升星石I。",
+    name = "树界护卫宝箱",
+    desc = "击杀入侵女神树界的首领boss，造成伤害第11~20名所获的宝箱，开启后获得丰富月亮石，精炼石I，兽灵精华I，升星石I，以及丰富金币！",
     product = "首领入侵获得",
     iconPath = 96,
     maxAmount = 999,
@@ -6828,7 +6758,7 @@ getRow(1703)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 8,
-    useParam1 = 310005,
+    useParam1 = 370003,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -6848,13 +6778,13 @@ getRow(1703)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1704)->
     #itemCfg {
     id = 1704,
-    name = "虚空小宝箱",
-    desc = "每个参与首领战的玩家都能获得的福利宝箱，可获得金币和少量升星石I。",
+    name = "树界祝福宝箱",
+    desc = "击杀入侵女神树界的首领boss，每个参与者获得的宝箱，开启后获得一定月亮石，精炼石I，兽灵精华I，升星石I，以及一定金币！",
     product = "首领入侵获得",
     iconPath = 95,
     maxAmount = 999,
@@ -6863,7 +6793,7 @@ getRow(1704)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 8,
-    useParam1 = 310006,
+    useParam1 = 370004,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -6883,13 +6813,13 @@ getRow(1704)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1705)->
     #itemCfg {
     id = 1705,
-    name = "虚空落物",
-    desc = "每个参与首领战的玩家都能获得的福利宝箱，可获得金币和少量升星石I。",
+    name = "树界幸运宝箱",
+    desc = "击杀入侵女神树界的首领boss，随机一个幸运儿获得的宝箱，开启后获得大量月亮石，精炼石I，兽灵精华I，升星石I，以及大量金币！",
     product = "首领入侵获得",
     iconPath = 15,
     maxAmount = 999,
@@ -6898,7 +6828,7 @@ getRow(1705)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 8,
-    useParam1 = 310007,
+    useParam1 = 370005,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -6918,7 +6848,7 @@ getRow(1705)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1750)->
     #itemCfg {
@@ -6952,8 +6882,8 @@ getRow(1750)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1751)->
     #itemCfg {
@@ -6987,8 +6917,8 @@ getRow(1751)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1752)->
     #itemCfg {
@@ -7022,8 +6952,8 @@ getRow(1752)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(1753)->
     #itemCfg {
@@ -7058,7 +6988,7 @@ getRow(1753)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1754)->
     #itemCfg {
@@ -7093,7 +7023,7 @@ getRow(1754)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1755)->
     #itemCfg {
@@ -7128,7 +7058,7 @@ getRow(1755)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(1800)->
     #itemCfg {
@@ -7162,7 +7092,7 @@ getRow(1800)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0
+    selljudge = 1
     };
 getRow(1801)->
     #itemCfg {
@@ -7236,7 +7166,7 @@ getRow(1811)->
     #itemCfg {
     id = 1811,
     name = "动感猪猪",
-    desc = "15个动感猪猪碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "动感猪猪骑宠——可由15个动感猪猪碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1006,
     maxAmount = 999,
@@ -7246,11 +7176,11 @@ getRow(1811)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 51001,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1911,
+    useParam3 = 20,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 5,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7263,7 +7193,7 @@ getRow(1811)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7271,7 +7201,7 @@ getRow(1812)->
     #itemCfg {
     id = 1812,
     name = "爱心羊驼",
-    desc = "15个爱心羊驼碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "爱心羊驼骑宠——可由15个爱心羊驼碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1001,
     maxAmount = 999,
@@ -7281,11 +7211,11 @@ getRow(1812)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 51002,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1912,
+    useParam3 = 20,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7298,7 +7228,7 @@ getRow(1812)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7306,7 +7236,7 @@ getRow(1813)->
     #itemCfg {
     id = 1813,
     name = "独角兽",
-    desc = "15个独角兽碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "独角兽骑宠——可由15个独角兽碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1000,
     maxAmount = 999,
@@ -7316,11 +7246,11 @@ getRow(1813)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 51003,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1913,
+    useParam3 = 20,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7333,7 +7263,7 @@ getRow(1813)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7341,7 +7271,7 @@ getRow(1821)->
     #itemCfg {
     id = 1821,
     name = "绒绒兔",
-    desc = "20个绒绒兔碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "绒绒兔骑宠——可由20个绒绒兔碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1016,
     maxAmount = 999,
@@ -7351,11 +7281,11 @@ getRow(1821)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 52001,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1921,
+    useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7368,7 +7298,7 @@ getRow(1821)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7376,7 +7306,7 @@ getRow(1822)->
     #itemCfg {
     id = 1822,
     name = "斗鱼",
-    desc = "20个斗鱼碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "斗鱼骑宠——可由20个斗鱼碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1020,
     maxAmount = 999,
@@ -7386,11 +7316,11 @@ getRow(1822)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 52002,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1922,
+    useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7403,7 +7333,7 @@ getRow(1822)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7411,7 +7341,7 @@ getRow(1823)->
     #itemCfg {
     id = 1823,
     name = "大尾巴狐",
-    desc = "20个大尾巴狐碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "大尾巴狐骑宠——可由20个大尾巴狐碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1010,
     maxAmount = 999,
@@ -7421,11 +7351,11 @@ getRow(1823)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 52003,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1923,
+    useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7438,7 +7368,7 @@ getRow(1823)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7446,7 +7376,7 @@ getRow(1824)->
     #itemCfg {
     id = 1824,
     name = "机车狐",
-    desc = "20个机车狐碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "机车狐骑宠——可由20个机车狐碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1009,
     maxAmount = 999,
@@ -7456,11 +7386,11 @@ getRow(1824)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 52004,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1924,
+    useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7473,7 +7403,7 @@ getRow(1824)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7481,7 +7411,7 @@ getRow(1825)->
     #itemCfg {
     id = 1825,
     name = "迷幻鸵鸟",
-    desc = "20个迷幻鸵鸟碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "迷幻鸵鸟骑宠——可由20个迷幻鸵鸟碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1014,
     maxAmount = 999,
@@ -7491,11 +7421,11 @@ getRow(1825)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 52005,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1925,
+    useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7508,7 +7438,7 @@ getRow(1825)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7516,7 +7446,7 @@ getRow(1826)->
     #itemCfg {
     id = 1826,
     name = "沙滩鸵鸟",
-    desc = "20个沙滩鸵鸟碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "沙滩鸵鸟骑宠——可由20个沙滩鸵鸟碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1015,
     maxAmount = 999,
@@ -7526,11 +7456,11 @@ getRow(1826)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 52006,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1926,
+    useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7543,7 +7473,7 @@ getRow(1826)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7551,7 +7481,7 @@ getRow(1827)->
     #itemCfg {
     id = 1827,
     name = "飞行萝卜（双人）",
-    desc = "20个飞行萝卜碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "飞行萝卜（双人）骑宠——可由20个飞行萝卜（双人）碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1005,
     maxAmount = 999,
@@ -7561,11 +7491,11 @@ getRow(1827)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 52007,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1927,
+    useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7578,7 +7508,7 @@ getRow(1827)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7586,7 +7516,7 @@ getRow(1831)->
     #itemCfg {
     id = 1831,
     name = "黄晶海马",
-    desc = "30个黄晶海马碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "黄晶海马骑宠——可由30个黄晶海马碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1022,
     maxAmount = 999,
@@ -7596,11 +7526,11 @@ getRow(1831)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 53001,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1931,
+    useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7613,7 +7543,7 @@ getRow(1831)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7621,7 +7551,7 @@ getRow(1832)->
     #itemCfg {
     id = 1832,
     name = "海马绅士",
-    desc = "30个海马绅士碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "海马绅士骑宠——可由30个海马绅士碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1002,
     maxAmount = 999,
@@ -7631,11 +7561,11 @@ getRow(1832)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 53002,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1932,
+    useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7648,7 +7578,7 @@ getRow(1832)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7656,7 +7586,7 @@ getRow(1833)->
     #itemCfg {
     id = 1833,
     name = "小海龟",
-    desc = "30个小海龟碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "小海龟骑宠——可由30个小海龟碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1008,
     maxAmount = 999,
@@ -7666,11 +7596,11 @@ getRow(1833)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 53003,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1933,
+    useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7683,7 +7613,7 @@ getRow(1833)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7691,7 +7621,7 @@ getRow(1834)->
     #itemCfg {
     id = 1834,
     name = "绵羊国王",
-    desc = "30个绵羊国王碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "绵羊国王骑宠——可由30个绵羊国王碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1025,
     maxAmount = 999,
@@ -7701,11 +7631,11 @@ getRow(1834)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 53004,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1934,
+    useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7718,7 +7648,7 @@ getRow(1834)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7726,7 +7656,7 @@ getRow(1835)->
     #itemCfg {
     id = 1835,
     name = "童话",
-    desc = "30个童话碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "童话骑宠——可由30个童话碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1007,
     maxAmount = 999,
@@ -7736,11 +7666,11 @@ getRow(1835)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 53005,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1935,
+    useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7753,7 +7683,7 @@ getRow(1835)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7761,7 +7691,7 @@ getRow(1836)->
     #itemCfg {
     id = 1836,
     name = "粉红独角兽",
-    desc = "30个粉红独角兽碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "粉红独角兽骑宠——可由30个粉红独角兽碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1003,
     maxAmount = 999,
@@ -7771,11 +7701,11 @@ getRow(1836)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 53006,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1936,
+    useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7788,7 +7718,7 @@ getRow(1836)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7796,7 +7726,7 @@ getRow(1837)->
     #itemCfg {
     id = 1837,
     name = "男款机车（双人）",
-    desc = "30个男款机车碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "男款机车（双人）骑宠——可由30个男款机车（双人）碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1033,
     maxAmount = 999,
@@ -7806,11 +7736,11 @@ getRow(1837)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 53007,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1937,
+    useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7823,7 +7753,7 @@ getRow(1837)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7831,7 +7761,7 @@ getRow(1838)->
     #itemCfg {
     id = 1838,
     name = "女款机车（双人）",
-    desc = "30个女款机车碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "女款机车（双人）骑宠——可由30个女款机车（双人）碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1004,
     maxAmount = 999,
@@ -7841,11 +7771,11 @@ getRow(1838)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 53008,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1938,
+    useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7858,7 +7788,7 @@ getRow(1838)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7866,7 +7796,7 @@ getRow(1841)->
     #itemCfg {
     id = 1841,
     name = "杂技大师",
-    desc = "40个杂技大师碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "杂技大师骑宠——可由40个杂技大师碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1021,
     maxAmount = 999,
@@ -7876,11 +7806,11 @@ getRow(1841)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 54001,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1941,
+    useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7893,7 +7823,7 @@ getRow(1841)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7901,7 +7831,7 @@ getRow(1842)->
     #itemCfg {
     id = 1842,
     name = "气球熊猫",
-    desc = "30个气球熊猫碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：福利活动[-]",
+    desc = "气球熊猫骑宠——可由30个气球熊猫碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1012,
     maxAmount = 999,
@@ -7911,11 +7841,11 @@ getRow(1842)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 54002,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1942,
+    useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7928,7 +7858,7 @@ getRow(1842)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7936,7 +7866,7 @@ getRow(1843)->
     #itemCfg {
     id = 1843,
     name = "剑齿虎",
-    desc = "30个剑齿虎碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：硬币商店[-]",
+    desc = "剑齿虎骑宠——可由30个剑齿虎碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1017,
     maxAmount = 999,
@@ -7946,11 +7876,11 @@ getRow(1843)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 54003,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1943,
+    useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7963,7 +7893,7 @@ getRow(1843)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -7971,7 +7901,7 @@ getRow(1844)->
     #itemCfg {
     id = 1844,
     name = "贾斯丁.比象",
-    desc = "40个贾斯丁.比象碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "贾斯丁.比象骑宠——可由40个贾斯丁.比象碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1028,
     maxAmount = 999,
@@ -7981,11 +7911,11 @@ getRow(1844)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 54004,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1944,
+    useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -7998,7 +7928,7 @@ getRow(1844)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8006,7 +7936,7 @@ getRow(1845)->
     #itemCfg {
     id = 1845,
     name = "杀象特",
-    desc = "40个杀象特碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "杀象特骑宠——可由40个杀象特碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1027,
     maxAmount = 999,
@@ -8016,11 +7946,11 @@ getRow(1845)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 54005,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1945,
+    useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8033,7 +7963,7 @@ getRow(1845)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8041,7 +7971,7 @@ getRow(1846)->
     #itemCfg {
     id = 1846,
     name = "机械鸟",
-    desc = "40个机械鸟碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "机械鸟骑宠——可由40个机械鸟碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1023,
     maxAmount = 999,
@@ -8051,11 +7981,11 @@ getRow(1846)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 54006,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1946,
+    useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8068,7 +7998,7 @@ getRow(1846)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8076,7 +8006,7 @@ getRow(1847)->
     #itemCfg {
     id = 1847,
     name = "西瓜鲨",
-    desc = "40个西瓜鲨碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：副本、扭蛋[-]",
+    desc = "西瓜鲨骑宠——可由40个西瓜鲨碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1034,
     maxAmount = 999,
@@ -8086,11 +8016,11 @@ getRow(1847)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 54007,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1947,
+    useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8103,7 +8033,7 @@ getRow(1847)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8111,7 +8041,7 @@ getRow(1848)->
     #itemCfg {
     id = 1848,
     name = "钢铁狼",
-    desc = "40个钢铁狼碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：军团商店[-]",
+    desc = "钢铁狼骑宠——可由40个钢铁狼碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1036,
     maxAmount = 999,
@@ -8121,11 +8051,11 @@ getRow(1848)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 54008,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1948,
+    useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8138,7 +8068,7 @@ getRow(1848)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8146,7 +8076,7 @@ getRow(1851)->
     #itemCfg {
     id = 1851,
     name = "天外飞碟",
-    desc = "50个天外飞碟碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：扭蛋[-]",
+    desc = "天外飞碟骑宠——可由50个天外飞碟碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1024,
     maxAmount = 999,
@@ -8156,11 +8086,11 @@ getRow(1851)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55001,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1951,
+    useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8173,7 +8103,7 @@ getRow(1851)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8181,7 +8111,7 @@ getRow(1852)->
     #itemCfg {
     id = 1852,
     name = "机甲乔巴",
-    desc = "50个机甲乔巴碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：福利活动[-]",
+    desc = "机甲乔巴骑宠——可由50个机甲乔巴碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1032,
     maxAmount = 999,
@@ -8191,11 +8121,11 @@ getRow(1852)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55002,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1952,
+    useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8208,7 +8138,7 @@ getRow(1852)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8216,7 +8146,7 @@ getRow(1853)->
     #itemCfg {
     id = 1853,
     name = "翼狮",
-    desc = "50个翼狮碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：扭蛋[-]",
+    desc = "翼狮骑宠——可由50个翼狮碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1011,
     maxAmount = 999,
@@ -8226,11 +8156,11 @@ getRow(1853)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55003,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1953,
+    useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8243,7 +8173,7 @@ getRow(1853)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8251,7 +8181,7 @@ getRow(1854)->
     #itemCfg {
     id = 1854,
     name = "风伯",
-    desc = "40个风伯碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：扭蛋[-]",
+    desc = "风伯骑宠——可由40个风伯碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1026,
     maxAmount = 999,
@@ -8261,11 +8191,11 @@ getRow(1854)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55004,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1954,
+    useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8278,7 +8208,7 @@ getRow(1854)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8286,7 +8216,7 @@ getRow(1855)->
     #itemCfg {
     id = 1855,
     name = "寒冰踏焰",
-    desc = "40个寒冰踏焰碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：扭蛋[-]",
+    desc = "寒冰踏焰骑宠——可由40个寒冰踏焰碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1029,
     maxAmount = 999,
@@ -8296,11 +8226,11 @@ getRow(1855)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55005,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1955,
+    useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8313,7 +8243,7 @@ getRow(1855)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8321,7 +8251,7 @@ getRow(1856)->
     #itemCfg {
     id = 1856,
     name = "鲸梦（双人）",
-    desc = "50个鲸梦碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：扭蛋[-]",
+    desc = "鲸梦（双人）骑宠——可由50个鲸梦（双人）碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1018,
     maxAmount = 999,
@@ -8331,11 +8261,11 @@ getRow(1856)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55006,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1956,
+    useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8348,7 +8278,7 @@ getRow(1856)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8356,7 +8286,7 @@ getRow(1857)->
     #itemCfg {
     id = 1857,
     name = "雪橇车（双人）",
-    desc = "40个雪橇车碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：福利活动[-]",
+    desc = "雪橇车（双人）骑宠——可由40个雪橇车（双人）碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1013,
     maxAmount = 999,
@@ -8366,11 +8296,11 @@ getRow(1857)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55007,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1957,
+    useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8383,7 +8313,7 @@ getRow(1857)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8391,7 +8321,7 @@ getRow(1858)->
     #itemCfg {
     id = 1858,
     name = "贝斯",
-    desc = "40个贝斯碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：扭蛋[-]",
+    desc = "贝斯骑宠——可由40个贝斯碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1019,
     maxAmount = 999,
@@ -8401,11 +8331,11 @@ getRow(1858)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55008,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1958,
+    useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8418,7 +8348,7 @@ getRow(1858)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8426,7 +8356,7 @@ getRow(1859)->
     #itemCfg {
     id = 1859,
     name = "机械游龙（双人）",
-    desc = "50个机械游龙碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：军团商店[-]",
+    desc = "机械游龙（双人）骑宠——可由50个机械游龙（双人）碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1035,
     maxAmount = 999,
@@ -8436,11 +8366,11 @@ getRow(1859)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55009,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1959,
+    useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8453,7 +8383,7 @@ getRow(1859)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8461,7 +8391,7 @@ getRow(1860)->
     #itemCfg {
     id = 1860,
     name = "大钻风",
-    desc = "50个大钻风碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：福利活动[-]",
+    desc = "大钻风骑宠——可由50个大钻风碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1031,
     maxAmount = 999,
@@ -8471,11 +8401,11 @@ getRow(1860)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55010,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1960,
+    useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8488,7 +8418,7 @@ getRow(1860)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8496,7 +8426,7 @@ getRow(1861)->
     #itemCfg {
     id = 1861,
     name = "蓝凰",
-    desc = "50个蓝凰碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：扭蛋[-]",
+    desc = "蓝凰骑宠——可由50个蓝凰碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1026,
     maxAmount = 999,
@@ -8506,11 +8436,11 @@ getRow(1861)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55011,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1961,
+    useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8523,7 +8453,7 @@ getRow(1861)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8531,7 +8461,7 @@ getRow(1862)->
     #itemCfg {
     id = 1862,
     name = "大黄蜂（双人）",
-    desc = "50个大黄蜂碎片可在碎片商店兑换完整的骑宠\n[00ff00]获取途径：军团商店[-]",
+    desc = "大黄蜂（双人）骑宠——可由50个大黄蜂（双人）碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
     product = "碎片兑换获得",
     iconPath = 1030,
     maxAmount = 999,
@@ -8541,11 +8471,11 @@ getRow(1862)->
     isQuestItem = 0,
     useType = 14,
     useParam1 = 55012,
-    useParam2 = 0,
-    useParam3 = 0,
+    useParam2 = 1962,
+    useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 12,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
@@ -8558,7 +8488,7 @@ getRow(1862)->
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 0,
+    useStraightway = 1,
     selljudge = 1,
     relation_UI = [{12,0},{53,0}]
     };
@@ -8566,7 +8496,7 @@ getRow(1911)->
     #itemCfg {
     id = 1911,
     name = "动感猪猪碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "动感猪猪的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1006,
     maxAmount = 999,
@@ -8587,21 +8517,21 @@ getRow(1911)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
-    needBrodcast = 0,
+    operate = 0,
+    needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 24,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1912)->
     #itemCfg {
     id = 1912,
     name = "爱心羊驼碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "爱心羊驼的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1001,
     maxAmount = 999,
@@ -8623,20 +8553,20 @@ getRow(1912)->
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 24,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1913)->
     #itemCfg {
     id = 1913,
     name = "独角兽碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "独角兽的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1000,
     maxAmount = 999,
@@ -8658,20 +8588,20 @@ getRow(1913)->
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 24,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1921)->
     #itemCfg {
     id = 1921,
     name = "绒绒兔碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "绒绒兔的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1016,
     maxAmount = 999,
@@ -8687,26 +8617,26 @@ getRow(1921)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 27,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1922)->
     #itemCfg {
     id = 1922,
     name = "斗鱼碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "斗鱼的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1020,
     maxAmount = 999,
@@ -8722,26 +8652,26 @@ getRow(1922)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 27,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1923)->
     #itemCfg {
     id = 1923,
     name = "大尾巴狐碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "大尾巴狐的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1010,
     maxAmount = 999,
@@ -8757,26 +8687,26 @@ getRow(1923)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 27,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1924)->
     #itemCfg {
     id = 1924,
     name = "机车狐碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "机车狐的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1009,
     maxAmount = 999,
@@ -8792,26 +8722,26 @@ getRow(1924)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 27,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1925)->
     #itemCfg {
     id = 1925,
     name = "迷幻鸵鸟碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "迷幻鸵鸟的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1014,
     maxAmount = 999,
@@ -8827,26 +8757,26 @@ getRow(1925)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 27,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1926)->
     #itemCfg {
     id = 1926,
     name = "沙滩鸵鸟碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "沙滩鸵鸟的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1015,
     maxAmount = 999,
@@ -8862,26 +8792,26 @@ getRow(1926)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 27,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1927)->
     #itemCfg {
     id = 1927,
     name = "飞行萝卜碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "飞行萝卜的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1005,
     maxAmount = 999,
@@ -8897,26 +8827,26 @@ getRow(1927)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 27,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1931)->
     #itemCfg {
     id = 1931,
     name = "黄晶海马碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "黄晶海马的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1022,
     maxAmount = 999,
@@ -8932,26 +8862,26 @@ getRow(1931)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1932)->
     #itemCfg {
     id = 1932,
     name = "海马绅士碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "海马绅士的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1002,
     maxAmount = 999,
@@ -8967,26 +8897,26 @@ getRow(1932)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1933)->
     #itemCfg {
     id = 1933,
     name = "小海龟碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "小海龟的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1008,
     maxAmount = 999,
@@ -9002,26 +8932,26 @@ getRow(1933)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1934)->
     #itemCfg {
     id = 1934,
     name = "绵羊国王碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "绵羊国王的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1025,
     maxAmount = 999,
@@ -9037,26 +8967,26 @@ getRow(1934)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1935)->
     #itemCfg {
     id = 1935,
     name = "童话碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "童话的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1007,
     maxAmount = 999,
@@ -9072,26 +9002,26 @@ getRow(1935)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1936)->
     #itemCfg {
     id = 1936,
     name = "粉红独角兽碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "粉红独角兽的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1003,
     maxAmount = 999,
@@ -9107,26 +9037,26 @@ getRow(1936)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1937)->
     #itemCfg {
     id = 1937,
     name = "男款机车碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "男款机车的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1033,
     maxAmount = 999,
@@ -9142,26 +9072,26 @@ getRow(1937)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1938)->
     #itemCfg {
     id = 1938,
     name = "女款机车碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "女款机车的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1004,
     maxAmount = 999,
@@ -9177,26 +9107,26 @@ getRow(1938)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
-    needBrodcast = 0,
+    needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1941)->
     #itemCfg {
     id = 1941,
     name = "杂技大师碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "杂技大师的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1021,
     maxAmount = 999,
@@ -9212,7 +9142,7 @@ getRow(1941)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9220,18 +9150,18 @@ getRow(1941)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 23,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1942)->
     #itemCfg {
     id = 1942,
     name = "气球熊猫碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "气球熊猫的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1012,
     maxAmount = 999,
@@ -9247,7 +9177,7 @@ getRow(1942)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9257,16 +9187,16 @@ getRow(1942)->
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1943)->
     #itemCfg {
     id = 1943,
     name = "剑齿虎碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "剑齿虎的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1017,
     maxAmount = 999,
@@ -9282,7 +9212,7 @@ getRow(1943)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9292,16 +9222,16 @@ getRow(1943)->
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1944)->
     #itemCfg {
     id = 1944,
     name = "贾斯丁.比象碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "贾斯丁.比象的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1028,
     maxAmount = 999,
@@ -9317,7 +9247,7 @@ getRow(1944)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9325,18 +9255,18 @@ getRow(1944)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 23,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1945)->
     #itemCfg {
     id = 1945,
     name = "杀象特碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "杀象特的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1027,
     maxAmount = 999,
@@ -9352,7 +9282,7 @@ getRow(1945)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9360,18 +9290,18 @@ getRow(1945)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 23,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1946)->
     #itemCfg {
     id = 1946,
     name = "机械鸟碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "机械鸟的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1023,
     maxAmount = 999,
@@ -9387,7 +9317,7 @@ getRow(1946)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9395,18 +9325,18 @@ getRow(1946)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 23,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1947)->
     #itemCfg {
     id = 1947,
     name = "西瓜鲨碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "西瓜鲨的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1034,
     maxAmount = 999,
@@ -9422,7 +9352,7 @@ getRow(1947)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9430,18 +9360,18 @@ getRow(1947)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 23,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1948)->
     #itemCfg {
     id = 1948,
     name = "钢铁狼碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "钢铁狼的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1036,
     maxAmount = 999,
@@ -9457,7 +9387,7 @@ getRow(1948)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9465,18 +9395,18 @@ getRow(1948)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 23,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1951)->
     #itemCfg {
     id = 1951,
     name = "天外飞碟碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "天外飞碟的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1024,
     maxAmount = 999,
@@ -9492,7 +9422,7 @@ getRow(1951)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9500,18 +9430,18 @@ getRow(1951)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 25,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1952)->
     #itemCfg {
     id = 1952,
     name = "机甲乔巴碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "机甲乔巴的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1032,
     maxAmount = 999,
@@ -9527,7 +9457,7 @@ getRow(1952)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9535,18 +9465,18 @@ getRow(1952)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 25,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1953)->
     #itemCfg {
     id = 1953,
     name = "翼狮碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "翼狮的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1011,
     maxAmount = 999,
@@ -9562,7 +9492,7 @@ getRow(1953)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9570,18 +9500,18 @@ getRow(1953)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 25,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1954)->
     #itemCfg {
     id = 1954,
     name = "风伯碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "风伯的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1026,
     maxAmount = 999,
@@ -9597,7 +9527,7 @@ getRow(1954)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9605,18 +9535,18 @@ getRow(1954)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 23,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1955)->
     #itemCfg {
     id = 1955,
     name = "寒冰踏焰碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "寒冰踏焰的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1029,
     maxAmount = 999,
@@ -9632,7 +9562,7 @@ getRow(1955)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9640,18 +9570,18 @@ getRow(1955)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 23,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1956)->
     #itemCfg {
     id = 1956,
     name = "鲸梦碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "鲸梦的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1018,
     maxAmount = 999,
@@ -9667,7 +9597,7 @@ getRow(1956)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9675,18 +9605,18 @@ getRow(1956)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 25,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1957)->
     #itemCfg {
     id = 1957,
     name = "雪橇车碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "雪橇车的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1013,
     maxAmount = 999,
@@ -9702,7 +9632,7 @@ getRow(1957)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9710,18 +9640,18 @@ getRow(1957)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 23,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1958)->
     #itemCfg {
     id = 1958,
     name = "贝斯碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "贝斯的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1019,
     maxAmount = 999,
@@ -9737,7 +9667,7 @@ getRow(1958)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9745,18 +9675,18 @@ getRow(1958)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 23,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1959)->
     #itemCfg {
     id = 1959,
     name = "机械游龙碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "机械游龙的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1035,
     maxAmount = 999,
@@ -9772,7 +9702,7 @@ getRow(1959)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9780,18 +9710,18 @@ getRow(1959)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 25,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1960)->
     #itemCfg {
     id = 1960,
     name = "大钻风碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "大钻风的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1031,
     maxAmount = 999,
@@ -9807,7 +9737,7 @@ getRow(1960)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9815,18 +9745,18 @@ getRow(1960)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 25,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1961)->
     #itemCfg {
     id = 1961,
     name = "蓝凰碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "蓝凰的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1026,
     maxAmount = 999,
@@ -9842,7 +9772,7 @@ getRow(1961)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9850,18 +9780,18 @@ getRow(1961)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 25,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(1962)->
     #itemCfg {
     id = 1962,
     name = "大黄蜂碎片",
-    desc = "可在碎片商店兑换，可在宝藏系统中抽取",
+    desc = "大黄蜂的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1030,
     maxAmount = 999,
@@ -9877,7 +9807,7 @@ getRow(1962)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
@@ -9885,11 +9815,11 @@ getRow(1962)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 25,
     baozhunumber = 0,
-    useJumpPage = 15,
+    useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{53,0},{20,101}]
     };
 getRow(2002)->
@@ -10065,7 +9995,7 @@ getRow(2041)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2042)->
     #itemCfg {
@@ -10100,7 +10030,7 @@ getRow(2042)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2043)->
     #itemCfg {
@@ -10135,7 +10065,7 @@ getRow(2043)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2044)->
     #itemCfg {
@@ -10170,7 +10100,7 @@ getRow(2044)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2045)->
     #itemCfg {
@@ -10205,7 +10135,7 @@ getRow(2045)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2060)->
     #itemCfg {
@@ -10240,7 +10170,7 @@ getRow(2060)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2061)->
     #itemCfg {
@@ -10275,7 +10205,7 @@ getRow(2061)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2062)->
     #itemCfg {
@@ -10310,7 +10240,7 @@ getRow(2062)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2063)->
     #itemCfg {
@@ -10345,7 +10275,7 @@ getRow(2063)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2064)->
     #itemCfg {
@@ -10380,7 +10310,7 @@ getRow(2064)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2065)->
     #itemCfg {
@@ -10415,7 +10345,7 @@ getRow(2065)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2066)->
     #itemCfg {
@@ -10450,7 +10380,7 @@ getRow(2066)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2067)->
     #itemCfg {
@@ -10485,7 +10415,7 @@ getRow(2067)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2068)->
     #itemCfg {
@@ -10520,7 +10450,7 @@ getRow(2068)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2069)->
     #itemCfg {
@@ -10555,7 +10485,7 @@ getRow(2069)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2070)->
     #itemCfg {
@@ -10590,7 +10520,7 @@ getRow(2070)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2071)->
     #itemCfg {
@@ -10625,7 +10555,7 @@ getRow(2071)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2072)->
     #itemCfg {
@@ -10660,7 +10590,7 @@ getRow(2072)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2073)->
     #itemCfg {
@@ -10695,7 +10625,7 @@ getRow(2073)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2074)->
     #itemCfg {
@@ -10730,7 +10660,7 @@ getRow(2074)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2075)->
     #itemCfg {
@@ -10765,7 +10695,7 @@ getRow(2075)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2076)->
     #itemCfg {
@@ -10800,7 +10730,7 @@ getRow(2076)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2077)->
     #itemCfg {
@@ -10835,7 +10765,7 @@ getRow(2077)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2078)->
     #itemCfg {
@@ -10870,7 +10800,7 @@ getRow(2078)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2079)->
     #itemCfg {
@@ -10905,7 +10835,7 @@ getRow(2079)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2080)->
     #itemCfg {
@@ -10940,7 +10870,7 @@ getRow(2080)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2081)->
     #itemCfg {
@@ -10975,7 +10905,7 @@ getRow(2081)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2082)->
     #itemCfg {
@@ -11010,7 +10940,7 @@ getRow(2082)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2083)->
     #itemCfg {
@@ -11045,7 +10975,7 @@ getRow(2083)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2084)->
     #itemCfg {
@@ -11080,7 +11010,7 @@ getRow(2084)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2085)->
     #itemCfg {
@@ -11115,7 +11045,7 @@ getRow(2085)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2086)->
     #itemCfg {
@@ -11150,7 +11080,7 @@ getRow(2086)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2087)->
     #itemCfg {
@@ -11185,7 +11115,7 @@ getRow(2087)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2088)->
     #itemCfg {
@@ -11220,7 +11150,7 @@ getRow(2088)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2089)->
     #itemCfg {
@@ -11255,7 +11185,7 @@ getRow(2089)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2090)->
     #itemCfg {
@@ -11290,7 +11220,7 @@ getRow(2090)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2091)->
     #itemCfg {
@@ -11325,7 +11255,7 @@ getRow(2091)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2092)->
     #itemCfg {
@@ -11360,7 +11290,7 @@ getRow(2092)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2160)->
     #itemCfg {
@@ -11500,7 +11430,7 @@ getRow(2164)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2166)->
     #itemCfg {
@@ -11536,7 +11466,7 @@ getRow(2166)->
     txt = "使用成功！请返回角色界面改名",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2170)->
     #itemCfg {
@@ -11571,7 +11501,7 @@ getRow(2170)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2171)->
     #itemCfg {
@@ -11606,7 +11536,7 @@ getRow(2171)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2172)->
     #itemCfg {
@@ -11641,7 +11571,7 @@ getRow(2172)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2173)->
     #itemCfg {
@@ -11676,7 +11606,7 @@ getRow(2173)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2174)->
     #itemCfg {
@@ -11711,7 +11641,7 @@ getRow(2174)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2175)->
     #itemCfg {
@@ -11746,7 +11676,7 @@ getRow(2175)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2176)->
     #itemCfg {
@@ -11781,7 +11711,7 @@ getRow(2176)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2177)->
     #itemCfg {
@@ -11816,7 +11746,7 @@ getRow(2177)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(2500)->
     #itemCfg {
@@ -11850,8 +11780,8 @@ getRow(2500)->
     baozhunumber = 0,
     useJumpPage = 6,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(2501)->
     #itemCfg {
@@ -11885,8 +11815,8 @@ getRow(2501)->
     baozhunumber = 0,
     useJumpPage = 6,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(2502)->
     #itemCfg {
@@ -11920,8 +11850,8 @@ getRow(2502)->
     baozhunumber = 0,
     useJumpPage = 6,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(2503)->
     #itemCfg {
@@ -11955,8 +11885,8 @@ getRow(2503)->
     baozhunumber = 0,
     useJumpPage = 6,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(2504)->
     #itemCfg {
@@ -11990,8 +11920,8 @@ getRow(2504)->
     baozhunumber = 0,
     useJumpPage = 6,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(2505)->
     #itemCfg {
@@ -12025,8 +11955,8 @@ getRow(2505)->
     baozhunumber = 0,
     useJumpPage = 6,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(2600)->
     #itemCfg {
@@ -12095,7 +12025,7 @@ getRow(2601)->
     baozhunumber = 0,
     useJumpPage = 6,
     useStraightway = 0,
-    selljudge = 0,
+    selljudge = 1,
     relation_UI = [{33,0}]
     };
 getRow(2700)->
@@ -12130,8 +12060,8 @@ getRow(2700)->
     baozhunumber = 0,
     useJumpPage = 7,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(3100)->
     #itemCfg {
@@ -12166,7 +12096,7 @@ getRow(3100)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3101)->
     #itemCfg {
@@ -12201,7 +12131,7 @@ getRow(3101)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3102)->
     #itemCfg {
@@ -12236,7 +12166,7 @@ getRow(3102)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3103)->
     #itemCfg {
@@ -12271,7 +12201,7 @@ getRow(3103)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3200)->
     #itemCfg {
@@ -12306,7 +12236,7 @@ getRow(3200)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3201)->
     #itemCfg {
@@ -12341,7 +12271,7 @@ getRow(3201)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3202)->
     #itemCfg {
@@ -12376,7 +12306,7 @@ getRow(3202)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3220)->
     #itemCfg {
@@ -12411,7 +12341,7 @@ getRow(3220)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3221)->
     #itemCfg {
@@ -12446,7 +12376,7 @@ getRow(3221)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3222)->
     #itemCfg {
@@ -12481,7 +12411,7 @@ getRow(3222)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3223)->
     #itemCfg {
@@ -12516,7 +12446,7 @@ getRow(3223)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3224)->
     #itemCfg {
@@ -12551,7 +12481,7 @@ getRow(3224)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3225)->
     #itemCfg {
@@ -12586,7 +12516,7 @@ getRow(3225)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3226)->
     #itemCfg {
@@ -12621,7 +12551,7 @@ getRow(3226)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3300)->
     #itemCfg {
@@ -12656,7 +12586,7 @@ getRow(3300)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3301)->
     #itemCfg {
@@ -12691,7 +12621,7 @@ getRow(3301)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3302)->
     #itemCfg {
@@ -12726,7 +12656,7 @@ getRow(3302)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3303)->
     #itemCfg {
@@ -12761,7 +12691,7 @@ getRow(3303)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(3400)->
     #itemCfg {
@@ -13392,7 +13322,7 @@ getRow(4200)->
     txt = "使用成功！击败怪物后获得1.5倍经验",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(4203)->
     #itemCfg {
@@ -13428,7 +13358,7 @@ getRow(4203)->
     txt = "使用成功！击败怪物后获得2倍经验",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(4206)->
     #itemCfg {
@@ -13464,7 +13394,7 @@ getRow(4206)->
     txt = "使用成功！击败怪物后获得3倍经验",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(4209)->
     #itemCfg {
@@ -13500,7 +13430,7 @@ getRow(4209)->
     txt = "使用成功！击败怪物后获得5倍经验",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(4300)->
     #itemCfg {
@@ -13536,7 +13466,7 @@ getRow(4300)->
     txt = "成功激活月卡服务",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(4301)->
     #itemCfg {
@@ -13572,7 +13502,7 @@ getRow(4301)->
     txt = "成功激活月卡服务",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(4302)->
     #itemCfg {
@@ -13608,7 +13538,7 @@ getRow(4302)->
     txt = "狂怒值减少{0}点",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(4303)->
     #itemCfg {
@@ -13618,7 +13548,7 @@ getRow(4303)->
     product = "女神禁闭室获得",
     iconPath = 555,
     maxAmount = 999,
-    quality = 1,
+    quality = 2,
     itemType = 22,
     detailedType = 0,
     isQuestItem = 0,
@@ -13653,7 +13583,7 @@ getRow(4304)->
     product = "女神禁闭室获得",
     iconPath = 556,
     maxAmount = 999,
-    quality = 2,
+    quality = 3,
     itemType = 22,
     detailedType = 0,
     isQuestItem = 0,
@@ -13673,7 +13603,7 @@ getRow(4304)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 10,
     useStraightway = 0,
@@ -13688,7 +13618,7 @@ getRow(4305)->
     product = "运营活动获得",
     iconPath = 554,
     maxAmount = 999,
-    quality = 3,
+    quality = 4,
     itemType = 22,
     detailedType = 0,
     isQuestItem = 0,
@@ -13708,11 +13638,12 @@ getRow(4305)->
     operate = 0,
     needBrodcast = 1,
     needwar = 1,
-    baozhu = 26,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 10,
     useStraightway = 0,
-    selljudge = 1
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(5000)->
     #itemCfg {
@@ -13747,7 +13678,7 @@ getRow(5000)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5001)->
     #itemCfg {
@@ -13782,7 +13713,7 @@ getRow(5001)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5002)->
     #itemCfg {
@@ -13817,7 +13748,7 @@ getRow(5002)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5003)->
     #itemCfg {
@@ -13852,7 +13783,7 @@ getRow(5003)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5004)->
     #itemCfg {
@@ -13887,7 +13818,7 @@ getRow(5004)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5005)->
     #itemCfg {
@@ -13922,7 +13853,7 @@ getRow(5005)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5006)->
     #itemCfg {
@@ -13957,7 +13888,7 @@ getRow(5006)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5007)->
     #itemCfg {
@@ -13992,7 +13923,7 @@ getRow(5007)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5008)->
     #itemCfg {
@@ -14027,7 +13958,7 @@ getRow(5008)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5009)->
     #itemCfg {
@@ -14062,7 +13993,7 @@ getRow(5009)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5010)->
     #itemCfg {
@@ -14097,7 +14028,7 @@ getRow(5010)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5011)->
     #itemCfg {
@@ -14132,7 +14063,7 @@ getRow(5011)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5012)->
     #itemCfg {
@@ -14167,7 +14098,7 @@ getRow(5012)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5013)->
     #itemCfg {
@@ -14202,7 +14133,7 @@ getRow(5013)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5014)->
     #itemCfg {
@@ -14237,7 +14168,7 @@ getRow(5014)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5015)->
     #itemCfg {
@@ -14272,7 +14203,7 @@ getRow(5015)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5016)->
     #itemCfg {
@@ -14307,7 +14238,7 @@ getRow(5016)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5017)->
     #itemCfg {
@@ -14342,7 +14273,7 @@ getRow(5017)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5018)->
     #itemCfg {
@@ -14377,7 +14308,7 @@ getRow(5018)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5019)->
     #itemCfg {
@@ -14412,7 +14343,7 @@ getRow(5019)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5020)->
     #itemCfg {
@@ -14447,7 +14378,7 @@ getRow(5020)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5021)->
     #itemCfg {
@@ -14482,7 +14413,7 @@ getRow(5021)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5022)->
     #itemCfg {
@@ -14517,7 +14448,7 @@ getRow(5022)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5023)->
     #itemCfg {
@@ -14552,7 +14483,7 @@ getRow(5023)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5024)->
     #itemCfg {
@@ -14587,7 +14518,7 @@ getRow(5024)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5025)->
     #itemCfg {
@@ -14622,7 +14553,7 @@ getRow(5025)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5026)->
     #itemCfg {
@@ -14657,7 +14588,7 @@ getRow(5026)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5027)->
     #itemCfg {
@@ -14692,7 +14623,7 @@ getRow(5027)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5028)->
     #itemCfg {
@@ -14727,7 +14658,7 @@ getRow(5028)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5029)->
     #itemCfg {
@@ -14762,7 +14693,7 @@ getRow(5029)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5030)->
     #itemCfg {
@@ -14797,7 +14728,7 @@ getRow(5030)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5031)->
     #itemCfg {
@@ -14832,7 +14763,7 @@ getRow(5031)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5032)->
     #itemCfg {
@@ -14867,7 +14798,7 @@ getRow(5032)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5033)->
     #itemCfg {
@@ -14902,7 +14833,7 @@ getRow(5033)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5034)->
     #itemCfg {
@@ -14937,7 +14868,7 @@ getRow(5034)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5035)->
     #itemCfg {
@@ -14972,7 +14903,7 @@ getRow(5035)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5036)->
     #itemCfg {
@@ -15007,7 +14938,7 @@ getRow(5036)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5037)->
     #itemCfg {
@@ -15042,7 +14973,7 @@ getRow(5037)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5038)->
     #itemCfg {
@@ -15077,7 +15008,7 @@ getRow(5038)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5039)->
     #itemCfg {
@@ -15112,7 +15043,7 @@ getRow(5039)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5040)->
     #itemCfg {
@@ -15147,7 +15078,7 @@ getRow(5040)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5041)->
     #itemCfg {
@@ -15182,7 +15113,7 @@ getRow(5041)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5042)->
     #itemCfg {
@@ -15217,7 +15148,7 @@ getRow(5042)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5043)->
     #itemCfg {
@@ -15252,7 +15183,7 @@ getRow(5043)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5044)->
     #itemCfg {
@@ -15287,7 +15218,7 @@ getRow(5044)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5045)->
     #itemCfg {
@@ -15322,7 +15253,7 @@ getRow(5045)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5046)->
     #itemCfg {
@@ -15357,7 +15288,7 @@ getRow(5046)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5047)->
     #itemCfg {
@@ -15392,7 +15323,7 @@ getRow(5047)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5048)->
     #itemCfg {
@@ -15427,7 +15358,7 @@ getRow(5048)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5049)->
     #itemCfg {
@@ -15462,7 +15393,7 @@ getRow(5049)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5050)->
     #itemCfg {
@@ -15497,7 +15428,7 @@ getRow(5050)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5051)->
     #itemCfg {
@@ -15532,7 +15463,7 @@ getRow(5051)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5052)->
     #itemCfg {
@@ -15567,7 +15498,7 @@ getRow(5052)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5053)->
     #itemCfg {
@@ -15602,7 +15533,7 @@ getRow(5053)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5054)->
     #itemCfg {
@@ -15637,7 +15568,7 @@ getRow(5054)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5055)->
     #itemCfg {
@@ -15672,7 +15603,7 @@ getRow(5055)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5056)->
     #itemCfg {
@@ -15707,7 +15638,7 @@ getRow(5056)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5057)->
     #itemCfg {
@@ -15742,7 +15673,7 @@ getRow(5057)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5058)->
     #itemCfg {
@@ -15777,7 +15708,7 @@ getRow(5058)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(5999)->
     #itemCfg {
@@ -15812,7 +15743,7 @@ getRow(5999)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6000)->
     #itemCfg {
@@ -15847,7 +15778,7 @@ getRow(6000)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6010)->
     #itemCfg {
@@ -15882,7 +15813,7 @@ getRow(6010)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6011)->
     #itemCfg {
@@ -15917,7 +15848,7 @@ getRow(6011)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6012)->
     #itemCfg {
@@ -15952,7 +15883,7 @@ getRow(6012)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6013)->
     #itemCfg {
@@ -15987,7 +15918,7 @@ getRow(6013)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6014)->
     #itemCfg {
@@ -16022,7 +15953,7 @@ getRow(6014)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6015)->
     #itemCfg {
@@ -16057,7 +15988,7 @@ getRow(6015)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6016)->
     #itemCfg {
@@ -16092,7 +16023,7 @@ getRow(6016)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6017)->
     #itemCfg {
@@ -16127,7 +16058,7 @@ getRow(6017)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6018)->
     #itemCfg {
@@ -16162,7 +16093,7 @@ getRow(6018)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6019)->
     #itemCfg {
@@ -16197,7 +16128,7 @@ getRow(6019)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6020)->
     #itemCfg {
@@ -16232,7 +16163,7 @@ getRow(6020)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6021)->
     #itemCfg {
@@ -16267,7 +16198,7 @@ getRow(6021)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6022)->
     #itemCfg {
@@ -16302,7 +16233,7 @@ getRow(6022)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6023)->
     #itemCfg {
@@ -16337,7 +16268,7 @@ getRow(6023)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6100)->
     #itemCfg {
@@ -16372,7 +16303,7 @@ getRow(6100)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6101)->
     #itemCfg {
@@ -16407,7 +16338,7 @@ getRow(6101)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6102)->
     #itemCfg {
@@ -16442,7 +16373,7 @@ getRow(6102)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6103)->
     #itemCfg {
@@ -16477,7 +16408,7 @@ getRow(6103)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6104)->
     #itemCfg {
@@ -16512,7 +16443,7 @@ getRow(6104)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6105)->
     #itemCfg {
@@ -16547,7 +16478,7 @@ getRow(6105)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6106)->
     #itemCfg {
@@ -16582,7 +16513,7 @@ getRow(6106)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6107)->
     #itemCfg {
@@ -16617,7 +16548,7 @@ getRow(6107)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6108)->
     #itemCfg {
@@ -16652,7 +16583,7 @@ getRow(6108)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6109)->
     #itemCfg {
@@ -16687,7 +16618,7 @@ getRow(6109)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6110)->
     #itemCfg {
@@ -16722,7 +16653,7 @@ getRow(6110)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6111)->
     #itemCfg {
@@ -16757,7 +16688,7 @@ getRow(6111)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6112)->
     #itemCfg {
@@ -16792,7 +16723,7 @@ getRow(6112)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6113)->
     #itemCfg {
@@ -16827,7 +16758,7 @@ getRow(6113)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6114)->
     #itemCfg {
@@ -16862,7 +16793,7 @@ getRow(6114)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6115)->
     #itemCfg {
@@ -16897,7 +16828,7 @@ getRow(6115)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6116)->
     #itemCfg {
@@ -16932,7 +16863,7 @@ getRow(6116)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6117)->
     #itemCfg {
@@ -16967,7 +16898,7 @@ getRow(6117)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6118)->
     #itemCfg {
@@ -17002,7 +16933,7 @@ getRow(6118)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6119)->
     #itemCfg {
@@ -17037,7 +16968,7 @@ getRow(6119)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6120)->
     #itemCfg {
@@ -17072,7 +17003,7 @@ getRow(6120)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6121)->
     #itemCfg {
@@ -17107,7 +17038,7 @@ getRow(6121)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6122)->
     #itemCfg {
@@ -17142,7 +17073,7 @@ getRow(6122)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6123)->
     #itemCfg {
@@ -17177,7 +17108,7 @@ getRow(6123)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6124)->
     #itemCfg {
@@ -17212,7 +17143,7 @@ getRow(6124)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6125)->
     #itemCfg {
@@ -17247,7 +17178,7 @@ getRow(6125)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6126)->
     #itemCfg {
@@ -17282,7 +17213,7 @@ getRow(6126)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6127)->
     #itemCfg {
@@ -17317,7 +17248,7 @@ getRow(6127)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6128)->
     #itemCfg {
@@ -17352,7 +17283,7 @@ getRow(6128)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6129)->
     #itemCfg {
@@ -17387,7 +17318,7 @@ getRow(6129)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6130)->
     #itemCfg {
@@ -17422,7 +17353,7 @@ getRow(6130)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6131)->
     #itemCfg {
@@ -17457,7 +17388,7 @@ getRow(6131)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6132)->
     #itemCfg {
@@ -17492,7 +17423,7 @@ getRow(6132)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6133)->
     #itemCfg {
@@ -17527,7 +17458,7 @@ getRow(6133)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6134)->
     #itemCfg {
@@ -17562,7 +17493,7 @@ getRow(6134)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6135)->
     #itemCfg {
@@ -17597,7 +17528,7 @@ getRow(6135)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6136)->
     #itemCfg {
@@ -17632,7 +17563,7 @@ getRow(6136)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6137)->
     #itemCfg {
@@ -17667,7 +17598,7 @@ getRow(6137)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6138)->
     #itemCfg {
@@ -17702,7 +17633,7 @@ getRow(6138)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6139)->
     #itemCfg {
@@ -17737,7 +17668,7 @@ getRow(6139)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6140)->
     #itemCfg {
@@ -17772,7 +17703,7 @@ getRow(6140)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6141)->
     #itemCfg {
@@ -17807,7 +17738,7 @@ getRow(6141)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(6142)->
     #itemCfg {
@@ -17842,7 +17773,7 @@ getRow(6142)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(7000)->
     #itemCfg {
@@ -18507,7 +18438,7 @@ getRow(7100)->
     useJumpPage = 14,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(7101)->
     #itemCfg {
@@ -18542,7 +18473,7 @@ getRow(7101)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(7102)->
     #itemCfg {
@@ -18577,7 +18508,7 @@ getRow(7102)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(7103)->
     #itemCfg {
@@ -18612,7 +18543,7 @@ getRow(7103)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(7104)->
     #itemCfg {
@@ -18647,7 +18578,7 @@ getRow(7104)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(7105)->
     #itemCfg {
@@ -18682,7 +18613,7 @@ getRow(7105)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(7106)->
     #itemCfg {
@@ -18717,7 +18648,7 @@ getRow(7106)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(7200)->
     #itemCfg {
@@ -18751,8 +18682,8 @@ getRow(7200)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7201)->
     #itemCfg {
@@ -18786,8 +18717,8 @@ getRow(7201)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7202)->
     #itemCfg {
@@ -18821,8 +18752,8 @@ getRow(7202)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7203)->
     #itemCfg {
@@ -18856,8 +18787,8 @@ getRow(7203)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7204)->
     #itemCfg {
@@ -18891,8 +18822,8 @@ getRow(7204)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7205)->
     #itemCfg {
@@ -18926,8 +18857,8 @@ getRow(7205)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7206)->
     #itemCfg {
@@ -18961,8 +18892,8 @@ getRow(7206)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7207)->
     #itemCfg {
@@ -18996,8 +18927,8 @@ getRow(7207)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7208)->
     #itemCfg {
@@ -19031,8 +18962,8 @@ getRow(7208)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7209)->
     #itemCfg {
@@ -19066,8 +18997,8 @@ getRow(7209)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7210)->
     #itemCfg {
@@ -19101,8 +19032,8 @@ getRow(7210)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7211)->
     #itemCfg {
@@ -19136,8 +19067,8 @@ getRow(7211)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7212)->
     #itemCfg {
@@ -19171,8 +19102,8 @@ getRow(7212)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7213)->
     #itemCfg {
@@ -19206,8 +19137,8 @@ getRow(7213)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(7214)->
     #itemCfg {
@@ -19241,8 +19172,8 @@ getRow(7214)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(8001)->
     #itemCfg {
@@ -19277,7 +19208,7 @@ getRow(8001)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8002)->
     #itemCfg {
@@ -19312,7 +19243,7 @@ getRow(8002)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8003)->
     #itemCfg {
@@ -19347,7 +19278,7 @@ getRow(8003)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8004)->
     #itemCfg {
@@ -19382,7 +19313,7 @@ getRow(8004)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8005)->
     #itemCfg {
@@ -19417,7 +19348,7 @@ getRow(8005)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8006)->
     #itemCfg {
@@ -19452,7 +19383,7 @@ getRow(8006)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8007)->
     #itemCfg {
@@ -19487,7 +19418,7 @@ getRow(8007)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8008)->
     #itemCfg {
@@ -19522,7 +19453,7 @@ getRow(8008)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8009)->
     #itemCfg {
@@ -19557,7 +19488,7 @@ getRow(8009)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8010)->
     #itemCfg {
@@ -19592,7 +19523,7 @@ getRow(8010)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8011)->
     #itemCfg {
@@ -19627,7 +19558,7 @@ getRow(8011)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8012)->
     #itemCfg {
@@ -19662,7 +19593,7 @@ getRow(8012)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8013)->
     #itemCfg {
@@ -19697,7 +19628,7 @@ getRow(8013)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8014)->
     #itemCfg {
@@ -19732,7 +19663,7 @@ getRow(8014)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8015)->
     #itemCfg {
@@ -19767,7 +19698,7 @@ getRow(8015)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8016)->
     #itemCfg {
@@ -19802,7 +19733,7 @@ getRow(8016)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8017)->
     #itemCfg {
@@ -19837,7 +19768,7 @@ getRow(8017)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8018)->
     #itemCfg {
@@ -19872,7 +19803,7 @@ getRow(8018)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8019)->
     #itemCfg {
@@ -19907,7 +19838,7 @@ getRow(8019)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8020)->
     #itemCfg {
@@ -19942,7 +19873,7 @@ getRow(8020)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8021)->
     #itemCfg {
@@ -19977,7 +19908,7 @@ getRow(8021)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8022)->
     #itemCfg {
@@ -20012,7 +19943,7 @@ getRow(8022)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8023)->
     #itemCfg {
@@ -20047,7 +19978,7 @@ getRow(8023)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8024)->
     #itemCfg {
@@ -20082,7 +20013,7 @@ getRow(8024)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8512)->
     #itemCfg {
@@ -20117,7 +20048,7 @@ getRow(8512)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8513)->
     #itemCfg {
@@ -20152,7 +20083,7 @@ getRow(8513)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8514)->
     #itemCfg {
@@ -20187,7 +20118,7 @@ getRow(8514)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8516)->
     #itemCfg {
@@ -20222,7 +20153,7 @@ getRow(8516)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8517)->
     #itemCfg {
@@ -20257,7 +20188,7 @@ getRow(8517)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8518)->
     #itemCfg {
@@ -20292,7 +20223,7 @@ getRow(8518)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8520)->
     #itemCfg {
@@ -20327,7 +20258,7 @@ getRow(8520)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8521)->
     #itemCfg {
@@ -20362,7 +20293,7 @@ getRow(8521)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(8522)->
     #itemCfg {
@@ -20397,7 +20328,7 @@ getRow(8522)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(9002)->
     #itemCfg {
@@ -20782,7 +20713,7 @@ getRow(9100)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(9101)->
     #itemCfg {
@@ -20817,7 +20748,7 @@ getRow(9101)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(9102)->
     #itemCfg {
@@ -20852,7 +20783,7 @@ getRow(9102)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(9103)->
     #itemCfg {
@@ -20887,7 +20818,7 @@ getRow(9103)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(9104)->
     #itemCfg {
@@ -20922,7 +20853,7 @@ getRow(9104)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(9200)->
     #itemCfg {
@@ -20957,7 +20888,7 @@ getRow(9200)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(9201)->
     #itemCfg {
@@ -20992,15 +20923,52 @@ getRow(9201)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
+    };
+getRow(9999)->
+    #itemCfg {
+    id = 9999,
+    name = "采集",
+    desc = "采集",
+    product = "任务获得",
+    iconPath = 4021,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 2,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 26,
+    baozhunumber = 0,
+    baozhusound = "0",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = []
     };
 getRow(10000)->
     #itemCfg {
     id = 10000,
-    name = "武器",
-    desc = "拾取",
+    name = "港口居民",
+    desc = "给予",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21029,15 +20997,15 @@ getRow(10000)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10001)->
     #itemCfg {
     id = 10001,
-    name = "修补的货船",
-    desc = "查看",
+    name = "帮助猫绅士",
+    desc = "给予",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21066,15 +21034,15 @@ getRow(10001)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10002)->
     #itemCfg {
     id = 10002,
-    name = "小木屋",
-    desc = "灭火",
+    name = "摧毁的货船",
+    desc = "调查",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21103,15 +21071,15 @@ getRow(10002)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10003)->
     #itemCfg {
     id = 10003,
-    name = "戒指",
-    desc = "拾取",
+    name = "安慰苏珊",
+    desc = "摸头",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21140,15 +21108,15 @@ getRow(10003)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10004)->
     #itemCfg {
     id = 10004,
-    name = "新鲜的鱼",
-    desc = "给予",
+    name = "约克的木屋",
+    desc = "调查",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21177,15 +21145,15 @@ getRow(10004)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10005)->
     #itemCfg {
     id = 10005,
-    name = "猫绅士的货物",
-    desc = "给予",
+    name = "居民的宝物(上)",
+    desc = "调查",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21209,18 +21177,20 @@ getRow(10005)->
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
+    baozhusound = "0",
     useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = []
     };
 getRow(10006)->
     #itemCfg {
     id = 10006,
-    name = "魔族迷药2-秘蓝之水",
-    desc = "秘蓝之水",
-    product = "杀怪获得",
-    iconPath = 10,
+    name = "居民的宝物(下)",
+    desc = "调查",
+    product = "任务获得",
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21238,24 +21208,26 @@ getRow(10006)->
     cdGroup = 1,
     dailyCountGroup = 0,
     usefulLife = 0,
-    needSaveLog = 2,
+    needSaveLog = 0,
     operate = 2,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
+    baozhusound = "0",
     useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = []
     };
 getRow(10007)->
     #itemCfg {
     id = 10007,
-    name = "魔族迷药3-合成药水",
-    desc = "合成",
+    name = "交还矿石",
+    desc = "给予",
     product = "任务获得",
-    iconPath = 10,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21273,24 +21245,26 @@ getRow(10007)->
     cdGroup = 1,
     dailyCountGroup = 0,
     usefulLife = 0,
-    needSaveLog = 2,
+    needSaveLog = 0,
     operate = 2,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
+    baozhusound = "0",
     useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = []
     };
 getRow(10008)->
     #itemCfg {
     id = 10008,
-    name = "女神雕像1234_注入能量",
-    desc = "注入",
+    name = "戴安娜的礼物",
+    desc = "给予",
     product = "任务获得",
-    iconPath = 10,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21308,374 +21282,26 @@ getRow(10008)->
     cdGroup = 1,
     dailyCountGroup = 0,
     usefulLife = 0,
-    needSaveLog = 2,
+    needSaveLog = 0,
     operate = 2,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
+    baozhusound = "0",
     useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = []
     };
 getRow(10009)->
     #itemCfg {
     id = 10009,
-    name = "伪造情书1_会长的魔法箱子",
-    desc = "打开",
+    name = "搬动食物",
+    desc = "调查",
     product = "任务获得",
-    iconPath = 10,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 2,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
-    };
-getRow(10010)->
-    #itemCfg {
-    id = 10010,
-    name = "伪造情书3_合成发光的情书",
-    desc = "合成",
-    product = "任务获得",
-    iconPath = 10,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 2,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
-    };
-getRow(10011)->
-    #itemCfg {
-    id = 10011,
-    name = "净化药水",
-    desc = "净化",
-    product = "任务获得",
-    iconPath = 10,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 2,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
-    };
-getRow(10012)->
-    #itemCfg {
-    id = 10012,
-    name = "追踪痕迹_散落的农具",
-    desc = "查看",
-    product = "任务获得",
-    iconPath = 10,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 2,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
-    };
-getRow(10013)->
-    #itemCfg {
-    id = 10013,
-    name = "污染之源_查看雕像",
-    desc = "查看",
-    product = "任务获得",
-    iconPath = 10,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 2,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
-    };
-getRow(10014)->
-    #itemCfg {
-    id = 10014,
-    name = "再次净化1-3_使用新净化药水",
-    desc = "净化",
-    product = "任务获得",
-    iconPath = 10,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 2,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
-    };
-getRow(10015)->
-    #itemCfg {
-    id = 10015,
-    name = "荣耀骑士团_出示魔法证明",
-    desc = "出示",
-    product = "任务获得",
-    iconPath = 10,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 2,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
-    };
-getRow(10016)->
-    #itemCfg {
-    id = 10016,
-    name = "虚弱的女神_漂浮之石",
-    desc = "使用",
-    product = "任务获得",
-    iconPath = 10,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 2,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
-    };
-getRow(10017)->
-    #itemCfg {
-    id = 10017,
-    name = "装备补给",
-    desc = "拾取",
-    product = "任务获得",
-    iconPath = 10,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 2,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
-    };
-getRow(10018)->
-    #itemCfg {
-    id = 10018,
-    name = "皮皮的请求_摸摸头",
-    desc = "摸摸头",
-    product = "任务获得",
-    iconPath = 10,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 2,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = [0]
-    };
-getRow(10019)->
-    #itemCfg {
-    id = 10019,
-    name = "鱼丸",
-    desc = "品尝",
-    product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21704,81 +21330,7 @@ getRow(10019)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
-    };
-getRow(10020)->
-    #itemCfg {
-    id = 10020,
-    name = "鲜鱼",
-    desc = "搬动",
-    product = "任务获得",
-    iconPath = 1,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 0,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    baozhusound = "0",
-    useJumpPage = 0,
-    txt = "0",
-    useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
-    };
-getRow(10021)->
-    #itemCfg {
-    id = 10021,
-    name = "安慰苏珊",
-    desc = "摸头",
-    product = "任务获得",
-    iconPath = 1,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 0,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    baozhusound = "0",
-    useJumpPage = 0,
-    txt = "0",
-    useStraightway = 1,
-    selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10022)->
     #itemCfg {
@@ -21786,7 +21338,7 @@ getRow(10022)->
     name = "东成郊告示栏",
     desc = "阅读",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21815,15 +21367,15 @@ getRow(10022)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10023)->
     #itemCfg {
     id = 10023,
     name = "摇动的花丛",
-    desc = "查看",
+    desc = "调查",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21852,7 +21404,7 @@ getRow(10023)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10024)->
     #itemCfg {
@@ -21860,7 +21412,7 @@ getRow(10024)->
     name = "出示通行证",
     desc = "出示",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21889,7 +21441,7 @@ getRow(10024)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10025)->
     #itemCfg {
@@ -21897,7 +21449,7 @@ getRow(10025)->
     name = "合成药剂",
     desc = "使用",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21926,7 +21478,7 @@ getRow(10025)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10026)->
     #itemCfg {
@@ -21934,7 +21486,7 @@ getRow(10026)->
     name = "净化草丛（上）",
     desc = "净化",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21963,7 +21515,7 @@ getRow(10026)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10027)->
     #itemCfg {
@@ -21971,7 +21523,7 @@ getRow(10027)->
     name = "净化草丛（中）",
     desc = "净化",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22000,7 +21552,7 @@ getRow(10027)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10028)->
     #itemCfg {
@@ -22008,7 +21560,7 @@ getRow(10028)->
     name = "净化草丛（下）",
     desc = "净化",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22037,7 +21589,7 @@ getRow(10028)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10029)->
     #itemCfg {
@@ -22045,7 +21597,7 @@ getRow(10029)->
     name = "修复农田",
     desc = "使用",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22074,7 +21626,7 @@ getRow(10029)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10030)->
     #itemCfg {
@@ -22082,7 +21634,7 @@ getRow(10030)->
     name = "再次修复",
     desc = "使用",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22111,7 +21663,7 @@ getRow(10030)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10031)->
     #itemCfg {
@@ -22119,7 +21671,7 @@ getRow(10031)->
     name = "同伴的下落",
     desc = "调查",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22148,7 +21700,7 @@ getRow(10031)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10032)->
     #itemCfg {
@@ -22156,7 +21708,7 @@ getRow(10032)->
     name = "发现踪迹",
     desc = "调查",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22185,7 +21737,7 @@ getRow(10032)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10033)->
     #itemCfg {
@@ -22193,7 +21745,7 @@ getRow(10033)->
     name = "尝尝鱼肉",
     desc = "拾取",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22222,7 +21774,7 @@ getRow(10033)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10034)->
     #itemCfg {
@@ -22230,7 +21782,7 @@ getRow(10034)->
     name = "归还鱼肉",
     desc = "搬动",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22259,7 +21811,7 @@ getRow(10034)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10035)->
     #itemCfg {
@@ -22267,7 +21819,7 @@ getRow(10035)->
     name = "摆放鱼肉",
     desc = "摆放",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22296,7 +21848,7 @@ getRow(10035)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10036)->
     #itemCfg {
@@ -22304,7 +21856,7 @@ getRow(10036)->
     name = "成果",
     desc = "给予",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22333,7 +21885,7 @@ getRow(10036)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10037)->
     #itemCfg {
@@ -22341,7 +21893,7 @@ getRow(10037)->
     name = "净化冰河",
     desc = "净化",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22370,7 +21922,7 @@ getRow(10037)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10038)->
     #itemCfg {
@@ -22378,7 +21930,7 @@ getRow(10038)->
     name = "奇怪的海伦",
     desc = "调查",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22407,7 +21959,7 @@ getRow(10038)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10039)->
     #itemCfg {
@@ -22415,7 +21967,7 @@ getRow(10039)->
     name = "疑点",
     desc = "调查",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22444,7 +21996,7 @@ getRow(10039)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10040)->
     #itemCfg {
@@ -22452,7 +22004,7 @@ getRow(10040)->
     name = "蛛丝马迹",
     desc = "调查",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22481,7 +22033,7 @@ getRow(10040)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10041)->
     #itemCfg {
@@ -22489,7 +22041,7 @@ getRow(10041)->
     name = "救人",
     desc = "合成",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22518,7 +22070,7 @@ getRow(10041)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10042)->
     #itemCfg {
@@ -22526,7 +22078,7 @@ getRow(10042)->
     name = "投其所好",
     desc = "拾取",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22555,7 +22107,7 @@ getRow(10042)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10043)->
     #itemCfg {
@@ -22563,7 +22115,7 @@ getRow(10043)->
     name = "罗宾的承诺",
     desc = "拾取",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22592,7 +22144,7 @@ getRow(10043)->
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(10044)->
     #itemCfg {
@@ -22600,7 +22152,7 @@ getRow(10044)->
     name = "神秘宝石",
     desc = "拾取",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22636,7 +22188,7 @@ getRow(10045)->
     name = "国王的悬赏",
     desc = "阅读",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22672,7 +22224,7 @@ getRow(10046)->
     name = "物归原主",
     desc = "给予",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22708,7 +22260,7 @@ getRow(10047)->
     name = "信物",
     desc = "获得",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22744,7 +22296,7 @@ getRow(10048)->
     name = "购买玫瑰花",
     desc = "获得",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22780,7 +22332,7 @@ getRow(10049)->
     name = "赠送玫瑰",
     desc = "赠予",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22816,7 +22368,7 @@ getRow(10050)->
     name = "证据",
     desc = "赠予",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22852,7 +22404,7 @@ getRow(10051)->
     name = "礼物",
     desc = "赠予",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22888,7 +22440,7 @@ getRow(10052)->
     name = "驱魔药",
     desc = "合成",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22924,7 +22476,7 @@ getRow(10053)->
     name = "净化灵兽（上）",
     desc = "净化",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22960,7 +22512,7 @@ getRow(10054)->
     name = "净化灵兽（下）",
     desc = "净化",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -22996,7 +22548,7 @@ getRow(10055)->
     name = "获得鳞片",
     desc = "拾取",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -23032,7 +22584,7 @@ getRow(10056)->
     name = "获得侍卫外装",
     desc = "拾取",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -23068,7 +22620,7 @@ getRow(10057)->
     name = "易装",
     desc = "穿戴",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -23104,7 +22656,7 @@ getRow(10058)->
     name = "净化灵宠",
     desc = "净化",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -23140,7 +22692,7 @@ getRow(10059)->
     name = "赠送驱魔剂",
     desc = "给予",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -23176,7 +22728,7 @@ getRow(10060)->
     name = "魔灵兽大门",
     desc = "领悟",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -23212,7 +22764,7 @@ getRow(10061)->
     name = "午夜行动",
     desc = "破解",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -23248,7 +22800,7 @@ getRow(10062)->
     name = "削弱魔灵兽（上）",
     desc = "喂食",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -23284,7 +22836,7 @@ getRow(10063)->
     name = "削弱魔灵兽（中）",
     desc = "喂食",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -23320,7 +22872,7 @@ getRow(10064)->
     name = "削弱魔灵兽（下）",
     desc = "喂食",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -23356,7 +22908,7 @@ getRow(10065)->
     name = "补充体力",
     desc = "补给",
     product = "任务获得",
-    iconPath = 1,
+    iconPath = 4021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -23874,7 +23426,7 @@ getRow(18000)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(18001)->
     #itemCfg {
@@ -23909,7 +23461,7 @@ getRow(18001)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21000)->
     #itemCfg {
@@ -23944,7 +23496,7 @@ getRow(21000)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21001)->
     #itemCfg {
@@ -23979,7 +23531,7 @@ getRow(21001)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21002)->
     #itemCfg {
@@ -24014,7 +23566,7 @@ getRow(21002)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21003)->
     #itemCfg {
@@ -24049,7 +23601,7 @@ getRow(21003)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21004)->
     #itemCfg {
@@ -24084,7 +23636,7 @@ getRow(21004)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21005)->
     #itemCfg {
@@ -24119,7 +23671,7 @@ getRow(21005)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21006)->
     #itemCfg {
@@ -24154,7 +23706,7 @@ getRow(21006)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21007)->
     #itemCfg {
@@ -24189,7 +23741,7 @@ getRow(21007)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21008)->
     #itemCfg {
@@ -24224,7 +23776,7 @@ getRow(21008)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21009)->
     #itemCfg {
@@ -24259,7 +23811,7 @@ getRow(21009)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21050)->
     #itemCfg {
@@ -24294,7 +23846,7 @@ getRow(21050)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21051)->
     #itemCfg {
@@ -24329,7 +23881,7 @@ getRow(21051)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21052)->
     #itemCfg {
@@ -24364,7 +23916,7 @@ getRow(21052)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21053)->
     #itemCfg {
@@ -24399,7 +23951,7 @@ getRow(21053)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21054)->
     #itemCfg {
@@ -24434,7 +23986,7 @@ getRow(21054)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21055)->
     #itemCfg {
@@ -24469,7 +24021,7 @@ getRow(21055)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21056)->
     #itemCfg {
@@ -24504,7 +24056,7 @@ getRow(21056)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21057)->
     #itemCfg {
@@ -24539,7 +24091,7 @@ getRow(21057)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21058)->
     #itemCfg {
@@ -24574,7 +24126,7 @@ getRow(21058)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21059)->
     #itemCfg {
@@ -24609,7 +24161,7 @@ getRow(21059)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21100)->
     #itemCfg {
@@ -24644,7 +24196,7 @@ getRow(21100)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21101)->
     #itemCfg {
@@ -24679,7 +24231,7 @@ getRow(21101)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21102)->
     #itemCfg {
@@ -24714,7 +24266,7 @@ getRow(21102)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21103)->
     #itemCfg {
@@ -24749,7 +24301,7 @@ getRow(21103)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21104)->
     #itemCfg {
@@ -24784,7 +24336,7 @@ getRow(21104)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21105)->
     #itemCfg {
@@ -24819,7 +24371,7 @@ getRow(21105)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21106)->
     #itemCfg {
@@ -24854,7 +24406,7 @@ getRow(21106)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21107)->
     #itemCfg {
@@ -24889,7 +24441,7 @@ getRow(21107)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21108)->
     #itemCfg {
@@ -24924,7 +24476,7 @@ getRow(21108)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(21109)->
     #itemCfg {
@@ -24959,7 +24511,7 @@ getRow(21109)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(22000)->
     #itemCfg {
@@ -24993,7 +24545,8 @@ getRow(22000)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(22001)->
     #itemCfg {
@@ -25095,7 +24648,8 @@ getRow(22003)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(22004)->
     #itemCfg {
@@ -25129,7 +24683,8 @@ getRow(22004)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(22005)->
     #itemCfg {
@@ -25197,14 +24752,155 @@ getRow(22006)->
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0
+    selljudge = 1,
+    relation_UI = []
+    };
+getRow(22007)->
+    #itemCfg {
+    id = 22007,
+    name = "35级钻石礼包",
+    desc = "开启后获得100绑定钻石和40级钻石礼包。",
+    product = "在线奖励获得",
+    iconPath = 313,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 390001,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 35,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = []
+    };
+getRow(22008)->
+    #itemCfg {
+    id = 22008,
+    name = "40级钻石礼包",
+    desc = "开启后获得150绑定钻石和45级钻石礼包。",
+    product = "在线奖励获得",
+    iconPath = 314,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 390002,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 40,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = []
+    };
+getRow(22009)->
+    #itemCfg {
+    id = 22009,
+    name = "45级钻石礼包",
+    desc = "开启后获得200绑定钻石和50级钻石礼包。",
+    product = "在线奖励获得",
+    iconPath = 315,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 390003,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 45,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = []
+    };
+getRow(22010)->
+    #itemCfg {
+    id = 22010,
+    name = "50级钻石礼包",
+    desc = "开启后获得300绑定钻石。",
+    product = "在线奖励获得",
+    iconPath = 316,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 390004,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 50,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = []
     };
 getRow(26000)->
     #itemCfg {
     id = 26000,
-    name = "银质婚戒",
-    desc = "外表亮丽的银质婚戒，使用求婚后增加600点亲密度。\n[00ff00]获取途径：杂货商店[-]",
-    product = "杂货商店NPC处获得",
+    name = "白银婚戒",
+    desc = "外表亮丽的白银婚戒，使用求婚后增加600点亲密度。\n[00ff00]获取途径：兑换[-]",
+    product = "兑换-普通兑换中获得",
     iconPath = 615,
     maxAmount = 1,
     quality = 2,
@@ -25219,27 +24915,27 @@ getRow(26000)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 0,
     needBrodcast = 1,
-    needwar = 0,
+    needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{12,0}]
     };
 getRow(26001)->
     #itemCfg {
     id = 26001,
-    name = "金质婚戒",
-    desc = "金光闪烁的金质婚戒，使用求婚后增加1200点亲密度。\n[00ff00]获取途径：商城[-]",
-    product = "商城【优惠】中获得",
+    name = "黄金婚戒",
+    desc = "金光闪烁的黄金婚戒，使用求婚后增加1200点亲密度。\n[00ff00]获取途径：商城[-]",
+    product = "商城-【成长】中获得",
     iconPath = 617,
     maxAmount = 1,
     quality = 3,
@@ -25254,15 +24950,15 @@ getRow(26001)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 0,
     needBrodcast = 1,
-    needwar = 0,
-    baozhu = 26,
+    needwar = 1,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
@@ -25274,7 +24970,7 @@ getRow(26002)->
     id = 26002,
     name = "钻石婚戒",
     desc = "闪耀璀璨的钻石婚戒，使用求婚后增加2400点亲密度。\n[00ff00]获取途径：商城[-]",
-    product = "商城【优惠】中获得",
+    product = "商城-【成长】中获得",
     iconPath = 619,
     maxAmount = 1,
     quality = 4,
@@ -25289,15 +24985,15 @@ getRow(26002)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 0,
     needBrodcast = 1,
-    needwar = 0,
-    baozhu = 26,
+    needwar = 1,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
@@ -25623,11 +25319,11 @@ getRow(27000)->
     #itemCfg {
     id = 27000,
     name = "稚嫩童心头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“稚嫩童心头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2001,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -25637,33 +25333,32 @@ getRow(27000)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得稚嫩童心头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27001)->
     #itemCfg {
     id = 27001,
     name = "稚嫩童心服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“稚嫩童心服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2002,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -25673,33 +25368,32 @@ getRow(27001)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得稚嫩童心服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27002)->
     #itemCfg {
     id = 27002,
     name = "超能战甲头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“超能战甲头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2003,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -25709,33 +25403,32 @@ getRow(27002)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得超能战甲头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27003)->
     #itemCfg {
     id = 27003,
     name = "超能战甲服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“超能战甲服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2004,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -25745,33 +25438,32 @@ getRow(27003)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得超能战甲服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27004)->
     #itemCfg {
     id = 27004,
     name = "布偶海盗头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“布偶海盗头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2005,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -25781,33 +25473,32 @@ getRow(27004)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得布偶海盗头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27005)->
     #itemCfg {
     id = 27005,
     name = "布偶海盗头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“布偶海盗头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2005,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -25817,33 +25508,32 @@ getRow(27005)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得布偶海盗头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27006)->
     #itemCfg {
     id = 27006,
     name = "布偶海盗服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“布偶海盗服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2007,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -25853,33 +25543,32 @@ getRow(27006)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得布偶海盗服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27007)->
     #itemCfg {
     id = 27007,
     name = "布偶海盗服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“布偶海盗服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2007,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -25889,33 +25578,32 @@ getRow(27007)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得布偶海盗服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27008)->
     #itemCfg {
     id = 27008,
     name = "萌兔兔头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“萌兔兔头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2009,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -25925,33 +25613,32 @@ getRow(27008)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得萌兔兔头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27009)->
     #itemCfg {
     id = 27009,
     name = "萌兔兔头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“萌兔兔头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2010,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -25961,33 +25648,32 @@ getRow(27009)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得萌兔兔头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27010)->
     #itemCfg {
     id = 27010,
     name = "萌兔兔服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“萌兔兔服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2011,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -25997,33 +25683,32 @@ getRow(27010)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得萌兔兔服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27011)->
     #itemCfg {
     id = 27011,
     name = "萌兔兔服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“萌兔兔服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2012,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26033,33 +25718,32 @@ getRow(27011)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得萌兔兔服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27012)->
     #itemCfg {
     id = 27012,
     name = "软喵喵头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“软喵喵头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2013,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26069,33 +25753,32 @@ getRow(27012)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得软喵喵头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27013)->
     #itemCfg {
     id = 27013,
     name = "软喵喵头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“软喵喵头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2014,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26105,33 +25788,32 @@ getRow(27013)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得软喵喵头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27014)->
     #itemCfg {
     id = 27014,
     name = "软喵喵服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“软喵喵服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2015,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26141,33 +25823,32 @@ getRow(27014)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得软喵喵服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27015)->
     #itemCfg {
     id = 27015,
     name = "软喵喵服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“软喵喵服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2016,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26177,31 +25858,30 @@ getRow(27015)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得软喵喵服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27016)->
     #itemCfg {
     id = 27016,
     name = "叛逆乐队头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“叛逆乐队头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2017,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -26213,31 +25893,30 @@ getRow(27016)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得叛逆乐队头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27017)->
     #itemCfg {
     id = 27017,
     name = "叛逆乐队头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“叛逆乐队头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2018,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -26249,31 +25928,30 @@ getRow(27017)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得叛逆乐队头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27018)->
     #itemCfg {
     id = 27018,
     name = "叛逆乐队服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“叛逆乐队服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2019,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -26285,31 +25963,30 @@ getRow(27018)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得叛逆乐队服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27019)->
     #itemCfg {
     id = 27019,
     name = "叛逆乐队服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“叛逆乐队服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2020,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -26321,31 +25998,30 @@ getRow(27019)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得叛逆乐队服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27020)->
     #itemCfg {
     id = 27020,
     name = "奇幻梦境头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“奇幻梦境头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2021,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -26357,31 +26033,30 @@ getRow(27020)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得奇幻梦境头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27021)->
     #itemCfg {
     id = 27021,
     name = "奇幻梦境头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“奇幻梦境头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2022,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -26393,31 +26068,30 @@ getRow(27021)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得奇幻梦境头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27022)->
     #itemCfg {
     id = 27022,
     name = "奇幻梦境服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“奇幻梦境服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2023,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -26429,31 +26103,30 @@ getRow(27022)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得奇幻梦境服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27023)->
     #itemCfg {
     id = 27023,
     name = "奇幻梦境服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“奇幻梦境服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2024,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -26465,33 +26138,32 @@ getRow(27023)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得奇幻梦境服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27024)->
     #itemCfg {
     id = 27024,
     name = "青蓝花瓷头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“青蓝花瓷头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2025,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26501,33 +26173,32 @@ getRow(27024)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得青蓝花瓷头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27025)->
     #itemCfg {
     id = 27025,
     name = "青蓝花瓷头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“青蓝花瓷头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2026,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26537,33 +26208,32 @@ getRow(27025)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得青蓝花瓷头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27026)->
     #itemCfg {
     id = 27026,
     name = "青蓝花瓷服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“青蓝花瓷服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2027,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26573,33 +26243,32 @@ getRow(27026)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得青蓝花瓷服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27027)->
     #itemCfg {
     id = 27027,
     name = "青蓝花瓷服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“青蓝花瓷服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2028,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26609,33 +26278,32 @@ getRow(27027)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得青蓝花瓷服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27028)->
     #itemCfg {
     id = 27028,
     name = "纯白花语头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“纯白花语头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2029,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26645,33 +26313,32 @@ getRow(27028)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得纯白花语头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27029)->
     #itemCfg {
     id = 27029,
     name = "纯白花语头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“纯白花语头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2030,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26681,33 +26348,32 @@ getRow(27029)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得纯白花语头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27030)->
     #itemCfg {
     id = 27030,
     name = "纯白花语服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“纯白花语服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2031,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26717,33 +26383,32 @@ getRow(27030)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得纯白花语服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27031)->
     #itemCfg {
     id = 27031,
     name = "纯白花语服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“纯白花语服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2032,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26753,33 +26418,32 @@ getRow(27031)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得纯白花语服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27036)->
     #itemCfg {
     id = 27036,
     name = "冰晶王权头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“冰晶王权头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2033,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26789,33 +26453,32 @@ getRow(27036)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得冰晶王权头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27037)->
     #itemCfg {
     id = 27037,
     name = "冰晶王权头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“冰晶王权头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2034,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26825,33 +26488,32 @@ getRow(27037)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得冰晶王权头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27038)->
     #itemCfg {
     id = 27038,
     name = "冰晶王权服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“冰晶王权服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2035,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26861,33 +26523,32 @@ getRow(27038)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得冰晶王权服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27039)->
     #itemCfg {
     id = 27039,
     name = "冰晶王权服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“冰晶王权服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2036,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -26897,177 +26558,172 @@ getRow(27039)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得冰晶王权服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27040)->
     #itemCfg {
     id = 27040,
     name = "黑色执事头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“黑色执事头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2037,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
     useParam1 = 65,
-    useParam2 = 604800,
+    useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得黑色执事头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27041)->
     #itemCfg {
     id = 27041,
     name = "黑色执事头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“黑色执事头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2038,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
     useParam1 = 66,
-    useParam2 = 604800,
+    useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得黑色执事头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27042)->
     #itemCfg {
     id = 27042,
     name = "黑色执事服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“黑色执事服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2039,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
     useParam1 = 67,
-    useParam2 = 604800,
+    useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得黑色执事服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27043)->
     #itemCfg {
     id = 27043,
     name = "黑色执事服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“黑色执事服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2040,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
     useParam1 = 68,
-    useParam2 = 604800,
+    useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得黑色执事服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27044)->
     #itemCfg {
     id = 27044,
     name = "粉粉十字头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“粉粉十字头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2041,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27077,33 +26733,32 @@ getRow(27044)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得粉粉十字头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27045)->
     #itemCfg {
     id = 27045,
     name = "粉粉十字头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“粉粉十字头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2042,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27113,33 +26768,32 @@ getRow(27045)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得粉粉十字头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27046)->
     #itemCfg {
     id = 27046,
     name = "粉粉十字服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“粉粉十字服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2043,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27149,33 +26803,32 @@ getRow(27046)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得粉粉十字服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27047)->
     #itemCfg {
     id = 27047,
     name = "粉粉十字服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“粉粉十字服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2044,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27185,31 +26838,30 @@ getRow(27047)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得粉粉十字服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27048)->
     #itemCfg {
     id = 27048,
     name = "妖灵狐头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“妖灵狐头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2045,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -27221,31 +26873,30 @@ getRow(27048)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得妖灵狐头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27049)->
     #itemCfg {
     id = 27049,
     name = "妖灵狐头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“妖灵狐头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2046,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -27257,31 +26908,30 @@ getRow(27049)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得妖灵狐头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27050)->
     #itemCfg {
     id = 27050,
     name = "妖灵狐服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“妖灵狐服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2047,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -27293,31 +26943,30 @@ getRow(27050)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得妖灵狐服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27051)->
     #itemCfg {
     id = 27051,
     name = "妖灵狐服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“妖灵狐服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2048,
     maxAmount = 1,
     quality = 4,
     itemType = 6,
@@ -27329,33 +26978,32 @@ getRow(27051)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得妖灵狐服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27052)->
     #itemCfg {
     id = 27052,
     name = "蔷薇之灵头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“蔷薇之灵头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2049,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27365,33 +27013,32 @@ getRow(27052)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得蔷薇之灵头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27053)->
     #itemCfg {
     id = 27053,
     name = "蔷薇之灵头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“蔷薇之灵头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2050,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27401,33 +27048,32 @@ getRow(27053)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得蔷薇之灵头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27054)->
     #itemCfg {
     id = 27054,
     name = "蔷薇之灵服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“蔷薇之灵服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2051,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27437,33 +27083,32 @@ getRow(27054)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得蔷薇之灵服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27055)->
     #itemCfg {
     id = 27055,
     name = "蔷薇之灵服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“蔷薇之灵服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2052,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27473,33 +27118,32 @@ getRow(27055)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得蔷薇之灵服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27056)->
     #itemCfg {
     id = 27056,
     name = "青春课堂头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“青春课堂头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2053,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27509,33 +27153,32 @@ getRow(27056)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得青春课堂头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27057)->
     #itemCfg {
     id = 27057,
     name = "青春课堂头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“青春课堂头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2054,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27545,33 +27188,32 @@ getRow(27057)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得青春课堂头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27058)->
     #itemCfg {
     id = 27058,
     name = "青春课堂服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“青春课堂服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2055,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27581,33 +27223,32 @@ getRow(27058)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得青春课堂服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27059)->
     #itemCfg {
     id = 27059,
     name = "青春课堂服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“青春课堂服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2056,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27617,33 +27258,32 @@ getRow(27059)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得青春课堂服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27060)->
     #itemCfg {
     id = 27060,
     name = "天空卫队头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“天空卫队头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2057,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27653,33 +27293,32 @@ getRow(27060)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得天空卫队头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27061)->
     #itemCfg {
     id = 27061,
     name = "天空卫队头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“天空卫队头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2058,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27689,33 +27328,32 @@ getRow(27061)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得天空卫队头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27062)->
     #itemCfg {
     id = 27062,
     name = "天空卫队服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“天空卫队服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2059,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27725,33 +27363,32 @@ getRow(27062)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得天空卫队服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27063)->
     #itemCfg {
     id = 27063,
     name = "天空卫队服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“天空卫队服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2060,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27761,33 +27398,32 @@ getRow(27063)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得天空卫队服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27064)->
     #itemCfg {
     id = 27064,
     name = "尘埃幻想头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“尘埃幻想头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2061,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27797,33 +27433,32 @@ getRow(27064)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得尘埃幻想头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27065)->
     #itemCfg {
     id = 27065,
     name = "尘埃幻想头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“尘埃幻想头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2062,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27833,33 +27468,32 @@ getRow(27065)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得尘埃幻想头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27066)->
     #itemCfg {
     id = 27066,
     name = "尘埃幻想服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“尘埃幻想服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2063,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27869,33 +27503,32 @@ getRow(27066)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得尘埃幻想服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27067)->
     #itemCfg {
     id = 27067,
     name = "尘埃幻想服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“尘埃幻想服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2064,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27905,33 +27538,32 @@ getRow(27067)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得尘埃幻想服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27068)->
     #itemCfg {
     id = 27068,
     name = "神圣羽灵头饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“神圣羽灵头饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2065,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27941,33 +27573,32 @@ getRow(27068)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得神圣羽灵头饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27069)->
     #itemCfg {
     id = 27069,
     name = "神圣羽灵头饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“神圣羽灵头饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2066,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -27977,33 +27608,32 @@ getRow(27069)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得神圣羽灵头饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27070)->
     #itemCfg {
     id = 27070,
     name = "神圣羽灵服饰（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“神圣羽灵服饰（女）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2067,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28013,33 +27643,32 @@ getRow(27070)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得神圣羽灵服饰（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27071)->
     #itemCfg {
     id = 27071,
     name = "神圣羽灵服饰（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
-    iconPath = 140,
+    desc = "使用后激活“神圣羽灵服饰（男）”时装外观",
+    product = "时装激活道具",
+    iconPath = 2068,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28049,33 +27678,32 @@ getRow(27071)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "获得神圣羽灵服饰（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27072)->
     #itemCfg {
     id = 27072,
-    name = "小红帽战士武器（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "稚嫩童心战士武器（女）",
+    desc = "使用后激活“稚嫩童心战士武器（女）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28085,33 +27713,32 @@ getRow(27072)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "小红帽战士武器（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27073)->
     #itemCfg {
     id = 27073,
-    name = "小红帽法师武器（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "稚嫩童心法师武器（女）",
+    desc = "使用后激活“稚嫩童心法师武器（女）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28121,33 +27748,32 @@ getRow(27073)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "小红帽法师武器（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27074)->
     #itemCfg {
     id = 27074,
-    name = "小红帽刺客武器（女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "稚嫩童心刺客武器（女）",
+    desc = "使用后激活“稚嫩童心刺客武器（女）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28157,33 +27783,32 @@ getRow(27074)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "小红帽刺客武器（女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27075)->
     #itemCfg {
     id = 27075,
     name = "超能战甲战士武器（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    desc = "使用后激活“超能战甲战士武器（男）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28193,33 +27818,32 @@ getRow(27075)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "超能战甲战士武器（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27076)->
     #itemCfg {
     id = 27076,
     name = "超能战甲法师武器（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    desc = "使用后激活“超能战甲法师武器（男）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28229,33 +27853,32 @@ getRow(27076)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "超能战甲法师武器（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27077)->
     #itemCfg {
     id = 27077,
     name = "超能战甲刺客武器（男）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    desc = "使用后激活“超能战甲刺客武器（男）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28265,33 +27888,32 @@ getRow(27077)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "超能战甲刺客武器（男）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27078)->
     #itemCfg {
     id = 27078,
-    name = "海盗衣服武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "布偶海盗战士武器（女）",
+    desc = "使用后激活“布偶海盗战士武器（女）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28301,33 +27923,32 @@ getRow(27078)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "海盗衣服武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27079)->
     #itemCfg {
     id = 27079,
-    name = "海盗衣服法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "布偶海盗法师武器（女）",
+    desc = "使用后激活“布偶海盗法师武器（女）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28337,33 +27958,32 @@ getRow(27079)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "海盗衣服法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27080)->
     #itemCfg {
     id = 27080,
-    name = "海盗衣服刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "布偶海盗刺客武器（女）",
+    desc = "使用后激活“布偶海盗刺客武器（女）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28373,33 +27993,32 @@ getRow(27080)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "海盗衣服刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27081)->
     #itemCfg {
     id = 27081,
-    name = "兔兔战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "萌兔兔战士武器（通用）",
+    desc = "使用后激活“萌兔兔战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28409,33 +28028,32 @@ getRow(27081)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "兔兔战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27082)->
     #itemCfg {
     id = 27082,
-    name = "兔兔法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "萌兔兔法师武器（通用）",
+    desc = "使用后激活“萌兔兔法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28445,33 +28063,32 @@ getRow(27082)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "兔兔法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27083)->
     #itemCfg {
     id = 27083,
-    name = "兔兔刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "萌兔兔刺客武器（通用）",
+    desc = "使用后激活“萌兔兔刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28481,33 +28098,32 @@ getRow(27083)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "兔兔刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27084)->
     #itemCfg {
     id = 27084,
-    name = "喵喵战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "软喵喵战士武器（通用）",
+    desc = "使用后激活“软喵喵战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28517,33 +28133,32 @@ getRow(27084)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "喵喵战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27085)->
     #itemCfg {
     id = 27085,
-    name = "喵喵法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "软喵喵法师武器（通用）",
+    desc = "使用后激活“软喵喵法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28553,33 +28168,32 @@ getRow(27085)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "喵喵法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27086)->
     #itemCfg {
     id = 27086,
-    name = "喵喵刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "软喵喵刺客武器（通用）",
+    desc = "使用后激活“软喵喵刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28589,30 +28203,29 @@ getRow(27086)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "喵喵刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27087)->
     #itemCfg {
     id = 27087,
-    name = "歌手战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "叛逆乐队战士武器（通用）",
+    desc = "使用后激活“叛逆乐队战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -28625,30 +28238,29 @@ getRow(27087)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "歌手战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27088)->
     #itemCfg {
     id = 27088,
-    name = "歌手法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "叛逆乐队法师武器（通用）",
+    desc = "使用后激活“叛逆乐队法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -28661,30 +28273,29 @@ getRow(27088)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "歌手法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27089)->
     #itemCfg {
     id = 27089,
-    name = "歌手刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "叛逆乐队刺客武器（通用）",
+    desc = "使用后激活“叛逆乐队刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -28697,30 +28308,29 @@ getRow(27089)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "歌手刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27090)->
     #itemCfg {
     id = 27090,
-    name = "爱丽丝战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "奇幻梦境战士武器（通用）",
+    desc = "使用后激活“奇幻梦境战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -28733,30 +28343,29 @@ getRow(27090)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "爱丽丝战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27091)->
     #itemCfg {
     id = 27091,
-    name = "爱丽丝法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "奇幻梦境法师武器（通用）",
+    desc = "使用后激活“奇幻梦境法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -28769,30 +28378,29 @@ getRow(27091)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "爱丽丝法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27092)->
     #itemCfg {
     id = 27092,
-    name = "爱丽丝刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "奇幻梦境刺客武器（通用）",
+    desc = "使用后激活“奇幻梦境刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -28805,33 +28413,32 @@ getRow(27092)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "爱丽丝刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27093)->
     #itemCfg {
     id = 27093,
-    name = "瓷器战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "青蓝花瓷战士武器（通用）",
+    desc = "使用后激活“青蓝花瓷战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28841,33 +28448,32 @@ getRow(27093)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "瓷器战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27094)->
     #itemCfg {
     id = 27094,
-    name = "瓷器法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "青蓝花瓷法师武器（通用）",
+    desc = "使用后激活“青蓝花瓷法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28877,33 +28483,32 @@ getRow(27094)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "瓷器法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27095)->
     #itemCfg {
     id = 27095,
-    name = "瓷器刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "青蓝花瓷刺客武器（通用）",
+    desc = "使用后激活“青蓝花瓷刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28913,33 +28518,32 @@ getRow(27095)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "瓷器刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27096)->
     #itemCfg {
     id = 27096,
-    name = "婚礼战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "纯白花语战士武器（通用）",
+    desc = "使用后激活“纯白花语战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28949,33 +28553,32 @@ getRow(27096)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "婚礼战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27097)->
     #itemCfg {
     id = 27097,
-    name = "婚礼法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "纯白花语法师武器（通用）",
+    desc = "使用后激活“纯白花语法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -28985,33 +28588,32 @@ getRow(27097)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "婚礼法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27098)->
     #itemCfg {
     id = 27098,
-    name = "婚礼刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "纯白花语刺客武器（通用）",
+    desc = "使用后激活“纯白花语刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29021,33 +28623,32 @@ getRow(27098)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "婚礼刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27099)->
     #itemCfg {
     id = 27099,
-    name = "冰雪战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "冰晶王权战士武器（通用）",
+    desc = "使用后激活“冰晶王权战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29057,33 +28658,32 @@ getRow(27099)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "冰雪战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27100)->
     #itemCfg {
     id = 27100,
-    name = "冰雪法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "冰晶王权法师武器（通用）",
+    desc = "使用后激活“冰晶王权法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29093,33 +28693,32 @@ getRow(27100)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "冰雪法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27101)->
     #itemCfg {
     id = 27101,
-    name = "冰雪刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "冰晶王权刺客武器（通用）",
+    desc = "使用后激活“冰晶王权刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29129,33 +28728,32 @@ getRow(27101)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "冰雪刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27102)->
     #itemCfg {
     id = 27102,
-    name = "执事战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "黑色执事战士武器（通用）",
+    desc = "使用后激活“黑色执事战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29165,33 +28763,32 @@ getRow(27102)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "执事战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27103)->
     #itemCfg {
     id = 27103,
-    name = "执事法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "黑色执事法师武器（通用）",
+    desc = "使用后激活“黑色执事法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29201,33 +28798,32 @@ getRow(27103)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "执事法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27104)->
     #itemCfg {
     id = 27104,
-    name = "执事刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "黑色执事刺客武器（通用）",
+    desc = "使用后激活“黑色执事刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29237,33 +28833,32 @@ getRow(27104)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "执事刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27105)->
     #itemCfg {
     id = 27105,
-    name = "护士战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "粉粉十字战士武器（通用）",
+    desc = "使用后激活“粉粉十字战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29273,33 +28868,32 @@ getRow(27105)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "护士战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27106)->
     #itemCfg {
     id = 27106,
-    name = "护士法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "粉粉十字法师武器（通用）",
+    desc = "使用后激活“粉粉十字法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29309,33 +28903,32 @@ getRow(27106)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "护士法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27107)->
     #itemCfg {
     id = 27107,
-    name = "护士刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "粉粉十字刺客武器（通用）",
+    desc = "使用后激活“粉粉十字刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29345,30 +28938,29 @@ getRow(27107)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "护士刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27108)->
     #itemCfg {
     id = 27108,
-    name = "妖狐战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "妖灵狐战士武器（通用）",
+    desc = "使用后激活“妖灵狐战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -29381,30 +28973,29 @@ getRow(27108)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "妖狐战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27109)->
     #itemCfg {
     id = 27109,
-    name = "妖狐法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "妖灵狐法师武器（通用）",
+    desc = "使用后激活“妖灵狐法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -29417,30 +29008,29 @@ getRow(27109)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "妖狐法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27110)->
     #itemCfg {
     id = 27110,
-    name = "妖狐刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "妖灵狐刺客武器（通用）",
+    desc = "使用后激活“妖灵狐刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -29453,33 +29043,32 @@ getRow(27110)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "妖狐刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27111)->
     #itemCfg {
     id = 27111,
-    name = "蔷薇战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "蔷薇之灵战士武器（通用）",
+    desc = "使用后激活“蔷薇之灵战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29489,33 +29078,32 @@ getRow(27111)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "蔷薇战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27112)->
     #itemCfg {
     id = 27112,
-    name = "蔷薇法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "蔷薇之灵法师武器（通用）",
+    desc = "使用后激活“蔷薇之灵法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29525,33 +29113,32 @@ getRow(27112)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "蔷薇法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27113)->
     #itemCfg {
     id = 27113,
-    name = "蔷薇刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "蔷薇之灵刺客武器（通用）",
+    desc = "使用后激活“蔷薇之灵刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29561,33 +29148,32 @@ getRow(27113)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "蔷薇刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27114)->
     #itemCfg {
     id = 27114,
-    name = "校园战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "青春课堂战士武器（通用）",
+    desc = "使用后激活“青春课堂战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29597,33 +29183,32 @@ getRow(27114)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "校园战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27115)->
     #itemCfg {
     id = 27115,
-    name = "校园法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "青春课堂法师武器（通用）",
+    desc = "使用后激活“青春课堂法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29633,33 +29218,32 @@ getRow(27115)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "校园法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27116)->
     #itemCfg {
     id = 27116,
-    name = "校园刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "青春课堂刺客武器（通用）",
+    desc = "使用后激活“青春课堂刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29669,33 +29253,32 @@ getRow(27116)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "校园刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27117)->
     #itemCfg {
     id = 27117,
-    name = "天空护卫战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "天空卫队战士武器（通用）",
+    desc = "使用后激活“天空卫队战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29705,33 +29288,32 @@ getRow(27117)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "天空护卫战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27118)->
     #itemCfg {
     id = 27118,
-    name = "天空护卫法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "天空卫队法师武器（通用）",
+    desc = "使用后激活“天空卫队法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29741,33 +29323,32 @@ getRow(27118)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "天空护卫法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27119)->
     #itemCfg {
     id = 27119,
-    name = "天空护卫刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "天空卫队刺客武器（通用）",
+    desc = "使用后激活“天空卫队刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29777,33 +29358,32 @@ getRow(27119)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "天空护卫刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27120)->
     #itemCfg {
     id = 27120,
-    name = "中东战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "尘埃幻想战士武器（通用）",
+    desc = "使用后激活“尘埃幻想战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29813,33 +29393,32 @@ getRow(27120)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "中东战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27121)->
     #itemCfg {
     id = 27121,
-    name = "中东法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "尘埃幻想法师武器（通用）",
+    desc = "使用后激活“尘埃幻想法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29849,33 +29428,32 @@ getRow(27121)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "中东法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27122)->
     #itemCfg {
     id = 27122,
-    name = "中东刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "尘埃幻想刺客武器（通用）",
+    desc = "使用后激活“尘埃幻想刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29885,33 +29463,32 @@ getRow(27122)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "中东刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27123)->
     #itemCfg {
     id = 27123,
-    name = "天使战士武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "神圣羽灵战士武器（通用）",
+    desc = "使用后激活“神圣羽灵战士武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29921,33 +29498,32 @@ getRow(27123)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "天使战士武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27124)->
     #itemCfg {
     id = 27124,
-    name = "天使法师武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "神圣羽灵法师武器（通用）",
+    desc = "使用后激活“神圣羽灵法师武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29957,33 +29533,32 @@ getRow(27124)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "天使法师武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27125)->
     #itemCfg {
     id = 27125,
-    name = "天使刺客武器（男女）",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "神圣羽灵刺客武器（通用）",
+    desc = "使用后激活“神圣羽灵刺客武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29993,33 +29568,32 @@ getRow(27125)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "天使刺客武器（男女）",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27500)->
     #itemCfg {
     id = 27500,
-    name = "小红帽武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "稚嫩童心武器包（女）",
+    desc = "使用后激活“稚嫩童心武器（女）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30029,33 +29603,32 @@ getRow(27500)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "小红帽武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27501)->
     #itemCfg {
     id = 27501,
-    name = "超能战甲武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "超能战甲武器包（男）",
+    desc = "使用后激活“超能战甲武器（男）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30065,33 +29638,32 @@ getRow(27501)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "超能战甲武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27502)->
     #itemCfg {
     id = 27502,
-    name = "海盗衣服武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "布偶海盗武器包（女）",
+    desc = "使用后激活“布偶海盗武器（女）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30101,33 +29673,32 @@ getRow(27502)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "海盗衣服武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27503)->
     #itemCfg {
     id = 27503,
-    name = "兔兔武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "萌兔兔武器包（通用）",
+    desc = "使用后激活“萌兔兔武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30137,33 +29708,32 @@ getRow(27503)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "兔兔武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27504)->
     #itemCfg {
     id = 27504,
-    name = "喵喵武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "软喵喵武器包（通用）",
+    desc = "使用后激活“软喵喵武器（男女通用）”时装外观",
+    product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30173,30 +29743,29 @@ getRow(27504)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "喵喵武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27505)->
     #itemCfg {
     id = 27505,
-    name = "歌手武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "叛逆乐队武器包（通用）",
+    desc = "使用后激活“叛逆乐队武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -30209,30 +29778,29 @@ getRow(27505)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "歌手武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27506)->
     #itemCfg {
     id = 27506,
-    name = "爱丽丝武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "奇幻梦境武器包（通用）",
+    desc = "使用后激活“奇幻梦境武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -30245,33 +29813,32 @@ getRow(27506)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "爱丽丝武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27507)->
     #itemCfg {
     id = 27507,
-    name = "瓷器武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "青蓝花瓷武器包（通用）",
+    desc = "使用后激活“青蓝花瓷武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30281,33 +29848,32 @@ getRow(27507)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "瓷器武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27508)->
     #itemCfg {
     id = 27508,
-    name = "婚礼武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "纯白花语武器包（通用）",
+    desc = "使用后激活“纯白花语武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30317,33 +29883,32 @@ getRow(27508)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "婚礼武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27509)->
     #itemCfg {
     id = 27509,
-    name = "冰雪武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "冰晶王权武器包（通用）",
+    desc = "使用后激活“冰晶王权武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30353,33 +29918,32 @@ getRow(27509)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "冰雪武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27510)->
     #itemCfg {
     id = 27510,
-    name = "执事武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "黑色执事武器包（通用）",
+    desc = "使用后激活“黑色执事武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 3,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30389,33 +29953,32 @@ getRow(27510)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "执事武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27511)->
     #itemCfg {
     id = 27511,
-    name = "护士武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "粉粉十字武器包（通用）",
+    desc = "使用后激活“粉粉十字武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30425,30 +29988,29 @@ getRow(27511)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "护士武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27512)->
     #itemCfg {
     id = 27512,
-    name = "妖狐武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "妖灵狐武器包（通用）",
+    desc = "使用后激活“妖灵狐武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
     quality = 4,
@@ -30461,33 +30023,32 @@ getRow(27512)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "妖狐武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27513)->
     #itemCfg {
     id = 27513,
-    name = "蔷薇武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "蔷薇之灵武器包（通用）",
+    desc = "使用后激活“蔷薇之灵武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30497,33 +30058,32 @@ getRow(27513)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "蔷薇武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27514)->
     #itemCfg {
     id = 27514,
-    name = "校园武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "青春课堂武器包（通用）",
+    desc = "使用后激活“青春课堂武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30533,33 +30093,32 @@ getRow(27514)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "校园武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27515)->
     #itemCfg {
     id = 27515,
-    name = "天空护卫武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "天空卫队武器包（通用）",
+    desc = "使用后激活“天空卫队武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 2,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30569,33 +30128,32 @@ getRow(27515)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
+    needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "天空护卫武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27516)->
     #itemCfg {
     id = 27516,
-    name = "中东武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "尘埃幻想武器包（通用）",
+    desc = "使用后激活“尘埃幻想武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 1,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30605,33 +30163,32 @@ getRow(27516)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 10,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "中东武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(27517)->
     #itemCfg {
     id = 27517,
-    name = "天使武器包",
-    desc = "买买买！",
-    product = "碎片或钻石兑换",
+    name = "神圣羽灵武器包（通用）",
+    desc = "使用后激活“神圣羽灵武器（男女通用）”时装外观",
+    product = "时装武器包",
     iconPath = 140,
     maxAmount = 1,
-    quality = 4,
+    quality = 5,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -30641,23 +30198,22 @@ getRow(27517)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 1,
+    level = 8,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
+    needwar = 0,
+    baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    txt = "天使武器包",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [0]
+    relation_UI = []
     };
 getRow(_)->[].
 
@@ -30816,8 +30372,6 @@ getKeyList()->[
     {1202},
     {1203},
     {1204},
-    {1205},
-    {1206},
     {1208},
     {1209},
     {1210},
@@ -31261,6 +30815,7 @@ getKeyList()->[
     {9104},
     {9200},
     {9201},
+    {9999},
     {10000},
     {10001},
     {10002},
@@ -31271,18 +30826,6 @@ getKeyList()->[
     {10007},
     {10008},
     {10009},
-    {10010},
-    {10011},
-    {10012},
-    {10013},
-    {10014},
-    {10015},
-    {10016},
-    {10017},
-    {10018},
-    {10019},
-    {10020},
-    {10021},
     {10022},
     {10023},
     {10024},
@@ -31379,6 +30922,10 @@ getKeyList()->[
     {22004},
     {22005},
     {22006},
+    {22007},
+    {22008},
+    {22009},
+    {22010},
     {26000},
     {26001},
     {26002},
@@ -31688,8 +31235,6 @@ get1KeyList()->[
     1202,
     1203,
     1204,
-    1205,
-    1206,
     1208,
     1209,
     1210,
@@ -32133,6 +31678,7 @@ get1KeyList()->[
     9104,
     9200,
     9201,
+    9999,
     10000,
     10001,
     10002,
@@ -32143,18 +31689,6 @@ get1KeyList()->[
     10007,
     10008,
     10009,
-    10010,
-    10011,
-    10012,
-    10013,
-    10014,
-    10015,
-    10016,
-    10017,
-    10018,
-    10019,
-    10020,
-    10021,
     10022,
     10023,
     10024,
@@ -32251,6 +31785,10 @@ get1KeyList()->[
     22004,
     22005,
     22006,
+    22007,
+    22008,
+    22009,
+    22010,
     26000,
     26001,
     26002,

@@ -214,7 +214,6 @@ onPassCopyMap_Goddess(Score, _CopyMapID) ->
 		dropItems = DropList
 	},
 	playerMsg:sendNetMsg(R),
-
 	%% 取副本伤害
 	playerStatistics:sendCopyMapHurtToClient(),
 	playerStatistics:clearCopyMapHurtStat(),
@@ -262,6 +261,8 @@ onPassCopyMap_Material(Score,  CopyState, CopyMapID, MC, FC) ->
 		playerPackage:addGoodsAndMail(ItemID, Num, true, 0, Plog)
 		end,
 
+	playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_YuanSu),
+
 
 	case getCfg:getCfgByArgs(cfg_specialinstance,CopyMapID, 1) of
 		#specialinstanceCfg{item = ItemList} when Score > 0 ->
@@ -296,6 +297,7 @@ onPassCopyMap_MoneyDungeon(Score, _CopyMapID, MC, FC, ListMonsterID, ListMonster
 	%% 取副本伤害
 	playerStatistics:sendCopyMapHurtToClient(),
 	playerStatistics:clearCopyMapHurtStat(),
+	playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_MiaoDaoTuan),
 
 	%% 假装自己是副本，增加每日活跃
 	playerliveness:onFinishLiveness(?LivenessMoneyDungeon,1),

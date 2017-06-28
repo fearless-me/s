@@ -617,6 +617,9 @@ addWildBossRoleIDLucky(RoleID) ->
 			end
 	end.
 
+%% end 【野外BOSS优化改动】
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %% 设置地图当前时间状态
 setMapDay(Day) ->
 	put(mapDay, Day).
@@ -665,9 +668,6 @@ getLastConvoyTickTime() ->
 		T -> T
 	end.
 
-%% end 【野外BOSS优化改动】
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 addMapHistoryEnterPlayer(GroupID, RoleID) ->
 	L = getMapHistoryEnterPlayerList(GroupID),
 	case lists:member(RoleID, L) of
@@ -686,6 +686,14 @@ getMapHistoryEnterPlayerList(GroupID) ->
 
 setMapHistoryEnterPlayerList(GroupID, List) ->
 	put({'MapHistoryEnterPlayerList', GroupID}, List).
+
+%% show2相关数据暂存
+setShow2Data(GroupID, Data) ->
+	put({'Show2Data', GroupID}, Data).
+getShow2Data(GroupID) ->
+	get({'Show2Data', GroupID}).
+delShow2Data(GroupID) ->
+	erase({'Show2Data', GroupID}).
 
 %% ====================================================================
 %% Internal functions

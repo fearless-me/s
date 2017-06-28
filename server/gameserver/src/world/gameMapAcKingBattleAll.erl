@@ -108,17 +108,17 @@ createKingMirroringToMap() ->
 	ok.
 
 addBuffToMirror(MonsterID, BuffCfgID) ->
-	case acWorldBossLogic:getMonsterInfoByID(MonsterID) of
-		[] ->
-			skip;
-		[#recMapObject{
-			code = MonsterCode,
-			level = MonstgerLevel
-		} | _] ->
-			monsterBuff:addBuff(MonsterCode, BuffCfgID, MonstgerLevel),
-			?DEBUG_OUT("zzc========marror add buff MonsterCode[~p], BuffID2[~p], MonstgerLevel[~p]", [MonsterCode, BuffCfgID, MonstgerLevel]),
-			ok
-	end,
+%%	case acWorldBossLogic:getMonsterInfoByID(MonsterID) of
+%%		[] ->
+%%			skip;
+%%		[#recMapObject{
+%%			code = MonsterCode,
+%%			level = MonstgerLevel
+%%		} | _] ->
+%%			monsterBuff:addBuff(MonsterCode, BuffCfgID, MonstgerLevel),
+%%			?DEBUG_OUT("zzc========marror add buff MonsterCode[~p], BuffID2[~p], MonstgerLevel[~p]", [MonsterCode, BuffCfgID, MonstgerLevel]),
+%%			ok
+%%	end,
 	ok.
 
 %%通过id检查npc的code

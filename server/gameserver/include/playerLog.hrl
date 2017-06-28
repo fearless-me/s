@@ -218,5 +218,9 @@
 -define(PLogTS_BuyActionCount, 81).
 %% 雪人活动
 -define(PLogTS_Snow, 82).
+%% 七日目标
+-define(PLogTS_SevenDayAim, 83).
+%% 30日登录大奖
+-define(PLogTS_ThirtyDayLoginGift, 84).
 
 -endif.

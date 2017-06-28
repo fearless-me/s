@@ -303,6 +303,7 @@ add(TargetRoleID) ->
 				_ ->
 					case friend2Logic:check({?RELATION_FORMAL, RoleID, TargetRoleID}) of
 						{?CONTINUE_NONE, E} ->
+							playerState2:setFriend2CD({friend2_add_cd, TargetRoleID}),	%% 其它条件未通过也记录下时间
 							error_code(E);
 						{?CONTINUE_AddFromBlackAsk, _} ->
 							relationAck({?CONTINUE_AddFromBlackAsk, TargetRoleID});
@@ -671,18 +672,21 @@ chat(#pk_U2GS_Friend2FormalChat_Request{
 	%?DEBUG_OUT("[DebugForFriend2] chat c RoleID(~p) ", [RoleID]),
 	%% 仅供非黑名单
 	Friend2DataTarget = friend2State:queryFriend2Data(ID),
+	#rec_friend2_relation{relation = Relation} =
+		friend2State:queryRelation(Friend2DataTarget, RoleID),
 	Msg =
 		#pk_GS2U_Friend2FormalChat_Ack{
 			senderID = RoleID,
 			receiverID = ID,
 			time = Time,
-			content = Content
+			content = Content,
+			relation = Relation
 		},
 	playerMsg:sendNetMsg(Msg),
-	case friend2State:queryRelation(Friend2DataTarget, RoleID) of
-		#rec_friend2_relation{relation = ?RELATION_BLACK} ->
+	case Relation of
+		?RELATION_BLACK ->
 			skip;
-		#rec_friend2_relation{relation = Relation} ->
+		_ ->
 			%% 保存聊天记录
 			playerChat:sendLogChatInfo(
 				#pk_U2GS_ChatInfo{
@@ -805,7 +809,8 @@ chat(#pk_U2GS_Friend2FormalChatVoice_Request{
 															time = Time_,
 															count = Count_,
 															index = Index_,
-															data = Data_
+															data = Data_,
+															relation = Relation
 														},
 													playerMsg:sendNetMsg(NetPid, Msg)
 												end,
@@ -839,6 +844,8 @@ sendOfflineMsg() ->
 	Friend2Data = friend2State:queryFriend2Data(RoleID),
 	FunSend2 =
 		fun(Msg, SenderID) ->
+			#rec_friend2_relation{relation = Relation} =
+				friend2State:queryRelation(Friend2Data, SenderID),
 			case Msg of
 				#pk_U2GS_Friend2FormalChat_Request{
 					receiverID = ID,
@@ -850,7 +857,8 @@ sendOfflineMsg() ->
 							senderID = SenderID,
 							receiverID = ID,
 							time = Time,
-							content = Content
+							content = Content,
+							relation = Relation
 						},
 					playerMsg:sendNetMsg(MsgChat);
 				#pk_U2GS_Friend2FormalChatVoice_Request{
@@ -869,7 +877,8 @@ sendOfflineMsg() ->
 							duration = Duration_,
 							count = Count_,
 							index = Index_,
-							data = Data_
+							data = Data_,
+							relation = Relation
 						},
 					playerMsg:sendNetMsg(MsgVoice)
 			end,

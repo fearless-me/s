@@ -67,105 +67,6 @@ calcPropGroup(EnhancePropList, ExtPropList, Operate) ->
 	{List1, List2} = lists:foldl(Fun, {[], []}, EnhancePropList),
 	lists:foldl(Fun, {List1, List2}, ExtPropList).
 
-%%
-%%%%初始化人民币宠物基础属性
-%%-spec initRmbPetBaseProp(PetID::uint(),Lv::uint(),Star::uint(),Raw::uint()) -> list().
-%%initRmbPetBaseProp(PetID, Lv, Star, Raw) ->
-%%	#petCfg{
-%%		pveSpeed = PveSpeed,
-%%		petquality = Quality,
-%%		runSpeed = RunSpeed,
-%%		hpMulti = HpMulti,
-%%		tough = Tough,
-%%		score = Score,
-%%		eleDamMulti = EleDamMulti,
-%%		eleDefMulti = EleDefMulti,
-%%		phycDefMulti = PhycDefMulti,
-%%		holyDefMulti = HolyDefMulti,
-%%		shadDefMulti = ShadDefMulti,
-%%		phycDamMulti = PhycDamMulti,
-%%		holyDamMulti = HolyDamMulti,
-%%		shadDamMulti = ShadDamMulti
-%%	} = getCfg:getCfgPStack(cfg_pet, PetID),
-%%	#petLevelPropertyCfg{
-%%		holyDef = HolyDef,
-%%		shadDef = ShadDef,
-%%		phyDef = PhyDef,
-%%		eleDef = EleDef,
-%%		maxHP = MaxHp,
-%%		eleDam = EleDam,
-%%		phycDam = PhycDam,
-%%		holyDam = HolyDam,
-%%		shadDam = ShadDam
-%%	} = getCfg:getCfgPStack(cfg_petLevelProperty, Lv),
-%%	#petrebornCfg{
-%%		star = StarArg
-%%	} = getCfg:getCfgPStack(cfg_petreborn, Star),
-%%	#petrebornCfg{
-%%		reborn = RawArg
-%%	} = getCfg:getCfgPStack(cfg_petreborn, Raw),
-%%	#petrebornCfg{
-%%		quanlity  = QualityArg
-%%	} = getCfg:getCfgPStack(cfg_petreborn, Quality),
-%%	[
-%%	 {?Prop_physicaldamage, PhycDamMulti * PhycDam * StarArg * QualityArg * RawArg},
-%%	 {?Prop_MaxHP, MaxHp * HpMulti * StarArg * QualityArg * RawArg},
-%%	 {?Prop_physicaldefence, PhycDefMulti * PhyDef},
-%%	 {?Prop_shadowdefence, ShadDefMulti * ShadDef},
-%%	 {?Prop_holydefence, HolyDefMulti * HolyDef},
-%%	 {?Prop_tough, Tough},
-%%	 {?Prop_hitratio, Score},
-%%	 {?Prop_movespeed, RunSpeed},
-%%	 {?Prop_petattackspeed, PveSpeed},
-%%	 {?Prop_elementdefence, EleDefMulti * EleDef},
-%%	 {?Prop_holydamage, HolyDamMulti * HolyDam * StarArg * QualityArg * RawArg},
-%%	 {?Prop_elementdamage, EleDamMulti * EleDam * StarArg * QualityArg * RawArg},
-%%	 {?Prop_shadowdamage, ShadDamMulti * ShadDam * StarArg * QualityArg * RawArg}
-%%	].
-%%
-%%%%初始化技能宠物基础属性
-%%-spec initSkillPetBaseProp(PetID::uint(),Lv::uint()) -> list().
-%%initSkillPetBaseProp(PetID, Lv) ->
-%%	#petCfg{
-%%		score = Score,
-%%		runSpeed = RunSpeed,
-%%		hpMulti = HpMulti,
-%%		tough = Tough,
-%%		eleDamMulti = EleDamMulti,
-%%		eleDefMulti = EleDefMulti,
-%%		phycDefMulti = PhycDefMulti,
-%%		holyDefMulti = HolyDefMulti,
-%%		shadDefMulti = ShadDefMulti,
-%%		phycDamMulti = PhycDamMulti,
-%%		holyDamMulti = HolyDamMulti,
-%%		shadDamMulti = ShadDamMulti
-%%	} = getCfg:getCfgPStack(cfg_pet, PetID),
-%%	#petLevelPropertyCfg{
-%%		holyDef = HolyDef,
-%%		shadDef = ShadDef,
-%%		eleDef = EleDef,
-%%		phyDef = PhyDef,
-%%		maxHP = MaxHp,
-%%		eleDam = EleDam,
-%%		phycDam = PhycDam,
-%%		holyDam = HolyDam,
-%%		shadDam = ShadDam
-%%	} = getCfg:getCfgPStack(cfg_petLevelProperty, Lv),
-%%	[
-%%	 {?Prop_physicaldefence, PhycDefMulti * PhyDef},
-%%	 {?Prop_physicaldamage, PhycDamMulti * PhycDam},
-%%	 {?Prop_shadowdefence, ShadDefMulti * ShadDef},
-%%	 {?Prop_holydefence, HolyDefMulti * HolyDef},
-%%	 {?Prop_tough, Tough},
-%%	 {?Prop_hitratio, Score},
-%%	 {?Prop_movespeed, RunSpeed},
-%%	 {?Prop_MaxHP, MaxHp * HpMulti},
-%%	 {?Prop_holydamage, HolyDamMulti * HolyDam},
-%%	 {?Prop_elementdamage, EleDamMulti * EleDam},
-%%	 {?Prop_shadowdamage, ShadDamMulti * ShadDam},
-%%	 {?Prop_elementdefence, EleDefMulti * EleDef}
-%%	].
-
 %%初始化怪物基础属性
 -spec initMonsterBaseProp(ID :: uint()) -> list().
 initMonsterBaseProp(MonsterID) ->
@@ -554,7 +455,7 @@ getBattlePropTotalValue(BattlePropList, PropIndex) ->
 	Base :: number(), AddValue :: number(), PCList :: list().
 calcPropTotalByF1(Base, AddValue, PCList) ->
 	Multi = lists:sum(PCList),
-	Base * (1.0 + Multi ) + AddValue.
+	(Base + AddValue)  * (1.0 + Multi ) .
 
 %%按照公式2计算某项属性的总值
 %%总值=1- (1 - a) * ∏(1 - b) + ∑c, a为基础值，b为增加比例，c为增加值

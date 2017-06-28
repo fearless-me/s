@@ -15,7 +15,7 @@ getRow(1)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(2)->
     #rankCfg {
@@ -27,7 +27,7 @@ getRow(2)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(3)->
     #rankCfg {
@@ -39,7 +39,7 @@ getRow(3)->
     fresh_cycle = 0,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(4)->
     #rankCfg {
@@ -51,7 +51,7 @@ getRow(4)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(5)->
     #rankCfg {
@@ -63,7 +63,7 @@ getRow(5)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(6)->
     #rankCfg {
@@ -75,7 +75,7 @@ getRow(6)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(7)->
     #rankCfg {
@@ -87,7 +87,7 @@ getRow(7)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(8)->
     #rankCfg {
@@ -99,19 +99,19 @@ getRow(8)->
     fresh_cycle = 1,
     fresh_time = [400],
     player_number = 30,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(9)->
     #rankCfg {
     id = 9,
-    show_name = "至尊王者榜",
-    dec = "至尊天数",
+    show_name = "守护榜",
+    dec = "连续守护天数",
     show_id = 8,
-    show_client = 0,
+    show_client = 1,
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(10)->
     #rankCfg {
@@ -123,7 +123,7 @@ getRow(10)->
     fresh_cycle = 1,
     fresh_time = [357],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(11)->
     #rankCfg {
@@ -135,7 +135,7 @@ getRow(11)->
     fresh_cycle = 1,
     fresh_time = [1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(12)->
     #rankCfg {
@@ -147,7 +147,7 @@ getRow(12)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(13)->
     #rankCfg {
@@ -159,7 +159,7 @@ getRow(13)->
     fresh_cycle = 2,
     fresh_time = [{3,400},{3,1000},{3,1400},{3,1900}],
     player_number = 100,
-    rank_reward = 0
+    rank_reward = []
     };
 getRow(_)->[].
 

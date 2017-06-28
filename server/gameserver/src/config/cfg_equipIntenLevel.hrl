@@ -16,6 +16,12 @@
         %%: [{ID，数量}]
         materialCost,
 
+        %%: 其余道具在消耗时可自动转化为MaterialCost
+        %%: [{被转化的道具id，转化比例}]
+        %%: 转化比例为，被转化道具：转化后道具
+        %%: 填0为不转化
+        materialTransform,
+
         %%: 全部位强化奖励，逐行累加
         allBonus,
 

@@ -9,7 +9,7 @@ getRow(1)->
     #appointmentCfg {
     id = 1,
     name = "梦幻消除",
-    type = 0,
+    type = 2,
     param = [1,3,5,7],
     level = 32,
     daily_type = 104,
@@ -24,7 +24,7 @@ getRow(2)->
     #appointmentCfg {
     id = 2,
     name = "游园惊梦",
-    type = 0,
+    type = 2,
     param = [2,4,6],
     level = 32,
     daily_type = 108,

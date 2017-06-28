@@ -73,7 +73,7 @@ onChangeCareerSuccess(OldCareer, NewCareer) ->
 	giveNewCareerGift(NewCareer),
 	returnSkillPoint(playerState:getLevel()),
 
-	playerTask:updateTask(?TaskType_CareerChang, ?Career2CareerStage(NewCareer)),
+	playerTask:updateTask(?TaskSubType_CareerChang, ?Career2CareerStage(NewCareer)),
 	?LOG_OUT("player[~p] changeCareer[~p -> ~p] ok",
 		[playerState:getRoleID(), OldCareer, NewCareer]),
 	ok.

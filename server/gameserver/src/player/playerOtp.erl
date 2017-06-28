@@ -299,6 +299,7 @@ handle_info({afterGetAccountWelfare},State) ->
 %%好友成就
 handle_info({achieve_addfriend,_Pid,_TargetRoleID},State) ->
 	playerAchieve:addFriendAchieve(),
+	playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Friend),
 	{noreply,State};
 
 %%帐号福利
@@ -388,7 +389,7 @@ handle_info({killedMonster,_Pid,MonsterID}, State) ->
 handle_info({teamKilledMonster,_Pid,MonsterID}, State) ->
 	case playerState:getIsPlayer() of
 		true ->
-			playerTask:updateTask(?TaskType_Monster, MonsterID);
+			playerTask:updateTask(?TaskSubType_Monster, MonsterID);
 		_ ->
 			skip
 	end,
@@ -578,6 +579,22 @@ handle_info({addBuff, _Pid,{Level, BuffID}}, State) ->
 
 handle_info({addBuffWithCode, _Pid,{Level, BuffID, Caster}}, State) ->
 	playerBuff:addBuffWithCasterCode(BuffID, Level, Caster),
+	{noreply, State};
+
+handle_info({dance_tick_addExp, _Pid, Data}, State) ->
+	playerDance:dance_tick_addExp(Data),
+	{noreply, State};
+
+handle_info({selectDanceIDAck, _Pid, Data}, State) ->
+	playerDance:selectDanceIDAck(Data),
+	{noreply, State};
+
+handle_info({breakDanceAck, _Pid, RoleID}, State) ->
+	case playerState:getRoleID() of
+		RoleID -> playerDance:breakDance(RoleID);
+		RID ->
+			?ERROR_OUT("breakDanceAck:self=~p,target=~p", [RID, RoleID])
+	end,
 	{noreply, State};
 
 %%使用物品
@@ -1404,6 +1421,7 @@ handle_info({guild_upgrade, _Pid, _GuildLevel}, State) ->
 	{noreply, State};
 handle_info({guild_join, _Pid, _GuildLevel}, State) ->
 	playerGuild:exchange_refresh_all(),
+	playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Guild),
 	{noreply, State};
 handle_info({oneKeyRecruitAck, _Pid, _GuildLevel}, State) ->
 	playerGuild:oneKeyRecruitAck(),
@@ -1429,6 +1447,14 @@ handle_info({snowman_donateAck, _Pid, Msg}, State) ->
 
 handle_info({snow_settle, _Pid, Data}, State) ->
 	playerGuildSnowman:snow_settle(Data),
+	{noreply, State};
+
+handle_info({snowManConvertCoin, _Pid, Data}, State) ->
+	playerGuildSnowman:convertCoin(Data),
+	{noreply, State};
+
+handle_info({snowManConvertItem, _Pid, Data}, State) ->
+	playerGuildSnowman:convertItem(Data),
 	{noreply, State};
 
 %% 家族系统-堆雪人活动 end
@@ -2358,7 +2384,7 @@ handle_info({quickTamEnterMap,MapID},State)->
 	RealMapID = case lists:member(MapID,[181,182,183,185]) of
 					true->
 %%						playerTask2:updateActiveTask(1),
-						playerTask:updateTask(?TaskType_Active, 1),
+						playerTask:updateTask(?TaskSubType_Active, 1),
 						181;
 					_ -> MapID
 				end,
@@ -2687,17 +2713,18 @@ handle_info({marriage_acceptTaskAsk, Pid, _}, State)->
 handle_info({marriage_acceptTaskAck, Pid, 0}, State)->
 	%% 随机产生一个首任务ID进行接受
 	[TaskID|_] = misc:shuffle(marriageState:configTaskFidlist()),
-	playerTask:acceptTask(TaskID, 0),
 	psMgr:sendMsg2PS(Pid, marriage_acceptTask, TaskID),
+	playerMarriageTask:onAcceptTask(TaskID),
 	{noreply, State};
 handle_info({marriage_acceptTaskAck, _Pid, ErrorCode}, State)->
 	playerMsg:sendErrorCodeMsg(ErrorCode),
 	{noreply, State};
 handle_info({marriage_acceptTask, _Pid, TaskID}, State)->
-	playerTask:acceptTask(TaskID, 0),
+	playerMarriageTask:onAcceptTask(TaskID),
 	{noreply, State};
 handle_info({marriage_submitTask, _Pid, TaskID}, State)->
-	playerTask:submitTask(TaskID, 0),
+	#rec_marriage{targetRoleID = PartnerRoleID} = marriageState:queryRelation(playerState:getRoleID()),
+	playerTask:submitTask(TaskID, 0, PartnerRoleID),
 	{noreply, State};
 handle_info({marriage_askTask, Pid, TaskID}, State)->
 	case playerMarriageTask:canSubmitTask() of
@@ -2735,6 +2762,13 @@ handle_info({petTerritory_plunderAck, _Pid, Msg}, State)->
 	{noreply, State};
 %% 新版骑宠系统 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+handle_info({updateRankMin, _Pid, Msg}, State)->
+	playerSevenDayAim:updateCondition(?SevenDayAim_Ranking, [Msg]),
+	{noreply, State};
+handle_info({updateProtectGod, _Pid, Msg}, State)->
+	playerSevenDayAim:updateCondition(?SevenDayAim_ProtectGod, [Msg]),
+	{noreply, State};
 
 handle_info({transfer2NeedForSpeedMap, _FromPid, [MapID,MapPid,X,Y]}, State) ->
 	playerNeedForSpeed:transfer2NeedForSpeedMap(MapID,MapPid,X,Y),

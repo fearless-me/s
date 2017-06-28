@@ -85,45 +85,6 @@
         %%: {开启等级，开启技能位}（天赋技能算作第一位）
         skillOpen,
 
-        %%: 生命修正系数
-        hpMulti,
-
-        %%: 物理防御系数
-        phycDefMulti,
-
-        %%: 神圣防御系数
-        holyDefMulti,
-
-        %%: 暗影防御系数
-        shadDefMulti,
-
-        %%: 元素防御系数
-        eleDefMulti,
-
-        %%: 物理伤害系数
-        phycDamMulti,
-
-        %%: 神圣伤害系数
-        holyDamMulti,
-
-        %%: 暗影伤害系数
-        shadDamMulti,
-
-        %%: 元素伤害系数
-        eleDamMulti,
-
-        %%: 骑宠移动速度
-        runSpeed,
-
-        %%: 出战宠物属性转化比例
-        masterAdd,
-
-        %%: 助战宠物属性转化比例
-        petToMaster,
-
-        %%: 非出战非助战的已获得的宠物的属性转化比例
-        idlePetToMaster,
-
         %%: 宠物出生时的buff
         petBorn,
 
@@ -212,6 +173,14 @@
         %%: 需要对应道具碎片物品与数理
         need_fragment,
 
+        %%: admin:
+        %%: 初始（或者一级）比例
+        base_Multi,
+
+        %%: admin:
+        %%: 品质比例
+        quality_Multi,
+
         %%: 生命上限
         maxHP_Multi,
 
@@ -268,7 +237,46 @@
 
         %%: user:
         %%: 排行榜模型缩放
-        mankmodescale
+        mankmodescale,
+
+        %%: 生命修正系数
+        hpMulti,
+
+        %%: 物理防御系数
+        phycDefMulti,
+
+        %%: 神圣防御系数
+        holyDefMulti,
+
+        %%: 暗影防御系数
+        shadDefMulti,
+
+        %%: 元素防御系数
+        eleDefMulti,
+
+        %%: 物理伤害系数
+        phycDamMulti,
+
+        %%: 神圣伤害系数
+        holyDamMulti,
+
+        %%: 暗影伤害系数
+        shadDamMulti,
+
+        %%: 元素伤害系数
+        eleDamMulti,
+
+        %%: 骑宠移动速度
+        runSpeed,
+
+        %%: 出战宠物属性转化比例
+        masterAdd,
+
+        %%: 助战宠物属性转化比例
+        petToMaster,
+
+        %%: 非出战非助战的已获得的宠物的属性转化比例
+        idlePetToMaster
 
  }).
 

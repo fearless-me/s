@@ -836,6 +836,7 @@ exploit_Occupy(TerritoryID, ListPetID, CfgTime, CfgLevel, CfgReward, CfgForce, T
 			]
 		},
 	playerMsg:sendNetMsg(Msg),
+	playerTask:updateTask(?TaskSubType_System, ?TaskSubType_Active_Sub_QiChongLingDi),
 	ok.
 
 %%% --------------------------------------------------------------------
@@ -879,7 +880,7 @@ makePetData(PetID, RoleID, TerritoryID) ->
 		petLevel = Level,
 		territoryID = TerritoryID,
 		petForce = F,
-		prop = playerPet:getPetProps(PetID),
+		prop = playerPetProp:getPetProps(PetID),
 		skill = playerPet:getPetSkills(PetID),
 		star = S,
 		raw = R

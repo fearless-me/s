@@ -497,6 +497,7 @@ exchangeDeal(SourceID, ExchangeCount,ID,ItemID,ItemNumber,PayItemList,MustPlayer
 			?LOG_OUT("exchangeDeal playerID:~p itemID:~p,num:~p,quality:~p",[playerState:getRoleID(),
 				ItemID, RealExchangeItemCount, RealEquipQuality]),
 			playerPackage:addGoodsAndMail(ItemID,erlang:trunc(RealExchangeItemCount), false, RealEquipQuality, Plog),
+			playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Tinker, RealEquipQuality),
 			true;
 %%				_ ->
 %%					 背包格子小于五个，请先清理背包

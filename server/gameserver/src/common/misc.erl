@@ -75,7 +75,8 @@
 	listUnit8_to_stringASCII_inverse/1,
 	clear_os_cache/0,
 	monitor_nodes/0,
-	getListValue/2
+	getListValue/2,
+	anti_sqlInjectionAttack/1
 ]).
 
 -compile({inline,
@@ -822,8 +823,12 @@ listUnit8_to_stringASCII(ListUint8) when erlang:is_list(ListUint8) ->
 			<<A:4, B:4>> = <<E:8>>,
 			[A | [B | R]]
 		end,
-	lists:foldl(FunSplit, [], ListUint8).
-%% 这只是listUnit8_to_stringASCII的逆运算，不保证对任意字符串有效
+	L1 = lists:foldl(FunSplit, [], ListUint8),
+	%% 此处L1为【非最终结果】可以经由listUnit8_to_stringASCII_inverse/1逆运算还原
+	%% 该值还需要进行SQL防注入处理再通过SQL写入DB，注意不要用于其它用途
+	%% 写入DB后，从DB读出来是【非最终结果】的二进制形式
+	anti_sqlInjectionAttack(L1).
+%% 这只是listUnit8_to_stringASCII的【非最终结果】逆运算，不保证对任意字符串有效
 -spec listUnit8_to_stringASCII_inverse(ASCII::string()|binary()) -> ListUnit8::[uint8(), ...].
 listUnit8_to_stringASCII_inverse([]) -> [];
 listUnit8_to_stringASCII_inverse(ASCII) when erlang:is_list(ASCII), erlang:length(ASCII) rem 2 =:= 0 ->
@@ -864,3 +869,20 @@ getListValue(Key,[{K,V}|T]) ->
 			getListValue(Key,T)
 	end.
 
+%% 简单的字符串防SQL注入处理
+%% \92
+%% "34
+%% '39
+-spec anti_sqlInjectionAttack(string()) -> string().
+anti_sqlInjectionAttack(StringIn) when erlang:is_list(StringIn) ->
+	anti_sqlInjectionAttack(StringIn, []).
+anti_sqlInjectionAttack([], StringOut) ->
+	lists:reverse(StringOut);
+anti_sqlInjectionAttack([92 | T], StringOut) ->
+	anti_sqlInjectionAttack(T, [92 | [92 | StringOut]]);
+anti_sqlInjectionAttack([34 | T], StringOut) ->
+	anti_sqlInjectionAttack(T, [34 | [92 | StringOut]]);
+anti_sqlInjectionAttack([39 | T], StringOut) ->
+	anti_sqlInjectionAttack(T, [39 | [92 | StringOut]]);
+anti_sqlInjectionAttack([H | T], StringOut) ->
+	anti_sqlInjectionAttack(T, [H | StringOut]).

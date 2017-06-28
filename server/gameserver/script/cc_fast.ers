@@ -74,12 +74,13 @@ menu2(Lang) ->
 		"\t\tselect compile sub order~n"
 		"~n"
 		"\t> 1.   gs(release)~n"
-		"\t> 11.  gs(debug)~n"
 		"~n"
-		"\t> 2.   gs fast(release)~n"
+		"\t> 11.  gs(debug)~n"
+%%		"~n"
+%%		"\t> 2.   gs fast(release)~n"
 		"\t> 12.  gs fast(debug)~n"
 		"~n"
-		"\t> 23.  Engineer(release)~n"
+%%		"\t> 23.  Engineer(release)~n"
 		"\t> 24.  Engineer(debug)~n"
 		"~n"
 		"\t> 0.   exit~n"
@@ -96,11 +97,11 @@ menu2(Lang) ->
 dispatchInput2(Lang, 1) ->
 	setCompileFastParam(undefined),
 	compile(Lang, 1);
-dispatchInput2(Lang, 2) ->
-	Data = getChangeFileList(),
-	setCompileFastParam(Data),
-	timer:sleep(2000),
-	compile(Lang, 2);
+%%dispatchInput2(Lang, 2) ->
+%%	Data = getChangeFileList(),
+%%	setCompileFastParam(Data),
+%%	timer:sleep(2000),
+%%	compile(Lang, 2);
 dispatchInput2(Lang, 11) ->
 	setCompileFastParam(undefined),
 	compile(Lang, 11);
@@ -121,9 +122,9 @@ dispatchInput2(_Lang, 8) ->
 	os:cmd("cd ../ebin/ && del /q /s *.*"),
 	io:format("===> clean success!! <===~n~n"),
 	menu();
-dispatchInput2(Lang, 23) ->
-	setSearchFileData(undefined),
-	searchFile(false, {Lang, 23}, scan_all_files());
+%%dispatchInput2(Lang, 23) ->
+%%	setSearchFileData(undefined),
+%%	searchFile(false, {Lang, 23}, scan_all_files());
 dispatchInput2(Lang, 24) ->
 	setSearchFileData(undefined),
 	searchFile(false, {Lang, 24}, scan_all_files());
@@ -170,12 +171,12 @@ searchFile(false, {Lang, _XH} = Param1, {_HrlFileList, ErlFileList, _Opts} = Par
 					searchFile(false, Param1, Param2)
 			end
 	end;
-
+	
 searchFile(_, {Lang, _XH} = Param1, {_HrlFileList, _ErlFileList, Opts} = Param2) ->
-
+	
 	io:format("[*] ===> compile all searched ~p file(s) ~n", [safe_length(getSearchFileData())]),
 	io:format("[0] ===> return to main menu~n", []),
-
+	
 	InputNoStr1 = io:get_line("Input compile file index:"),
 	InputNoStr2 = string_strip(string_strip(InputNoStr1), "\n"),
 	case InputNoStr2 of
@@ -192,11 +193,11 @@ searchFile(_, {Lang, _XH} = Param1, {_HrlFileList, _ErlFileList, Opts} = Param2)
 						compileSearchFile(Index, Param1, Opts, getSearchFileData());
 					_ ->
 						skip
-				end
+				end			
 			end,
 			searchFile(false, Param1, Param2)
 	end.
-
+	
 safe_length(L) when is_list(L) ->
 	length(L);
 safe_length(_)->
@@ -215,7 +216,7 @@ compileSearchFile(Index, {Lang, XH}, Opts, List)->
 			compile(Lang, XH);
 		_ ->
 			skip
-	end.
+	end.	
 
 
 setSearchFileData(Data) ->
@@ -236,9 +237,27 @@ getCompileServer(24) -> gsD;
 getCompileServer(_) -> gsD.
 
 jump_package() ->
-	os:cmd(" cd ../../tools/ && start misc_menu.ers"),
+	os:cmd(" cd ../../tools/ && start ps.ers"),
 	ok.
 
+compile(Lang, 1) ->
+	%% 用于Release编译打包
+	Target = getCompileServer(1),
+	FileName = io_lib:format("compile_~p_~p.txt", [Lang, Target]),
+	file:write_file(FileName, ""),
+	CmdStr = io_lib:format("cd ../ && make all Region=\"~p\" -j8 > script/~ts", [Lang, FileName]),
+
+	io:format("compile [~p,~p] start [~ts], please wait...~n", [Lang, Target, time_format()]),
+	os:cmd(CmdStr),
+
+	case checkCompileError(FileName) of
+		0 ->
+			io:format("@@@compile [~p,~p] success@@@ at ~ts ~n", [Lang, Target, time_format()]);
+		_ ->
+			io:format("***compile [~p,~p] ERROR ERROR ERROR !!!*** ~ts ~n", [Lang, Target, time_format()])
+	end,
+
+	menu2(Lang);
 compile(Lang, V) ->
 	Target = getCompileServer(V),
 	ets:delete_all_objects(?CompileEts),
@@ -252,12 +271,22 @@ compile(Lang, V) ->
 
 		compile_done(Ms, LogFile, Lang, Target)
 	catch
-		_ : Why ->
-			io:format("**** ERROR ERROR ERROR ~p,~p ~n", [Why,erlang:get_stacktrace()])
+		_:Why ->
+			io:format("***compile [~p,~p] ERROR ERROR ERROR !!!*** ~ts ~p,~p ~n",
+				[Lang, Target, time_format(), Why,erlang:get_stacktrace()])
 	end,
 
-	menu2(Lang),
-	ok.
+	menu2(Lang).
+
+checkCompileError(FileName)->
+	{ok,Binary} = file:read_file(FileName),
+	Content = binary_to_list(Binary),
+	case string:str(Content, "recipe for target") of
+		0 ->
+			string:str(Content, "failed");
+		V ->
+			V
+	end.
 
 loop_wait(0) ->
 	skip;
@@ -407,13 +436,17 @@ scan_files({_, FileList, Opts, _})->
 scan_files(undefined)->
 	{ok, Config} = file:consult("./mm.config"),
 	[{[_IncludeDir, SrcDir], Opts} | _] = Config,
-	FileList = filelib:fold_files(SrcDir, ".erl$$", true, fun(File, Acc) -> [File | Acc] end, []),
-	{FileList, Opts}.
+%%	FileList0 = filelib:fold_files(SrcDir, ".app.src$$", true, fun(File, Acc) -> [File | Acc] end, []),
+	FileList0 = [],
+	FileList1 = filelib:fold_files(SrcDir, ".erl$$", true, fun(File, Acc) -> [File | Acc] end, FileList0),
+	{FileList1, Opts}.
 
 scan_all_files()->
 	{ok, Config} = file:consult("./mm.config"),
 	[{[IncludeDir, SrcDir], Opts} | _] = Config,
-	FileList1 = filelib:fold_files(IncludeDir, ".erl$$", true, fun(File, Acc) -> [File | Acc] end, []),
+%%	FileList0 = filelib:fold_files(SrcDir, ".app.src$$", true, fun(File, Acc) -> [File | Acc] end, []),
+	FileList0 = [],
+	FileList1 = filelib:fold_files(IncludeDir, ".erl$$", true, fun(File, Acc) -> [File | Acc] end, FileList0),
 	FileList2 = filelib:fold_files(SrcDir, ".erl$$", true, fun(File, Acc) -> [File | Acc] end, FileList1),
 
 	FileList3 = filelib:fold_files(IncludeDir, ".hrl$$", true, fun(File, Acc) -> [File | Acc] end, []),
@@ -579,7 +612,7 @@ getFileChangeTime(File) ->
 		{ok, Info} ->
 			erlang:element(5, Info);
 		_ ->
-			io:format("===> read getFileChangeTime:~ts failed", [File]),
+			io:format("===> read getFileChangeTime:~ts failed~n", [File]),
 			throw(readfileerror)
 	end.
 
@@ -588,7 +621,7 @@ getFileMd5(File) ->
 		{ok, Data} ->
 			erlang:md5(Data);
 		_ ->
-			io:format("===> read getFileMd5:~ts failed", [File]),
+			io:format("===> read getFileMd5:~ts failed~n", [File]),
 			throw(readfilemd5error)
 	end.
 

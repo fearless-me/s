@@ -17,7 +17,7 @@ getRow(101)->
     limit = 0,
     reward = [[10,5,50],[20,10,150],[30,15,300],[40,20,500],[50,25,700]],
     titleid = [1,2,0,0,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(104)->
     #achievementCfg {
@@ -30,7 +30,7 @@ getRow(104)->
     show = "完成任务总数[0]个",
     limit = 0,
     reward = [[50,10,30],[100,10,50],[200,10,100],[300,10,150],[400,10,200]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(105)->
     #achievementCfg {
@@ -43,7 +43,7 @@ getRow(105)->
     show = "开启背包格子数[0]个",
     limit = 0,
     reward = [[5,5,5],[10,10,10],[20,15,15],[30,20,20],[40,25,25],[50,30,30],[60,40,35]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(106)->
     #achievementCfg {
@@ -56,7 +56,7 @@ getRow(106)->
     show = "开启仓库格子数[0]个",
     limit = 0,
     reward = [[5,5,5],[10,10,10],[20,15,15],[30,20,20],[40,25,25],[50,30,30],[60,40,35]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(107)->
     #achievementCfg {
@@ -69,7 +69,7 @@ getRow(107)->
     show = "第[0]次更新游戏资源",
     limit = 0,
     reward = [[1,20,30]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(108)->
     #achievementCfg {
@@ -82,8 +82,8 @@ getRow(108)->
     show = "累积签到[0]次",
     limit = 0,
     reward = [[1,5,10],[5,25,15],[10,50,20],[15,75,25],[20,100,30],[30,150,35]],
-    titleid = [1000],
-    goal_kill = [0]
+    titleid = [1000,0,0,0,0,0],
+    goal_kill = []
     };
 getRow(109)->
     #achievementCfg {
@@ -97,85 +97,85 @@ getRow(109)->
     limit = 0,
     reward = [[1,5,20]],
     titleid = [18],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(110)->
     #achievementCfg {
     id = 110,
     type = 1,
     subtype = 8,
-    open = 1,
+    open = 0,
     name = "首领入侵",
     describe = "初探首领入侵",
     show = "初探首领入侵",
     limit = 0,
     reward = [[1,5,20]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(120)->
     #achievementCfg {
     id = 120,
     type = 1,
     subtype = 9,
-    open = 1,
+    open = 0,
     name = "深红熔渊一",
     describe = "初探深红熔渊一层",
     show = "初探深红熔渊一层",
     limit = 0,
     reward = [[-1,5,5]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(121)->
     #achievementCfg {
     id = 121,
     type = 1,
     subtype = 10,
-    open = 1,
+    open = 0,
     name = "深红熔渊二",
     describe = "初探深红熔渊二层",
     show = "初探深红熔渊二层",
     limit = 0,
     reward = [[-1,5,5]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(122)->
     #achievementCfg {
     id = 122,
     type = 1,
     subtype = 11,
-    open = 1,
+    open = 0,
     name = "深红熔渊三",
     describe = "初探深红熔渊三层",
     show = "初探深红熔渊三层",
     limit = 0,
     reward = [[-1,5,5]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(123)->
     #achievementCfg {
     id = 123,
     type = 1,
     subtype = 12,
-    open = 1,
+    open = 0,
     name = "深红熔渊四",
     describe = "初探深红熔渊四层",
     show = "初探深红熔渊四层",
     limit = 0,
     reward = [[-1,5,5]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(124)->
     #achievementCfg {
     id = 124,
     type = 1,
     subtype = 13,
-    open = 1,
+    open = 0,
     name = "深红熔渊五",
     describe = "初探深红熔渊五层",
     show = "初探深红熔渊五层",
     limit = 0,
     reward = [[-1,5,5]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(203)->
     #achievementCfg {
@@ -188,7 +188,7 @@ getRow(203)->
     show = "金币累积[0]",
     limit = 0,
     reward = [[1000000,10,50],[5000000,20,100],[50000000,30,150],[100000000,40,200]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(204)->
     #achievementCfg {
@@ -214,7 +214,7 @@ getRow(206)->
     show = "收集骑宠[0]只",
     limit = 0,
     reward = [[1,10,50],[5,50,100],[10,100,150],[15,200,200],[20,300,300]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(207)->
     #achievementCfg {
@@ -227,8 +227,8 @@ getRow(207)->
     show = "累积资源兑换[0]个",
     limit = 0,
     reward = [[5,5,10],[100,5,20],[200,5,40],[500,5,60],[1000,5,80]],
-    titleid = [1001],
-    goal_kill = [0]
+    titleid = [1001,0,0,0,0],
+    goal_kill = []
     };
 getRow(208)->
     #achievementCfg {
@@ -241,7 +241,7 @@ getRow(208)->
     show = "分解[0]件装备",
     limit = 0,
     reward = [[20,5,20],[200,5,30],[500,5,40],[1000,5,60],[2000,5,100]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(209)->
     #achievementCfg {
@@ -255,7 +255,7 @@ getRow(209)->
     limit = 0,
     reward = [[3,100,50],[6,200,80],[9,300,100]],
     titleid = [3,0,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(210)->
     #achievementCfg {
@@ -269,7 +269,7 @@ getRow(210)->
     limit = 1,
     reward = [[1,10,20],[2,20,40],[3,30,60],[4,40,100]],
     titleid = [4,0,0,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(301)->
     #achievementCfg {
@@ -282,8 +282,8 @@ getRow(301)->
     show = "全身装备整体精练[0]",
     limit = 0,
     reward = [[2,10,30],[4,30,50],[6,50,80],[8,100,100],[10,200,150]],
-    titleid = [1002],
-    goal_kill = [0]
+    titleid = [1002,0,0,0,0],
+    goal_kill = []
     };
 getRow(302)->
     #achievementCfg {
@@ -296,7 +296,7 @@ getRow(302)->
     show = "精练装备[0]次",
     limit = 0,
     reward = [[30,50,30],[40,50,50],[50,50,80],[60,50,100],[70,50,150],[80,50,200]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(303)->
     #achievementCfg {
@@ -322,7 +322,7 @@ getRow(305)->
     show = "装备重铸[0]次",
     limit = 0,
     reward = [[10,5,5],[50,15,5],[80,30,5],[100,50,5]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(306)->
     #achievementCfg {
@@ -335,15 +335,15 @@ getRow(306)->
     show = "纹章合成[0]次",
     limit = 0,
     reward = [[1,5,50],[5,10,80],[50,15,120],[100,30,150]],
-    titleid = [1003],
-    goal_kill = [0]
+    titleid = [1003,0,0,0],
+    goal_kill = []
     };
 getRow(307)->
     #achievementCfg {
     id = 307,
     type = 3,
     subtype = 6,
-    open = 1,
+    open = 0,
     name = "世界首领",
     describe = "累积消灭世界首领1/10/20/30/50/100只",
     show = "累积消灭世界首领[0]只",
@@ -363,7 +363,7 @@ getRow(309)->
     limit = 0,
     reward = [[1000,50,50],[10000,50,100],[100000,50,150],[300000,50,200],[500000,50,250],[1000000,50,300],[5000000,50,400]],
     titleid = [5,14,0,0,0,0,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(310)->
     #achievementCfg {
@@ -377,7 +377,7 @@ getRow(310)->
     limit = 0,
     reward = [[3,5,30],[50,10,50],[100,15,70],[300,25,100],[500,30,120],[1000,40,150],[2000,50,200]],
     titleid = [23,0,0,0,0,0,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(311)->
     #achievementCfg {
@@ -390,15 +390,15 @@ getRow(311)->
     show = "累积获得总成就点[0]",
     limit = 0,
     reward = [[100,5,50],[200,5,100],[300,100,150]],
-    titleid = [1004],
-    goal_kill = [0]
+    titleid = [1004,0,0],
+    goal_kill = []
     };
 getRow(317)->
     #achievementCfg {
     id = 317,
     type = 3,
     subtype = 10,
-    open = 1,
+    open = 0,
     name = "深红熔渊首领",
     describe = "累积消灭深红熔渊boss1/5/10/20/30/50/100次",
     show = "累积消灭深红熔渊boss[0]只",
@@ -411,14 +411,14 @@ getRow(501)->
     id = 501,
     type = 4,
     subtype = 1,
-    open = 1,
+    open = 0,
     name = "上传照片",
     describe = "上传一张照片",
     show = "个性设置中上传一张照片",
     limit = 0,
     reward = [[1,20,50]],
     titleid = [21],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(502)->
     #achievementCfg {
@@ -432,7 +432,7 @@ getRow(502)->
     limit = 0,
     reward = [[1,10,50]],
     titleid = [1005],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(504)->
     #achievementCfg {
@@ -445,21 +445,21 @@ getRow(504)->
     show = "使用一次喇叭频道",
     limit = 0,
     reward = [[1,10,50]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(505)->
     #achievementCfg {
     id = 505,
     type = 4,
     subtype = 4,
-    open = 1,
+    open = 0,
     name = "加入军团",
     describe = "加入任何军团",
     show = "成功加入军团",
     limit = 0,
     reward = [[1,10,50]],
     titleid = [1006],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(508)->
     #achievementCfg {
@@ -473,7 +473,7 @@ getRow(508)->
     limit = 0,
     reward = [[5,10,50],[10,10,80],[20,10,100]],
     titleid = [6,7,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(700)->
     #achievementCfg {
@@ -487,7 +487,7 @@ getRow(700)->
     limit = 0,
     reward = [[1,5,20],[2,10,40],[3,15,60],[4,25,80]],
     titleid = [16,0,0,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(704)->
     #achievementCfg {
@@ -500,7 +500,7 @@ getRow(704)->
     show = "提升[0]次女神等级",
     limit = 0,
     reward = [[4,5,20],[20,10,40],[40,15,60],[80,25,80],[100,30,100]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(705)->
     #achievementCfg {
@@ -514,7 +514,7 @@ getRow(705)->
     limit = 0,
     reward = [[1,10,30]],
     titleid = [19],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(706)->
     #achievementCfg {
@@ -528,7 +528,7 @@ getRow(706)->
     limit = 0,
     reward = [[1,10,30]],
     titleid = [17],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(707)->
     #achievementCfg {
@@ -542,7 +542,7 @@ getRow(707)->
     limit = 0,
     reward = [[1,10,30]],
     titleid = [1007],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(708)->
     #achievementCfg {
@@ -555,7 +555,7 @@ getRow(708)->
     show = "激活风器灵",
     limit = 0,
     reward = [[1,10,30]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(709)->
     #achievementCfg {
@@ -568,7 +568,7 @@ getRow(709)->
     show = "激活光器灵",
     limit = 0,
     reward = [[1,10,30]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(710)->
     #achievementCfg {
@@ -581,7 +581,7 @@ getRow(710)->
     show = "激活暗器灵",
     limit = 0,
     reward = [[1,10,30]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(711)->
     #achievementCfg {
@@ -594,7 +594,7 @@ getRow(711)->
     show = "提升[0]次器灵等级",
     limit = 0,
     reward = [[12,5,20],[30,10,40],[60,15,60],[120,25,80],[240,30,100]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(712)->
     #achievementCfg {
@@ -608,7 +608,7 @@ getRow(712)->
     limit = 0,
     reward = [[1,5,50],[2,10,80],[3,15,100],[4,25,120]],
     titleid = [8,0,0,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(713)->
     #achievementCfg {
@@ -622,7 +622,7 @@ getRow(713)->
     limit = 0,
     reward = [[1,5,20],[2,10,40],[4,15,60],[6,25,80],[8,30,100]],
     titleid = [9,0,0,0,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(714)->
     #achievementCfg {
@@ -636,7 +636,7 @@ getRow(714)->
     limit = 0,
     reward = [[8,5,20],[20,10,40],[40,15,60],[80,25,80],[120,30,100]],
     titleid = [18,0,0,0,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(715)->
     #achievementCfg {
@@ -649,7 +649,7 @@ getRow(715)->
     show = "装备一件蓝色品质的装备",
     limit = 0,
     reward = [[2,10,20]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(716)->
     #achievementCfg {
@@ -677,7 +677,7 @@ getRow(717)->
     limit = 0,
     reward = [[1,5,20],[5,10,40],[10,15,60],[20,25,80],[50,30,100],[100,40,120]],
     titleid = [11,0,0,0,0,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(718)->
     #achievementCfg {
@@ -690,7 +690,7 @@ getRow(718)->
     show = "完成元素保卫战[0]次",
     limit = 0,
     reward = [[1,5,20],[5,10,40],[10,15,60],[20,25,80],[50,30,100],[100,40,120]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(719)->
     #achievementCfg {
@@ -704,7 +704,7 @@ getRow(719)->
     limit = 0,
     reward = [[1,10,20]],
     titleid = [15],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(720)->
     #achievementCfg {
@@ -717,20 +717,20 @@ getRow(720)->
     show = "竞技场胜利[0]次",
     limit = 0,
     reward = [[10,5,50],[50,10,100],[100,15,150],[1000,25,200],[10000,30,250]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(721)->
     #achievementCfg {
     id = 721,
     type = 4,
     subtype = 6,
-    open = 1,
+    open = 0,
     name = "军团建立",
     describe = "建立一个军团",
     show = "建立一个军团",
     limit = 0,
     reward = [[1,10,20]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(722)->
     #achievementCfg {
@@ -744,7 +744,7 @@ getRow(722)->
     limit = 0,
     reward = [[1,5,20],[5,10,50],[10,15,70],[100,25,150],[5000,30,300]],
     titleid = [12,0,0,0,0],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(723)->
     #achievementCfg {
@@ -757,7 +757,7 @@ getRow(723)->
     show = "死亡1次",
     limit = 0,
     reward = [[1,10,20]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(724)->
     #achievementCfg {
@@ -771,7 +771,7 @@ getRow(724)->
     limit = 0,
     reward = [[3,10,50]],
     titleid = [13],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(725)->
     #achievementCfg {
@@ -784,7 +784,7 @@ getRow(725)->
     show = "装备一件紫色品质的装备",
     limit = 0,
     reward = [[4,10,100]],
-    goal_kill = [0]
+    goal_kill = []
     };
 getRow(_)->[].
 

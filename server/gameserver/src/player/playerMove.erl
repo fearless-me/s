@@ -22,15 +22,6 @@
 %玩家移动到某点
 -spec onPlayerMoveTo(#pk_U2GS_MoveTo{}) -> ok.
 onPlayerMoveTo(#pk_U2GS_MoveTo{posInfos = MoveList} = PkMoveTo)->
-	%% 解除冥想
-	playerOfflineExp:endMeditation(),
-
-	case playerPetDouble:isDoubleMountType(?DoublePetGuest) of
-		true ->
-			playerPetDouble:doubleMountOff();
-		_ ->
-			skip
-	end,
 	PlayerCode = playerState:getPlayerCode(),
 	case isCanMove() of
 		true ->
@@ -53,10 +44,28 @@ onPlayerMoveTo(#pk_U2GS_MoveTo{posInfos = MoveList} = PkMoveTo)->
 					%%如果是在允许的范围内，则把服务器的当前位置强制设置为客户端当前所在位置
 					playerState:setPos(SX, SY),
 					playerMoveTo(PkMoveTo)
-			end;
+			end,
+
+			%% 移动回调
+			moveCallBack();
 		false ->
 			stopMove(true)
 	end,
+	ok.
+
+moveCallBack() ->
+	%% 解除冥想
+	playerOfflineExp:endMeditation(),
+
+	case playerPetDouble:isDoubleMountType(?DoublePetGuest) of
+		true ->
+			playerPetDouble:doubleMountOff();
+		_ ->
+			skip
+	end,
+
+	%% 打断跳舞
+	playerDance:breakDance(),
 	ok.
 
 %%玩家移动
@@ -75,6 +84,7 @@ tickMove(DiffTime) ->
 	IsIncludeSelf::boolean().
 stopMove(IsIncludeSelf) ->
 	ActStatus = playerState:getActionStatus(),
+
 	if
 		ActStatus =:= ?CreatureActionStatusMove ->
 			playerState:setActionStatus(?CreatureActionStatusStand),
@@ -89,6 +99,7 @@ stopMove(IsIncludeSelf) ->
 				posX = FX,
 				posY = FY
 			},
+
 			%%?DEBUG_OUT("player srv StopMove0[~p,~p]",[FX,FY]),
 			playerMsg:sendMsgToNearPlayer(Msg, IsIncludeSelf),
 			%%playerMap:syncPlayerPosToEts(),
@@ -282,6 +293,7 @@ calcPlayerPos(DstX,DstY,DiffTime)
 			DX = SX,
 			DY = SY
 	end,
+
 	playerState:setFaceDir(DirX,DirY),
 	%%将要移动的距离Dist与最终距离L的差值，大于0则表示走过了，小于0则表示还没到目标点
 	OverDist = Dist - L,

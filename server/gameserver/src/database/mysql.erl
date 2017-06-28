@@ -59,11 +59,11 @@ keepalive() ->
 %添加游戏数据库连接到连接池
 -spec addDBPool() -> true.
 addDBPool() ->
-	DBIP = config:rpc_get_string("DBIP", "localhost"),
-	DBUserName = config:rpc_get_string("DBUserName", "root"),
-	DBPassword = config:rpc_get_string("DBPassword", "123"),
-	DBPort = config:rpc_get_int("DBPort", 3306),
-	DBName = config:rpc_get_string("DBName", "test"),
+	DBIP = config:getString("DBIP", "localhost"),
+	DBUserName = config:getString("DBUserName", "root"),
+	DBPassword = config:getString("DBPassword", "123"),
+	DBPort = config:getInt("DBPort", 3306),
+	DBName = config:getString("DBName", "test"),
 	?LOG_OUT("Connect DB[~p:~p ~p]", [DBIP, DBPort, DBName]),
 	emysql:add_pool(?GAMEDB_CONNECT_POOL, ?GAMEDB_CONNECT_NUM,
 		DBUserName,
@@ -78,11 +78,11 @@ addDBPool() ->
 %添加游戏Log数据库连接到连接池
 -spec addLogDBPool() -> true.
 addLogDBPool() ->
-	DBIP = config:rpc_get_string("LogDBIP", "localhost"),
-	DBUserName = config:rpc_get_string("LogDBUserName", "root"),
-	DBPassword = config:rpc_get_string("LogDBPassword", "123"),
-	DBPort = config:rpc_get_int("LogDBPort", 3306),
-	DBName = config:rpc_get_string("LogDBName", "test"),
+	DBIP = config:getString("LogDBIP", "localhost"),
+	DBUserName = config:getString("LogDBUserName", "root"),
+	DBPassword = config:getString("LogDBPassword", "123"),
+	DBPort = config:getInt("LogDBPort", 3306),
+	DBName = config:getString("LogDBName", "test"),
 	?LOG_OUT("Connect LogDB[~p:~p ~p]", [DBIP, DBPort, DBName]),
 	emysql:add_pool(?LOGDB_CONNECT_POOL, ?LOGDB_CONNECT_NUM,
 		DBUserName,
@@ -96,11 +96,11 @@ addLogDBPool() ->
 %添加激活码数据库连接到连接池
 -spec addActiveCodeDBPool() -> true.
 addActiveCodeDBPool() ->
-	DBIP = config:rpc_get_string("ActiveCodeDBIP", "localhost"),
-	DBUserName = config:rpc_get_string("ActiveCodeDBUserName", "root"),
-	DBPassword = config:rpc_get_string("ActiveCodeDBPassword", "123"),
-	DBPort = config:rpc_get_int("ActiveCodeDBPort", 3306),
-	DBName = config:rpc_get_string("ActiveCodeDBName", "test"),
+	DBIP = config:getString("ActiveCodeDBIP", "localhost"),
+	DBUserName = config:getString("ActiveCodeDBUserName", "root"),
+	DBPassword = config:getString("ActiveCodeDBPassword", "123"),
+	DBPort = config:getInt("ActiveCodeDBPort", 3306),
+	DBName = config:getString("ActiveCodeDBName", "test"),
 	?LOG_OUT("Connect ActiveCodeDB[~p:~p ~p]", [DBIP, DBPort, DBName]),
 	emysql:add_pool(?ACTIVECODEDB_CONNECT_POOL, ?ACTIVECODEDB_CONNECT_NUM,
 		DBUserName,
@@ -114,11 +114,11 @@ addActiveCodeDBPool() ->
 %添加游戏数据库连接到连接池
 -spec addLoginDBPool() -> true.
 addLoginDBPool() ->
-	LOGINDBIP = config:rpc_get_string("LOGINDBIP", "localhost"),
-	LOGINDBUserName = config:rpc_get_string("LOGINDBUserName", "root"),
-	LOGINDBPassword = config:rpc_get_string("LOGINDBPassword", "123"),
-	LOGINDBPort = config:rpc_get_int("LOGINDBPort", 3306),
-	LOGINDBName = config:rpc_get_string("LOGINDBName", "test"),
+	LOGINDBIP = config:getString("LOGINDBIP", "localhost"),
+	LOGINDBUserName = config:getString("LOGINDBUserName", "root"),
+	LOGINDBPassword = config:getString("LOGINDBPassword", "123"),
+	LOGINDBPort = config:getInt("LOGINDBPort", 3306),
+	LOGINDBName = config:getString("LOGINDBName", "test"),
 	?LOG_OUT("Connect LOGINDB[~p:~p ~p]", [LOGINDBIP, LOGINDBPort, LOGINDBName]),
 	emysql:add_pool(?LOGINDB_CONNECT_POOL, ?LOGINDB_CONNECT_NUM,
 		LOGINDBUserName,
@@ -132,11 +132,11 @@ addLoginDBPool() ->
 %添加订单支付数据库连接到连接池
 -spec addRechargePool() -> true.
 addRechargePool() ->
-	DBIP = config:rpc_get_string("DBIP", "localhost"),
-	DBUserName = config:rpc_get_string("DBUserName", "root"),
-	DBPassword = config:rpc_get_string("DBPassword", "123"),
-	DBPort = config:rpc_get_int("DBPort", 3306),
-	DBName = config:rpc_get_string("DBName", "test"),
+	DBIP = config:getString("DBIP", "localhost"),
+	DBUserName = config:getString("DBUserName", "root"),
+	DBPassword = config:getString("DBPassword", "123"),
+	DBPort = config:getInt("DBPort", 3306),
+	DBName = config:getString("DBName", "test"),
 	?LOG_OUT("Connect DB[~p:~p ~p]", [DBIP, DBPort, DBName]),
 	emysql:add_pool(?RECHARGE_CONNECT_POOL, ?RECHARGE_CONNECT_NUM,
 		DBUserName,

@@ -164,7 +164,7 @@ editIdentity(Pid, {IDIT, IdentityID, Data}) ->
 %% 已在玩家进程验证是否是相同的MD5
 -spec editIdentity_pic(Pid::pid(), {IdentityID::uint64(), Pos::uint8(), MD5Old::list(), MD5New::list()}) -> ok.
 editIdentity_pic(Pid, {IdentityID, Pos, MD5Old, MD5New}) ->
-	%?DEBUG_OUT("[DebugForIdentity] editIdentity OpType(~p) IdentityID(~p) MD5(~p) Pos(~p)", [OpType, IdentityID, MD5, Pos]),
+	?LOG_OUT("[DebugForIdentity] editIdentity RoleID(~p) Pos(~p)", [IdentityID, Pos]),
 	IDIT = pos2idit(Pos),
 	%% 删除可能需要删除的数据
 	case MD5Old of
@@ -195,9 +195,11 @@ editIdentity_pic(Pid, {IdentityID, Pos, MD5Old, MD5New}) ->
 			case InMain of
 				none ->
 					%% 照片不存在，需要上传
+					?LOG_OUT("[DebugForIdentity] editIdentity RoleID(~p) Pos(~p) need up", [IdentityID, Pos]),
 					psMgr:sendMsg2PS(Pid, identity_edit_picAck, {MD5New, false});
 				_ ->
 					%% 照片已存在，更新计数并编辑
+					?LOG_OUT("[DebugForIdentity] editIdentity RoleID(~p) Pos(~p) edit", [IdentityID, Pos]),
 					updateCountOfPicData(true, MD5New),
 					editIdentity(Pid, {IDIT, IdentityID, MD5New}),
 					psMgr:sendMsg2PS(Pid, identity_edit_picAck, {MD5New, true})
@@ -439,7 +441,7 @@ updateCountOfPicData(IsAdd, MD5) ->
 								true ->
 									identityState:updatePicMain(MD5, #rec_pic_data_main.count, CountNew);
 								_ ->
-									identityState:deletePicSub(MD5, #rec_pic_data_sub.count, CountNew)
+									identityState:updatePicSub(MD5, #rec_pic_data_sub.count, CountNew)
 							end
 					end,
 					gsSendMsg:sendMsg2DBServer(identity_pic_UpdateCount, 0, {MD5, InMain, CountNew}),

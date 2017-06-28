@@ -99,7 +99,7 @@ requestGatherItemAck({GatherID, {_Code, _}}) ->
     %% 军团战采集
     playerGuildBattle:gatherSuccess(GatherID),
 
-	playerTask:updateTask(?TaskType_CollectItem, GatherID),
+	playerTask:updateTask(?TaskSubType_CollectItem, GatherID),
 
 	%% 家族系统-堆雪人活动-采集成功
 	playerGuildSnowman:gatherSuccess(GatherID),

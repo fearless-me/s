@@ -265,58 +265,6 @@ getRow(204)->
     d_rate = 0.7,
     giftid = 0
     };
-getRow(301)->
-    #dungeonschallengeCfg {
-    id = 301,
-    name = "40级挑战副本结算奖励",
-    time_1 = 500,
-    time_2 = 600,
-    time_3 = 700,
-    time_4 = 800,
-    time_5 = 0,
-    reward_E1 = 0,
-    reward_E2 = 0,
-    reward_E3 = 0,
-    reward_E4 = 0,
-    reward_R1 = 0,
-    reward_R2 = 0,
-    reward_R3 = 0,
-    reward_R4 = 0,
-    exp_reward = 15000,
-    gold_reward = 84000,
-    s_rate = 1.1,
-    a_rate = 1,
-    b_rate = 0.9,
-    c_rate = 0.8,
-    d_rate = 0.7,
-    giftid = 0
-    };
-getRow(302)->
-    #dungeonschallengeCfg {
-    id = 302,
-    name = "50级挑战副本结算奖励",
-    time_1 = 500,
-    time_2 = 600,
-    time_3 = 700,
-    time_4 = 800,
-    time_5 = 0,
-    reward_E1 = 0,
-    reward_E2 = 0,
-    reward_E3 = 0,
-    reward_E4 = 0,
-    reward_R1 = 0,
-    reward_R2 = 0,
-    reward_R3 = 0,
-    reward_R4 = 0,
-    exp_reward = 15000,
-    gold_reward = 84000,
-    s_rate = 1.1,
-    a_rate = 1,
-    b_rate = 0.9,
-    c_rate = 0.8,
-    d_rate = 0.7,
-    giftid = 0
-    };
 getRow(520)->
     #dungeonschallengeCfg {
     id = 520,
@@ -850,8 +798,6 @@ getKeyList()->[
     {202},
     {203},
     {204},
-    {301},
-    {302},
     {520},
     {521},
     {522},
@@ -885,8 +831,6 @@ get1KeyList()->[
     202,
     203,
     204,
-    301,
-    302,
     520,
     521,
     522,

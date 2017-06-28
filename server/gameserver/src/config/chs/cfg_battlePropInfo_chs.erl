@@ -2405,6 +2405,51 @@ getRow(160)->
     minitips = "坚固等级越高则受到破甲的概率越小",
     rolePanelShow = 0
     };
+getRow(161)->
+    #battlePropInfoCfg {
+    propertyId = 161,
+    formulaIndex = 1,
+    ownerType = 0,
+    minNum = 0,
+    maxNum = 2147483647,
+    baseValue = 0,
+    desc = "附加暴击率",
+    display = 0,
+    sequence = 1100,
+    propclass = 0,
+    minitips = "初始附加暴击率",
+    rolePanelShow = 1
+    };
+getRow(162)->
+    #battlePropInfoCfg {
+    propertyId = 162,
+    formulaIndex = 1,
+    ownerType = 0,
+    minNum = 0,
+    maxNum = 2147483647,
+    baseValue = 0,
+    desc = "附加闪避率",
+    display = 0,
+    sequence = 1101,
+    propclass = 0,
+    minitips = "初始附加闪避率",
+    rolePanelShow = 1
+    };
+getRow(163)->
+    #battlePropInfoCfg {
+    propertyId = 163,
+    formulaIndex = 1,
+    ownerType = 0,
+    minNum = 0,
+    maxNum = 2147483647,
+    baseValue = 0,
+    desc = "附加破甲率",
+    display = 0,
+    sequence = 1102,
+    propclass = 0,
+    minitips = "初始附加破甲率",
+    rolePanelShow = 1
+    };
 getRow(_)->[].
 
 getKeyList()->[
@@ -2567,7 +2612,10 @@ getKeyList()->[
     {157},
     {158},
     {159},
-    {160}
+    {160},
+    {161},
+    {162},
+    {163}
     ].
 
 get1KeyList()->[
@@ -2730,6 +2778,9 @@ get1KeyList()->[
     157,
     158,
     159,
-    160
+    160,
+    161,
+    162,
+    163
     ].
 

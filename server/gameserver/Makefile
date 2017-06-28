@@ -4,7 +4,7 @@
 
 CONFIG ?= RELEASE
 
-Region ?= chs
+#Region ?= chs
 
 #源文件目录
 SOURCE_DIR = ./src

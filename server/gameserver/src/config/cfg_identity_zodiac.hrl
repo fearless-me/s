@@ -3,9 +3,10 @@
 -define(cfg_identity_zodiac, 1).
 
 -record(identity_zodiacCfg, {
+        %%: id，界面排序按此顺序
         id,
 
-        %%: 标签名，字符串
+        %%: 身份证星座筛选中的星座名称
         name
 
  }).

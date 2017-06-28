@@ -13,7 +13,7 @@ getRow(1,1)->
     exp = 20,
     intimacy = 1,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,2227},{136,101},{137,101}],
     levelLimit = 0
     };
@@ -25,7 +25,7 @@ getRow(1,2)->
     exp = 20,
     intimacy = 2,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,2316},{136,105},{137,105}],
     levelLimit = 0
     };
@@ -37,7 +37,7 @@ getRow(1,3)->
     exp = 40,
     intimacy = 3,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,2405},{136,109},{137,109}],
     levelLimit = 0
     };
@@ -49,7 +49,7 @@ getRow(1,4)->
     exp = 60,
     intimacy = 4,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,2494},{136,113},{137,113}],
     levelLimit = 0
     };
@@ -61,7 +61,7 @@ getRow(1,5)->
     exp = 70,
     intimacy = 5,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,2583},{136,117},{137,117}],
     levelLimit = 0
     };
@@ -73,7 +73,7 @@ getRow(1,6)->
     exp = 90,
     intimacy = 6,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,2673},{136,121},{137,121}],
     levelLimit = 0
     };
@@ -85,7 +85,7 @@ getRow(1,7)->
     exp = 110,
     intimacy = 7,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,2762},{136,125},{137,125}],
     levelLimit = 0
     };
@@ -97,7 +97,7 @@ getRow(1,8)->
     exp = 130,
     intimacy = 8,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,2851},{136,129},{137,129}],
     levelLimit = 0
     };
@@ -109,7 +109,7 @@ getRow(1,9)->
     exp = 150,
     intimacy = 9,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,2940},{136,133},{137,133}],
     levelLimit = 0
     };
@@ -121,9 +121,9 @@ getRow(1,10)->
     exp = 170,
     intimacy = 10,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,3029},{136,137},{137,137}],
-    break_itemID = [{101,10},{102,10}],
+    break_itemID = [{26003,1},{26004,1},{26005,1}],
     levelLimit = 40
     };
 getRow(2,1)->
@@ -134,7 +134,7 @@ getRow(2,1)->
     exp = 190,
     intimacy = 11,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,3118},{136,141},{137,141}],
     levelLimit = 0
     };
@@ -146,7 +146,7 @@ getRow(2,2)->
     exp = 210,
     intimacy = 12,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,3207},{136,145},{137,145}],
     levelLimit = 0
     };
@@ -158,7 +158,7 @@ getRow(2,3)->
     exp = 230,
     intimacy = 13,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,3296},{136,149},{137,149}],
     levelLimit = 0
     };
@@ -170,7 +170,7 @@ getRow(2,4)->
     exp = 250,
     intimacy = 14,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,3373},{136,153},{137,153}],
     levelLimit = 0
     };
@@ -182,7 +182,7 @@ getRow(2,5)->
     exp = 280,
     intimacy = 15,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,3556},{136,161},{137,161}],
     levelLimit = 0
     };
@@ -194,7 +194,7 @@ getRow(2,6)->
     exp = 300,
     intimacy = 16,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,3753},{136,170},{137,170}],
     levelLimit = 0
     };
@@ -206,7 +206,7 @@ getRow(2,7)->
     exp = 320,
     intimacy = 17,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,3963},{136,180},{137,180}],
     levelLimit = 0
     };
@@ -218,7 +218,7 @@ getRow(2,8)->
     exp = 340,
     intimacy = 18,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,4187},{136,190},{137,190}],
     levelLimit = 0
     };
@@ -230,7 +230,7 @@ getRow(2,9)->
     exp = 360,
     intimacy = 19,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,4424},{136,201},{137,201}],
     levelLimit = 0
     };
@@ -242,9 +242,9 @@ getRow(2,10)->
     exp = 380,
     intimacy = 20,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,4675},{136,212},{137,212}],
-    break_itemID = [{101,10},{102,10}],
+    break_itemID = [{26003,1},{26004,1},{26005,1}],
     levelLimit = 45
     };
 getRow(3,1)->
@@ -255,7 +255,7 @@ getRow(3,1)->
     exp = 410,
     intimacy = 21,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,4940},{136,224},{137,224}],
     levelLimit = 0
     };
@@ -267,7 +267,7 @@ getRow(3,2)->
     exp = 430,
     intimacy = 22,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,5218},{136,237},{137,237}],
     levelLimit = 0
     };
@@ -279,7 +279,7 @@ getRow(3,3)->
     exp = 450,
     intimacy = 23,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,5509},{136,250},{137,250}],
     levelLimit = 0
     };
@@ -291,7 +291,7 @@ getRow(3,4)->
     exp = 470,
     intimacy = 24,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,5814},{136,264},{137,264}],
     levelLimit = 0
     };
@@ -303,7 +303,7 @@ getRow(3,5)->
     exp = 490,
     intimacy = 25,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,6133},{136,278},{137,278}],
     levelLimit = 0
     };
@@ -315,7 +315,7 @@ getRow(3,6)->
     exp = 520,
     intimacy = 26,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,6465},{136,293},{137,293}],
     levelLimit = 0
     };
@@ -327,7 +327,7 @@ getRow(3,7)->
     exp = 540,
     intimacy = 27,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,6811},{136,309},{137,309}],
     levelLimit = 0
     };
@@ -339,7 +339,7 @@ getRow(3,8)->
     exp = 560,
     intimacy = 28,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,7171},{136,325},{137,325}],
     levelLimit = 0
     };
@@ -351,7 +351,7 @@ getRow(3,9)->
     exp = 580,
     intimacy = 29,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,7544},{136,342},{137,342}],
     levelLimit = 0
     };
@@ -363,9 +363,9 @@ getRow(3,10)->
     exp = 610,
     intimacy = 30,
     name = "低级婚戒",
-    model = "Prefab/role/ring/ring_1",
+    model = "Prefab/role/ring/ring1",
     property = [{135,7930},{136,360},{137,360}],
-    break_itemID = [{101,10},{102,10}],
+    break_itemID = [{26003,1},{26004,1},{26005,1}],
     levelLimit = 50
     };
 getRow(4,1)->
@@ -376,7 +376,7 @@ getRow(4,1)->
     exp = 630,
     intimacy = 31,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,8330},{136,378},{137,378},{139,189},{144,75}],
     levelLimit = 0
     };
@@ -388,7 +388,7 @@ getRow(4,2)->
     exp = 650,
     intimacy = 32,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,8744},{136,397},{137,397},{139,198},{144,79}],
     levelLimit = 0
     };
@@ -400,7 +400,7 @@ getRow(4,3)->
     exp = 680,
     intimacy = 33,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,9171},{136,416},{137,416},{139,208},{144,83}],
     levelLimit = 0
     };
@@ -412,7 +412,7 @@ getRow(4,4)->
     exp = 700,
     intimacy = 34,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,9612},{136,436},{137,436},{139,218},{144,87}],
     levelLimit = 0
     };
@@ -424,7 +424,7 @@ getRow(4,5)->
     exp = 720,
     intimacy = 35,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,10066},{136,457},{137,457},{139,228},{144,91}],
     levelLimit = 0
     };
@@ -436,7 +436,7 @@ getRow(4,6)->
     exp = 750,
     intimacy = 36,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,10534},{136,478},{137,478},{139,239},{144,95}],
     levelLimit = 0
     };
@@ -448,7 +448,7 @@ getRow(4,7)->
     exp = 770,
     intimacy = 37,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,11016},{136,500},{137,500},{139,250},{144,100}],
     levelLimit = 0
     };
@@ -460,7 +460,7 @@ getRow(4,8)->
     exp = 790,
     intimacy = 38,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,11511},{136,523},{137,523},{139,261},{144,104}],
     levelLimit = 0
     };
@@ -472,7 +472,7 @@ getRow(4,9)->
     exp = 820,
     intimacy = 39,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,12019},{136,546},{137,546},{139,273},{144,109}],
     levelLimit = 0
     };
@@ -484,9 +484,9 @@ getRow(4,10)->
     exp = 840,
     intimacy = 40,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,12541},{136,570},{137,570},{139,285},{144,114}],
-    break_itemID = [{101,10},{102,10}],
+    break_itemID = [{26006,1},{26007,1},{26008,1}],
     levelLimit = 55
     };
 getRow(5,1)->
@@ -497,7 +497,7 @@ getRow(5,1)->
     exp = 860,
     intimacy = 41,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,13077},{136,594},{137,594},{139,297},{144,118}],
     levelLimit = 0
     };
@@ -509,7 +509,7 @@ getRow(5,2)->
     exp = 890,
     intimacy = 42,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,13626},{136,619},{137,619},{139,309},{144,123}],
     levelLimit = 0
     };
@@ -521,7 +521,7 @@ getRow(5,3)->
     exp = 910,
     intimacy = 43,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,14189},{136,644},{137,644},{139,322},{144,128}],
     levelLimit = 0
     };
@@ -533,7 +533,7 @@ getRow(5,4)->
     exp = 930,
     intimacy = 44,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,14766},{136,671},{137,671},{139,335},{144,134}],
     levelLimit = 0
     };
@@ -545,7 +545,7 @@ getRow(5,5)->
     exp = 960,
     intimacy = 45,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,15356},{136,698},{137,698},{139,349},{144,139}],
     levelLimit = 0
     };
@@ -557,7 +557,7 @@ getRow(5,6)->
     exp = 980,
     intimacy = 46,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,15959},{136,725},{137,725},{139,362},{144,145}],
     levelLimit = 0
     };
@@ -569,7 +569,7 @@ getRow(5,7)->
     exp = 1010,
     intimacy = 47,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,16576},{136,753},{137,753},{139,376},{144,150}],
     levelLimit = 0
     };
@@ -581,7 +581,7 @@ getRow(5,8)->
     exp = 1030,
     intimacy = 48,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,17207},{136,782},{137,782},{139,391},{144,156}],
     levelLimit = 0
     };
@@ -593,7 +593,7 @@ getRow(5,9)->
     exp = 1050,
     intimacy = 49,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,17851},{136,811},{137,811},{139,405},{144,162}],
     levelLimit = 0
     };
@@ -605,9 +605,9 @@ getRow(5,10)->
     exp = 1080,
     intimacy = 50,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,18509},{136,841},{137,841},{139,420},{144,168}],
-    break_itemID = [{101,10},{102,10}],
+    break_itemID = [{26006,1},{26007,1},{26008,1}],
     levelLimit = 60
     };
 getRow(6,1)->
@@ -618,7 +618,7 @@ getRow(6,1)->
     exp = 1100,
     intimacy = 51,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,19180},{136,871},{137,871},{139,435},{144,174}],
     levelLimit = 0
     };
@@ -630,7 +630,7 @@ getRow(6,2)->
     exp = 1130,
     intimacy = 52,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,19865},{136,902},{137,902},{139,451},{144,180}],
     levelLimit = 0
     };
@@ -642,7 +642,7 @@ getRow(6,3)->
     exp = 1150,
     intimacy = 53,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,20564},{136,934},{137,934},{139,467},{144,186}],
     levelLimit = 0
     };
@@ -654,7 +654,7 @@ getRow(6,4)->
     exp = 1180,
     intimacy = 54,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,21276},{136,967},{137,967},{139,483},{144,193}],
     levelLimit = 0
     };
@@ -666,7 +666,7 @@ getRow(6,5)->
     exp = 1200,
     intimacy = 55,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,22001},{136,1000},{137,1000},{139,500},{144,200}],
     levelLimit = 0
     };
@@ -678,7 +678,7 @@ getRow(6,6)->
     exp = 1220,
     intimacy = 56,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,22741},{136,1033},{137,1033},{139,516},{144,206}],
     levelLimit = 0
     };
@@ -690,7 +690,7 @@ getRow(6,7)->
     exp = 1250,
     intimacy = 57,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,23493},{136,1067},{137,1067},{139,533},{144,213}],
     levelLimit = 0
     };
@@ -702,7 +702,7 @@ getRow(6,8)->
     exp = 1270,
     intimacy = 58,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,24260},{136,1102},{137,1102},{139,551},{144,220}],
     levelLimit = 0
     };
@@ -714,7 +714,7 @@ getRow(6,9)->
     exp = 1300,
     intimacy = 59,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,25040},{136,1138},{137,1138},{139,569},{144,227}],
     levelLimit = 0
     };
@@ -726,9 +726,9 @@ getRow(6,10)->
     exp = 1320,
     intimacy = 60,
     name = "中级婚戒",
-    model = "Prefab/role/ring/ring_2",
+    model = "Prefab/role/ring/ring2",
     property = [{135,25833},{136,1174},{137,1174},{139,587},{144,234}],
-    break_itemID = [{101,10},{102,10}],
+    break_itemID = [{26006,1},{26007,1},{26008,1}],
     levelLimit = 65
     };
 getRow(7,1)->
@@ -739,7 +739,7 @@ getRow(7,1)->
     exp = 1350,
     intimacy = 61,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,26640},{136,1210},{137,1210},{139,605},{144,242},{140,363},{145,242}],
     levelLimit = 0
     };
@@ -751,7 +751,7 @@ getRow(7,2)->
     exp = 1370,
     intimacy = 62,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,27460},{136,1248},{137,1248},{139,624},{144,249},{140,374},{145,249}],
     levelLimit = 0
     };
@@ -763,7 +763,7 @@ getRow(7,3)->
     exp = 1400,
     intimacy = 63,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,28295},{136,1286},{137,1286},{139,643},{144,257},{140,385},{145,257}],
     levelLimit = 0
     };
@@ -775,7 +775,7 @@ getRow(7,4)->
     exp = 1420,
     intimacy = 64,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,29142},{136,1324},{137,1324},{139,662},{144,264},{140,397},{145,264}],
     levelLimit = 0
     };
@@ -787,7 +787,7 @@ getRow(7,5)->
     exp = 1450,
     intimacy = 65,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,30003},{136,1363},{137,1363},{139,681},{144,272},{140,409},{145,272}],
     levelLimit = 0
     };
@@ -799,7 +799,7 @@ getRow(7,6)->
     exp = 1470,
     intimacy = 66,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,30878},{136,1403},{137,1403},{139,701},{144,280},{140,421},{145,280}],
     levelLimit = 0
     };
@@ -811,7 +811,7 @@ getRow(7,7)->
     exp = 1500,
     intimacy = 67,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,31767},{136,1443},{137,1443},{139,721},{144,288},{140,433},{145,288}],
     levelLimit = 0
     };
@@ -823,7 +823,7 @@ getRow(7,8)->
     exp = 1520,
     intimacy = 68,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,32669},{136,1484},{137,1484},{139,742},{144,296},{140,445},{145,296}],
     levelLimit = 0
     };
@@ -835,7 +835,7 @@ getRow(7,9)->
     exp = 1540,
     intimacy = 69,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,33584},{136,1526},{137,1526},{139,763},{144,305},{140,457},{145,305}],
     levelLimit = 0
     };
@@ -847,9 +847,9 @@ getRow(7,10)->
     exp = 1570,
     intimacy = 70,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,34513},{136,1568},{137,1568},{139,784},{144,313},{140,470},{145,313}],
-    break_itemID = [{101,10},{102,10}],
+    break_itemID = [{26009,1},{26010,1},{26011,1}],
     levelLimit = 70
     };
 getRow(8,1)->
@@ -860,7 +860,7 @@ getRow(8,1)->
     exp = 1590,
     intimacy = 71,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,35456},{136,1611},{137,1611},{139,805},{144,322},{140,483},{145,322}],
     levelLimit = 0
     };
@@ -872,7 +872,7 @@ getRow(8,2)->
     exp = 1620,
     intimacy = 72,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,36412},{136,1655},{137,1655},{139,827},{144,331},{140,496},{145,331}],
     levelLimit = 0
     };
@@ -884,7 +884,7 @@ getRow(8,3)->
     exp = 1640,
     intimacy = 73,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,37382},{136,1699},{137,1699},{139,849},{144,339},{140,509},{145,339}],
     levelLimit = 0
     };
@@ -896,7 +896,7 @@ getRow(8,4)->
     exp = 1670,
     intimacy = 74,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,38365},{136,1743},{137,1743},{139,871},{144,348},{140,523},{145,348}],
     levelLimit = 0
     };
@@ -908,7 +908,7 @@ getRow(8,5)->
     exp = 1690,
     intimacy = 75,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,39362},{136,1789},{137,1789},{139,894},{144,357},{140,536},{145,357}],
     levelLimit = 0
     };
@@ -920,7 +920,7 @@ getRow(8,6)->
     exp = 1720,
     intimacy = 76,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,40372},{136,1835},{137,1835},{139,917},{144,367},{140,550},{145,367}],
     levelLimit = 0
     };
@@ -932,7 +932,7 @@ getRow(8,7)->
     exp = 1750,
     intimacy = 77,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,41396},{136,1881},{137,1881},{139,940},{144,376},{140,564},{145,376}],
     levelLimit = 0
     };
@@ -944,7 +944,7 @@ getRow(8,8)->
     exp = 1770,
     intimacy = 78,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,42434},{136,1928},{137,1928},{139,964},{144,385},{140,578},{145,385}],
     levelLimit = 0
     };
@@ -956,7 +956,7 @@ getRow(8,9)->
     exp = 1800,
     intimacy = 79,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,43485},{136,1976},{137,1976},{139,988},{144,395},{140,592},{145,395}],
     levelLimit = 0
     };
@@ -968,9 +968,9 @@ getRow(8,10)->
     exp = 1820,
     intimacy = 80,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,44550},{136,2025},{137,2025},{139,1012},{144,405},{140,607},{145,405}],
-    break_itemID = [{101,10},{102,10}],
+    break_itemID = [{26009,1},{26010,1},{26011,1}],
     levelLimit = 75
     };
 getRow(9,1)->
@@ -978,10 +978,10 @@ getRow(9,1)->
     id = 81,
     stage = 9,
     level = 1,
-    exp = 810,
+    exp = 1820,
     intimacy = 81,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,44550},{136,2025},{137,2025},{139,1012},{144,405},{140,607},{145,405}],
     levelLimit = 0
     };
@@ -990,10 +990,10 @@ getRow(9,2)->
     id = 82,
     stage = 9,
     level = 2,
-    exp = 820,
+    exp = 1820,
     intimacy = 82,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,44550},{136,2025},{137,2025},{139,1012},{144,405},{140,607},{145,405}],
     levelLimit = 0
     };
@@ -1002,10 +1002,10 @@ getRow(9,3)->
     id = 83,
     stage = 9,
     level = 3,
-    exp = 830,
+    exp = 1820,
     intimacy = 83,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,44550},{136,2025},{137,2025},{139,1012},{144,405},{140,607},{145,405}],
     levelLimit = 0
     };
@@ -1014,10 +1014,10 @@ getRow(9,4)->
     id = 84,
     stage = 9,
     level = 4,
-    exp = 840,
+    exp = 1820,
     intimacy = 84,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,44550},{136,2025},{137,2025},{139,1012},{144,405},{140,607},{145,405}],
     levelLimit = 0
     };
@@ -1026,10 +1026,10 @@ getRow(9,5)->
     id = 85,
     stage = 9,
     level = 5,
-    exp = 850,
+    exp = 1820,
     intimacy = 85,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,44550},{136,2025},{137,2025},{139,1012},{144,405},{140,607},{145,405}],
     levelLimit = 0
     };
@@ -1038,10 +1038,10 @@ getRow(9,6)->
     id = 86,
     stage = 9,
     level = 6,
-    exp = 860,
+    exp = 1820,
     intimacy = 86,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,44550},{136,2025},{137,2025},{139,1012},{144,405},{140,607},{145,405}],
     levelLimit = 0
     };
@@ -1050,10 +1050,10 @@ getRow(9,7)->
     id = 87,
     stage = 9,
     level = 7,
-    exp = 870,
+    exp = 1820,
     intimacy = 87,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,44550},{136,2025},{137,2025},{139,1012},{144,405},{140,607},{145,405}],
     levelLimit = 0
     };
@@ -1062,10 +1062,10 @@ getRow(9,8)->
     id = 88,
     stage = 9,
     level = 8,
-    exp = 880,
+    exp = 1820,
     intimacy = 88,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,44550},{136,2025},{137,2025},{139,1012},{144,405},{140,607},{145,405}],
     levelLimit = 0
     };
@@ -1074,10 +1074,10 @@ getRow(9,9)->
     id = 89,
     stage = 9,
     level = 9,
-    exp = 890,
+    exp = 1820,
     intimacy = 89,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,44550},{136,2025},{137,2025},{139,1012},{144,405},{140,607},{145,405}],
     levelLimit = 0
     };
@@ -1086,12 +1086,12 @@ getRow(9,10)->
     id = 90,
     stage = 9,
     level = 10,
-    exp = 900,
+    exp = 1820,
     intimacy = 90,
     name = "高级婚戒",
-    model = "Prefab/role/ring/ring_3",
+    model = "Prefab/role/ring/ring3",
     property = [{135,44550},{136,2025},{137,2025},{139,1012},{144,405},{140,607},{145,405}],
-    break_itemID = [{101,10},{102,10}],
+    break_itemID = [{26009,1},{26010,1},{26011,1}],
     levelLimit = 80
     };
 getRow(_,_)->[].

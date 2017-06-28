@@ -1153,8 +1153,8 @@
 	accountID = 0,				%%帐号ID bigint(8)
 	playerID = 0,				%%角色ID bigint(8)
 	orderid,				%%订单号 varbinary(255)
-	payMoney,				%%充值现实货币 float
-	gameCoin,				%%充值获得元宝值 float
+	payMoney = 0.0,				%%充值现实货币 float
+	gameCoin = 0.0,				%%充值获得元宝值 float
 	recharge_item_relation_id,				%%充值的物品映射id varbinary(255)
 	recharge_item_relation_number = 0,				%%充值映射物品个数 int(11)
 	game_recharge_state = 0,				%%充值订单的状态 int(11)

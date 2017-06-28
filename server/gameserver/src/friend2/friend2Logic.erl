@@ -659,6 +659,7 @@ closenessAdd({CAT, RoleID, TargetRoleID, ClosenessAdd}) ->
 			%% 通知玩家
 			case core:queryOnLineRoleByRoleID(RoleID) of
 				#rec_OnlinePlayer{netPid = NetPid_A} ->
+
 					gsSendMsg:sendNetMsg(
 						NetPid_A,
 						#pk_GS2U_Friend2ClosenessChange_Sync{
@@ -666,11 +667,13 @@ closenessAdd({CAT, RoleID, TargetRoleID, ClosenessAdd}) ->
 							closeness = RelationNewMine#rec_friend2_relation.closeness
 						}
 					);
+
 				_ ->
 					skip
 			end,
 			case core:queryOnLineRoleByRoleID(TargetRoleID) of
 				#rec_OnlinePlayer{netPid = NetPid_B} ->
+
 					gsSendMsg:sendNetMsg(
 						NetPid_B,
 						#pk_GS2U_Friend2ClosenessChange_Sync{

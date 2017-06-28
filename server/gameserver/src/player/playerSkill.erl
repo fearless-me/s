@@ -1103,13 +1103,15 @@ useSkill3(true, SN, SkillID, Skill, Damage, MainCode, CodeList, SkillList) ->
 	playerState:setSkill(NewSkill),
 	SpecSkillList = getSpecSkill(),
 	NewList = skill:clacAttackTargetNum(Misc, Times, CodeList),
-	playerBattle:attack(Skill1, SN, NewList, SpecSkillList, MainCode);
+	playerBattle:attack(Skill1, SN, NewList, SpecSkillList, MainCode),
+	playerEffect:addSkillUseEffect(SkillID, Skill1#recSkill.level);
 useSkill3(_, SN, SkillID, Skill, Damage, MainCode, CodeList, SkillList) ->
 	releaseTriggerSkill(SkillID),
 	{true, Skill1} = skill:calcUserSkillTreat(Skill, Damage),
 	NewSkill = lists:keyreplace(SkillID, #recSkill.skillID, SkillList, Skill1),
 	playerState:setSkill(NewSkill),
-	playerBattle:treat(Skill1, SN, CodeList, MainCode).
+	playerBattle:treat(Skill1, SN, CodeList, MainCode),
+	playerEffect:addSkillUseEffect(SkillID, Skill1#recSkill.level).
 
 %------------------------------------------
 %使用技能

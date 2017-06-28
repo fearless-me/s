@@ -30,17 +30,20 @@
         %%: 开门的id
         openthedoor4,
 
+        %%: show1文字框，调用show1表groupid字段
         play_show1,
 
-        %%: 菡琦:
-        %%: 参看show2表
+        %%: show2文字框，调用show2表groupid字段（不要配在并行进度里【mapsetting表parallelScheduleConf字段】，只配在主进度里【mapsetting表scheduleConf字段】，因为show2会暂时中断其他进程）
         play_show2,
+
+        %%: show2对话的超时时间，如果超过这个时间仍然没有对完话，直接跳过此进度show2对话
+        cd_show2,
 
         %%: 开始前文字id索引，调取copymapScheduleCharacters表id字段
         characters,
 
-        %%: 波数完成提示（单纯显示用，与正常实际进度不冲突）
-        %%: 显示当前波数与总波数，配置格式[X,Y],X为当前波数，Y为总波数
+        %%: 该功能废弃（可能与characters配置冲突）
+        %%: 原波数提示文字（当前改为界面显示波数形式，代码）
         progress,
 
         %%: 怪物坐标随机刷新范围半径，单位米

@@ -12,7 +12,7 @@ getRow(0,0)->
     resources = "m_3016",
     location = [-0.63,-3,9.42],
     scale = 0.9,
-    skill = [0],
+    skill = [],
     exp = 0,
     name = "回怒技能"
     };
@@ -23,7 +23,7 @@ getRow(1,0)->
     resources = "m_3016",
     location = [-0.63,-3,9.42],
     scale = 0.9,
-    skill = [0],
+    skill = [],
     exp = 0,
     name = "火器灵",
     txt = "元素之火坠入魔力之眼，创造出了具备自己意识的火焰器灵。"
@@ -874,7 +874,7 @@ getRow(2,0)->
     resources = "m_3006",
     location = [-0.63,-3,9.42],
     scale = 0.9,
-    skill = [0],
+    skill = [],
     exp = 0,
     name = "冰器灵",
     txt = "元素之火坠入魔力之眼，创造出了具备自己意识的冰霜器灵。"
@@ -1725,7 +1725,7 @@ getRow(3,0)->
     resources = "m_3026",
     location = [-0.63,-4.04,9.42],
     scale = 1,
-    skill = [0],
+    skill = [],
     exp = 0,
     name = "雷器灵",
     txt = "元素之火坠入魔力之眼，创造出了具备自己意识的雷电器灵。"
@@ -2576,7 +2576,7 @@ getRow(4,0)->
     resources = "m_3021",
     location = [-0.63,-3.85,9.42],
     scale = 1,
-    skill = [0],
+    skill = [],
     exp = 0,
     name = "风器灵",
     txt = "元素之火坠入魔力之眼，创造出了具备自己意识的飓风器灵。"
@@ -3427,7 +3427,7 @@ getRow(5,0)->
     resources = "m_3011",
     location = [-0.63,-3,9.42],
     scale = 1,
-    skill = [0],
+    skill = [],
     exp = 0,
     name = "光器灵",
     txt = "元素之火坠入魔力之眼，创造出了具备自己意识的光明器灵。"
@@ -4278,7 +4278,7 @@ getRow(6,0)->
     resources = "m_3001",
     location = [-0.63,-3,9.42],
     scale = 1,
-    skill = [0],
+    skill = [],
     exp = 0,
     name = "暗器灵",
     txt = "元素之火坠入魔力之眼，创造出了具备自己意识的黑暗器灵。"

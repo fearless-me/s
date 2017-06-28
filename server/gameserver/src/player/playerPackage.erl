@@ -861,6 +861,8 @@ getGoodsByID(GoodsID, BagType) when BagType =:= ?Item_Location_Bag; BagType =:= 
 
 %%获取普通背包指定ID的非锁定道具数量
 -spec getItemNumByID(GoodsID) -> uint() when GoodsID :: uint().
+getItemNumByID(0) ->
+	0;
 getItemNumByID(GoodsID) ->
 	getGoodsNumByID(?Item_Location_Bag, GoodsID).
 
@@ -1223,6 +1225,7 @@ addGoods(GoodsID, GoodsNum, IsBind, EquipQuality, IsSendMail,
 									skip
 							end
 					end,
+					playerSevenDayAim:updateCondition(?SevenDayAim_EquipQuality, []),
 					addGoodCallBack(GoodsSource, Equip, GoodsNum);
 				[#rec_item{} | _] = Item ->
 					addGoodCallBack(GoodsSource, Item, GoodsNum);
@@ -2575,6 +2578,7 @@ gemEmbedOn1(#pk_GemEmbedInfo{gemUID = GemUID, slot = Slot}) when erlang:is_integ
 										#rec_item{itemUID = NewGemUID, pileNum = PNum} = SplittedItem ->
 											%%宝石镶嵌成就统计
 											statEmbedGemLevel(GemID),
+											playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Gem),
 											%%修改宝石镶嵌位置
 											Item = SplittedItem#rec_item{pos = makeEmbedGemPos(Slot), isBind = false},
 											PLog = #recPLogTSItem{
@@ -2597,6 +2601,7 @@ gemEmbedOn1(#pk_GemEmbedInfo{gemUID = GemUID, slot = Slot}) when erlang:is_integ
 								_ ->
 									%%宝石镶嵌成就统计
 									statEmbedGemLevel(GemID),
+									playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Gem),
 									%%如果原来的宝石只有一个，则直接移动到镶嵌位置
 									Item = GemItem#rec_item{pos = makeEmbedGemPos(Slot), isBind = false},
 									moveItem(GemUID, ?Item_Location_GemEmbedBag, ?Item_Location_Gem_Bag, #rec_item.itemUID, Item)

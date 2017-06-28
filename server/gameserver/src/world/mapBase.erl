@@ -182,10 +182,14 @@ killMonster(MonsterCode, MonsterID, GroupID,AttackerCode) ->
 	mapWildBoss:wildBossBeKilled(MonsterID,MonsterCode),
 	goblinLogic:goblinBeKilled(MonsterID),
 	needBoardcastMonsterNum(),%%判断，需要就广播
-	
-	%%boss战检查
-%%	acWorldBossLogic:bossDied(mapState:getMapId(), MonsterCode, MonsterID),
-	
+
+	%% 竞技场统计
+	case mapState:getMapId() of
+		?Ladder1v1MapID ->
+			psMgr:sendMsg2PS(?PsNameLadder1v1, ladder1v1_monster_dead, MonsterID);
+		_ ->
+			skip
+	end,
 	ok.
 
 -spec reclaimAllCode() -> ok.

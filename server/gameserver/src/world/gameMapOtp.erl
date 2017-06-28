@@ -211,13 +211,13 @@ handle_info({addBuff4KingMarror, _Pid, BuffID}, State) ->
 
 %%cs广播大区伤害前20名
 handle_info({boardcastDamageRank, _Pid, Rank}, State) ->
-	acWorldBossLogic:boardcastDamageRank(Rank),
+%%	acWorldBossLogic:boardcastDamageRank(Rank),
 	{noreply, State};
 
 %%BOSS战位面根据进度给位面产怪
 handle_info({addMonsterBySchedule, ScheduleNum}, State) ->
 	?DEBUG_OUT("addMonsterBySchedule:~w", [ScheduleNum]),
-	acWorldBossLogic:initSchedule(ScheduleNum),
+%%	acWorldBossLogic:initSchedule(ScheduleNum),
 	{noreply, State};
 
 %% 初始化位面分组
@@ -382,7 +382,28 @@ handle_info({playerEntermap, PID, {PlayerCode, GroupID}}, State) ->
 			end,
 			gameMapLogic:sendMapLeftTimeToMapPlayer(NetPid),
 			copyMapGoddess:initFirstSchedule4demonBattle(PID),
-			gameMapActivityLogic:playerEnterACMap(RoleID, RoleObj);
+			gameMapActivityLogic:playerEnterACMap(RoleID, RoleObj),
+
+			%% 同步全图血怪给客户端
+			FMap =
+				fun(#recMapObject{type = OType, id = MID} = Obj, AccList) ->
+					case OType of
+						?ObjTypeMonster ->
+							case monsterInterface:isMonsterShowMapHP(MID) of
+								true -> [Obj | AccList];
+								_ -> AccList
+							end;
+						_ -> AccList
+					end
+				end,
+			case ets:foldl(FMap, [], mapState:getMapMonsterEts()) of
+				[] -> skip;
+				MonsterMapList ->
+					%% 需要全图血量同步的怪物
+					MonsterInfoList = playerMap:findMonsterInfoList(MonsterMapList),
+					gsSendMsg:sendNetMsg(NetPid, #pk_GS2U_MonsterList{monster_list = MonsterInfoList})
+			end,
+			ok;
 		_ ->
 			?ERROR_OUT("~p ~p playerEntermap:code=~p, but not in ets", [?MODULE, self(), PlayerCode]),
 			skip
@@ -426,7 +447,7 @@ handle_info({clearGroupAllObject, _Pid, GroupID}, State) ->
 	?LOG_OUT("~p ~p clearGroupAllObject:~p", [?MODULE, self(), GroupID]),
 	gameMapLogic:clearGroupAllObject(GroupID),
 	gameMapLogic:kickAllPlayer(GroupID),
-	acWorldBossLogic:clearGroupID(mapState:getMapId(), GroupID),
+%%	acWorldBossLogic:clearGroupID(mapState:getMapId(), GroupID),
 	{noreply, State};
 
 handle_info({goonCopyMap, _Pid, Data}, State) ->
@@ -898,6 +919,9 @@ handle_info({worldBossSetHp, _Pid, {DataID, HP}}, State) ->
 	gameMapWorldBoss:setHp(DataID, HP),
 	{noreply,State};
 %% ====================================================================
+handle_info({show2, _Pid, Msg}, State) ->
+	copyMapScheduleInit:show2(Msg),
+	{noreply,State};
 handle_info(Info, State) ->
 	?ERROR_OUT("unhandle info:[~p] in [~p] [~p,~p]", [Info, node(), ?MODULE, self()]),
 	{noreply, State}.

@@ -29,7 +29,8 @@
     setExploitValue/1,
     worshipTarget/1,
     insertSelfToLadderList/1,
-    clearLadderMatchState/1
+    clearLadderMatchState/1,
+	updateRankMin/2
 ]).
 
 %% 请求创建一个比赛
@@ -155,36 +156,32 @@ battlePrepare(MapPID) ->
 	L = ladder1v1State:getLadderGameMatchList(),
 	#recladder1v1match{createPlayerNetPID = NetPID} = R = lists:keyfind(MapPID, #recladder1v1match.battlemapPID, L),
     NowTime = time:getSyncTime1970FromDBS(),
-    NR = R#recladder1v1match{phase = ?Ladder1v1_Phase_Prepare, time = NowTime, prepareTime = ?Battle_Prepare_Time},
+    NR = R#recladder1v1match{phase = ?Ladder1v1_Phase_Prepare, time = NowTime, prepareTime = ?Battle_Prepare_Time + 1},
 	NL = lists:keystore(MapPID, #recladder1v1match.battlemapPID, L, NR),
     ladder1v1State:setLadderGameMatchList(NL),
 
 	%% 两者战斗力相差太大，需要给强者补属性
-	case uidMgr:checkUID(?UID_TYPE_Role, R#recladder1v1match.targetRoleID) of
-		true ->
-			PForce1 = queryRoleForce(R#recladder1v1match.createRoleID),
-			PForce2 = queryRoleForce(R#recladder1v1match.targetRoleID),
-			Diff = erlang:abs(PForce1 - PForce2),
-			#globalsetupCfg{setpara = List} = getCfg:getCfgPStack(cfg_globalsetup, jjc_plus),
-			case lists:filter(fun({S, E, _PropList}) -> Diff >= S andalso Diff =< E end, List) of
-				[{_,_,PropList}] ->
-					%% 匹配上了，通知玩家进程修正属性
-					case PForce1 > PForce2 of
-						true ->
-							psMgr:sendMsg2PS(R#recladder1v1match.createPlayerPID, ladder1v1_addprop, PropList);
-						_ ->
-							psMgr:sendMsg2PS(R#recladder1v1match.targetPlayerPID, ladder1v1_addprop, PropList)
-					end;
-				_ ->
-					skip
-			end;
-		_ ->
-			skip
-	end,
-
-    %% 客户端开始倒计时
-    Msg = #pk_GS2U_PrepareSec{second = ?Battle_Prepare_Time},
-    gsSendMsg:sendNetMsg(NetPID, Msg),
+%%	case uidMgr:checkUID(?UID_TYPE_Role, R#recladder1v1match.targetRoleID) of
+%%		true ->
+%%			PForce1 = queryRoleForce(R#recladder1v1match.createRoleID),
+%%			PForce2 = queryRoleForce(R#recladder1v1match.targetRoleID),
+%%			Diff = erlang:abs(PForce1 - PForce2),
+%%			#globalsetupCfg{setpara = List} = getCfg:getCfgPStack(cfg_globalsetup, jjc_plus),
+%%			case lists:filter(fun({S, E, _PropList}) -> Diff >= S andalso Diff =< E end, List) of
+%%				[{_,_,PropList}] ->
+%%					%% 匹配上了，通知玩家进程修正属性
+%%					case PForce1 > PForce2 of
+%%						true ->
+%%							psMgr:sendMsg2PS(R#recladder1v1match.createPlayerPID, ladder1v1_addprop, PropList);
+%%						_ ->
+%%							psMgr:sendMsg2PS(R#recladder1v1match.targetPlayerPID, ladder1v1_addprop, PropList)
+%%					end;
+%%				_ ->
+%%					skip
+%%			end;
+%%		_ ->
+%%			skip
+%%	end,
 	ok.
 
 battlestart(MapPID) ->
@@ -270,7 +267,8 @@ deleteRole({RoleID, MonsterID}) ->
                         cur_win = 0,				%%当前连胜 smallint(5) unsigned
                         max_win = 0,				%%最大连胜 smallint(5) unsigned
                         win_times = 0,				%%累计胜利 smallint(5) unsigned
-                        worship_times = 0			%%被膜拜总次数 smallint(5) unsigned
+                        worship_times = 0,			%%被膜拜总次数 smallint(5) unsigned
+						rankMin = 0
                     },
                     ets:update_element(ets_rec_ladder_1v1, Rank,
                         [
@@ -279,7 +277,8 @@ deleteRole({RoleID, MonsterID}) ->
                             {#rec_ladder_1v1.cur_win, 0},
                             {#rec_ladder_1v1.max_win, 0},
                             {#rec_ladder_1v1.win_times, 0},
-                            {#rec_ladder_1v1.worship_times, 0}
+                            {#rec_ladder_1v1.worship_times, 0},
+                            {#rec_ladder_1v1.rankMin, 0}
                         ]),
 
                     psMgr:sendMsg2PS(core:getPublicDataMgrOtp(), saveladder1v1data, {update, NRec}),
@@ -337,9 +336,15 @@ insertSelfToLadderList(RoleID) ->
                     end
                 end,
             New = ets:foldl(F, 0, ets_rec_ladder_1v1) + 1,
-            R = #rec_ladder_1v1{rankSort = New, roleID = RoleID},
+            R = #rec_ladder_1v1{rankSort = New, roleID = RoleID, rankMin = New},
             ets:insert(ets_rec_ladder_1v1, R),
             psMgr:sendMsg2PS(core:getPublicDataMgrOtp(), saveladder1v1data, {insert, [R]}),
+			case core:queryOnLineRoleByRoleID(RoleID) of
+				#rec_OnlinePlayer{pid = Pid} ->
+					psMgr:sendMsg2PS(Pid, updateRankMin, New);
+				_ ->
+					skip
+			end,
             ok;
         _ ->
             skip
@@ -374,6 +379,13 @@ clearLadderMatchState({TargetRoleID, Time}) ->
             skip
     end,
     ok.
+
+updateRankMin(RankNew, 0) ->
+	RankNew;
+updateRankMin(RankNew, RankMin) when RankMin < RankNew ->
+	RankMin;
+updateRankMin(RankNew, _RankMin) ->
+	RankNew.
 
 %% 玩家离开比赛地图
 -spec playerleaveLadder1v1Map({Rank::uint(), RoleID::uint64(), PlayerPid::pid()}) -> ok.
@@ -573,7 +585,10 @@ dealMatchResult(CreateRank, TargetRank, Result) ->
                 case CreateRank > TargetRank of
                     true ->
                         %% 挑战者排名比对方低，且挑战者赢了，交换位置，晋级
-                        {P3#rec_ladder_1v1{rankSort = TargetRank}, P4#rec_ladder_1v1{rankSort = CreateRank}};
+                        {
+							P3#rec_ladder_1v1{rankSort = TargetRank, rankMin = updateRankMin(TargetRank, P3#rec_ladder_1v1.rankMin)},
+							P4#rec_ladder_1v1{rankSort = CreateRank}
+						};
                     _ ->
                         {P3, P4}
                 end;
@@ -587,6 +602,18 @@ dealMatchResult(CreateRank, TargetRank, Result) ->
                 P4 = P2#rec_ladder_1v1{exploit = E2 + 0},
                 {P3, P4}
         end,
+
+	case NP1#rec_ladder_1v1.rankMin < P3#rec_ladder_1v1.rankMin of
+		true ->
+			case core:queryOnLineRoleByRoleID(NP1#rec_ladder_1v1.roleID) of
+				#rec_OnlinePlayer{pid = Pid} ->
+					psMgr:sendMsg2PS(Pid, updateRankMin, NP1#rec_ladder_1v1.rankMin);
+				_ ->
+					skip
+			end;
+		_ ->
+			skip
+	end,
 
     %% 保存NP1,先更新主表
     ets:insert(ets_rec_ladder_1v1, NP1),
@@ -766,25 +793,19 @@ ladder1v1BattlePhase(NowTime,
 		prepareTime = PrePareTime,
 		createPlayerNetPID = NetPID,
 		battlemapPID = MapPID} = Rec) ->
-	%% 准备阶段
-	case NowTime - Time >= ?Battle_Prepare_Time of
+	case PrePareTime > 0 of
 		true ->
-			%% 准备时间结束
-			battlestart(MapPID);
-		_ ->
-			case PrePareTime > 0 of
-				true ->
-					NPrePareTime = PrePareTime - 1,
-					L = ladder1v1State:getLadderGameMatchList(),
-					NL = lists:keystore(MapPID, #recladder1v1match.battlemapPID, L, Rec#recladder1v1match{prepareTime = NPrePareTime}),
-					ladder1v1State:setLadderGameMatchList(NL),
+			NPrePareTime = PrePareTime - 1,
+			L = ladder1v1State:getLadderGameMatchList(),
+			NL = lists:keystore(MapPID, #recladder1v1match.battlemapPID, L, Rec#recladder1v1match{prepareTime = NPrePareTime}),
+			ladder1v1State:setLadderGameMatchList(NL),
 
-					%% 通知客户端倒计时
-					gsSendMsg:sendNetMsg(NetPID, #pk_GS2U_PrepareSec{second = NPrePareTime}),
-					ok;
-				_ ->
-					skip
-			end
+			%% 通知客户端倒计时
+			gsSendMsg:sendNetMsg(NetPID, #pk_GS2U_PrepareSec{second = NPrePareTime}),
+			ok;
+		_ ->
+			%% 准备时间结束
+			battlestart(MapPID)
 	end,
 	ok;
 ladder1v1BattlePhase(NowTime, #recladder1v1match{phase = ?Ladder1v1_Phase_Battle, time = Time, battlemapPID = MapPID}) ->

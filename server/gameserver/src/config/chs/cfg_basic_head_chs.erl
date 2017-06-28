@@ -8,20 +8,17 @@
 getRow(1)->
     #basic_headCfg {
     id = 1,
-    icon = [1001,1101,2001,2101],
-    model = "[10fashion/head_10_1,11fashion/head_11_1,20fashion/head_30_4,21fashion/head_31_4]"
+    icon = [1001,1101,2001,2101]
     };
 getRow(2)->
     #basic_headCfg {
     id = 2,
-    icon = [1001,1101,2001,2101],
-    model = "[10fashion/head_10_1,11fashion/head_11_1,20fashion/head_30_4,21fashion/head_31_4]"
+    icon = [1001,1101,2001,2101]
     };
 getRow(3)->
     #basic_headCfg {
     id = 3,
-    icon = [1001,1101,2001,2101],
-    model = "[10fashion/head_10_1,11fashion/head_11_1,20fashion/head_30_4,21fashion/head_31_4]"
+    icon = [1001,1101,2001,2101]
     };
 getRow(_)->[].
 

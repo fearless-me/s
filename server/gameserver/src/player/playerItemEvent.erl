@@ -357,11 +357,25 @@ useItemGetPet(#rec_item{},#recUseItemArg{useArg1 = _UseArg1}) ->
 	1.
 
 %% 获得坐骑外观 Param1:MountSkinID
-useItemGetPetMount(#rec_item{},#recUseItemArg{useArg1 = UseArg1}) ->
-	case playerPet:petMake(UseArg1) of
+useItemGetPetMount(#rec_item{itemID = ItemID},#recUseItemArg{useArg1 = PetID, useArg2 = ChipID, useArg3 = Number}) ->
+	case playerPet:petMake(PetID) of
 		false ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_PetHasExistError),
-			0;
+%%			playerMsg:sendErrorCodeMsg(?ErrorCode_PetHasExistError),
+
+			PLog = #recPLogTSItem{
+				old = 0,
+				new = Number,
+				change = Number,
+				target = ?PLogTS_PlayerSelf,
+				source = ?PLogTS_PlayerSelf,
+				gold = 0,
+				goldtype = 0,
+				changReason = ?ItemSourcePetToChip,
+				reasonParam = ItemID
+			},
+			playerPackage:addGoodsAndMail(ChipID, Number, true, 0, PLog),
+
+			1;
 		_ ->
 			1
 	end.

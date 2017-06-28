@@ -8262,13 +8262,13 @@ getRow(20000)->
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 20000,
+    param1 = 15000,
     param2 = 0,
     param3 = 0,
-    param4 = 5000,
+    param4 = 2800,
     param5 = 0,
-    param6 = 0,
-    skillName = "首领入侵2号boss载体"
+    param6 = 1,
+    skillName = "首领入侵4号boss载体"
     };
 getRow(20001)->
     #skill_effectCfg {
@@ -8282,7 +8282,7 @@ getRow(20001)->
     param3 = 0,
     param4 = 5000,
     param5 = 0,
-    param6 = 0,
+    param6 = 1,
     skillName = "首领入侵4号boss载体"
     };
 getRow(20002)->
@@ -8297,7 +8297,7 @@ getRow(20002)->
     param3 = 0,
     param4 = 1500,
     param5 = 0,
-    param6 = 0,
+    param6 = 1,
     skillName = "首领入侵4号boss载体"
     };
 getRow(20003)->
@@ -8312,7 +8312,7 @@ getRow(20003)->
     param3 = 0,
     param4 = 5000,
     param5 = 0,
-    param6 = 0,
+    param6 = 1,
     skillName = "首领入侵4号boss载体"
     };
 getRow(20004)->
@@ -8322,13 +8322,13 @@ getRow(20004)->
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 20004,
+    param1 = 15004,
     param2 = 0,
     param3 = 0,
-    param4 = 5000,
+    param4 = 3500,
     param5 = 0,
-    param6 = 0,
-    skillName = "野外1号boss载体"
+    param6 = 1,
+    skillName = "首领入侵4号boss载体"
     };
 getRow(20005)->
     #skill_effectCfg {
@@ -8342,7 +8342,7 @@ getRow(20005)->
     param3 = 0,
     param4 = 5000,
     param5 = 0,
-    param6 = 0,
+    param6 = 1,
     skillName = "野外5号boss载体"
     };
 getRow(20006)->
@@ -8357,7 +8357,7 @@ getRow(20006)->
     param3 = 0,
     param4 = 7000,
     param5 = 0,
-    param6 = 0,
+    param6 = 1,
     skillName = "野外5号boss载体"
     };
 getRow(30001)->

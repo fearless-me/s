@@ -91,7 +91,18 @@
 	?SerProp_PetTerritoryVigor,
 	?SerProp_Guild_GodBless_Schedule,
 	?SerProp_LotterySys,
-	?SerProp_PetAssistBattleInfo
+	?SerProp_PetAssistBattleInfo,
+	?SerProp_SevenDayAim_CopyMap,
+	?SerProp_SevenDayAim_WarriorTrial,
+	?SerProp_SevenDayAim_FashionCount,
+	?SerProp_SevenDayAim_Force,
+	?SerProp_SevenDayAim_EquipQuality,
+	?SerProp_SevenDayAim_PetAdd,
+	?SerProp_SevenDayAimTimeBegin,
+	?SerProp_SevenDayAimAlreadyReward,
+	?SerProp_ThirtyDayTimeAlreadyReward,
+	?SerProp_SideTaskCompleteList,
+	?SerProp_SevenDayAim_ProtectGod
 ]).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -238,7 +249,19 @@
 -define(SerProp_Guild_ExchangeCur,	20067). % [{ID::uint32(), LevelCur::uint32()}, ...]家族系统-兑换功能 {对应配置ID, 受限制而只能使用的当前级别} 只存在内存，配合?SerProp_Guild_ExchangeMax使用
 -define(SerProp_Guild_GodBless_Schedule,	20068). % {LastTime::uint32(), [ID::uint32(), ...]}家族系统-女神祈福-领取进度奖励记录 {最后领取时间, [已领取的ID, ...]}
 -define(SerProp_LotterySys, 20069). % int64
--define(SerProp_End, 				20070).
+-define(SerProp_DanceState, 20070). % int 跳舞状态
+-define(SerProp_SevenDayAim_CopyMap,		20071).	% ?SevenDayAim_CopyMap		[MapID::uint16(),...]
+-define(SerProp_SevenDayAim_WarriorTrial,	20072).	% ?SevenDayAim_WarriorTrial	Layer::uint()
+-define(SerProp_SevenDayAim_FashionCount,	20073).	% ?SevenDayAim_FashionCount	[FashionID::uint16(),...]
+-define(SerProp_SevenDayAim_Force,			20074).	% ?SevenDayAim_Force		Force::uint64()
+-define(SerProp_SevenDayAim_EquipQuality,	20075).	% ?SevenDayAim_EquipQuality [Count::uint(),...]
+-define(SerProp_SevenDayAim_PetAdd,			20076).	% ?SevenDayAim_PetAdd 		[{PetID::uint16(),Count::uint()},...]
+-define(SerProp_SevenDayAimTimeBegin,		20077).	% 七日目标开始时间 与 30日大礼包开始时间兼容 目前设定的是角色首次登录当天凌晨4点的本地时间，时间格式如同time:getSyncTimeFromDBS/0
+-define(SerProp_SevenDayAimAlreadyReward,	20078).	% 七日目标已领取奖励 存的是seven_day_aimCfg.id [uint(),...]
+-define(SerProp_ThirtyDayTimeAlreadyReward,	20079).	% 30日大礼包已领取奖励 存的是已领取的最大thirty_day_login_giftCfg.id uint()
+-define(SerProp_SideTaskCompleteList, 20080).
+-define(SerProp_SevenDayAim_ProtectGod,		20081).	% ?SevenDayAim_ProtectGod	Wave::uint()
+-define(SerProp_End, 20082).
 -type serProp() :: ?SerProp_Start .. ?SerProp_End.
 
 

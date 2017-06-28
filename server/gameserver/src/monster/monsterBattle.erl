@@ -313,7 +313,7 @@ treat(MonsterCode, #recSkill{skillID = SkillID,
 			_ ->
 				psMgr:sendMsg2PS(TargetPid, beTreat, {Code, RecBeTreat, Hp_Per})
 		end
-	      end,
+		  end,
 	lists:foreach(Fun, TargetList).
 
 %%玩家技能回血并通知客服端
@@ -886,34 +886,46 @@ monsterBeHurt(true, MapID, AttackCode, AttackPid, AttackID, TargetCode, TargetID
 monsterBeHurt(_, _MapID, _AttackCode, _AttackPid, _AttackID, _TargetCode, _TargetID, _DiffHP) ->
 	skip.
 
-isStatHurt(?CrosArenaMapID1) ->
-	true;
-isStatHurt(?CrosArenaMapID2) ->
-	true;
-isStatHurt(?CrosArenaMapID3) ->
-	true;
-isStatHurt(?HDBattleMapID) ->
-	true;
-isStatHurt(?GuildBattleMapID) ->
-	true;
-isStatHurt(?EscortMapID) ->
-	true;
-isStatHurt(?GuildWarMapID) ->
-	true;
 isStatHurt(MapID) ->
-	case MapID =:= ?KingFightAllMapID of
-		true -> true;
-		false ->
-			#mapsettingCfg{
-				type = Type
-			} = getCfg:getCfgPStack(cfg_mapsetting, MapID),
-			if
-				Type =:= ?MapTypeActivity ->
-					true;
-				true ->
-					false
-			end
+	case getCfg:getCfgPStack(cfg_mapsetting, MapID) of
+		#mapsettingCfg{type = ?MapTypeActivity} ->
+			true;
+		#mapsettingCfg{type = ?MapTypeCopyMap} ->
+			true;
+		_ ->
+			false
 	end.
+
+%%
+%%isStatHurt(?CrosArenaMapID1) ->
+%%	true;
+%%isStatHurt(?CrosArenaMapID2) ->
+%%	true;
+%%isStatHurt(?CrosArenaMapID3) ->
+%%	true;
+%%isStatHurt(?HDBattleMapID) ->
+%%	true;
+%%isStatHurt(?GuildBattleMapID) ->
+%%	true;
+%%isStatHurt(?EscortMapID) ->
+%%	true;
+%%isStatHurt(?GuildWarMapID) ->
+%%	true;
+%%isStatHurt(MapID) ->
+%%	case MapID =:= ?KingFightAllMapID of
+%%		true ->
+%%			true;
+%%		false ->
+%%			#mapsettingCfg{
+%%				type = Type
+%%			} = getCfg:getCfgPStack(cfg_mapsetting, MapID),
+%%			if
+%%				Type =:= ?MapTypeActivity ->
+%%					true;
+%%				true ->
+%%					false
+%%			end
+%%	end.
 
 -spec isRecordDamage(Code :: uint(), MapID :: uint()) -> boolean().
 isRecordDamage(Code, ?WorldBossMapID) ->
@@ -1104,24 +1116,23 @@ broadcastAttackResult(
 ) ->
 	?DEBUG_OUT("skill(~p,~p),~p(~p) -> ~p(~p),diffHp:~p(~w)",
 		[SkillID, Serial, UseCode, APer, TargetCode, BPer, DiffHp, HpDamage]),
-	case mapState:getGoddessCode() of
-		Val when erlang:is_number(Val) andalso Val =:= DamageMsg#pk_GS2U_AttackResult.targetCode ->
-			Fun = fun(#recMapObject{pid = PlayerPid}) ->
-				psMgr:sendMsg2PS(PlayerPid, sendNetMsg, {DamageMsg})
-			      end,
-			gameMapLogic:doFun4AllPlayer(Fun),
-			ok;
+
+	%% 是否全服同步血量
+	case monsterInterface:isMonsterShowMapHP(monsterState:getId(TargetCode)) of
+		true ->
+			Fun =
+				fun(#recMapObject{pid = PlayerPid}) ->
+					psMgr:sendMsg2PS(PlayerPid, sendNetMsg, {DamageMsg})
+				end,
+			gameMapLogic:doFun4AllPlayer(Fun);
 		_ ->
 			%%非女神受伤
 			PlayerEts = monsterState:getMapPlayerEts(Code),
 			%%后面发送网络消息的时候，会因为damageHp不是整数而报错，这里处理一下
 			#pk_GS2U_AttackResult{damageHp = DList} = DamageMsg,
 			NewDList = [erlang:trunc(DamageHp) || DamageHp <- DList],
-			NewDamageMsg = DamageMsg#pk_GS2U_AttackResult{
-				damageHp = NewDList
-			},
+			NewDamageMsg = DamageMsg#pk_GS2U_AttackResult{damageHp = NewDList},
 			mapView:sendMsg2NearPlayerByPos(monsterState:getMapPid(Code), PlayerEts, NewDamageMsg, X, Y, monsterState:getGroupID(Code))
-
 	end,
 	ok.
 
@@ -1190,11 +1201,11 @@ calcSkillDamageToTarget(Code, #recBeAttack{attackerProp = Props, attackerLevel =
 						0
 				end,
 			FinalDamage2 = case FinalDamage1 < 1 of
-				               true ->
-					               1;
-				               _ ->
-					               FinalDamage1
-			               end,
+							   true ->
+								   1;
+							   _ ->
+								   FinalDamage1
+						   end,
 
 			Absorb = monsterState:getAbsorbShield(Code),
 			FinalDamage3 =
@@ -1326,11 +1337,11 @@ onDead(Code, AttackerPid1, AttackerCode1, AttackerName1, SkillID) ->
 	MapPid = monsterState:getMapPid(Code),
 
 	{AttackerPid, AttackerCode, AttackerName} = case getRandOwnerFromPlayerEts(Code, AttackerCode1, AttackerPid1) of
-		                                            {true, AttackerPid2, AttackerCode2, AttackerName2} ->
-			                                            {AttackerPid2, AttackerCode2, AttackerName2};
-		                                            _ ->
-			                                            {AttackerPid1, AttackerCode1, AttackerName1}
-	                                            end,
+													{true, AttackerPid2, AttackerCode2, AttackerName2} ->
+														{AttackerPid2, AttackerCode2, AttackerName2};
+													_ ->
+														{AttackerPid1, AttackerCode1, AttackerName1}
+												end,
 
 	?DEBUG_OUT("onDead Code=~p,~p AttackerPid=~p->~p, AttackerCode=~p->~p, AttackerName=~ts-~ts, SkillID=~p",
 		[Code, Type, AttackerPid1, AttackerPid, AttackerCode1, AttackerCode, AttackerName1, AttackerName, SkillID]),
@@ -1631,7 +1642,7 @@ dealOwnerAward(Code, AttackerCode, AttackerPid) ->
 						skip
 				end
 		end
-	       end,
+		   end,
 	lists:foreach(Func, OwnerList),
 
 	%% 最后处理杀死对象
@@ -1843,7 +1854,7 @@ assistTrigger(Code, SkillID) ->
 	HateList = monsterState:getHateList(Code),
 	Fun = fun(#recHate{hatePid = AttackerPid, hateCode = AttackerCode}) ->
 		psMgr:sendMsg2PS(AttackerPid, assistTrigger, {AttackerCode, SkillID})
-	      end,
+		  end,
 	lists:foreach(Fun, HateList).
 
 %%增加仇恨值
@@ -1940,7 +1951,7 @@ delBothHate(Code) ->
 			hateValue = 0
 		},
 		psMgr:sendMsg2PS(HatePid, delHate, {HaterCode, Hate1})
-	      end,
+		  end,
 	lists:foreach(Fun, HateList).
 
 %%通知客服端宠物仇恨变化
@@ -2013,47 +2024,47 @@ wildBossNoticePlayer(MonsterCode, HateCode, HatePid, IsShow) ->
 						true ->
 							TargetCode = monsterState:getAttackTarget(MonsterCode),
 							{RTargetCode, RIsShow} = case TargetCode of
-								                         undefined ->
-									                         {0, false};
-								                         _ ->
-									                         IsShow1 = case codeMgr:getObjectTypeByCode(HateCode) of
-										                                   ?ObjTypePlayer ->
-											                                   IsShow;
-										                                   _ ->
-											                                   true
-									                                   end,
-									                         %%怪物当前目标有可能是玩家召唤的宠物，玩家，玩家召唤的怪物，均传玩家的ID,要通知的Code是非玩家的Code，IsShow为true
-									                         case codeMgr:getObjectTypeByCode(TargetCode) of
-										                         ?ObjTypePlayer ->
-											                         case codeMgr:getObjectTypeByCode(HateCode) of
-												                         ?ObjTypePlayer ->
-													                         HateList = monsterState:getHateList(MonsterCode),
-													                         ?DEBUG_OUT("changeBuffState[~p][~p][~p]", [TargetCode, IsShow, HateList]),
-													                         psMgr:sendMsg2PS(HatePid, changeBuffState, IsShow andalso TargetCode =:= HateCode);
-												                         _ ->
-													                         skip
-											                         end,
-											                         {TargetCode, IsShow1};
-										                         ?ObjTypePet ->
-											                         PetEts = monsterState:getMapPetEts(MonsterCode),
-											                         case myEts:lookUpEts(PetEts, TargetCode) of
-												                         [#recMapObject{ownCode = EtsOwnCode} | _] ->
-													                         {EtsOwnCode, IsShow1};
-												                         _ ->
-													                         {0, false}
-											                         end;
-										                         ?ObjTypeMonster ->
-											                         MonsterEts = monsterState:getMapMonsterEts(MonsterCode),
-											                         case myEts:lookUpEts(MonsterEts, TargetCode) of
-												                         [#recMapObject{ownCode = EtsOwnCode} | _] ->
-													                         {EtsOwnCode, IsShow1};
-												                         _ ->
-													                         {0, false}
-											                         end;
-										                         _ ->
-											                         {0, false}
-									                         end
-							                         end,
+														 undefined ->
+															 {0, false};
+														 _ ->
+															 IsShow1 = case codeMgr:getObjectTypeByCode(HateCode) of
+																		   ?ObjTypePlayer ->
+																			   IsShow;
+																		   _ ->
+																			   true
+																	   end,
+															 %%怪物当前目标有可能是玩家召唤的宠物，玩家，玩家召唤的怪物，均传玩家的ID,要通知的Code是非玩家的Code，IsShow为true
+															 case codeMgr:getObjectTypeByCode(TargetCode) of
+																 ?ObjTypePlayer ->
+																	 case codeMgr:getObjectTypeByCode(HateCode) of
+																		 ?ObjTypePlayer ->
+																			 HateList = monsterState:getHateList(MonsterCode),
+																			 ?DEBUG_OUT("changeBuffState[~p][~p][~p]", [TargetCode, IsShow, HateList]),
+																			 psMgr:sendMsg2PS(HatePid, changeBuffState, IsShow andalso TargetCode =:= HateCode);
+																		 _ ->
+																			 skip
+																	 end,
+																	 {TargetCode, IsShow1};
+																 ?ObjTypePet ->
+																	 PetEts = monsterState:getMapPetEts(MonsterCode),
+																	 case myEts:lookUpEts(PetEts, TargetCode) of
+																		 [#recMapObject{ownCode = EtsOwnCode} | _] ->
+																			 {EtsOwnCode, IsShow1};
+																		 _ ->
+																			 {0, false}
+																	 end;
+																 ?ObjTypeMonster ->
+																	 MonsterEts = monsterState:getMapMonsterEts(MonsterCode),
+																	 case myEts:lookUpEts(MonsterEts, TargetCode) of
+																		 [#recMapObject{ownCode = EtsOwnCode} | _] ->
+																			 {EtsOwnCode, IsShow1};
+																		 _ ->
+																			 {0, false}
+																	 end;
+																 _ ->
+																	 {0, false}
+															 end
+													 end,
 
 							case RTargetCode > 0 of
 								true ->
@@ -2093,7 +2104,7 @@ changeNewWildBossTarget(BossCode, AttackCode) ->
 	Fun = fun(#recMapObject{code = PlayerCode, pid = PlayerPid}, AccIn) ->
 		psMgr:sendMsg2PS(PlayerPid, changeBuffState, PlayerCode =:= AttackCode),
 		AccIn
-	      end,
+		  end,
 	ets:foldl(Fun, 0, PlayerEts),
 	ok.
 

@@ -37,8 +37,8 @@
 	FuncellCilentID::string(),FuncellOrderID::string().
 getPay(Token, FuncellCilentID, FuncellOrderID) ->
 	try
-		DataCenterNode = config:rpc_get_string("DataCenterNode", "szdc"),
-		PlatformType = config:rpc_get_string("PlatformType", "553"),
+		DataCenterNode = config:getString("DataCenterNode", "szdc"),
+		PlatformType = config:getString("PlatformType", "553"),
 		Url = getPayUrl(FuncellCilentID,DataCenterNode,PlatformType),
 		UrlAction = lists:concat([Url,"confirm/"]),
 		FuncellOrderIDStr = lists:concat(["[\"",FuncellOrderID,"\"]"]),
@@ -90,8 +90,8 @@ getLogin(Token) ->
 %%请求funcell登录验证
 -spec getLogin(Token,FuncellCilentID) -> skip | tuple() when Token::string(),FuncellCilentID::string().
 getLogin(Token, FuncellCilentID) ->
-	DataCenterNode = config:rpc_get_string("DataCenterNode", "szdc"),
-	PlatformType = config:rpc_get_string("PlatformType", "553"),
+	DataCenterNode = config:getString("DataCenterNode", "szdc"),
+	PlatformType = config:getString("PlatformType", "553"),
 	UrlToken = edoc_lib:escape_uri(Token),
 	Url = getAuthUrl(FuncellCilentID,DataCenterNode,PlatformType),
 	UrlAction = lists:concat([Url,"verify/"]),
@@ -118,8 +118,8 @@ getLogin(Token, FuncellCilentID) ->
 getBindPhone(FuncellCilentID,AccToken, PhoneNum, Verifyid, Content) ->
 	?DEBUG_OUT("FuncellCilentID=~p,AccToken=~p, PhoneNum=~p, Verifyid=~p, Content=~p",
 		[FuncellCilentID,AccToken, PhoneNum, Verifyid, Content]),
-	DataCenterNode = config:rpc_get_string("DataCenterNode", "szdc"),
-	PlatformType = config:rpc_get_string("PlatformType", "553"),
+	DataCenterNode = config:getString("DataCenterNode", "szdc"),
+	PlatformType = config:getString("PlatformType", "553"),
 	Url = getAuthUrl(FuncellCilentID,DataCenterNode,PlatformType),
 	UrlAction = lists:concat([Url,"bind/"]),
 	Request_Body =  lists:concat(["access_token=",AccToken,"&type=bindphone&tell=",PhoneNum,"&content=",Content,"&verifyid=",Verifyid]),
@@ -225,7 +225,7 @@ checkPayResult(JsonStr) ->
 
 %% 获取登录地址
 getAuthUrl() ->
-	config:rpc_get_string("LoginUrl", "http://mainaland.auth.raink.com.cn").
+	config:getString("LoginUrl", "http://mainaland.auth.raink.com.cn").
 
 %%取出funcell登录验证url
 -spec getAuthUrl(FuncellCilentID,DataCenterNode,PlatformType) -> string() when
@@ -298,7 +298,7 @@ checkBindResult(JsonStr) ->
 	end.
 %%funcell的各种功能的url(发现服务) 返回auth(登录地址),pay(支付地址)
 getUrl(FuncellCilentID,DataCenterNode,_PlatformType) ->
-	EveUrl = config:rpc_get_string("EveUrl", "http://mainaland.eve.raink.com.cn/config/"),
+	EveUrl = config:getString("EveUrl", "http://mainaland.eve.raink.com.cn/config/"),
 	RequestUrl = lists:concat([EveUrl,FuncellCilentID,"/",DataCenterNode]),
 	Result =
 		case httpPost(RequestUrl,"") of

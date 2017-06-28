@@ -71,18 +71,18 @@ achieveEvent(MapID) ->
 	%%魔神地宫成就统计
 		#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeDemonBattle} ->
 			achieveEvent(?Achieve_DevilHell, [1]);
-		#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeMint} ->
-			achieveEvent(?Achieve_MintFurnace, [1]);
-		#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeBoot} ->
-			achieveEvent(?Achieve_BootCamp, [1]);
-		#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeStar} ->
-			achieveEvent(?Achieve_StarTreasureHouse, [1]);
-		#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeBooty} ->
-			achieveEvent(?Achieve_BootyBay, [1]);
-		#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeCompanion} ->
-			achieveEvent(?Achieve_SoulPartner, [1]);
-		#mapsettingCfg{type = ?MapTypeActivity, subtype = ?MapSubTypeChaos} ->
-			achieveEvent(?Achieve_ChaosBattlefield, [1]);
+		%#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeMint} -> 废弃
+		%	achieveEvent(?Achieve_MintFurnace, [1]);
+		%#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeBoot} -> 废弃
+		%	achieveEvent(?Achieve_BootCamp, [1]);
+		%#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeStar} -> 废弃
+		%	achieveEvent(?Achieve_StarTreasureHouse, [1]);
+		%#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeBooty} -> 废弃
+		%	achieveEvent(?Achieve_BootyBay, [1]);
+		%#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeCompanion} -> 废弃
+		%	achieveEvent(?Achieve_SoulPartner, [1]);
+		%#mapsettingCfg{type = ?MapTypeActivity, subtype = ?MapSubTypeChaos} -> 废弃
+		%	achieveEvent(?Achieve_ChaosBattlefield, [1]);
 		#mapsettingCfg{type = ?MapTypeActivity, subtype = ?MapSubTypeDarkness} ->
 			achieveEvent(?Achieve_DarkPlace1, [MapID, 1]),
 			achieveEvent(?Achieve_DarkPlace2, [MapID, 1]),
@@ -338,8 +338,11 @@ getNextMaxNum(AchieveID, NewLevel) ->
 	#achievementCfg{
 		goal_kill = Goal
 	} = getCfg:getCfgPStack(cfg_achievement, AchieveID),
-	case is_list(Goal) of
-		true ->
+	case Goal of
+		[] ->
+			?ERROR_OUT("achievementCfg [~p] error, goal_kill is not list", [AchieveID]),
+			0;
+		_ when is_list(Goal) ->
 			GoalTuple = lists:nth(NewLevel, Goal),
 			lists:last(GoalTuple);
 		_ ->
@@ -349,8 +352,11 @@ getNextMaxNum(AchieveID, NewLevel) ->
 
 -spec getConditionList(AchieveID :: uint(), Goal :: list(), NewLevel :: uint()) -> list().
 getConditionList(AchieveID, Goal, NewLevel) ->
-	case is_list(Goal) of
-		true ->
+	case Goal of
+		[] ->
+			?ERROR_OUT("achievementCfg [~p] error, goal_kill is not list", [AchieveID]),
+			[];
+		_ when  is_list(Goal) ->
 			List = lists:nth(NewLevel, Goal),
 			case is_list(List) of
 				true ->
@@ -399,7 +405,7 @@ addAchieveValue(AchieveID, AchieveValue) ->
 	OldValue = playerPropSync:getProp(?PriProp_Achieve),
 	NewValue = OldValue + AchieveValue,
 	achieveEvent(?Achieve_Achieve1, [AchieveValue]),
-	achieveEvent(?Achieve_Achieve2, [AchieveValue]),
+	%%achieveEvent(?Achieve_Achieve2, [AchieveValue]),
 	playerPropSync:setInt(?PriProp_Achieve, NewValue),
 	dbLog:sendSaveLogAchieveNum(playerState:getRoleID(), AchieveID, OldValue, AchieveValue, NewValue),
 	ok.

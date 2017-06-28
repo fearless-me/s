@@ -78,8 +78,8 @@ loadRoleKeyInfo(PidFromGS, RoleID) ->
 
 %%加载最近几天的账号和角色list
 loadUserAccount(PidFromGS) ->
-    DayNum = config:rpc_try_get_int("preLoadDayNumber", 3),
-	PreNum = config:rpc_try_get_int("preLoadRoleNumber", 2000),
+    DayNum = config:getInt("preLoadDayNumber", 3),
+	PreNum = config:getInt("preLoadRoleNumber", 2000),
 
     SQL = io_lib:format("SELECT accountID FROM account WHERE lastloginTime > DATE_SUB(NOW(),INTERVAL ~p DAY)
     ORDER BY lastLogoutTime DESC LIMIT ~p", [DayNum, PreNum]),

@@ -66,24 +66,24 @@ makeEquipNetMessage(#recSaveEquip{
 	quality = Quality,
 	isBind = IsBind,
 	isLocked = IsLocked,
-	baseProp = _BaseProp,
-	extProp = ExtProp,
-	enhanceProp = EnhanceProp,
+	baseProp = BaseProp,
+	extProp = _ExtProp,
+	enhanceProp = _EnhanceProp,
 	expiredTime = ET
 }) ->
-	case erlang:is_list(EnhanceProp) andalso erlang:length(EnhanceProp) > 0 of
-		true ->
-			[Enhance | _] = EnhanceProp;
-		false ->
-			Enhance = EnhanceProp
-	end,
-	case erlang:is_list(ExtProp) andalso erlang:length(ExtProp) > 0 of
-		true ->
-			[Ext | _] = ExtProp;
-		false ->
-			Ext = ExtProp
-	end,
-	NewEquipPropList = makeEquipPropNetMessage(Enhance, Ext),
+%%	case erlang:is_list(EnhanceProp) andalso erlang:length(EnhanceProp) > 0 of
+%%		true ->
+%%			[Enhance | _] = EnhanceProp;
+%%		false ->
+%%			Enhance = EnhanceProp
+%%	end,
+%%	case erlang:is_list(ExtProp) andalso erlang:length(ExtProp) > 0 of
+%%		true ->
+%%			[Ext | _] = ExtProp;
+%%		false ->
+%%			Ext = ExtProp
+%%	end,
+	NewEquipPropList = makeEquipPropNetMessage(BaseProp),
 	%%由于过期时间存储的是UTC时间，所以发给客户端时需要加上时区
 	ExpiredTime = case ET > 0 of
 		              true ->
@@ -264,8 +264,7 @@ itemIsLife(ItemID) ->
 %% ====================================================================
 %% Internal functions
 %% ====================================================================
-
-makeEquipPropNetMessage(#rec_equip_enhance_info{
+makeEquipPropNetMessage(#rec_equip_base_info{
 	propKey1 = BasePropKey1,
 	propValue1 = BasePropValue1,
 	propKey2 = BasePropKey2,
@@ -276,74 +275,103 @@ makeEquipPropNetMessage(#rec_equip_enhance_info{
 	propValue4 = BasePropValue4,
 	propKey5 = BasePropKey5,
 	propValue5 = BasePropValue5
-},
-	#rec_equip_ext_info{
-		propKey1 = ExtPropKey1,
-		propAffixe1 = ExtPropAffixe1,
-		propRecast1 = ExtPropRecast1,
-		propValue1 = ExtPropValue1,
-		calcType1 = ExtCalcType1,
-		propKey2 = ExtPropKey2,
-		propAffixe2 = ExtPropAffixe2,
-		propRecast2 = ExtPropRecast2,
-		propValue2 = ExtPropValue2,
-		calcType2 = ExtCalcType2,
-		propKey3 = ExtPropKey3,
-		propAffixe3 = ExtPropAffixe3,
-		propRecast3 = ExtPropRecast3,
-		propValue3 = ExtPropValue3,
-		calcType3 = ExtCalcType3,
-		propKey4 = ExtPropKey4,
-		propAffixe4 = ExtPropAffixe4,
-		propRecast4 = ExtPropRecast4,
-		propValue4 = ExtPropValue4,
-		calcType4 = ExtCalcType4,
-		propKey5 = ExtPropKey5,
-		propAffixe5 = ExtPropAffixe5,
-		propRecast5 = ExtPropRecast5,
-		propValue5 = ExtPropValue5,
-		calcType5 = ExtCalcType5,
-		propKey6 = ExtPropKey6,
-		propAffixe6 = ExtPropAffixe6,
-		propRecast6 = ExtPropRecast6,
-		propValue6 = ExtPropValue6,
-		calcType6 = ExtCalcType6
-	}
-) ->
+})->
 	BaseProp = [
-		{BasePropKey1, BasePropValue1,?PropCalcType_Add,?EquipPropTypeBase,0},
-		{BasePropKey2, BasePropValue2,?PropCalcType_Add,?EquipPropTypeBase,0},
-		{BasePropKey3, BasePropValue3,?PropCalcType_Add,?EquipPropTypeBase,0},
-		{BasePropKey4, BasePropValue4,?PropCalcType_Add,?EquipPropTypeBase,0},
-		{BasePropKey5, BasePropValue5,?PropCalcType_Add,?EquipPropTypeBase,0}
+		{BasePropKey1, BasePropValue1},
+		{BasePropKey2, BasePropValue2},
+		{BasePropKey3, BasePropValue3},
+		{BasePropKey4, BasePropValue4},
+		{BasePropKey5, BasePropValue5}
 	],
-	ExtProp = [
-		{ExtPropKey1, ExtPropValue1, ExtCalcType1,ExtPropRecast1,ExtPropAffixe1},
-		{ExtPropKey2, ExtPropValue2, ExtCalcType2,ExtPropRecast2,ExtPropAffixe2},
-		{ExtPropKey3, ExtPropValue3, ExtCalcType3,ExtPropRecast3,ExtPropAffixe3},
-		{ExtPropKey4, ExtPropValue4, ExtCalcType4,ExtPropRecast4,ExtPropAffixe4},
-		{ExtPropKey5, ExtPropValue5, ExtCalcType5,ExtPropRecast5,ExtPropAffixe5},
-		{ExtPropKey6, ExtPropValue6, ExtCalcType6,ExtPropRecast6,ExtPropAffixe6}
-	],
-	Fun = fun({PropKey, PropValue, CalcType, PropRecast, PropAffixe}, EquipPropList) ->
-		ResultCalcType = case CalcType of
-							 ?PropCalcType_Add ->
-								 false;
-							 ?PropCalcType_Mul ->
-								 true;
-							 _ ->
-								 false
-						 end,
-		EquipProp = #pk_EquipPropInfo{
-			propType = PropRecast,
-			propKey = PropKey,
-			propAffix = PropAffixe,
-			calcType = ResultCalcType,
-			propValue = float(PropValue)
-		},
-		[EquipProp | EquipPropList]
-	end,
-	BasePropList = lists:foldl(Fun, [], BaseProp),
-	lists:foldl(Fun, BasePropList, ExtProp);
-makeEquipPropNetMessage(_, _) ->
+	[#pk_EquipPropInfo{
+		propType = ?EquipPropTypeBase,
+		propKey = PropKey,
+		propAffix = 0,
+		calcType = true,
+		propValue = float(PropValue)
+	} || {PropKey, PropValue} <- BaseProp];
+makeEquipPropNetMessage(_)->
 	[].
+%%
+%%makeEquipPropNetMessage(#rec_equip_enhance_info{
+%%	propKey1 = BasePropKey1,
+%%	propValue1 = BasePropValue1,
+%%	propKey2 = BasePropKey2,
+%%	propValue2 = BasePropValue2,
+%%	propKey3 = BasePropKey3,
+%%	propValue3 = BasePropValue3,
+%%	propKey4 = BasePropKey4,
+%%	propValue4 = BasePropValue4,
+%%	propKey5 = BasePropKey5,
+%%	propValue5 = BasePropValue5
+%%},
+%%	#rec_equip_ext_info{
+%%		propKey1 = ExtPropKey1,
+%%		propAffixe1 = ExtPropAffixe1,
+%%		propRecast1 = ExtPropRecast1,
+%%		propValue1 = ExtPropValue1,
+%%		calcType1 = ExtCalcType1,
+%%		propKey2 = ExtPropKey2,
+%%		propAffixe2 = ExtPropAffixe2,
+%%		propRecast2 = ExtPropRecast2,
+%%		propValue2 = ExtPropValue2,
+%%		calcType2 = ExtCalcType2,
+%%		propKey3 = ExtPropKey3,
+%%		propAffixe3 = ExtPropAffixe3,
+%%		propRecast3 = ExtPropRecast3,
+%%		propValue3 = ExtPropValue3,
+%%		calcType3 = ExtCalcType3,
+%%		propKey4 = ExtPropKey4,
+%%		propAffixe4 = ExtPropAffixe4,
+%%		propRecast4 = ExtPropRecast4,
+%%		propValue4 = ExtPropValue4,
+%%		calcType4 = ExtCalcType4,
+%%		propKey5 = ExtPropKey5,
+%%		propAffixe5 = ExtPropAffixe5,
+%%		propRecast5 = ExtPropRecast5,
+%%		propValue5 = ExtPropValue5,
+%%		calcType5 = ExtCalcType5,
+%%		propKey6 = ExtPropKey6,
+%%		propAffixe6 = ExtPropAffixe6,
+%%		propRecast6 = ExtPropRecast6,
+%%		propValue6 = ExtPropValue6,
+%%		calcType6 = ExtCalcType6
+%%	}
+%%) ->
+%%	BaseProp = [
+%%		{BasePropKey1, BasePropValue1,?PropCalcType_Add,?EquipPropTypeBase,0},
+%%		{BasePropKey2, BasePropValue2,?PropCalcType_Add,?EquipPropTypeBase,0},
+%%		{BasePropKey3, BasePropValue3,?PropCalcType_Add,?EquipPropTypeBase,0},
+%%		{BasePropKey4, BasePropValue4,?PropCalcType_Add,?EquipPropTypeBase,0},
+%%		{BasePropKey5, BasePropValue5,?PropCalcType_Add,?EquipPropTypeBase,0}
+%%	],
+%%	ExtProp = [
+%%		{ExtPropKey1, ExtPropValue1, ExtCalcType1,ExtPropRecast1,ExtPropAffixe1},
+%%		{ExtPropKey2, ExtPropValue2, ExtCalcType2,ExtPropRecast2,ExtPropAffixe2},
+%%		{ExtPropKey3, ExtPropValue3, ExtCalcType3,ExtPropRecast3,ExtPropAffixe3},
+%%		{ExtPropKey4, ExtPropValue4, ExtCalcType4,ExtPropRecast4,ExtPropAffixe4},
+%%		{ExtPropKey5, ExtPropValue5, ExtCalcType5,ExtPropRecast5,ExtPropAffixe5},
+%%		{ExtPropKey6, ExtPropValue6, ExtCalcType6,ExtPropRecast6,ExtPropAffixe6}
+%%	],
+%%	Fun = fun({PropKey, PropValue, CalcType, PropRecast, PropAffixe}, EquipPropList) ->
+%%		ResultCalcType = case CalcType of
+%%							 ?PropCalcType_Add ->
+%%								 false;
+%%							 ?PropCalcType_Mul ->
+%%								 true;
+%%							 _ ->
+%%								 false
+%%						 end,
+%%		EquipProp = #pk_EquipPropInfo{
+%%			propType = PropRecast,
+%%			propKey = PropKey,
+%%			propAffix = PropAffixe,
+%%			calcType = ResultCalcType,
+%%			propValue = float(PropValue)
+%%		},
+%%		[EquipProp | EquipPropList]
+%%	end,
+%%	BasePropList = lists:foldl(Fun, [], BaseProp),
+%%	lists:foldl(Fun, BasePropList, ExtProp);
+%%makeEquipPropNetMessage(_, _) ->
+%%	[].

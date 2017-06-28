@@ -136,15 +136,17 @@ activityChangeCallBack(?ActivityPhase_Close) ->
     CurrMapPid = getACMapPid(),
     case erlang:is_pid(CurrMapPid) of
         true ->
-            erlang:send_after(3*1000,CurrMapPid, {resetCopyMap, self(), {}});
+            erlang:send_after(30*1000,CurrMapPid, {resetCopyMap, self(), {}});
         _ -> skip
     end,
+
+    List = sortAttackerByDamage(),
     setACMapPid(undefined),
     setKillRoleIDList([]),
 %%    setActiveState(false),
 %%    clearGMFightRoleID(),
-    clearAttackerInfo(),
     refreshMarrorStatue(),
+    List = sortAttackerByDamage(),
     ok;
 activityChangeCallBack(?ActivityPhase_KingBattleAll_1) ->
     ?LOG_OUT("~p ~p wait start1", [?MODULE, self()]),
@@ -241,7 +243,70 @@ activityChangeCallBack(?ActivityPhase_KingBattleAll_6) ->
                         roleBuffCffgID = ?AC_KING_BATTLE_ROLE_DEFAULT_BUFF_CFG_ID
                     },
                     updateDefenderInfo(NewRow),
-                    acKingbattleAward:sendDefenderWinAward();
+                    acKingbattleAward:sendDefenderWinAward(),
+                    RoleID = NewRow#rec_guard_mirror.roleID,
+                    Days = NewRow#rec_guard_mirror.guardTimes,
+                    Declaration = NewRow#rec_guard_mirror.declaration,
+                    %% .展示老王者的结算面板
+                    KillNumber = erlang:length(getKillRoleIDList()),
+                    #?RoleKeyRec{roleName = Name,career = Career,race = Race,sex = Sex,head = Head} = core:queryRoleKeyInfoByRoleID(RoleID),
+                    %%[#rec_base_role{roleName = Name,career = Career,race = Race,sex = Sex,head = Head}] = ets:lookup(ets_rec_base_role,RoleID),
+                    {ok,#king_battle_mirror_appearance{equipIDList =EquipList,equipLevelList = EquipLevelIDList,fashionIDList = FashionIDList,wingLevel=WingLevel }}=acKingBattleAllLogic:getMirrorAppearance(RoleID),
+                    MsgEquipmentList = [#pk_PlayerKingBattleEquip{equipID =EquipID,quality = Quarlity }||#recVisibleEquip{equipID = EquipID,quality = Quarlity}<-EquipList],
+                    MsgEquipLevelIDLis=[#pk_PlayerKingBattleEquipLevel{type = EqType,level = EqLv}||{ EqType, EqLv}<-EquipLevelIDList] ,
+                    %% .发防守方
+                    case core:queryOnLineRoleByRoleID(RoleID) of
+                        #rec_OnlinePlayer{netPid = NetPid1} ->
+                            NetMsg1 =
+                                #pk_GS2U_KingBattleResult{
+                                    isNewKing = true,
+                                    killNumOrHurt = KillNumber,
+                                    days = 0,
+                                    declaration = "",
+                                    name = Name,
+                                    roleID =RoleID,
+                                    career = Career,
+                                    race = Race,
+                                    sex = Sex,
+                                    head = Head,
+                                    wingLevel = WingLevel,
+                                    fashionIDs = FashionIDList,
+                                    equipIDList = MsgEquipmentList,
+                                    equipLevelList = MsgEquipLevelIDLis
+                                },
+                            gsSendMsg:sendNetMsg(NetPid1, NetMsg1);
+                        _ ->
+                            skip
+                    end,
+                    %% .发防守方进攻方
+                    AttackerSortList = acKingBattleAllLogic:sortAttackerByDamage(),
+                    %%{ok, #king_battle_attacker{mirrorDamage = OldDamage}} = getAttackerInfo(RoleID),
+                    F =  fun(#king_battle_attacker{roleID = RoleId}) ->
+                        case core:queryOnLineRoleByRoleID(RoleId) of
+                            #rec_OnlinePlayer{netPid = NetPid} ->
+                                NetMsg =
+                                    #pk_GS2U_KingBattleResult{
+                                        isNewKing = false,
+                                        killNumOrHurt = KillNumber,
+                                        days = Days,
+                                        declaration = binToString(Declaration),
+                                        name = Name,
+                                        roleID =RoleID,
+                                        career = Career,
+                                        race = Race,
+                                        sex = Sex,
+                                        head = Head,
+                                        wingLevel = WingLevel,
+                                        fashionIDs = FashionIDList,
+                                        equipIDList = MsgEquipmentList,
+                                        equipLevelList = MsgEquipLevelIDLis
+                                    },
+                                gsSendMsg:sendNetMsg(NetPid, NetMsg);
+                            _ ->
+                                skip
+                        end
+                         end,
+                    lists:foreach(F,AttackerSortList);
                 _ -> skip
             end;
         {ok, #king_battle_attacker{roleID = AttackRoleID, fightForce = FightForce}} ->
@@ -260,13 +325,77 @@ activityChangeCallBack(?ActivityPhase_KingBattleAll_6) ->
 			end,
 
 			getRolesAppearanceFromDB(AttackRoleID),
+
+            OldRoleID =
             case OldDefenderInfo of
                 {ok, #rec_guard_mirror{roleID = OldDefenderRoleID}} ->
-                    acKingbattleAward:sendAwardWhenDefenderFail(AttackRoleID, OldDefenderRoleID);
+                    acKingbattleAward:sendAwardWhenDefenderFail(AttackRoleID, OldDefenderRoleID),
+                    OldDefenderRoleID;
                 _ ->
                     ok
             end,
-            delAttacker(AttackRoleID)
+
+
+            #?RoleKeyRec{roleName = Name,career = Career1,race = Race,sex = Sex,head = Head} = core:queryRoleKeyInfoByRoleID(AttackRoleID),
+            %%[#rec_base_role{roleName = Name,career = Career1,race = Race,sex = Sex,head = Head}] = ets:lookup(ets_rec_base_role, AttackRoleID),
+            {ok,#king_battle_mirror_appearance{equipIDList =EquipList,equipLevelList = EquipLevelIDList, fashionIDList = FashionIDList, wingLevel=WingLevel }}=acKingBattleAllLogic:getMirrorAppearance(AttackRoleID),
+            MsgEquipmentList = [#pk_PlayerKingBattleEquip{equipID =EquipID,quality = Quarlity }||#recVisibleEquip{equipID = EquipID,quality = Quarlity}<-EquipList],
+            MsgEquipLevelIDLis=[#pk_PlayerKingBattleEquipLevel{type = EqType,level = EqLv}||{ EqType, EqLv}<-EquipLevelIDList] ,
+            {ok, #king_battle_attacker{mirrorDamage = OldDamage}} = getAttackerInfo(AttackRoleID),
+            %% .展示新王者雕像结算面板，发防守方
+
+            case core:queryOnLineRoleByRoleID(OldRoleID) of
+                #rec_OnlinePlayer{netPid = NetPid1} ->
+                    NetMsg1 =
+                        #pk_GS2U_KingBattleResult{
+                            isNewKing = true,
+                            killNumOrHurt = OldDamage,
+                            days = 0,
+                            declaration = "",
+                            name = Name,
+                            roleID =AttackRoleID,
+                            career = Career1,
+                            race = Race,
+                            sex = Sex,
+                            head = Head,
+                            wingLevel = WingLevel,
+                            fashionIDs = FashionIDList,
+                            equipIDList = MsgEquipmentList,
+                            equipLevelList = MsgEquipLevelIDLis
+                        },
+                    gsSendMsg:sendNetMsg(NetPid1, NetMsg1);
+                _ ->
+                    skip
+            end,
+            %% .展示新王者雕像结算面板，发攻防
+            AttackerSortList = acKingBattleAllLogic:sortAttackerByDamage(),
+            F =  fun(#king_battle_attacker{roleID = RoleId}) ->
+                 case core:queryOnLineRoleByRoleID(RoleId) of
+                     #rec_OnlinePlayer{netPid = NetPid} ->
+                         NetMsg =
+                             #pk_GS2U_KingBattleResult{
+                                 isNewKing = true,
+                                 killNumOrHurt = OldDamage,
+                                 days = 0,
+                                 declaration = "",
+                                 name = Name,
+                                 roleID =AttackRoleID,
+                                 career = Career1,
+                                 race = Race,
+                                 sex = Sex,
+                                 head = Head,
+                                 wingLevel = WingLevel,
+                                 fashionIDs = FashionIDList,
+                                 equipIDList = MsgEquipmentList,
+                                 equipLevelList = MsgEquipLevelIDLis
+                             },
+                          gsSendMsg:sendNetMsg(NetPid, NetMsg);
+                     _ ->
+                         skip
+                 end
+              end,
+            lists:foreach(F,AttackerSortList)
+           %% delAttacker(AttackRoleID)
     end,
     acKingbattleAward:sendRankAward(),
     %%此处必须要强制关闭活动，活动有可能是因为防守方失败而关闭的
@@ -303,7 +432,6 @@ monsterDead({_MapID, _MapPID, AttackRoleID, _MonsterCode, MonsterID}) ->
 %%镜像被伤害
 -spec monsterDamage(Data :: tuple()) -> ok.
 monsterDamage({_MapID, _MapPID, RealAttackOwnerID, _TargetCode, TargetID, DiffHP}) ->
-%% 	?WARN_OUT("monsterDamage ~p",[Data]),
     case getCurrentDefenderInfo() of
         {ok, #rec_guard_mirror{roleID = RoleID}} ->
             case getMirrorInfo(RoleID) of
@@ -341,6 +469,7 @@ onMapDestroy({_MapPid, [MarrorMonster | _]}) ->
         _ ->
             skip
     end,
+    clearAttackerInfo(),
     ok;
 onMapDestroy(_) -> ok.
 
@@ -417,6 +546,7 @@ joinKingBattleAC({RoleID, PlayerHistoryForce}) ->
                             ACfgList = globalCfg:getGlobalCfgList(fightall_attack),
                             Index = misc:rand(1, erlang:length(ACfgList)),
                             XYPos = lists:nth(Index, ACfgList),
+                            ?ERROR_OUT("Error   joinKingBattleAC   [~p]      ", [RoleID]),
                             addAttackerInfo(RoleID, PlayerHistoryForce),
                             case AttackerNumber > getOnlineAttackerNumber() of
                                 true ->
@@ -559,6 +689,7 @@ createExtData(RoleID, Data) ->
             case getAttackerRankIndex(RoleID, Data, 1) of
                 {ok, {Index, #king_battle_attacker{mirrorDamage = DamageValue}}} ->
                     ok;
+
                 {error, none} ->
                     Index = 0,
                     DamageValue = 0
@@ -569,10 +700,24 @@ createExtData(RoleID, Data) ->
                 damage = DamageValue
             };
         _ ->
-            #pk_GS2U_MyKillNumber{
-                type = ?ActivityType_KingBattleAll,
-                killNumber = erlang:length(getKillRoleIDList())
-            }
+            case getAttackerRankIndex(RoleID, Data, 1) of
+                {ok, {Index, #king_battle_attacker{mirrorDamage = DamageValue}}} ->
+                    #pk_GS2U_MyRankingAndDamage{
+                        type = ?ActivityType_KingBattleAll,
+                        ranking = Index,
+                        damage = DamageValue
+                    };
+                {error, none} ->
+                    #pk_GS2U_MyKillNumber{
+                        type = ?ActivityType_KingBattleAll,
+                        killNumber = erlang:length(getKillRoleIDList())
+                    };
+            _->
+                #pk_GS2U_MyKillNumber{
+                   type = ?ActivityType_KingBattleAll,
+                    killNumber = erlang:length(getKillRoleIDList())
+                }
+            end
     end.
 %%获取进攻方的名次
 %%@return {ok,index}|{error,none}
@@ -593,17 +738,24 @@ getAttackerRankIndex(RoleID, [_ | AttackSortList], Index) ->
 
 addNewDefenderInfo(NewDefender0 = #rec_guard_mirror{fightForce = FightForce}) ->
     NewDefender = NewDefender0#rec_guard_mirror{
+
         hpNumber = playerForce2MirroeHp(FightForce),
         guardTimes = 0,
         mirrorBuffCfgID = ?AC_KING_BATTLE_MIRROR_DEFAULT_BUFF_CFG_ID,        %%给镜像购买的buffID,
         roleBuffCffgID = ?AC_KING_BATTLE_ROLE_DEFAULT_BUFF_CFG_ID %%玩家给自己购买的buffID
     },
     mnesia:clear_table(rec_guard_mirror),
+    mnesia:clear_table(new_rec_guard_mirror),
+    mnesia:clear_table(update_rec_guard_mirror),
+    edb:writeRecord(rec_guard_mirror, NewDefender),
     edb:writeRecord(new_rec_guard_mirror, NewDefender),
     updateDefenderInfo(NewDefender).
 getCurrentDefenderInfo() ->
     case edb:readAllRecord(rec_guard_mirror) of
-        [#rec_guard_mirror{} = Info | _] -> {ok, Info};
+
+
+        [#rec_guard_mirror{} = Info | _] ->
+            {ok, Info};
         _ ->
             {error, none}
     end.
@@ -626,12 +778,14 @@ getAttackerInfo(RoleID) ->
 
 %%更新进攻方数据
 updateAttackerInfo(RoleID, AttrList) ->
+
     ets:update_element(king_battle_attacker, RoleID, AttrList).
 
 %%更新进攻方数据
 addAttackerInfo(RoleID, FightForce) ->
     case ets:lookup(king_battle_attacker, RoleID) of
         [] ->
+
             ets:insert(king_battle_attacker, #king_battle_attacker{roleID = RoleID, isInActiveSence = true, fightForce = FightForce, buffCfgID = ?AC_KING_BATTLE_ROLE_ATTACKER_BUFF_CFG_ID});
         _ -> skip
     end.
@@ -742,9 +896,10 @@ saveMirrotApperance([{RoleID, WingLevel, _TitleRec, EquipInfoList, EquipLvList, 
         {ok, _Info} ->
             ets:update_element(king_battle_mirror_appearance, RoleID, [{#king_battle_mirror_appearance.equipIDList, EquipInfoList},
                 {#king_battle_mirror_appearance.equipLevelList, EquipLvList},
+                {#king_battle_mirror_appearance.fashionIDList, _FashionIDList},
                 {#king_battle_mirror_appearance.wingLevel, WingLevel}]);
         {error, none} ->
-            ets:insert(king_battle_mirror_appearance, #king_battle_mirror_appearance{roleID = RoleID, equipLevelList = EquipLvList, equipIDList = EquipInfoList, wingLevel = WingLevel})
+            ets:insert(king_battle_mirror_appearance, #king_battle_mirror_appearance{roleID = RoleID, equipLevelList = EquipLvList, equipIDList = EquipInfoList,fashionIDList = _FashionIDList, wingLevel = WingLevel})
     end.
 %%全局开关控制，是否开启王者荣耀是否开启。true为开启
 globalControlIsOpen() ->

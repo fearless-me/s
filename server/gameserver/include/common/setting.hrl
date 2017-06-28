@@ -122,7 +122,6 @@
 %% 全局开关类变量,占1000个32位整数,范围(50100 ~ 51100),50100*32=1603200,51100*32=1635200
 -define(Setting_GlobalBitVar_StartBit, 1603200).
 %% 世界BOSS战开启状态($0)
--define(Setting_GlobalBitVar_WorldBossWar_Running, 1603201).
 %% 等级开关($0)
 %% GlobalBitVar_Level_Running = 1603202,
 %% 日志3dgamedatalog库开关($1)

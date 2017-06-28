@@ -25,8 +25,8 @@
 -define(WARN_OUT(F),        hdlt_logger:warn_out(?LOG_LEVEL,lists:append("[~w:~w] ", F),[?MODULE, ?LINE])).
 -define(LOG_OUT(F, A),      hdlt_logger:log(?LOG_LEVEL,lists:append("[~w:~w] ", F),lists:append([?MODULE, ?LINE],A))).
 -define(LOG_OUT(F),         hdlt_logger:log(?LOG_LEVEL,lists:append("[~w:~w] ", F),[?MODULE, ?LINE])).
--define(DEBUG_OUT(F, A),    hdlt_logger:debug(?LOG_LEVEL,lists:append("[~w:~w] ", F),lists:append([?MODULE, ?LINE],A))).
--define(DEBUG_OUT(F),       hdlt_logger:debug(?LOG_LEVEL,lists:append("[~w:~w] ", F),[?MODULE, ?LINE])).
+-define(DEBUG_OUT(F, A),    hdlt_logger:debug(?LOG_LEVEL, F, A, ?MODULE, ?LINE)).
+-define(DEBUG_OUT(F),       hdlt_logger:debug(?LOG_LEVEL, F, [], ?MODULE, ?LINE)).
 -define(DefaultMsgLevel, 0).
 -define(DebugMsgLevel, 1).
 -define(ErrorMsgLevel, 2).

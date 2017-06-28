@@ -181,8 +181,8 @@ wildBossDead(MapID, BossID, TargetCode, PlayerName, TarRoleID, TarTeamID, ListRo
 		_ ->
 			case checkWildBossCanSend(?DailyType_WildBossEveryDayMust,wildboss_times_must) of
 				true ->
-					case getCfg:getCfgByKey(cfg_globalsetup, wildboss_reward_normal) of
-						#globalsetupCfg{setpara = [ItemID]} ->
+					case getCfg:getCfgByKey(cfg_wildboss, BossID) of
+						#wildbossCfg{normal  = ItemID} ->
 							case getCfg:getCfgByKey(cfg_item, ItemID) of
 								#itemCfg{name = ItemName} ->
 									playerDaily:incDailyCounter(?DailyType_WildBossEveryDayMust, 0),

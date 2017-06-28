@@ -11,9 +11,9 @@ getRow(0,604)->
     signtype = 0,
     itemid = 604,
     itemnum = 1,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(0,902)->
     #signinawardCfg {
@@ -21,9 +21,9 @@ getRow(0,902)->
     signtype = 0,
     itemid = 902,
     itemnum = 2,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(0,1111)->
     #signinawardCfg {
@@ -31,9 +31,9 @@ getRow(0,1111)->
     signtype = 0,
     itemid = 1111,
     itemnum = 1,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(1,222)->
     #signinawardCfg {
@@ -41,9 +41,9 @@ getRow(1,222)->
     signtype = 1,
     itemid = 222,
     itemnum = 20,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(1,615)->
     #signinawardCfg {
@@ -51,9 +51,9 @@ getRow(1,615)->
     signtype = 1,
     itemid = 615,
     itemnum = 1,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(1,904)->
     #signinawardCfg {
@@ -61,9 +61,9 @@ getRow(1,904)->
     signtype = 1,
     itemid = 904,
     itemnum = 1,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(1,2160)->
     #signinawardCfg {
@@ -71,9 +71,9 @@ getRow(1,2160)->
     signtype = 1,
     itemid = 2160,
     itemnum = 15,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(2,1835)->
     #signinawardCfg {
@@ -81,9 +81,9 @@ getRow(2,1835)->
     signtype = 2,
     itemid = 1835,
     itemnum = 1,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(2,2161)->
     #signinawardCfg {
@@ -91,9 +91,9 @@ getRow(2,2161)->
     signtype = 2,
     itemid = 2161,
     itemnum = 15,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(2,2600)->
     #signinawardCfg {
@@ -101,9 +101,9 @@ getRow(2,2600)->
     signtype = 2,
     itemid = 2600,
     itemnum = 50,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(2,4303)->
     #signinawardCfg {
@@ -111,9 +111,9 @@ getRow(2,4303)->
     signtype = 2,
     itemid = 4303,
     itemnum = 50,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(3,20)->
     #signinawardCfg {
@@ -121,9 +121,9 @@ getRow(3,20)->
     signtype = 3,
     itemid = 20,
     itemnum = 200,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(3,225)->
     #signinawardCfg {
@@ -131,9 +131,9 @@ getRow(3,225)->
     signtype = 3,
     itemid = 225,
     itemnum = 60,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(3,904)->
     #signinawardCfg {
@@ -141,19 +141,19 @@ getRow(3,904)->
     signtype = 3,
     itemid = 904,
     itemnum = 2,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
-getRow(3,2502)->
+getRow(3,1835)->
     #signinawardCfg {
     id = 16,
     signtype = 3,
-    itemid = 2502,
+    itemid = 1835,
     itemnum = 1,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(4,20)->
     #signinawardCfg {
@@ -161,9 +161,9 @@ getRow(4,20)->
     signtype = 4,
     itemid = 20,
     itemnum = 200,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(4,271)->
     #signinawardCfg {
@@ -171,9 +171,9 @@ getRow(4,271)->
     signtype = 4,
     itemid = 271,
     itemnum = 2,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(4,2161)->
     #signinawardCfg {
@@ -181,9 +181,9 @@ getRow(4,2161)->
     signtype = 4,
     itemid = 2161,
     itemnum = 20,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(4,2600)->
     #signinawardCfg {
@@ -191,9 +191,9 @@ getRow(4,2600)->
     signtype = 4,
     itemid = 2600,
     itemnum = 100,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(5,20)->
     #signinawardCfg {
@@ -201,9 +201,9 @@ getRow(5,20)->
     signtype = 5,
     itemid = 20,
     itemnum = 200,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(5,222)->
     #signinawardCfg {
@@ -211,9 +211,9 @@ getRow(5,222)->
     signtype = 5,
     itemid = 222,
     itemnum = 100,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(5,271)->
     #signinawardCfg {
@@ -221,9 +221,9 @@ getRow(5,271)->
     signtype = 5,
     itemid = 271,
     itemnum = 2,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(5,4304)->
     #signinawardCfg {
@@ -231,9 +231,9 @@ getRow(5,4304)->
     signtype = 5,
     itemid = 4304,
     itemnum = 50,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(6,20)->
     #signinawardCfg {
@@ -241,9 +241,9 @@ getRow(6,20)->
     signtype = 6,
     itemid = 20,
     itemnum = 300,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(6,225)->
     #signinawardCfg {
@@ -251,9 +251,9 @@ getRow(6,225)->
     signtype = 6,
     itemid = 225,
     itemnum = 100,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(6,615)->
     #signinawardCfg {
@@ -261,9 +261,9 @@ getRow(6,615)->
     signtype = 6,
     itemid = 615,
     itemnum = 5,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(6,1113)->
     #signinawardCfg {
@@ -271,9 +271,9 @@ getRow(6,1113)->
     signtype = 6,
     itemid = 1113,
     itemnum = 2,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(7,904)->
     #signinawardCfg {
@@ -281,9 +281,9 @@ getRow(7,904)->
     signtype = 7,
     itemid = 904,
     itemnum = 3,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(7,2162)->
     #signinawardCfg {
@@ -291,9 +291,9 @@ getRow(7,2162)->
     signtype = 7,
     itemid = 2162,
     itemnum = 30,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(7,2600)->
     #signinawardCfg {
@@ -301,9 +301,9 @@ getRow(7,2600)->
     signtype = 7,
     itemid = 2600,
     itemnum = 200,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(7,4305)->
     #signinawardCfg {
@@ -311,9 +311,9 @@ getRow(7,4305)->
     signtype = 7,
     itemid = 4305,
     itemnum = 20,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(8,616)->
     #signinawardCfg {
@@ -321,9 +321,9 @@ getRow(8,616)->
     signtype = 8,
     itemid = 616,
     itemnum = 1,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(8,904)->
     #signinawardCfg {
@@ -331,9 +331,9 @@ getRow(8,904)->
     signtype = 8,
     itemid = 904,
     itemnum = 1,
-    angle = 0,
+    angle = [],
     size = 0,
-    posOffset = 0
+    posOffset = []
     };
 getRow(_,_)->[].
 
@@ -352,7 +352,7 @@ getKeyList()->[
     {3,20},
     {3,225},
     {3,904},
-    {3,2502},
+    {3,1835},
     {4,20},
     {4,271},
     {4,2161},
@@ -406,7 +406,7 @@ get2KeyList(3)->[
     20,
     225,
     904,
-    2502
+    1835
     ];
 get2KeyList(4)->[
     20,

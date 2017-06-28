@@ -359,6 +359,7 @@ onKeyUpWakeInfo(CardID) ->
 										          }
 									          ),
 									          %%女神升级成就
+									          playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Goddess),
 									          playerAchieve:achieveEvent(?Achieve_goddess_level, [1]),
 									          Wake#recWake{curLevel = Level + 1, curNum = 0, unLockStateMax = NewMaxState};
 								          {false, Error1} ->

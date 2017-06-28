@@ -75,10 +75,6 @@
         %%: 初始化的副手
         base_offhand,
 
-        %%: 作者:
-        %%: 初始化的衣服
-        base_body,
-
         %%: Windows 用户:
         %%: 读取basic_head表中ID
         base_head,

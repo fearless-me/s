@@ -5,6 +5,13 @@
 -include("db.hrl").
 -include("char.hrl").
 
+-export_type([
+	dailyType/0,
+	daily2TypeS/0,
+	daily2TypeC/0,
+	sevenDayAim/0
+]).
+
 -define(PlayerStateNone,0).								%无，初始状态
 -define(PlayerStateWaitLoadRoleList,1).					%等待读取角色列表
 -define(PlayerStateLoadRoleListOK,2).					%完成读取角色列表，这个状态可以进行角色的新建与删除操作
@@ -48,7 +55,7 @@
 -define(DailyType_ReportPhoto, 18). 		%% 举报其他玩家的照片
 -define(DailyType_CollectItemTimes, 19). 	%% 每日采集指定对象的次数
 -define(DailyType_WorldBossInSpire, 20).	%% 首领入侵鼓舞次数
--define(DailyType_WorldBossInspireVl, 21).  %% ===============[已废弃，可改名占用]=============
+-define(DailyType_SideTaskFlag, 21).        %% 支线任务
 -define(DailyType_CompanionTask, 22).		%% ===============[已废弃，可改名占用]=============
 -define(DailyType_MonthCard, 23).			%% 月卡到期提醒
 -define(DailyType_WarriorTrial, 24).		%% 勇士试炼每日进度
@@ -74,7 +81,7 @@
 -define(DailyType_Recharge, 80).			%% 玩家充值类型的每日计数
 -define(DailyType_GuildExpeditionEveryDayReward, 81).%% 沙盘PVP每日奖励
 -define(DailyType_LotteryForTowerID, 82).%% 金宝塔奖励池ID
--define(DailyType_MarriageExpItem, 83).	%% ===============[已废弃，可改名占用]=============
+-define(DailyType_MarriageTask, 83).	%% 情缘任务计数
 -define(DailyType_PetTaskRefresh, 84).	%% ===============[已废弃，可改名占用]=============
 -define(DailyType_ActiveValue, 85).         	%%活跃度
 -define(DailyType_GUILD_HAD_DRINK_BENIFIT_INDEX, 86).   %%===============[已废弃，可改名占用]=============
@@ -286,5 +293,53 @@
 
 %% 双角色相关的每日计数 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 七日目标 目标类型定义 begin
+
+-define(SevenDayAim_CopyMap,		1).		%% 完成指定副本 ?SerProp_SevenDayAim_CopyMap								对应配置格式===>	[地图ID]
+-define(SevenDayAim_WarriorTrial,	2).		%% 勇者荣耀通过第N层 ?SerProp_SevenDayAim_WarriorTrial						对应配置格式===>	[层数]
+-define(SevenDayAim_ProtectGod,		3).		%% 守护女神通过第N波 ?SerProp_SevenDayAim_ProtectGod						对应配置格式===>	[波数]
+-define(SevenDayAim_RoleLevel,		101).	%% 角色达到指定等级（客户端本地获取）											对应配置格式===>	[角色等级]
+-define(SevenDayAim_PetCount,		102).	%% 指定品质（等于）的骑宠达到指定数量（客户端本地获取）							对应配置格式===>	[骑宠品质, 骑宠数量] 品质为-1时表示不限品质
+-define(SevenDayAim_FashionCount,	103).	%% 拥有时装达到指定数量 ?SerProp_SevenDayAim_FashionCount					对应配置格式===>	[时装数量]
+-define(SevenDayAim_Force,			104).	%% 战力达到指定数量 ?SerProp_PlayerHistoryForce								对应配置格式===>	[战力值]
+-define(SevenDayAim_Ranking,		105).	%% 竞技场排名达到前N rec_ladder_1v1.rankMin									对应配置格式===>	[排名]
+-define(SevenDayAim_EquipQuality,	106).	%% 指定品质（等于）的装备达到指定数量 ?SerProp_SevenDayAim_EquipQuality		对应配置格式===>	[装备品质, 装备数量] 品质为-1时表示不限品质
+-define(SevenDayAim_EquipStar,		201).	%% 满足星级要求（大于等于）的装备（槽位）达到指定数量（客户端本地获取）				对应配置格式===>	[星级要求, 装备（槽位）数量]
+-define(SevenDayAim_EquipRefine,	202).	%% 满足精炼要求（大于等于）的装备（槽位）达到指定数量（客户端本地获取）				对应配置格式===>	[精炼要求, 装备（槽位）数量]
+-define(SevenDayAim_GemLevel,		203).	%% 满足等级要求（大于等于）的纹章镶嵌达到指定数量（纹章系统重新开发中，此处暂不支持）
+-define(SevenDayAim_GemMaster,		204).	%% 满足等级要求（大于等于）的纹章大师达到指定数量（纹章系统重新开发中，此处暂不支持）
+-define(SevenDayAim_WingLevel,		205).	%% 翅膀达到指定阶级（客户端本地获取）											对应配置格式===>	[翅膀阶级]
+-define(SevenDayAim_GodWeapon,		206).	%% 满足等级要求（大于等于）的器灵达到指定数量（客户端本地获取）						对应配置格式===>	[等级要求, 器灵数量]
+-define(SevenDayAim_PetStar,		207).	%% 满足星级要求（大于等于）的骑宠达到指定数量（客户端本地获取）						对应配置格式===>	[星级要求, 骑宠数量]
+-define(SevenDayAim_PetTurn,		208).	%% 满足转生要求（大于等于）的骑宠达到指定数量（客户端本地获取）						对应配置格式===>	[转生要求, 骑宠数量]
+-define(SevenDayAim_PetAdd,			209).	%% 满足提升要求（大于等于）的骑宠达到指定数量 ?SerProp_SevenDayAim_PetAdd		对应配置格式===>	[提升（次数）要求, 骑宠数量]
+-type sevenDayAim() :: uint().	%% 策划要求上述数值不连续，故用uint()代替
+
+-define(SevenDayAim_ALL, [
+	?SevenDayAim_CopyMap,
+	?SevenDayAim_WarriorTrial,
+	?SevenDayAim_ProtectGod,
+	?SevenDayAim_RoleLevel,
+	?SevenDayAim_PetCount,
+	?SevenDayAim_FashionCount,
+	?SevenDayAim_Force,
+	?SevenDayAim_Ranking,
+	?SevenDayAim_EquipQuality,
+	?SevenDayAim_EquipStar,
+	?SevenDayAim_EquipRefine,
+	%?SevenDayAim_GemLevel,
+	%?SevenDayAim_GemMaster,
+	?SevenDayAim_WingLevel,
+	?SevenDayAim_GodWeapon,
+	?SevenDayAim_PetStar,
+	?SevenDayAim_PetTurn,
+	?SevenDayAim_PetAdd
+]).
+
+%% 七日目标 目标类型定义 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 -endif.

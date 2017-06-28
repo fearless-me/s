@@ -69,12 +69,12 @@ deleteRole(RoleID) ->
 
 %% 修正属性
 ladder1v1_addprop(PropList) ->
-	BattleProp = playerCalcProp:getBattleProp(),
-	NewBattleProp1 = battleProp:addBattlePropRateValue(BattleProp, PropList),
-	playerCalcProp:calcBattleProp(NewBattleProp1, true, true),
+%%	BattleProp = playerCalcProp:getBattleProp(),
+%%	NewBattleProp1 = battleProp:addBattlePropRateValue(BattleProp, PropList),
+%%	playerCalcProp:calcBattleProp(NewBattleProp1, true, true),
 
 	%% 保存修正的属性
-	playerPropSync:setString(?SerProp_PlayerLadder1v1Prop, PropList),
+	playerPropSync:setString(?SerProp_PlayerLadder1v1Prop, []),
 	ok.
 
 %% 还原属性
@@ -173,6 +173,7 @@ playerEnterMapReal(?Ladder1v1MapID) ->
 			playerAchieve:achieveEvent(?Achieve_First_arena, [1]),
 
 			playerBase:clearSkillCDAndRestoreHp(),
+			playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_JingJiChang),
 
 			psMgr:sendMsg2PS(?PsNameLadder1v1, enterLadder1v1Map, {playerState:getRoleID(), playerState:getMapPid(), playerState:getPlayerCode()});
 		_ ->
@@ -838,7 +839,8 @@ insertSelfToLadderList() ->
 				end,
 			New = ets:foldl(F, 0, ets_rec_ladder_1v1) + 1,
 			psMgr:sendMsg2PS(?PsNameLadder1v1, insertSelfToLadderList, RoleID),
-			{ok,{<<"tempRecord">>,#rec_ladder_1v1{roleID =RoleID,rankSort = New }}};
+			playerSevenDayAim:updateCondition(?SevenDayAim_Ranking, [New]),
+			{ok,{<<"tempRecord">>,#rec_ladder_1v1{roleID = RoleID, rankSort = New, rankMin = New }}};
 		_ ->
 			false
 	end.

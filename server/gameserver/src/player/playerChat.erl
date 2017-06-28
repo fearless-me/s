@@ -504,15 +504,17 @@ checkCDTime(ErrorCode, _LastChatTime, _Now, _CDTime) ->
 
 -spec checkChatTask(Channel :: ?CHAT_CHANNEL_WORLD) -> NewErrorCode :: uint().
 checkChatTask(?CHAT_CHANNEL_WORLD) ->
-	case getCfg:getCfgPStack(cfg_globalsetup, chat_task) of
+	case getCfg:getCfgByKey(cfg_globalsetup, chat_task) of
         #globalsetupCfg{setpara = [0]} ->
+			?Chat_Success;
+        #globalsetupCfg{setpara = []} ->
             ?Chat_Success;
         #globalsetupCfg{setpara = [TaskID]} ->
             case playerTask:isSubmittedTaskByID(TaskID) of
                 true ->
                     ?Chat_Success;
                 false ->
-                    case getCfg:getCfgPStack(cfg_task_new, TaskID) of
+                    case getCfg:getCfgByKey(cfg_task_new, TaskID) of
                         #task_newCfg{task_name = TaskName} ->
                             playerMsg:sendErrorCodeMsg(?ErrorCode_ChatErrorTaskNosubmit,[TaskName]),
                             ?Chat_Failed;

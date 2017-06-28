@@ -26,7 +26,7 @@
 %%进攻方数据
 -record(king_battle_attacker,{roleID,buffCfgID,fightForce, isInActiveSence=true,mirrorDamage=0,isKillMirror=false}).
 %%镜像外观
--record(king_battle_mirror_appearance,{roleID,equipIDList, equipLevelList,wingLevel=0}).
+-record(king_battle_mirror_appearance,{roleID,equipIDList, equipLevelList,fashionIDList,wingLevel=0}).
 -endif. %% AcHDBattlegroundPrivate_hrl
 %%购买buff配置中的下一个buff结束ID
 -define(NEXT_CFG_BUFF_END_ID,-1).

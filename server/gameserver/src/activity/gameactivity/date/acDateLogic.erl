@@ -138,7 +138,6 @@ activityMapMsg(?ACMapMsg_CreateMap, {_CreateRoleID,_MapID,MapPid, PlayerEts, Mon
 			Mod = daid2mod(ActiveID),
 			Mod:initAfterCreate(RecNew),
 			%% 通知玩家进入地图
-
 			notifyPlayerEnter(RoleID_A, {MapID, MapPid, ActiveID, RoleID_B}),
 			notifyPlayerEnter(RoleID_B, {MapID, MapPid, ActiveID, RoleID_A});
 
@@ -150,8 +149,10 @@ activityMapMsg(?ACMapMsg_CreateMap, {_CreateRoleID,_MapID,MapPid, PlayerEts, Mon
 activityMapMsg(?ACMapMsg_DestoryMap, MapPid) ->
 	%?DEBUG_OUT("[DebugForDate] activityMapMsg ?ACMapMsg_DestoryMap ~p", [MapPid]),
 	case acDateState:queryMapInfo(MapPid) of
-		#recMapInfo{} ->
+		#recMapInfo{activeID = ActiveID} = RecOld->
 			%% 需要在具体的玩法逻辑中删除地图信息
+			Mod = daid2mod(ActiveID),
+			Mod:giveup(RecOld, {RecOld#recMapInfo.roleID_A, true}),
 			?ERROR_OUT("activityMapMsg ACMapMsg_DestoryMap map is not exists! ~p", [MapPid]);
 		_ ->
 			skip
@@ -278,6 +279,8 @@ deleteRole(RoleID) ->
 	lists:foreach(FunDelete, ListHelper),
 	ok.
 
+
+
 %% 主计时器消息响应
 -spec onTimerMain(MapPid::pid(), RecAckData::#recAckData{}) -> ok.
 onTimerMain(MapPid, #recAckData{activeID = ActiveID, paramEx = ParamEx} = Msg) ->
@@ -363,7 +366,9 @@ enterCreate({DateActiveID, RoleID, AnotherRoleID} = Key) ->
 			skip;
 		_ ->
 			%% 地图不存在，创建
+
 			MapID_ = acDateState:getMapIDWithActiveID(DateActiveID),
+			?ERROR_OUT("MapID_!MapID_MapID_MapID_MapID_ ~p", [MapID_]),
 			core:sendMsgToMapMgr(MapID_, createActivityMap, {MapID_, 1, Key})
 	end,
 	ok.

@@ -50,3 +50,15 @@ getMapList()->
 	end.
 
 
+getResetTick()->
+	case get(wb_kickall) of
+		undefined ->
+			0;
+		V ->
+			V
+	end.
+
+setResetTick(V)->
+	put(wb_kickall, V).
+
+

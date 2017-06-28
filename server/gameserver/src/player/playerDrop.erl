@@ -54,7 +54,7 @@ calcUseItemDropEquip(DropID,ParamValue,UseLevel) ->
 	Fun = fun(DropInfo,AccIn) ->
 		DropEquipList = equipDropProcess(DropInfo, ParamValue, UseLevel, ?Drop_EquipSource_ByPackage, 0, ?ItemSourceOpenPackage,false),
 		DropEquipList ++ AccIn
-	end,
+		  end,
 	lists:foldl(Fun,[],RetEquipList).
 
 useItemDropEquip(List,ParamValue) ->
@@ -66,7 +66,7 @@ useItemDropEquip(List,ParamValue) ->
 			quality = RealQuality,
 			isBind = IsBind
 		} | AccIn]
-	end,
+		  end,
 	Tips = lists:foldl(Fun,[],List),
 	Msg = #pk_GS2U_UseItemGainGoodsTips{
 		listTips = Tips
@@ -76,23 +76,21 @@ useItemDropEquip(List,ParamValue) ->
 
 itemDrop(DropID, OddParam, ParamValue, DropReason) ->
 	RetDropList = getDropCfg(DropID),
-	Fun = fun(#dropCfg{dropclass = Class} = Cfg,AccIn) ->
-		case goodsDropProcess(Cfg, OddParam) of
-			#dropResult{} = DR ->
-				case checkDrop(Class) of
-					true ->
-						updateDrop(Class),
-						[DR | AccIn];
-					_ ->
-						AccIn
-				end;
-			_ ->
-				AccIn
-		end
-	end,
-
-
-
+	Fun =
+		fun(#dropCfg{dropclass = Class} = Cfg,AccIn) ->
+			case goodsDropProcess(Cfg, OddParam) of
+				#dropResult{} = DR ->
+					case checkDrop(Class) of
+						true ->
+							updateDrop(Class),
+							[DR | AccIn];
+						_ ->
+							AccIn
+					end;
+				_ ->
+					AccIn
+			end
+		end,
 	DropResultList = lists:foldl(Fun,[],RetDropList),
 	dealDropResult(DropResultList,DropReason,ParamValue,false).
 
@@ -109,7 +107,7 @@ resetDrop() ->
 			1 ->
 				playerSave:saveDrop(NewInfo),
 				[NewInfo | Acc];
-			2 -> 
+			2 ->
 				case calendar:day_of_the_week({Year, Month, Day}) of
 					1 ->
 						playerSave:saveDrop(NewInfo),
@@ -117,7 +115,7 @@ resetDrop() ->
 					_ ->
 						[Info | Acc]
 				end;
-			3 -> 
+			3 ->
 				case Day of
 					1 ->
 						playerSave:saveDrop(NewInfo),
@@ -129,7 +127,7 @@ resetDrop() ->
 				playerSave:saveDrop(NewInfo),
 				[NewInfo | Acc]
 		end
-	end,
+		  end,
 	NewL = lists:foldl(Fun, [], L),
 	playerState:setDropList(NewL).
 
@@ -146,10 +144,10 @@ initDrop() ->
 					false ->
 						playerSave:saveDrop(NewInfo),
 						[NewInfo | Acc];
-					_ ->	
+					_ ->
 						[Info | Acc]
 				end;
-			2 -> 
+			2 ->
 				case core:timeIsOnWeek(Time) of
 					false ->
 						playerSave:saveDrop(NewInfo),
@@ -157,7 +155,7 @@ initDrop() ->
 					_ ->
 						[Info | Acc]
 				end;
-			3 -> 
+			3 ->
 				case core:timeIsOnMonth(Time) of
 					false ->
 						playerSave:saveDrop(NewInfo),
@@ -174,7 +172,7 @@ initDrop() ->
 						[Info | Acc]
 				end
 		end
-	end,
+		  end,
 	NewL = lists:foldl(Fun, [], L),
 	playerState:setDropList(NewL).
 
@@ -186,14 +184,14 @@ checkDrop(DropID) ->
 	#drop_controlCfg{
 		drop_cd = DropCD,
 		server_limits = ServerLimit,
-		personal_limits = PlayerLimit 
+		personal_limits = PlayerLimit
 	} = getCfg:getCfgPStack(cfg_drop_control, DropID),
 	case checkServerDrop(DropID, ServerLimit, DropCD) of
 		true ->
 			checkPlayerDrop(DropID, PlayerLimit);
 		_ ->
 			false
-  	end.
+	end.
 
 checkServerDrop(_DropID, 0, _DropCD) ->
 	true;
@@ -236,14 +234,14 @@ updateDrop(0) ->
 updateDrop(DropID) ->
 	#drop_controlCfg{
 		server_limits = ServerLimit,
-		personal_limits = PlayerLimit 
+		personal_limits = PlayerLimit
 	} = getCfg:getCfgPStack(cfg_drop_control, DropID),
 	if
 		ServerLimit =/= 0 andalso PlayerLimit =/= 0 ->
 			updatePlayerDrop(DropID),
 			updateServerDrop(DropID);
 		ServerLimit =/= 0 andalso PlayerLimit =:= 0 ->
-			updateServerDrop(DropID);	
+			updateServerDrop(DropID);
 		ServerLimit =:= 0 andalso PlayerLimit =/= 0 ->
 			updatePlayerDrop(DropID);
 		true ->
@@ -283,23 +281,23 @@ updateServerDrop(DropID) ->
 useItemDropItem(DropID,ParamValue, DropReason) ->
 	RetDropList = getDropCfg(DropID),
 	Fun = fun(#dropCfg{dropclass = Class} = Cfg,AccIn) ->
-				  case goodsDropProcess(Cfg, 1) of
-					  #dropResult{goodsID = GoodsID,num = Num,isBind = IsBind} = DR ->
-						  case checkDrop(Class) of
-							  true ->
-								  updateDrop(Class),
-								  case lists:keyfind(GoodsID,#dropResult.goodsID,AccIn) of
-									  #dropResult{goodsID = GoodsID,num = OldNum,isBind = IsBind} when GoodsID > 0 ->
-										  lists:keyreplace(GoodsID,#dropResult.goodsID,AccIn,DR#dropResult{num = OldNum + Num});
-									  _ ->
-										  [DR | AccIn]
-								  end;
-							  _ ->
-								  AccIn
-						  end;
-					  _ ->
-						  AccIn
-				  end
+		case goodsDropProcess(Cfg, 1) of
+			#dropResult{goodsID = GoodsID,num = Num,isBind = IsBind} = DR ->
+				case checkDrop(Class) of
+					true ->
+						updateDrop(Class),
+						case lists:keyfind(GoodsID,#dropResult.goodsID,AccIn) of
+							#dropResult{goodsID = GoodsID,num = OldNum,isBind = IsBind} when GoodsID > 0 ->
+								lists:keyreplace(GoodsID,#dropResult.goodsID,AccIn,DR#dropResult{num = OldNum + Num});
+							_ ->
+								[DR | AccIn]
+						end;
+					_ ->
+						AccIn
+				end;
+			_ ->
+				AccIn
+		end
 		  end,
 	DropResultList = lists:foldl(Fun,[],RetDropList),
 	case checkDropNeedSpace(DropResultList) of
@@ -379,7 +377,7 @@ getDropPackageCfg(ID) ->
 			_ ->
 				AccIn
 		end
-	end,
+		  end,
 	List = lists:foldl(Fun, [], IDList),	%%得到指定ID包裹掉落时的权重总和
 	case List of
 		[] ->
@@ -420,11 +418,11 @@ checkDropNeedSpace(DropResultList) ->
 						#itemCfg{maxAmount = MaxPileNum} ->
 							SlotNum0 = Num div MaxPileNum,
 							SlotNum = case (Num rem MaxPileNum) > 0 of
-								          true ->
-									          SlotNum0 + 1;
-								          _ ->
-									          SlotNum0
-							          end,
+										  true ->
+											  SlotNum0 + 1;
+										  _ ->
+											  SlotNum0
+									  end,
 							case goods:isGemItem(GoodsID) of
 								true ->
 									{EquipSpaceNum,ItemSpaceNum,GemSpaceNum + SlotNum,PlaRuneNum,PetRuneNum};
@@ -476,14 +474,14 @@ checkDropNeedSpace(DropResultList) ->
 				 (Max1 - Cur1) >= PlaRune;
 			 _ ->
 				 R3
-	     end,
+		 end,
 	R5 = case R4 andalso PetRune of
-		     true ->
-			     {Cur2, Max2} = playerRune:getRuneGridNumber(2),
-			     (Max2 - Cur2) >= PetRune;
-		     _ ->
-			     R4
-	     end,
+			 true ->
+				 {Cur2, Max2} = playerRune:getRuneGridNumber(2),
+				 (Max2 - Cur2) >= PetRune;
+			 _ ->
+				 R4
+		 end,
 	R5.
 
 -spec dealDropResult(DropResultList,DropReason,ParamValue,IsNeedGoodsID) ->
@@ -536,7 +534,7 @@ handleDropResult([#dropResult{goodsID = GoodsID,num = Num,isBind = IsBind} | T],
 					List ->
 						concat(IsNeedGoodsID,GoodsID,IsBind,Num,List,AccIn)
 				end
-	    end,
+		end,
 	handleDropResult(T,PLogItem, PLogCoin,IsNeedGoodsID, R);
 handleDropResult([#dropResult{goodsID = GoodsID,coinType = CoinType,num = Num} | T],PLogItem, PLogCoin,IsNeedGoodsID, AccIn) ->
 	?ERROR_OUT("Error:~p Drop GoodsID:~p CoinType:~p Num:~p",[playerState:getRoleID(),GoodsID,CoinType,Num]),
@@ -597,7 +595,7 @@ equipDropProcess(#equipdropCfg{
 											end,
 							%%6. 装备品质
 							getEquipDropQuality(EquipCfgList4, Quality0, Quality1, Quality2, Quality3, Quality4, Quality5);
-						%% 指定掉落装备
+					%% 指定掉落装备
 						DropType =:= ?EquipDropSpecify ->
 							%%指定品质
 							{EquipID,getQualityByDropID(EquipID, EquipQuality)};
@@ -616,7 +614,7 @@ equipDropProcess(#equipdropCfg{
 			false ->
 				AccIn
 		end
-	end,
+		  end,
 	Count = case MapDiffcult of
 				1 -> %%受地图难度影响
 					MapID = playerState:getMapID(),
@@ -657,21 +655,38 @@ calcTimes(Arg,Times) ->
 -spec getDropCfg(DropID) -> []|[#dropCfg{}, ...]
 	when DropID::uint().
 getDropCfg(DropID) ->
+	Career = playerState:getCareer(),
+	%% 受策划配置限制，性别的基础加1
+	Sex = playerState:getSex() + 1,
+
 	RowLineList = getCfg:getKey(cfg_drop,DropID),	%%获取到DropID对应配置所有行数列表
-	Fun = fun(RowNum, ResultDropCfgs) ->
-		%%从行中获取掉落配置
-		case getCfg:getCfgPStack(cfg_drop, RowNum) of
-			#dropCfg{dropId = DropID1} = DropCfg ->
-				case DropID =:= DropID1 of
-					true ->
-						[DropCfg | ResultDropCfgs];
-					false ->
-						ResultDropCfgs
-				end;
-			_ ->
-				ResultDropCfgs
-		end
-	end,
+	Fun =
+		fun(RowNum, ResultDropCfgAcc) ->
+			%%从行中获取掉落配置
+			case getCfg:getCfgPStack(cfg_drop, RowNum) of
+				#dropCfg{dropId = DropID, career = Car, sex = Sx} = DropCfg ->
+					IsCareer =
+						if
+							Car =:= 0 ->
+								%% 0不判断
+								true;
+							Car =< 10 ->
+								%% 判断职业系，1战士，2法师，3刺客
+								?Career2CareerMain(Career) =:= Car;
+							true ->
+								Career =:= Car
+						end,
+					IsSex = (Sx =:= 0 orelse Sex =:= Sx),
+					case IsCareer andalso IsSex of
+						true ->
+							[DropCfg | ResultDropCfgAcc];
+						_ ->
+							ResultDropCfgAcc
+					end;
+				_ ->
+					ResultDropCfgAcc
+			end
+		end,
 	lists:foldl(Fun, [], RowLineList).
 
 %%获取掉落权重
@@ -682,12 +697,12 @@ getMaxWeight(NoDrop, DropSouceType, TeamMemberNum) ->
 		?Drop_Equip_Source_ByMonster ->
 			NewNoDrop = case TeamMemberNum > 0 of %%有效范围内的队友数
 							true->
-							 	%%队友的数量会影响不掉的几率
+								%%队友的数量会影响不掉的几率
 								%%有N个队友，则
 								List = lists:seq(1, TeamMemberNum + 1),
 								Fun = fun(_, X) ->
 									NoDrop * X
-								end,
+									  end,
 								lists:foldl(Fun, 1, List);
 							_->
 								NoDrop
@@ -696,7 +711,7 @@ getMaxWeight(NoDrop, DropSouceType, TeamMemberNum) ->
 		_->
 			random:uniform(?MaxWeight) > NoDrop * ?MaxWeight
 	end.
-	  
+
 %%根据怪物等级或者礼包等级筛选出符合条件的装备配置
 %%参数中的Level是怪物等级或者是礼包等级,用来匹配装备配置
 -spec getEquipDropByDropLevel(Level) -> []|[#equipmentCfg{}, ...]
@@ -705,18 +720,18 @@ getEquipDropByDropLevel(Level) ->
 	Mod = getCfg:getTranslateModule(cfg_equipment),
 	IDList = Mod:getRowByItemLevel(Level),
 	Fun = fun(Key,ResultCfgs) ->
-				  case getCfg:getCfgPStack(cfg_equipment, Key) of
-					  #equipmentCfg{itemLevel = ItemLevel} = EquipDropCfg ->
-						  case Level - 3 =< ItemLevel andalso ItemLevel =< Level of
-							  true ->
-								  [EquipDropCfg | ResultCfgs];
-							  false ->
-								  ResultCfgs
-						  end;
-					  _->
-						  ResultCfgs
-				  end
-			end,
+		case getCfg:getCfgPStack(cfg_equipment, Key) of
+			#equipmentCfg{itemLevel = ItemLevel} = EquipDropCfg ->
+				case Level - 3 =< ItemLevel andalso ItemLevel =< Level of
+					true ->
+						[EquipDropCfg | ResultCfgs];
+					false ->
+						ResultCfgs
+				end;
+			_->
+				ResultCfgs
+		end
+		  end,
 	lists:foldl(Fun, [], IDList).
 
 %%随机掉落时根据掉落来源获取装备到装备池
@@ -724,28 +739,28 @@ getEquipDropByDropLevel(Level) ->
 	when EquipCfgList::[]|[#equipmentCfg{}, ...], DropSourceList::list().
 getEquipDropPool(EquipCfgList, DropSourceList)->
 	Fun = fun(#equipmentCfg{gain = Gain} = EquipDropCfg, ResultCfgs) ->
-				  case lists:member(Gain, DropSourceList) of
-					  true->
-						  [EquipDropCfg | ResultCfgs];
-					  false->
-						  ResultCfgs
-				  end
-			end,
+		case lists:member(Gain, DropSourceList) of
+			true->
+				[EquipDropCfg | ResultCfgs];
+			false->
+				ResultCfgs
+		end
+		  end,
 	lists:foldl(Fun, [], EquipCfgList).
 
 %%MinDiffcult<=itemdifficult<= MaxDiffcult 选定
 -spec getEquipDropByDiffcult(EquipCfgList, MinDiffcult, MaxDiffcult) -> []|[#equipmentCfg{}, ...]
 	when EquipCfgList::[]|[#equipmentCfg{}, ...],
-		MinDiffcult::uint(), 
-		MaxDiffcult::uint().
+	MinDiffcult::uint(),
+	MaxDiffcult::uint().
 getEquipDropByDiffcult(EquipCfgList, MinDiffcult, MaxDiffcult) ->
 	Fun = fun(#equipmentCfg{itemDifficult = ItemDifficult} = EquipDropCfg, ResultCfgs) ->
-				  case MinDiffcult =< ItemDifficult andalso ItemDifficult =< MaxDiffcult of
-					  true ->
-						  [EquipDropCfg | ResultCfgs];
-					  false ->
-						  ResultCfgs
-				  end
+		case MinDiffcult =< ItemDifficult andalso ItemDifficult =< MaxDiffcult of
+			true ->
+				[EquipDropCfg | ResultCfgs];
+			false ->
+				ResultCfgs
+		end
 		  end,
 	lists:foldl(Fun, [], EquipCfgList).
 
@@ -754,8 +769,8 @@ getEquipDropByDiffcult(EquipCfgList, MinDiffcult, MaxDiffcult) ->
 	when EquipCfgList::[]|[#equipmentCfg{}, ...].
 getEquipDropByType(EquipCfgList)->
 	Fun = fun(#equipmentCfg{type = Type},TypeList) ->
-				  [Type | TypeList]
-			end,
+		[Type | TypeList]
+		  end,
 	TypeList1 = lists:foldl(Fun, [], EquipCfgList),
 	case TypeList1 of
 		[] ->
@@ -772,7 +787,7 @@ getEquipDropByType(EquipCfgList)->
 					false ->
 						ResultCfgs
 				end
-			end,
+				   end,
 			lists:foldl(Fun1, [], EquipCfgList)
 	end.
 
@@ -792,7 +807,7 @@ getEquipBySelfChance(EquipCfgList) ->
 						false ->
 							ResultCfgs
 					end
-				end,
+					  end,
 				lists:foldl(Fun, [], EquipCfgList);
 			false ->%%移除适合的装备
 				Fun = fun(#equipmentCfg{class = Class} = EquipDropCfg, ResultCfgs) ->
@@ -802,7 +817,7 @@ getEquipBySelfChance(EquipCfgList) ->
 						false ->
 							ResultCfgs
 					end
-				end,
+					  end,
 				lists:foldl(Fun, [], EquipCfgList)
 		end,
 	%%如果该步结束，装备池为空，则将前一步剩余的结果返回
@@ -812,7 +827,7 @@ getEquipBySelfChance(EquipCfgList) ->
 		_ ->
 			NewDropList
 	end.
-	
+
 
 %%普通装备品质  添加新品质记得修改返回值范围
 -spec getEquipDropQuality(EquipCfgList,
@@ -861,7 +876,7 @@ getEquipDropQuality(EquipCfgList, WhiteWeight, GreenWeight, BlueWeight, PurpleWe
 			_ ->
 				[[EquipDropCfg | NormalCfgs], SpecialCfgs, SuitCfgs]
 		end
-	end,
+		  end,
 	[NewNormalList, OrangeList, NewSuitList] = lists:foldl(Fun, [[],[],[]], EquipCfgList),
 
 	%%如果选择到了独特/套装，但是装备池中没有独特/套装装备，则降为紫色品质
@@ -891,7 +906,7 @@ getEquipDropQuality(EquipCfgList, WhiteWeight, GreenWeight, BlueWeight, PurpleWe
 selectOrangeOrRedByWeight(EquipCfgList) ->
 	Fun = fun(#equipmentCfg{iD = ID,weight = Weight},AccIn) ->
 		[{Weight,ID} | AccIn]
-		end,
+		  end,
 	List = lists:foldl(Fun,[],EquipCfgList),
 	ID = misc:calcOddsByWeightList(List),
 	ID.
@@ -916,7 +931,7 @@ getDropEquipID(EquipCfgList) ->
 %%指定ID装备品质,如果是独特/套装，则无需指定品质
 -spec getQualityByDropID(EquipID, EquipQuality) -> uint()
 	when EquipID::uint(),
-		EquipQuality::uint().
+	EquipQuality::uint().
 getQualityByDropID(EquipID, EquipQuality) ->
 	case EquipQuality =:= 0 of
 		true ->
@@ -925,18 +940,18 @@ getQualityByDropID(EquipID, EquipQuality) ->
 					QualityType;
 				_->
 					?EquipColorTypeWhite
-			end;			
+			end;
 		false ->
 			EquipQuality
 	end.
 
 %%给玩家发掉落装备
 -spec equipDropProcessNew(EquipDropID, EquipQuality, ParamValue, IsBind, DropReason) -> playerPackage:goodsList()
-	when EquipDropID::uint(), 
-		EquipQuality::uint(),
-		ParamValue::uint(),
-		IsBind::uint(),
-		DropReason::uint().
+	when EquipDropID::uint(),
+	EquipQuality::uint(),
+	ParamValue::uint(),
+	IsBind::uint(),
+	DropReason::uint().
 equipDropProcessNew(EquipDropID, EquipQuality, ParamValue, IsBind, DropReason) ->
 	case EquipDropID =:= 0 of
 		true->
@@ -957,22 +972,22 @@ equipDropProcessNew(EquipDropID, EquipQuality, ParamValue, IsBind, DropReason) -
 	end.
 
 %%获取装备掉落配置列表
--spec getEquipDropCfg(ID) -> []|[#equipdropCfg{}, ...] 
+-spec getEquipDropCfg(ID) -> []|[#equipdropCfg{}, ...]
 	when ID::uint().
 getEquipDropCfg(ID) ->
 	IDList = getCfg:getKey(cfg_equipdrop,ID),
 	Fun = fun(Key, ResultCfgs) ->
-				  case getCfg:getCfgPStack(cfg_equipdrop, Key) of
-					  #equipdropCfg{equipdropId = DropID} = EquipDropCfg ->
-						  case DropID =:= ID of
-							  true ->
-								  [EquipDropCfg | ResultCfgs];
-							  false ->
-								  ResultCfgs
-						  end;
-					  _ ->
-						  ResultCfgs
-				  end
+		case getCfg:getCfgPStack(cfg_equipdrop, Key) of
+			#equipdropCfg{equipdropId = DropID} = EquipDropCfg ->
+				case DropID =:= ID of
+					true ->
+						[EquipDropCfg | ResultCfgs];
+					false ->
+						ResultCfgs
+				end;
+			_ ->
+				ResultCfgs
+		end
 		  end,
 	lists:foldl(Fun, [], IDList).
 

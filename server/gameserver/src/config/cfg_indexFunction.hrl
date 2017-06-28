@@ -6,6 +6,9 @@
         %%: 等级
         level,
 
+        %%: 升级到下一级所需经验
+        exp,
+
         %%: 魔神地宫怪物伤害（等级）系数
         demonDamLv,
 
@@ -41,6 +44,10 @@
 
         %%: 英雄副本掉落（难度）系数
         heroDgDropLv,
+
+        %%: Administrator:
+        %%: 生命秒回值
+        hPRecover,
 
         %%: 离线经验——
         %%: 每分钟积累经验

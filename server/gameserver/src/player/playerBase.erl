@@ -43,6 +43,48 @@
 	clearSkillCDAndRestoreHp/0
 ]).
 
+-export([
+	getCfgHPRecover/2,
+	getCfgMaxExp/2,
+	getCfgBaseProps/2
+]).
+
+getCfgHPRecover(Level, _Career) ->
+	#indexFunctionCfg{hPRecover = HPRecover} = getCfg:getCfgPStack(cfg_indexFunction, Level),
+	HPRecover.
+
+getCfgMaxExp(Level, _Career) ->
+	#indexFunctionCfg{exp = MaxExp} = getCfg:getCfgPStack(cfg_indexFunction, Level),
+	MaxExp.
+
+getCfgBaseProps(_Level, Career) ->
+	#player_baseCfg{
+		maxHP = MaxHP,
+		maxHPMultiply = MaxHPMultiply,
+		physicalAttack = PhysicalAttack,
+		physicalAttackMultiply = PhysicalAttackMultiply,
+		magicAttack = MagicAttack,
+		magicAttackMultiply = MagicAttackMultiply,
+		physicalDefence = PhysicalDefence,
+		physicalDefenceMultiply = PhysicalDefenceMultiply,
+		magicDefence = MagicDefence,
+		magicDefenceMultiply = MagicDefenceMultiply,
+		criticalLevel = CriticalLevel,
+		criticalLevelMultiply = CriticalLevelMultiply,
+		criticalResistLevel = CriticalResistLevel,
+		criticalResistLevelMultiply = CriticalResistLevelMultiply
+	} = getCfg:getCfgPStack(cfg_player_base, 1, Career),
+
+
+	[
+		{?Prop_MaxHP, MaxHP, MaxHPMultiply},
+		{?Prop_PhysicalAttack, PhysicalAttack, PhysicalAttackMultiply},
+		{?Prop_MagicAttack, MagicAttack, MagicAttackMultiply},
+		{?Prop_PhysicalDefence, PhysicalDefence, PhysicalDefenceMultiply},
+		{?Prop_MagicDefence, MagicDefence, MagicDefenceMultiply},
+		{?Prop_CriticalLevel, CriticalLevel, CriticalLevelMultiply},
+		{?Prop_CriticalResistLevel, CriticalResistLevel, CriticalResistLevelMultiply}].
+
 printPropList() ->
 	L = playerCalcProp:getBattleProp(),
 	lists:foreach(
@@ -141,11 +183,11 @@ init(RoleID, Career, Race, Sex, Head) ->
 	playerFindRes:init(),
 	ok.
 
-firstEnterWorld()->
+firstEnterWorld() ->
 	Flag = playerPropSync:getProp(?SerProp_PlayerFlag),
 	firstEnterWorld(Flag).
 
-firstEnterWorld(0)->
+firstEnterWorld(0) ->
 	playerPropSync:setInt64(?SerProp_PlayerFlag, 1),
 	playerSkillLearn:addSkillPointLevelUp(1),
 	playerEquip:equipRecastInit(),
@@ -153,12 +195,12 @@ firstEnterWorld(0)->
 	try
 		playerGoddess:initRoleWake()
 	catch
-	    _: _  -> skip
+		_: _ -> skip
 	end,
 	%%初始化玩家默认变量
 	playerVariant:initDefaultVariant(),
 	ok;
-firstEnterWorld(_)->
+firstEnterWorld(_) ->
 %%	playerVariant:sendVariant2Client(),
 	ok.
 
@@ -397,21 +439,21 @@ teamAllotExp(BaseExp, _MonsterID) ->
 	%	_ ->
 	%		MonsterLevel
 	%end,
-	#globalsetupCfg{setpara = [Coeff]} = getCfg:getCfgPStack(cfg_globalsetup, teamExpFactor),
 %%	TemInfo = playerBattle:getSameMapTeamMemberPid(),
 	%%LevAmendExp = 1 + (NewMonsterLevel -  PlayerLevel) * 0.05,
 	%%LevAmendExp1 = misc:clamp(LevAmendExp, ?ExpAllotMinPar, ?ExpAllotMaxPar),
 	TeamMemberCount = teamInterface:getTeamMemberCountWithRoleID(
-		playerState:getRoleID(), false ),
+		playerState:getRoleID(), false),
 	NewExp = case TeamMemberCount + 1 of
-		         1 ->
-			         %%erlang:round(BaseExp * LevAmendExp1);
-			         BaseExp;
-		         TemNum ->
-			         MonsterExp = BaseExp * (1 + (TemNum - 1) * Coeff),
-			         %%erlang:round(MonsterExp * LevAmendExp1 / TemNum)
-			         MonsterExp / TemNum
-	         end,
+				 1 ->
+					 %%erlang:round(BaseExp * LevAmendExp1);
+					 BaseExp;
+				 TemNum ->
+					 #globalsetupCfg{setpara = [Coeff]} = getCfg:getCfgPStack(cfg_globalsetup, teamExpFactor),
+					 MonsterExp = BaseExp * (1 + (TemNum - 1) * Coeff),
+					 %%erlang:round(MonsterExp * LevAmendExp1 / TemNum)
+					 MonsterExp / TemNum
+			 end,
 	case NewExp < 1 of
 		true ->
 			1;
@@ -453,7 +495,7 @@ addExp(AddExp, Reason, ReasonArg) when erlang:is_integer(AddExp), AddExp > 0 ->
 				_ ->
 					playerMsg:sendNetMsg(#pk_GS2U_PlayerAddExp{curExp = CurExp, addExp = NewExp}),
 					Career = playerState:getCareer(),
-					#player_baseCfg{exp = MaxExp} = getCfg:getCfgPStack(cfg_player_base, OldLevel, Career),
+					MaxExp = getCfgMaxExp(OldLevel, Career),
 					LastLogExp = playerState:getLastLogExp(),
 					Diff = CurExp - LastLogExp,
 					%%如果经验超过当前等级经验的3分之一且大于1200点
@@ -516,7 +558,7 @@ onPlayerQuit(Why) ->
 	end,
 	ok.
 -else.
-	onPlayerQuit(Why) -> onPlayerQuit2(Why).
+onPlayerQuit(Why) -> onPlayerQuit2(Why).
 -endif.
 
 onPlayerQuit2(Why) ->
@@ -657,12 +699,13 @@ onPlayerOffline(Why) ->
 			end,
 			case playerState:getActionStatus() of
 				?CreatureActionStatusDead ->
-					case getCfg:getCfgPStack(cfg_globalsetup, relive_hp) of
-						#globalsetupCfg{setpara = [Percent]} ->
-							ok;
-						_ ->
-							Percent = 1.0
-					end,
+					Percent =
+						case getCfg:getCfgPStack(cfg_globalsetup, relive_hp) of
+							#globalsetupCfg{setpara = [PercentValue]} ->
+								erlang:max(0, erlang:min(PercentValue / 100, 1));
+							_ ->
+								1.0
+						end,
 					MaxHp = playerState:getMaxHp(),
 					CurHp = erlang:round(MaxHp * Percent),
 					playerState:setRebornHp(CurHp);
@@ -699,6 +742,9 @@ onPlayerOffline(Why) ->
 			%% 通知LBS相关计算队列终止或排除计算
 			psMgr:sendMsg2PS(?PsNameFriend2LBS, friend2_offline, playerState:getRoleID()),
 
+			%% 离开跳舞
+			playerDance:leaveDanceMap(),
+
 			%% 发给db保存下线时间
 			gsSendMsg:sendMsg2DBServer(playerOffline, playerState:getAccountID(), playerState:getRoleID())
 	end,
@@ -721,11 +767,11 @@ addRole2CacheRoleList(RoleID, #pk_U2GS_RequestCreatePlayer{} = Pk) ->
 		lastLogoutTime = undefined
 	},
 	List = case RoleList of
-		       [] ->
-			       [RoleInfo];
-		       _ ->
-			       [RoleInfo | RoleList]
-	       end,
+			   [] ->
+				   [RoleInfo];
+			   _ ->
+				   [RoleInfo | RoleList]
+		   end,
 	playerState:setRoleList(List),
 	ok.
 
@@ -766,7 +812,7 @@ setLevel(Level, IsUpdate) when Level > 0 andalso erlang:is_boolean(IsUpdate) ->
 					skip
 			end,
 			if
-				IsUpdate =:= true->
+				IsUpdate =:= true ->
 					playerLevelUp:onLevelUp(OldLevel, Level);
 				true ->
 					skip
@@ -788,17 +834,13 @@ setLevel(Level, IsUpdate) when Level > 0 andalso erlang:is_boolean(IsUpdate) ->
 
 %%获取玩家升级真加总经验
 getAddExp(OldLevel, OldCurExp, Level) ->
-	Fun = fun(Lev, Acc) ->
-		case getCfg:getCfgPStack(cfg_player_base, Lev, playerState:getCareer()) of
-			#player_baseCfg{exp = Exp} ->
-				Acc + Exp;
-			_ ->
-				Acc + 0
-		end
-	      end,
+	Fun =
+		fun(Lv, Acc) ->
+			Acc + getCfgMaxExp(Lv, playerState:getCareer())
+		end,
 	List = lists:seq(OldLevel + 1, Level),
 	NowExp = lists:foldl(Fun, 0, List),
-	#player_baseCfg{exp = OldExp} = getCfg:getCfgPStack(cfg_player_base, OldLevel, playerState:getCareer()),
+	OldExp = getCfgMaxExp(OldLevel, playerState:getCareer()),
 	ShortExp = OldExp - OldCurExp,
 	NowExp + ShortExp.
 
@@ -864,7 +906,7 @@ getSpecBattlePropRestorePower(_) ->
 initBattlePropByCareer(Career) ->
 	BattlePropList = battleProp:initBattleProp(false),
 	playerState:setPlayerSpecBattleProp(#recPlayerSpecBattleProp{}),
-	#player_descCfg{ moveSpeed = MoveSpeed } = getCfg:getCfgPStack(cfg_player_desc, Career),
+	#player_descCfg{moveSpeed = MoveSpeed} = getCfg:getCfgPStack(cfg_player_desc, Career),
 	BasePropList = [{?Prop_MoveSpeed, MoveSpeed}],
 %%	SBP = playerState:getPlayerSpecBattleProp(),
 %%	case Career of
@@ -897,7 +939,7 @@ decExpSpill(CurExp, MaxLevel) ->
 	Career = playerState:getCareer(),
 	case Level =:= MaxLevel of
 		true ->
-			#player_baseCfg{exp = MaxExp} = getCfg:getCfgPStack(cfg_player_base, Level, Career),
+			MaxExp = getCfgMaxExp(Level, Career),% ),
 			case CurExp > MaxExp of
 				true ->
 					MaxExp;
@@ -915,7 +957,7 @@ calcLevel(CurExp1, MaxLevel) when erlang:is_number(CurExp1), CurExp1 > 0 ->
 	CurExp = trunc(CurExp1),
 	Level = playerState:getLevel(),
 	Career = playerState:getCareer(),
-	#player_baseCfg{exp = MaxExp} = getCfg:getCfgPStack(cfg_player_base, Level, Career),
+	MaxExp = getCfgMaxExp(Level, Career),
 	case CurExp > MaxExp andalso Level < MaxLevel of
 		true ->
 			NextLevel = Level + 1,
@@ -944,6 +986,7 @@ tickBySecond(Second) ->
 	playerPackage:tickPackage(),
 	playerRune:tickRune(),
 	playerWorldBossWar:tickSecond(),
+	playerSideTask:tickSideTask(),
 	ok.
 
 %%秒回血
@@ -987,15 +1030,15 @@ restoreHp(Second) ->
 	end,
 	ok.
 
-canRestoreHp(CurHP, MaxHp, LastPC)->
+canRestoreHp(CurHP, MaxHp, LastPC) ->
 	Status = playerState:getActionStatus(),
 	IsInCombat = playerState:isPlayerBattleStatus(),
 	if
 		IsInCombat ->
 			false;
-		CurHP =< 0->
+		CurHP =< 0 ->
 			false;
-		Status =:= ?CreatureActionStatusDead->
+		Status =:= ?CreatureActionStatusDead ->
 			false;
 		CurHP >= MaxHp andalso LastPC >= 100 ->
 			false;
@@ -1354,7 +1397,7 @@ createNoticeInfo() ->
 				#goblinCfg{refreshtime = TimeList1} ->
 					Fun3 = fun(E) ->
 						E =:= Time
-					       end,
+						   end,
 					case lists:any(Fun3, TimeList1) of
 						false ->
 							Acclist2;
@@ -1362,11 +1405,11 @@ createNoticeInfo() ->
 							[MapID | Acclist2]
 					end
 			end
-		       end,
+			   end,
 		ResMapList = lists:foldl(Fun2, [], MapList),
 		%%?DEBUG_OUT("ResMapList = ~p", [ResMapList]),
 		[{Time, ResMapList} | AccList1]
-	       end,
+		   end,
 	ResList = lists:foldl(Fun1, [], TimeList),
 	%%?DEBUG_OUT("ResList = ~p", [ResList]),
 	ResList.
@@ -1403,7 +1446,7 @@ getBeginTimeList() ->
 			_ ->
 				AccList
 		end
-	      end,
+		  end,
 	lists:usort(lists:foldl(Fun, [], MapList)).
 
 getrecLogPlayerOffline(OnlineOrOffineLine) ->
@@ -1429,11 +1472,11 @@ addHDBattleHonor(Now) ->
 		true ->
 			DiffSec2 = erlang:trunc((Now - playerPropSync:getProp(?SerProp_HDBattleGetRYTime)) / 1000),
 			JGTime = case getCfg:getCfgPStack(cfg_globalsetup, battle_add_time) of
-				         #globalsetupCfg{setpara = [V]} ->
-					         V;
-				         _ ->
-					         10
-			         end,
+						 #globalsetupCfg{setpara = [V]} ->
+							 V;
+						 _ ->
+							 10
+					 end,
 			case DiffSec2 >= JGTime of
 				true ->
 					core:sendMsgToActivity(?ActivityType_HDBattle, updateHDInfo,

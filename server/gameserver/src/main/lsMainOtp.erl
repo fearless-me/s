@@ -483,7 +483,7 @@ serverInfoInit() ->
 	MaxPlayer = globalSetup:getMaxPlayer(),
 	IP = getConfigIP(),
 
-	Port = config:rpc_get_int("ListenToUserPort", 6789),
+	Port = config:getInt("ListenToUserPort", 6789),
 
 	GameServerInfo =
 		#recGameServer{
@@ -556,10 +556,10 @@ setLoadDataWaitList(List) ->
 
 -ifdef(RELEASE).
 getConfigIP() ->
-	config:rpc_get_string("ListenToUserIP", "127.0.0.1").
+	config:getString("ListenToUserIP", "127.0.0.1").
 -else.
 getConfigIP() ->
-	IP = config:rpc_get_string("ListenToUserIP", "127.0.0.1"),
+	IP = config:getString("ListenToUserIP", "127.0.0.1"),
 	case misc:getLocalIP() of
 		IP ->
 			IP;

@@ -102,6 +102,9 @@
 -define(ItemSourcePetTerritoryExploit, 	94).%%新版骑宠领地-开采奖励
 -define(ItemSourcePetTerritoryPlunder, 	95).%%新版骑宠领地-掠夺奖励
 -define(ItemSourceGuildGodblessSchedule, 	96).%%家族系统-女神祈福-祈福进度奖励
+-define(ItemSourcePetToChip, 	97).%%骑宠转换成碎片
+-define(ItemSourceSevenDayAimReward, 	98).%%七日目标领奖道具奖励
+-define(ItemSourceThirtyDayLoginGift, 	99).%%30日登录送大礼道具奖励
 
 %%物品变更定义，范围[500,999]
 -define(ItemUseReasonPlayer, 	500).%%玩家使用消耗
@@ -185,6 +188,9 @@
 -define(CoinSourceGuildSnowmanSettle, 	1036).%%家族系统-堆雪人-结算奖励
 -define(CoinSourceGuildFairgroundRide, 	1037).%%家族系统-游乐场-乘坐设备失败返回
 -define(CoinSourceMoneyTree, 	1038).%%点金手
+-define(CoinSourceResetSkill, 	1039).%%技能洗点
+-define(CoinSourceSevenDayAimReward, 	1040).%%七日目标领奖货币奖励
+-define(CoinSourceThirtyDayLoginGift, 	1041).%%30日登录送大礼货币奖励
 
 %%货币消耗范围[10001,...]
 -define(CoinUseEquipResolve, 	10001).%%装备分解消耗
@@ -255,7 +261,7 @@
 -define(CoinBuyActionCount, 	10070).%%购买副本次数
 -define(CoinUseGuildFairgroundRide, 	10071).%%家族系统-游乐场-乘坐设备消耗
 -define(CoinUseMoneyTree, 	10072).%%点金手
--define(CoinUseWorldBossInspire, 	10073).%%首领入侵鼓舞消耗
+-define(CoinUseWorldBossInspire, 	10073).%%首领入侵,鼓舞
 
 %%_funcell log 需要货币类型的中文
 
@@ -276,6 +282,7 @@
 -define(ExpSourceGuildBattle, 	14).%%军团战奖励
 -define(ExpSourceGuildGodBless, 	15).%%家族系统-女神祈福-经验奖励
 -define(ExpSourceGuildSnowmanDonate, 	16).%%家族系统-堆雪人活动-捐献材料经验奖励
+-define(ExpSourceDanceIng, 	17).%%限时广场舞跳舞获得经验
 
 %%玩家经验去向
 -define(ExpOutTalentLevelUp, 	1).%%天赋升级使用

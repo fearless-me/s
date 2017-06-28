@@ -19,8 +19,8 @@
 
 %%触发补单逻辑
 give_lost_recharge_to_user(OrderID,PurchaseToken,RoleID)->
-	GameID = config:rpc_get_string("GameID", "165"),
-	HttpPort = config:rpc_get_string("HttpServerPort", "9009"),
+	GameID = config:getString("GameID", "165"),
+	HttpPort = config:getString("HttpServerPort", "9009"),
 	?LOG_OUT("recharge system give_lost_recharge_to_user begin===GameID:~p,OrderID:~p,PurchaseToken:~p~n",[GameID,OrderID,PurchaseToken]),
 %%  PaymentVarifyUrl = config:rpc_get_string("PaymentVerifyUrl", "http://192.168.18.54:9009/pay/http_payment_handle:pay_call_back"),
 	PaymentVarifyUrl = "http://127.0.0.1:"++HttpPort++"/pay/ums_pay_call_back",
@@ -65,8 +65,8 @@ send_payment_info_to_user( OrderID, PurchaseToken) ->
 
 %%请求订单信息
 req_payment_info( OrderID, PurchaseToken) ->
-	PaymentVarifyUrl = config:rpc_try_get_string("PaymentVerifyUrl", "http://mainaland.payment.raink.com.cn") ++ "/confirm/ordercheck",
-	GameID = config:rpc_try_get_string("GameID", "165"),
+	PaymentVarifyUrl = config:getString("PaymentVerifyUrl", "http://mainaland.payment.raink.com.cn") ++ "/confirm/ordercheck",
+	GameID = config:getString("GameID", "165"),
 	SendData = "game=" ++ GameID ++ "&order=" ++ binary_to_list(OrderID) ++ "&purchase_token=" ++ binary_to_list(PurchaseToken),
 	case misc:httpPost(PaymentVarifyUrl, SendData, 3) of
 		{ok, Data} ->
@@ -115,7 +115,7 @@ parse_ums_msg(RfcData,PurchaseToken)->
 
 	%%ums发送过来的支付消息
 	#rec_http_msg_recharge_info{
-		game=config:rpc_get_string("GameID", "165"),%%游戏ID
+		game= config:getString("GameID", "165"),%%游戏ID
 		price=binary_to_float(Price),%%商品原价
 		discount_price=binary_to_float(Discount_price),%%商品折后价
 		currency_amount= erlang:binary_to_float(Currency_amount),%%实际付款总金额

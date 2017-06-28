@@ -42,6 +42,7 @@ onLevelUp(OldLevel, NewLevel)->
 	%%自动升级可升级的技能
 	lists:foreach(
 		fun(Lv) ->
+			playerSideTask:onLevelUp(Lv),
 			playerSkillLearn:addSkillPointLevelUp(Lv)
 		end, lists:seq(OldLevel + 1, NewLevel)),
 	playerSkillLearn:autoUpSkill(NewLevel),
@@ -50,6 +51,7 @@ onLevelUp(OldLevel, NewLevel)->
 	playerWing:needInitWingLevel(NewLevel),
 	%% 玩家升级检测是否可以领取环任务引导任务
 	playerLoopTask:acceptLink(),
+	playerMarriageTask:acceptLink(),
 	%%更新成就进度
 	playerAchieve:achieveEvent(?Achieve_Level, [NewLevel - OldLevel]),
 	ok.

@@ -541,7 +541,7 @@ canEnterCopyMap(
 					%% 队伍有这个副本的进度，再判断进入人数
 					AllowMaxNum = getMaxNumber(CopyMapID),
 					Len = length(EnterList),
-					case AllowMaxNum > Len of
+					case AllowMaxNum >= Len of
 						true ->
 							?LOG_OUT("~p enterCopyMap teamID:~p, MapPid:~p, mapID:~p", [RoleID, TeamID, MapPID, CopyMapID]),
 							ok;

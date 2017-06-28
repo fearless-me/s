@@ -28,33 +28,33 @@
 	damageCalcAssistBuff/5
 ]).
 
-finalFactor(?ObjTypePet, ?ObjTypePlayer)->
+finalFactor(?ObjTypePet, ?ObjTypePlayer) ->
 	doFinalFactor(player_player_battlevalue);
 
-finalFactor(?ObjTypePlayer, ?ObjTypePet)->
+finalFactor(?ObjTypePlayer, ?ObjTypePet) ->
 	doFinalFactor(player_player_battlevalue);
 
-finalFactor(?ObjTypePlayer, ?ObjTypePlayer)->
+finalFactor(?ObjTypePlayer, ?ObjTypePlayer) ->
 	doFinalFactor(player_player_battlevalue);
 
-finalFactor(?ObjTypePet, ?ObjTypeMonster)->
+finalFactor(?ObjTypePet, ?ObjTypeMonster) ->
 	doFinalFactor(player_monster_battlevalue);
 
-finalFactor(?ObjTypeMonster, ?ObjTypePet)->
+finalFactor(?ObjTypeMonster, ?ObjTypePet) ->
 	doFinalFactor(player_monster_battlevalue);
 
-finalFactor(?ObjTypePlayer, ?ObjTypeMonster)->
+finalFactor(?ObjTypePlayer, ?ObjTypeMonster) ->
 	doFinalFactor(player_monster_battlevalue);
 
-finalFactor(?ObjTypeMonster, ?ObjTypePlayer)->
+finalFactor(?ObjTypeMonster, ?ObjTypePlayer) ->
 	doFinalFactor(player_monster_battlevalue);
 
 finalFactor(_AttackerType, _DefenderType) ->
 	float(1).
 
-doFinalFactor(Key)->
+doFinalFactor(Key) ->
 	case getCfg:getCfgByKey(cfg_skillBase, Key) of
-		#skillBaseCfg{setpara = [V]}->
+		#skillBaseCfg{setpara = [V]} ->
 			V;
 		_ ->
 			float(1)
@@ -103,7 +103,7 @@ calcDamage(
 				defenderHp = DefenderHp,
 				result = R,
 				damage = DamageBase,
-				multiply =  SkillMultiply,
+				multiply = SkillMultiply,
 				plus = SkillPlus,
 				kFactor = KFactor,
 				criticalDamageFactor = CriticalDamageFactor,
@@ -120,7 +120,7 @@ damageCalcForm(#recDamageCalcForm{
 	skillOrBuffID = SkillID,
 	attackerCode = AttackerCode,
 	defenderCode = DefenderCode,
-	defenderAbsorb =  AccAbsorb,
+	defenderAbsorb = AccAbsorb,
 	defenderHp = DefenderHp,
 	result = R,
 	damage = DamageBase,
@@ -129,9 +129,9 @@ damageCalcForm(#recDamageCalcForm{
 	kFactor = KFactor,
 	criticalDamageFactor = CriticalDamageFactor,
 	damagePlus = DamagePlus,
-	damageReduce =  DamageReduce,
+	damageReduce = DamageReduce,
 	layer = Layer
-})->
+}) ->
 	KDamageBase = (DamageBase * SkillMultiply * (1 - KFactor) + SkillPlus),
 	FinalDamage1 =
 		if
@@ -145,7 +145,7 @@ damageCalcForm(#recDamageCalcForm{
 				0
 		end,
 
-	FinalFactor =  finalFactor(
+	FinalFactor = finalFactor(
 		codeMgr:getObjectTypeByCode(AttackerCode),
 		codeMgr:getObjectTypeByCode(DefenderCode)
 	),
@@ -240,7 +240,7 @@ getSkillKeyLevel(PropID, SkillLevel) ->
 	end.
 
 getSkillPropRange(?Prop_HitLevel) ->
-	doGetSkillPropRange(hitRange);
+	doGetSkillPropRange(dodgeRange);
 %%
 getSkillPropRange(?Prop_CriticalLevel) ->
 	doGetSkillPropRange(critRange);
@@ -267,17 +267,17 @@ getSkillPropRange(?Prop_MagicDefence) ->
 getSkillPropRange(?Prop_CriticalDamageLevel) ->
 	doGetSkillPropRange(critdamRange).
 
-doGetSkillPropRange(Key)->
+doGetSkillPropRange(Key) ->
 	case getCfg:getCfgByArgs(cfg_skillBase, Key) of
-		#skillBaseCfg{setpara = [V1,V2,V3]} ->
-			{{V1,V2}, V3};
+		#skillBaseCfg{setpara = [V1, V2, V3]} ->
+			{{V1, V2}, V3};
 		#skillBaseCfg{setpara = [V11]} ->
-			{{V11,V11}, 0};
+			{{V11, V11}, 0};
 		_ ->
-			{{0, 1},0}
+			{{0, 1}, 0}
 	end.
 
-damageCalcAssistSkill(SkillID, SkillLv, AttackProps, DefenderProps, BeAttack)->
+damageCalcAssistSkill(SkillID, SkillLv, AttackProps, DefenderProps, BeAttack) ->
 	{MagicFactor, PhysicalFactor, CriticalDamageProp} =
 		doDamageCalcAssist(SkillID, SkillLv, AttackProps, DefenderProps),
 	BeAttack#recBeAttack{
@@ -286,7 +286,7 @@ damageCalcAssistSkill(SkillID, SkillLv, AttackProps, DefenderProps, BeAttack)->
 		criticalDamageFactor = CriticalDamageProp
 	}.
 
-damageCalcAssistBuff(SkillID, SkillLv, AttackProps, DefenderProps, BuffData)->
+damageCalcAssistBuff(SkillID, SkillLv, AttackProps, DefenderProps, BuffData) ->
 	{MagicFactor, PhysicalFactor, CriticalDamageProp} =
 		doDamageCalcAssist(SkillID, SkillLv, AttackProps, DefenderProps),
 	BuffData#recBuffInfo{
@@ -324,12 +324,12 @@ doDamageCalcAssist(SkillID, SkillLv, AttackProps, DefenderProps) ->
 kFactor(AttackProps, AttackKeyPropID, DefenderProps, DefenderKeyPropID) ->
 	AttackPropVal = battle:getPropValue(AttackKeyPropID, AttackProps),
 	DefenderPropVal = battle:getPropValue(DefenderKeyPropID, DefenderProps),
-	{{AttackFactor, _},_} = getSkillPropRange(AttackKeyPropID),
-	{{DefenseFactor, _},_} = getSkillPropRange(DefenderKeyPropID),
+	{{AttackFactor, _}, _} = getSkillPropRange(AttackKeyPropID),
+	{{DefenseFactor, _}, _} = getSkillPropRange(DefenderKeyPropID),
 	DefenderPropVal / (DefenderPropVal + AttackPropVal * AttackFactor) * DefenseFactor.
 
 
-skillCfgVal(PropID, SkillID)->
+skillCfgVal(PropID, SkillID) ->
 	case getCfg:getCfgByArgs(cfg_skill, SkillID) of
 		#skillCfg{} = Cfg ->
 			doSkillCfgVal(PropID, Cfg);
@@ -337,14 +337,38 @@ skillCfgVal(PropID, SkillID)->
 			0
 	end.
 
-doSkillCfgVal(?Prop_CriticalLevel, #skillCfg{critOther = Cri} )->
+doSkillCfgVal(?Prop_CriticalLevel, #skillCfg{critOther = Cri}) ->
 	Cri;
-doSkillCfgVal(?Prop_HitLevel, #skillCfg{hitOther = Hit} )->
+doSkillCfgVal(?Prop_HitLevel, #skillCfg{hitOther = Hit}) ->
 	-Hit;
-doSkillCfgVal(?Prop_ArmorPenetrationLevel, #skillCfg{breakOther = Armor} )->
+doSkillCfgVal(?Prop_ArmorPenetrationLevel, #skillCfg{breakOther = Armor}) ->
 	Armor;
-doSkillCfgVal(_Prop, _Cfg)->
+doSkillCfgVal(_Prop, _Cfg) ->
 	0.
+
+doPropProb(?Prop_CriticalLevel, AttackerProps, _DefenderProps) ->
+	battle:getPropValue(?Prop_CriticalProb, AttackerProps);
+doPropProb(?Prop_HitLevel, _AttackerProps, DefenderProps) ->
+	battle:getPropValue(?Prob_DodgeProb, DefenderProps);
+doPropProb(?Prop_ArmorPenetrationLevel, AttackerProps, _DefenderProps) ->
+	battle:getPropValue(?Prop_ArmorPenetrationProb, AttackerProps);
+doPropProb(_Prop, _AttackerProps, _DefenderProps) ->
+	0.
+
+calcBase(PropID, AttackerPropV, DefenderPropV) ->
+	V =
+		case PropID of
+			?Prop_HitLevel ->
+				DefenderPropV - AttackerPropV;
+			_ ->
+				AttackerPropV - DefenderPropV
+		end,
+	case V >= 0 of
+		true ->
+			V;
+		_ ->
+			0
+	end.
 
 judgeForm(SkillID, SkillLevel, AttackProps, AttackKeyPropID, DefenderProps, DefenderKeyPropID) ->
 	AttackPropVal = battle:getPropValue(AttackKeyPropID, AttackProps),
@@ -353,31 +377,32 @@ judgeForm(SkillID, SkillLevel, AttackProps, AttackKeyPropID, DefenderProps, Defe
 	{{SkillPropMin, SkillPropMax}, SkillPropBase} = getSkillPropRange(AttackKeyPropID),
 
 	SkillBaseVal = skillCfgVal(AttackKeyPropID, SkillID),
+	PropProb = doPropProb(AttackKeyPropID, AttackProps, DefenderProps),
 
-	BaseSubPropVal =
-		case AttackPropVal >= DefenderPropVal of
-			true ->
-				AttackPropVal - DefenderPropVal;
-			_ ->
-				0
-		end,
+	BaseSubPropVal = calcBase(AttackKeyPropID, AttackPropVal, DefenderPropVal),
 	Numerator = BaseSubPropVal + SkillPropV1,
 	Denominator = BaseSubPropVal + SkillPropV2,
 
 	Res1 =
-		case Numerator / Denominator of
-			V when is_number(V) ->
-				V * SkillPropMax;
-			Error ->
-				?ERROR_OUT("error[~p]", [Error]),
-				float(0)
+		if
+			Denominator =:= 0 ->
+				float(0);
+			true ->
+				case Numerator / Denominator of
+					V when is_number(V) ->
+						V * SkillPropMax;
+					Error ->
+						?ERROR_OUT("error[~p]", [Error]),
+						float(0)
+				end
 		end,
 
+
 	Res2 = misc:clamp(Res1, SkillPropMin, SkillPropMax),
-	Res2 + SkillBaseVal + SkillPropBase.
+	Res2 + SkillBaseVal + SkillPropBase + PropProb.
 
 
-beJudge(SkillID, SkillLv, AttackLv, AttackProps, DefenderLv, DefenderProps) ->
+beJudge(SkillID, SkillLv, _AttackLv, AttackProps, _DefenderLv, DefenderProps) ->
 	CriticalProb = judgeForm(
 		SkillID
 		, SkillLv

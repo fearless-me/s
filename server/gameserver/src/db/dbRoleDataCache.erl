@@ -38,14 +38,11 @@ getRoleDataFromDB(RoleID, _PidFromPlayerDataOtp) ->
 
             %% 加载其它数据rec_playerdata
             #rec_playerdata{} = PlayerData = dbGSDataLoad:loadRoleData(RoleID),
-
-            %% 返回给GS,发给gs:playerDataMgrOtp进程
-			psMgr:sendMsg2PS(?PlayerDataMgr, loadRoleDataFromDBAck, {Base, PlayerData}),
-            ok;
+			{Base, PlayerData};
         _ ->
-            ?ERROR_OUT("is delete player:~p", [RoleID])
-    end,
-    ok.
+            ?ERROR_OUT("is delete player:~p", [RoleID]),
+			false
+    end.
 
 getRoleAllDataFromDB(RoleID) ->
 	Now = os:timestamp(),

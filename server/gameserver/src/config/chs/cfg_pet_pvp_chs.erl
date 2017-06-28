@@ -15,7 +15,7 @@ getRow(1)->
     petmapx = -776,
     petmapy = 367,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3160,5},{20,5}],
     time = 1,
     integral = 5
@@ -30,7 +30,7 @@ getRow(2)->
     petmapx = -608,
     petmapy = 403,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3160,15},{20,10}],
     time = 1,
     integral = 8
@@ -45,7 +45,7 @@ getRow(3)->
     petmapx = -449,
     petmapy = 384,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3160,25},{20,15}],
     time = 1,
     integral = 11
@@ -60,7 +60,7 @@ getRow(4)->
     petmapx = -287,
     petmapy = 416,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3160,35},{20,20}],
     time = 1,
     integral = 14
@@ -75,7 +75,7 @@ getRow(5)->
     petmapx = -367,
     petmapy = 222,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3160,45},{20,25}],
     time = 1,
     integral = 17
@@ -90,7 +90,7 @@ getRow(6)->
     petmapx = -584,
     petmapy = 220,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3160,55},{20,30}],
     time = 1,
     integral = 20
@@ -105,7 +105,7 @@ getRow(7)->
     petmapx = -757,
     petmapy = 181,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3160,65},{20,35}],
     time = 1,
     integral = 23
@@ -120,7 +120,7 @@ getRow(8)->
     petmapx = -730,
     petmapy = 0,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3160,75},{20,40}],
     time = 1,
     integral = 26
@@ -135,7 +135,7 @@ getRow(9)->
     petmapx = -565,
     petmapy = 34,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3160,85},{20,45}],
     time = 1,
     integral = 29
@@ -150,7 +150,7 @@ getRow(10)->
     petmapx = -371,
     petmapy = 34,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3160,95},{20,50}],
     time = 1,
     integral = 32
@@ -165,7 +165,7 @@ getRow(21)->
     petmapx = -710,
     petmapy = -168,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3161,5},{20,55}],
     time = 3,
     integral = 5
@@ -180,7 +180,7 @@ getRow(22)->
     petmapx = -647,
     petmapy = -331,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3161,15},{20,60}],
     time = 3,
     integral = 8
@@ -195,7 +195,7 @@ getRow(23)->
     petmapx = -483,
     petmapy = -369,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3161,25},{20,65}],
     time = 3,
     integral = 11
@@ -210,7 +210,7 @@ getRow(24)->
     petmapx = -531,
     petmapy = -154,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3161,35},{20,70}],
     time = 3,
     integral = 14
@@ -225,7 +225,7 @@ getRow(25)->
     petmapx = -374,
     petmapy = -154,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3161,45},{20,75}],
     time = 3,
     integral = 17
@@ -240,7 +240,7 @@ getRow(26)->
     petmapx = -311,
     petmapy = -369,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3161,55},{20,80}],
     time = 3,
     integral = 20
@@ -255,7 +255,7 @@ getRow(27)->
     petmapx = -96,
     petmapy = -352,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3161,65},{20,85}],
     time = 3,
     integral = 23
@@ -270,7 +270,7 @@ getRow(28)->
     petmapx = 112,
     petmapy = -352,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3161,75},{20,90}],
     time = 3,
     integral = 26
@@ -285,7 +285,7 @@ getRow(29)->
     petmapx = 219,
     petmapy = -184,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3161,85},{20,95}],
     time = 3,
     integral = 29
@@ -300,7 +300,7 @@ getRow(30)->
     petmapx = -205,
     petmapy = -201,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3161,95},{20,100}],
     time = 3,
     integral = 32
@@ -315,7 +315,7 @@ getRow(41)->
     petmapx = 714,
     petmapy = 215,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,5},{20,105}],
     time = 5,
     integral = 5
@@ -330,7 +330,7 @@ getRow(42)->
     petmapx = 640,
     petmapy = 401,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,15},{20,110}],
     time = 5,
     integral = 8
@@ -345,7 +345,7 @@ getRow(43)->
     petmapx = 405,
     petmapy = 410,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,25},{20,115}],
     time = 5,
     integral = 11
@@ -360,7 +360,7 @@ getRow(44)->
     petmapx = 243,
     petmapy = 396,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,35},{20,120}],
     time = 5,
     integral = 14
@@ -375,7 +375,7 @@ getRow(45)->
     petmapx = 311,
     petmapy = 222,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,45},{20,125}],
     time = 5,
     integral = 17
@@ -390,7 +390,7 @@ getRow(46)->
     petmapx = 540,
     petmapy = 213,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,55},{20,130}],
     time = 5,
     integral = 20
@@ -405,7 +405,7 @@ getRow(47)->
     petmapx = 558,
     petmapy = 22,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,65},{20,135}],
     time = 5,
     integral = 23
@@ -420,7 +420,7 @@ getRow(48)->
     petmapx = 353,
     petmapy = 41,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,75},{20,140}],
     time = 5,
     integral = 26
@@ -435,7 +435,7 @@ getRow(49)->
     petmapx = 111,
     petmapy = 222,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,85},{20,145}],
     time = 5,
     integral = 29
@@ -450,7 +450,7 @@ getRow(50)->
     petmapx = -54,
     petmapy = 181,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,95},{20,150}],
     time = 5,
     integral = 32
@@ -465,7 +465,7 @@ getRow(100)->
     petmapx = 124,
     petmapy = 28,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,105},{20,155}],
     time = 8,
     integral = 50
@@ -480,7 +480,7 @@ getRow(101)->
     petmapx = 0,
     petmapy = -109,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,115},{20,160}],
     time = 8,
     integral = 50
@@ -495,7 +495,7 @@ getRow(102)->
     petmapx = -136,
     petmapy = 0,
     drop_item = 1901,
-    drop_money = 0,
+    drop_money = [],
     drop_show = [{3162,125},{20,165}],
     time = 8,
     integral = 50

@@ -18,7 +18,7 @@ dealInfo({asyncInit,_Pid}, State)->
 	
 	inets:start(),
 	URL =
-		case config:rpc_get_string("talkingDataAppID", "") of
+		case config:getString("talkingDataAppID", "") of
 			"" ->
 				?LOG_OUT("talkingDataAppID has no,function shutdown"),
 				undefined;

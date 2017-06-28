@@ -14,23 +14,23 @@ getRow(1)->
     coordinate = [{100,100}],
     bossid = 1002,
     name = "禁闭室第1关",
-    petattack = 6428,
+    petattack = 1,
     attack = 4420,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310300,
     maxTime = 90,
-    offset = [-520,-550,6500],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(2)->
     #warriortrialCfg {
@@ -41,23 +41,23 @@ getRow(2)->
     coordinate = [{100,100}],
     bossid = 1003,
     name = "禁闭室第2关",
-    petattack = 6748,
+    petattack = 1,
     attack = 4940,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310300,
     maxTime = 90,
-    offset = [-390,-600,7000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(3)->
     #warriortrialCfg {
@@ -68,23 +68,23 @@ getRow(3)->
     coordinate = [{100,100}],
     bossid = 1004,
     name = "禁闭室第3关",
-    petattack = 7097,
+    petattack = 1,
     attack = 5590,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310300,
     maxTime = 90,
-    offset = [-490,-530,5500],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(4)->
     #warriortrialCfg {
@@ -95,23 +95,23 @@ getRow(4)->
     coordinate = [{100,100}],
     bossid = 1005,
     name = "禁闭室第4关",
-    petattack = 7454,
+    petattack = 1,
     attack = 5980,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310300,
     maxTime = 90,
-    offset = [-580,-640,7000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(5)->
     #warriortrialCfg {
@@ -122,23 +122,23 @@ getRow(5)->
     coordinate = [{100,100}],
     bossid = 1006,
     name = "禁闭室第5关",
-    petattack = 8149,
+    petattack = 1,
     attack = 6890,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310300,
     maxTime = 90,
-    offset = [-270,-360,3500],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(6)->
     #warriortrialCfg {
@@ -149,23 +149,23 @@ getRow(6)->
     coordinate = [{100,100}],
     bossid = 1007,
     name = "禁闭室第6关",
-    petattack = 8628,
+    petattack = 1,
     attack = 8840,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310301,
     maxTime = 90,
-    offset = [-560,-550,6000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(7)->
     #warriortrialCfg {
@@ -176,23 +176,23 @@ getRow(7)->
     coordinate = [{100,100}],
     bossid = 1008,
     name = "禁闭室第7关",
-    petattack = 9119,
+    petattack = 1,
     attack = 10270,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310301,
     maxTime = 90,
-    offset = [-590,-630,7000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(8)->
     #warriortrialCfg {
@@ -203,23 +203,23 @@ getRow(8)->
     coordinate = [{100,100}],
     bossid = 1009,
     name = "禁闭室第8关",
-    petattack = 9623,
+    petattack = 1,
     attack = 11700,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310301,
     maxTime = 90,
-    offset = [-420,-470,5000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(9)->
     #warriortrialCfg {
@@ -230,23 +230,23 @@ getRow(9)->
     coordinate = [{100,100}],
     bossid = 1010,
     name = "禁闭室第9关",
-    petattack = 11058,
+    petattack = 1,
     attack = 14430,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310302,
     maxTime = 90,
-    offset = [-500,-530,5000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(10)->
     #warriortrialCfg {
@@ -257,23 +257,23 @@ getRow(10)->
     coordinate = [{100,100}],
     bossid = 1011,
     name = "禁闭室第10关",
-    petattack = 12003,
+    petattack = 1,
     attack = 16510,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310302,
     maxTime = 90,
-    offset = [-500,-550,6000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(11)->
     #warriortrialCfg {
@@ -284,23 +284,23 @@ getRow(11)->
     coordinate = [{100,100}],
     bossid = 1012,
     name = "禁闭室第11关",
-    petattack = 12691,
+    petattack = 1,
     attack = 17550,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310303,
     maxTime = 90,
-    offset = [-510,-520,6000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(12)->
     #warriortrialCfg {
@@ -311,23 +311,23 @@ getRow(12)->
     coordinate = [{100,100}],
     bossid = 1013,
     name = "禁闭室第12关",
-    petattack = 13580,
+    petattack = 1,
     attack = 19110,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310303,
     maxTime = 90,
-    offset = [-530,-550,6000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(13)->
     #warriortrialCfg {
@@ -338,23 +338,23 @@ getRow(13)->
     coordinate = [{100,100}],
     bossid = 1014,
     name = "禁闭室第13关",
-    petattack = 14312,
+    petattack = 1,
     attack = 19760,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310303,
     maxTime = 90,
-    offset = [-320,-600,6500],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(14)->
     #warriortrialCfg {
@@ -365,23 +365,23 @@ getRow(14)->
     coordinate = [{100,100}],
     bossid = 1015,
     name = "禁闭室第14关",
-    petattack = 15240,
+    petattack = 1,
     attack = 20000,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310303,
     maxTime = 90,
-    offset = [-610,-530,6500],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(15)->
     #warriortrialCfg {
@@ -392,23 +392,23 @@ getRow(15)->
     coordinate = [{100,100}],
     bossid = 1016,
     name = "禁闭室第15关",
-    petattack = 17796,
+    petattack = 1,
     attack = 21000,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310303,
     maxTime = 90,
-    offset = [-520,-570,6000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(16)->
     #warriortrialCfg {
@@ -419,23 +419,23 @@ getRow(16)->
     coordinate = [{100,100}],
     bossid = 1017,
     name = "禁闭室第16关",
-    petattack = 19152,
+    petattack = 1,
     attack = 21500,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310304,
     maxTime = 90,
-    offset = [-520,-550,6500],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(17)->
     #warriortrialCfg {
@@ -446,23 +446,23 @@ getRow(17)->
     coordinate = [{100,100}],
     bossid = 1018,
     name = "禁闭室第17关",
-    petattack = 18883,
+    petattack = 1,
     attack = 22000,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310304,
     maxTime = 90,
-    offset = [-390,-600,7000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(18)->
     #warriortrialCfg {
@@ -473,23 +473,23 @@ getRow(18)->
     coordinate = [{100,100}],
     bossid = 1019,
     name = "禁闭室第18关",
-    petattack = 19904,
+    petattack = 1,
     attack = 22880,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310304,
     maxTime = 90,
-    offset = [-490,-530,5500],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(19)->
     #warriortrialCfg {
@@ -500,23 +500,23 @@ getRow(19)->
     coordinate = [{100,100}],
     bossid = 1020,
     name = "禁闭室第19关",
-    petattack = 20773,
+    petattack = 1,
     attack = 24440,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310304,
     maxTime = 90,
-    offset = [-580,-640,7000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(20)->
     #warriortrialCfg {
@@ -527,23 +527,23 @@ getRow(20)->
     coordinate = [{100,100}],
     bossid = 1021,
     name = "禁闭室第20关",
-    petattack = 22548,
+    petattack = 1,
     attack = 26130,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310304,
     maxTime = 90,
-    offset = [-270,-360,3500],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(21)->
     #warriortrialCfg {
@@ -554,23 +554,23 @@ getRow(21)->
     coordinate = [{100,100}],
     bossid = 1022,
     name = "禁闭室第21关",
-    petattack = 25902,
+    petattack = 1,
     attack = 27820,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310305,
     maxTime = 90,
-    offset = [-560,-550,6000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(22)->
     #warriortrialCfg {
@@ -581,23 +581,23 @@ getRow(22)->
     coordinate = [{100,100}],
     bossid = 1023,
     name = "禁闭室第22关",
-    petattack = 29096,
+    petattack = 1,
     attack = 29770,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310305,
     maxTime = 90,
-    offset = [-590,-630,7000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(23)->
     #warriortrialCfg {
@@ -608,23 +608,23 @@ getRow(23)->
     coordinate = [{100,100}],
     bossid = 1024,
     name = "禁闭室第23关",
-    petattack = 33236,
+    petattack = 1,
     attack = 32110,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310305,
     maxTime = 90,
-    offset = [-420,-470,5000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(24)->
     #warriortrialCfg {
@@ -635,23 +635,23 @@ getRow(24)->
     coordinate = [{100,100}],
     bossid = 1025,
     name = "禁闭室第24关",
-    petattack = 37085,
+    petattack = 1,
     attack = 32110,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310305,
     maxTime = 90,
-    offset = [-500,-530,5000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(25)->
     #warriortrialCfg {
@@ -662,23 +662,23 @@ getRow(25)->
     coordinate = [{100,100}],
     bossid = 1026,
     name = "禁闭室第25关",
-    petattack = 40957,
+    petattack = 1,
     attack = 60840,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310305,
     maxTime = 90,
-    offset = [-500,-550,6000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(26)->
     #warriortrialCfg {
@@ -689,23 +689,23 @@ getRow(26)->
     coordinate = [{100,100}],
     bossid = 1027,
     name = "禁闭室第26关",
-    petattack = 45148,
+    petattack = 1,
     attack = 60840,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310306,
     maxTime = 90,
-    offset = [-510,-520,6000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(27)->
     #warriortrialCfg {
@@ -716,23 +716,23 @@ getRow(27)->
     coordinate = [{100,100}],
     bossid = 1028,
     name = "禁闭室第27关",
-    petattack = 49363,
+    petattack = 1,
     attack = 87620,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310306,
     maxTime = 90,
-    offset = [-530,-550,6000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(28)->
     #warriortrialCfg {
@@ -743,23 +743,23 @@ getRow(28)->
     coordinate = [{100,100}],
     bossid = 1029,
     name = "禁闭室第28关",
-    petattack = 55753,
+    petattack = 1,
     attack = 127660,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310306,
     maxTime = 90,
-    offset = [-320,-600,6500],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(29)->
     #warriortrialCfg {
@@ -770,23 +770,23 @@ getRow(29)->
     coordinate = [{100,100}],
     bossid = 1030,
     name = "禁闭室第29关",
-    petattack = 61772,
+    petattack = 1,
     attack = 187590,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310306,
     maxTime = 90,
-    offset = [-610,-530,6500],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(30)->
     #warriortrialCfg {
@@ -797,23 +797,23 @@ getRow(30)->
     coordinate = [{100,100}],
     bossid = 1031,
     name = "禁闭室第30关",
-    petattack = 67597,
+    petattack = 1,
     attack = 277680,
-    buff = 180,
+    buff = 0,
     exp = 0,
     gold = [0,0],
     purple = [0,0],
     golden = [0,0],
     drop = 310306,
     maxTime = 90,
-    offset = [-520,-570,6000],
+    offset = [1.1,1.1,1.1],
     camera_boss = 0,
     animation = 0,
     inprocess_buff = [19,25],
     bone = "p_m_origin",
-    cam_target = "[]",
+    cam_target = [],
     movetime = 0,
-    cam_shake = "[]"
+    cam_shake = []
     };
 getRow(_)->[].
 

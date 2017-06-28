@@ -44,7 +44,7 @@ isActivityValid(ID) ->
 fresh() ->
 	Fun =
 		fun(#rec_activity{id = ID, phase = Phase} = Activity, _) ->
-			IsVaild =
+			IsValid =
 				case getCfg:getCfgByArgs(cfg_activity,ID) of
 					#activityCfg{cycletype = ACType} ->
 						if
@@ -64,7 +64,7 @@ fresh() ->
 						%% 没找到配置
 						false
 				end,
-			case IsVaild of
+			case IsValid of
 				true ->
 					case activity:queryActivitySwitch(ID) of
 						true ->
@@ -101,7 +101,13 @@ freshInit(#rec_activity{id = ID, starttime = _LastStartTime, phasetime = LastPha
 	NowTime = time:getSyncTime1970FromDBS(),
 	case NowTime > LastPhaseTime of
 		true ->
-			Conf = #activityCfg{cycletype = CycleType} = getCfg:getCfgPStack(cfg_activity, ID),
+			#activityCfg{cycletype = CycleType} = Conf =
+				case getCfg:getCfgPStack(cfg_activity, ID) of
+					#activityCfg{stage = []} = C1 ->
+						C1#activityCfg{stage = [0]};
+					C2 ->
+						C2
+				end,
 			case canfreshInit(CycleType, Activity, Conf) of
 				false ->
 					skip;
@@ -167,7 +173,14 @@ getActivePhase(ActivityID) ->
 %% 活动过程中时间刷新
 -spec freshGoon(#rec_activity{}) -> ok.
 freshGoon(#rec_activity{id = ID, starttime = StartTime, phase = Phase, phasetime = PhaseTime}) ->
-	#activityCfg{lenghtime = LengthTime, stage = StageList = [First|_]} = getCfg:getCfgPStack(cfg_activity, ID),
+	#activityCfg{lenghtime = LengthTime, stage = StageList = [First|_]} =
+		case getCfg:getCfgPStack(cfg_activity, ID) of
+			#activityCfg{stage = []} = C1 ->
+				C1#activityCfg{stage = [0]};
+			C2 ->
+				C2
+		end,
+
 	NowTime = time:getSyncTime1970FromDBS(),
 	case NowTime - StartTime < LengthTime of
 		true ->

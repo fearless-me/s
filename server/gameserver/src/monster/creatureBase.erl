@@ -690,8 +690,25 @@ spawnMonsterAck(Code) ->
 		name = Name,
 		level = Level
 	},
+	Msg = #pk_GS2U_MonsterList{monster_list = [LookInfoMonster]},
 	mapView:sendMsg2NearPlayerByPos(monsterState:getMapPid(Code), PlayerEts,
-		#pk_GS2U_MonsterList{monster_list = [LookInfoMonster]}, X, Y, monsterState:getGroupID(Code)),
+		Msg, X, Y, monsterState:getGroupID(Code)),
+
+	%% 全图血怪，再同步一次
+	case CodeType of
+		?SpawnMonster ->
+			case monsterInterface:isMonsterShowMapHP(ID) of
+				true ->
+					FMap =
+						fun(#recMapObject{netPid = NetPid}, _) ->
+							gsSendMsg:sendNetMsg(NetPid, Msg)
+						end,
+					ets:foldl(FMap, 0, PlayerEts);
+				_ -> skip
+			end;
+		_ -> skip
+	end,
+
 	%%增加初始buff
 	Fun =
 		fun(BuffID) ->

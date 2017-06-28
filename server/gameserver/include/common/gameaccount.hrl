@@ -39,6 +39,49 @@
 }).
 
 %%
+-record(rec_configdb,{
+	id = 0,				%% int(11)
+	regionid = 0,				%% int(11)
+	serverid = 0,				%%大区下服务器ID,serverid,范围1~1023 smallint(5) unsigned
+	ptid = 0,				%% int(50)
+	serverType = 0,				%%1普通服，2跨服中心服，3跨服普通服 int(11)
+	servername = "",				%% varchar(255)
+	externalip = "",				%%服务器所在公网ip char(32)
+	internalip = "",				%%服务器所在内网ip char(32)
+	data_ip = "",				%%逻辑数据库ip char(32)
+	slave_id = 0,				%% int(11)
+	gameport1 = 0,				%% int(11)
+	gameport2 = 0,				%% int(11)
+	gameport_gm = 0,				%% int(11)
+	gameport_recharge = 0,				%% int(11)
+	data_username = "",				%% varchar(64)
+	data_password = "",				%% varchar(64)
+	data_port = 0,				%% smallint(6) unsigned
+	data_dbname = "",				%% varchar(64)
+	log_ip = "",				%%日志数据库ip char(32)
+	log_username = "",				%% varchar(64)
+	log_password = "",				%% varchar(64)
+	log_port = 0,				%% smallint(6) unsigned
+	log_dbname = "",				%% varchar(64)
+	global_account_ip = "",				%%全局账号库ip char(32)
+	global_account_username = "",				%% varchar(64)
+	global_account_password = "",				%% varchar(64)
+	global_account_port = 0,				%% smallint(6) unsigned
+	global_account_dbname = "",				%% varchar(64)
+	global_activecode_ip = "",				%%全局激活码库ip char(32)
+	global_activecode_username = "",				%% varchar(64)
+	global_activecode_password = "",				%% varchar(64)
+	global_activecode_port = 0,				%% smallint(6) unsigned
+	global_activecode_dbname = "",				%% varchar(64)
+	cross_node = "",				%%跨服节点 varchar(64)
+	server_des = "",				%%服务器描述 varchar(255)
+	ismerged = 0,				%% int(11)
+	mergeindate = 0,				%% datetime
+	createdate = 0				%% timestamp
+
+}).
+
+%%
 -record(rec_deny_list4device,{
 	deviceId = ""				%%设备标识 varchar(255)
 

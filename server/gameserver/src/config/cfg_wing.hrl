@@ -3,12 +3,12 @@
 -define(cfg_wing, 1).
 
 -record(wingCfg, {
-        %%: 翅膀ID
+        %%: 翅膀ID，不可重复
         iD,
 
         %%: 翅膀所用模型
         %%: 区别种族，数组格式（分别调用Client\Assets\Resources\Prefab\role\wing下翅膀模型）
-        %%: [人族翅膀模型id，精灵翅膀模型id,魔族翅膀模型id]
+        %%: [人族翅膀模型id，精灵翅膀模型id，魔族翅膀模型id]
         model,
 
         %%: 翅膀界面对应图标

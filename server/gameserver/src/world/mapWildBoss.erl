@@ -465,8 +465,8 @@ recordDamageValue(_,_,_,_,_,_,_) ->
 -spec sendRewardLucky(BossID::integer()) -> string().
 sendRewardLucky(BossID) ->
 	ListRoleID = mapState:getWildBossDamageFromPlayer_validRoleID(BossID),
-	case getCfg:getCfgByKey(cfg_globalsetup, wildboss_reward_lucky) of
-		#globalsetupCfg{setpara = [ItemID]} ->
+	case getCfg:getCfgByKey(cfg_wildboss, BossID) of
+		#wildbossCfg{lucky  = ItemID} ->
 			case getCfg:getCfgByKey(cfg_item, ItemID) of
 				#itemCfg{name = ItemName} ->
 					Title = stringCfg:getString(wildboss_reward_lucky_title),

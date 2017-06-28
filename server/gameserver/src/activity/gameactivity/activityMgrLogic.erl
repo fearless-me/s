@@ -80,6 +80,9 @@ createActivityChildProcess() ->
 	%% 首领入侵
 	addActivityChildPID(?ActivityType_GiveIPad, ?PsNameWorldBOss),
 
+	%% 广场舞
+	addActivityChildPID(?ActivityType_Dance, acDanceOtp),
+
 	ok.
 
 %% 获取某类型活动的子进程名

@@ -101,14 +101,15 @@ rob_battle_init() ->
 	playerPropSync:setAny(?SerProp_RobRoleTargetXY, []),
 	playerPropSync:setInt64(?SerProp_RobRoleUseItemTime, 0),
 
-	CallList = playerState:getCallPet(),
-	F =
-		fun(#recCallPet{pet_id = ID, pet_type = Type}, {AccSkills, AccMin}) ->
-			PetSkillIDs = getPetSkillIDList(ID, Type),
-			MinLen = getMinRanger(PetSkillIDs, 7.5),
-			{PetSkillIDs ++ AccSkills, erlang:min(MinLen, AccMin)}
+	PetSkillListAndMinAttackLen =
+		case playerPet:getPetBattle() of
+			#recPetInfo{pet_id = ID} ->
+				PetSkillIDs = getPetSkillIDList(ID, ?CallPetTypeRMB),
+				MinLen = getMinRanger(PetSkillIDs, 7.5),
+				{PetSkillIDs, MinLen};
+			_ ->
+				{[], 10}
 		end,
-	PetSkillListAndMinAttackLen = lists:foldl(F, {[], 10}, CallList),
 	playerPropSync:setAny(?SerProp_RobPetSkillListAndMinAttackLen, PetSkillListAndMinAttackLen),
 	ok.
 
@@ -351,12 +352,16 @@ revertHp() ->
 getSkill() ->
 	%% 女神技能
 
-	%% 插槽技能
-	List = playerState:getSlotSkill(),
+	%% 技能
+	List = playerState:getSkill(),
 	FunMap =
-		fun(#recSlotSkill{type = Type, skillID = SkillID}, AccList) ->
-			case lists:member(Type, ?ActiveSkillList) of
-				true -> [SkillID | AccList];
+		fun(#recSkill{skillID = SkillID}, AccList) ->
+			case getCfg:getCfgByKey(cfg_skill, SkillID) of
+				#skillCfg{skillType = Type} ->
+					case lists:member(Type, ?ActiveSkillList) of
+						true -> [SkillID | AccList];
+						_ -> AccList
+					end;
 				_ -> AccList
 			end
 		end,

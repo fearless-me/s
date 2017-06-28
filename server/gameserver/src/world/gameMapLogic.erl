@@ -122,6 +122,20 @@ tickMap(NowTime) ->
 						true -> prepareDestroy(60 * 1000, false);
 						_ -> skip
 					end;
+				?MapSubTypeDate ->
+					%% 消消乐无人时销毁
+					case mapState:getDestoryTime() =:= 0 andalso IsEmpty of
+						true ->
+							prepareDestroy(10 * 1000, false);
+						_ -> skip
+					end;
+				?MapSubTypeDatebox ->
+					%% 推箱子无人时销毁
+					case mapState:getDestoryTime() =:= 0 andalso IsEmpty of
+						true ->
+							prepareDestroy(10 * 1000, false);
+						_ -> skip
+					end;
 				_ -> skip
 			end,
 			tickActivityMap(NowTime);
@@ -257,7 +271,7 @@ tickNotNormalMap(NowTime) ->
 					  ?MapSubTypeSpiritArea ->
 						  false;
 					  _ ->
-						  copyMapScheduleComplete:checkCompleteCopyMap(0, 0) andalso MapPlan >= MaxMapPlan
+						  MapPlan >= MaxMapPlan andalso copyMapScheduleComplete:checkCompleteCopyMap(0, 0)
 				  end,
 	if
 		IsEmpty andalso IsCompleted ->
@@ -366,10 +380,12 @@ noScheduleTick(NowTime) ->
 					}),
 					copyMapDemonBattle:noticeGift(),%%通知玩家发本关宝箱
 					copyMapDemonBattle:noticeScheduleStatus(0),%%挑战成功
+					noticeMapPlayerUpdateSevenDayAim(CurrScheduleNum),
 					erlang:send_after(Interval, self(), {mapOtpAfterDo,fun()->copyMapGoddess:initSchedule() end });
 				_ ->
 					case One of
 						true ->
+							noticeMapPlayerUpdateSevenDayAim(CurrScheduleNum),
 							put({one,self()},true),
 							copyMapGoddess:goddessSettlement(),
 							%%完成了总进度，出副本
@@ -384,6 +400,13 @@ noScheduleTick(NowTime) ->
 			skip
 	end,
 	ok.
+
+noticeMapPlayerUpdateSevenDayAim(Schedule) ->
+	FunSend =
+		fun(#recMapObject{pid = Pid}, _) ->
+			psMgr:sendMsg2PS(Pid, updateProtectGod, Schedule)
+		end,
+	ets:foldl(FunSend, 0, mapState:getMapPlayerEts()).
 
 -spec prepareDestroy(DestroyAfterTime,IsForceDestroy) -> ok when DestroyAfterTime ::uint(),IsForceDestroy::boolean().
 prepareDestroy(DestroyAfterTime, IsForceDestroy) ->

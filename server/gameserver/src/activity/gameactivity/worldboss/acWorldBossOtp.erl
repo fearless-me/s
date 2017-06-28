@@ -147,6 +147,12 @@ handle_info({activityMapMsg, _Pid, {MsgType, Data}}, State) ->
 handle_info(tick, State) ->
 	acWorldBossLogic:tick(),
 	{noreply, State};
+handle_info(nextPhaseGo, State) ->
+	acWorldBossLogic:nextPhaseGo(),
+	{noreply, State};
+handle_info(resetall, State) ->
+	acWorldBossLogic:kickAll(),
+	{noreply, State};
 %% 其它业务逻辑接口（创建并进入地图）
 %% -----------------------------------------------------------------------------------
 handle_info({activityDataLoadAckCallBack, _Pid, _Data}, State) ->

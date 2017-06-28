@@ -44,6 +44,7 @@
 	warn_out/3,
 	log/3,
 	debug/3,
+	debug/5,
 	setIsWriteLog/1
 ]).
 
@@ -55,6 +56,8 @@
 -define(NAME,      hdlt_logger_name).
 
 -define(MAX_LOG_CNT_ONE_FILE,100000).
+
+-define(LogWindow, windowPid).
 
 getLogLevelString(?LogLevelError) ->
 	"ERR";
@@ -125,6 +128,7 @@ handle_exception(Type,Why,State) ->
 	myGenServer:default_handle_excetion(Type, Why, State).
 
 %%错误消息不管在什么等级都需要记录下来
+
 -spec error_out(LogLevel,Fmt, Arg) -> ok when
 	LogLevel::uint(),Fmt::string(),Arg::list().
 error_out(?LogLevelSlient,Fmt, Arg) ->
@@ -165,6 +169,21 @@ log(?LogLevelDebug,Fmt, Arg) ->
 	do_log(?LogLevelLog,Fmt, Arg).
 
 %%调试记录等级，只有当前等级达到此等级才记录下来
+debug(?LogLevelSlient, _Fmt, _Arg,_Mod, _Line) ->
+	ok;
+debug(?LogLevelError, _Fmt, _Arg,_Mod, _Line) ->
+	ok;
+debug(?LogLevelWarn, _Fmt, _Arg,_Mod, _Line) ->
+	ok;
+debug(?LogLevelLog, _Fmt, _Arg,_Mod, _Line) ->
+	ok;
+debug(?LogLevelDebug, Fmt, Arg, Mod, Line) ->
+	debug(
+		?LogLevelDebug,
+		lists:append("[~w:~w] ", Fmt),
+		lists:append([Mod, Line],Arg)
+	).
+
 -spec debug(LogLevel,Fmt, Arg) -> ok when
 	LogLevel::uint(),Fmt::string(),Arg::list().
 debug(?LogLevelSlient,_Fmt, _Arg) ->
@@ -232,7 +251,7 @@ createWindow(_Log_File_Name) ->
 createWindow(Log_File_Name) ->
 	?LOG_OUT("Cur Is Debug Version"),
 	WinPid = window:create_window(Log_File_Name, "", 800, 600),
-	put("WinPid", WinPid),
+	put(?LogWindow, WinPid),
 	ok.
 -endif.
 
@@ -254,10 +273,18 @@ handle_info(Info, #state{monitorRef=Ref,logCnt=Cnt}=StateData) ->
 					%% start the stop timer
 					erlang:send_after(5000, self(), stop),
 					{noreply, StateData};
+				{'EXIT',Pid,normal}->
+					case get(?LogWindow) of
+						{wx_ref, _R,_T, Pid}->
+							erase(?LogWindow);
+						_ ->
+							io:format( "hdlt_logger recv unkown msg:~p ~n", [Info] )
+					end,
+					{noreply, StateData};
 				stop ->
 					{stop, normal, StateData};
-				Unkown ->
-					io:format( "hdlt_logger recv unkown msg:~p ~n", [Unkown] ),
+				_ ->
+					io:format( "hdlt_logger recv unkown msg:~p ~n", [Info] ),
 					{noreply, StateData}
 			end;
 		_ ->
@@ -321,19 +348,22 @@ addToLogWindow(_MsgLevel,_String) ->
 	MsgLevel::uint(),String::string().
 addToLogWindow(MsgLevel,String) ->
 	try
-		case get("WinPid") of
-			undefined ->
-				skip;
-			_ ->
-				window:insert_record(get("WinPid"), String, MsgLevel)
-		end,
-		case isShowInStdio() of
-			true ->
-				Str = str:utf8_to_utf16(String),
-				io:format("~ts", [Str]);
-			_ ->
-				skip
-		end
+		IsShowInStdio = isShowInStdio(),
+		WinPid =  get(?LogWindow),
+		erlang:spawn(
+			fun()->
+				case WinPid of
+					undefined ->
+						case IsShowInStdio of
+							true ->
+								io:format("~ts", [str:utf8_to_utf16(String)]);
+							_ ->
+								skip
+						end;
+					_ ->
+						window:insert_record(WinPid, String, MsgLevel)
+				end
+			end)
 	catch
 		_:_ ->
 			%%注意，此处不能再throw出去，因为本模块是从myGenServer派生，，

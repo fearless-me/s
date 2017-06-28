@@ -153,6 +153,7 @@ addFashionTime(FashionID, ExpiresSecond) ->
 				L0 = lists:keystore(FashionID, #recFashion.fashionID, FashionList, NewFaionRec),
 				{NewFaionRec, L0, false};
 			_ ->
+				playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Fashion),
 				playerAchieve:achieveEvent(?Achieve_Fashion, [1]),
 				NewRec = #recFashion{roleID = PlayerID, fashionID = FashionID, endTime = calcExpireSeconds(Now, ExpiresSecond)},
 				L1 = [NewRec | FashionList],
@@ -349,7 +350,13 @@ checkFashionTimeOut(IsNotify) ->
 gs2uFashionOperateResult(FashionID, Type, Value) ->
 	?DEBUG_OUT("[DebugForFashion] gs2uFashionOperateResult FashionID:~p Type:~p Value:~p", [FashionID, Type, Value]),
 	Msg = #pk_GS2U_FashionResult{fashionID = FashionID, type = Type, value = Value},
-	playerMsg:sendNetMsg(Msg).
+	playerMsg:sendNetMsg(Msg),
+	case Type of
+		?OperationTypeBuy when Value > 0 ->
+			playerSevenDayAim:updateCondition(?SevenDayAim_FashionCount, [FashionID]);
+		_ ->
+			ok
+	end.
 
 %%着装时，记录插槽上的时装id
 %%1）登录时，过期后，FashionID=0

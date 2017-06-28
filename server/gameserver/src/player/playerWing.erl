@@ -7,6 +7,8 @@
 -include("common/playerPropSyncDefine.hrl").
 -include("playerPrivate.hrl").
 
+-define(LevelState, 12).
+
 %% ====================================================================
 %% API functions
 %% ====================================================================
@@ -37,9 +39,10 @@
 changeWingLevel(NewLevel) when NewLevel >= 0 ->
 	MaxWingLevel = getWingMaxLevel(),
 	IsShow = getWingShowFlag(),
-	case MaxWingLevel >= NewLevel of
+	case MaxWingLevel  >= (NewLevel - 1) * ?LevelState of
 		true ->
-			setWingLevel(IsShow, NewLevel);
+			setWingLevel(IsShow, NewLevel),
+			playerSevenDayAim:updateCondition(?SevenDayAim_WingLevel, []);
 		_ ->
 			skip
 	end;
@@ -102,11 +105,12 @@ useWingItem(MaxLevel, MaxNum, MinExp, MaxExp) ->
 
 		case NewLevel > OldLevel of
 			true ->
+				playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Wing),
 				setWingMaxLevel(NewLevel),
 				onWingLevelUp(OldLevel, NewLevel),
 				%%判断翅膀升阶
 
-				case NewLevel>0 andalso (NewLevel rem 12) =:= 1 of
+				case NewLevel>0 andalso (NewLevel rem ?LevelState) =:= 1 of
 					 true ->
 						 playerAchieve:achieveEvent(?Achieve_Wings_up, [1]);
 				     _->

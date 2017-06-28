@@ -26,6 +26,7 @@
 	sendTipsStringMsg1/2,
 	sendTipsStringMsg1/3,
 	sendTipsStringMsg1/4,
+	getErrorCodeMsg/1,
 	getErrorCodeMsg/2
 ]).
 
@@ -349,8 +350,13 @@ onMsg(?CMD_U2GS_KingBattleBuyDeffenderBuffOneKey, #pk_U2GS_KingBattleBuyDeffende
 	playerAcKingBattleAll:defender_buy_buff_one_key(),
 	ok;
 %% //王者战天下 修复镜像
-onMsg(?CMD_U2GS_KingBattleRepairMirror, #pk_U2GS_KingBattleRepairMirror{}) ->
-	playerAcKingBattleAll:repair_mirror();
+onMsg(?CMD_U2GS_KingBattleRepairMirror, #pk_U2GS_KingBattleRepairMirror{isRepairAll  = IsRepairAll}) ->
+	playerAcKingBattleAll:repair_mirror(IsRepairAll);
+
+
+%% //王者战天下 守护宣言
+onMsg(?CMD_U2GS_GuardianDeclaration, #pk_U2GS_GuardianDeclaration{declaration = Declaration}) ->
+	playerAcKingBattleAll:setKingDeclaration(Declaration);
 
 
 %% //王者战天下 防守方获取自己的信息
@@ -646,15 +652,12 @@ onMsg(?CMD_U2GS_DropTask, #pk_U2GS_DropTask{} = Pk) ->
 onMsg(?CMD_U2GS_SumbitTask, #pk_U2GS_SumbitTask{} = Pk) ->
 	TaskID = Pk#pk_U2GS_SumbitTask.taskID,
 	Code = Pk#pk_U2GS_SumbitTask.code,
-%%	case getCfg:getCfgByKey(cfg_task_new, TaskID) of
-%%		#task_newCfg{tasktype = ?TaskMainType_Marriage, target_type = ?TaskType_Talk} ->
-%%			playerMarriage:submitTask();  %% 直接提交对话任务
-%%		#task_newCfg{tasktype = ?TaskMainType_Marriage} ->
-%%			skip; %% 不能使用该接口提交情缘任务
-%%		_ ->
-	playerTask:submitTask(TaskID, Code),
-%%	end,
-	%%?DEBUG_OUT("request submit task, roleID: ~p, taskID: ~p, code: ~p", [RoleID, TaskID, Code]),
+	case getCfg:getCfgByKey(cfg_task, TaskID) of
+		#taskCfg{type = ?TaskMainType_Marriage} ->
+			playerMarriageTask:submitTask();
+		_ ->
+			playerTask:submitTask(TaskID, Code, 0)
+	end,
 	ok;
 
 %%重置任务
@@ -1058,7 +1061,7 @@ onMsg(?CMD_U2GS_CollectObj, #pk_U2GS_CollectObj{code = Code}) ->
 %%任务使用物品请求
 onMsg(?CMD_U2GS_UseItemObj, #pk_U2GS_UseItemObj{code = Code}) ->
 %%	playerTask2:updateUseItemTask(Code),
-	playerTask:updateTask(?TaskType_UseItem,Code),
+	playerTask:updateTask(?TaskSubType_UseItem,Code),
 	ok;
 
 %%装备重铸和替换
@@ -1069,7 +1072,7 @@ onMsg(?CMD_U2GS_EquipRecast, #pk_U2GS_EquipRecast{
 
 %%装备精炼
 onMsg(?CMD_U2GS_EquipRefine, #pk_U2GS_EquipRefine{type = Type}) ->
-	playerEquip:equipRefine(Type),
+	playerEquip:equipRefine(Type, true),
 	ok;
 
 %%装备一键精炼
@@ -1939,19 +1942,8 @@ onMsg(?CMD_U2GS_KillValueRequest, #pk_U2GS_KillValueRequest{}) ->
 	ok;
 
 %%玩家复活
-onMsg(?CMD_U2GS_RequestRevive, #pk_U2GS_RequestRevive{}) ->
-	playerRevive:requestRevive_Normal(),
-	ok;
-
-%%玩家收费复活
-onMsg(?CMD_U2GS_RequestReviveCost, #pk_U2GS_RequestReviveCost{}) ->
-	case core:isCross() of
-		true ->
-			skip;
-		_ ->
-%%			?ERROR_OUT("CMD_U2GS_RequestReviveCost:~p", [playerState:getRoleID()]),
-			playerRevive:requestRevive_Cost()
-	end,
+onMsg(?CMD_U2GS_RequestRevive, #pk_U2GS_RequestRevive{reviveType = ReviveType}) ->
+	playerRevive:revive(ReviveType),
 	ok;
 
 %%玩家重置位置到本地图复活点
@@ -2113,6 +2105,23 @@ onMsg(?CMD_U2GS_ShowAction, #pk_U2GS_ShowAction{actionIndex = ActionIndex}) ->
 			sendMsgToNearPlayer(Msg, true);
 		_ -> skip
 	end,
+	ok;
+
+%% 报名广场舞
+onMsg(?CMD_U2GS_ApplyDance, #pk_U2GS_ApplyDance{type = Type} = _PK) ->
+	playerDance:applyDance(Type),
+	ok;
+%% 广场舞区域
+onMsg(?CMD_U2GS_DanceArea, #pk_U2GS_DanceArea{type = Type} = _PK) ->
+	playerDance:danceArea(Type),
+	ok;
+%% 选择一种舞蹈
+onMsg(?CMD_U2GS_SelectDanceID, #pk_U2GS_SelectDanceID{danceID = DanceID} = _PK) ->
+	playerDance:selectDanceID(DanceID),
+	ok;
+%% 打断舞蹈
+onMsg(?CMD_U2GS_BreakDance, #pk_U2GS_BreakDance{} = _PK) ->
+	playerDance:breakDance(),
 	ok;
 
 %%激活码领取
@@ -2585,6 +2594,9 @@ onMsg(?CMD_U2GS_AccuReward, #pk_U2GS_AccuReward{id = ID}) ->
 
 onMsg(?CMD_U2GS_UpSkill, #pk_U2GS_UpSkill{id = Id}) ->
 	playerSkillLearn:upSkill(Id, 1),
+	ok;
+onMsg(?CMD_U2GS_ResetSkill, #pk_U2GS_ResetSkill{}) ->
+	 playerSkillLearn:resetSkill(),
 	ok;
 
 %% 七日任务
@@ -3106,8 +3118,21 @@ onMsg(?CMD_U2GS_TerritoryVigor_Request, #pk_U2GS_TerritoryVigor_Request{} = _Msg
 %% 新版骑宠领地 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+onMsg(?CMD_U2GS_SevenDayAimReward_Request, #pk_U2GS_SevenDayAimReward_Request{id = ID}) ->
+	playerSevenDayAim:reward(ID),
+	ok;
+
+onMsg(?CMD_U2GS_ThirtyDayLoginGift_Request, #pk_U2GS_ThirtyDayLoginGift_Request{id = ID}) ->
+	playerThirtyDayLoginGift:reward(ID),
+	ok;
+
 onMsg(?CMD_U2GS_MoneyTree, #pk_U2GS_MoneyTree{}) ->
 	playerMoneyTree:giveMeMoney(),
+	ok;
+
+onMsg(?CMD_U2GS2U_CopyMapScheduleShow2, #pk_U2GS2U_CopyMapScheduleShow2{mapID = MapID, show2ID = Show2ID, groupID = GroupID, scheduleID = ScheduleID}) ->
+	?DEBUG_OUT("[DebugForShow2] CMD_U2GS2U_CopyMapScheduleShow2 MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w", [MapID, Show2ID, GroupID, ScheduleID]),
+	playerCopyMap:show2(MapID, Show2ID, GroupID, ScheduleID),
 	ok;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3141,6 +3166,10 @@ onMsg(_Cmd, _Msg) ->
 %% =================================================================
 
 %% 获取#pk_GS2U_Error消息
+-spec getErrorCodeMsg(ErrorCode::uint()) -> #pk_GS2U_Error{} | error.
+getErrorCodeMsg(ErrorCode) ->
+	getErrorCodeMsg(ErrorCode, []).
+
 -spec getErrorCodeMsg(ErrorCode :: uint(), Params :: list()) -> #pk_GS2U_Error{} | error.
 getErrorCodeMsg(ErrorCode, Params) when erlang:is_list(Params) ->
 	case lists:keyfind(ErrorCode, 1, ?ErrorCodeParams) of

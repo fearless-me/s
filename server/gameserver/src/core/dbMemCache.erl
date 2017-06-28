@@ -91,7 +91,7 @@ initDBTable() ->
 		edb:createTable(NewTab,[{record_name,Table} | AttribList]),
 		UpdateTab = getUpdateTableName(Table),
 		edb:createTable(UpdateTab,[{record_name,Table} | AttribList])
-	end,
+		  end,
 	lists:foreach(Fun,TableList),
 	?LOG_OUT("create edb table ok"),
 
@@ -160,7 +160,6 @@ getUpdateTableName(Table) ->
 %%	lists:foldl(Fun, 1, List).
 
 syncToDB() ->
-
 	case core:isCross() of
 		true ->
 			?WARN_OUT("cross server skip save data to database!!");
@@ -177,7 +176,7 @@ syncToDB() ->
 %% 	checkSqlAndRAM(),
 
 	%% 告诉DB进程，我完成了一次数据存储
-	dbSendMsg:sendMsg2DBPID(server_monitor_msg, {self(), 0, {1, 0}}),
+	dbSendMsg:sendMsg2DBPID(server_monitor_msg, {self(), 0, {?ServerMonitor_Save, 0}}),
 
 	%% 告诉日志，保存
 	logDBPID ! {tick_saveCacheLog, 0},
@@ -215,17 +214,17 @@ syncInsert() ->
 		fun synCInsertGuardMirror/0,
 		fun syncInsertCommonActive/0,
 		fun syncInsertTalent/0,
-        fun syncInsertExtrole/0,
+		fun syncInsertExtrole/0,
 		fun syncInsertWarriorTrial/0,
 		fun syncInsertGodWeapon/0,
 		fun synCInsertGuardMirrorRank/0,
 		fun synCInsertSourceShop/0,
 		fun syncInsertOperateExchange/0,
 %		fun syncInsertPlayerTeam/0,
-        fun syncInsertPlayerLiveness/0,
+		fun syncInsertPlayerLiveness/0,
 		fun syncInsertPlayerHolidayTask/0,
 		fun syncInsertPlayerDrop/0
-		],
+	],
 	lists:foreach(fun doSyncFun/1,List),
 	ok.
 
@@ -260,14 +259,14 @@ syncUpdate() ->
 		fun syncUpdateGuardMirror/0,
 		fun syncUpdateCommonActive/0,
 		fun syncUpdateTalent/0,
-        fun syncUpdateExtrole/0,
+		fun syncUpdateExtrole/0,
 		fun syncUpdateWarriorTrial/0,
 		fun syncUpdateGodWeapon/0,
 		fun syncUpdateGuardMirrorRank/0,
 		fun synCUpdateSourceShop/0,
 		fun syncUpdateOperateExchange/0,
 %		fun syncUpdatePlayerTeam/0,
-        fun syncUpdateLiveness/0,
+		fun syncUpdateLiveness/0,
 		fun syncUpdateHolidayTask/0,
 		fun syncUpdatePlayerDrop/0
 	],
@@ -345,9 +344,9 @@ syncInsertItem() ->
 			},{AccIn,UIDList1}) ->
 				{io_lib:format(",(~p,~p,~p,~p,~p,~p,~p,~p,~p,'~ts',~p,~p)",
 					[UID,RoleID,ID,Pos,Num,Count,IsBind,IsLocked,Quality,convert2MysqlDateTimeStr(DeleteTime),CreateTime,ExpiredTime])
-				++ AccIn,
+					++ AccIn,
 					[UID | UIDList1]}
-			end,
+				  end,
 			{[_|T],UIDList} = lists:foldl(Fun,{[],[]},List),
 			SQL = io_lib:format("insert item(itemUID,roleID,itemID,pos,pileNum,recastCount,isBind,isLocked,quality,deleteTime,createTime,expiredTime) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -365,7 +364,7 @@ syncUpdateItem() ->
 		_ ->
 			Fun = fun(#rec_item{} = Rec ) ->
 				dbItemSave:save_item_data(update, Rec)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -637,7 +636,7 @@ syncInsertAchieve() ->
 				achieveSnum = N						%%成就进度数量 int(11) unsigned
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p,~p,~p)",[RoleID,AID,SID,LV,N]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert achieve(roleID,achieveID,achieveSID,achieveLevel,achieveSnum) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -661,7 +660,7 @@ syncUpdateAchieve() ->
 				SQL = io_lib:format("update achieve set achieveSID=~p,achieveLevel=~p,achieveSnum=~p where roleID=~p and achieveID=~p",[SID,LV,N,RoleID,AID]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update achieve",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -682,7 +681,7 @@ syncInsertAwakenInfo() ->
 				curState = CurState
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p,~p,~p,~p,~p)",[RoleID,CardID,Level,ItemNum,Progress, StateMax, CurState]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert awaken_info(roleID,cardID,`level`,itemNum,progress,stateMax,curState) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -709,7 +708,7 @@ syncUpdateAwakenInfo() ->
 					[Level,ItemNum,Progress, StateMax, CurState,RoleID,CardID]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update awaken_info",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -724,9 +723,9 @@ syncInsertBadge() ->
 				roleID = {RoleID,MapID},			%%角色ID bigint(20) unsigned
 				mapID = MapID,						%%成就ID smallint(6) unsigned
 				items = ItemList
-			},AccIn) ->	
+			},AccIn) ->
 				io_lib:format(",(~p,~p,'~ts')",[RoleID,MapID,misc:term_to_string(ItemList)]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert badge(roleID,mapID,items) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -746,10 +745,10 @@ syncUpdateBadge() ->
 				mapID = MapID,						%%成就ID smallint(6) unsigned
 				items = ItemList
 			}) ->
-			SQL = io_lib:format("update badge set items='~ts' where roleID=~p and mapID=~p",[misc:term_to_string(ItemList),RoleID,MapID]),
-			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
-			logResult("update badge",Ret,SQL)
-			end,
+				SQL = io_lib:format("update badge set items='~ts' where roleID=~p and mapID=~p",[misc:term_to_string(ItemList),RoleID,MapID]),
+				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
+				logResult("update badge",Ret,SQL)
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -774,15 +773,15 @@ syncInsertDailyCounter() ->
 					{N,L} ->
 						lists:keyreplace(N,1,AccIn,{N,Str ++ L})
 				end;
-			(_,AccIn) ->
+				(_,AccIn) ->
 					AccIn
-			end,
+				  end,
 			ResultList = lists:foldl(Fun,[],List),
 			Fun1 = fun({Num,[_|T]}) ->
 				SQL = io_lib:format("insert daily_counter~p(roleID,dailyType,lastUpdateTime,counter) values ~ts",[Num,T]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("insert daily_counter",Ret,SQL)
-			end,
+				   end,
 			lists:foreach(Fun1,ResultList)
 	end,
 	ok.
@@ -803,9 +802,9 @@ syncUpdateDailyCounter() ->
 				SQL = io_lib:format("update daily_counter~p set lastUpdateTime =~p,counter=~p where roleID=~p and dailyType = ~p",[N,Time,Counter,RoleID,Type]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update daily_counter",Ret,SQL);
-			(_) ->
+				(_) ->
 					ok
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -820,12 +819,12 @@ syncInsertRefineInfo() ->
 				roleID = {RoleID,Type},				%%角色ID bigint(20) unsigned
 				type = Type,						%%精炼部位 tinyint(4) unsigned
 				level = Lv,							%%精炼等级 tinyint(4) unsigned
-				prog = Prog,						
+				prog = Prog,
 				bless = Bless,
 				star = Star
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p,~p,~p,~p)",[RoleID,Type,Lv,Prog,Bless,Star]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert equip_refine_info(roleID,type,level,prog,bless,star) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -850,7 +849,7 @@ syncUpdateRefineInfo() ->
 				SQL = io_lib:format("update equip_refine_info set level = ~p, prog = ~p,bless = ~p, star = ~p where roleID=~p and type = ~p",[Lv,Prog,Bless,Star,RoleID,Type]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update equip_refine_info",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -867,7 +866,7 @@ syncInsertFashion() ->
 				endTime = Time				%%结束时间 int(10) unsigned
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p)",[RoleID,ID,Time]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert role_fashions(roleID,fashionID,endTime) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -889,7 +888,7 @@ syncUpdateFashion() ->
 				SQL = io_lib:format("update role_fashions set endTime=~p where roleID=~p and fashionID=~p",[Time,RoleID,ID]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update role_fashions",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -906,7 +905,7 @@ syncInsertFashionSlot() ->
 				fashionID = ID				%% smallint(5) unsigned
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p)",[RoleID,Slot,ID]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert fashion_slot(roleID,slot,fashionID) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -928,7 +927,7 @@ syncUpdateFashionSlot() ->
 				SQL = io_lib:format("update fashion_slot set fashionID=~p where roleID=~p and slot=~p",[ID,RoleID,Slot]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update fashion_slot",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -945,7 +944,7 @@ syncInsertItemUsedCD() ->
 				lastUsedTime = Time				%%上次使用时间，以2010年1月1日为准的时间，单位：毫秒 bigint(20) unsigned
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p)",[RoleID,GID,Time]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert item_used_cd(roleID,itemGroupID,lastUsedTime) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -967,7 +966,7 @@ syncUpdateItemUsedCD() ->
 				SQL = io_lib:format("update item_used_cd set lastUsedTime=~p where roleID=~p and itemGroupID=~p",[Time,RoleID,GID]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("insert item_used_cd",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -984,7 +983,7 @@ syncInsertPackageInfo() ->
 				maxSlot = Slot				%%背包已经开启的格子数 smallint(5) unsigned
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p)",[RoleID,Type,Slot]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert package_info(roleID,bagType,maxSlot) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1006,7 +1005,7 @@ syncUpdatePackageInfo() ->
 				SQL = io_lib:format("update package_info set maxSlot=~p where roleID=~p and bagType=~p",[Slot,RoleID,Type]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("insert package_info",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1035,7 +1034,7 @@ syncInsertPersonalityInfo() ->
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL, stSavePersonalityInfo, [RoleID, NewData, Num,
 					BD, L, SS, S, NewTag, NewImp, FT]),
 				libDB:logExecResult(stSavePersonalityInfo, RoleID, Ret)
-			end,
+				  end,
 			lists:foreach(Fun, List)
 	end,
 	ok.
@@ -1064,7 +1063,7 @@ syncUpdatePersonalityInfo() ->
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL, stSavePersonalityInfo, [RoleID, NewData, Num,
 					BD, L, SS, S, NewTag, NewImp, FT]),
 				libDB:logExecResult(stSavePersonalityInfo, RoleID, Ret)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1075,19 +1074,20 @@ syncInsertPetInfo() ->
 		[] ->
 			skip;
 		_ ->
-			Fun = fun(#rec_pet_info{
-				roleID = {RoleID,PetID},	%%玩家角色ID bigint(20) unsigned
-				petID = PetID,				%%宠物id smallint(5) unsigned
-				star = Star,				%%宠物星级 tinyint(4) unsigned
-				status = Status,			%%0:休息 1:出战 tinyint(4) unsigned
-				name = Name,				%%宠物名字 varchar(20)
-				force = Force,				%%宠物战力 bigint(20)
-				attas = Attas,				%%宠物提升属性列表
-				raw = Raw,					%%宠物转生tinyint(4) unsigned
-				time = Time
-			},AccIn) ->
-				io_lib:format(",(~p,~p,~p,~p,'~s',~p,~p,'~s',~p)",[RoleID,PetID,Star,Status,Name,Force,Raw,misc:term_to_string(Attas), Time]) ++ AccIn
-			end,
+			Fun =
+				fun(#rec_pet_info{
+					roleID = {RoleID,PetID},	%%玩家角色ID bigint(20) unsigned
+					petID = PetID,				%%宠物id smallint(5) unsigned
+					star = Star,				%%宠物星级 tinyint(4) unsigned
+					status = Status,			%%0:休息 1:出战 tinyint(4) unsigned
+					name = Name,				%%宠物名字 varchar(20)
+					force = Force,				%%宠物战力 bigint(20)
+					attas = Attas,				%%宠物提升属性列表
+					raw = Raw,					%%宠物转生tinyint(4) unsigned
+					time = Time
+				},AccIn) ->
+					io_lib:format(",(~p,~p,~p,~p,'~s',~p,~p,'~s',~p)",[RoleID,PetID,Star,Status,Name,Force,Raw,misc:term_to_string(Attas), Time]) ++ AccIn
+				end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert pet_info(roleID,petID,star,`status`,name,`force`,raw,attas,`time`) values ~s",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1101,21 +1101,28 @@ syncUpdatePetInfo() ->
 		[] ->
 			skip;
 		_ ->
-			Fun = fun(#rec_pet_info{
-				roleID = {RoleID,PetID},	%%玩家角色ID bigint(20) unsigned
-				petID = PetID,				%%宠物id smallint(5) unsigned
-				star = Star,				%%宠物星级 tinyint(4) unsigned
-				status = Status,			%%0:休息 1:出战 tinyint(4) unsigned
-				name = Name,				%%宠物名字 varchar(20)
-				force = Force,				%%宠物战力 bigint(20)
-				attas = Attas,				%%宠物提升属性列表
-				raw = Raw,					%%宠物转生 tinyint(4) unsigned
-				time = Time
-			}) ->
-				SQL = io_lib:format("update pet_info set star=~p,`status`=~p,name='~s',`force`=~p, attas=~p,raw=~p, time = ~p where roleID=~p and petID=~p",[Star,Status,Name,Force,misc:term_to_string(Attas),Raw,Time, RoleID,PetID]),
-				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
-				logResult("update pet_info",Ret,SQL)
-			end,
+			Fun =
+				fun(#rec_pet_info{
+					roleID = {RoleID,PetID},	%%玩家角色ID bigint(20) unsigned
+					petID = PetID1,				%%宠物id smallint(5) unsigned
+					star = Star,				%%宠物星级 tinyint(4) unsigned
+					status = Status,			%%0:休息 1:出战 tinyint(4) unsigned
+					name = Name,				%%宠物名字 varchar(20)
+					force = Force,				%%宠物战力 bigint(20)
+					attas = Attas,				%%宠物提升属性列表
+					raw = Raw,					%%宠物转生 tinyint(4) unsigned
+					time = Time
+				}) ->
+					SQL =
+						case PetID =:= PetID1 of
+							true ->
+								io_lib:format("update pet_info set star=~p,`status`=~p,name='~s',`force`=~p, attas=~p,raw=~p, time = ~p where roleID=~p and petID=~p",[Star,Status,Name,Force,misc:term_to_string(Attas),Raw,Time, RoleID,PetID]);
+							_ ->
+								io_lib:format("DELETE FROM pet_info WHERE roleID = ~p AND petID = ~p;", [RoleID, PetID])
+						end,
+					Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
+					logResult("update pet_info",Ret,SQL)
+				end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1133,7 +1140,7 @@ syncInsertPetEquip() ->
 				equipLv = LV				%%装备等级 tinyint(4) unsigned
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p,~p)",[RoleID,Pos,ID,LV]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert pet_equip(roleID,equipPos,equipID,equipLv) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1156,7 +1163,7 @@ syncUpdatePetEquip() ->
 				SQL = io_lib:format("update pet_equip set equipID=~p,equipLv=~p where roleID=~p and equipPos=~p",[ID,LV,RoleID,Pos]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update pet_equip",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1176,9 +1183,9 @@ syncInsertPetSkill() ->
 				unlock = IsUnlock,				%%0:未解锁 1:解锁 tinyint(4) unsigned
 				type = Type,				%%技能type 0:天赋 1:通用 2:基础 tinyint(4) unsigned
 				cd = CD				%%宠物技能CD bigint(20)
-			},AccIn) ->		
+			},AccIn) ->
 				io_lib:format(",(~p,~p,~p,~p,~p,~p,~p,~p)",[RoleID,PetID,SkillID,Index,LV,IsUnlock,Type,CD]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert pet_skill(roleID,petID,skillID,`index`,`level`,`unlock`,`type`,cd) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1192,21 +1199,28 @@ syncUpdatePetSkill() ->
 		[] ->
 			skip;
 		_ ->
-			Fun = fun(#rec_pet_skill{
-				roleID = {RoleID,PetID,Index},				%%角色ID bigint(20) unsigned
-				petID = PetID,				%%宠物ID smallint(5) unsigned
-				skillID = SkillID,				%%技能ID smallint(6) unsigned
-				index = Index,				%%技能索引 tinyint(4) unsigned
-				level = LV,				%%等级 tinyint(4) unsigned
-				unlock = IsUnlock,				%%0:未解锁 1:解锁 tinyint(4) unsigned
-				type = Type,				%%技能type 0:天赋 1:通用 2:基础 tinyint(4) unsigned
-				cd = CD				%%宠物技能CD bigint(20)
-			}) ->
-				SQL = io_lib:format("update pet_skill set skillID=~p,`level`=~p,`unlock`=~p,`type`=~p,cd=~p where roleID=~p and petID=~p and `index`=~p",
-					[SkillID,LV,IsUnlock,Type,CD,RoleID,PetID,Index]),
-				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
-				logResult("update pet_skill",Ret,SQL)
-			end,
+			Fun =
+				fun(#rec_pet_skill{
+					roleID = {RoleID,PetID,Index},				%%角色ID bigint(20) unsigned
+					petID = PetID,				%%宠物ID smallint(5) unsigned
+					skillID = SkillID,				%%技能ID smallint(6) unsigned
+					index = Index1,				%%技能索引 tinyint(4) unsigned
+					level = LV,				%%等级 tinyint(4) unsigned
+					unlock = IsUnlock,				%%0:未解锁 1:解锁 tinyint(4) unsigned
+					type = Type,				%%技能type 0:天赋 1:通用 2:基础 tinyint(4) unsigned
+					cd = CD				%%宠物技能CD bigint(20)
+				}) ->
+					SQL =
+						case Index =:= Index1 of
+							true ->
+								io_lib:format("update pet_skill set skillID=~p,`level`=~p,`unlock`=~p,`type`=~p,cd=~p where roleID=~p and petID=~p and `index`=~p",
+									[SkillID,LV,IsUnlock,Type,CD,RoleID,PetID,Index]);
+							_ ->
+								io_lib:format("DELETE FROM pet_skill WHERE roleID = ~p AND petID = ~p;", [RoleID, PetID])
+						end,
+					Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
+					logResult("update pet_skill",Ret,SQL)
+				end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1218,15 +1232,15 @@ syncInsertPetManorBattle([]) ->
 	ok;
 syncInsertPetManorBattle(L) ->
 	F = fun(#rec_pet_manor_battle{
-		roleID = RoleID,				
-		pet_reel = PetReel,				
-		pet_pos = PetPos,				
-		save_time = SaveTime,				
+		roleID = RoleID,
+		pet_reel = PetReel,
+		pet_pos = PetPos,
+		save_time = SaveTime,
 		off_time = OffTime,
 		pet_integral = Integral
-		},	Acc) ->		
+	},	Acc) ->
 		io_lib:format(",(~p,~p,'~ts',~p,~p,~p)",[RoleID,PetReel,misc:term_to_string(PetPos),SaveTime,OffTime,Integral]) ++ Acc
-	end,
+		end,
 	[_|T] = lists:foldl(F, [], L),
 	SQL = io_lib:format("insert pet_manor_battle(roleID,pet_reel,pet_pos,save_time,off_time,pet_integral) values ~ts",[T]),
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
@@ -1240,18 +1254,18 @@ syncUpdatePetManorBattle([]) ->
 	ok;
 syncUpdatePetManorBattle(L) ->
 	F = fun(#rec_pet_manor_battle{
-		roleID = RoleID,				
-		pet_reel = PetReel,				
-		pet_pos = PetPos,				
-		save_time = SaveTime,				
+		roleID = RoleID,
+		pet_reel = PetReel,
+		pet_pos = PetPos,
+		save_time = SaveTime,
 		off_time = OffTime,
 		pet_integral = Integral
-		}) ->
+	}) ->
 		SQL = io_lib:format("update pet_manor_battle set pet_reel=~p,pet_pos='~ts',save_time=~p,off_time=~p,pet_integral=~p where roleID=~p",
 			[PetReel,misc:term_to_string(PetPos),SaveTime,OffTime,Integral,RoleID]),
 		Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 		logResult("update pet_manor_battle",Ret,SQL)
-	end,
+		end,
 	lists:foreach(F, L).
 
 syncInsertPetDunScore() ->
@@ -1261,12 +1275,12 @@ syncInsertPetDunScore([]) ->
 	skip;
 syncInsertPetDunScore(L) ->
 	Fun = fun(#rec_pet_dungeon_score{
-			roleID = {RoleID,_DungeonID},	
-			dungeon_ID = DungeonID,			
-			dungeon_score = DungeonScore
-		}, AccIn) ->		
+		roleID = {RoleID,_DungeonID},
+		dungeon_ID = DungeonID,
+		dungeon_score = DungeonScore
+	}, AccIn) ->
 		io_lib:format(",(~p, ~p, ~p)",[RoleID, DungeonID, DungeonScore]) ++ AccIn
-	end,
+		  end,
 	[_ | T] = lists:foldl(Fun, [], L),
 	SQL = io_lib:format("insert pet_dungeon_score (roleID, dungeon_ID, dungeon_score) values ~ts",[T]),
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
@@ -1280,15 +1294,15 @@ syncUpdatePetDunScore([]) ->
 	skip;
 syncUpdatePetDunScore(L) ->
 	Fun = fun(#rec_pet_dungeon_score{
-			roleID = {RoleID,_DungeonID},	
-			dungeon_ID = DungeonID,			
-			dungeon_score = DungeonScore
-		}) ->
+		roleID = {RoleID,_DungeonID},
+		dungeon_ID = DungeonID,
+		dungeon_score = DungeonScore
+	}) ->
 		SQL = io_lib:format("update pet_dungeon_score set dungeon_score=~p where roleID=~p and dungeon_ID=~p",
-					[DungeonScore, RoleID, DungeonID]),
+			[DungeonScore, RoleID, DungeonID]),
 		Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
 		logResult("update pet_dungeon_score", Ret, SQL)
-	end,
+		  end,
 	lists:foreach(Fun, L).
 
 syncInsertPetDunInfo() ->
@@ -1298,15 +1312,15 @@ syncInsertPetDunInfo([]) ->
 	skip;
 syncInsertPetDunInfo(L) ->
 	Fun = fun(#rec_pet_dungeon_info{
-			roleID = RoleID,	
-			dungeon_ID = DungeonID,			
-			pet_phys = Phys,
-			pet_pos = Pos,
-			pet_reward = Reward,
-			time = Time
-		}, AccIn) ->		
+		roleID = RoleID,
+		dungeon_ID = DungeonID,
+		pet_phys = Phys,
+		pet_pos = Pos,
+		pet_reward = Reward,
+		time = Time
+	}, AccIn) ->
 		io_lib:format(",(~p, ~p, ~p, '~ts', ~p, ~p)",[RoleID, DungeonID, Phys, misc:term_to_string(Pos), Reward, Time]) ++ AccIn
-	end,
+		  end,
 	[_ | T] = lists:foldl(Fun, [], L),
 	SQL = io_lib:format("insert pet_dungeon_info (roleID, dungeon_ID, pet_phys, pet_pos, pet_reward, time) values ~ts",[T]),
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
@@ -1320,19 +1334,19 @@ syncUpdatePetDunInfo([]) ->
 	skip;
 syncUpdatePetDunInfo(L) ->
 	Fun = fun(#rec_pet_dungeon_info{
-			roleID = RoleID,	
-			dungeon_ID = DungeonID,			
-			pet_phys = Phys,
-			pet_pos = Pos,
-			pet_reward = Reward,
-			time = Time
-		}) ->
+		roleID = RoleID,
+		dungeon_ID = DungeonID,
+		pet_phys = Phys,
+		pet_pos = Pos,
+		pet_reward = Reward,
+		time = Time
+	}) ->
 		SQL = io_lib:format("update pet_dungeon_info set dungeon_ID = ~p, pet_phys = ~p, pet_pos = '~ts', pet_reward = ~p, time = ~p where roleID=~p",
-					[DungeonID, Phys, misc:term_to_string(Pos), Reward, Time, RoleID]),
+			[DungeonID, Phys, misc:term_to_string(Pos), Reward, Time, RoleID]),
 		Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
 		logResult("update pet_dungeon_info", Ret, SQL)
-	end,
-	lists:foreach(Fun, L).	
+		  end,
+	lists:foreach(Fun, L).
 
 syncInsertPlayerClock() ->
 	List = edb:selectTableAndClearTable(new_rec_player_clock),
@@ -1355,13 +1369,13 @@ syncInsertPlayerClock(List) ->
 			passTime = PT				%%已经花去的时间，秒 int(11)
 		}) ->
 			SQL = case Type =/= Type1 of
-				      true ->
-					      %% 不相等表示要删除
-					      io_lib:format("DELETE FROM player_clock WHERE roleID = ~p AND clockType = ~p",[RoleID,Type]);
-				      _ ->
-					      io_lib:format("insert player_clock(roleID,clockType,offTime,startTime,lastTime,lengthTime,passTime) values(~p,~p,~p,'~ts','~ts',~p,~p)",
-						      [RoleID,Type,OT,convert2MysqlDateTimeStr(ST),convert2MysqlDateTimeStr(LT),LenT,PT])
-			      end,
+					  true ->
+						  %% 不相等表示要删除
+						  io_lib:format("DELETE FROM player_clock WHERE roleID = ~p AND clockType = ~p",[RoleID,Type]);
+					  _ ->
+						  io_lib:format("insert player_clock(roleID,clockType,offTime,startTime,lastTime,lengthTime,passTime) values(~p,~p,~p,'~ts','~ts',~p,~p)",
+							  [RoleID,Type,OT,convert2MysqlDateTimeStr(ST),convert2MysqlDateTimeStr(LT),LenT,PT])
+				  end,
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 			logResult("insert player_clock",Ret,SQL)
 		end,
@@ -1407,7 +1421,7 @@ syncInsertSkill() ->
 				lastUseTime = Time				%%上次使用的时间 bigint(20) unsigned
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p,~p)",[RoleID,ID,LV,Time]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert skill(roleID,skillID,level,lastUseTime) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1430,7 +1444,7 @@ syncUpdateSkill() ->
 				SQL = io_lib:format("update skill set level=~p,lastUseTime=~p where roleID=~p and skillID=~p",[LV,Time,RoleID,ID]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update skill",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1447,7 +1461,7 @@ syncInsertSkillSlot() ->
 				skillID = ID				%%技能ID smallint(6)
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p)",[RoleID,Slot,ID]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert skill_slot(roleID,slot,skillID) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1469,7 +1483,7 @@ syncUpdateSkillSlot() ->
 				SQL = io_lib:format("update skill_slot set skillID=~p where roleID=~p and slot=~p",[ID,RoleID,Slot]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update skill_slot",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1486,7 +1500,7 @@ syncInsertTitle() ->
 				endTime = EndTime
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p)",[RoleID,TitleID,EndTime]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert title(roleID,titleID,endTime) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1514,15 +1528,15 @@ syncInsertVariant() ->
 					{N,L} ->
 						lists:keyreplace(N,1,AccIn,{N,Str ++ L})
 				end;
-			(_,AccIn) ->
+				(_,AccIn) ->
 					AccIn
-			end,
+				  end,
 			ResultList = lists:foldl(Fun,[],List),
 			Fun1 = fun({Num,[_|T]}) ->
 				SQL = io_lib:format("insert variant~p(roleID,`index`,value) values ~ts",[Num,T]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("insert variant",Ret,SQL)
-			end,
+				   end,
 			lists:foreach(Fun1,ResultList)
 	end,
 	ok.
@@ -1542,9 +1556,9 @@ syncUpdateVariant() ->
 				SQL = io_lib:format("update variant~p set value=~p where roleID=~p and `index`=~p",[N,V,RoleID,Index]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update variant",Ret,SQL);
-			(_) ->
+				(_) ->
 					ok
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1554,11 +1568,11 @@ synCInsertSourceShop() ->
 		[] -> skip;
 		List ->
 			Fun = fun(#rec_sourceshop_forever_limit{
-													roleID = {RoleID,_type},
-													type = Type,
-													sourceshopIDList = SourceshopIDList
-												   },AccIn) ->
-						  io_lib:format(",(~p,~p,~p)",[RoleID,SourceshopIDList,Type]) ++ AccIn
+				roleID = {RoleID,_type},
+				type = Type,
+				sourceshopIDList = SourceshopIDList
+			},AccIn) ->
+				io_lib:format(",(~p,~p,~p)",[RoleID,SourceshopIDList,Type]) ++ AccIn
 				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert sourceshop_forever_limit(roleID,sourceshopIDList,type) values ~ts",[T]),
@@ -1571,13 +1585,13 @@ synCUpdateSourceShop() ->
 		[] -> skip;
 		List ->
 			Fun = fun(#rec_sourceshop_forever_limit{
-													roleID = {RoleID,_type},
-													type = Type,
-													sourceshopIDList = SourceshopIDList
-												   }) ->
-						  SQL = io_lib:format("update sourceshop_forever_limit set sourceshopIDList='~ts' where roleID=~p and type=~p ",[SourceshopIDList,RoleID,Type]),
-						  Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
-						  logResult("update sourceshop_forever_limit",Ret,SQL)
+				roleID = {RoleID,_type},
+				type = Type,
+				sourceshopIDList = SourceshopIDList
+			}) ->
+				SQL = io_lib:format("update sourceshop_forever_limit set sourceshopIDList='~ts' where roleID=~p and type=~p ",[SourceshopIDList,RoleID,Type]),
+				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
+				logResult("update sourceshop_forever_limit",Ret,SQL)
 				  end,
 			lists:foreach(Fun, List)
 	end,
@@ -1589,10 +1603,10 @@ synCInsertGuardMirrorRank() ->
 		List ->
 			emysql:prepare(insertGuard_mirror_rank, "insert guard_mirror_rank(roleID,days) values (?,?)"),
 			Fun = fun(#rec_guard_mirror_rank{
-											 roleID = RoleID, 
-											 days = Days}) ->
-						  Ret = emysql:execute(?GAMEDB_CONNECT_POOL,insertGuard_mirror_rank,[RoleID,Days]),
-						  logResult("insertGuard_mirror_rank",Ret,"insert guard_mirror_rank")
+				roleID = RoleID,
+				days = Days}) ->
+				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,insertGuard_mirror_rank,[RoleID,Days]),
+				logResult("insertGuard_mirror_rank",Ret,"insert guard_mirror_rank")
 				  end,
 			lists:foreach(Fun,List)
 	end,
@@ -1600,15 +1614,15 @@ synCInsertGuardMirrorRank() ->
 syncUpdateGuardMirrorRank() ->
 	List = edb:selectTableAndClearTable(update_rec_guard_mirror_rank),
 	Fun = fun(#rec_guard_mirror_rank{
-									 roleID = RoleID, 
-									 days = Days}) ->
-				  SQL =
-					  emysql:prepare(updateGuard_mirror_rank, 
-									 "update guard_mirror_rank set days=? where roleID=?"
-									),
-				  
-				  Ret = emysql:execute(?GAMEDB_CONNECT_POOL,updateGuard_mirror_rank,[Days,RoleID]),
-				  logResult("updateGuard_mirror_rank",Ret,SQL)
+		roleID = RoleID,
+		days = Days}) ->
+		SQL =
+			emysql:prepare(updateGuard_mirror_rank,
+				"update guard_mirror_rank set days=? where roleID=?"
+			),
+
+		Ret = emysql:execute(?GAMEDB_CONNECT_POOL,updateGuard_mirror_rank,[Days,RoleID]),
+		logResult("updateGuard_mirror_rank",Ret,SQL)
 		  end,
 	lists:foreach(Fun,List),
 	ok.
@@ -1617,21 +1631,22 @@ synCInsertGuardMirror() ->
 	case edb:selectTableAndClearTable(new_rec_guard_mirror) of
 		[] -> skip;
 		List ->
-			emysql:prepare(insertGuard_mirror, "insert guard_mirror(roleID,roleLevel,roleCareer,roleName,hpNumber,guardTimes,fightForce,mirrorBuffCfgID,roleBuffCffgID) values (?,?,?,?,?,?,?,?,?)"),
+			emysql:prepare(insertGuard_mirror, "insert guard_mirror(roleID,roleLevel,roleCareer,roleName,hpNumber,guardTimes,fightForce,mirrorBuffCfgID,roleBuffCffgID,declaration) values (?,?,?,?,?,?,?,?,?,?)"),
 			Fun = fun(#rec_guard_mirror{
-										roleID = RoleID, 
-										roleLevel = Level,
-										roleCareer = Career,
-										roleName = RoleName, 
-										hpNumber=Hp, 
-										guardTimes = Times,
-                    fightForce = FightForce,
-										mirrorBuffCfgID=MirrorBuffCfgID,
-										roleBuffCffgID=RoleBuffCffgID}) ->
-						  TruncatSql = "TRUNCATE TABLE guard_mirror",
-						  emysql:execute(?GAMEDB_CONNECT_POOL, TruncatSql),
-						  Ret = emysql:execute(?GAMEDB_CONNECT_POOL,insertGuard_mirror,[RoleID,Level,Career,RoleName,Hp,Times,FightForce,MirrorBuffCfgID,RoleBuffCffgID]),
-						  logResult("insert guard_mirror",Ret,"insert guard_mirror")
+				roleID = RoleID,
+				roleLevel = Level,
+				roleCareer = Career,
+				roleName = RoleName,
+				hpNumber=Hp,
+				guardTimes = Times,
+				fightForce = FightForce,
+				mirrorBuffCfgID=MirrorBuffCfgID,
+				roleBuffCffgID=RoleBuffCffgID,
+				declaration = Declaration}) ->
+				TruncatSql = "TRUNCATE TABLE guard_mirror",
+				emysql:execute(?GAMEDB_CONNECT_POOL, TruncatSql),
+				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,insertGuard_mirror,[RoleID,Level,Career,RoleName,Hp,Times,FightForce,MirrorBuffCfgID,RoleBuffCffgID,Declaration]),
+				logResult("insert guard_mirror",Ret,"insert guard_mirror")
 				  end,
 			lists:foreach(Fun,List)
 	end,
@@ -1640,19 +1655,19 @@ synCInsertGuardMirror() ->
 syncUpdateGuardMirror() ->
 	List = edb:selectTableAndClearTable(update_rec_guard_mirror),
 	Fun = fun(
-			#rec_guard_mirror{roleID = RoleID, roleLevel = Level,
-				roleCareer = Career, roleName = RoleName, hpNumber = Hp,
-				guardTimes = Times, fightForce = FightForce,
-				mirrorBuffCfgID=MirrorBuffCfgID,
-				roleBuffCffgID=RoleBuffCffgID}) ->
+		#rec_guard_mirror{roleID = RoleID, roleLevel = Level,
+			roleCareer = Career, roleName = RoleName, hpNumber = Hp,
+			guardTimes = Times, fightForce = FightForce,
+			mirrorBuffCfgID=MirrorBuffCfgID,
+			roleBuffCffgID=RoleBuffCffgID,declaration = Declaration}) ->
 		SQL =
 			emysql:prepare(updateGuard_mirror,
-				"update guard_mirror set roleID=?,roleName=?,hpNumber=?,guardTimes=?,roleLevel=?,roleCareer=?,fightForce=?,mirrorBuffCfgID=?,roleBuffCffgID=?"
+				"update guard_mirror set roleID=?,roleName=?,hpNumber=?,guardTimes=?,roleLevel=?,roleCareer=?,fightForce=?,mirrorBuffCfgID=?,roleBuffCffgID=?,declaration=?"
 			),
 
-		Ret = emysql:execute(?GAMEDB_CONNECT_POOL, updateGuard_mirror, [RoleID, RoleName, Hp, Times, Level, Career,FightForce,MirrorBuffCfgID,RoleBuffCffgID]),
+		Ret = emysql:execute(?GAMEDB_CONNECT_POOL, updateGuard_mirror, [RoleID, RoleName, Hp, Times, Level, Career,FightForce,MirrorBuffCfgID,RoleBuffCffgID,Declaration]),
 		logResult("update guard_mirror", Ret, SQL)
-				end,
+		  end,
 	lists:foreach(Fun, List),
 	ok.
 
@@ -1664,7 +1679,7 @@ syncInsertMSShop() ->
 		_ ->
 			Fun = fun(#rec_player_ms_shop{roleID = {RoleID, OnlyID}, only_id = OnlyID, itemID = ItemID, count = Count},AccIn) ->
 				io_lib:format(",(~p,~p,~p,~p)",[RoleID, OnlyID, ItemID, Count]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert player_ms_shop(roleID,only_id,itemID,`count`) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1685,10 +1700,10 @@ syncUpdateMSShop() ->
 								  [Count, ItemID, RoleID, OnlyID]);
 						  _ ->
 							  io_lib:format("DELETE FROM player_ms_shop WHERE roleID = ~p AND only_id = ~p",[RoleID, OnlyID])
-				      end,
+					  end,
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update rec_player_ms_shop",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1701,7 +1716,7 @@ syncInsertCommonActive() ->
 		_ ->
 			Fun = fun(#rec_common_active_code{role_id = {RoleID, Code}, awardcode = Code, taken_time = TT},AccIn) ->
 				io_lib:format(",(~p,~p,~p)",[RoleID, Code, TT]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert common_active_code(role_id,awardcode,taken_time) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1727,7 +1742,7 @@ syncUpdateCommonActive() ->
 						?WARN_OUT("update common actvie code,but code is error,want to delete?"),
 						skip
 				end
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1746,7 +1761,7 @@ syncInsertTalent() ->
 				petDefIntensify = PDI
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p,~p,~p,~p)",[RoleID,PI,PhyDef,MagDef,PDamI,PDI]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert talent(roleID,propIntensify,phyDefIntensify,magDefIntensify,petDamIntensify,petDefIntensify) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1770,47 +1785,47 @@ syncUpdateTalent() ->
 					[PI,PhyDef,MagDef,PDamI,PDI,RoleID]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update talent",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
 
 syncInsertExtrole() ->
-    List = edb:selectTableAndClearTable(new_rec_ext_role),
-    case List of
-        [] ->
-            skip;
-        _ ->
-            Fun = fun(#rec_ext_role{roleID = RoleID,
-									totalOfflineTime = V,
-									canRename = CanRename,
-									updateReward = UpdateReward},AccIn) ->
-                io_lib:format(",(~p,~p,~p,'~ts')",[RoleID,V,CanRename,misc:term_to_string(UpdateReward)]) ++ AccIn
-            end,
-            [_|T] = lists:foldl(Fun,[],List),
-            SQL = io_lib:format("insert ext_role(roleID,totalOfflineTime,canRename,updateReward) values ~ts",[T]),
-            Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
-            logResult("insert ext_role",Ret,SQL)
-    end,
-    ok.
+	List = edb:selectTableAndClearTable(new_rec_ext_role),
+	case List of
+		[] ->
+			skip;
+		_ ->
+			Fun = fun(#rec_ext_role{roleID = RoleID,
+				totalOfflineTime = V,
+				canRename = CanRename,
+				updateReward = UpdateReward},AccIn) ->
+				io_lib:format(",(~p,~p,~p,'~ts')",[RoleID,V,CanRename,misc:term_to_string(UpdateReward)]) ++ AccIn
+				  end,
+			[_|T] = lists:foldl(Fun,[],List),
+			SQL = io_lib:format("insert ext_role(roleID,totalOfflineTime,canRename,updateReward) values ~ts",[T]),
+			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
+			logResult("insert ext_role",Ret,SQL)
+	end,
+	ok.
 
 syncUpdateExtrole() ->
-    List = edb:selectTableAndClearTable(update_rec_ext_role),
-    case List of
-        [] ->
-            skip;
-        _ ->
-            Fun = fun(#rec_ext_role{roleID = RoleID,
-									totalOfflineTime = V,
-									canRename = CanRename,
-									updateReward = UpdateReward}) ->
-                SQL = io_lib:format("update ext_role set totalOfflineTime=~p,canRename=~p,updateReward='~ts' where roleID=~p",[V,CanRename,misc:term_to_string(UpdateReward),RoleID]),
-                Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
-                logResult("update ext_role",Ret,SQL)
-            end,
-            lists:foreach(Fun,List)
-    end,
-    ok.
+	List = edb:selectTableAndClearTable(update_rec_ext_role),
+	case List of
+		[] ->
+			skip;
+		_ ->
+			Fun = fun(#rec_ext_role{roleID = RoleID,
+				totalOfflineTime = V,
+				canRename = CanRename,
+				updateReward = UpdateReward}) ->
+				SQL = io_lib:format("update ext_role set totalOfflineTime=~p,canRename=~p,updateReward='~ts' where roleID=~p",[V,CanRename,misc:term_to_string(UpdateReward),RoleID]),
+				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
+				logResult("update ext_role",Ret,SQL)
+				  end,
+			lists:foreach(Fun,List)
+	end,
+	ok.
 
 syncInsertWarriorTrial() ->
 	List = edb:selectTableAndClearTable(new_rec_warrior_trial),
@@ -1820,7 +1835,7 @@ syncInsertWarriorTrial() ->
 		_ ->
 			Fun = fun(#rec_warrior_trial{roleID = RoleID,trialSchedule = TS,tswkTrialSchedule = TTS, tswkTrialTime = TTT},AccIn) ->
 				io_lib:format(",(~p,~p,~p,~p)",[RoleID,TS,TTS,TTT]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert warrior_trial(roleID,trialSchedule,tswkTrialSchedule,tswkTrialTime) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1838,7 +1853,7 @@ syncUpdateWarriorTrial() ->
 				SQL = io_lib:format("update warrior_trial set trialSchedule=~p,tswkTrialSchedule=~p,tswkTrialTime=~p where roleID=~p",[TS,TTS,TTT,RoleID]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update warrior_trial",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1854,7 +1869,7 @@ syncInsertGodWeapon() ->
 				skillLevel = SLevel
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p,~p)",[RoleID,WeaponID,WLevel,SLevel]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert god_weapon(roleID,weaponID,weaponLevel,skillLevel) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1876,7 +1891,7 @@ syncUpdateGodWeapon() ->
 					[WLevel,SLevel,RoleID,WeaponID]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update god_weapon",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1893,7 +1908,7 @@ syncInsertOperateExchange() ->
 				exchangeCount = Count				%%兑换次数 smallint(6)
 			},AccIn) ->
 				io_lib:format(",(~p,~p,~p)",[RoleID,EXID,Count]) ++ AccIn
-			end,
+				  end,
 			[_|T] = lists:foldl(Fun,[],List),
 			SQL = io_lib:format("insert operate_exchange_data(roleID,exchangeID,exchangeCount) values ~ts",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
@@ -1916,7 +1931,7 @@ syncUpdateOperateExchange() ->
 				SQL = io_lib:format("update operate_exchange_data set exchangeCount=~p where roleID=~p and exchangeID=~p",[Count,RoleID,EXID]),
 				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 				logResult("update rec_operate_exchange_data",Ret,SQL)
-			end,
+				  end,
 			lists:foreach(Fun,List)
 	end,
 	ok.
@@ -1975,8 +1990,8 @@ logResult(Desc,#error_packet{seq_num = SN,code = Code,status = Status,msg = Msg}
 	?ERROR_OUT("exec[~ts] Failed, SN:~p Code:~p Status:~p Msg:~ts SQL:~ts",[Desc,SN,Code,Status,Msg,SQL]),
 	false;
 logResult(Desc,[],SQL) ->
-    ?DEBUG_OUT("exec[~ts] result [] SQL:~ts", [Desc, SQL]),
-    true;
+	?DEBUG_OUT("exec[~ts] result [] SQL:~ts", [Desc, SQL]),
+	true;
 logResult(Desc,[_H|T],SQL) ->
 	logResult(Desc,T,SQL);
 logResult(Desc,Ret,SQL) ->
@@ -1996,18 +2011,18 @@ dealMysqlRetError([H|_] = DataList,#error_packet{status = <<"23000">>,msg = Msg}
 	Keys2 = string:strip(Keys, both,$'),
 	KeyList1 = string:tokens(Keys2, "-"),
 	[RecName|[RecKey|_]] = erlang:tuple_to_list(H),
-	
+
 	RealRecKey = createRowKeyByModel(RecKey,KeyList1),
 	PredFun = fun(T,Acc) ->
-					  [_RecName|[RecKey2|_]] = erlang:tuple_to_list(T),
-					  case RecKey2==RealRecKey of
-						  true ->Acc;
-						  false ->[T|Acc]
-					  end
+		[_RecName|[RecKey2|_]] = erlang:tuple_to_list(T),
+		case RecKey2==RealRecKey of
+			true ->Acc;
+			false ->[T|Acc]
+		end
 			  end,
 	NewDataList = lists:foldl(PredFun,[], DataList),
 	NewTab = getNewTableName(RecName),
-	
+
 	[edb:writeRecord(NewTab, Row)||Row <- NewDataList],
 	?ERROR_OUT("NewTab rewrite ~p  ~p",[NewTab,RealRecKey]),
 	ok;
@@ -2050,63 +2065,63 @@ createRowKeyByModel(_RecKey,KeyData) ->
 createRowKey([],_,DT) ->
 	DT;
 createRowKey([HData|TailData],[HModel|TailModel],DT) ->
-	RealHData = 
-	case HModel of
-		V when erlang:is_integer(V) ->
-			erlang:list_to_integer(HData);
-		V when erlang:is_float(V) ->
-			erlang:list_to_float(HData);
-		_ ->
-			HData
-	end,
+	RealHData =
+		case HModel of
+			V when erlang:is_integer(V) ->
+				erlang:list_to_integer(HData);
+			V when erlang:is_float(V) ->
+				erlang:list_to_float(HData);
+			_ ->
+				HData
+		end,
 	createRowKey(TailData,TailModel,DT++[RealHData]).
 
 syncInsertPlayerLiveness()->
-    List = edb:selectTableAndClearTable(new_rec_player_liveness),
-    case List of
-        [] ->
-            skip;
-        _ ->
-            Fun = fun(#rec_player_liveness{
-                    playerID = PlayerID,
-                    livenessValue = LiveValue,				%%玩家活跃度值 int(4) unsigned
-                    livenessList = LiveList,				%%玩家活跃度完成列表 varbinary(64)
-                    livenessGiftDrew = GiftDraw,
-                    lastUpdateTime = LastTime
-                },AccIn) ->
+	List = edb:selectTableAndClearTable(new_rec_player_liveness),
+	case List of
+		[] ->
+			skip;
+		_ ->
+			Fun = fun(#rec_player_liveness{
+				playerID = PlayerID,
+				livenessValue = LiveValue,				%%玩家活跃度值 int(4) unsigned
+				livenessList = LiveList,				%%玩家活跃度完成列表 varbinary(64)
+				livenessGiftDrew = GiftDraw,
+				lastUpdateTime = LastTime
+			},AccIn) ->
 %%                SQ = [io_lib:format(",(~p,~p,'~s',~p)",[PlayerID,LiveValue,misc:term_to_string(LiveList),misc:term_to_string(GiftDraw)]) | AccIn],
 %%                string:join(SQ,",")
-                io_lib:format(",(~p,~p,'~ts','~ts',~p)",[PlayerID,LiveValue,misc:term_to_string(LiveList),misc:term_to_string(GiftDraw),LastTime]) ++ AccIn
-                  end,
-            [_|T] = lists:foldl(Fun,[],List),
-            SQL = io_lib:format("insert player_liveness(playerID,livenessValue,livenessList,livenessGiftDrew,lastUpdateTime) values ~s",[T]),
-            Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
+				io_lib:format(",(~p,~p,'~ts','~ts',~p)",[PlayerID,LiveValue,misc:term_to_string(LiveList),misc:term_to_string(GiftDraw),LastTime]) ++ AccIn
+				  end,
+			[_|T] = lists:foldl(Fun,[],List),
+			SQL = io_lib:format("insert player_liveness(playerID,livenessValue,livenessList,livenessGiftDrew,lastUpdateTime) values ~s",[T]),
+			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 			dealMysqlRetError(List,Ret,SQL),
-            logResult("insert player_liveness",Ret,SQL)
-    end,
-    ok.
+			logResult("insert player_liveness",Ret,SQL)
+	end,
+	ok.
 
 syncUpdateLiveness()->
-    List = edb:selectTableAndClearTable(update_rec_player_liveness),
-    case List of
-        [] ->
-            skip;
-        _ ->
-            Fun = fun(#rec_player_liveness{
-                playerID = PlayerID,
-                livenessValue = LiveValue,				%%玩家活跃度值 int(4) unsigned
-                livenessList = LiveList,				%%玩家活跃度完成列表 varbinary(64)
-                livenessGiftDrew = GiftDraw,
-                lastUpdateTime = LastTime
-            }) ->
-                SQL = io_lib:format("update player_liveness set livenessValue = ~p,livenessList = '~ts',livenessGiftDrew = '~ts',lastUpdateTime=~p where playerID=~p ",[LiveValue,misc:term_to_string(LiveList),misc:term_to_string(GiftDraw),LastTime,PlayerID]),
-                Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
-                logResult("update player_liveness",Ret,SQL)
-                  end,
+	List = edb:selectTableAndClearTable(update_rec_player_liveness),
+	case List of
+		[] ->
+			skip;
+		_ ->
+			Fun = fun(#rec_player_liveness{
+				playerID = PlayerID,
+				livenessValue = LiveValue,				%%玩家活跃度值 int(4) unsigned
+				livenessList = LiveList,				%%玩家活跃度完成列表 varbinary(64)
+				livenessGiftDrew = GiftDraw,
+				lastUpdateTime = LastTime
+			}) ->
+				SQL = io_lib:format("update player_liveness set livenessValue = ~p,livenessList = '~ts',livenessGiftDrew = '~ts',lastUpdateTime=~p where playerID=~p ",[LiveValue,misc:term_to_string(LiveList),misc:term_to_string(GiftDraw),LastTime,PlayerID]),
+				Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
+				logResult("update player_liveness",Ret,SQL)
+				  end,
 
-            lists:foreach(Fun,List)
-    end,
-    ok.
+			lists:foreach(Fun,List)
+	end,
+	ok.
 
 
 syncInsertPlayerHolidayTask()->
@@ -2159,13 +2174,13 @@ syncInsertPlayerDrop([]) ->
 	ok;
 syncInsertPlayerDrop(List) ->
 	Fun = fun(#rec_player_drop
-			  {
-			   roleID = {RoleID, _},
-			   id = Id,
-			   num = Num,
-			   time = Time
-			  },AccIn) ->
-				  io_lib:format(",(~p,~p,~p,~p)",[RoleID, Id, Num, Time]) ++ AccIn
+	{
+		roleID = {RoleID, _},
+		id = Id,
+		num = Num,
+		time = Time
+	},AccIn) ->
+		io_lib:format(",(~p,~p,~p,~p)",[RoleID, Id, Num, Time]) ++ AccIn
 		  end,
 	[_|T] = lists:foldl(Fun,[],List),
 	SQL = io_lib:format("insert player_drop(roleID, id, num, time) values ~s",[T]),
@@ -2180,15 +2195,15 @@ syncUpdatePlayerDrop([]) ->
 	ok;
 syncUpdatePlayerDrop(List) ->
 	Fun = fun(#rec_player_drop
-			  {
-			   roleID = {RoleID, _},
-			   id = Id,
-			   num = Num,
-			   time = Time
-			  }) ->
-				  SQL = io_lib:format("update player_drop set num = ~p, time = ~p where roleID=~p and id=~p",[Num,Time,RoleID,Id]),
-				  Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
-				  logResult("update player_drop",Ret,SQL)
+	{
+		roleID = {RoleID, _},
+		id = Id,
+		num = Num,
+		time = Time
+	}) ->
+		SQL = io_lib:format("update player_drop set num = ~p, time = ~p where roleID=~p and id=~p",[Num,Time,RoleID,Id]),
+		Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
+		logResult("update player_drop",Ret,SQL)
 		  end,
-	
+
 	lists:foreach(Fun,List).

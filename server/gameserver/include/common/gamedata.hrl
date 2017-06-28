@@ -83,11 +83,11 @@
 	career = 0,				%%职业 int(10) unsigned
 	head = 1,				%%头部id int(10)
 	mapID = 0,				%%玩家当前所在的地图ID smallint(6) unsigned
-	x = 0,				%%玩家所在地图的X坐标 float
-	y = 0,				%%玩家所在地图的Y坐标 float
+	x = 0.0,				%%玩家所在地图的X坐标 float
+	y = 0.0,				%%玩家所在地图的Y坐标 float
 	oldMapID = 0,				%%玩家进入副本前所在地图ID smallint(6) unsigned
-	oldX = 0,				%%进入副本前所在的X float
-	oldY = 0,				%%进入副本前所在的Y float
+	oldX = 0.0,				%%进入副本前所在的X float
+	oldY = 0.0,				%%进入副本前所在的Y float
 	pkMode = 0,				%%玩家Pk状态 tinyint(4) unsigned
 	level = 0,				%%玩家的当前等级 tinyint(4) unsigned
 	exp = 0,				%%玩家经验 int(10) unsigned
@@ -119,11 +119,11 @@
 	career = 0,				%%职业 int(10) unsigned
 	head = 1,				%%头部id int(10)
 	mapID = 0,				%%玩家当前所在的地图ID smallint(6) unsigned
-	x = 0,				%%玩家所在地图的X坐标 float
-	y = 0,				%%玩家所在地图的Y坐标 float
+	x = 0.0,				%%玩家所在地图的X坐标 float
+	y = 0.0,				%%玩家所在地图的Y坐标 float
 	oldMapID = 0,				%%玩家进入副本前所在地图ID smallint(6) unsigned
-	oldX = 0,				%%进入副本前所在的X float
-	oldY = 0,				%%进入副本前所在的Y float
+	oldX = 0.0,				%%进入副本前所在的X float
+	oldY = 0.0,				%%进入副本前所在的Y float
 	pkMode = 0,				%%玩家Pk状态 tinyint(4) unsigned
 	level = 0,				%%玩家的当前等级 tinyint(4) unsigned
 	exp = 0,				%%玩家经验 int(10) unsigned
@@ -351,7 +351,7 @@
 	roleName = "",				%%王者角色名 varchar(50)
 	roleLevel = 0,				%%王者角色等级 smallint(5) unsigned
 	roleCareer = 1,				%%王者角色职业id int(10)
-	hpNumber = 0,				%%王者血量 float unsigned
+	hpNumber = 0.0,				%%王者血量 float unsigned
 	guardTimes = 0,				%%守卫次数 tinyint(1)
 	fightForce = 0,				%%守护者的战斗力 bigint(20)
 	mirrorBuffCfgID = 0,				%%给镜像购买的buffID bigint(20)
@@ -542,7 +542,8 @@
 	cur_win = 0,				%%当前连胜 smallint(5) unsigned
 	max_win = 0,				%%最大连胜 smallint(5) unsigned
 	win_times = 0,				%%累计胜利 smallint(5) unsigned
-	worship_times = 0				%%被膜拜总次数 smallint(5) unsigned
+	worship_times = 0,				%%被膜拜总次数 smallint(5) unsigned
+	rankMin = 0				%%排名最小值（最高排名） int(10)
 
 }).
 
@@ -1076,7 +1077,7 @@
 %%预充值账号及金额信息表
 -record(rec_pre_charge_account,{
 	accountID = 0,				%%玩家账号唯一ID bigint(20) unsigned
-	amount				%% double
+	amount = 0.0				%% double
 
 }).
 
@@ -1087,7 +1088,7 @@
 	otherOrderID = "",				%%外部渠道订单号 varchar(100)
 	gameMoneyAmount = 0,				%%游戏币数 int(11)
 	moneyType = "",				%%货币类型 char(16)
-	currencyAmount = 0,				%%实际支付金额 float
+	currencyAmount = 0.0,				%%实际支付金额 float
 	giftStr = "",				%%json的订单返利规则 text
 	status = 0,				%%默认为0，1为取出，2为发货成功 tinyint(1)
 	addTime = 0,				%%充值时间 int(1) unsigned
@@ -1105,7 +1106,7 @@
 	otherOrderID = "",				%%外部渠道订单号 varchar(100)
 	gameMoneyAmount = 0,				%%游戏币数 int(11)
 	moneyType = "",				%%货币类型 char(16)
-	currencyAmount = 0,				%%实际支付金额 float
+	currencyAmount = 0.0,				%%实际支付金额 float
 	giftStr = "",				%%json的订单返利规则 text
 	status = 0,				%%默认为0，1为取出，2为发货成功 tinyint(1)
 	addTime = 0,				%%充值时间 int(1) unsigned
@@ -1194,7 +1195,7 @@
 	runeUID = 0,				%%符文UID bigint(20) unsigned
 	propType = 0,				%%符文属性类型，1基础属性，2随机属性 tinyint(3) unsigned
 	propKey = 0,				%%属性Key smallint(5) unsigned
-	propValue = 0,				%%属性值 double
+	propValue = 0.0,				%%属性值 double
 	calcType = 0				%%属性计算方式 0：加法 1：乘法 tinyint(3) unsigned
 
 }).

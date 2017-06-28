@@ -567,6 +567,16 @@ packNetMsg(#pk_GS2U_ACCityMonsterSurplusTime{} = P) ->
 		Bin_surplusTime
 	];
 
+%GENERATED from file:activity.h => GS2U_ActionList
+packNetMsg(#pk_GS2U_ActionList{} = P) ->
+	Bin_correctID = binary_write_uint( P#pk_GS2U_ActionList.correctID ),
+	Bin_danceIDs = binary_write_array(P#pk_GS2U_ActionList.danceIDs, fun(X) -> binary_write_uint( X ) end),
+	[
+		<<?CMD_GS2U_ActionList:16/little>>,
+		Bin_correctID,
+		Bin_danceIDs
+	];
+
 %GENERATED from file:activity.h => GS2U_ActivityEnd
 packNetMsg(#pk_GS2U_ActivityEnd{}) ->
 	[
@@ -662,6 +672,14 @@ packNetMsg(#pk_GS2U_AttackerDefenderQuotaNumberAck{} = P) ->
 		Bin_activityID,
 		Bin_mapID,
 		Bin_acctackerQuotaNum
+	];
+
+%GENERATED from file:activity.h => GS2U_BreakDance
+packNetMsg(#pk_GS2U_BreakDance{} = P) ->
+	Bin_roleID = binary_write_uint64( P#pk_GS2U_BreakDance.roleID ),
+	[
+		<<?CMD_GS2U_BreakDance:16/little>>,
+		Bin_roleID
 	];
 
 %GENERATED from file:activity.h => GS2U_ChangeGuardianDeclaration
@@ -954,6 +972,7 @@ packNetMsg(#pk_GS2U_KingBattleResult{} = P) ->
 	Bin_sex = binary_write_int8( P#pk_GS2U_KingBattleResult.sex ),
 	Bin_head = binary_write_int( P#pk_GS2U_KingBattleResult.head ),
 	Bin_wingLevel = binary_write_int( P#pk_GS2U_KingBattleResult.wingLevel ),
+	Bin_fashionIDs = binary_write_array(P#pk_GS2U_KingBattleResult.fashionIDs, fun(X) -> binary_write_int( X ) end),
 	Bin_equipIDList = binary_write_array(P#pk_GS2U_KingBattleResult.equipIDList, fun(X) -> writePlayerKingBattleEquip( X ) end),
 	Bin_equipLevelList = binary_write_array(P#pk_GS2U_KingBattleResult.equipLevelList, fun(X) -> writePlayerKingBattleEquipLevel( X ) end),
 	[
@@ -969,6 +988,7 @@ packNetMsg(#pk_GS2U_KingBattleResult{} = P) ->
 		Bin_sex,
 		Bin_head,
 		Bin_wingLevel,
+		Bin_fashionIDs,
 		Bin_equipIDList,
 		Bin_equipLevelList
 	];
@@ -1025,6 +1045,7 @@ packNetMsg(#pk_GS2U_MarrorInfoAck{} = P) ->
 	Bin_defendDays = binary_write_uint( P#pk_GS2U_MarrorInfoAck.defendDays ),
 	Bin_mirrorMaxHp = binary_write_uint64( P#pk_GS2U_MarrorInfoAck.mirrorMaxHp ),
 	Bin_mirrorLastHp = binary_write_uint64( P#pk_GS2U_MarrorInfoAck.mirrorLastHp ),
+	Bin_fashionIDs = binary_write_array(P#pk_GS2U_MarrorInfoAck.fashionIDs, fun(X) -> binary_write_int( X ) end),
 	Bin_equipIDList = binary_write_array(P#pk_GS2U_MarrorInfoAck.equipIDList, fun(X) -> writePlayerKingBattleEquip( X ) end),
 	Bin_equipLevelList = binary_write_array(P#pk_GS2U_MarrorInfoAck.equipLevelList, fun(X) -> writePlayerKingBattleEquipLevel( X ) end),
 	Bin_declaration = binary_write_string( P#pk_GS2U_MarrorInfoAck.declaration ),
@@ -1044,6 +1065,7 @@ packNetMsg(#pk_GS2U_MarrorInfoAck{} = P) ->
 		Bin_defendDays,
 		Bin_mirrorMaxHp,
 		Bin_mirrorLastHp,
+		Bin_fashionIDs,
 		Bin_equipIDList,
 		Bin_equipLevelList,
 		Bin_declaration
@@ -1191,6 +1213,16 @@ packNetMsg(#pk_GS2U_SelectCamp{} = P) ->
 		Bin_cam2Num
 	];
 
+%GENERATED from file:activity.h => GS2U_SelectDanceID
+packNetMsg(#pk_GS2U_SelectDanceID{} = P) ->
+	Bin_danceID = binary_write_uint( P#pk_GS2U_SelectDanceID.danceID ),
+	Bin_correct = binary_write_bool( P#pk_GS2U_SelectDanceID.correct ),
+	[
+		<<?CMD_GS2U_SelectDanceID:16/little>>,
+		Bin_danceID,
+		Bin_correct
+	];
+
 %GENERATED from file:activity.h => GS2U_SelfDarkness
 packNetMsg(#pk_GS2U_SelfDarkness{} = P) ->
 	Bin_self = writeDarknessPlayerRank( P#pk_GS2U_SelfDarkness.self ),
@@ -1229,6 +1261,14 @@ packNetMsg(#pk_GS2U_SevenMissionDataUpdate{} = P) ->
 		Bin_number,
 		Bin_max,
 		Bin_missionid
+	];
+
+%GENERATED from file:activity.h => GS2U_SwitchDance
+packNetMsg(#pk_GS2U_SwitchDance{} = P) ->
+	Bin_second = binary_write_uint8( P#pk_GS2U_SwitchDance.second ),
+	[
+		<<?CMD_GS2U_SwitchDance:16/little>>,
+		Bin_second
 	];
 
 %GENERATED from file:activity.h => GS2U_TriggerEvent
@@ -1296,6 +1336,14 @@ packNetMsg(#pk_U2GS_AngelInvestmentGet{} = P) ->
 		Bin_id
 	];
 
+%GENERATED from file:activity.h => U2GS_ApplyDance
+packNetMsg(#pk_U2GS_ApplyDance{} = P) ->
+	Bin_type = binary_write_uint8( P#pk_U2GS_ApplyDance.type ),
+	[
+		<<?CMD_U2GS_ApplyDance:16/little>>,
+		Bin_type
+	];
+
 %GENERATED from file:activity.h => U2GS_AttackDefenderQuotaNumber
 packNetMsg(#pk_U2GS_AttackDefenderQuotaNumber{} = P) ->
 	Bin_activityID = binary_write_uint16( P#pk_U2GS_AttackDefenderQuotaNumber.activityID ),
@@ -1306,11 +1354,26 @@ packNetMsg(#pk_U2GS_AttackDefenderQuotaNumber{} = P) ->
 		Bin_mapID
 	];
 
+%GENERATED from file:activity.h => U2GS_BreakDance
+packNetMsg(#pk_U2GS_BreakDance{}) ->
+	[
+		<<?CMD_U2GS_BreakDance:16/little>>
+
+	];
+
 %GENERATED from file:activity.h => U2GS_CancelApply
 packNetMsg(#pk_U2GS_CancelApply{}) ->
 	[
 		<<?CMD_U2GS_CancelApply:16/little>>
 
+	];
+
+%GENERATED from file:activity.h => U2GS_DanceArea
+packNetMsg(#pk_U2GS_DanceArea{} = P) ->
+	Bin_type = binary_write_uint8( P#pk_U2GS_DanceArea.type ),
+	[
+		<<?CMD_U2GS_DanceArea:16/little>>,
+		Bin_type
 	];
 
 %GENERATED from file:activity.h => U2GS_DarknessRank
@@ -1620,6 +1683,14 @@ packNetMsg(#pk_U2GS_SelectCamp{} = P) ->
 	[
 		<<?CMD_U2GS_SelectCamp:16/little>>,
 		Bin_camp
+	];
+
+%GENERATED from file:activity.h => U2GS_SelectDanceID
+packNetMsg(#pk_U2GS_SelectDanceID{} = P) ->
+	Bin_danceID = binary_write_uint( P#pk_U2GS_SelectDanceID.danceID ),
+	[
+		<<?CMD_U2GS_SelectDanceID:16/little>>,
+		Bin_danceID
 	];
 
 %GENERATED from file:activity.h => U2GS_SelfDarkness
@@ -1935,8 +2006,7 @@ packNetMsg(#pk_GS2U_EquipUpStarRes{} = P) ->
 	Bin_equipUpStarInfo = writeEquipUpStarInfo( P#pk_GS2U_EquipUpStarRes.equipUpStarInfo ),
 	Bin_type = binary_write_uint8( P#pk_GS2U_EquipUpStarRes.type ),
 	Bin_index = binary_write_uint16( P#pk_GS2U_EquipUpStarRes.index ),
-	Bin_itemID = binary_write_uint16( P#pk_GS2U_EquipUpStarRes.itemID ),
-	Bin_itemNum = binary_write_uint16( P#pk_GS2U_EquipUpStarRes.itemNum ),
+	Bin_costList = binary_write_array(P#pk_GS2U_EquipUpStarRes.costList, fun(X) -> writestarCostItem( X ) end),
 	Bin_coin = binary_write_uint( P#pk_GS2U_EquipUpStarRes.coin ),
 	Bin_res = binary_write_uint8( P#pk_GS2U_EquipUpStarRes.res ),
 	[
@@ -1944,8 +2014,7 @@ packNetMsg(#pk_GS2U_EquipUpStarRes{} = P) ->
 		Bin_equipUpStarInfo,
 		Bin_type,
 		Bin_index,
-		Bin_itemID,
-		Bin_itemNum,
+		Bin_costList,
 		Bin_coin,
 		Bin_res
 	];
@@ -3229,6 +3298,20 @@ packNetMsg(#pk_GS2U_TowerInfo{} = P) ->
 		Bin_info
 	];
 
+%GENERATED from file:copy.h => U2GS2U_CopyMapScheduleShow2
+packNetMsg(#pk_U2GS2U_CopyMapScheduleShow2{} = P) ->
+	Bin_mapID = binary_write_uint16( P#pk_U2GS2U_CopyMapScheduleShow2.mapID ),
+	Bin_show2ID = binary_write_uint16( P#pk_U2GS2U_CopyMapScheduleShow2.show2ID ),
+	Bin_groupID = binary_write_uint64( P#pk_U2GS2U_CopyMapScheduleShow2.groupID ),
+	Bin_scheduleID = binary_write_uint( P#pk_U2GS2U_CopyMapScheduleShow2.scheduleID ),
+	[
+		<<?CMD_U2GS2U_CopyMapScheduleShow2:16/little>>,
+		Bin_mapID,
+		Bin_show2ID,
+		Bin_groupID,
+		Bin_scheduleID
+	];
+
 %GENERATED from file:copy.h => U2GS_CopyMapSchedulePlayAnimationOver
 packNetMsg(#pk_U2GS_CopyMapSchedulePlayAnimationOver{} = P) ->
 	Bin_animationID = binary_write_uint( P#pk_U2GS_CopyMapSchedulePlayAnimationOver.animationID ),
@@ -3496,6 +3579,7 @@ packNetMsg(#pk_GS2U_Friend2FormalChatVoice_AckR{} = P) ->
 	Bin_count = binary_write_uint8( P#pk_GS2U_Friend2FormalChatVoice_AckR.count ),
 	Bin_index = binary_write_uint8( P#pk_GS2U_Friend2FormalChatVoice_AckR.index ),
 	Bin_data = binary_write_array(P#pk_GS2U_Friend2FormalChatVoice_AckR.data, fun(X) -> binary_write_uint8( X ) end),
+	Bin_relation = binary_write_uint8( P#pk_GS2U_Friend2FormalChatVoice_AckR.relation ),
 	[
 		<<?CMD_GS2U_Friend2FormalChatVoice_AckR:16/little>>,
 		Bin_senderID,
@@ -3504,7 +3588,8 @@ packNetMsg(#pk_GS2U_Friend2FormalChatVoice_AckR{} = P) ->
 		Bin_duration,
 		Bin_count,
 		Bin_index,
-		Bin_data
+		Bin_data,
+		Bin_relation
 	];
 
 %GENERATED from file:friend.h => GS2U_Friend2FormalChatVoice_AckS
@@ -3525,12 +3610,14 @@ packNetMsg(#pk_GS2U_Friend2FormalChat_Ack{} = P) ->
 	Bin_receiverID = binary_write_uint64( P#pk_GS2U_Friend2FormalChat_Ack.receiverID ),
 	Bin_time = binary_write_uint( P#pk_GS2U_Friend2FormalChat_Ack.time ),
 	Bin_content = binary_write_string( P#pk_GS2U_Friend2FormalChat_Ack.content ),
+	Bin_relation = binary_write_uint8( P#pk_GS2U_Friend2FormalChat_Ack.relation ),
 	[
 		<<?CMD_GS2U_Friend2FormalChat_Ack:16/little>>,
 		Bin_senderID,
 		Bin_receiverID,
 		Bin_time,
-		Bin_content
+		Bin_content,
+		Bin_relation
 	];
 
 %GENERATED from file:friend.h => GS2U_Friend2FormalForMarriage_Sync
@@ -4316,6 +4403,14 @@ packNetMsg(#pk_GS2U_Guild_SnowmanCompleteCount_Sync{} = P) ->
 		<<?CMD_GS2U_Guild_SnowmanCompleteCount_Sync:16/little>>,
 		Bin_count,
 		Bin_listMark
+	];
+
+%GENERATED from file:guild.h => GS2U_Guild_SnowmanExtraRes_Sync
+packNetMsg(#pk_GS2U_Guild_SnowmanExtraRes_Sync{} = P) ->
+	Bin_count = binary_write_uint( P#pk_GS2U_Guild_SnowmanExtraRes_Sync.count ),
+	[
+		<<?CMD_GS2U_Guild_SnowmanExtraRes_Sync:16/little>>,
+		Bin_count
 	];
 
 %GENERATED from file:guild.h => GS2U_Guild_SnowmanPlayer_Sync
@@ -7736,6 +7831,7 @@ packNetMsg(#pk_GS2U_PlayerDead{} = P) ->
 	Bin_attackCode = binary_write_uint64( P#pk_GS2U_PlayerDead.attackCode ),
 	Bin_attackName = binary_write_string( P#pk_GS2U_PlayerDead.attackName ),
 	Bin_lostMoney = binary_write_array(P#pk_GS2U_PlayerDead.lostMoney, fun(X) -> writeMoneyInit( X ) end),
+	Bin_reviveType = binary_write_uint( P#pk_GS2U_PlayerDead.reviveType ),
 	[
 		<<?CMD_GS2U_PlayerDead:16/little>>,
 		Bin_deadTime,
@@ -7744,7 +7840,8 @@ packNetMsg(#pk_GS2U_PlayerDead{} = P) ->
 		Bin_reviveCost,
 		Bin_attackCode,
 		Bin_attackName,
-		Bin_lostMoney
+		Bin_lostMoney,
+		Bin_reviveType
 	];
 
 %GENERATED from file:player.h => GS2U_PlayerHp
@@ -8025,6 +8122,36 @@ packNetMsg(#pk_GS2U_SessionKey{} = P) ->
 		Bin_key
 	];
 
+%GENERATED from file:player.h => GS2U_SevenDayAimReward_Ack
+packNetMsg(#pk_GS2U_SevenDayAimReward_Ack{} = P) ->
+	Bin_id = binary_write_uint16( P#pk_GS2U_SevenDayAimReward_Ack.id ),
+	[
+		<<?CMD_GS2U_SevenDayAimReward_Ack:16/little>>,
+		Bin_id
+	];
+
+%GENERATED from file:player.h => GS2U_SevenDayAimState_Sync
+packNetMsg(#pk_GS2U_SevenDayAimState_Sync{} = P) ->
+	Bin_timeBegin = binary_write_uint( P#pk_GS2U_SevenDayAimState_Sync.timeBegin ),
+	Bin_conditions = binary_write_array(P#pk_GS2U_SevenDayAimState_Sync.conditions, fun(X) -> writeSevenDayAimUpdate( X ) end),
+	Bin_alreadyReward = binary_write_array(P#pk_GS2U_SevenDayAimState_Sync.alreadyReward, fun(X) -> binary_write_uint16( X ) end),
+	[
+		<<?CMD_GS2U_SevenDayAimState_Sync:16/little>>,
+		Bin_timeBegin,
+		Bin_conditions,
+		Bin_alreadyReward
+	];
+
+%GENERATED from file:player.h => GS2U_SevenDayAimUpdate_Sync
+packNetMsg(#pk_GS2U_SevenDayAimUpdate_Sync{} = P) ->
+	Bin_type = binary_write_int( P#pk_GS2U_SevenDayAimUpdate_Sync.type ),
+	Bin_args = binary_write_array(P#pk_GS2U_SevenDayAimUpdate_Sync.args, fun(X) -> binary_write_int64( X ) end),
+	[
+		<<?CMD_GS2U_SevenDayAimUpdate_Sync:16/little>>,
+		Bin_type,
+		Bin_args
+	];
+
 %GENERATED from file:player.h => GS2U_ShiftTo
 packNetMsg(#pk_GS2U_ShiftTo{} = P) ->
 	Bin_code = binary_write_uint64( P#pk_GS2U_ShiftTo.code ),
@@ -8085,6 +8212,24 @@ packNetMsg(#pk_GS2U_TaskUseItemList{} = P) ->
 	[
 		<<?CMD_GS2U_TaskUseItemList:16/little>>,
 		Bin_useItemlist
+	];
+
+%GENERATED from file:player.h => GS2U_ThirtyDayLoginGiftState_Sync
+packNetMsg(#pk_GS2U_ThirtyDayLoginGiftState_Sync{} = P) ->
+	Bin_timeBegin = binary_write_uint( P#pk_GS2U_ThirtyDayLoginGiftState_Sync.timeBegin ),
+	Bin_alreadyReward = binary_write_uint16( P#pk_GS2U_ThirtyDayLoginGiftState_Sync.alreadyReward ),
+	[
+		<<?CMD_GS2U_ThirtyDayLoginGiftState_Sync:16/little>>,
+		Bin_timeBegin,
+		Bin_alreadyReward
+	];
+
+%GENERATED from file:player.h => GS2U_ThirtyDayLoginGift_Ack
+packNetMsg(#pk_GS2U_ThirtyDayLoginGift_Ack{} = P) ->
+	Bin_id = binary_write_uint16( P#pk_GS2U_ThirtyDayLoginGift_Ack.id ),
+	[
+		<<?CMD_GS2U_ThirtyDayLoginGift_Ack:16/little>>,
+		Bin_id
 	];
 
 %GENERATED from file:player.h => GS2U_TipsError
@@ -8903,17 +9048,11 @@ packNetMsg(#pk_U2GS_RequestRechargeHasGiftIDList{}) ->
 	];
 
 %GENERATED from file:player.h => U2GS_RequestRevive
-packNetMsg(#pk_U2GS_RequestRevive{}) ->
+packNetMsg(#pk_U2GS_RequestRevive{} = P) ->
+	Bin_reviveType = binary_write_uint( P#pk_U2GS_RequestRevive.reviveType ),
 	[
-		<<?CMD_U2GS_RequestRevive:16/little>>
-
-	];
-
-%GENERATED from file:player.h => U2GS_RequestReviveCost
-packNetMsg(#pk_U2GS_RequestReviveCost{}) ->
-	[
-		<<?CMD_U2GS_RequestReviveCost:16/little>>
-
+		<<?CMD_U2GS_RequestRevive:16/little>>,
+		Bin_reviveType
 	];
 
 %GENERATED from file:player.h => U2GS_RequestTargetCopyMapScore
@@ -8979,6 +9118,14 @@ packNetMsg(#pk_U2GS_SessionKeyAck{} = P) ->
 		Bin_newKey
 	];
 
+%GENERATED from file:player.h => U2GS_SevenDayAimReward_Request
+packNetMsg(#pk_U2GS_SevenDayAimReward_Request{} = P) ->
+	Bin_id = binary_write_uint16( P#pk_U2GS_SevenDayAimReward_Request.id ),
+	[
+		<<?CMD_U2GS_SevenDayAimReward_Request:16/little>>,
+		Bin_id
+	];
+
 %GENERATED from file:player.h => U2GS_ShowAction
 packNetMsg(#pk_U2GS_ShowAction{} = P) ->
 	Bin_actionIndex = binary_write_uint( P#pk_U2GS_ShowAction.actionIndex ),
@@ -9013,6 +9160,14 @@ packNetMsg(#pk_U2GS_StopMove{} = P) ->
 		Bin_code,
 		Bin_posX,
 		Bin_posY
+	];
+
+%GENERATED from file:player.h => U2GS_ThirtyDayLoginGift_Request
+packNetMsg(#pk_U2GS_ThirtyDayLoginGift_Request{} = P) ->
+	Bin_id = binary_write_uint16( P#pk_U2GS_ThirtyDayLoginGift_Request.id ),
+	[
+		<<?CMD_U2GS_ThirtyDayLoginGift_Request:16/little>>,
+		Bin_id
 	];
 
 %GENERATED from file:player.h => U2GS_TradeBuy
@@ -9781,6 +9936,13 @@ packNetMsg(#pk_U2GS_ChangeSkillSlotRequest{} = P) ->
 		Bin_changeSkillInfo
 	];
 
+%GENERATED from file:skill.h => U2GS_ResetSkill
+packNetMsg(#pk_U2GS_ResetSkill{}) ->
+	[
+		<<?CMD_U2GS_ResetSkill:16/little>>
+
+	];
+
 %GENERATED from file:skill.h => U2GS_UpSkill
 packNetMsg(#pk_U2GS_UpSkill{} = P) ->
 	Bin_id = binary_write_uint( P#pk_U2GS_UpSkill.id ),
@@ -10159,9 +10321,11 @@ packNetMsg(#pk_GS2U_QueryTeamListAck{} = P) ->
 %GENERATED from file:team.h => GS2U_QuickTeamMatchAck
 packNetMsg(#pk_GS2U_QuickTeamMatchAck{} = P) ->
 	Bin_result = binary_write_int( P#pk_GS2U_QuickTeamMatchAck.result ),
+	Bin_startTime = binary_write_uint64( P#pk_GS2U_QuickTeamMatchAck.startTime ),
 	[
 		<<?CMD_GS2U_QuickTeamMatchAck:16/little>>,
-		Bin_result
+		Bin_result,
+		Bin_startTime
 	];
 
 %GENERATED from file:team.h => GS2U_RequestFightingCapacity
@@ -11362,6 +11526,14 @@ writeRecycleItem( #pk_RecycleItem{} = P ) ->
 	[
 		Bin_slot,
 		Bin_item	].
+
+%GENERATED from file:bag.h => starCostItem
+writestarCostItem( #pk_starCostItem{} = P ) ->
+	Bin_itemID = binary_write_uint16( P#pk_starCostItem.itemID ),
+	Bin_itemNum = binary_write_uint16( P#pk_starCostItem.itemNum ),
+	[
+		Bin_itemID,
+		Bin_itemNum	].
 
 %GENERATED from file:battle.h => AttackResultList
 writeAttackResultList( #pk_AttackResultList{} = P ) ->
@@ -12753,6 +12925,14 @@ writeRoleBaseInfo( #pk_RoleBaseInfo{} = P ) ->
 		Bin_visible_equips,
 		Bin_refine_levels	].
 
+%GENERATED from file:player.h => SevenDayAimUpdate
+writeSevenDayAimUpdate( #pk_SevenDayAimUpdate{} = P ) ->
+	Bin_type = binary_write_int( P#pk_SevenDayAimUpdate.type ),
+	Bin_args = binary_write_array(P#pk_SevenDayAimUpdate.args, fun(X) -> binary_write_int64( X ) end),
+	[
+		Bin_type,
+		Bin_args	].
+
 %GENERATED from file:player.h => TaskUseItem
 writeTaskUseItem( #pk_TaskUseItem{} = P ) ->
 	Bin_code = binary_write_uint64( P#pk_TaskUseItem.code ),
@@ -13273,11 +13453,13 @@ writeTeamBaseInfo( #pk_TeamBaseInfo{} = P ) ->
 	Bin_leaderID = binary_write_uint64( P#pk_TeamBaseInfo.leaderID ),
 	Bin_copyMapID = binary_write_int( P#pk_TeamBaseInfo.copyMapID ),
 	Bin_canBeSearched = binary_write_int( P#pk_TeamBaseInfo.canBeSearched ),
+	Bin_searchStartTime = binary_write_uint64( P#pk_TeamBaseInfo.searchStartTime ),
 	[
 		Bin_teamID,
 		Bin_leaderID,
 		Bin_copyMapID,
-		Bin_canBeSearched	].
+		Bin_canBeSearched,
+		Bin_searchStartTime	].
 
 %GENERATED from file:team.h => TeamMemberInfo
 writeTeamMemberInfo( #pk_TeamMemberInfo{} = P ) ->

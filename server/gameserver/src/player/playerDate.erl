@@ -337,6 +337,7 @@ checkMyMap(MapID) ->
 -spec getSubMapTypeByActiveID(DateActiveID::type_daid()) -> boolean().
 getSubMapTypeByActiveID(?ActivityType_Date) -> ?MapSubTypeDate.
 
+
 %% 是否处于目标玩法地图，用于过滤一些无效操作
 -spec isInMap(DateActiveID::type_daid()) -> boolean().
 isInMap(DateActiveID) ->
@@ -344,6 +345,8 @@ isInMap(DateActiveID) ->
 	MapSubType = getSubMapTypeByActiveID(DateActiveID),
 	case getCfg:getCfgByKey(cfg_mapsetting, MapID) of
 		#mapsettingCfg{type = ?MapTypeActivity, subtype = MapSubType} ->
+			true;
+		#mapsettingCfg{type = ?MapTypeActivity, subtype = ?MapSubTypeDatebox} ->
 			true;
 		#mapsettingCfg{} ->
 			false;

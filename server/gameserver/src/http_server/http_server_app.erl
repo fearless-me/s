@@ -18,7 +18,7 @@ start() ->
 
 %% BI付款通知的回调地址：http://192.168.18.51:9009/pay/ums_pay_call_back
 start(_Type, _Args) ->
-	HttpPort = config:rpc_try_get_int("HttpServerPort", 9009),
+	HttpPort = config:getInt("HttpServerPort", 9009),
 	Dispatch = cowboy_router:compile([
 		{'_', [
 			{"/pay/ums_pay_call_back/", ums_pay_call_back_handler, []}

@@ -10,7 +10,7 @@ getRow(1,1)->
     id1 = 1,
     id2 = 1,
     area1 = "北京",
-    area2 = "北京市"
+    area2 = "北京"
     };
 getRow(2,1)->
     #identity_areaCfg {
@@ -24,14 +24,14 @@ getRow(3,1)->
     id1 = 3,
     id2 = 1,
     area1 = "上海",
-    area2 = "上海市"
+    area2 = "上海"
     };
 getRow(4,1)->
     #identity_areaCfg {
     id1 = 4,
     id2 = 1,
     area1 = "重庆",
-    area2 = "重庆市"
+    area2 = "重庆"
     };
 getRow(5,1)->
     #identity_areaCfg {
@@ -1900,7 +1900,7 @@ getRow(25,11)->
     id1 = 25,
     id2 = 11,
     area1 = "云南",
-    area2 = "西双版纳市"
+    area2 = "西双版纳"
     };
 getRow(26,1)->
     #identity_areaCfg {

@@ -29,9 +29,10 @@
 %%十连抽触发器
 t_tenTimesLottery(#triggerCfg{argu = [DailyID]} = Cfg, Args, FromCondationArgus) ->
 	{ok, ItemList} = tenTimesLottery(DailyID),
-	ItemGiveListMsg = tenTimesGive(DailyID),
-	NewArgu = logicLib:addLogicArgu(?LK_ADD_GOODS_AND_MAIL, ItemList, Args),
+	GiveItemList = tenTimesGive(DailyID),
+	NewArgu = logicLib:addLogicArgu(?LK_ADD_GOODS_AND_MAIL, ItemList ++ GiveItemList, Args),
 	ItemListMsg = [#pk_lottery_award_item_info{itemID = ItemID, itemNumber = ItemNumber} || {ItemID, ItemNumber, _} <- ItemList],
+	ItemGiveListMsg = [#pk_lottery_award_item_info{itemID = ItemID1, itemNumber = ItemNumber1} || {ItemID1, ItemNumber1, _} <- GiveItemList],
 	Msg = #pk_GS2U_lottery_award_items{
 		award_item_list = ItemListMsg,
 		award_item_list_sp = ItemGiveListMsg
@@ -43,10 +44,11 @@ t_tenTimesLottery(#triggerCfg{argu = [DailyID]} = Cfg, Args, FromCondationArgus)
 %%单次抽奖触发器
 t_onceLottery(#triggerCfg{argu = [DailyID]} = Cfg, Args, FromCondationArgus) ->
 	{ok, Item} = onceLottery(DailyID),
-	ItemGiveListMsg = onceLotteryGive(DailyID),
-	NewArgu = logicLib:addLogicArgu(?LK_ADD_GOODS_AND_MAIL, [Item], Args),
+	GiveItemList = onceLotteryGive(DailyID),
+	NewArgu = logicLib:addLogicArgu(?LK_ADD_GOODS_AND_MAIL, [Item] ++ GiveItemList, Args),
 	{ItemID, ItemNumber, _} = Item,
 	ItemListMsg = [#pk_lottery_award_item_info{itemID = ItemID, itemNumber = ItemNumber}],
+	ItemGiveListMsg = [#pk_lottery_award_item_info{itemID = ItemID1, itemNumber = ItemNumber1} || {ItemID1, ItemNumber1, _} <- GiveItemList],
 	Msg = #pk_GS2U_lottery_award_items{
 		award_item_list = ItemListMsg,
 		award_item_list_sp = ItemGiveListMsg
@@ -80,7 +82,13 @@ c_goblin_lottery_free_cd_check(_Args, #conditionCfg{} = Cfg) ->
 %% 客户端不应该在免费抽奖cd没有结束的时候进行免费抽奖
 c_treasure_lottery_free_cd_check(_Args, #conditionCfg{} = Cfg) ->
 %%	NowSec = time2:getTimestampSec(),
-	TreasureFreeCounts = globalCfg:getGlobalCfg(treasure_free_counts),
+	TreasureFreeCounts =
+		case getCfg:getCfgPStack(cfg_globalsetup, treasure_free_counts) of
+			#globalsetupCfg{setpara = [Counts]} ->
+				Counts;
+			_ ->
+				0
+		end,
 	TreasureFreeLotteryNumber = playerDaily:getDailyCounter(?DailyType_TREASURE_FREE, 0),
 %%	LastFreeTreasureLotteryTime = playerDaily:getDailyCounter(?DailyType_TREASURE_FREE_LAST_SEC, 0),
 	case TreasureFreeLotteryNumber < TreasureFreeCounts of
@@ -114,7 +122,13 @@ flush_lottery_info_2_client() ->
 	GoblinAllConfig = getCfg:getAllCfg(cfg_lottery_goblin_free_cd),
 	GoblinLotteryLastFreeTimes = length(GoblinAllConfig) - GoblinFreeLotteryNumber,
 
-	TreasureFreeCounts = globalCfg:getGlobalCfg(treasure_free_counts),
+	TreasureFreeCounts =
+		case getCfg:getCfgPStack(cfg_globalsetup, treasure_free_counts) of
+			#globalsetupCfg{setpara = [Counts]} ->
+				Counts;
+			_ ->
+				0
+		end,
 	TreasureFreeLotteryNumber = playerDaily:getDailyCounter(?DailyType_TREASURE_FREE, 0),
 %%	LastFreeTreasureLotteryTime = playerDaily:getDailyCounter(?DailyType_TREASURE_FREE_LAST_SEC, 0),
 %%	CDTreasureFree =
@@ -374,9 +388,11 @@ tenTimesGive(_)->
 	doLotteryGive(goblin_ten_gift).
 
 doLotteryGive(Key)->
+	L1 = 
 	case getCfg:getCfgByArgs(cfg_globalsetup, Key) of
 		#globalsetupCfg{setpara = L}->
-			[#pk_lottery_award_item_info{itemID = ItemID, itemNumber = ItemNumber} || {ItemID, ItemNumber} <- L];
+			L;
 		_ ->
 			[]
-	end.
+	end,
+	[{ID, Number, 0} || {ID, Number} <- L1].

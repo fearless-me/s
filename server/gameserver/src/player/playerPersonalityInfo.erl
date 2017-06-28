@@ -8,6 +8,7 @@
 %%% Created : 25. 二月 2015 17:30
 %%%-------------------------------------------------------------------
 
+%% fixme 该模块已废弃，需要找个时间进行清理
 
 -module(playerPersonalityInfo).
 -author(chengxs).
@@ -236,7 +237,7 @@ uploadingPhoto(Num, Index, Data) ->
 					playerMsg:sendNetMsg(#pk_GS2U_UpLoadingPhotoResult{result = false});
 				_ ->
 					%%上传照片成功增加成就
-					playerAchieve:achieveEvent(?Achieve_Social_Event1, [1]),
+					%playerAchieve:achieveEvent(?Achieve_Social_Event1, [1]),
 					RoleID =  playerState:getRoleID(),
 					PersonalityInfo = case playerState:getPersonalityInfo() of
 										  #rec_personality_info{} = PI ->
@@ -391,7 +392,7 @@ gainImpression(FriendPid, ImpressionInfo) ->
 					playerState:setPersonalityInfo(NewPersonalityInfo),
 					
 					%% 新增好友印象增加成就
-					playerAchieve:achieveEvent(?Achieve_Social_Event7, [1]),
+					%playerAchieve:achieveEvent(?Achieve_Social_Event7, [1]),
 					
 					%% xxx给你添加了新的印象，快去看看吧！
 					playerMsg:sendErrorCodeMsg(?ErrorCode_Personality_Gain_New_Impression, [FriendName]),
@@ -454,7 +455,7 @@ gainPraiseApi() ->
 %%获得点赞
 gainPraise(FriendPid) ->
 	%%自己获得点赞增加成就
-	playerAchieve:achieveEvent(?Achieve_Social_Event11, [1]),
+	%playerAchieve:achieveEvent(?Achieve_Social_Event11, [1]),
 	PersonalityInfo = playerState:getPersonalityInfo(),
 	#rec_personality_info{praiseNum = Num} = PersonalityInfo,
 	NewPersonalityInfo = PersonalityInfo#rec_personality_info{praiseNum = Num + 1},
@@ -467,7 +468,7 @@ gainPraise(FriendPid) ->
 %%给他人点赞结果
 addPraiseAck(FriendID) ->
 	%%给他人点赞成功增加成就
-	playerAchieve:achieveEvent(?Achieve_Social_Event10, [1]),
+	%playerAchieve:achieveEvent(?Achieve_Social_Event10, [1]),
 	<< _:10,FriendID2:54 >> = << FriendID:64 >>,
 	playerDaily:incDailyCounter(?DailyType_AddPraise, FriendID2),
 	%%点赞成功

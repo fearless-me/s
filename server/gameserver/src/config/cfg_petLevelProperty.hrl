@@ -8,33 +8,6 @@
         level,
 
         %%: 生命上限
-        maxHP,
-
-        %%: 物理防御系数
-        phyDef,
-
-        %%: 神圣防御系数
-        holyDef,
-
-        %%: 暗影防御系数
-        shadDef,
-
-        %%: 元素防御系数
-        eleDef,
-
-        %%: 物理伤害系数
-        phycDam,
-
-        %%: 神圣伤害系数
-        holyDam,
-
-        %%: 暗影伤害系数
-        shadDam,
-
-        %%: 元素伤害系数
-        eleDam,
-
-        %%: 生命上限
         maxHP2,
 
         %%: Administrator:
@@ -86,7 +59,38 @@
         hPRecover,
 
         %%: Administrator:
-        mPRecover
+        mPRecover,
+
+        %%: Administrator:
+        %%: 宠物成长资质，用于显示
+        growLevel,
+
+        %%: 生命上限
+        maxHP,
+
+        %%: 物理防御系数
+        phyDef,
+
+        %%: 神圣防御系数
+        holyDef,
+
+        %%: 暗影防御系数
+        shadDef,
+
+        %%: 元素防御系数
+        eleDef,
+
+        %%: 物理伤害系数
+        phycDam,
+
+        %%: 神圣伤害系数
+        holyDam,
+
+        %%: 暗影伤害系数
+        shadDam,
+
+        %%: 元素伤害系数
+        eleDam
 
  }).
 
