@@ -11,7 +11,12 @@
 %% 全新安装包
 -define(PS_Install, 1).
 %% 热更新
--define(PS_HotUpdate, 2).
+-define(PS_Update, 2).
+-define(PS_HotFix, 3).
+
+-define(InstallAtom, install).
+-define(UpdateAtom, udpate).
+-define(HotUpdateAtom, hotfix).
 
 
 main(_) ->
@@ -45,53 +50,57 @@ menu() ->
 %%	{InputNo, _Rest} = string:to_integer(InputNoStr),
 %%	dispatchInput(InputNo).
 
-fastSel()->
+fastSel() ->
 	io:format(
 		"~n##########################################################~n"
 		"\t\tLUNA PACKAGE TOOLS~n"
-		"~n#region~n"
-		"\t1.(chs) China~n"
-		"\t2.(cht) Taiwan~n"
-		"\t3.(enu) English~n"
-		"\t4.(kor) Korea~n"
-		"\t5.(xmt) Malaysia~n"
-		"\t6.(tha) Thailand~n"
-		"\t7.(rus) Russia~n"
-		"\t8.(jpn) Japan~n"
-		"\t9.(vietnam)  Vietnam~n"
-		"~n#platform~n"
-		"\t1.ios~n"
-		"\t2.Android~n"
-		"\t3.mix~n"
+%%		"~n#region~n"
+%%		"\t1.(chs) China~n"
+%%		"\t2.(cht) Taiwan~n"
+%%		"\t3.(enu) English~n"
+%%		"\t4.(kor) Korea~n"
+%%		"\t5.(xmt) Malaysia~n"
+%%		"\t6.(tha) Thailand~n"
+%%		"\t7.(rus) Russia~n"
+%%		"\t8.(jpn) Japan~n"
+%%		"\t9.(vietnam)  Vietnam~n"
+%%		"~n#platform~n"
+%%		"\t1.ios~n"
+%%		"\t2.Android~n"
+%%		"\t3.mix~n"
 		"~n#type~n"
-		"\t1.install~n"
-		"\t2.hotupdate~n"
-		"~n~n#eg.1 1 1 = chs ios install"
+		"\t~p.~p~n"
+		"\t~p.~p~n"
+		"\t~p.~p~n"
+%%		"~n~n#eg.1 1 1 = chs ios install"
 		"~n##########################################################~n~n"
-	),
+	,[?PS_Install, ?InstallAtom, ?PS_Update, ?UpdateAtom, ?PS_HotFix, ?HotUpdateAtom]),
 	set_title(unknown),
 	InputNoStr = io:get_line("Please enter your choice:"),
-	[V, P, T | _] = string:tokens(string_strip(InputNoStr,"\n"), " "),
-	{IV,_} = string:to_integer(V),
-	{IP,_} = string:to_integer(P),
-	{IT,_} = string:to_integer(T),
+%%	[L, P, T | _] = string:tokens(string_strip(InputNoStr,"\n"), " "),
+%%	{IL,_} = string:to_integer(L),
+%%	{IP,_} = string:to_integer(P),
+%%	{IT,_} = string:to_integer(T),
+	[T | _] = string:tokens(string_strip(InputNoStr, "\n"), " "),
+	{IT, _} = string:to_integer(T),
 	dispatchInput3(
-		getVersion(IV),
-		getPlatform(IP),
+		getLocation(0),
+		getPlatform(3),
 		IT
 	).
 
 
-getVersion(1) -> chs;
-getVersion(2) -> cht;
-getVersion(3) -> enu;
-getVersion(4) -> kor;
-getVersion(5) -> xmt;
-getVersion(6) -> tha;
-getVersion(7) -> rus;
-getVersion(8) -> jpn;
-getVersion(9) -> vietnam;
-getVersion(_) -> menu().
+getLocation(0) -> any;
+getLocation(1) -> chs;
+getLocation(2) -> cht;
+getLocation(3) -> enu;
+getLocation(4) -> kor;
+getLocation(5) -> xmt;
+getLocation(6) -> tha;
+getLocation(7) -> rus;
+getLocation(8) -> jpn;
+getLocation(9) -> vietnam;
+getLocation(_) -> menu().
 
 getPlatform(1) -> ios;
 getPlatform(2) -> android;
@@ -140,7 +149,7 @@ getPlatform(_) -> menu().
 %%	io:format(
 %%		"~n##########################################################~n"
 %%		"\t1.install~n"
-%%		"\t2.hotupdate~n"
+%%		"\t2.hotUpdate~n"
 %%		"~n##########################################################~n~n"
 %%	),
 %%	set_title(Lang, Platform),
@@ -149,31 +158,29 @@ getPlatform(_) -> menu().
 %%	dispatchInput3(Lang, Platform, InputNo).
 
 
-dispatchInput3(Lang, Platform, 1) -> work(Lang, Platform, install);
-dispatchInput3(Lang, Platform, 2) -> work(Lang, Platform, hotupdate);
+dispatchInput3(Lang, Platform, ?PS_Install) -> work(Lang, Platform, ?InstallAtom);
+dispatchInput3(Lang, Platform, ?PS_Update) -> work(Lang, Platform, ?UpdateAtom);
+dispatchInput3(Lang, Platform, ?PS_HotFix) -> work(Lang, Platform, ?HotUpdateAtom);
 dispatchInput3(_Lang, _Version, _InputNo) -> menu().
 
 
 work(Lang, Platform, Type) ->
 	set_title({Lang, Platform, Type}),
 	{_, Config} = file:consult("./ps.config"),
-	[{{work_dir, WorkDir}, {target_dir, TargetDir}},{CopyFileCfg} | _] = Config,
+	[{{work_dir, WorkDir}, {sql_dir, SqlDir}, {target_dir, TargetDir}}, CopyFileCfg | _] = Config,
 	setWorkDir(WorkDir),
+	setSqlDir(SqlDir),
 	setTargetDir(TargetDir),
 	createFilefolder(TargetDir),
 	SvnVer = svn_version(),
 	{RevisionA, RevisionB, FileList, ModList} = reDir(Type),
-	TempDir= io_lib:format("~ts/~p_~p_~p/",[getTempDir(), Lang, Platform, SvnVer]),
-	copyFile(Type,WorkDir, TempDir, CopyFileCfg, FileList),
-	doWorkZip(Lang, Platform, Type, ModList,RevisionA, RevisionB),
+	TempDir = io_lib:format("~ts/~ts/", [getTempDir(), makeOutTempDir(Lang, Platform, Type, SvnVer)]),
+	copyFile(Type, WorkDir, TempDir, splitCopyFileCfg(Type, CopyFileCfg), FileList),
+	catch waitContinue(),
+	doWorkZip(Lang, Platform, Type, ModList, SvnVer, RevisionA, RevisionB),
 	menu().
 
-reDir(install) ->
-	TempDir1 = getTempDir(),
-	TempDir = pathConvert(TempDir1),
-	redirectCreateDir(TempDir),
-	{"0","head",[], []};
-reDir(hotupdate) ->
+reDir(?HotUpdateAtom) ->
 	TempDir1 = getTempDir(),
 	TempDir = pathConvert(TempDir1),
 	redirectCreateDir(TempDir),
@@ -186,64 +193,99 @@ reDir(hotupdate) ->
 			fun(FileName) ->
 				[FileExt | _] = lists:reverse(string:tokens(FileName, "/")),
 				[Mod | _] = string:tokens(FileExt, "."),
-				io:format("module [~ts]~n",[Mod]),
+				io:format("module [~ts]~n", [Mod]),
 				Mod
 			end, FileList),
-	{RevisionA, RevisionB, FileList, ModList}.
+	{RevisionA, RevisionB, FileList, ModList};
+reDir(_Type) ->
+	TempDir1 = getTempDir(),
+	TempDir = pathConvert(TempDir1),
+	redirectCreateDir(TempDir),
+	{"0", "head", [], []}.
 
 
-makeHotMod(Lang, Platform, _Type, Ver, L)->
-	Content = string:join(L, "\n"),
-	TempDir = io_lib:format("~ts/~p_~p_~p/module.txt",
-		[getTempDir(), Lang, Platform, Ver]
-	),
-
-	file:write_file(TempDir, Content),
+waitContinue() ->
+	io:format("~n################################~n"),
+	io:get_line("Press Enter to zip:"),
+	io:format("~n################################~n~n"),
 	ok.
 
-doWorkZip(Lang, Platform, Type, HotList, SvnA, SvnB) ->
+%%makeHotMod(Lang, Platform, _Type, Ver, L)->
+%%	Content = string:join(L, "\n"),
+%%	TempDir = io_lib:format("~ts/~p_~p_~p/module.txt",
+%%		[getTempDir(), Lang, Platform, Ver]
+%%	),
+%%
+%%	file:write_file(TempDir, Content),
+%%	ok.
+
+doWorkZip(Lang, Platform, Type, HotList, SvnVer, SvnA, SvnB) ->
 	TempDir = getTempDir(),
 	TargetDir = getTargetDir(),
-	SvnVer = svn_version(),
-	ZipName = io_lib:format(
-		"~p_~p_~p_server.tar.bz2",
-		[Lang, Platform, SvnVer]
-	),
-
-	makeHotMod(Lang, Platform, Type, SvnVer, HotList),
-	io:format("zip [~ts]~n",[ZipName]),
-	CmdStr = io_lib:format("cd ~ts && tar -jcvf ~ts ./~p_~p_~p/",
-		[TempDir,ZipName, Lang, Platform,SvnVer]),
+	ZipName = makeZipName(Type, SvnVer),
+%%	makeHotMod(Lang, Platform, Type, SvnVer, HotList),
+	io:format("zip [~ts]~n", [ZipName]),
+	CmdStr = io_lib:format("cd ~ts && tar -jcvf ~ts ./~ts/",
+		[TempDir, ZipName, makeOutTempDir(Lang, Platform, Type, SvnVer)]),
 	os:cmd(CmdStr),
 
-	ZipPath = TempDir ++ "/"++ ZipName,
-	{ok,Binary} = file:read_file( ZipPath ),
+	ZipPath = TempDir ++ "/" ++ ZipName,
+	{ok, Binary} = file:read_file(ZipPath),
 	MD5 = erlang:md5(Binary),
 	MD5String = convertMD5ToHexString(erlang:binary_to_list(MD5)),
-	MD5FileName = io_lib:format("~ts/~ts.md5",[TargetDir,ZipName]),
-	ok = file:write_file(MD5FileName,MD5String),
-	io:format("make [~ts.md5]~n",[ZipName]),
+	NewZipName = io_lib:format("~ts.~ts", [ZipName, MD5String]),
+	NewZipPath = TempDir ++ "/" ++ NewZipName,
+	ok = file:rename(ZipPath, NewZipPath),
 
-	Str = "copy " ++ pathConvert(ZipPath) ++ " " ++ pathConvert(TargetDir),
-	io:format("copy [~ts]~n",[ZipName]),
+	io:format("rename [~ts] -> [~ts]~n", [ZipName, NewZipName]),
+	Str = "copy " ++ pathConvert(NewZipPath) ++ " " ++ pathConvert(TargetDir),
+	io:format("copy [~ts]~n", [NewZipName]),
 	os:cmd(Str),
 
-	commitPLog(Type, ZipName, MD5String, HotList, SvnA, SvnB),
+	commitPLog(Type, NewZipName, HotList, SvnA, SvnB),
 	ok.
 
-commitPLog(Type, ZipName, Md5, HotModList, SvnA, SvnB)->
+makeOutTempDir(_Lang, _Platform, Type, SvnVer) ->
+	LocalYMD = localTimeYMD(),
+	io_lib:format(
+		"luna_gameserver_~p_~ts_~p",
+		[Type, LocalYMD, SvnVer]
+	).
+%%	io_lib:format("~p_~p_~p_~p", [Lang, Platform, Type, SvnVer]).
+
+splitCopyFileCfg(?InstallAtom, {{install, Cfg}, _}) ->
+	Cfg;
+splitCopyFileCfg(?UpdateAtom, {_, {update, Cfg}}) ->
+	Cfg;
+splitCopyFileCfg(_, _) ->
+	[].
+
+%%makeZipName(?HotUpdateAtom, SvnVer) ->
+%%	LocalYMD = localTimeYMD(),
+%%	io_lib:format(
+%%		"luna_gameserver_~p_~ts_~p.tar.bz2",
+%%		[?HotUpdateAtom, LocalYMD, SvnVer]
+%%	);
+makeZipName(Type, SvnVer) ->
+	LocalYMD = localTimeYMD(),
+	io_lib:format(
+		"luna_gameserver_~p_~ts_~p.tar.bz2",
+		[Type, LocalYMD, SvnVer]
+	).
+
+commitPLog(Type, ZipName, HotModList, SvnA, SvnB) ->
 	ModList =
 		lists:foldl(
-			fun(ModName, Acc)->
-				io_lib:format("~ts\n~ts",[ModName,Acc])
+			fun(ModName, Acc) ->
+				io_lib:format("~ts\n~ts", [ModName, Acc])
 			end,
 			"", HotModList),
-	{{Y,M,D},{H,Min,S}} = calendar:local_time(),
+	{{Y, M, D}, {H, Min, S}} = calendar:local_time(),
 	Now = io_lib:format("time: ~p-~p-~p ~p:~p:~p~n",
 		[Y, M, D, H, Min, S]),
-	SvnVer = io_lib:format("type: ~p~nsvn: ~ts -> ~ts~n",[Type,SvnA, SvnB]),
-	File = io_lib:format("File: ~ts ~ts~n",[ZipName, Md5]),
-	Content = io_lib:format("~ts~ts~tsmodules:~n~ts~n",[Now, SvnVer, File, ModList]),
+	SvnVer = io_lib:format("type: ~p~nsvn: ~ts -> ~ts~n", [Type, SvnA, SvnB]),
+	File = io_lib:format("File: ~ts~n", [ZipName]),
+	Content = io_lib:format("~ts~ts~tsmodules:~n~ts~n", [Now, SvnVer, File, ModList]),
 	file:write_file("./_____package_____.txt", Content),
 	os:cmd("svn commit -m \"package time\" _____package_____.txt"),
 	os:cmd("svn update"),
@@ -305,12 +347,13 @@ getChangeFile(Data, Ext, ResultList) ->
 	end.
 %%更改文件路径
 changePath(FilePathList, AddPath) ->
-	Fun = fun(FilePath, AccList) ->
-		List1 = string:tokens(FilePath, "/"),
+	Fun =
+		fun(FilePath, AccList) ->
+			List1 = string:tokens(FilePath, "/"),
 
-		FilePath1 = lists:nth(1, List1) ++ "/" ++ AddPath ++ lists:nth(erlang:length(List1), List1),
-		[FilePath1 | AccList]
-	      end,
+			FilePath1 = lists:nth(1, List1) ++ "/" ++ AddPath ++ lists:nth(erlang:length(List1), List1),
+			[FilePath1 | AccList]
+		end,
 	lists:foldl(Fun, [], FilePathList).
 %%给文件名换上特定的扩展名
 -spec changeExt(FilePathList :: list(), Ext :: string()) -> ResultList :: list().
@@ -321,27 +364,27 @@ changeExt(FilePathList, Ext) ->
 	      end,
 	lists:foldl(Fun, [], FilePathList).
 
-copyFile(install, WorkDir, TargetDir, ServerCopyCfgs, _FileList)->
-	copyFileFull(WorkDir, TargetDir, ServerCopyCfgs);
-copyFile(hotupdate, WorkDir, TargetDir, _ServerCopyCfgs, FileList)->
+copyFile(?HotUpdateAtom, WorkDir, TargetDir, _ServerCopyCfgs, FileList) ->
 	Fun = fun(FilePath, FileCount) ->
 		%%复制文件
-		case copy1(WorkDir++"/"++FilePath, TargetDir ++"/"++ FilePath) of
+		case copy1(WorkDir ++ "/" ++ FilePath, TargetDir ++ "/" ++ FilePath) of
 			true ->
 				FileCount + 1;
 			_ ->
-				io:format("file[~s] not exsits ~n",[WorkDir++"/"++FilePath]),
+				io:format("file[~s] not exsits ~n", [WorkDir ++ "/" ++ FilePath]),
 				FileCount
 		end
 	      end,
 	CopyFileNum = lists:foldl(Fun, 0, FileList),
 	io:format("copy [~p] file~n", [CopyFileNum]),
-	ok.
+	ok;
+copyFile(_, WorkDir, TargetDir, ServerCopyCfgs, _FileList) ->
+	copyFileFull(WorkDir, TargetDir, ServerCopyCfgs).
 
 copyFileFull(WorkDir, TargetDir, ServerCopyCfgs) ->
 	Fun2 = fun(CopyCfg, AccCount1) ->
 		{{child_dir, ChildDir}, {copy_ext, Exts}} = CopyCfg,
-		createFilefolder(TargetDir ++ "/"  ++ "/" ++ "/" ++ ChildDir),
+		createFilefolder(TargetDir ++ "/" ++ "/" ++ "/" ++ ChildDir),
 		Fun3 =
 			fun(Ext, AccCount2) ->
 				Fun1 =
@@ -350,7 +393,7 @@ copyFileFull(WorkDir, TargetDir, ServerCopyCfgs) ->
 
 						F1 = pathConvert(F),
 						CopyDest1 = pathConvert(CopyDest),
-						
+
 						Str = "copy " ++ F1 ++ " " ++ CopyDest1,
 						io:format("copy [~ts]~n", [F1]),
 						os:cmd(Str),
@@ -380,7 +423,7 @@ copy1(CopySource, CopyDest) ->
 	case filelib:is_file(CopySource1) of
 		true ->
 			Str = "copy " ++ CopySource1 ++ " " ++ CopyDest1,
-			io:format("copy [~ts]~n",[CopySource1]),
+			io:format("copy [~ts]~n", [CopySource1]),
 			os:cmd(Str),
 			true;
 		_ ->
@@ -472,6 +515,13 @@ setWorkDir(WorkDir) ->
 getWorkDir() ->
 	get(workdir).
 
+setSqlDir(SqlDir) ->
+	put(sqldir, SqlDir).
+
+getSqlDir() ->
+	get(sqldir).
+
+
 setTargetDir(TargetDir) ->
 	put(targetdir, TargetDir).
 
@@ -490,13 +540,13 @@ set_title(Title) ->
 
 
 convertMD5ToHexString(MD5) ->
-	convertMD5ToHexString(lists:reverse(MD5),[]).
+	convertMD5ToHexString(lists:reverse(MD5), []).
 
-convertMD5ToHexString([],AccIn) ->
+convertMD5ToHexString([], AccIn) ->
 	AccIn;
-convertMD5ToHexString([H|T],AccIn) ->
-	R = [io_lib:format("~.16B",[H]) | AccIn],
-	convertMD5ToHexString(T,R).
+convertMD5ToHexString([H | T], AccIn) ->
+	R = [io_lib:format("~.16B", [H]) | AccIn],
+	convertMD5ToHexString(T, R).
 
 getTempDir() ->
 	".\\___temp___".
@@ -508,7 +558,11 @@ pathConvert(Path) ->
 
 %%string_strip(Str)-> string:strip(Str).
 
-string_strip(Str, [])->
+string_strip(Str, []) ->
 	Str;
-string_strip(Str, [CH | L])->
+string_strip(Str, [CH | L]) ->
 	string_strip(string:strip(Str, both, CH), L).
+
+localTimeYMD() ->
+	{{YYYY, MM, DD}, _} = erlang:localtime(),
+	io_lib:format("~.4w~.2.0w~.2.0w", [YYYY, MM, DD]).
