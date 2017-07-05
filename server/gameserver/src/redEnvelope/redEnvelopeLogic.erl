@@ -482,12 +482,30 @@ sumSplitOnce(X, N,_) when X < N->
 	[0];
 sumSplitOnce(X, N,_) when X =:= N->
 	lists:duplicate(N, 1);
+sumSplitOnce(X, N,_) when X < 2*N->
+	L1 = lists:duplicate(N, 1),
+	L2 = simpleRand(X - N, []),
+	L3 = mergeAdd([], L2, L1),
+	misc:shuffle(L3);
 sumSplitOnce(X, N, Limit)->
 	L2 = limitFastRand([X], X, N-1, Limit),
 	L3 = lists:sort(L2),
 	L4 = [0 | L3],
 	L5 = makeResult([],L4),
 	L5.
+
+mergeAdd(L0, [], L2)->
+	L0 ++ L2;
+mergeAdd(L0, L1, [])->
+	L0 ++ L1;
+mergeAdd(L0, [A | L1], [B | L2])->
+	mergeAdd([A+B | L0], L1, L2).
+
+simpleRand(X,Acc) when X =< 0 ->
+	Acc;
+simpleRand(X,Acc)->
+	D = misc:rand(1, X),
+	simpleRand(X - D, [D | Acc]).
 
 limitFastRand(Acc,X, _, _) when X =< 0->
 	Acc;
