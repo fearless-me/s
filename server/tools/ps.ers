@@ -17,7 +17,7 @@
 
 -define(InstallAtom, install).
 -define(UpdateAtom, udpate).
--define(HotUpdateAtom, hotfix).
+-define(HotUpdateAtom, hotupdate).
 -define(SqlUpdateAtom, updateSql).
 
 
@@ -265,18 +265,17 @@ doWorkZip(Type, Lang, Platform, HotList, SvnVer, SvnA, SvnB) ->
 zipAndMd5(SourcePath,DestPath,ZipName)->
 	TempDir = getTempDir(),
 	io:format("zip [~ts]~n", [ZipName]),
-	CmdStr = io_lib:format("cd ~ts && tar -jcvf ~ts ./~ts/",
+	CmdStr = io_lib:format("cd ~ts && tar -czf ~ts ./~ts/",
 		[TempDir, ZipName, SourcePath]),
 	os:cmd(CmdStr),
 
 	ZipPath = TempDir ++ "/" ++ ZipName,
 	{ok, Binary} = file:read_file(ZipPath),
-	MD5 = erlang:md5(Binary),
-	MD5String = convertMD5ToHexString(erlang:binary_to_list(MD5)),
+	MD5 = erlang:binary_to_list(erlang:md5(Binary)),
+	MD5String = convertMD5ToHexString(MD5),
 	NewZipName = io_lib:format("~ts.~ts", [ZipName, MD5String]),
 	NewZipPath = TempDir ++ "/" ++ NewZipName,
 	ok = file:rename(ZipPath, NewZipPath),
-
 	io:format("rename [~ts] -> [~ts]~n", [ZipName, NewZipName]),
 	Str = "copy " ++ pathConvert(NewZipPath) ++ " " ++ pathConvert(DestPath),
 	io:format("copy [~ts]~n", [NewZipName]),
@@ -295,21 +294,21 @@ splitCopyFileCfg(_, _) ->
 makeSqlOutTempDir(BaseName, SvnVer) ->
 	LocalYMD = localTimeYMD(),
 	io_lib:format(
-		"~ts_~ts_~p",
+		"~ts_~ts_v~p",
 		[BaseName, LocalYMD, SvnVer]
 	).
 
 makeSqlZipName(Type, SvnVer) ->
 	LocalYMD = localTimeYMD(),
 	io_lib:format(
-		"~ts_~ts_~p.tar.bz2",
+		"~ts_~ts_v~p.tar.gz",
 		[Type, LocalYMD, SvnVer]
 	).
 
 makeOutTempDir(Type, _Lang, _Platform, SvnVer) ->
 	LocalYMD = localTimeYMD(),
 	io_lib:format(
-		"luna_gameserver_~p_~ts_~p",
+		"luna_gameserver_~p_~ts_v~p",
 		[Type, LocalYMD, SvnVer]
 	).
 %%	io_lib:format("~p_~p_~p_~p", [Lang, Platform, Type, SvnVer]).
@@ -323,7 +322,7 @@ makeOutTempDir(Type, _Lang, _Platform, SvnVer) ->
 makeZipName(Type, SvnVer) ->
 	LocalYMD = localTimeYMD(),
 	io_lib:format(
-		"luna_gameserver_~p_~ts_~p.tar.bz2",
+		"luna_gameserver_~p_~ts_v~p.tar.gz",
 		[Type, LocalYMD, SvnVer]
 	).
 
@@ -339,7 +338,8 @@ commitPLog(Type, ZipName, HotModList, SvnA, SvnB) ->
 		[Y, M, D, H, Min, S]),
 	SvnVer = io_lib:format("type: ~p~nsvn: ~ts -> ~ts~n", [Type, SvnA, SvnB]),
 	File = io_lib:format("File: ~ts~n", [ZipName]),
-	Content = io_lib:format("~ts~ts~tsmodules:~n~ts~n", [Now, SvnVer, File, ModList]),
+	Content = io_lib:format("~ts~ts~tsmodules[~p]:~n~ts~n",
+		[Now, SvnVer, File, erlang:length(HotModList), ModList]),
 	file:write_file("./_____package_____.txt", Content),
 	os:cmd("svn commit -m \"package time\" _____package_____.txt"),
 	os:cmd("svn update"),
@@ -600,7 +600,8 @@ convertMD5ToHexString(MD5) ->
 convertMD5ToHexString([], AccIn) ->
 	AccIn;
 convertMD5ToHexString([H | T], AccIn) ->
-	R = [io_lib:format("~.16B", [H]) | AccIn],
+%%	R = [io_lib:format("~.16B", [H]) | AccIn],
+	R = [io_lib:format("~2.16.0B", [H]) | AccIn],
 	convertMD5ToHexString(T, R).
 
 getTempDir() ->
