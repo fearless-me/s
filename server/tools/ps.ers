@@ -208,12 +208,38 @@ doWork(?SqlUpdateAtom, _Lang, _Platform, _CopyFileCfg) ->
 doWork(Type, Lang, Platform, CopyFileCfg) ->
 	WorkDir = getWorkDir(),
 	SvnVer = svn_version(),
-	{RevisionA, RevisionB, FileList, ModList} = reDir(Type),
-	TempDir = io_lib:format("~ts/~ts/", [getTempDir(), makeOutTempDir(Type, Lang, Platform, SvnVer)]),
-	copyFile(Type, WorkDir, TempDir, splitCopyFileCfg(Type, CopyFileCfg), FileList),
-	catch waitContinue(),
-	doWorkZip(Type, Lang, Platform, ModList, SvnVer, RevisionA, RevisionB),
+	{CanGo, RevisionA, RevisionB, FileList, ModList} = reDir(Type),
+	case goWork(CanGo, FileList, RevisionA, RevisionB) of
+		true ->
+			TempDir = io_lib:format("~ts/~ts/", [getTempDir(), makeOutTempDir(Type, Lang, Platform, SvnVer)]),
+			copyFile(Type, WorkDir, TempDir, splitCopyFileCfg(Type, CopyFileCfg), FileList),
+			catch waitContinue(),
+			doWorkZip(Type, Lang, Platform, ModList, SvnVer, RevisionA, RevisionB);
+		_ ->
+			io:format("~n $$ No server compression package is created $$ ~n"),
+			ok
+	end,
 	ok.
+
+goWork(true, _,_,_) ->
+	true;
+goWork(_, FileList, RevisionA, RevisionB) ->
+	io:format(
+		"~n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n"
+		"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n"
+		"~p -> ~p | *hotupdate* | ~p files(*.hrl) is modified!~n~n"
+		"~ts~n"
+		"~n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n"
+		"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n~n",
+		[RevisionA, RevisionB, erlang:length(FileList), string:join(FileList, "\n")]),
+	InputNoStr = io:get_line("[Press Enter to abort or 999 Continue Anyway]:"),
+	case string:tokens(string_strip(InputNoStr, "\n"), " ") of
+		[T | _] ->
+			{VS, _} = string:to_integer(T),
+			VS =:= 999;
+		_ ->
+			false
+	end.
 
 reDir(?HotUpdateAtom) ->
 	TempDir1 = getTempDir(),
@@ -221,22 +247,29 @@ reDir(?HotUpdateAtom) ->
 	redirectCreateDir(TempDir),
 
 	{RevisionA, RevisionB} = read_two_version(),
-	FileList = getDiffFileList(RevisionA, RevisionB),
-
-	ModList =
-		lists:map(
-			fun(FileName) ->
-				[FileExt | _] = lists:reverse(string:tokens(FileName, "/")),
-				[Mod | _] = string:tokens(FileExt, "."),
-				io:format("module [~ts]~n", [Mod]),
-				Mod
-			end, FileList),
-	{RevisionA, RevisionB, FileList, ModList};
+	case hotUpdateGuard(RevisionA, RevisionB) of
+		[] ->
+			FileList = getDiffFileList(RevisionA, RevisionB, ".erl", false),
+			ModList =
+				lists:map(
+					fun(FileName) ->
+						[FileExt | _] = lists:reverse(string:tokens(FileName, "/")),
+						[Mod | _] = string:tokens(FileExt, "."),
+						io:format("module [~ts]~n", [Mod]),
+						Mod
+					end, FileList),
+			{true, RevisionA, RevisionB, FileList, ModList};
+		Hrl ->
+			{false, RevisionA, RevisionB, Hrl, []}
+	end;
 reDir(_Type) ->
 	TempDir1 = getTempDir(),
 	TempDir = pathConvert(TempDir1),
 	redirectCreateDir(TempDir),
-	{"0", "head", [], []}.
+	{true, "0", "head", [], []}.
+
+hotUpdateGuard(RevisionA, RevisionB) ->
+	getDiffFileList(RevisionA, RevisionB, ".hrl", true).
 
 
 waitContinue() ->
@@ -262,7 +295,7 @@ doWorkZip(Type, Lang, Platform, HotList, SvnVer, SvnA, SvnB) ->
 	commitPLog(Type, NewZipName, HotList, SvnA, SvnB),
 	ok.
 
-zipAndMd5(SourcePath,DestPath,ZipName)->
+zipAndMd5(SourcePath, DestPath, ZipName) ->
 	TempDir = getTempDir(),
 	io:format("zip [~ts]~n", [ZipName]),
 	CmdStr = io_lib:format("cd ~ts && tar -czf ~ts ./~ts/",
@@ -341,7 +374,7 @@ commitPLog(Type, ZipName, HotModList, SvnA, SvnB) ->
 	Content = io_lib:format("~ts~ts~tsmodules[~p]:~n~ts~n",
 		[Now, SvnVer, File, erlang:length(HotModList), ModList]),
 	file:write_file("./_____package_____.txt", Content),
-	os:cmd("svn commit -m \"package time\" _____package_____.txt"),
+	os:cmd("svn commit -m \"____make_package___\" _____package_____.txt"),
 	os:cmd("svn update"),
 	ok.
 
@@ -353,7 +386,7 @@ redirectCreateDir(Dir) ->
 	file:make_dir(Dir).
 
 
-getDiffFileList(RA, RB) ->
+getDiffFileList(RA, RB, Ext, DirectReturn) ->
 	Data = case RA =:= "head" andalso RB =:= "head" of
 		       true ->
 			       erlang:list_to_binary(svn_lastest_file_log());
@@ -361,10 +394,15 @@ getDiffFileList(RA, RB) ->
 			       erlang:list_to_binary(svn_diff_file_log(RA, RB))
 	       end,
 
-	CodeFileList = getChangeFile(Data, ".erl", []),
-	BeamFileList = changeExt(CodeFileList, ".beam"),
-	BeamFileList1 = changePath(BeamFileList, "ebin/"),
-	BeamFileList1.
+	CodeFileList = getChangeFile(Data, Ext, []),
+	case DirectReturn of
+		true ->
+			CodeFileList;
+		_ ->
+			BeamFileList = changeExt(CodeFileList, ".beam"),
+			BeamFileList1 = changePath(BeamFileList, "ebin/"),
+			BeamFileList1
+	end.
 
 
 %%找出被改变的文件

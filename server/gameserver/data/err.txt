@@ -1,8 +1,8 @@
 
-=CRASH REPORT==== 8-Jun-2017::11:14:28 ===
+=CRASH REPORT==== 10-Jul-2017::10:51:08 ===
   crasher:
     initial call: application_master:init/4
-    pid: <0.339.0>
+    pid: <0.367.0>
     registered_name: []
     exception exit: {bad_return,
                         {{ranch_app,start,[normal,[]]},
@@ -13,9 +13,9 @@
                                       [{file,"application_master.erl"},
                                        {line,273}]}]}}}}
       in function  application_master:init/4 (application_master.erl, line 134)
-    ancestors: [<0.338.0>]
-    messages: [{'EXIT',<0.340.0>,normal}]
-    links: [<0.338.0>,<0.7.0>]
+    ancestors: [<0.366.0>]
+    messages: [{'EXIT',<0.368.0>,normal}]
+    links: [<0.366.0>,<0.7.0>]
     dictionary: []
     trap_exit: true
     status: running
@@ -24,7 +24,34 @@
     reductions: 96
   neighbours:
 
-=SUPERVISOR REPORT==== 8-Jun-2017::11:14:28 ===
+=CRASH REPORT==== 10-Jul-2017::10:51:08 ===
+  crasher:
+    initial call: myGenServer:init/1
+    pid: <0.365.0>
+    registered_name: []
+    exception exit: {badmatch,
+                     {error,
+                      {bad_return,
+                       {{ranch_app,start,[normal,[]]},
+                        {'EXIT',
+                         {undef,
+                          [{ranch_app,start,[normal,[]],[]},
+                           {application_master,start_it_old,4,
+                            [{file,"application_master.erl"},
+                             {line,273}]}]}}}}}}
+      in function  gen_server:init_it/6 (gen_server.erl, line 344)
+    ancestors: [treeGSSup,treeGSOtp,gameserver_sup,<0.80.0>]
+    messages: []
+    links: [<0.357.0>]
+    dictionary: [{random_seed,{1500,18643,20341}},{myModule,httpServerOtp}]
+    trap_exit: false
+    status: running
+    heap_size: 10958
+    stack_size: 27
+    reductions: 11618
+  neighbours:
+
+=SUPERVISOR REPORT==== 10-Jul-2017::10:51:08 ===
      Supervisor: {local,treeGSSup}
      Context:    start_error
      Reason:     {badmatch,
@@ -44,34 +71,7 @@
                   {child_type,worker}]
 
 
-=CRASH REPORT==== 8-Jun-2017::11:14:28 ===
-  crasher:
-    initial call: myGenServer:init/1
-    pid: <0.337.0>
-    registered_name: []
-    exception exit: {badmatch,
-                     {error,
-                      {bad_return,
-                       {{ranch_app,start,[normal,[]]},
-                        {'EXIT',
-                         {undef,
-                          [{ranch_app,start,[normal,[]],[]},
-                           {application_master,start_it_old,4,
-                            [{file,"application_master.erl"},
-                             {line,273}]}]}}}}}}
-      in function  gen_server:init_it/6 (gen_server.erl, line 344)
-    ancestors: [treeGSSup,treeGSOtp,gameserver_sup,<0.49.0>]
-    messages: []
-    links: [<0.329.0>]
-    dictionary: [{random_seed,{1497,12795,11951}},{myModule,httpServerOtp}]
-    trap_exit: false
-    status: running
-    heap_size: 10958
-    stack_size: 27
-    reductions: 12246
-  neighbours:
-
-=SUPERVISOR REPORT==== 8-Jun-2017::11:14:28 ===
+=SUPERVISOR REPORT==== 10-Jul-2017::10:51:08 ===
      Supervisor: {local,gameserver_sup}
      Context:    child_terminated
      Reason:     {shutdown,
@@ -86,7 +86,7 @@
                           {application_master,start_it_old,4,
                            [{file,"application_master.erl"},
                             {line,273}]}]}}}}}}}}
-     Offender:   [{pid,<0.67.0>},
+     Offender:   [{pid,<0.96.0>},
                   {id,treeGSOtp},
                   {mfargs,{treeGSOtp,start_link,[]}},
                   {restart_type,permanent},
@@ -94,11 +94,11 @@
                   {child_type,worker}]
 
 
-=SUPERVISOR REPORT==== 8-Jun-2017::11:14:28 ===
+=SUPERVISOR REPORT==== 10-Jul-2017::10:51:08 ===
      Supervisor: {local,gameserver_sup}
      Context:    shutdown
      Reason:     reached_max_restart_intensity
-     Offender:   [{pid,<0.67.0>},
+     Offender:   [{pid,<0.96.0>},
                   {id,treeGSOtp},
                   {mfargs,{treeGSOtp,start_link,[]}},
                   {restart_type,permanent},
