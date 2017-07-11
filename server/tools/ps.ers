@@ -208,8 +208,8 @@ doWork(?SqlUpdateAtom, _Lang, _Platform, _CopyFileCfg) ->
 doWork(Type, Lang, Platform, CopyFileCfg) ->
 	WorkDir = getWorkDir(),
 	SvnVer = svn_version(),
-	{CanGo, RevisionA, RevisionB, FileList, ModList} = reDir(Type),
-	case goWork(CanGo, FileList, RevisionA, RevisionB) of
+	{CanGo, RevisionA, RevisionB, HrlFileList, FileList, ModList} = reDir(Type),
+	case goWork(CanGo, HrlFileList, RevisionA, RevisionB) of
 		true ->
 			TempDir = io_lib:format("~ts/~ts/", [getTempDir(), makeOutTempDir(Type, Lang, Platform, SvnVer)]),
 			copyFile(Type, WorkDir, TempDir, splitCopyFileCfg(Type, CopyFileCfg), FileList),
@@ -223,7 +223,7 @@ doWork(Type, Lang, Platform, CopyFileCfg) ->
 
 goWork(true, _,_,_) ->
 	true;
-goWork(_, FileList, RevisionA, RevisionB) ->
+goWork(_, HrlFileList, RevisionA, RevisionB) ->
 	io:format(
 		"~n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n"
 		"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n"
@@ -231,7 +231,7 @@ goWork(_, FileList, RevisionA, RevisionB) ->
 		"~ts~n"
 		"~n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n"
 		"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n~n",
-		[RevisionA, RevisionB, erlang:length(FileList), string:join(FileList, "\n")]),
+		[RevisionA, RevisionB, erlang:length(HrlFileList), string:join(HrlFileList, "\n")]),
 	InputNoStr = io:get_line("[Press Enter to abort or 999 Continue Anyway]:"),
 	case string:tokens(string_strip(InputNoStr, "\n"), " ") of
 		[T | _] ->
@@ -247,26 +247,27 @@ reDir(?HotUpdateAtom) ->
 	redirectCreateDir(TempDir),
 
 	{RevisionA, RevisionB} = read_two_version(),
+	FileList = getDiffFileList(RevisionA, RevisionB, ".erl", false),
+	ModList =
+		lists:map(
+			fun(FileName) ->
+				[FileExt | _] = lists:reverse(string:tokens(FileName, "/")),
+				[Mod | _] = string:tokens(FileExt, "."),
+				io:format("module [~ts]~n", [Mod]),
+				Mod
+			end, FileList),
+	io:format("[~p] modules~n",[erlang:length(ModList)]),
 	case hotUpdateGuard(RevisionA, RevisionB) of
 		[] ->
-			FileList = getDiffFileList(RevisionA, RevisionB, ".erl", false),
-			ModList =
-				lists:map(
-					fun(FileName) ->
-						[FileExt | _] = lists:reverse(string:tokens(FileName, "/")),
-						[Mod | _] = string:tokens(FileExt, "."),
-						io:format("module [~ts]~n", [Mod]),
-						Mod
-					end, FileList),
-			{true, RevisionA, RevisionB, FileList, ModList};
+			{true, RevisionA, RevisionB, [], FileList, ModList};
 		Hrl ->
-			{false, RevisionA, RevisionB, Hrl, []}
+			{false, RevisionA, RevisionB, Hrl, FileList, ModList}
 	end;
 reDir(_Type) ->
 	TempDir1 = getTempDir(),
 	TempDir = pathConvert(TempDir1),
 	redirectCreateDir(TempDir),
-	{true, "0", "head", [], []}.
+	{true, "0", "head", [], [], []}.
 
 hotUpdateGuard(RevisionA, RevisionB) ->
 	getDiffFileList(RevisionA, RevisionB, ".hrl", true).
