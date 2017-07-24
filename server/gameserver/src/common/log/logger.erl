@@ -34,9 +34,15 @@
 ]).
 
 -export([
+	error/5,
+	error/6,
+	warn/5,
+	warn/6,
+	log/5,
+	log/6,
 	debug/5,
 	debug/6,
-	setIsWriteLog/1
+	discardLog/1
 ]).
 
 -define(SERVER, ?MODULE).
@@ -69,25 +75,97 @@ getLogLevelString(?LogLevelDebug) ->
 getLogLevelString(_) ->
 	"LOG".
 
+%%错误消息不管在什么等级都需要记录下来
 
-debug(?LogLevelDebug, Sink, Fmt, Arg, Mod, Line) ->
+-spec error(LogLevel,Fmt, Arg) -> ok when
+	LogLevel::uint(),Fmt::string(),Arg::list().
+error(_LogLevel,Fmt, Arg, Mod, Line) ->
+	doLog(
+		?LogLevelError,
+		lists:append("[~w:~w] ", Fmt),
+		lists:append([Mod, Line],Arg)
+	).
+
+error(Sink, _LogLevel,Fmt, Arg, Mod, Line) ->
+	doLog(
+		Sink,
+		?LogLevelError,
+		lists:append("[~w:~w] ", Fmt),
+		lists:append([Mod, Line],Arg)
+	).
+
+%%警告等级，只有当前等级达到此等级才记录下来
+warn(?LogLevelSlient,_Fmt, _Arg, _Mod, _Line) ->
+	ok;
+warn(?LogLevelError,_Fmt, _Arg, _Mod, _Line) ->
+	ok;
+warn(_LogLevel,Fmt, Arg, Mod, Line) ->
+	doLog(
+		?LogLevelWarn,
+		lists:append("[~w:~w] ", Fmt),
+		lists:append([Mod, Line],Arg)
+	).
+
+warn(_Sink, ?LogLevelSlient,_Fmt, _Arg, _Mod, _Line) ->
+	ok;
+warn(_Sink, ?LogLevelError,_Fmt, _Arg, _Mod, _Line) ->
+	ok;
+warn(Sink, _LogLevel,Fmt, Arg, Mod, Line) ->
+	doLog(
+		Sink,
+		?LogLevelWarn,
+		lists:append("[~w:~w] ", Fmt),
+		lists:append([Mod, Line],Arg)
+	).
+
+%%普通记录等级，只有当前等级达到此等级才记录下来
+-spec log(LogLevel,Fmt, Arg) -> ok when
+	LogLevel::uint(),Fmt::string(),Arg::list().
+log(?LogLevelSlient,_Fmt, _Arg, _Mod, _Line) ->
+	ok;
+log(?LogLevelError,_Fmt, _Arg, _Mod, _Line) ->
+	ok;
+log(?LogLevelWarn,_Fmt, _Arg, _Mod, _Line) ->
+	ok;
+log( _LogLevel,Fmt, Arg, Mod, Line) ->
+	doLog(
+		?LogLevelLog,
+		lists:append("[~w:~w] ", Fmt),
+		lists:append([Mod, Line],Arg)
+	).
+
+log(_Sink, ?LogLevelSlient,_Fmt, _Arg, _Mod, _Line) ->
+	ok;
+log(_Sink, ?LogLevelError,_Fmt, _Arg, _Mod, _Line) ->
+	ok;
+log(_Sink, ?LogLevelWarn,_Fmt, _Arg, _Mod, _Line) ->
+	ok;
+log(Sink, _LogLevel,Fmt, Arg, Mod, Line) ->
+	doLog(
+		Sink,
+		?LogLevelLog,
+		lists:append("[~w:~w] ", Fmt),
+		lists:append([Mod, Line],Arg)
+	).
+
+%%调试记录等级，只有当前等级达到此等级才记录下来
+debug(?LogLevelDebug, Fmt, Arg, Mod, Line) ->
+	debug(
+		?LogLevelDebug,
+		lists:append("[~w:~w] ", Fmt),
+		lists:append([Mod, Line],Arg)
+	);
+debug(_LogLevel, _Fmt, _Arg,_Mod, _Line) ->
+	ok.
+
+debug(Sink, ?LogLevelDebug, Fmt, Arg, Mod, Line) ->
 	doLog(
 		Sink,
 		?LogLevelDebug,
 		lists:append("[~w:~w] ", Fmt),
 		lists:append([Mod, Line],Arg)
 	);
-debug(_LogLevel, _Sink, _Fmt, _Arg,_Mod, _Line) ->
-	ok.
-
-debug(?LogLevelDebug, Fmt, Arg, Mod, Line) ->
-	doLog(
-		?LogLevelDebug,
-		lists:append("[~w:~w] ", Fmt),
-		lists:append([Mod, Line],Arg)
-	);
-
-debug(_LogLevel, _Fmt, _Arg,_Mod, _Line) ->
+debug(_Sink, _LogLevel, _Fmt, _Arg,_Mod, _Line) ->
 	ok.
 
 %%%===================================================================
@@ -175,13 +253,15 @@ handle_cast(_Request, State) ->
 	{noreply, NewState :: #state{}, timeout() | hibernate} |
 	{stop, Reason :: term(), NewState :: #state{}}).
 
-handle_info({setIsWriteLog, Is}, StateData) ->
-	put('IsWriteLog', Is),
+handle_info({discardLog, Is}, StateData) ->
+	put(discardLog, Is),
 	{noreply, StateData};
 
 handle_info(Info, #state{name = NameD} = StateData) ->
-	case get('IsWriteLog') of
+	case get(discardLog) of
 		true ->
+			{noreply, StateData};
+		_ ->
 			case Info of
 				{?MSG, Level, String, Day} ->
 					handleLog(NameD, NameD, Level, String, Day),
@@ -198,9 +278,7 @@ handle_info(Info, #state{name = NameD} = StateData) ->
 				_ ->
 					io:format( "hdlt_logger recv unkown msg:~p ~n", [Info] ),
 					{noreply, StateData}
-			end;
-		_ ->
-			{noreply, StateData}
+			end
 	end.
 
 %%--------------------------------------------------------------------
@@ -352,9 +430,9 @@ doLog(Sink, Level, F, A) ->
 	ok.
 
 
--spec setIsWriteLog(IsWriteLog::true|false) -> ok.
-setIsWriteLog(IsWriteLog) ->
-	?LOGGER ! {setIsWriteLog,IsWriteLog},
+-spec discardLog(IsWriteLog::true|false) -> ok.
+discardLog(IsWriteLog) ->
+	?LOGGER ! {discardLog,IsWriteLog},
 	ok.
 
 handleLog(NameD, Name, Level, String, Day) ->
@@ -414,7 +492,6 @@ createWindow(_Log_File_Name) ->
 	ok.
 -else.
 createWindow(Log_File_Name) ->
-%%	?LOG_OUT("Cur Is Debug Version"),
 	WinPid = window:create_window(Log_File_Name, "", 800, 600),
 	put("WinPid", WinPid),
 	ok.
@@ -432,8 +509,7 @@ addToLogWindow(_MsgLevel,_String) ->
 -spec addToLogWindow(MsgLevel,String) -> ok when
 	MsgLevel::uint(),String::string().
 addToLogWindow(MsgLevel,String) ->
-
-
+	IsShowInStdio = isShowInStdio(),
 	try
 		case get("WinPid") of
 			undefined ->
@@ -442,7 +518,7 @@ addToLogWindow(MsgLevel,String) ->
 				erlang:spawn(
 					fun()->
 						window:insert_record(WinPid, String, MsgLevel),
-						io:format("~ts", [str:utf8_to_utf16(String)])
+						if IsShowInStdio -> io:format("~ts", [str:utf8_to_utf16(String)]); true-> skip end
 					end)
 
 		end
