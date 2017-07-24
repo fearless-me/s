@@ -83,6 +83,7 @@
 %% 注意，有SQL注入危险的，要特殊处理prepare流程
 %% 在线玩家这种需要即时性的数据不需要打包存储
 -define(CacheLogTypeList, [
+	?LogType_GMCmd,		%% FIXME 机器人压力测试时，机器人全部执行GM指令，压力太大
 	?LogType_AccountLogin,
 	?LogType_AccountLogin2,
 %%	?LogType_ChatInfo,
@@ -345,7 +346,8 @@
 	purpleEssence = 0,			%%紫色精华
 	goldenEssence = 0,			%%金色精华
 	onlineOrOffline = 0,		%%上线还是下线，（=0表示上线，=1表示下线）
-	time = 0					%%时间
+	time = 0,					%%时间
+	time2 = 0
 }).
 
 %%技能

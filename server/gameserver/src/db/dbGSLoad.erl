@@ -165,7 +165,7 @@ getRoleVisualEquip(RoleID) ->
     i.itemID AS equipID,
     i.quality
   FROM item i
-  WHERE i.roleID = ~p AND i.pos = 6 AND i.deleteTime = '1970-1-1' AND i.itemID > 30000",[RoleID]),
+  WHERE i.roleID = ~p AND i.pos = 6 AND i.itemID > 30000",[RoleID]),
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
 	{Result1,_LeftResult1} = mysql:nextResult(Ret),
 	emysql_util:as_record(Result1, recVisibleEquip, record_info(fields,recVisibleEquip)).

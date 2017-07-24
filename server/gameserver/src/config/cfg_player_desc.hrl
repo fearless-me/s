@@ -56,6 +56,7 @@
         %%: 转职成功后给的礼包，填多个道具和数量，可不填。
         gift,
 
+        %%: 0.2.0版本删除
         %%: 展示翅膀的等级
         %%: 调用第几阶的翅膀模型，调用wing表
         wingLevel,
@@ -64,8 +65,36 @@
         %%: 装备的ID要>30000
         showEquips,
 
+        %%: 姜泓妃
+        %%: 前女，后男
+        showRace,
+
         %%: 填写basic_head表中的ID
         showHead,
+
+        %%: admin:--姜泓妃
+        %%: 创建角色 衣服换装配置--
+        %%: [{type,a,b}]
+        %%: type--
+        %%: 0:普通装备
+        %%: 1:时装
+        %%: a--女性ID
+        %%: b--男性ID
+        %%: 分别在 equipment，fashion配置表
+        %%: 例：[{0,30007,30007},{1,25,26}]
+        %%: 注：普通装备部分男女，可随意填写
+        dIYBody,
+
+        %%: admin:--姜泓妃
+        %%: 创建角色 武器换装配置--
+        %%: [{type,a}]
+        %%: type--
+        %%: 0:普通装备
+        %%: 1:时装
+        %%: a--武器ID（分别在equipment，fashion表中）
+        %%: 例：[{0,30021},{1,20}]
+        %%: 注：普通装备部分男女，可随意填写
+        dIYWeapon,
 
         %%: 作者:
         %%: 初始化的武器
@@ -123,7 +152,15 @@
 
         %%: 唐斯然:
         %%: 角色主属性
-        prime_energy_restore
+        prime_energy_restore,
+
+        position1,
+
+        position2,
+
+        c_position1,
+
+        c_position2
 
  }).
 

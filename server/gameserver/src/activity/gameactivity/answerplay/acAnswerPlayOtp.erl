@@ -49,6 +49,7 @@ handle_info({activityChangeCallBack, _Pid, {?ActivityType_AnswerPlay, Phase}}, S
 		true ->
 			acAnswerPlayLogic:activityChangeCallBack(Phase);
 		_ ->
+			acAnswerPlayLogic:activityChangeCallBack(Phase),
 			skip
 	end,
 	{noreply,State};
@@ -58,8 +59,8 @@ handle_info({activityMapMsg, _Pid, {_MsgType, _Data}}, State) ->
 	{noreply,State};
 
 %% 玩家答题结果判断
-handle_info({answerResult, Pid,{RoleID, Name, Level,QuestionID,Answers}}, State) ->
-    acAnswerPlayLogic:playerAnswerResult(RoleID, Name, Level,QuestionID,Answers,Pid),
+handle_info({answerResult, Pid,{RoleID, Name, Level,QuestionID,IsRight,Answers}}, State) ->
+    acAnswerPlayLogic:playerAnswerResult(RoleID, Name, Level,QuestionID, IsRight,Answers,Pid),
     {noreply,State};
 
 %% 获取玩家答题活动信息
@@ -77,6 +78,20 @@ handle_info(answerClose, State) ->
 	{noreply,State};
 handle_info({activityDataLoadAckCallBack, _Pid, _Data}, State) ->
 	{noreply, State};
+
+%%
+handle_info(answer_timerTick, State) ->
+	%?DEBUG_OUT("[DebugForDate] ?MsgTypeTimerMain ~p", [ExParam]),
+	acAnswerPlayLogic:onTimerTick(),
+	{noreply,State};
+
+%%报名
+handle_info({applyAnswer, _Pid, Data}, State) ->
+	acAnswerPlayLogic:applyAnswer(Data),
+	{noreply, State};
+
+
+
 handle_info(Info, State) ->
 	?ERROR_OUT("~p ~p recv undefined msg:~p", [?MODULE, self(), Info]),
 	{noreply, State}.

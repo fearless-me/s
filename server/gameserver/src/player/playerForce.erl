@@ -107,8 +107,7 @@ calcOnePetForce(PetID, IsNotify) when is_integer(PetID) ->
 	{ok, PetInfo} = playerPet:getPetByID(PetID),
 	calcOnePetForce(PetInfo, IsNotify);
 calcOnePetForce(#recPetInfo{pet_id = PetID, pet_status = Status} = Pet, IsNotify) ->
-	Level = playerState:getLevel(),
-	NewBattlePropList = playerPetProp:makePetProp(Level, Pet),
+	NewBattlePropList = playerPetProp:makePetProp(Pet),
 	Force = doCalcOnePetForce(PetID, NewBattlePropList),
 	case erlang:trunc(Force) of
 		0 ->
@@ -117,8 +116,18 @@ calcOnePetForce(#recPetInfo{pet_id = PetID, pet_status = Status} = Pet, IsNotify
 		_ ->
 			case Status >= ?PetState_Battle_Show of
 				true ->
-					?DEBUG_OUT("petForce=~p->~p, diff = ~p",[playerPropSync:getProp(?PriProp_PetForce), Force, Force - playerPropSync:getProp(?PriProp_PetForce)]),
-					playerPropSync:setInt64(?PriProp_PetForce, erlang:trunc(Force), IsNotify);
+					ForcePet = playerPropSync:getProp(?PriProp_PetForce),
+					?DEBUG_OUT("petForce=~p->~p, diff = ~p",[ForcePet, Force, Force - ForcePet]),
+					ForcePetNew = erlang:trunc(Force),
+					playerPropSync:setInt64(?PriProp_PetForce, ForcePetNew, IsNotify),
+					ForcePlayer = playerPropSync:getProp(?PriProp_PlayerForce),
+					ForceMax = playerPropSync:getProp(?SerProp_SevenDayAim_Force),
+					case ForcePetNew + ForcePlayer > ForceMax of
+						true ->
+							playerSevenDayAim:updateCondition(?SevenDayAim_Force, [ForcePetNew + ForcePlayer]);
+						_ ->
+							skip
+					end;
 				_ ->
 					skip
 			end,
@@ -143,6 +152,7 @@ getPetSkillForce(PetID) ->
 		end, 0, SkillList).
 
 doCalcOnePetForce(PetID, BattlePropList) ->
+	%% 战斗属性产生的战力
 	#petCfg{prosType = ProsType} = getCfg:getCfgPStack(cfg_pet, PetID),
 	#petfightForceCfg{
 		hp = Hp,
@@ -150,60 +160,46 @@ doCalcOnePetForce(PetID, BattlePropList) ->
 		prop_MagicAttack = Prop_MagicAttack,
 		prop_physicaldefence = Prop_PhysicalDefence,
 		prop_MagicDefence = Prop_MagicDefence,
-		prop_hitratio = Prop_HitLevel,
 		prop_critical = Prop_critical,
 		prop_criticalimmunity = Prop_CriticalResistLevel,
 		prop_CriticalDamageLevel = Prop_CriticalDamageLevel,
-		prop_ArmorPenetrationLevel = Prop_ArmorPenetrationLevel,
-		prop_dodge = Prop_dodge,
 		prop_TenaciousLevel = Prop_TenaciousLevel,
+		prop_hitratio = Prop_HitLevel,
+		prop_dodge = Prop_dodge,
+		prop_ArmorPenetrationLevel = Prop_ArmorPenetrationLevel,
+		prop_firm = Prop_ArmorLevel,
 		prop_DgeAdd1 = Prop_DamagePlusPhysical,
 		prop_DgeAdd2 = Prop_DamagePlusMagic,
 		prop_dgeCut = Prop_DamageReduce,
-		prop_firm = Prop_ArmorLevel,
 		prop_CD = Prop_SkillMinusCDFactor
 	} = getCfg:getCfgByArgs(cfg_petfightForce, ProsType),
-
-
-	SkillAllForce = getPetSkillForce(PetID),
-	Force =
+%% 特别注意，这个人物战力计算的方式不太一样	%%%
+	ForceOfBattleProp =
 		battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MaxHP) * Hp +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalAttack) * Prop_PhysicalAttack +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicAttack) * Prop_MagicAttack +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalDefence) * Prop_PhysicalDefence +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicDefence) * Prop_MagicDefence +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_CriticalLevel) * Prop_critical +
-
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_CriticalResistLevel) * Prop_CriticalResistLevel +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_CriticalDamageLevel) * Prop_CriticalDamageLevel +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_TenaciousLevel) * Prop_TenaciousLevel +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_HitLevel) * Prop_HitLevel +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DodgeLevel) * Prop_dodge +
-
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_ArmorPenetrationLevel) * Prop_ArmorPenetrationLevel +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_ArmorLevel) * Prop_ArmorLevel +
-			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamagePlus) * Prop_DamagePlusPhysical * battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalAttack) +
-			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamagePlus) * Prop_DamagePlusMagic * battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicAttack) +
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PetDamagePlus) * Prop_DamagePlusPhysical * battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalAttack) +
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PetDamagePlus) * Prop_DamagePlusMagic * battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicAttack) +
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PetDamageReduce) * Prop_DamageReduce * battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalDefence) +
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PetDamageReduce) * Prop_DamageReduce * battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicDefence),
 
-			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamageReduce) * Prop_DamageReduce
-				* (battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalDefence) + battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicDefence)) +
+	%% 技能相关战力暂时不用
+			%SkillAllForce = getPetSkillForce(PetID),
+			%battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_SkillMinusCDFactor) * Prop_SkillMinusCDFactor * SkillAllForce +
+			%SkillAllForce,
 
-			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_SkillMinusCDFactor) * Prop_SkillMinusCDFactor * SkillAllForce +
-			SkillAllForce,
-
-%%	log(?Prop_MaxHP, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MaxHP), Hp),
-%%	log(?Prop_PhysicalAttack, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalAttack), Prop_physicaldamage),
-%%	log(?Prop_MagicAttack, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicAttack), Prop_MagicAttack),
-%%	log(?Prop_PhysicalDefence, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalDefence), Prop_physicaldefence),
-%%	log(?Prop_MagicDefence, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicDefence), Prop_MagicDefence),
-%%	log(?Prop_HitLevel, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_HitLevel), Prop_hitratio),
-%%	log(?Prop_CriticalLevel, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_CriticalLevel), Prop_critical),
-%%	log(?Prop_CriticalDamageLevel, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_CriticalDamageLevel), Prop_CriticalDamageLevel),
-%%	log(?Prop_ArmorPenetrationLevel, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_ArmorPenetrationLevel), Prop_ArmorPenetrationLevel),
-%%	log(?Prop_DodgeLevel, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DodgeLevel), Prop_dodge),
-%%	log(?Prop_CriticalResistLevel, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_CriticalResistLevel), Prop_criticalimmunity),
-%%	log(?Prop_TenaciousLevel, battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_TenaciousLevel), Prop_TenaciousLevel),
-	erlang:trunc(Force).
+	?DEBUG_OUT("[DebugForPetForce] roleID:~w petID:~w Force:~w", [playerState:getRoleID(), PetID, ForceOfBattleProp]),
+	erlang:trunc(ForceOfBattleProp).
 
 
 %%log(Index, Val, Factor) ->
@@ -247,6 +243,73 @@ getSkillListForce() ->
 			Acc + calcSkillForce(SkillID, SkillLevel)
 		end, 0, SkillList).
 
+-ifndef(RELEASE).
+playerForceLog(SkillAllForce, SkillSlotForce, BattlePropList)->
+	RoleID = playerState:getRoleID(),
+	#fightForceCfg{
+		hp = Hp,
+		prop_physicaldamage = Prop_PhysicalAttack,
+		prop_MagicAttack = Prop_MagicAttack,
+		prop_physicaldefence = Prop_PhysicalDefence,
+		prop_MagicDefence = Prop_MagicDefence,
+		prop_hitratio = Prop_HitLevel,
+		prop_critical = Prop_critical,
+		prop_criticalimmunity = Prop_CriticalResistLevel,
+		prop_CriticalDamageLevel = Prop_CriticalDamageLevel,
+		prop_ArmorPenetrationLevel = Prop_ArmorPenetrationLevel,
+		prop_dodge = Prop_dodge,
+		prop_TenaciousLevel = Prop_TenaciousLevel,
+		prop_DgeAdd1 = Prop_DamagePlusPhysical,
+		prop_DgeAdd2 = Prop_DamagePlusMagic,
+		prop_dgeCut = Prop_DamageReduce,
+		prop_firm = Prop_ArmorLevel,
+		prop_CD = Prop_SkillMinusCDFactor
+	} = getCfg:getCfgByArgs(cfg_fightForce, playerState:getCareer()),
+	?DEBUG_OUT("RoleID=~p,skillAll=~p,SkillSlot=~p,",[RoleID,SkillAllForce, SkillSlotForce]),
+	?DEBUG_OUT(
+		"~p*~p + ~p*~p+~p*~p +~p*~p+~p*~p +	~p*~p+~n"
+		"~p*~p +~p*~p +~p*~p +~p*~p +~p*~p + ~n"
+		"~p*~p +~p*~p+~p*~p*~p+~p*~p*~p+~n"
+		"(~p*~p) * (~p + ~p)+~p*~p*~p+~p",
+		[
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MaxHP) , Hp ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalAttack) , Prop_PhysicalAttack ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicAttack) , Prop_MagicAttack ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalDefence) , Prop_PhysicalDefence ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicDefence) , Prop_MagicDefence ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_CriticalLevel) , Prop_critical ,
+
+			%%
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_CriticalResistLevel) , Prop_CriticalResistLevel ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_CriticalDamageLevel) , Prop_CriticalDamageLevel ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_TenaciousLevel) , Prop_TenaciousLevel ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_HitLevel) , Prop_HitLevel ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DodgeLevel) , Prop_dodge ,
+
+			%%
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_ArmorPenetrationLevel) , Prop_ArmorPenetrationLevel ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_ArmorLevel) , Prop_ArmorLevel ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamagePlus) - 1 , Prop_DamagePlusPhysical ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalAttack) ,
+
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamagePlus) - 1 , Prop_DamagePlusMagic ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicAttack) ,
+
+			%%
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamageReduce) - 1 , Prop_DamageReduce,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalDefence) ,
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicDefence) ,
+
+			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_SkillMinusCDFactor) - 1 , Prop_SkillMinusCDFactor , SkillSlotForce ,
+			SkillAllForce
+		]),
+
+	ok.
+-else.
+playerForceLog(_SkillAllForce, _SkillSlotForce, _BattlePropList)->
+	ok.
+-endif.
+
 calcPlayerTotalForce(IsNotify) ->
 	#fightForceCfg{
 		hp = Hp,
@@ -277,7 +340,6 @@ calcPlayerTotalForce(IsNotify) ->
 	SkillSlotForce = getSkillSlotSkillForce(),
 
 	BattlePropList = playerCalcProp:changeProp_CalcForce(),
-
 	Force =
 		battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MaxHP) * Hp +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalAttack) * Prop_PhysicalAttack +
@@ -296,18 +358,18 @@ calcPlayerTotalForce(IsNotify) ->
 			%%
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_ArmorPenetrationLevel) * Prop_ArmorPenetrationLevel +
 			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_ArmorLevel) * Prop_ArmorLevel +
-			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamagePlus) * Prop_DamagePlusPhysical *
+			(battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamagePlus) - 1) * Prop_DamagePlusPhysical *
 				battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalAttack) +
 
-			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamagePlus) * Prop_DamagePlusMagic *
+			(battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamagePlus)-1) * Prop_DamagePlusMagic *
 				battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicAttack) +
 
 			%%
-			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamageReduce) * Prop_DamageReduce
+			(battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_DamageReduce) - 1) * Prop_DamageReduce
 				* (battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_PhysicalDefence) +
 				battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_MagicDefence)) +
 
-			battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_SkillMinusCDFactor) * Prop_SkillMinusCDFactor * SkillSlotForce +
+			(battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_SkillMinusCDFactor)-1) * Prop_SkillMinusCDFactor * SkillSlotForce +
 			SkillAllForce,
 %%		playerState:getBattlePropTotal(?Prop_MaxHP) * Hp +
 %%			playerState:getBattlePropTotal(?Prop_PhysicalAttack) * Prop_PhysicalAttack +
@@ -338,13 +400,15 @@ calcPlayerTotalForce(IsNotify) ->
 		true ->
 			NewForce = trunc(Force),
 			%%将战斗力改变同步到队员信息
+			playerForceLog(SkillAllForce, SkillSlotForce, BattlePropList),
 			?DEBUG_OUT("player[~p] fight force value:~p->~p , diff=~p, IsNotify= ~p",
 				[playerState:getRoleID(), playerPropSync:getProp(?PriProp_PlayerForce), NewForce,NewForce - playerPropSync:getProp(?PriProp_PlayerForce),IsNotify]),
 			playerPropSync:setInt64(?PriProp_PlayerForce, NewForce, IsNotify),
 			ForceMax = playerPropSync:getProp(?SerProp_SevenDayAim_Force),
-			case NewForce > ForceMax of
+			ForcePet = playerPropSync:getProp(?PriProp_PetForce),
+			case NewForce + ForcePet > ForceMax of
 				true ->
-					playerSevenDayAim:updateCondition(?SevenDayAim_Force, [NewForce]);
+					playerSevenDayAim:updateCondition(?SevenDayAim_Force, [NewForce + ForcePet]);
 				_ ->
 					skip
 			end;

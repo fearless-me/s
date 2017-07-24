@@ -166,15 +166,16 @@ getRoleKeyInfoRet(SQL) ->
     {PetInfo, LeftResult4} = mysql:nextResult(LeftResult3),
     PetInfoList = emysql_util:as_record(PetInfo, rec_pet_info, record_info(fields, rec_pet_info)),
 
-    %% #查询被点赞值
-    {PraiseInfo, LeftResult5} = mysql:nextResult(LeftResult4),
-    PraiseInfoList = emysql_util:as_record(PraiseInfo, recRolePraise, record_info(fields, recRolePraise)),
-
     %% #查询远征宠物PVP积分
-    {PetManorInfo, LeftResult6} = mysql:nextResult(LeftResult5),
+    {PetManorInfo, LeftResult5} = mysql:nextResult(LeftResult4),
     PetManorInfoList = emysql_util:as_record(PetManorInfo, rec_pet_manor_battle, record_info(fields, rec_pet_manor_battle)),
 
     %% #查询勇者试炼数据
-    {Warrior, _LeftResult7} = mysql:nextResult(LeftResult6),
+    {Warrior, LeftResult6} = mysql:nextResult(LeftResult5),
     WarriorList = emysql_util:as_record(Warrior, rec_warrior_trial, record_info(fields, rec_warrior_trial)),
-    {RoleInfoList, RoleCoinInfoList, PropInfoList, PetInfoList, PraiseInfoList, PetManorInfoList, WarriorList}.
+
+    %% #查询个人信息扩展
+    {Identity, _LeftResult7} = mysql:nextResult(LeftResult6),
+	IdentityList = emysql_util:as_record(Identity, recRoleKeyInfoIdentity, record_info(fields, recRoleKeyInfoIdentity)),
+
+    {RoleInfoList, RoleCoinInfoList, PropInfoList, PetInfoList, PetManorInfoList, WarriorList, IdentityList}.

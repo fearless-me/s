@@ -9,7 +9,7 @@ getRow(1)->
     #bloomCfg {
     id = 1,
     content = "登陆",
-    name = "0",
+    name = "",
     down_sample = 4,
     blur_inter = 1,
     blursize = 0.5,
@@ -31,7 +31,7 @@ getRow(2)->
     #bloomCfg {
     id = 2,
     content = "选角色的场景",
-    name = "0",
+    name = "",
     down_sample = 4,
     blur_inter = 1,
     blursize = 0.5,
@@ -53,7 +53,7 @@ getRow(3)->
     #bloomCfg {
     id = 3,
     content = "游戏场景default",
-    name = "0",
+    name = "",
     down_sample = 4,
     blur_inter = 1,
     blursize = 0.5,

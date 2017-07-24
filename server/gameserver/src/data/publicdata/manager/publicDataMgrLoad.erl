@@ -21,7 +21,9 @@
 -export([
     loadRoleKeyInfoAck/1,
     loadPlayerRankInfoAck/1,
-    loadLadder1v1InfoAck/1
+    loadLadder1v1InfoAck/1,
+
+	loadMergeLogAck/3	%% 不需要在启动时等待
 ]).
 
 %% 需要等待加载完的数据列表
@@ -54,6 +56,7 @@ loadOtherData(Pid) ->
 	loadModuleData(?PsNameFriend2, true, false),
 	loadModuleData(?PsRubbishCleaner, true, false),
 	loadModuleData(?PsNamePlayerMgr, true, false),
+	loadModuleData(?HomeOtp, false, true),
 
 	case publicDataMgrState:getLoadOtherDataPidList() of
 		[] ->
@@ -190,7 +193,7 @@ loadPlayerRankInfoAck(DataList) ->
                     [Info | Acc]
             end
         end,
-    POL = lists:foldl(Fun, [], DataList),
+    POL = lists:foldl(Fun, publicDataMgrState:getPlayerObjectList(), DataList),
 	publicDataMgrState:setPlayerObjectList(POL),
     ok.
 
@@ -211,3 +214,13 @@ loadDataProcess(Flag) ->
             skip
     end,
     ok.
+
+%% 处理从DB来的合服记录数据，计算为本服（相对于跨服是局部的）真实dbID映射关系
+%% 因为含有本服，所以结果集必然不为空
+-spec loadMergeLogAck([#rec_merge_log{}, ...], [#recRealDBID{}, ...], MyDBID::uint()) -> [#recRealDBID{}, ...].
+loadMergeLogAck([], Result, MyDBID) ->
+	%% 无论如何要把自己映射自己添加上去
+	[#recRealDBID{dbID = MyDBID, real = MyDBID, name = globalSetup:getServerName()} | Result];
+loadMergeLogAck([#rec_merge_log{sourceDBID = SrcDBID} | T], Result, MyDBID) ->
+	%% 不管合服目标是谁，既然都开在本服了，最终肯定要映射到本服
+	loadMergeLogAck(T, [#recRealDBID{dbID = SrcDBID, real = MyDBID, name = globalSetup:getServerName()} | Result], MyDBID).

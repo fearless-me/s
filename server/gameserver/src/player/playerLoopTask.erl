@@ -3,6 +3,8 @@
 %%% @copyright (C) 2016, raink
 %%% @doc
 %%% 玩家日常环任务模块，简称“环任务”，又称“轮-环任务”，旧称“环-击杀”任务
+%%%-------------------------------------------------------------------
+%%% fixme 该部分备注陈旧，仅做参考。现有日常任务归属于家族日常任务
 %%%   该任务组为“轮-环”的结构，但习惯性称之为“环任务”。为了明确说明其子任务，下文称之为“环”或“单环”，注意区别
 %%%   玩家接受“环任务”有等级限制，受globalsetup dailytask_levellimit控制
 %%%   玩家每日最多可完成X轮“环任务”，每轮Y环
@@ -15,6 +17,7 @@
 %%% 注意：
 %%%   若cfg_dailytask、cfg_task_new改动导致单环任务ID的减少，可能会引起系统无法正常重置玩家的任务状态，需要转档处理
 %%%   loopTask通常所指单环任务
+%%%-------------------------------------------------------------------
 %%% @end
 %%% Created : 20160829
 %%%-------------------------------------------------------------------
@@ -23,6 +26,16 @@
 
 -include("playerPrivate.hrl").
 
+%% 奖励类型宏定义以减少原子使用
+-define(Reward_BEGIN,			1).
+-define(Reward_Exp,				1).	%% 经验
+-define(Reward_Gold,			2).	%% 金币（原绑金，后来取消了绑金的概念，合并入非绑金）
+-define(Reward_Item,			3).	%% 道具
+-define(Reward_GuildResource,	4).	%% 家族资金（从属于家族的资源）
+-define(Reward_GuildContribute,	5). %% 家族贡献（从属于个人货币，类型12
+-define(Reward_GuildLiveness,	6). %% 家族活跃（从属于家族的资源
+-define(Reward_END,				6).
+-type reward() :: ?Reward_BEGIN .. ?Reward_END.
 
 
 %%% ====================================================================
@@ -80,7 +93,7 @@ isAccepted() ->
 	ListLoopTaskID = getLoopTaskID(all),
 	FunPair =
 		fun(#rec_task{taskID = TaskID}, Result) ->
-			case lists_find(TaskID, ListLoopTaskID) of
+			case lists:member(TaskID, ListLoopTaskID) of
 				true ->
 					true;
 				_ ->
@@ -96,51 +109,57 @@ getLevelLimit()->
 			LevelLimit_;
 		_ ->
 			?ERROR_OUT("can not find key dailytask_levellimit from cfg_globalsetup", []),
-			30 %% 无法找到相关配置，设置一个很小的值直接限制住
+			999 %% 无法找到相关配置，设置一个很大的值直接限制住
 	end.
 
 
 -spec accept() -> {ok, TaskID::uint()} | {error, ErrorCode::uint()}.
 accept() ->
-	%% 01.等级限制
-	LevelLimit =getLevelLimit(),
-	Level = playerState:getLevel(),
-	case Level >= LevelLimit of
-		false ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_Level),
-			{error, ?ErrorCode_TaskFailed_Level};
+	%% LUN-4475 【协议测试】【家族任务】在角色未加入家族情况下，可以使用协议直接发送请求接收家族任务和完成家族任务
+	case playerState:getGuildID() of
+		0 ->
+			{error, ?ErrorCode_GuildNotJoin};
 		_ ->
-			%% 02.接受状态
-			case isAccepted() of
-				true ->
-					playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_IsExit),
-					{error, ?ErrorCode_TaskFailed_IsExit};
+			%% 01.等级限制
+			LevelLimit = getLevelLimit(),
+			Level = playerState:getLevel(),
+			case Level >= LevelLimit of
+				false ->
+					playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_Level),
+					{error, ?ErrorCode_TaskFailed_Level};
 				_ ->
-					%% 03.每日计数限制
-					DailyCountMax = getDailyCountMax(),
-					DailyCount = playerDaily:getDailyCounter(?DailyType_LoopTaskNum, 0),
-					case DailyCount < DailyCountMax of
-						false ->
-							playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_IsMax),
-							{error, ?ErrorCode_TaskFailed_IsMax};
+					%% 02.接受状态
+					case isAccepted() of
 						true ->
-							%% 04.随机抽取任务ID并接受
-							case randTaskID(Level) of
-								{ok, TaskID} ->
-									case playerTask:acceptTask(TaskID, 0) of
-										true ->
-											%% 取消引导任务
-											cancelLoopLindTask(),
-											RoleID = playerState:getRoleID(),
-											LoopCount = playerPropSync:getProp(?PriProp_LoopTaskProcess),
-											?LOG_OUT("loopTask accept : ~p~nlv(~p),daiylyCount(~p),loopCount(~p),newTaskID(~p)", [RoleID, Level, DailyCount, LoopCount, TaskID]),
-											playerLogAdd:addLogParticipatorInfo(?LogParticipator_PlayerLoopTaskID),
-											{ok, TaskID};
-										Err_acceptTask ->
-											Err_acceptTask
-									end;
-								Err_randTaskID ->
-									Err_randTaskID
+							playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_IsExit),
+							{error, ?ErrorCode_TaskFailed_IsExit};
+						_ ->
+							%% 03.每日计数限制
+							DailyCountMax = getDailyCountMax(),
+							DailyCount = playerDaily:getDailyCounter(?DailyType_LoopTaskNum, 0),
+							case DailyCount < DailyCountMax of
+								false ->
+									playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_IsMax),
+									{error, ?ErrorCode_TaskFailed_IsMax};
+								true ->
+									%% 04.随机抽取任务ID并接受
+									case randTaskID(Level) of
+										{ok, TaskID} ->
+											case playerTask:acceptTask(TaskID, 0) of
+												true ->
+													%% 取消引导任务
+													cancelLoopLindTask(),
+													RoleID = playerState:getRoleID(),
+													LoopCount = playerPropSync:getProp(?PriProp_LoopTaskProcess),
+													?LOG_OUT("loopTask accept : ~p~nlv(~p),daiylyCount(~p),loopCount(~p),newTaskID(~p)", [RoleID, Level, DailyCount, LoopCount, TaskID]),
+													playerLogAdd:addLogParticipatorInfo(?LogParticipator_PlayerLoopTaskID),
+													{ok, TaskID};
+												Err_acceptTask ->
+													Err_acceptTask
+											end;
+										Err_randTaskID ->
+											Err_randTaskID
+									end
 							end
 					end
 			end
@@ -178,16 +197,21 @@ getReward(TaskIDList, Type) ->
 			Level = playerState:getLevel(),
 			Ret =
 				case getCfg:getCfgByKey(cfg_dailytask, Level) of
-					#dailytaskCfg{reward_exp = Exp, reward_item1 = Item1, reward_item2 = Item2, reward_money = BindGold} ->
+					#dailytaskCfg{reward_exp = Exp, reward_item1 = Item1, reward_item2 = Item2,
+						reward_money = BindGold, reward_guildresource = Res,
+						reward_contribute = Ctb, reward_active = Liv} ->
 						%% 发奖
-						ExpForLog = getReward_(exp, Exp),
-						BindGoldForLog = getReward_(bindGold, BindGold),
-						Item1ForLog = getReward_(item, Item1),
-						Item2ForLog = getReward_(item, Item2),
+						ExpForLog = getReward_(?Reward_Exp, Exp),
+						BindGoldForLog = getReward_(?Reward_Gold, BindGold),
+						Item1ForLog = getReward_(?Reward_Item, Item1),
+						Item2ForLog = getReward_(?Reward_Item, Item2),
+						ResForLog = getReward_(?Reward_GuildResource, Res),
+						CtbForLog = getReward_(?Reward_GuildContribute, Ctb),
+						LivForLog = getReward_(?Reward_GuildLiveness, Liv),
 						RoleID = playerState:getRoleID(),
 						DailyCount = playerDaily:getDailyCounter(?DailyType_LoopTaskNum, 0),
-						?LOG_OUT("loopTask getReward : ~p~nlv(~p),dailyCount(~p),exp(~p),bindGold(~p),item1(~p),item2(~p)",
-							[RoleID, Level, DailyCount, ExpForLog, BindGoldForLog, Item1ForLog, Item2ForLog]),
+						?LOG_OUT("loopTask getReward : ~w~nlv(~w),dailyCount(~w),exp(~w),bindGold(~w),item1(~w),item2(~w),Res(~w),Ctb(~w),Liv(~w)",
+							[RoleID, Level, DailyCount, ExpForLog, BindGoldForLog, Item1ForLog, Item2ForLog, ResForLog, CtbForLog, LivForLog]),
 						{ok, Level};
 					_ ->
 						%% 配置异常时无法发奖，向客户端说明任务不存在
@@ -246,7 +270,7 @@ onReset(Reason, {IsCancelTask, IsResetLoopCount, IsResetDailyCount}) ->
 	ListLoopTaskID = getLoopTaskID(all),
 	FunCancel =
 		fun(#rec_task{taskID = TaskID}, Result) ->
-			case lists_find(TaskID, ListLoopTaskID) of
+			case lists:member(TaskID, ListLoopTaskID) of
 				true ->
 					case IsCancelTask of
 						true ->
@@ -269,66 +293,94 @@ onReset(Reason, {IsCancelTask, IsResetLoopCount, IsResetDailyCount}) ->
 
 -spec oneKeyCompleteAll() -> {ok, Count::uint()} | {error, ErrorCode::uint()}.
 oneKeyCompleteAll() ->
-	Remainder1 = getRemainder(),
-	Remainder2 = parseRemainder(Remainder1),
-	case Remainder2 of
-		{ok, ListTaskID1, NeedCompleteCount1} ->
-			case decCoinForOneKeyComplete(NeedCompleteCount1) of
-				{ok, _, _} ->
-					submitTaskOneKeyComplete({ListTaskID1, NeedCompleteCount1});
-				Err_dec1 ->
-					Err_dec1
-			end;
-		{ok, ListTaskID2, NeedCompleteCount2, TaskID_Old} ->
-			case decCoinForOneKeyComplete(NeedCompleteCount2) of
-				{ok, _, _} ->
-					playerTask:cancelTask(TaskID_Old),
-					submitTaskOneKeyComplete({ListTaskID2, NeedCompleteCount2});
-				Err_dec2 ->
-					Err_dec2
-			end;
+	%% LUN-4475 【协议测试】【家族任务】在角色未加入家族情况下，可以使用协议直接发送请求接收家族任务和完成家族任务
+	case playerState:getGuildID() of
+		0 ->
+			{error, ?ErrorCode_GuildNotJoin};
 		_ ->
-			Remainder2
+			LevelLimit = getLevelLimit(),
+			Level = playerState:getLevel(),
+			case Level >= LevelLimit of
+				false ->
+					playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_Level),
+					{error, ?ErrorCode_TaskFailed_Level};
+				_ ->
+					Remainder1 = getRemainder(),
+					Remainder2 = parseRemainder(Remainder1),
+					case Remainder2 of
+						{ok, ListTaskID1, NeedCompleteCount1} ->
+							case decCoinForOneKeyComplete(NeedCompleteCount1) of
+								{ok, _, _} ->
+									submitTaskOneKeyComplete({ListTaskID1, NeedCompleteCount1});
+								Err_dec1 ->
+									Err_dec1
+							end;
+						{ok, ListTaskID2, NeedCompleteCount2, TaskID_Old} ->
+							case decCoinForOneKeyComplete(NeedCompleteCount2) of
+								{ok, _, _} ->
+									playerTask:cancelTask(TaskID_Old),
+									submitTaskOneKeyComplete({ListTaskID2, NeedCompleteCount2});
+								Err_dec2 ->
+									Err_dec2
+							end;
+						_ ->
+							Remainder2
+					end
+			end
 	end.
 
 
 -spec oneKeyCompleteOne() -> {ok, Count::uint()} | {error, ErrorCode::uint()}.
 oneKeyCompleteOne() ->
-	Remainder1 = getRemainder(),
-	Remainder2 = parseRemainder(Remainder1),
-	case Remainder2 of
-		{ok, ListTaskID1, NeedCompleteCount1} ->
-			case NeedCompleteCount1 > 0 of
-				true ->
-					case decCoinForOneKeyComplete(1) of
-						{ok, _, _} ->
-							[H|_] = ListTaskID1,
-							submitTaskOneKeyComplete({[H], 1});
-						Err_dec1 ->
-							Err_dec1
-					end;
-				_ ->
-					?ERROR_OUT("invalid logic ~p~n~p", [Remainder2, misc:getStackTrace()]),
-					playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_SubmitFail),
-					{error, ?ErrorCode_TaskFailed_SubmitFail}
-			end;
-		{ok, _, NeedCompleteCount2, TaskID_Old} ->
-			case NeedCompleteCount2 > 0 of
-				true ->
-					case decCoinForOneKeyComplete(1) of
-						{ok, _, _} ->
-							playerTask:cancelTask(TaskID_Old),
-							submitTaskOneKeyComplete({[TaskID_Old], 1});
-						Err_dec2 ->
-							Err_dec2
-					end;
-				_ ->
-					?ERROR_OUT("invalid logic ~p~n~p", [Remainder2, misc:getStackTrace()]),
-					playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_SubmitFail),
-					{error, ?ErrorCode_TaskFailed_SubmitFail}
-			end;
+	%% LUN-4475 【协议测试】【家族任务】在角色未加入家族情况下，可以使用协议直接发送请求接收家族任务和完成家族任务
+	case playerState:getGuildID() of
+		0 ->
+			{error, ?ErrorCode_GuildNotJoin};
 		_ ->
-			Remainder2
+			LevelLimit = getLevelLimit(),
+			Level = playerState:getLevel(),
+			case Level >= LevelLimit of
+				false ->
+					playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_Level),
+					{error, ?ErrorCode_TaskFailed_Level};
+				_ ->
+					Remainder1 = getRemainder(),
+					Remainder2 = parseRemainder(Remainder1),
+					case Remainder2 of
+						{ok, ListTaskID1, NeedCompleteCount1} ->
+							case NeedCompleteCount1 > 0 of
+								true ->
+									case decCoinForOneKeyComplete(1) of
+										{ok, _, _} ->
+											[H|_] = ListTaskID1,
+											submitTaskOneKeyComplete({[H], 1});
+										Err_dec1 ->
+											Err_dec1
+									end;
+								_ ->
+									?ERROR_OUT("invalid logic ~p~n~p", [Remainder2, misc:getStackTrace()]),
+									playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_SubmitFail),
+									{error, ?ErrorCode_TaskFailed_SubmitFail}
+							end;
+						{ok, _, NeedCompleteCount2, TaskID_Old} ->
+							case NeedCompleteCount2 > 0 of
+								true ->
+									case decCoinForOneKeyComplete(1) of
+										{ok, _, _} ->
+											playerTask:cancelTask(TaskID_Old),
+											submitTaskOneKeyComplete({[TaskID_Old], 1});
+										Err_dec2 ->
+											Err_dec2
+									end;
+								_ ->
+									?ERROR_OUT("invalid logic ~p~n~p", [Remainder2, misc:getStackTrace()]),
+									playerMsg:sendErrorCodeMsg(?ErrorCode_TaskFailed_SubmitFail),
+									{error, ?ErrorCode_TaskFailed_SubmitFail}
+							end;
+						_ ->
+							Remainder2
+					end
+			end
 	end.
 
 
@@ -341,7 +393,7 @@ oneKeyCompleteOne() ->
 -spec isLoopTask(TaskID::uint()) -> true | false.
 isLoopTask(TaskID) ->
 	ListLoopTask = getLoopTaskID(all),
-	lists_find(TaskID, ListLoopTask).
+	lists:member(TaskID, ListLoopTask).
 
 %% Type::0|1对应#pk_GS2U_AddNewCompleteLoopTasks.result的值
 -spec onCountLoopTask(TaskIDList::[uint(),...], Type::0|1) ->
@@ -379,22 +431,13 @@ autoAccept()->
 
 -spec accept_gm() -> {ok, TaskID::uint()} | {error, ErrorCode::uint()}.
 accept_gm() ->
-	LevelLimit =getLevelLimit(),
 	%% 随机抽取任务ID并接受
-	Level1 = playerState:getLevel(),
-	Level2 =
-		case Level1 >= LevelLimit of
-			true ->
-				LevelLimit;
-			_ ->
-				Level1
-		end,
-	case randTaskID(Level2) of
+	Level = erlang:min(playerState:getLevel(), getLevelLimit()),
+	case randTaskID(Level) of
 		{ok, TaskID} ->
 			case playerTask:acceptTask(TaskID, 0) of
 				true ->
 					RoleID = playerState:getRoleID(),
-					Level = playerState:getLevel(),
 					LoopCount = playerPropSync:getProp(?PriProp_LoopTaskProcess),
 					DailyCount = playerDaily:getDailyCounter(?DailyType_LoopTaskNum, 0),
 					?LOG_OUT("loopTask accept_gm : ~p~nlv(~p),daiylyCount(~p),loopCount(~p),newTaskID(~p)", [RoleID, Level, DailyCount, LoopCount, TaskID]),
@@ -459,19 +502,6 @@ oneKeyComplete_gm(WantCompleteCount) ->
 %%% Internal functions
 %%% ====================================================================
 
-
--spec lists_find(Key::any(), List::list()) -> true | false.
-lists_find(_Key, []) ->
-	false;
-lists_find(Key, [H | T]) ->
-	case Key =:= H of
-		true ->
-			true;
-		_ ->
-			lists_find(Key, T)
-	end.
-
-
 -spec getLoopTaskID(GroupID::uint()|all) -> [uint(),...].
 getLoopTaskID(GroupID) when erlang:is_integer(GroupID) ->
 	ListKeyTaskNew = getCfg:get1KeyList(cfg_task),
@@ -495,16 +525,11 @@ getLoopTaskID(all) ->
 	%% 获取不重复的任务组ID
 	ListKeyDailyTask = getCfg:get1KeyList(cfg_dailytask),
 	FunGetGroupID =
-		fun(Key, Result) ->
-			case getCfg:getCfgByKey(cfg_dailytask, Key) of
-				#dailytaskCfg{group = GroupID} ->
-					[GroupID | Result];
-				_ ->
-					?ERROR_OUT("can not find key ~p from cfg_dailytask", [Key]),
-					Result
-			end
+		fun(Key) ->
+			#dailytaskCfg{group = GroupID} = getCfg:getCfgPStack(cfg_dailytask, Key),
+			GroupID
 		end,
-	ListGroupID_A = lists:foldl(FunGetGroupID, [], ListKeyDailyTask),
+	ListGroupID_A = lists:map(FunGetGroupID, ListKeyDailyTask),
 	ListGroupID_B = lists:usort(ListGroupID_A),
 	%% 根据任务组ID获取任务ID
 	ListKeyTaskNew = getCfg:get1KeyList(cfg_task),
@@ -512,7 +537,7 @@ getLoopTaskID(all) ->
 		fun(Key, Result) ->
 			case getCfg:getCfgByKey(cfg_task, Key) of
 				#taskCfg{groupid = GroupID} ->
-					case lists_find(GroupID, ListGroupID_B) of
+					case lists:member(GroupID, ListGroupID_B) of
 						true ->
 							[Key | Result];
 						_ ->
@@ -534,16 +559,10 @@ randTaskID(Level) ->
 	ListKeyDailyTask = getCfg:get1KeyList(cfg_dailytask),
 	FunGetGroupID =
 		fun(Key, Result) ->
-			case getCfg:getCfgByKey(cfg_dailytask, Key) of
-				#dailytaskCfg{group = GroupID, level = Level_} ->
-					case Level_ =:= Level of
-						true ->
-							[GroupID | Result];
-						_ ->
-							Result
-					end;
+			case getCfg:getCfgPStack(cfg_dailytask, Key) of
+				#dailytaskCfg{group = GroupID, level = Level} ->	% 此处Level为匹配
+					[GroupID | Result];
 				_ ->
-					?ERROR_OUT("can not find key ~p from cfg_dailytask", [Key]),
 					Result
 			end
 		end,
@@ -555,7 +574,7 @@ randTaskID(Level) ->
 		fun(Key, Result) ->
 			case getCfg:getCfgByKey(cfg_task, Key) of
 				#taskCfg{groupid = GroupID} ->
-					case lists_find(GroupID, ListGroupID_B) of
+					case lists:member(GroupID, ListGroupID_B) of
 						true ->
 							[Key | Result];
 						_ ->
@@ -578,9 +597,9 @@ randTaskID(Level) ->
 			{ok, TaskID}
 	end.
 
--spec getReward_(RewardType::exp|bindGold|item, RewardData::any()) ->
+-spec getReward_(RewardType::reward(), RewardData::any()) ->
 	{RewardDataForLog::any()}.
-getReward_(exp, RewardData) ->
+getReward_(?Reward_Exp, RewardData) ->
 	case RewardData of
 		Exp when erlang:is_integer(Exp) andalso Exp > 0 ->
 			%% 合法的数值，正常奖励
@@ -590,7 +609,7 @@ getReward_(exp, RewardData) ->
 			%% 无法识别的格式
 			RewardData
 	end;
-getReward_(bindGold, RewardData) ->
+getReward_(?Reward_Gold, RewardData) ->
 	case RewardData of
 		BindGold when erlang:is_integer(BindGold) andalso BindGold > 0 ->
 			%% 合法的数值，正常奖励
@@ -600,7 +619,7 @@ getReward_(bindGold, RewardData) ->
 			%% 无法识别的格式
 			RewardData
 	end;
-getReward_(item, RewardData) ->
+getReward_(?Reward_Item, RewardData) ->
 	case RewardData of
 		[{ItemID, Count}|_] when erlang:is_integer(ItemID) andalso erlang:is_integer(Count) andalso Count > 0 ->
 			%% 合法的数值，正常奖励
@@ -621,6 +640,49 @@ getReward_(item, RewardData) ->
 			%% 无法识别的格式
 			RewardData
 	end;
+getReward_(?Reward_GuildResource, RewardData) ->
+	case RewardData of
+		Res when erlang:is_integer(Res) andalso Res > 0 ->
+			%% 合法的数值，正常奖励
+			case playerState:getGuildID() of
+				0 ->
+					0;
+				GuildID ->
+					playerGuild:addguildresource(GuildID, Res),
+					Res
+			end;
+		_ ->
+			%% 无法识别的格式
+			RewardData
+	end;
+getReward_(?Reward_GuildContribute, RewardData) ->
+	case RewardData of
+		Ctb when erlang:is_integer(Ctb) andalso Ctb > 0 ->
+			case playerState:getGuildID() of
+				0 ->
+					0;
+				_GuildID ->
+					playerMoney:addCoin(?CoinTypeGuildContribute, Ctb, #recPLogTSMoney{reason=?CoinSourceTask,param=0,target=?PLogTS_PlayerSelf,source=?PLogTS_Task}),
+					Ctb
+			end;
+		_ ->
+			%% 无法识别的格式
+			RewardData
+	end;
+getReward_(?Reward_GuildLiveness, RewardData) ->
+	case RewardData of
+		Liv when erlang:is_integer(Liv) andalso Liv > 0 ->
+			case playerState:getGuildID() of
+				0 ->
+					0;
+				GuildID ->
+					playerGuild:addguildliveness(GuildID, Liv),
+					Liv
+			end;
+		_ ->
+			%% 无法识别的格式
+			RewardData
+	end;
 getReward_(PA, RewardData) ->
 	?ERROR_OUT("invalid param ~p ~p~n~p", [PA, RewardData, misc:getStackTrace()]),
 	{PA, RewardData}.
@@ -635,7 +697,7 @@ getAcceptedLoopTaskID() ->
 				{ok, _} ->
 					Result;
 				_ ->
-					case lists_find(TaskID, ListLoopTaskID) of
+					case lists:member(TaskID, ListLoopTaskID) of
 						true ->
 							{ok, TaskID};
 						_ ->
@@ -669,16 +731,9 @@ getRemainder() ->
 	{ok, ListTaskID::uint(), NeedCompleteCount_New::uint(), TaskID_Old::uint()} | %% 正常情况，需要取消指定任务
 	{error, ErrorCode::uint()}.                               %% 异常情况
 parseRemainder({TaskID, NeedCompleteCount}) ->
-	LevelLimit =getLevelLimit(),
+	Level = erlang:min(playerState:getLevel(), getLevelLimit()),
 	FunRand =
 		fun(_, Result) ->
-			%% 此处解除等级限制是为了GM命令能顺利进行
-			%% 实际的等级限制在调用该函数的接口函数中进行
-			Level =
-				case playerState:getLevel() of
-					V_OK when V_OK >= LevelLimit -> V_OK;
-					_ -> LevelLimit
-				end,
 			case randTaskID(Level) of
 				{ok, TaskIDNew} ->
 					[TaskIDNew | Result];

@@ -51,12 +51,7 @@ canGatherItem(Code, GatherID) ->
 				RetDistance =:= false ->
 					{false,?ErrorCode_SystemGatherTooFar};
 				true ->
-					case Ret1 of
-						true ->
-							playerNeedForSpeed:isGather(GatherID);
-						_ ->
-							Ret1
-					end
+					Ret1
 			end;
 		_ ->
 			{false,?ErrorCode_SystemGatherFailed}
@@ -93,8 +88,9 @@ requestGatherItemAck({GatherID, {_Code, _}}) ->
 
 	%% 沙盘PVP采集
 	playerGuildExpedition:gatherSuccess(GatherID),
-	%%港口竞速撞到了路面上的道具盒子
-	playerNeedForSpeed:gather(GatherID),
+
+	%% 跨服骑宠竞速：采集成功
+	playerRace:gatherSuccess(GatherID),
 
     %% 军团战采集
     playerGuildBattle:gatherSuccess(GatherID),
@@ -103,6 +99,9 @@ requestGatherItemAck({GatherID, {_Code, _}}) ->
 
 	%% 家族系统-堆雪人活动-采集成功
 	playerGuildSnowman:gatherSuccess(GatherID),
+
+	%% 副本地表BUFF采集物
+	playerCopyMap:gatherSuccessCopyBuff(GatherID),
 
 	%% 采集掉落
 	case getCfg:getCfgPStack(cfg_object, GatherID) of

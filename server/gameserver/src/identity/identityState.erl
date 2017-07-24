@@ -78,6 +78,12 @@ deleteIdentity(IdentityID) ->
 %% 更新身份证信息
 -spec updateIdentity(IdentityID::uint64(), Pos::pos_integer(), Value::term()) -> ok.
 updateIdentity(IdentityID, Pos, Value) ->
+	case ets:lookup(?EtsIdentityData, IdentityID) of
+		[] ->
+			?ERROR_OUT("invalid logic ~p", [misc:getStackTrace()]);
+		_ ->
+			skip
+	end,
 	ets:update_element(?EtsIdentityData, IdentityID, {Pos, Value}),
 	ok.
 
@@ -116,6 +122,38 @@ deletePicSub(MD5) ->
 updatePicSub(MD5, Pos, Value) ->
 	ets:update_element(?EtsPicDataSub, MD5, {Pos, Value}),
 	ok.
+
+%% 插入赠礼记录（仅内存）
+-spec insertGiftHistory(#pk_GiftHistory{}) -> no_return().
+insertGiftHistory(#pk_GiftHistory{index = Index} = GiftHistory) ->
+	%% 删除多余的记录
+	case Index >= ?GIFT_HISTORY_COUNT_MAX of	%% index从0开始，因此这里是>=不是>
+		true ->
+			ets:delete(?EtsGiftHistory, Index - ?GIFT_HISTORY_COUNT_MAX);
+		_ ->
+			skip
+	end,
+	%% 插入最新记录
+	ets:insert(?EtsGiftHistory, GiftHistory).
+
+%% 存取本次赠礼记录序号增量（仅内存）
+-spec createGiftIndex() -> Index::uint64().
+createGiftIndex() ->
+	case get(giftIndex) of
+		undefined ->
+			put(giftIndex, 1),
+			0;
+		Index ->
+			put(giftIndex, Index + 1)	%% 返回值为旧值，即Index
+	end.
+-spec getGiftIndex() -> Index::uint64().
+getGiftIndex() ->
+	case get(giftIndex) of
+		undefined ->
+			0;
+		Index ->
+			Index
+	end.
 
 %% 限定本进程操作的写入数据接口 end
 %%%-------------------------------------------------------------------

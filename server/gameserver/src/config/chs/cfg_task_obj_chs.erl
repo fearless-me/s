@@ -20,7 +20,7 @@ getRow(2)->
     id = 2,
     type = 1,
     belong = "星月岛木桌",
-    name = "sc_object_zhuozi_01",
+    name = "c%sc_object_zhuozi_01",
     location = [36.8,8.6,94.2],
     rotate = [0,7.14,0],
     scale = [1,1,1],
@@ -32,7 +32,7 @@ getRow(3)->
     id = 3,
     type = 1,
     belong = "星月岛木桌粘液",
-    name = "sc_object_nianye_01",
+    name = "c%sc_object_nianye_01",
     location = [37.8,12.1,94.5],
     rotate = [2.5,15.0,-1.52],
     scale = [1,1,1],
@@ -44,7 +44,7 @@ getRow(4)->
     id = 4,
     type = 1,
     belong = "星月岛木桶",
-    name = "sc_object_mt_02",
+    name = "c%sc_object_mt_02",
     location = [107.4,4,115],
     rotate = [0,0,0],
     scale = [1,1,1],
@@ -56,7 +56,7 @@ getRow(5)->
     id = 5,
     type = 1,
     belong = "星月岛木桶",
-    name = "sc_object_mt_02",
+    name = "c%sc_object_mt_02",
     location = [107.4,4,115],
     rotate = [0,0,0],
     scale = [1,1,1],
@@ -80,7 +80,7 @@ getRow(8)->
     id = 8,
     type = 1,
     belong = "平原农具",
-    name = "sc_object_nongju",
+    name = "c%sc_object_nongju",
     location = [161,8.7,232.8],
     rotate = [0,0,0],
     scale = [1,1,1],
@@ -92,7 +92,7 @@ getRow(9)->
     id = 9,
     type = 1,
     belong = "平原雕塑",
-    name = "sc_object_diaoshu",
+    name = "c%sc_object_diaoshu",
     location = [298.4,12.9,227.1],
     rotate = [0,-90,0],
     scale = [1,1,1],
@@ -104,7 +104,7 @@ getRow(10)->
     id = 10,
     type = 1,
     belong = "苍空之塔武器架",
-    name = "sc_object_wuqijia",
+    name = "c%sc_object_wuqijia",
     location = [290,33,288],
     rotate = [0,114,0],
     scale = [1,1,1],
@@ -127,7 +127,7 @@ getRow(12)->
     type = 2,
     belong = "港口铃铛_特效",
     name = "vfx_26_21",
-    location = [65.27,19.22,168.01],
+    location = [65.89,17.66,166.63],
     rotate = [0,0,0],
     scale = [1,1,1],
     maps = "map333",
@@ -625,6 +625,846 @@ getRow(56)->
     maps = "map326",
     attach = 0
     };
+getRow(60)->
+    #task_objCfg {
+    id = 60,
+    type = 1,
+    belong = "考核官出现",
+    name = "n%n_47",
+    location = [96.06,17.9,167.46],
+    rotate = [0,0,0],
+    scale = [1.2,1.2,1.2],
+    maps = "map333",
+    attach = 0
+    };
+getRow(61)->
+    #task_objCfg {
+    id = 61,
+    type = 1,
+    belong = "史莱姆出现",
+    name = "m%m_1!",
+    location = [216.98,21.39,193.01],
+    rotate = [0,-145.93,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(62)->
+    #task_objCfg {
+    id = 62,
+    type = 2,
+    belong = "觉醒副本特效",
+    name = "vfx_26_21",
+    location = [47.19,20.67,126.5],
+    rotate = [0,0,0],
+    scale = [2,2,2],
+    maps = "map333",
+    attach = 0
+    };
+getRow(63)->
+    #task_objCfg {
+    id = 63,
+    type = 1,
+    belong = "采集布娃娃",
+    name = "n%n_76",
+    location = [220.06,21.39,200.31],
+    rotate = [0,-30,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(64)->
+    #task_objCfg {
+    id = 64,
+    type = 1,
+    belong = "安娜跟随后出现",
+    name = "m%m_82",
+    location = [114.84,19.55,61.65],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(65)->
+    #task_objCfg {
+    id = 65,
+    type = 1,
+    belong = "安娜失踪后出现",
+    name = "m%m_82",
+    location = [71.60,17.98,168.85],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(66)->
+    #task_objCfg {
+    id = 66,
+    type = 2,
+    belong = "港口动态特效",
+    name = "vfx_26_36",
+    location = [65.52,17.88294,171.5],
+    rotate = [0,0,0],
+    scale = [2,2,2],
+    maps = "map333",
+    attach = 0
+    };
+getRow(67)->
+    #task_objCfg {
+    id = 67,
+    type = 2,
+    belong = "骑宠副本特效",
+    name = "vfx_26_21",
+    location = [127.4,17.74,169.5],
+    rotate = [0,0,0],
+    scale = [2,2,2],
+    maps = "map333",
+    attach = 0
+    };
+getRow(68)->
+    #task_objCfg {
+    id = 68,
+    type = 1,
+    belong = "寻找大白2踪迹",
+    name = "c%sc_object_nianye_01",
+    location = [222.5,21.66,58.4],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(69)->
+    #task_objCfg {
+    id = 69,
+    type = 1,
+    belong = "寻找大白3-大白",
+    name = "m%m_67!",
+    location = [170.07,19.98,56.7],
+    rotate = [0,69.32,0],
+    scale = [5,5,5],
+    maps = "map333",
+    attach = 0
+    };
+getRow(70)->
+    #task_objCfg {
+    id = 70,
+    type = 1,
+    belong = "寻找大白2踪迹",
+    name = "c%sc_object_nianye_01",
+    location = [214.3,21.62,50.7],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(71)->
+    #task_objCfg {
+    id = 71,
+    type = 1,
+    belong = "寻找大白3-红海龟",
+    name = "m%m_508!",
+    location = [175.3,19.9,55.5],
+    rotate = [0,98.8,0],
+    scale = [1.2,1.2,1.2],
+    maps = "map333",
+    attach = 0
+    };
+getRow(72)->
+    #task_objCfg {
+    id = 72,
+    type = 1,
+    belong = "绑架安娜的炸弹头头",
+    name = "m%m_14",
+    location = [64.31,21.05,70.84],
+    rotate = [0,-122.15,0],
+    scale = [1.2,1.2,1.2],
+    maps = "map333",
+    attach = 0
+    };
+getRow(73)->
+    #task_objCfg {
+    id = 73,
+    type = 1,
+    belong = "绑架安娜位面后的安娜",
+    name = "m%m_82",
+    location = [61.61,21,78.8],
+    rotate = [0,-159,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(74)->
+    #task_objCfg {
+    id = 74,
+    type = 1,
+    belong = "猫绅士左1",
+    name = "n%n_300",
+    location = [42.63,16.63,178.74],
+    rotate = [0,36.80,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(75)->
+    #task_objCfg {
+    id = 75,
+    type = 1,
+    belong = "猫绅士左2",
+    name = "n%n_301",
+    location = [40.57,16.63,181.92],
+    rotate = [0,50.42,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(76)->
+    #task_objCfg {
+    id = 76,
+    type = 1,
+    belong = "猫绅士左3",
+    name = "n%n_201",
+    location = [39.1,16.60,184.8],
+    rotate = [0,56.07,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(77)->
+    #task_objCfg {
+    id = 77,
+    type = 1,
+    belong = "猫绅士右1",
+    name = "n%n_500",
+    location = [38.42,16.59,193.34],
+    rotate = [0,97.78,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(78)->
+    #task_objCfg {
+    id = 78,
+    type = 1,
+    belong = "猫绅士右2",
+    name = "n%n_400",
+    location = [40.43,16.54,197.35],
+    rotate = [0,118.25,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(79)->
+    #task_objCfg {
+    id = 79,
+    type = 1,
+    belong = "猫绅士右3",
+    name = "n%n_200",
+    location = [43.65,16.46,200.13],
+    rotate = [0,140.72,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(80)->
+    #task_objCfg {
+    id = 80,
+    type = 2,
+    belong = "位面点光效",
+    name = "vfx_26_4",
+    location = [127.8,17.96,122.6],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(81)->
+    #task_objCfg {
+    id = 81,
+    type = 2,
+    belong = "武器架光效",
+    name = "vfx_26_21",
+    location = [110.62,18.38,102.89],
+    rotate = [0,0,0],
+    scale = [2,2,2],
+    maps = "map333",
+    attach = 0
+    };
+getRow(82)->
+    #task_objCfg {
+    id = 82,
+    type = 2,
+    belong = "武器架光效",
+    name = "vfx_26_4",
+    location = [110.62,18.38,102.89],
+    rotate = [0,0,0],
+    scale = [2,2,2],
+    maps = "map333",
+    attach = 0
+    };
+getRow(83)->
+    #task_objCfg {
+    id = 83,
+    type = 1,
+    belong = "史莱姆的踪迹1",
+    name = "m%m_5",
+    location = [213.546,21.28,199.92],
+    rotate = [0,21.287,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(84)->
+    #task_objCfg {
+    id = 84,
+    type = 1,
+    belong = "史莱姆的踪迹2",
+    name = "m%m_5",
+    location = [216.48,21.28,199.93],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(85)->
+    #task_objCfg {
+    id = 85,
+    type = 1,
+    belong = "史莱姆的踪迹3",
+    name = "m%m_5",
+    location = [219.21,21.28,199.94],
+    rotate = [0,21.287,2],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(86)->
+    #task_objCfg {
+    id = 86,
+    type = 1,
+    belong = "史莱姆的踪迹4",
+    name = "m%m_5",
+    location = [221.38,21.28,199.95],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(87)->
+    #task_objCfg {
+    id = 87,
+    type = 1,
+    belong = "武器架光效",
+    name = "c%sc_object_wuqijia",
+    location = [110.62,18.38,102.89],
+    rotate = [0,0,0],
+    scale = [0.5,0.5,0.5],
+    maps = "map333",
+    attach = 0
+    };
+getRow(88)->
+    #task_objCfg {
+    id = 88,
+    type = 1,
+    belong = "托比的骑宠",
+    name = "m%m_545",
+    location = [225.5,22.93,192.8],
+    rotate = [0,-140,0],
+    scale = [0.2,0.2,0.2],
+    maps = "map333",
+    attach = 0
+    };
+getRow(89)->
+    #task_objCfg {
+    id = 89,
+    type = 1,
+    belong = "罗撒特出现",
+    name = "m%m_23",
+    location = [74.87,16.62,192.8],
+    rotate = [0,-140.13,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(90)->
+    #task_objCfg {
+    id = 90,
+    type = 1,
+    belong = "考核通过的特效",
+    name = "plot\vfx_29_27",
+    location = [100.29,17.87,166.86],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(91)->
+    #task_objCfg {
+    id = 91,
+    type = 1,
+    belong = "考核通过的特效",
+    name = "plot\vfx_29_27",
+    location = [100.29,17.87,166.86],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map333",
+    attach = 0
+    };
+getRow(100)->
+    #task_objCfg {
+    id = 100,
+    type = 1,
+    belong = "金大胖出现",
+    name = "m%m_26",
+    location = [181.44,33.2,204.09],
+    rotate = [0,171.57,0],
+    scale = [2.7,2.7,2.7],
+    maps = "map332",
+    attach = 0
+    };
+getRow(101)->
+    #task_objCfg {
+    id = 101,
+    type = 1,
+    belong = "金中胖出现",
+    name = "m%m_26",
+    location = [194.63,33.2,204.10],
+    rotate = [0,171.57,0],
+    scale = [2.2,2.2,2.2],
+    maps = "map332",
+    attach = 0
+    };
+getRow(102)->
+    #task_objCfg {
+    id = 102,
+    type = 1,
+    belong = "金小胖出现",
+    name = "m%m_26",
+    location = [205.06,33.2,204.11],
+    rotate = [0,171.57,0],
+    scale = [1.2,1.2,1.2],
+    maps = "map332",
+    attach = 0
+    };
+getRow(103)->
+    #task_objCfg {
+    id = 103,
+    type = 1,
+    belong = "美味蟹肉",
+    name = "c%sc_object_xuedui_01",
+    location = [150.83,27.06,69.05],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(104)->
+    #task_objCfg {
+    id = 104,
+    type = 1,
+    belong = "美味蟹肉特效",
+    name = "vfx_26_21",
+    location = [150.83,27.06,69.05],
+    rotate = [0,0,0],
+    scale = [2,2,2],
+    maps = "map332",
+    attach = 0
+    };
+getRow(105)->
+    #task_objCfg {
+    id = 105,
+    type = 1,
+    belong = "吹响号角后追随的骑士",
+    name = "n%n_42",
+    location = [257.69,34.54,140.5],
+    rotate = [0,71.12,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(106)->
+    #task_objCfg {
+    id = 106,
+    type = 1,
+    belong = "吹响号角后追随的骑士",
+    name = "n%n_46",
+    location = [255.58,34.54,136.8],
+    rotate = [0,71.12,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(107)->
+    #task_objCfg {
+    id = 107,
+    type = 1,
+    belong = "吹响号角后追随的骑士",
+    name = "n%n_46",
+    location = [254.05,34.54,133.45],
+    rotate = [0,71.12,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(108)->
+    #task_objCfg {
+    id = 108,
+    type = 1,
+    belong = "吹响号角后追随的骑士",
+    name = "n%n_42",
+    location = [253.01,34.54,129.53],
+    rotate = [0,71.12,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(109)->
+    #task_objCfg {
+    id = 109,
+    type = 1,
+    belong = "吹响号角后追随的骑士",
+    name = "n%n_46",
+    location = [252.53,34.54,125.21],
+    rotate = [0,71.12,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(110)->
+    #task_objCfg {
+    id = 110,
+    type = 1,
+    belong = "吹响号角后骑士领主",
+    name = "n%n_46",
+    location = [261.03,34.54,133.65],
+    rotate = [0,-71.12,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(113)->
+    #task_objCfg {
+    id = 113,
+    type = 1,
+    belong = "大风营救I魔族小鬼",
+    name = "m%m_78",
+    location = [127.29,32.4,129.52],
+    rotate = [0,96.9,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(114)->
+    #task_objCfg {
+    id = 114,
+    type = 1,
+    belong = "大风营救I魔族女战士",
+    name = "m%m_30",
+    location = [117.7,33.97,128.91],
+    rotate = [0,76.28,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(116)->
+    #task_objCfg {
+    id = 116,
+    type = 1,
+    belong = "护送宝马后领主",
+    name = "m%m_23",
+    location = [96.56,34.48,217.95],
+    rotate = [0,163.85,0],
+    scale = [1.2,1.2,1.2],
+    maps = "map332",
+    attach = 0
+    };
+getRow(117)->
+    #task_objCfg {
+    id = 117,
+    type = 1,
+    belong = "护送宝马后宝马",
+    name = "m%m_502",
+    location = [100.36,34.48,218.09],
+    rotate = [0,163.85,1],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(120)->
+    #task_objCfg {
+    id = 120,
+    type = 2,
+    belong = "吹响号角后的特效",
+    name = "vfx_26_37",
+    location = [295.09,69,125.91],
+    rotate = [0,0,0],
+    scale = [2,2,2],
+    maps = "map332",
+    attach = 0
+    };
+getRow(125)->
+    #task_objCfg {
+    id = 125,
+    type = 1,
+    belong = "护送宝马处魔族包围",
+    name = "m%m_54",
+    location = [98,39,167],
+    rotate = [0,-140,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(126)->
+    #task_objCfg {
+    id = 126,
+    type = 1,
+    belong = "护送宝马处魔族包围",
+    name = "m%m_54",
+    location = [104,38,172],
+    rotate = [0,-140,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(127)->
+    #task_objCfg {
+    id = 127,
+    type = 1,
+    belong = "护送宝马处魔族包围",
+    name = "m%m_54",
+    location = [106,36,178],
+    rotate = [0,-140,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(128)->
+    #task_objCfg {
+    id = 128,
+    type = 1,
+    belong = "护送宝马处魔族包围",
+    name = "m%m_54",
+    location = [110,35,183],
+    rotate = [0,-140,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(129)->
+    #task_objCfg {
+    id = 129,
+    type = 1,
+    belong = "护送宝马处魔族包围",
+    name = "m%m_27",
+    location = [106,34,190],
+    rotate = [0,148,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(130)->
+    #task_objCfg {
+    id = 130,
+    type = 1,
+    belong = "护送宝马处魔族包围",
+    name = "m%m_27",
+    location = [100,34,198],
+    rotate = [0,169,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(131)->
+    #task_objCfg {
+    id = 131,
+    type = 1,
+    belong = "护送宝马处魔族包围",
+    name = "m%m_27",
+    location = [100,34.5,208],
+    rotate = [0,172,0],
+    scale = [1,1,1],
+    maps = "map332",
+    attach = 0
+    };
+getRow(150)->
+    #task_objCfg {
+    id = 150,
+    type = 1,
+    belong = "弗洛多老爷跟随后出现",
+    name = "n%n_21",
+    location = [127.08,8.59,130],
+    rotate = [0,100,0],
+    scale = [1,1,1],
+    maps = "map331",
+    attach = 0
+    };
+getRow(151)->
+    #task_objCfg {
+    id = 151,
+    type = 1,
+    belong = "弗洛多老爷跟随后出现",
+    name = "n%n_21",
+    location = [122,8.59,139.5],
+    rotate = [0,59,0],
+    scale = [1,1,1],
+    maps = "map331",
+    attach = 0
+    };
+getRow(152)->
+    #task_objCfg {
+    id = 152,
+    type = 1,
+    belong = "主城-打劫现场调查",
+    name = "m%m_57",
+    location = [111,6.38,256],
+    rotate = [0,-55,-88],
+    scale = [3,3,3],
+    maps = "map340",
+    attach = 0
+    };
+getRow(153)->
+    #task_objCfg {
+    id = 153,
+    type = 1,
+    belong = "主城-打劫现场调查",
+    name = "m%m_57",
+    location = [114,6.38,258],
+    rotate = [0,-55,-88],
+    scale = [3,3,3],
+    maps = "map340",
+    attach = 0
+    };
+getRow(154)->
+    #task_objCfg {
+    id = 154,
+    type = 1,
+    belong = "主城-打劫现场调查",
+    name = "m%m_57",
+    location = [111,6.38,256],
+    rotate = [0,-3.4,-88],
+    scale = [3,3,3],
+    maps = "map340",
+    attach = 0
+    };
+getRow(155)->
+    #task_objCfg {
+    id = 155,
+    type = 2,
+    belong = "主城-打劫现场调查特效",
+    name = "vfx_26_4",
+    location = [112,6,255],
+    rotate = [0,0,0],
+    scale = [3,3,3],
+    maps = "map340",
+    attach = 0
+    };
+getRow(156)->
+    #task_objCfg {
+    id = 156,
+    type = 2,
+    belong = "主城-打劫现场调查特效",
+    name = "vfx_26_21",
+    location = [109,6,256],
+    rotate = [0,0,0],
+    scale = [2,2,2],
+    maps = "map340",
+    attach = 0
+    };
+getRow(157)->
+    #task_objCfg {
+    id = 157,
+    type = 1,
+    belong = "主城-铁匠处调查",
+    name = "m%m_57",
+    location = [281,6.16,302],
+    rotate = [0.5,146,-88],
+    scale = [3,3,3],
+    maps = "map340",
+    attach = 0
+    };
+getRow(158)->
+    #task_objCfg {
+    id = 158,
+    type = 2,
+    belong = "主城-铁匠处调查特效",
+    name = "vfx_26_4",
+    location = [281,6,302],
+    rotate = [0,0,0],
+    scale = [3,3,3],
+    maps = "map340",
+    attach = 0
+    };
+getRow(159)->
+    #task_objCfg {
+    id = 159,
+    type = 2,
+    belong = "主城-铁匠处调查特效",
+    name = "vfx_26_21",
+    location = [281,6,302],
+    rotate = [0,0,0],
+    scale = [2,2,2],
+    maps = "map340",
+    attach = 0
+    };
+getRow(160)->
+    #task_objCfg {
+    id = 160,
+    type = 1,
+    belong = "主城-打劫现场劫匪出现",
+    name = "m%m_23",
+    location = [115,6,261],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map340",
+    attach = 0
+    };
+getRow(161)->
+    #task_objCfg {
+    id = 161,
+    type = 1,
+    belong = "主城-打劫现场劫匪出现",
+    name = "m%m_23",
+    location = [120,6,261],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map340",
+    attach = 0
+    };
+getRow(162)->
+    #task_objCfg {
+    id = 162,
+    type = 1,
+    belong = "主城-打劫现场劫匪出现",
+    name = "m%m_23",
+    location = [111,6,261],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map340",
+    attach = 0
+    };
+getRow(163)->
+    #task_objCfg {
+    id = 163,
+    type = 1,
+    belong = "主城-打劫现场劫匪出现",
+    name = "m%m_73",
+    location = [119.6,6,251],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map340",
+    attach = 0
+    };
+getRow(164)->
+    #task_objCfg {
+    id = 164,
+    type = 1,
+    belong = "主城-打劫现场劫匪出现",
+    name = "m%m_73",
+    location = [112,6,251],
+    rotate = [0,0,0],
+    scale = [1,1,1],
+    maps = "map340",
+    attach = 0
+    };
 getRow(_)->[].
 
 getKeyList()->[
@@ -679,7 +1519,77 @@ getKeyList()->[
     {51},
     {52},
     {53},
-    {56}
+    {56},
+    {60},
+    {61},
+    {62},
+    {63},
+    {64},
+    {65},
+    {66},
+    {67},
+    {68},
+    {69},
+    {70},
+    {71},
+    {72},
+    {73},
+    {74},
+    {75},
+    {76},
+    {77},
+    {78},
+    {79},
+    {80},
+    {81},
+    {82},
+    {83},
+    {84},
+    {85},
+    {86},
+    {87},
+    {88},
+    {89},
+    {90},
+    {91},
+    {100},
+    {101},
+    {102},
+    {103},
+    {104},
+    {105},
+    {106},
+    {107},
+    {108},
+    {109},
+    {110},
+    {113},
+    {114},
+    {116},
+    {117},
+    {120},
+    {125},
+    {126},
+    {127},
+    {128},
+    {129},
+    {130},
+    {131},
+    {150},
+    {151},
+    {152},
+    {153},
+    {154},
+    {155},
+    {156},
+    {157},
+    {158},
+    {159},
+    {160},
+    {161},
+    {162},
+    {163},
+    {164}
     ].
 
 get1KeyList()->[
@@ -734,6 +1644,76 @@ get1KeyList()->[
     51,
     52,
     53,
-    56
+    56,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    113,
+    114,
+    116,
+    117,
+    120,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164
     ].
 

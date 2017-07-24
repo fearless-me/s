@@ -15,6 +15,7 @@
 	initPetSkill/3,
 	initMonsterSkill/3,
 	useSkill/4,
+	useSkill/5,
 	tickSkill/3,
 	breakUseSkill/1,
 	onUsePetSkill/6,
@@ -26,7 +27,7 @@
 %%触发技能
 -export([
 	deadTriggerSkill/2,
-	attackTriggerSkill/5,
+	attackTriggerSkill/6,
 	releaseTriggerSkill/2,
 	assistTriggerSkill/2,
 	noAttackTriggerSkill/3,
@@ -41,7 +42,8 @@
 ]).
 
 -export([
-	canUseSkill/2
+	canUseSkill/2,
+	getKillList/1
 ]).
 
 %% ====================================================================
@@ -49,29 +51,7 @@
 %% ====================================================================
 %%初始化宠物技能
 -spec initPetSkill(Code :: uint(), PetID :: uint(), SkillList :: list()) -> ok.
-initPetSkill(Code, PetID, SkillList) ->
-	%%初始化基础技能
-	case getCfg:getCfgPStack(cfg_pet, PetID) of
-		#petCfg{
-			addSkill = AddSkill,
-			baseSkill = SkillList1,
-			talentSkill2 = TalenetSkill
-		} ->
-			case AddSkill of
-				undefined ->
-					initSkillList(Code, SkillList1, 1);
-				_ ->
-					initSkillList(Code, SkillList1 ++ AddSkill, 1)
-			end,
-			case TalenetSkill of
-				undefined ->
-					skip;
-				_ ->
-					initSkillList(Code, TalenetSkill, 1)
-			end;
-		_ ->
-			?ERROR_OUT("Cannot found pet id in cfg")
-	end,
+initPetSkill(Code, _PetID, SkillList) ->
 	%%初始化额外技能
 	Fun = fun(#recPetSkill{
 		skill_id = SkillID,
@@ -90,80 +70,88 @@ initPetSkill(Code, PetID, SkillList) ->
 initMonsterSkill(Code, MonsterID, Level) ->
 	case getCfg:getCfgPStack(cfg_monster, MonsterID) of
 		#monsterCfg{
+			triggerskill = TriSkillList,
 			monsterSkill = SkillList,
 			monsterExSkill = ExSkillList
 		} ->
-			NewSkillList = getExSkillList(ExSkillList) ++ SkillList,
+			NewSkillList = getExSkillList(ExSkillList) ++ SkillList ++ getCfgTriggerSkill(TriSkillList),
 			initSkillList(Code, NewSkillList, Level);
 		_ ->
 			?ERROR_OUT("Cannot found monster id [~p] in cfg", [MonsterID])
 	end.
 
+getCfgTriggerSkill(List) when is_list(List) ->
+	List;
+getCfgTriggerSkill(_Any) ->
+	[].
+
 %%攻击目标和被攻击触发技能
--spec attackTriggerSkill(Code, Skill, HitList, TargetCode, TriType) -> ok when
+-spec attackTriggerSkill(Code, Skill, HitList, TargetCode, TriType, Params) -> ok when
 	Code :: uint(),
 	Skill :: uint(),
 	HitList :: list(),
 	TargetCode :: uint(),
-	TriType :: uint().
-attackTriggerSkill(Code, SkillID, HitList, TargetCode, TriType) ->
+	TriType :: uint(),
+	Params :: any().
+attackTriggerSkill(Code, SkillID, HitList, TargetCode, TriType, Params) ->
 	#skillCfg{skillType = Type} = getCfg:getCfgPStack(cfg_skill, SkillID),
 	case lists:member(Type, ?TriggerSkill) of
 		true ->
 			ok;
 		_ ->
-			SkillList = getTriSkillList(Code, SkillID, TriType),
+			SkillList = getTriSkillList(Code, SkillID, TriType, Params),
 			#skillCfg{skillType = SkillType, aggressivity = AttackType} = getCfg:getCfgPStack(cfg_skill, SkillID),
-			attackTriggerSkill(Code, SkillList, HitList, TargetCode, SkillType, AttackType)
+			doAttackTriggerSkill(Code, SkillList, HitList, TargetCode, SkillType, AttackType)
 	end.
 
-attackTriggerSkill(Code, SkillList, HitList, TargetCode, SkillType, AttackType) ->
+doAttackTriggerSkill(Code, SkillList, HitList, TargetCode, SkillType, AttackType) ->
 	BitAType = skill:getAttackTypeBit(AttackType),
 	AttackTime = monsterState:getAttackIntervalTime(Code),
-	Fun = fun(#recSkill{skillID = SkillID, level = SkillLevel}) ->
-		#skillCfg{misc = Misc,
-			triggerAggressi = Aggress,
-			triggercondition = Cond,
-			triggerChance = TriggerChance} = getCfg:getCfgPStack(cfg_skill, SkillID),
-		%%触发概率跟技能等级相关
-		TriggerChance1 = case TriggerChance of
-			                 undefined ->
-				                 [0, 0];
-			                 _ ->
-				                 TriggerChance
-		                 end,
-		[Chance, LevelAdd] = TriggerChance1,
-		NewChance = erlang:float(Chance + LevelAdd * (SkillLevel - 1)),
-		Flag0 = skill:isTriggerBySkillType(SkillType, Misc),
-		Flag1 =
-			case Flag0 of
+	Fun =
+		fun(#recSkill{skillID = SkillID, level = SkillLevel}) ->
+			#skillCfg{misc = Misc,
+				triggerAggressi = Aggress,
+				triggercondition = Cond,
+				triggerChance = TriggerChance} = getCfg:getCfgPStack(cfg_skill, SkillID),
+			%%触发概率跟技能等级相关
+			TriggerChance1 = case TriggerChance of
+				                 undefined ->
+					                 [0, 0];
+				                 _ ->
+					                 TriggerChance
+			                 end,
+			[Chance, LevelAdd] = TriggerChance1,
+			NewChance = erlang:float(Chance + LevelAdd * (SkillLevel - 1)),
+			Flag0 = skill:isTriggerBySkillType(SkillType, Misc),
+			Flag1 =
+				case Flag0 of
+					true ->
+						skill:isTriggerByAttackType(BitAType, Aggress);
+					_ ->
+						Flag0
+				end,
+			Flag2 =
+				case Flag1 of
+					true ->
+						skill:isTriggerByPossible(NewChance, AttackTime);
+					_ ->
+						Flag1
+				end,
+			Flag3 =
+				case Flag2 of
+					true ->
+						skill:isTriggerByAttackResult(Cond, HitList);
+					_ ->
+						Flag2
+				end,
+			case Flag3 of
 				true ->
-					skill:isTriggerByAttackType(BitAType, Aggress);
+					NewCode = skill:getTriSkillCode(SkillID, TargetCode),
+					noticeUseTriggerSkill(Code, SkillID, NewCode);
 				_ ->
-					Flag0
-			end,
-		Flag2 =
-			case Flag1 of
-				true ->
-					skill:isTriggerByPossible(NewChance, AttackTime);
-				_ ->
-					Flag1
-			end,
-		Flag3 =
-			case Flag2 of
-				true ->
-					skill:isTriggerByAttackResult(Cond, HitList);
-				_ ->
-					Flag2
-			end,
-		case Flag3 of
-			true ->
-				NewCode = skill:getTriSkillCode(SkillID, TargetCode),
-				noticeUseTriggerSkill(Code, SkillID, NewCode);
-			_ ->
-				skip
-		end
-	      end,
+					skip
+			end
+		end,
 	lists:foreach(Fun, SkillList).
 
 %%非攻击触发技能
@@ -377,8 +365,10 @@ onUsePetSkill(PetCode, SkillID, CodeList, SN, X, Y, false,
 					end,
 					true
 			end;
-		_ ->
-			breakUseSkill(PetCode)
+		Error ->
+			?DEBUG_OUT("pet use skill[~p]failed[~p]", [SkillID, Error]),
+			breakUseSkill(PetCode),
+			playerMsg:sendErrorCodeMsg(Error)
 	end;
 %%正常使用技能
 onUsePetSkill(PetCode, SkillID, CodeList, SN, X, Y, IsTriSkill, _CurSkill) ->
@@ -400,25 +390,31 @@ onUsePetSkill1(PetCode, SkillID, CodeList, SN, X, Y, true) ->
 			useSkillAttack1(PetCode, SkillID, FilterCodeList, MainCode, SN, X, Y),
 			true;
 		_Error ->
+			?DEBUG_OUT("pet use skill[~p]failed[~p]", [SkillID, _Error]),
 			skip
 	end;
+onUsePetSkill1(_PetCode, _SkillID, _CodeList, _SN, _X, _Y, ErrorCode) when is_number(ErrorCode) ->
+	playerMsg:sendErrorCodeMsg(ErrorCode),
+	skip;
 onUsePetSkill1(_PetCode, _SkillID, _CodeList, _SN, _X, _Y, _Res) ->
 	skip.
 
 
+useSkill(Code, SkillID, SN, TargetCode) ->
+	useSkill(Code, SkillID, SN, TargetCode, false).
+
 %%使用技能
--spec useSkill(Code :: uint(), SkillID :: uint(), SN :: uint(), TargetCode :: uint()) -> ok.
-useSkill(Code, 0, _SN, _) ->
+-spec useSkill(Code :: uint(), SkillID :: uint(), SN :: uint(), TargetCode :: uint(), IsForce :: boolean()) -> ok.
+useSkill(Code, 0, _SN, _, _IsForce) ->
 	?ERROR_OUT("mosnter id : [~p]", [monsterState:getId(Code)]),
 	ok;
-useSkill(_Code, _SkillID, _SN, undefined) ->
+useSkill(_Code, _SkillID, _SN, undefined, _IsForce) ->
 	ok;
-useSkill(Code, SkillID, SN, TargetCode) ->
+useSkill(Code, SkillID, SN, TargetCode, IsForce) ->
 	Now = time:getUTCNowMS(),
 	LUST = monsterState:getStartUseSkillTime(Code),
-	FAIT = monsterState:getFinalAttackIntervalTime(Code),
-	%MonID = monsterState:getId(Code),
-	case Now - LUST >= FAIT + 100 of
+	AttackIntervalTime = monsterState:getFinalAttackIntervalTime(Code),
+	case Now - LUST >= AttackIntervalTime + 100 orelse IsForce of
 		true ->
 			#skillCfg{
 				ranger = SkillRanger,
@@ -506,9 +502,10 @@ tickSkill(_, Now, Code) ->
 getExSkillList(undefined) ->
 	[];
 getExSkillList(ExSkillList) ->
-	Fun = fun({SkillID, _, _, _, _, _}, Acc) ->
-		[SkillID | Acc]
-	      end,
+	Fun =
+		fun({SkillID, _, _, _, _, _}, Acc) ->
+			[SkillID | Acc]
+		end,
 	lists:foldl(Fun, [], ExSkillList).
 
 -spec initSkillList(Code, SkillList, Level) -> ok when
@@ -516,9 +513,10 @@ getExSkillList(ExSkillList) ->
 	SkillList :: list(),
 	Level :: uint().
 initSkillList(Code, SkillList, Level) when erlang:is_list(SkillList) ->
-	Fun = fun(SkillID) ->
-		addSkill(Code, SkillID, Level)
-	      end,
+	Fun =
+		fun(SkillID) ->
+			addSkill(Code, SkillID, Level)
+		end,
 	lists:foreach(Fun, SkillList).
 
 -spec addSkill(Code, SkillID, Level) -> ok when
@@ -533,19 +531,18 @@ addSkill(Code, SkillID, Level) ->
 			%skillEx = Ex,
 			maxLevel = MaxLevel,
 			damFactor = DamFactor,
-			aggressivity = Aggre,
+			aggressivity = Agg,
 			baseLevel = BaseLevel
 			%skillType = SkillType
 		} ->
-			Skill = #recSkill{skillID = SkillID,
-				level = BaseLevel},
+			Skill = #recSkill{skillID = SkillID, level = BaseLevel},
 			NewLevel = judgeLevel(Level, MaxLevel),
 			Skill1 = setLevel(Code, Skill, NewLevel),
 			Damage = #recDamage{
 				magicDamage = monsterState:getBattlePropTotal(Code, ?Prop_MagicAttack),
 				physDamage = monsterState:getBattlePropTotal(Code, ?Prop_PhysicalAttack)
 			},
-			case Aggre =:= 0 of
+			case Agg =:= 0 of
 				true ->
 					{_, Skill2} = skill:calcUserSkillTreat(Skill1, Damage);
 				_ ->
@@ -765,7 +762,7 @@ castSkill1(Code, SkillID, Target, SN, Count, _) ->
 				List ->
 					useSkill2(Code, SkillID, SN, IsAttack, List),
 					AttackTime = monsterState:getAttackIntervalTime(Code),
-					BattlePropList = monsterState:getBattleProp(Code),
+%%					BattlePropList = monsterState:getBattleProp(Code),
 					AttackSpeed = 0, %% battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_attackspeed),
 					setCurSkill(Code, SkillID, SN, Count + 1, Target, 0, AttackTime, AttackSpeed)
 			end;
@@ -782,7 +779,7 @@ castSkill1(Code, SkillID, Target, SN, Count, _) ->
 				end,
 			useSkill2(Code, SkillID, SN, IsAttack, TargetList),
 			AttackTime = monsterState:getAttackIntervalTime(Code),
-			BattlePropList = monsterState:getBattleProp(Code),
+%%			BattlePropList = monsterState:getBattleProp(Code),
 			AttackSpeed = 0, %% battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_attackspeed),
 			setCurSkill(Code, SkillID, SN, Count + 1, Target, 0, AttackTime, AttackSpeed)
 	end.
@@ -809,7 +806,7 @@ castSkill(Code, SkillID, CodeList, MainCode, SN, Count, _) ->
 	TargetList = lists:foldl(Fun, [], CodeList),
 	useSkill2(Code, SkillID, SN, IsAttack, TargetList),
 	AttackTime = monsterState:getAttackIntervalTime(Code),
-	BattlePropList = monsterState:getBattleProp(Code),
+%%	BattlePropList = monsterState:getBattleProp(Code),
 	AttackSpeed = 0, %% battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_attackspeed),
 	setCurSkill(Code, SkillID, SN, Count + 1, CodeList, MainCode, AttackTime, AttackSpeed).
 
@@ -979,7 +976,7 @@ useSkill1(Code, SN, SkillID, Target) ->
 	IsAttack :: boolean().
 useSkill1(Code, SkillID, SN, IsAttack, Target, TargetList) ->
 	AttackTime = monsterState:getAttackIntervalTime(Code),
-	BattlePropList = monsterState:getBattleProp(Code),
+%%	BattlePropList = monsterState:getBattleProp(Code),
 	AttackSpeed = 0, %% battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_attackspeed),
 	%%广播给周围，使用技能
 	Fun = fun(Target1) ->
@@ -1086,8 +1083,9 @@ noticeUseTriggerSkill(Code, SkillID, TargetCode) ->
 		?SpawnPet ->
 			skip;  %%通知玩家进程告诉客服端,宠物触发技能
 		_ ->
-			SN = monsterState:getAttackSN(Code),
-			useSkill(Code, SkillID, SN + 1, TargetCode)
+			psMgr:sendMsg2PS(self(), monsterUseSkill, {Code, SkillID, TargetCode})
+%%			SN = monsterState:getAttackSN(Code),
+%%			useSkill(Code, SkillID, SN + 1, TargetCode)
 	end.
 
 %%使用AOE技能，如果是瞬发技能或者是第二类引导技能则筛选出AOE目标，再使用调用一般技能函数
@@ -1120,7 +1118,7 @@ useAOESkill(Code, SkillID, SN, IsAttack, Target) ->
 			useSkill1(Code, SkillID, SN, IsAttack, Target, TargetList);
 		_ ->
 			AttackTime = monsterState:getAttackIntervalTime(Code),
-			BattlePropList = monsterState:getBattleProp(Code),
+%%			BattlePropList = monsterState:getBattleProp(Code),
 			AttackSpeed = 0, %% battleProp:getBattlePropTotalValue(BattlePropList, ?Prop_attackspeed),
 			Fun = fun(T) ->
 				T#recMapObject.code
@@ -1185,24 +1183,54 @@ getCasterKillList(Code) ->
 	SkillID :: uint(),
 	Type :: uint().
 getTriSkillList(Code, SkillID, Type) ->
+	getTriSkillList(Code, SkillID, Type, 0).
+
+getTriSkillList(Code, SkillID, Type, Params) ->
 	SkillList = monsterState:getMonsterSkill(Code),
-	FilterTypeList = filterTypeTriSkill(Type, SkillList),
+	FilterTypeList = filterTypeTriSkill(Type, SkillList, Params),
 	filterAssignTriSkill(SkillID, FilterTypeList).
 
 %%过滤触发技能类型
--spec filterTypeTriSkill(Type, TriSkillList) -> list() when
+-spec filterTypeTriSkill(Type, TriSkillList, Params) -> list() when
 	Type :: uint(),
-	TriSkillList :: list().
-filterTypeTriSkill(Type, TriSkillList) ->
-	Fun = fun(#recSkill{skillID = SkillID}) ->
-		#skillCfg{skillType = SkillType} = getCfg:getCfgPStack(cfg_skill, SkillID),
-		case SkillType =:= Type of
-			true ->
-				true;
-			_ ->
-				false
-		end
-	      end,
+	TriSkillList :: list(),
+	Params :: any().
+filterTypeTriSkill(?BeAttackTriggerHpLow, TriSkillList, {PrePer, LastPer}) ->
+	Fun =
+		fun(#recSkill{skillID = SkillID}) ->
+			#skillCfg{skillType = SkillType, skillEx = Ex} = getCfg:getCfgPStack(cfg_skill, SkillID),
+			if
+				SkillType =/= ?BeAttackTriggerHpLow ->
+					false;
+				true ->
+					case Ex of
+						[?SpecPassSkill7 | NeedPerList] ->
+							lists:foldl(
+								fun(NeedPer, AccRet) ->
+									case AccRet of
+										true ->
+											true;
+										_ ->
+											PrePer > NeedPer andalso LastPer =< NeedPer
+									end
+								end, false, NeedPerList);
+						_ ->
+							false
+					end
+			end
+		end,
+	lists:filter(Fun, TriSkillList);
+filterTypeTriSkill(Type, TriSkillList, _Params) ->
+	Fun =
+		fun(#recSkill{skillID = SkillID}) ->
+			#skillCfg{skillType = SkillType} = getCfg:getCfgPStack(cfg_skill, SkillID),
+			case SkillType =:= Type of
+				true ->
+					true;
+				_ ->
+					false
+			end
+		end,
 	lists:filter(Fun, TriSkillList).
 
 %%过滤指定技能触发
@@ -1420,6 +1448,7 @@ checkUseSkillMagic(Code, ?SkillMagic) ->
 	Code :: uint(),
 	IsWeaponNeed :: uint(),
 	UseSpec :: uint().
+
 checkUseSkillState(Code, IsWeaponNeed, UseSpec) ->
 	Status = monsterState:getStatus(Code),
 	IsUseSpec = UseSpec =:= ?NoUseSpec,
@@ -1438,6 +1467,17 @@ checkUseSkillState2(_Code, _IsWeaponNeed, true, true) ->
 	false;
 checkUseSkillState2(_Code, _IsWeaponNeed, _IsUseSpec, _Flag) ->
 	true.
+
+%%checkUseSkillState3(Code) ->
+%%	Status = monsterState:getStatus(Code),
+%%	case codeMgr:getObjectTypeByCode(Code) of
+%%		?ObjTypePet ->
+%%			not misc:testBit(Status, ?CreatureSpecStautsPeaceEnvoy);
+%%		?ObjTypePlayer ->
+%%			not misc:testBit(Status, ?CreatureSpecStautsPeaceEnvoy);
+%%		_ ->
+%%			true
+%%	end.
 
 %%检查人物行为状态
 -spec checkUseSkillActionState(Code) -> boolean() when
@@ -1615,16 +1655,10 @@ isCanAttack(_, CodeList, SkillID, Code) ->
 	CodeList :: list(),
 	IsCheckShip :: boolean().
 resFilter(Code, SkillID, MainCode, CodeList, IsCheckShip) ->
-	CasterInfo = monsterState:getCasterInfo(Code),
 	SelfObject = getObject(Code, Code),
 	TargetObject = getObject(Code, MainCode),
 	MyTeam = monsterState:getTeamInfo(Code),
-	case getObject(Code, CasterInfo#recCasterInfo.casterCode) of
-		[] ->
-			KillList = [];
-		Object ->
-			KillList = Object#recMapObject.killList
-	end,
+	KillList = getKillList(Code),
 	case camp:isFilter(SkillID, MyTeam, KillList, SelfObject, TargetObject, IsCheckShip) of
 		false ->
 			{MainCode, CodeList};
@@ -1632,5 +1666,20 @@ resFilter(Code, SkillID, MainCode, CodeList, IsCheckShip) ->
 			Error
 	end.
 
+
+
+getKillList(MonsterCode) ->
+	CasterInfo = monsterState:getCasterInfo(MonsterCode),
+	case CasterInfo of
+		#recCasterInfo{casterCode = CasterCode} ->
+			case getObject(MonsterCode, CasterCode) of
+				[] ->
+					[];
+				Object ->
+					Object#recMapObject.killList
+			end;
+		_ ->
+			[]
+	end.
 
 

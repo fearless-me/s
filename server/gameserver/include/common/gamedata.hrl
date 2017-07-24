@@ -304,6 +304,25 @@
 
 }).
 
+%%跨服好友表
+-record(rec_friend2_cross,{
+	roleID = 0,				%%角色id bigint(20) unsigned
+	tarRoleID = 0,				%%目标角色ID bigint(20) unsigned
+	tarRoleName = "",				%%玩家的角色名 varchar(32)
+	tarSrvName = "",				%%服务器名字 varchar(255)
+	tarHead = 0,				%%头部id int(10)
+	tarFace = "",				%%自定义头像 varchar(32)
+	tarCareer = 0,				%%职业 int(10) unsigned
+	tarRace = 0,				%%种族 tinyint(4) unsigned
+	tarSex = 0,				%%性别,0为女，1为男 tinyint(1) unsigned
+	tarLevel = 0,				%%玩家的当前等级 tinyint(4) unsigned
+	timeRelation = 0,				%%建立关系的时间 int(11) unsigned
+	timeLastOnline = 0,				%%最后在线的时间 int(11) unsigned
+	timeLastInteractive = 0,				%%最近交互的时间 int(11) unsigned
+	whereis = 0				%%在线情况：0不在线；1在普通服；2在跨服 tinyint(1) unsigned
+
+}).
+
 %%好友互动表 协助好友关系表对正式好友的互动行为作限制
 -record(rec_friend2_interaction,{
 	roleID = 0,				%%角色id bigint(20) unsigned
@@ -378,7 +397,7 @@
 	notice = "",				%%公告 varchar(256)
 	denoter = 0,				%%军团标志ID tinyint(3) unsigned
 	shopLevel = 0,				%%军团商店等级 tinyint(3) unsigned
-	fightForce = 0,				%%军团总战斗力 int(10) unsigned
+	fightForce = 0,				%%军团总战斗力 bigint(20) unsigned
 	createTime = 0,				%%军团创建时间 bigint(20) unsigned
 	lastGuildCopyOverTime = 0,				%%上次军团副本结束时间 bigint(20) unsigned
 	guildTaskTargetGuild = 0,				%%军团任务目标军团 bigint(20) unsigned
@@ -386,7 +405,8 @@
 	snowman = 0,				%%完整的雪人数量，用于领取雪人礼盒 tinyint(3) unsigned
 	godBless = 0,				%%当日祈福进度 int(10) unsigned
 	fastJoin = 0,				%%快速加入所需战力 bigint(20) unsigned
-	recruit = 0				%%发布招募最后使用时间，用于控制CD int(10) unsigned
+	recruit = 0,				%%发布招募最后使用时间，用于控制CD int(10) unsigned
+	guildBossLevel = 0				%%家族Boss阶级 tinyint(3) unsigned
 
 }).
 
@@ -412,7 +432,10 @@
 	guildID = 0,				%%军团唯一ID bigint(20) unsigned
 	joinTime = 0,				%%加入时间 bigint(20) unsigned
 	power = 0,				%%军团职位 tinyint(3) unsigned
-	liveness = 0				%%个人军团活跃度,退团清空 int(10) unsigned
+	liveness = 0,				%%个人军团活跃度,退团清空 int(10) unsigned
+	itemID = 0,				%%当日祈愿指定道具ID smallint(5) unsigned
+	itemM = 0,				%%当日祈愿收到的道具数量 smallint(5) unsigned
+	itemTime = 0				%%发布祈愿的时间，用于服务端启动时重置陈旧数据 int(11) unsigned
 
 }).
 
@@ -483,6 +506,29 @@
 	acceptedTaskId = 0,				%%玩家当前接受活动任务 int(8) unsigned
 	acceptedTime = 0,				%%当前任务接受时间戳 bigint(8) unsigned
 	completedTask				%%玩家完成任务列表 varbinary(256)
+
+}).
+
+%%家园
+-record(rec_home,{
+	homeID = 0,				%%家园ID，按位存储，10位DBID，10位地区ID，12位段ID，16位号ID bigint(20) unsigned
+	homeName = "",				%%家园名字 varchar(128)
+	homeLvl = 0,				%%家园等级 int(11) unsigned
+	roleID = 0,				%%主人ID bigint(20) unsigned
+	stylish = 0,				%%华丽度 int(11) unsigned
+	comfort = 0,				%%舒适度 int(11) unsigned
+	popularity = 0,				%%人气值 int(11) unsigned
+	serverName = "",				%%创建家园时的服务器名，用于家园地址的路 varchar(128)
+	createtime = 0				%%创建家园时间 int(11) unsigned
+
+}).
+
+%%家园区域
+-record(rec_home_area,{
+	homeID = 0,				%%家园ID bigint(20)
+	areaID = 0,				%%区域ID int(11) unsigned
+	areaLvl = 0,				%%区域等级 int(11) unsigned
+	areaData				%%区域数据：放置的宠物，摆放的家具，种植的植物 blob
 
 }).
 
@@ -776,21 +822,6 @@
 
 }).
 
-%%
--record(rec_personality_info,{
-	roleID = 0,				%%玩家角色唯一ID bigint(20)
-	photoData,				%%玩家照片数据 mediumblob
-	praiseNum = 0,				%%玩家的赞数量 int(10) unsigned
-	birthday = "",				%%玩家生日 varchar(30)
-	starSign = "",				%%玩家星座 varchar(24)
-	location = "",				%%玩家地址 varchar(57)
-	sign = "",				%%玩家签名 varchar(144)
-	tags = "",				%%玩家标签 text
-	impressions = "",				%%玩家获得印象 text
-	forbiddenTime = 0				%%玩家被禁止传照片的时间 bigint(20) unsigned
-
-}).
-
 %%宠物领地争夺战战报信息
 -record(rec_pet_battle_report,{
 	roleID = 0,				%%玩家角色ID bigint(20) unsigned
@@ -836,7 +867,10 @@
 	force = 0,				%%宠物战力 bigint(20)
 	raw = 0,				%%转生 tinyint(4)
 	attas = [],				%%宠物提升属性 varchar(120)
-	time = 0				%%宠物到期时间 bigint(20)
+	time = 0,				%%宠物到期时间 bigint(20)
+	upCount = 0,				%%宠物属性提升次数 int(10) unsigned
+	petLv = 0,				%%宠物等级 int(11)
+	exp = 0				%%宠物经验 int(10) unsigned
 
 }).
 
@@ -975,7 +1009,10 @@
 	pic1 = "",				%%相片1 varchar(32)
 	pic2 = "",				%%相片2 varchar(32)
 	pic3 = "",				%%相片3 varchar(32)
-	sign = ""				%%签名 varchar(255)
+	sign = "",				%%签名 varchar(255)
+	like = 0,				%%累计点赞值 int(11) unsigned
+	charm = 0,				%%累计魅力值 int(11) unsigned
+	gifts = ""				%%收到的赠礼 text
 
 }).
 
@@ -986,6 +1023,17 @@
 	livenessList,				%%玩家活跃度完成列表 varbinary(1024)
 	livenessGiftDrew,				%%领奖列表 varbinary(64)
 	lastUpdateTime = 0				%%上次活跃重置时间 bigint(20) unsigned
+
+}).
+
+%%怪物图鉴
+-record(rec_player_monster_book,{
+	roleID = 0,				%%玩家角色ID bigint(20) unsigned
+	monsterID = 0,				%%怪物ID smallint(5) unsigned
+	countKill = 0,				%%击杀数量 int(11) unsigned
+	isSnap = 0,				%%是否拍照 tinyint(3) unsigned
+	isUnlock = 0,				%%是否解锁 tinyint(3) unsigned
+	isReward = 0				%%是否领奖 tinyint(3) unsigned
 
 }).
 
@@ -1270,19 +1318,6 @@
 	taskTarget = 0,				%%任务目标 int(11)
 	taskTargetCur = 0,				%%当前数量 int(11)
 	taskTargetMax = 0				%%最大数量 int(11)
-
-}).
-
-%%
--record(rec_task_accepted,{
-	roleID = 0,				%%角色id bigint(20) unsigned
-	taskID = 0,				%%任务id smallint(6) unsigned
-	subType1 = 0,				%%子任务类型(打怪，采集) tinyint(4) unsigned
-	count1 = 0,				%%当前完成数量(如怪物数量，采集物数量) tinyint(4) unsigned
-	subType2 = 0,				%%子任务类型(打怪，采集) tinyint(4) unsigned
-	count2 = 0,				%%当前完成数量(如怪物数量，采集物数量) tinyint(4) unsigned
-	subType3 = 0,				%%子任务类型(打怪，采集) tinyint(4) unsigned
-	count3 = 0				%%当前完成数量(如怪物数量，采集物数量) tinyint(4) unsigned
 
 }).
 

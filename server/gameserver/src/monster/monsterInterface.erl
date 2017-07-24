@@ -19,7 +19,7 @@
 	spawnCarrier/1,
 	clearSpawn/1,
 	dealAttackRes/4,
-	killedTarget/6,
+	killedTarget/7,
 	addTreat/3,
 	beAttack/3,
 	delBuff/1,
@@ -57,6 +57,7 @@
 	delMasterPassEffect/1,
 	sendMsg/1,
 	moveTo/3,
+	petMoveTo/4,
 	stopMove/3,
 	useSkill/4,
 	enterMap/2,
@@ -76,7 +77,8 @@
 	getMarrorAttackerID/0,
 	setMarrorAttackerID/2,
 
-	isMonsterShowMapHP/1
+	isMonsterShowMapHP/1,
+	getAddMonsterPos/3
 ]).
 
 
@@ -117,8 +119,8 @@ clearSpawn(Code, _) ->
 dealAttackRes(AttackEffect, RecEffect, ATD, DamageMsg) ->
 	monsterBattle:dealAttackRes(AttackEffect, RecEffect, ATD, DamageMsg).
 	
-killedTarget(AttackerCode, TargetCode, Msg, X, Y, BossTargetCode) ->
-	monsterBattle:killedTarget(AttackerCode, TargetCode, Msg, X, Y, BossTargetCode).
+killedTarget(AttackerCode, TargetCode,TargetLevel,  Msg, X, Y, BossTargetCode) ->
+	monsterBattle:killedTarget(AttackerCode, TargetCode,TargetLevel, Msg, X, Y, BossTargetCode).
 
 beAttack(Code, AttackerPid, #recBeAttack{} = BeAttack) ->
 	monsterBattle:beAttack(Code, AttackerPid, BeAttack).
@@ -293,6 +295,11 @@ updatePetLevel(Code, Level) ->
 -spec moveTo(Code::uint(),X::float(),Y::float()) -> ok.
 moveTo(Code, X, Y) ->
 	monsterMove:moveTo(Code, X, Y).
+
+%%宠物移动
+-spec petMoveTo(Code::uint(),X::float(),Y::float(),PosInfos::list()) -> ok.
+petMoveTo(Code, X, Y, PosInfos) ->
+	monsterMove:moveToInfos(Code, X, Y, PosInfos).
 
 %%宠物停止
 -spec stopMove(Code::uint(),X::float(),Y::float()) -> ok.
@@ -491,4 +498,22 @@ isMonsterShowMapHP(ID) ->
 	case getCfg:getCfgByKey(cfg_monster, ID) of
 		#monsterCfg{showHp = 1} -> true;
 		_ -> false
+	end.
+
+
+%% 获取随机坐标
+-spec getAddMonsterPos(X, Y, Radius) -> {NX,NY} when
+	X::float(),Y::float(),NX::float(),NY::float(),Radius::float().
+getAddMonsterPos(X, Y, Radius) when erlang:is_float(X) andalso erlang:is_float(Y) ->
+	case Radius > 0 of
+		true ->
+			XMin = X - Radius,
+			XMax = X + Radius,
+			YMin = Y - Radius,
+			YMax = Y + Radius,
+			NX = misc:rand(XMin, XMax),
+			NY = misc:rand(YMin, YMax),
+			{NX, NY};
+		_ ->
+			{X, Y}
 	end.

@@ -24,7 +24,8 @@
     loadFriend2/0,
     loadDaily2/0,
     loadMarriage/0,
-	loadPetTerritory/0
+	loadPetTerritory/0,
+	loadMergeLog/0
 ]).
 
 -export([
@@ -267,7 +268,9 @@ loadRoleData(RoleID) ->
     DataRec3 = DataRec2#rec_playerdata{rec_task_submitted = getTaskSubmit(RoleID)},
 	%% 已经领取的万用key
 	DataRec4 = DataRec3#rec_playerdata{activeCode4Many = dbGSLoad:getActiveCodeByRoleID(RoleID)},
-	DataRec4.
+	%% 怪物图鉴数据
+	DataRec5 = DataRec4#rec_playerdata{rec_player_monster_book = getRoleMonsterBook(RoleID)},
+	DataRec5.
 
 getPlayerProp(RoleID) ->
     SQL = io_lib:format("select * from player_prop where roleID = ~p",[RoleID]),
@@ -371,12 +374,14 @@ loadIdentity_picSub(Index) ->
 -spec loadFriend2() ->
     {
         [#rec_friend2_relation{}, ...],
-        [#rec_friend2_interaction{}, ...]
+        [#rec_friend2_interaction{}, ...],
+        [#rec_friend2_cross{}, ...]
     }.
 loadFriend2() ->
     List_rec_friend2_relation = loadFriend2_relation(0),
     List_rec_friend2_interaction = loadFriend2_interaction(0),
-    {List_rec_friend2_relation, List_rec_friend2_interaction}.
+    List_rec_friend2_cross = loadFriend2_cross(0),
+    {List_rec_friend2_relation, List_rec_friend2_interaction, List_rec_friend2_cross}.
 -spec loadFriend2_relation(Index::uint()) -> list().
 loadFriend2_relation(Index) ->
     SQL = io_lib:format("SELECT * FROM friend2_relation order by roleID, targetRoleID LIMIT ~p, ~p", [Index * 100000, 100000]),
@@ -397,6 +402,17 @@ loadFriend2_interaction(Index) ->
             [];
         _ ->
             DataList_ = loadFriend2_interaction(Index + 1),
+            DataList ++ DataList_
+    end.
+-spec loadFriend2_cross(Index::uint()) -> list().
+loadFriend2_cross(Index) ->
+    SQL = io_lib:format("SELECT * FROM friend2_cross order by roleID, tarRoleID LIMIT ~p, ~p", [Index * 100000, 100000]),
+    DataList = getQueryResultList(SQL, ?MakeArg(rec_friend2_cross)),
+    case DataList of
+        [] ->
+            [];
+        _ ->
+            DataList_ = loadFriend2_cross(Index + 1),
             DataList ++ DataList_
     end.
 
@@ -523,4 +539,26 @@ loadPetTerritoryHistoryD(Index) ->
     end.
 
 %% 新版骑宠领地 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 真实dbID映射关系 begin
+-spec loadMergeLog() -> [#rec_merge_log{}, ...].
+loadMergeLog() ->
+	getQueryResultList("SELECT * FROM merge_log", ?MakeArg(rec_merge_log)).
+%% 真实dbID映射关系 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 怪物图鉴 begin
+
+%% 取出角色的怪物图鉴数据
+-spec getRoleMonsterBook(RoleID::uint64()) -> [#rec_player_monster_book{}, ...].
+getRoleMonsterBook(RoleID) ->
+	SQL = io_lib:format("select * from player_monster_book where roleID=~w", [RoleID]),
+	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
+	emysql_util:as_record(Ret, rec_player_monster_book, record_info(fields, rec_player_monster_book)).
+
+%% 怪物图鉴 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

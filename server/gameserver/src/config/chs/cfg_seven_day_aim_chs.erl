@@ -115,7 +115,7 @@ getRow(7)->
     args2 = [],
     subType3 = 0,
     args3 = [],
-    rewardItem = [{9100,5}]
+    rewardItem = [{9101,3}]
     };
 getRow(8)->
     #seven_day_aimCfg {
@@ -131,7 +131,7 @@ getRow(8)->
     args2 = [],
     subType3 = 0,
     args3 = [],
-    rewardItem = [{9101,5}]
+    rewardItem = [{9150,1}]
     };
 getRow(9)->
     #seven_day_aimCfg {
@@ -139,15 +139,15 @@ getRow(9)->
     day = 1,
     type = 3,
     name = "装备精炼",
-    show = "2件装备精炼到+10",
+    show = "2件装备精炼到+2",
     preview = 4,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 202,
-    args3 = [10,2],
-    rewardItem = [{222,10}]
+    args3 = [2,2],
+    rewardItem = [{222,60}]
     };
 getRow(10)->
     #seven_day_aimCfg {
@@ -155,15 +155,15 @@ getRow(10)->
     day = 1,
     type = 3,
     name = "装备精炼",
-    show = "6件装备精炼到+10",
+    show = "6件装备精炼到+2",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 202,
-    args3 = [10,6],
-    rewardItem = [{222,20}]
+    args3 = [2,6],
+    rewardItem = [{222,70}]
     };
 getRow(11)->
     #seven_day_aimCfg {
@@ -171,19 +171,83 @@ getRow(11)->
     day = 1,
     type = 3,
     name = "装备精炼",
-    show = "4件装备精炼到+15",
+    show = "4件装备精炼到+4",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 202,
-    args3 = [15,4],
-    rewardItem = [{222,30}]
+    args3 = [4,4],
+    rewardItem = [{222,80}]
     };
 getRow(12)->
     #seven_day_aimCfg {
     id = 12,
+    day = 1,
+    type = 3,
+    name = "装备精炼",
+    show = "8件装备精炼到+4",
+    preview = 0,
+    subType1 = 0,
+    args1 = [],
+    subType2 = 0,
+    args2 = [],
+    subType3 = 202,
+    args3 = [4,8],
+    rewardItem = [{222,90}]
+    };
+getRow(13)->
+    #seven_day_aimCfg {
+    id = 13,
+    day = 1,
+    type = 3,
+    name = "装备精炼",
+    show = "6件装备精炼到+6",
+    preview = 0,
+    subType1 = 0,
+    args1 = [],
+    subType2 = 0,
+    args2 = [],
+    subType3 = 202,
+    args3 = [6,6],
+    rewardItem = [{222,100}]
+    };
+getRow(14)->
+    #seven_day_aimCfg {
+    id = 14,
+    day = 1,
+    type = 3,
+    name = "装备精炼",
+    show = "8件装备精炼到+8",
+    preview = 0,
+    subType1 = 0,
+    args1 = [],
+    subType2 = 0,
+    args2 = [],
+    subType3 = 202,
+    args3 = [8,8],
+    rewardItem = [{222,110}]
+    };
+getRow(15)->
+    #seven_day_aimCfg {
+    id = 15,
+    day = 1,
+    type = 3,
+    name = "装备精炼",
+    show = "6件装备精炼到+12",
+    preview = 0,
+    subType1 = 0,
+    args1 = [],
+    subType2 = 0,
+    args2 = [],
+    subType3 = 202,
+    args3 = [12,6],
+    rewardItem = [{222,120}]
+    };
+getRow(16)->
+    #seven_day_aimCfg {
+    id = 16,
     day = 1,
     type = 3,
     name = "装备精炼",
@@ -195,75 +259,27 @@ getRow(12)->
     args2 = [],
     subType3 = 202,
     args3 = [15,8],
-    rewardItem = [{222,40}]
-    };
-getRow(13)->
-    #seven_day_aimCfg {
-    id = 13,
-    day = 1,
-    type = 3,
-    name = "装备精炼",
-    show = "6件装备精炼到+18",
-    preview = 0,
-    subType1 = 0,
-    args1 = [],
-    subType2 = 0,
-    args2 = [],
-    subType3 = 202,
-    args3 = [18,6],
-    rewardItem = [{222,50}]
-    };
-getRow(14)->
-    #seven_day_aimCfg {
-    id = 14,
-    day = 1,
-    type = 3,
-    name = "装备精炼",
-    show = "8件装备精炼到+18",
-    preview = 0,
-    subType1 = 0,
-    args1 = [],
-    subType2 = 0,
-    args2 = [],
-    subType3 = 202,
-    args3 = [18,8],
-    rewardItem = [{222,60}]
-    };
-getRow(15)->
-    #seven_day_aimCfg {
-    id = 15,
-    day = 1,
-    type = 3,
-    name = "装备精炼",
-    show = "6件装备精炼到+25",
-    preview = 0,
-    subType1 = 0,
-    args1 = [],
-    subType2 = 0,
-    args2 = [],
-    subType3 = 202,
-    args3 = [25,6],
-    rewardItem = [{222,70}]
-    };
-getRow(16)->
-    #seven_day_aimCfg {
-    id = 16,
-    day = 1,
-    type = 3,
-    name = "装备精炼",
-    show = "8件装备精炼到+25",
-    preview = 0,
-    subType1 = 0,
-    args1 = [],
-    subType2 = 0,
-    args2 = [],
-    subType3 = 202,
-    args3 = [25,8],
-    rewardItem = [{222,80}]
+    rewardItem = [{222,130}]
     };
 getRow(17)->
     #seven_day_aimCfg {
     id = 17,
+    day = 1,
+    type = 3,
+    name = "装备精炼",
+    show = "8件装备精炼到+20",
+    preview = 0,
+    subType1 = 0,
+    args1 = [],
+    subType2 = 0,
+    args2 = [],
+    subType3 = 202,
+    args3 = [20,8],
+    rewardItem = [{224,50}]
+    };
+getRow(18)->
+    #seven_day_aimCfg {
+    id = 18,
     day = 1,
     type = 3,
     name = "装备精炼",
@@ -275,23 +291,7 @@ getRow(17)->
     args2 = [],
     subType3 = 202,
     args3 = [30,8],
-    rewardItem = [{222,90}]
-    };
-getRow(18)->
-    #seven_day_aimCfg {
-    id = 18,
-    day = 1,
-    type = 3,
-    name = "装备精炼",
-    show = "8件装备精炼到+35",
-    preview = 0,
-    subType1 = 0,
-    args1 = [],
-    subType2 = 0,
-    args2 = [],
-    subType3 = 202,
-    args3 = [35,8],
-    rewardItem = [{222,100}]
+    rewardItem = [{224,60}]
     };
 getRow(19)->
     #seven_day_aimCfg {
@@ -307,7 +307,7 @@ getRow(19)->
     args2 = [],
     subType3 = 202,
     args3 = [40,8],
-    rewardItem = [{222,120}]
+    rewardItem = [{224,70}]
     };
 getRow(20)->
     #seven_day_aimCfg {
@@ -539,15 +539,15 @@ getRow(34)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "1只骑宠升星到1星",
+    show = "1只骑宠升星到黄色2星",
     preview = 4,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 207,
-    args3 = [1,1],
-    rewardItem = [{240,30}]
+    args3 = [2,1],
+    rewardItem = [{2160,20}]
     };
 getRow(35)->
     #seven_day_aimCfg {
@@ -555,15 +555,15 @@ getRow(35)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "1只骑宠升星到3星",
+    show = "1只骑宠升星到绿色1星",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 207,
-    args3 = [3,1],
-    rewardItem = [{240,50}]
+    args3 = [6,1],
+    rewardItem = [{2160,30}]
     };
 getRow(36)->
     #seven_day_aimCfg {
@@ -571,15 +571,15 @@ getRow(36)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "1只骑宠升星到5星",
+    show = "1只骑宠升星到蓝色1星",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 207,
-    args3 = [5,1],
-    rewardItem = [{240,70}]
+    args3 = [11,1],
+    rewardItem = [{2160,40}]
     };
 getRow(37)->
     #seven_day_aimCfg {
@@ -587,15 +587,15 @@ getRow(37)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "1只骑宠升星到15星",
+    show = "1只骑宠升星到红色1星",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 207,
-    args3 = [15,1],
-    rewardItem = [{240,90}]
+    args3 = [16,1],
+    rewardItem = [{2160,50}]
     };
 getRow(38)->
     #seven_day_aimCfg {
@@ -603,7 +603,7 @@ getRow(38)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "1只骑宠升星到25星",
+    show = "1只骑宠升星到紫色5星",
     preview = 0,
     subType1 = 0,
     args1 = [],
@@ -611,7 +611,7 @@ getRow(38)->
     args2 = [],
     subType3 = 207,
     args3 = [25,1],
-    rewardItem = [{240,110}]
+    rewardItem = [{2160,60}]
     };
 getRow(39)->
     #seven_day_aimCfg {
@@ -619,15 +619,15 @@ getRow(39)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "3只骑宠升星到5星",
+    show = "3只骑宠升星到绿色1星",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 207,
-    args3 = [5,3],
-    rewardItem = [{240,130}]
+    args3 = [6,3],
+    rewardItem = [{2160,50}]
     };
 getRow(40)->
     #seven_day_aimCfg {
@@ -635,15 +635,15 @@ getRow(40)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "3只骑宠升星到10星",
+    show = "3只骑宠升星到蓝色1星",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 207,
-    args3 = [10,3],
-    rewardItem = [{240,150}]
+    args3 = [11,3],
+    rewardItem = [{2160,60}]
     };
 getRow(41)->
     #seven_day_aimCfg {
@@ -651,15 +651,15 @@ getRow(41)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "3只骑宠升星到15星",
+    show = "3只骑宠升星到红色1星",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 207,
-    args3 = [15,3],
-    rewardItem = [{240,170}]
+    args3 = [16,3],
+    rewardItem = [{2160,70}]
     };
 getRow(42)->
     #seven_day_aimCfg {
@@ -667,15 +667,15 @@ getRow(42)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "5只骑宠升星到5星",
+    show = "5只骑宠升星到绿色1星",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 207,
-    args3 = [5,5],
-    rewardItem = [{240,190}]
+    args3 = [6,5],
+    rewardItem = [{2160,80}]
     };
 getRow(43)->
     #seven_day_aimCfg {
@@ -683,15 +683,15 @@ getRow(43)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "5只骑宠升星到10星",
+    show = "5只骑宠升星到蓝色1星",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 207,
-    args3 = [10,5],
-    rewardItem = [{240,210}]
+    args3 = [11,5],
+    rewardItem = [{2160,90}]
     };
 getRow(44)->
     #seven_day_aimCfg {
@@ -699,15 +699,15 @@ getRow(44)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "5只骑宠升星到15星",
+    show = "5只骑宠升星到红色1星",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 207,
-    args3 = [15,5],
-    rewardItem = [{240,230}]
+    args3 = [16,5],
+    rewardItem = [{2160,100}]
     };
 getRow(45)->
     #seven_day_aimCfg {
@@ -715,15 +715,15 @@ getRow(45)->
     day = 2,
     type = 3,
     name = "骑宠升星",
-    show = "5只骑宠升星到20星",
+    show = "5只骑宠升星到紫色1星",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
     subType3 = 207,
-    args3 = [20,5],
-    rewardItem = [{240,250}]
+    args3 = [21,5],
+    rewardItem = [{2160,150}]
     };
 getRow(46)->
     #seven_day_aimCfg {
@@ -923,14 +923,14 @@ getRow(58)->
     day = 3,
     type = 3,
     name = "翅膀升级",
-    show = "翅膀等级+1",
+    show = "翅膀等级到达1阶",
     preview = 4,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 205,
+    args3 = [13],
     rewardItem = [{4303,15}]
     };
 getRow(59)->
@@ -939,14 +939,14 @@ getRow(59)->
     day = 3,
     type = 3,
     name = "翅膀升级",
-    show = "翅膀等级+2",
+    show = "翅膀等级到达2阶",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 205,
+    args3 = [25],
     rewardItem = [{4303,20}]
     };
 getRow(60)->
@@ -955,14 +955,14 @@ getRow(60)->
     day = 3,
     type = 3,
     name = "翅膀升级",
-    show = "翅膀等级+3",
+    show = "翅膀等级到达3阶",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 205,
+    args3 = [37],
     rewardItem = [{4304,20}]
     };
 getRow(61)->
@@ -971,31 +971,15 @@ getRow(61)->
     day = 3,
     type = 3,
     name = "翅膀升级",
-    show = "翅膀等级+4",
+    show = "翅膀等级到达4阶",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 205,
+    args3 = [49],
     rewardItem = [{4304,25}]
-    };
-getRow(62)->
-    #seven_day_aimCfg {
-    id = 62,
-    day = 3,
-    type = 3,
-    name = "翅膀升级",
-    show = "翅膀等级+5",
-    preview = 0,
-    subType1 = 0,
-    args1 = [],
-    subType2 = 0,
-    args2 = [],
-    subType3 = 0,
-    args3 = [],
-    rewardItem = [{4305,20}]
     };
 getRow(63)->
     #seven_day_aimCfg {
@@ -1051,7 +1035,7 @@ getRow(66)->
     day = 4,
     type = 2,
     name = "守护女神",
-    show = "守护女神第1波",
+    show = "成功守护女神第1波",
     preview = 3,
     subType1 = 3,
     args1 = [1],
@@ -1067,7 +1051,7 @@ getRow(67)->
     day = 4,
     type = 2,
     name = "守护女神",
-    show = "守护女神第2波",
+    show = "成功守护女神第2波",
     preview = 0,
     subType1 = 3,
     args1 = [2],
@@ -1083,7 +1067,7 @@ getRow(68)->
     day = 4,
     type = 2,
     name = "守护女神",
-    show = "守护女神第3波",
+    show = "成功守护女神第3波",
     preview = 0,
     subType1 = 3,
     args1 = [3],
@@ -1099,7 +1083,7 @@ getRow(69)->
     day = 4,
     type = 2,
     name = "守护女神",
-    show = "守护女神第4波",
+    show = "成功守护女神第4波",
     preview = 0,
     subType1 = 3,
     args1 = [4],
@@ -1115,7 +1099,7 @@ getRow(70)->
     day = 4,
     type = 2,
     name = "守护女神",
-    show = "守护女神第5波",
+    show = "成功守护女神第5波",
     preview = 0,
     subType1 = 3,
     args1 = [5],
@@ -1131,7 +1115,7 @@ getRow(71)->
     day = 4,
     type = 2,
     name = "守护女神",
-    show = "守护女神第6波",
+    show = "成功守护女神第6波",
     preview = 0,
     subType1 = 3,
     args1 = [6],
@@ -1147,7 +1131,7 @@ getRow(72)->
     day = 4,
     type = 2,
     name = "守护女神",
-    show = "守护女神第7波",
+    show = "成功守护女神第7波",
     preview = 0,
     subType1 = 3,
     args1 = [7],
@@ -1163,7 +1147,7 @@ getRow(73)->
     day = 4,
     type = 2,
     name = "守护女神",
-    show = "守护女神第8波",
+    show = "成功守护女神第8波",
     preview = 0,
     subType1 = 3,
     args1 = [8],
@@ -1179,7 +1163,7 @@ getRow(74)->
     day = 4,
     type = 2,
     name = "守护女神",
-    show = "守护女神第9波",
+    show = "成功守护女神第9波",
     preview = 0,
     subType1 = 3,
     args1 = [9],
@@ -1195,7 +1179,7 @@ getRow(75)->
     day = 4,
     type = 2,
     name = "守护女神",
-    show = "守护女神第10波",
+    show = "成功守护女神第10波",
     preview = 0,
     subType1 = 3,
     args1 = [10],
@@ -1211,7 +1195,7 @@ getRow(76)->
     day = 4,
     type = 2,
     name = "守护女神",
-    show = "守护女神第11波",
+    show = "成功守护女神第11波",
     preview = 0,
     subType1 = 3,
     args1 = [11],
@@ -1373,13 +1357,13 @@ getRow(86)->
     name = "元素保卫战",
     show = "通关元素保卫战第1关",
     preview = 3,
-    subType1 = 1,
+    subType1 = 4,
     args1 = [528],
     subType2 = 0,
     args2 = [],
     subType3 = 0,
     args3 = [],
-    rewardItem = [{225,30}]
+    rewardItem = [{225,50}]
     };
 getRow(87)->
     #seven_day_aimCfg {
@@ -1389,13 +1373,13 @@ getRow(87)->
     name = "元素保卫战",
     show = "通关元素保卫战第2关",
     preview = 0,
-    subType1 = 1,
+    subType1 = 4,
     args1 = [529],
     subType2 = 0,
     args2 = [],
     subType3 = 0,
     args3 = [],
-    rewardItem = [{225,50}]
+    rewardItem = [{225,100}]
     };
 getRow(88)->
     #seven_day_aimCfg {
@@ -1405,13 +1389,13 @@ getRow(88)->
     name = "元素保卫战",
     show = "通关元素保卫战第3关",
     preview = 0,
-    subType1 = 1,
+    subType1 = 4,
     args1 = [530],
     subType2 = 0,
     args2 = [],
     subType3 = 0,
     args3 = [],
-    rewardItem = [{225,80}]
+    rewardItem = [{225,150}]
     };
 getRow(89)->
     #seven_day_aimCfg {
@@ -1421,19 +1405,35 @@ getRow(89)->
     name = "元素保卫战",
     show = "通关元素保卫战第4关",
     preview = 0,
-    subType1 = 1,
+    subType1 = 4,
     args1 = [531],
     subType2 = 0,
     args2 = [],
     subType3 = 0,
     args3 = [],
-    rewardItem = [{225,100}]
+    rewardItem = [{225,200}]
     };
 getRow(90)->
     #seven_day_aimCfg {
     id = 90,
     day = 5,
-    type = 2,
+    type = 3,
+    name = "宠物转生",
+    show = "1个骑宠转生到3转",
+    preview = 4,
+    subType1 = 0,
+    args1 = [],
+    subType2 = 0,
+    args2 = [],
+    subType3 = 208,
+    args3 = [3,1],
+    rewardItem = [{1801,5}]
+    };
+getRow(91)->
+    #seven_day_aimCfg {
+    id = 91,
+    day = 5,
+    type = 3,
     name = "宠物转生",
     show = "3个骑宠转生到3转",
     preview = 0,
@@ -1441,47 +1441,31 @@ getRow(90)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
-    rewardItem = [{1801,5}]
-    };
-getRow(91)->
-    #seven_day_aimCfg {
-    id = 91,
-    day = 5,
-    type = 2,
-    name = "宠物转生",
-    show = "6个骑宠转生到3转",
-    preview = 0,
-    subType1 = 0,
-    args1 = [],
-    subType2 = 0,
-    args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 208,
+    args3 = [3,3],
     rewardItem = [{1801,10}]
     };
 getRow(92)->
     #seven_day_aimCfg {
     id = 92,
     day = 5,
-    type = 2,
+    type = 3,
     name = "宠物转生",
-    show = "10个骑宠转生到3转",
+    show = "5个骑宠转生到3转",
     preview = 0,
     subType1 = 0,
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 208,
+    args3 = [3,5],
     rewardItem = [{1800,10}]
     };
 getRow(93)->
     #seven_day_aimCfg {
     id = 93,
     day = 5,
-    type = 2,
+    type = 3,
     name = "宠物转生",
     show = "2个骑宠转生到4转",
     preview = 0,
@@ -1489,15 +1473,15 @@ getRow(93)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 208,
+    args3 = [4,2],
     rewardItem = [{1801,10}]
     };
 getRow(94)->
     #seven_day_aimCfg {
     id = 94,
     day = 5,
-    type = 2,
+    type = 3,
     name = "宠物转生",
     show = "3个骑宠转生到4转",
     preview = 0,
@@ -1505,15 +1489,15 @@ getRow(94)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 208,
+    args3 = [4,3],
     rewardItem = [{1801,15}]
     };
 getRow(95)->
     #seven_day_aimCfg {
     id = 95,
     day = 5,
-    type = 2,
+    type = 3,
     name = "宠物转生",
     show = "5个骑宠转生到4转",
     preview = 0,
@@ -1521,15 +1505,15 @@ getRow(95)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 208,
+    args3 = [4,5],
     rewardItem = [{1800,15}]
     };
 getRow(96)->
     #seven_day_aimCfg {
     id = 96,
     day = 5,
-    type = 2,
+    type = 3,
     name = "宠物转生",
     show = "1个骑宠转生到5转",
     preview = 0,
@@ -1537,15 +1521,15 @@ getRow(96)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 208,
+    args3 = [5,1],
     rewardItem = [{1800,20}]
     };
 getRow(97)->
     #seven_day_aimCfg {
     id = 97,
     day = 5,
-    type = 2,
+    type = 3,
     name = "宠物转生",
     show = "2个骑宠转生到5转",
     preview = 0,
@@ -1553,15 +1537,15 @@ getRow(97)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 208,
+    args3 = [5,2],
     rewardItem = [{1800,30}]
     };
 getRow(98)->
     #seven_day_aimCfg {
     id = 98,
     day = 5,
-    type = 2,
+    type = 3,
     name = "宠物转生",
     show = "3个骑宠转生到5转",
     preview = 0,
@@ -1569,8 +1553,8 @@ getRow(98)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 0,
-    args3 = [],
+    subType3 = 208,
+    args3 = [5,3],
     rewardItem = [{1800,50}]
     };
 getRow(99)->
@@ -1713,7 +1697,7 @@ getRow(107)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 208,
+    subType3 = 209,
     args3 = [5,1],
     rewardItem = [{201,20}]
     };
@@ -1729,7 +1713,7 @@ getRow(108)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 208,
+    subType3 = 209,
     args3 = [10,1],
     rewardItem = [{201,30}]
     };
@@ -1745,7 +1729,7 @@ getRow(109)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 208,
+    subType3 = 209,
     args3 = [15,1],
     rewardItem = [{201,40}]
     };
@@ -1761,7 +1745,7 @@ getRow(110)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 208,
+    subType3 = 209,
     args3 = [5,3],
     rewardItem = [{201,50}]
     };
@@ -1777,7 +1761,7 @@ getRow(111)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 208,
+    subType3 = 209,
     args3 = [8,3],
     rewardItem = [{201,60}]
     };
@@ -1793,7 +1777,7 @@ getRow(112)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 208,
+    subType3 = 209,
     args3 = [10,3],
     rewardItem = [{201,70}]
     };
@@ -1809,7 +1793,7 @@ getRow(113)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 208,
+    subType3 = 209,
     args3 = [10,5],
     rewardItem = [{201,80}]
     };
@@ -1825,7 +1809,7 @@ getRow(114)->
     args1 = [],
     subType2 = 0,
     args2 = [],
-    subType3 = 208,
+    subType3 = 209,
     args3 = [15,5],
     rewardItem = [{201,100}]
     };
@@ -1881,10 +1865,10 @@ getRow(118)->
     #seven_day_aimCfg {
     id = 118,
     day = 7,
-    type = 3,
+    type = 2,
     name = "宠物大联盟",
     show = "拥有宠物数量达到8个",
-    preview = 4,
+    preview = 3,
     subType1 = 0,
     args1 = [],
     subType2 = 102,
@@ -1897,7 +1881,7 @@ getRow(119)->
     #seven_day_aimCfg {
     id = 119,
     day = 7,
-    type = 3,
+    type = 2,
     name = "宠物大联盟",
     show = "拥有宠物数量达到12个",
     preview = 0,
@@ -1913,7 +1897,7 @@ getRow(120)->
     #seven_day_aimCfg {
     id = 120,
     day = 7,
-    type = 3,
+    type = 2,
     name = "宠物大联盟",
     show = "拥有宠物数量达到16个",
     preview = 0,
@@ -1929,7 +1913,7 @@ getRow(121)->
     #seven_day_aimCfg {
     id = 121,
     day = 7,
-    type = 3,
+    type = 2,
     name = "宠物大联盟",
     show = "拥有宠物数量达到20个",
     preview = 0,
@@ -1945,9 +1929,9 @@ getRow(122)->
     #seven_day_aimCfg {
     id = 122,
     day = 7,
-    type = 3,
+    type = 2,
     name = "宠物大联盟",
-    show = "拥有5个红色品质以上宠物",
+    show = "拥有5个红色品质宠物",
     preview = 0,
     subType1 = 0,
     args1 = [],
@@ -1961,9 +1945,9 @@ getRow(123)->
     #seven_day_aimCfg {
     id = 123,
     day = 7,
-    type = 3,
+    type = 2,
     name = "宠物大联盟",
-    show = "拥有8个红色品质以上宠物",
+    show = "拥有8个红色品质宠物",
     preview = 0,
     subType1 = 0,
     args1 = [],
@@ -1977,9 +1961,9 @@ getRow(124)->
     #seven_day_aimCfg {
     id = 124,
     day = 7,
-    type = 3,
+    type = 2,
     name = "宠物大联盟",
-    show = "拥有12个红色品质以上宠物",
+    show = "拥有12个红色品质宠物",
     preview = 0,
     subType1 = 0,
     args1 = [],
@@ -1993,9 +1977,9 @@ getRow(125)->
     #seven_day_aimCfg {
     id = 125,
     day = 7,
-    type = 3,
+    type = 2,
     name = "宠物大联盟",
-    show = "拥有15个红色品质以上宠物",
+    show = "拥有15个红色品质宠物",
     preview = 0,
     subType1 = 0,
     args1 = [],
@@ -2011,8 +1995,8 @@ getRow(126)->
     day = 7,
     type = 3,
     name = "拥有装备",
-    show = "拥有蓝色品质以上装备6件",
-    preview = 0,
+    show = "拥有蓝色品质装备6件",
+    preview = 4,
     subType1 = 0,
     args1 = [],
     subType2 = 106,
@@ -2027,7 +2011,7 @@ getRow(127)->
     day = 7,
     type = 3,
     name = "拥有装备",
-    show = "拥有蓝色品质以上装备8件",
+    show = "拥有蓝色品质装备8件",
     preview = 0,
     subType1 = 0,
     args1 = [],
@@ -2043,7 +2027,7 @@ getRow(128)->
     day = 7,
     type = 3,
     name = "拥有装备",
-    show = "拥有红色品质以上装备4件",
+    show = "拥有红色品质装备4件",
     preview = 0,
     subType1 = 0,
     args1 = [],
@@ -2059,7 +2043,7 @@ getRow(129)->
     day = 7,
     type = 3,
     name = "拥有装备",
-    show = "拥有红色品质以上装备6件",
+    show = "拥有红色品质装备6件",
     preview = 0,
     subType1 = 0,
     args1 = [],
@@ -2075,7 +2059,7 @@ getRow(130)->
     day = 7,
     type = 3,
     name = "拥有装备",
-    show = "拥有红色品质以上装备8件",
+    show = "拥有红色品质装备8件",
     preview = 0,
     subType1 = 0,
     args1 = [],
@@ -2091,7 +2075,7 @@ getRow(131)->
     day = 7,
     type = 3,
     name = "拥有装备",
-    show = "拥有紫色品质以上装备4件",
+    show = "拥有紫色品质装备4件",
     preview = 0,
     subType1 = 0,
     args1 = [],
@@ -2107,7 +2091,7 @@ getRow(132)->
     day = 7,
     type = 3,
     name = "拥有装备",
-    show = "拥有紫色品质以上装备8件",
+    show = "拥有紫色品质装备8件",
     preview = 0,
     subType1 = 0,
     args1 = [],
@@ -2181,7 +2165,6 @@ getKeyList()->[
     {59},
     {60},
     {61},
-    {62},
     {63},
     {64},
     {65},
@@ -2316,7 +2299,6 @@ get1KeyList()->[
     59,
     60,
     61,
-    62,
     63,
     64,
     65,

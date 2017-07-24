@@ -34,6 +34,13 @@ tick() ->
 	try
 		case mapState:getWaitForceDestory() of
 			true ->
+				%% 在强制销毁过程中，又没有人了，则立即销毁
+				case mapState:getMapPlayerNum() =< 0 of
+					true ->
+						erlang:send_after(100, self(), reallyDestorySelf);
+					_ ->
+						skip
+				end,
 				skip;
 			_ ->
 				%%当有人时才更新，后面策划可能会有需求，定时在某张地图刷新一个BOSS怪出来，这时是不管这张地图有没人的
@@ -178,7 +185,7 @@ killMonster(MonsterCode, MonsterID, GroupID,AttackerCode) ->
 			skip
 	end,
 	mapState:addMapAliveMonsterNum(-1),%%当前的怪物数
-	copyMapGoddess:goddessBeKilled(MonsterID,AttackerCode),
+%%	copyMapGoddess:goddessBeKilled(MonsterID,AttackerCode),
 	mapWildBoss:wildBossBeKilled(MonsterID,MonsterCode),
 	goblinLogic:goblinBeKilled(MonsterID),
 	needBoardcastMonsterNum(),%%判断，需要就广播
@@ -325,7 +332,7 @@ enterMap(#recEnterMap{pid = Pid,
 	case mapState:addMapHistoryEnterPlayer(0, ID) of
 		0 ->
 			%% 第一次进入这个副本，通知玩家计数
-			psMgr:sendMsg2PS(Pid, playerEnterCopyMapFirst, MapID);
+			psMgr:sendMsg2PS(Pid, playerEnterCopyMapFirst, {MapID, self()});
 		_ ->
 			skip
 	end,

@@ -26,7 +26,7 @@
 
 loadRubbishRoleList(PidFromCS, #recRubbishCleanerSetting{
 	oneCount = Count, delDelayDays = DelDelayDays, offlineDays = OffLineDays, offlineRoleLevel = OfflineLevel
-})->
+}) ->
 	startTimeStatics(),
 	?LOG_OUT("<<==>> loadRubbishRoleList start <<==>>"),
 
@@ -36,7 +36,7 @@ loadRubbishRoleList(PidFromCS, #recRubbishCleanerSetting{
 
 	SQLClean = io_lib:format(
 		"SELECT roleID,accountID,deleteTime,lastLoginTime,lastLogoutTime, 1 as flag "
-		"FROM base_role WHERE deleteTime <> '1970-01-01 00:00:00' and deleteTime <= '~ts' LIMIT ~p;",[CleanDataDeadlineStr, Count]),
+		"FROM base_role WHERE deleteTime <> '1970-01-01 00:00:00' and deleteTime <= '~ts' LIMIT ~p;", [CleanDataDeadlineStr, Count]),
 	RubblishRoleList = doLoadRoleList(SQLClean),
 
 	SQLDel = io_lib:format(
@@ -45,11 +45,11 @@ loadRubbishRoleList(PidFromCS, #recRubbishCleanerSetting{
 		[DeleteDeadlineStr, OfflineLevel, Count]),
 	DelRoleList = doLoadRoleList(SQLDel),
 
-	psMgr:sendMsg2PS(PidFromCS, loadRubbishRoleListAck, lists:append(DelRoleList,RubblishRoleList)),
-	?LOG_OUT("<<==>> loadRubbishRoleList finish, diff=~p ms <<==>>",[stopTimeStatics()]),
+	psMgr:sendMsg2PS(PidFromCS, loadRubbishRoleListAck, lists:append(DelRoleList, RubblishRoleList)),
+	?LOG_OUT("<<==>> loadRubbishRoleList finish, diff=~p ms <<==>>", [stopTimeStatics()]),
 	ok.
 
-doLoadRoleList(SQL)->
+doLoadRoleList(SQL) ->
 	try
 		Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
 
@@ -59,25 +59,23 @@ doLoadRoleList(SQL)->
 		{DelRoles, _LeftResult1} = mysql:nextResult(Ret),
 		emysql_util:as_record(DelRoles, TableRecord, RecInfo)
 	catch
-	    _ : _Error  ->
-		    []
+		_ : _Error ->
+			[]
 	end.
 
-createBakTableOnSvrStart()->
+createBakTableOnSvrStart() ->
 	doCreateBakTable(base_role),
 	doCreateBakTable(item),
 	doCreateBakTable(recharge),
 	doCreateBakTable(player_coin),
-%%	doCreateBakTable(mail),
-%%	doCreateBakTable(mail_attachment),
 	ok.
 
-doCreateBakTable(TablName)->
+doCreateBakTable(TablName) ->
 	startTimeStatics(),
-	?WARN_OUT("doCreateBakTable(~p)...",[TablName]),
-	SQL = io_lib:format("CREATE TABLE  IF NOT EXISTS  ~p_bak AS SELECT * FROM ~p LIMIT 0",[TablName, TablName]),
+	?WARN_OUT("doCreateBakTable(~p)...", [TablName]),
+	SQL = io_lib:format("CREATE TABLE  IF NOT EXISTS  ~p_bak AS SELECT * FROM ~p LIMIT 0", [TablName, TablName]),
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
-	?WARN_OUT("doCreateBakTable(~p),~p ms,~ts",[TablName, stopTimeStatics(), logRet(Ret)]),
+	?WARN_OUT("doCreateBakTable(~p),~p ms,~ts", [TablName, stopTimeStatics(), logRet(Ret)]),
 	ok.
 
 %%cleanOneRole(PidFromCS, #recRubbishRoleInfo{roleID = RoleID, flag = Flag} = R)->
@@ -92,64 +90,58 @@ doCreateBakTable(TablName)->
 %%	psMgr:sendMsg2PS(PidFromCS, cleanRubbishRoleDataAck, {Ret, R}),
 %%	ok;
 
-cleanOneRole(PidFromCS, #recRubbishRoleInfo{roleID = RoleID} = R)->
+cleanOneRole(PidFromCS, #recRubbishRoleInfo{roleID = RoleID} = R) ->
 	Stamp = os:timestamp(),
-	?WARN_OUT("clean role(~p)...",[RoleID]),
+	?WARN_OUT("clean role(~p)...", [RoleID]),
 	%%%==========================================
 	Ret = doCleanOneRole(PidFromCS, R),
-	psMgr:sendMsg2PS(PidFromCS, cleanRubbishRoleDataAck, {Ret,R}),
+	psMgr:sendMsg2PS(PidFromCS, cleanRubbishRoleDataAck, {Ret, R}),
 	%%%==========================================
 	?WARN_OUT("clean role(~p) ok, diff(~p ms)",
-		[RoleID,timer:now_diff(os:timestamp(), Stamp) / 1000]),
+		[RoleID, timer:now_diff(os:timestamp(), Stamp) / 1000]),
 	ok.
 
-doCleanOneRole(_PidFromCS, #recRubbishRoleInfo{roleID = RoleID, flag = 0})->
+doCleanOneRole(_PidFromCS, #recRubbishRoleInfo{roleID = RoleID, flag = 0}) ->
 	dbGSSave:deleteRole(RoleID);
-doCleanOneRole(_PidFromCS, #recRubbishRoleInfo{roleID = RoleID})->
-
-	doWork(base_role, roleID, RoleID, bak),
-	doWork(item, roleID, RoleID, bak),
-	doWork(recharge, roleID, RoleID, bak),
-	doWork(player_coin, roleID, RoleID, bak),
-%%	doWork(mail, toRoleID, RoleID, bak),
-%%	doWork(mail_attachment, roleID, RoleID, bak),
+doCleanOneRole(_PidFromCS, #recRubbishRoleInfo{roleID = RoleID}) ->
+	doWork(base_role, record_info(fields, rec_base_role), roleID, RoleID, bak),
+	doWork(item, record_info(fields, rec_item), roleID, RoleID, bak),
+	doWork(recharge, record_info(fields, rec_recharge), roleID, RoleID, bak),
+	doWork(player_coin, record_info(fields, rec_player_coin), roleID, RoleID, bak),
 %%%==========================================
-	doWork(skill, roleID, RoleID, skip),
-	doWork(player_prop, roleID, RoleID, skip),
-	doWork(achieve, roleID, RoleID, skip),
-	doWork(task_submitted, roleID, RoleID, skip),
-	doWork(badge, roleID, RoleID, skip),
-	doWork(skill_slot, roleID, RoleID, skip),
-	doWork(copymapscore, roleID, RoleID, skip),
-	doWork(equip_refine_info, roleID, RoleID, skip),
-	doWork(awaken_info, roleID, RoleID, skip),
-	doWork(title, roleID, RoleID, skip),
-	doWork(task_accepted, roleID, RoleID, skip),
-	doWork(warrior_trial, roleID, RoleID, skip),
-	doWork(god_weapon, roleID, RoleID, skip),
-	doWork(personality_info, roleID, RoleID, skip),
-	doWork(player_ms_shop, roleID, RoleID, skip),
-	doWork(player_liveness, playerID, RoleID, skip),
-	doWork(lottery_result, roleID, RoleID, skip),
-	doWork(holiday_task, playerID, RoleID, skip),
-	doWork(package_info, roleID, RoleID, skip),
-	doWork(role_fashions, roleID, RoleID, skip),
-	doWork(item_used_cd, roleID, RoleID, skip),	
-	doWork(player_clock, roleID, RoleID, skip),	
-	doWork(fashion_slot, roleID, RoleID, skip),	
-	doWork(sourceshop_forever_limit, roleID, RoleID, skip),
-	doWork(pet_info, roleID, RoleID, skip),
-	doWork(pet_skill, roleID, RoleID, skip),
-	doWork(pet_equip, roleID, RoleID, skip),
-	doWork(pet_dungeon_score, roleID, RoleID, skip),
-	doWork(pet_dungeon_info, roleID, RoleID, skip),
-	doWork(pet_manor_battle, roleID, RoleID, skip),
-	doWork(rune_base, roleID, RoleID, skip),
-%%	doWork(rune_prop, roleID, RoleID, skip),
-	doWork(trade, roleID, RoleID, skip),
-	doWork(variant, roleID, RoleID, skip),
-	doWork(daily_counter, roleID, RoleID, skip),
-%%	doWork(friend_info, roleID, RoleID, skip),
+	doWork(skill, record_info(fields, rec_skill), roleID, RoleID, skip),
+	doWork(player_prop, record_info(fields, rec_player_prop), roleID, RoleID, skip),
+	doWork(achieve, record_info(fields, rec_achieve), roleID, RoleID, skip),
+	doWork(task_submitted, record_info(fields, rec_task_submitted), roleID, RoleID, skip),
+	doWork(badge, record_info(fields, rec_badge), roleID, RoleID, skip),
+	doWork(skill_slot, record_info(fields, rec_skill_slot), roleID, RoleID, skip),
+	doWork(copymapscore, record_info(fields, rec_copymapscore), roleID, RoleID, skip),
+	doWork(equip_refine_info, record_info(fields, rec_equip_refine_info), roleID, RoleID, skip),
+	doWork(awaken_info, record_info(fields, rec_awaken_info), roleID, RoleID, skip),
+	doWork(title, record_info(fields, rec_title),roleID,  RoleID, skip),
+	doWork(task, record_info(fields, rec_task), roleID,  RoleID, skip),
+	doWork(warrior_trial, record_info(fields, rec_warrior_trial), roleID, RoleID, skip),
+	doWork(god_weapon, record_info(fields, rec_god_weapon), roleID, RoleID, skip),
+	doWork(player_ms_shop, record_info(fields, rec_player_ms_shop), roleID, RoleID, skip),
+	doWork(player_liveness, record_info(fields, rec_player_liveness), playerID, RoleID, skip),
+	doWork(lottery_result, record_info(fields, rec_lottery_result), roleID, RoleID, skip),
+	doWork(holiday_task, record_info(fields, rec_holiday_task), playerID, RoleID, skip),
+	doWork(package_info, record_info(fields, rec_package_info), roleID, RoleID, skip),
+	doWork(role_fashions, record_info(fields, rec_role_fashions), roleID, RoleID, skip),
+	doWork(item_used_cd, record_info(fields, rec_item_used_cd), roleID, RoleID, skip),
+	doWork(player_clock, record_info(fields, rec_player_clock), roleID, RoleID, skip),
+	doWork(fashion_slot, record_info(fields, rec_fashion_slot), roleID, RoleID, skip),
+	doWork(sourceshop_forever_limit, record_info(fields, rec_sourceshop_forever_limit), roleID, RoleID, skip),
+	doWork(pet_info, record_info(fields, rec_pet_info), roleID, RoleID, skip),
+	doWork(pet_skill, record_info(fields, rec_pet_skill), roleID, RoleID, skip),
+	doWork(pet_equip, record_info(fields, rec_pet_equip), roleID, RoleID, skip),
+	doWork(pet_dungeon_score, record_info(fields, rec_pet_dungeon_score), roleID, RoleID, skip),
+	doWork(pet_dungeon_info, record_info(fields, rec_pet_dungeon_info), roleID, RoleID, skip),
+	doWork(pet_manor_battle, record_info(fields, rec_pet_manor_battle), roleID, RoleID, skip),
+	doWork(rune_base, record_info(fields, rec_rune_base), roleID, RoleID, skip),
+	doWork(trade, record_info(fields, rec_trade), roleID, RoleID, skip),
+	doWork(variant, record_info(fields, rec_variant0), roleID, RoleID, skip),
+	doWork(daily_counter, record_info(fields, rec_daily_counter0), roleID, RoleID, skip),
 	ok.
 
 %doClean(RoleID, 0)->
@@ -159,51 +151,61 @@ doCleanOneRole(_PidFromCS, #recRubbishRoleInfo{roleID = RoleID})->
 %	emysql:execute(?GAMEDB_CONNECT_POOL, stClean1RubbishRoleAllData, [RoleID]),
 %	ok.
 
-doWork(TablName, Key, KeyVal, Type)->
+doWork(TableName, Fields, Key, KeyVal, Type) ->
 	startTimeStatics(),
-	?WARN_OUT("doWorak(~p,~p,~p)...",[TablName,Key,KeyVal]),
-	SQL = formatSql(TablName, Key, KeyVal, Type),
+	?WARN_OUT("doWorak(~p,~p,~p)...", [TableName, Key, KeyVal]),
+	SQL = formatSql(TableName, Fields, Key, KeyVal, Type),
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
-	?WARN_OUT("doWorak(~p,~p,~p), diff(~p ms),~ts",[TablName,Key,KeyVal, stopTimeStatics(), logRet(Ret)]),
+	?WARN_OUT("doWorak(~p,~p,~p), diff(~p ms),~ts", [TableName, Key, KeyVal, stopTimeStatics(), logRet(Ret)]),
 	ok.
 
-logRet(#ok_packet{affected_rows = AffectRows,msg=Msg} )->
-	io_lib:format("ok|affected_rows ~p|~ts",[AffectRows, Msg]);
-logRet(#error_packet{msg=Msg} )->
-	io_lib:format("error|~ts",[Msg]);
-logRet( Other )->
-	io_lib:format("other|~p",[Other]).
+logRet(#ok_packet{affected_rows = AffectRows, msg = Msg}) ->
+	io_lib:format("ok|affected_rows ~p|~ts", [AffectRows, Msg]);
+logRet(#error_packet{msg = Msg}) ->
+	io_lib:format("error|~ts", [Msg]);
+logRet(Other) ->
+	io_lib:format("other|~p", [Other]).
 
 
-formatSql(variant, Key, KeyVal, _)->
+formatSql(variant, _Fields, Key, KeyVal, _) ->
 	io_lib:format("delete from variant~p where ~p=~p", [KeyVal rem 10, Key, KeyVal]);
-formatSql(daily_counter, Key, KeyVal, _)->
+formatSql(daily_counter, _Fields, Key, KeyVal, _) ->
 	io_lib:format("delete from daily_counter~p where ~p=~p", [KeyVal rem 10, Key, KeyVal]);
-formatSql(rune_base, Key, KeyVal, _)->
+formatSql(rune_base, _Fields, Key, KeyVal, _) ->
 	DelRuneProp = io_lib:format("delete from rune_prop where runeUID in (select runeUID from rune_base where ~p=~p);", [Key, KeyVal]),
-	DelRune = io_lib:format("delete from rune_base where ~p=~p",[Key, KeyVal]),
-	io_lib:format("~ts~ts",[DelRuneProp, DelRune]);
-formatSql(mail, Key, KeyVal, _)->
-	BakAttach = io_lib:format("insert into  mail_attachment_bak SELECT * FROM mail_attachment WHERE mailID IN
-		( SELECT mailID FROM mail WHERE ~p = ~p);", [Key, KeyVal]),
-	BakMail = io_lib:format("insert into mail_bak select * from mail where ~p=~p;",[Key, KeyVal]),
-
-	DelAttach = io_lib:format("delete FROM mail_attachment WHERE mailID IN
-		( SELECT mailID FROM mail WHERE ~p = ~p);", [Key, KeyVal]),
-	DelMail = io_lib:format("delete from mail where ~p=~p;",[Key, KeyVal]),
-	io_lib:format("~ts ~ts ~ts ~ts",[BakAttach, BakMail, DelAttach, DelMail]);
-formatSql(TabName, Key, KeyVal,bak)->
-	io_lib:format("insert into ~p_bak select * from ~p where ~p=~p;delete from ~p where ~p=~p",
-		[TabName, TabName, Key, KeyVal, TabName, Key, KeyVal]);
-formatSql(TabName, Key, KeyVal, _)->
+	DelRune = io_lib:format("delete from rune_base where ~p=~p", [Key, KeyVal]),
+	io_lib:format("~ts~ts", [DelRuneProp, DelRune]);
+%%formatSql(mail, _Fields, Key, KeyVal, _)->
+%%	BakAttach = io_lib:format(
+%%		"insert into  mail_attachment_bak(mailID,mtype,mvalue,mvalue2) SELECT mailID,mtype,mvalue,mvalue2 FROM mail_attachment WHERE mailID IN"
+%%		"(SELECT mailID FROM mail WHERE ~p = ~p);", [Key, KeyVal]),
+%%	BakMail = io_lib:format(
+%%		"insert into mail_bak(mailID,mailReadTime,mailSendTime,isLocked,senderRoleID,toRoleID,mailTitle,mailContent,mailSubjoinMsg,deleteTime) "
+%%		"select mailID,mailReadTime,mailSendTime,isLocked,senderRoleID,toRoleID,mailTitle,mailContent,mailSubjoinMsg,deleteTime from mail where ~p=~p;",[Key, KeyVal]),
+%%
+%%	DelAttach = io_lib:format("delete FROM mail_attachment WHERE mailID IN (SELECT mailID FROM mail WHERE ~p = ~p);", [Key, KeyVal]),
+%%	DelMail = io_lib:format("delete from mail where ~p=~p;",[Key, KeyVal]),
+%%	io_lib:format("~ts ~ts ~ts ~ts",[BakAttach, BakMail, DelAttach, DelMail]);
+formatSql(TabName, Fields, Key, KeyVal, bak) ->
+	FieldStr = formatFields("", Fields, length(Fields)),
+	io_lib:format("insert into ~p_bak(~ts) select ~ts from ~p where ~p=~p;delete from ~p where ~p=~p",
+		[TabName, FieldStr, FieldStr, TabName, Key, KeyVal, TabName, Key, KeyVal]);
+formatSql(TabName, _Fields, Key, KeyVal, _) ->
 	io_lib:format("delete from ~p where ~p=~p", [TabName, Key, KeyVal]).
 
+formatFields(InitStr, _Fields, 0) ->
+	InitStr;
+formatFields(InitStr, [Field | _], 1) ->
+	io_lib:format("~ts ~p", [InitStr, Field]);
+formatFields(InitStr, [Field | Fields], N) ->
+	formatFields(io_lib:format("~ts ~p,", [InitStr, Field]), Fields, N - 1).
 
-startTimeStatics()->
+
+startTimeStatics() ->
 	put('NowTimeStamp', os:timestamp()).
 
 
-stopTimeStatics()->
+stopTimeStatics() ->
 	case get('NowTimeStamp') of
 		undefined ->
 			-9999999;

@@ -29,10 +29,12 @@ initEts() ->
 	ets:new(?EtsIdentityData, [public, named_table, set, {keypos, #rec_player_identity.roleID}, {write_concurrency, true}, {read_concurrency, true}]),
 	ets:new(?EtsPicDataMain, [public, named_table, set, {keypos, #rec_pic_data_main.md5}, {write_concurrency, true}, {read_concurrency, true}]),
 	ets:new(?EtsPicDataSub, [public, named_table, set, {keypos, #rec_pic_data_sub.md5}, {write_concurrency, true}, {read_concurrency, true}]),
+	ets:new(?EtsGiftHistory, [public, named_table, set, {keypos, #pk_GiftHistory.index}, {write_concurrency, false}, {read_concurrency, true}]),
 
 	%% 新版好友系统
 	ets:new(?EtsFriend2Data, [public, named_table, set, {keypos, #recFriend2Data.roleID}, {write_concurrency, true}, {read_concurrency, true}]),
 	ets:new(?EtsFriend2LBS, [public, named_table, set, {keypos, #recFriend2LBS.mixRoleID}, {write_concurrency, true}, {read_concurrency, true}]),
+	ets:new(?EtsFriend2Cross, [public, named_table, set, {keypos, #recFriend2Cross.roleID}, {write_concurrency, true}, {read_concurrency, true}]),
 
 	%% 双角色相关的每日计数
 	ets:new(?EtsDaily2Data, [public, named_table, set, {keypos, #recDaily2Data.key}, {write_concurrency, true}, {read_concurrency, true}]),
@@ -47,4 +49,6 @@ initEts() ->
 	ets:new(?EtsTerritoryHistoryAData, [public, named_table, set, {keypos, #recTerritoryData.roleID}, {write_concurrency, false}, {read_concurrency, true}]),
 	ets:new(?EtsTerritoryHistoryDData, [public, named_table, set, {keypos, #recTerritoryData.roleID}, {write_concurrency, false}, {read_concurrency, true}]),
 
+	%% 远程玩家属性
+	ets:new(recRPView, [public, named_table, set, {keypos, #recRPView.roleID}, {write_concurrency, true}, {read_concurrency, true}]),
 	ok.

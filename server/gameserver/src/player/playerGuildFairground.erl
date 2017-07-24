@@ -34,6 +34,7 @@
 	useRide_check/6,		%% 乘坐或取消乘坐设施前检查
 	useRide_check/5,		%% 乘坐或取消乘坐设施前检查
 	useRide_check/4,		%% 升级设施前检查
+	tryRideDown/0,			%% 离开地图或下线引起的尝试取消乘坐操作
 	tryRideDown/2,			%% 离开地图或下线引起的尝试取消乘坐操作
 	onReward/1				%% 获取奖励
 ]).
@@ -124,7 +125,8 @@ useRide(RideID, ?RideUseType_Up) ->
 						_ ->
 							UR = getPlayerRecUseRide(),
 							MsgFree = UR#recUseRide{guildID = GuildID, type = ?RideUseType_Up, rideID = RideID},
-							psMgr:sendMsg2PS(?PsNameGuild, guildFairground_ride, MsgFree)
+							psMgr:sendMsg2PS(?PsNameGuild, guildFairground_ride, MsgFree),
+							playerliveness:onFinishLiveness(?LivenessGuildFairyGround, 1)
 					end;
 				_ ->
 					%% 需要消费
@@ -151,7 +153,8 @@ useRide(RideID, ?RideUseType_Up) ->
 											rideID = RideID,
 											exParam = {CostType, CostValue}
 										},
-									psMgr:sendMsg2PS(?PsNameGuild, guildFairground_ride, MsgPaid)
+									psMgr:sendMsg2PS(?PsNameGuild, guildFairground_ride, MsgPaid),
+									playerliveness:onFinishLiveness(?LivenessGuildFairyGround, 1)
 							end;
 						_ ->
 							skip
@@ -208,6 +211,32 @@ onReward(BuffID) when erlang:is_integer(BuffID) andalso BuffID > 0 ->
 			skip
 	end,
 	ok;
+%% 取消乘坐时，满足添加BUFF的条件，即可获得额外奖励
+onReward({BuffID, CostTime, RideID, RideLevel}) ->
+	onReward(BuffID),
+	case getCfg:getCfgPStack(cfg_guild_ride, RideID, RideLevel) of
+		#guild_rideCfg{guild_contribution = [PerSec, Max]} ->
+			Old = playerDaily:getDailyCounter(?DailyType_GuildRideGetContribute, 0),
+			New = erlang:min(Max - Old, CostTime * PerSec),
+			case New > 0 of
+				true ->
+					PLog =
+						#recPLogTSMoney{
+							target = ?PLogTS_PlayerSelf,
+							source = ?PLogTS_Guild,
+							reason = ?CoinSourceGuildFairgroundRideReward,
+							param = {RideID, RideLevel}
+						},
+					playerDaily:addDailyCounter(?DailyType_GuildRideGetContribute, 0, New),
+					playerMoney:addCoin(?CoinTypeGuildContribute, New, PLog);
+				_ ->
+					skip
+			end;
+		_T ->
+			?ERROR_OUT("cfg_guild_ride Cfg is invalid:~w", [_T]),
+			skip
+	end,
+	ok;
 onReward(BuffID) ->
 	?ERROR_OUT("onreward roleID=~p, buffid=~p", [playerState:getRoleID(), BuffID]),
 	ok.
@@ -235,8 +264,8 @@ useRide_check(RoleID, NetPid, GuildIDIn, RideID, UpOrDown, MapPID) ->
 			false
 	end.
 
-useRide_check_(_RoleID, NetPid, GuildID, RideID, true, #rec_guild_ride{rideLevel = 0}) ->
-	?ERROR_OUT("useRide_check_ up invalid rideID(~w) guildID(~w)", [RideID, GuildID]),
+useRide_check_(_RoleID, NetPid, _GuildID, _RideID, true, #rec_guild_ride{rideLevel = 0}) ->
+	%?ERROR_OUT("useRide_check_ up invalid rideID(~w) guildID(~w)", [RideID, GuildID]),
 	playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_ErrorRideID),
 	false;
 useRide_check_(_RoleID, NetPid, _GuildID, _RideID, true, #rec_guild_ride{rideState = ?RideState_Maintain}) ->
@@ -247,32 +276,38 @@ useRide_check_(_RoleID, NetPid, _GuildID, _RideID, true, #rec_guild_ride{rideSta
 	false;
 useRide_check_(RoleID, NetPid, GuildID, RideID, true, #rec_guild_ride{rideState = ?RideState_Open, rideLevel = RideLevel} = Ride) ->
 	%% 检查设施使用情况
-	#guild_rideCfg{playerMax = CountMax} = Cfg =
+	#guild_rideCfg{playerMax = CountMax, open = OpenLevel} = Cfg =
 		getCfg:getCfgPStack(cfg_guild_ride, RideID, RideLevel),
-	RecGuildRideUser = queryRideUser(GuildID, RideID),
-	ListRideUser = [Role || #recGuildRideUser{role = Role} <- RecGuildRideUser],
-	%% 乘坐操作下需要额外判断
-	case ets:lookup(?EtsGuildRideUser, RoleID) of
-		[#recGuildRideUser{}] ->
-			playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Riding),
-			false;
-		_ ->
-			case erlang:length(ListRideUser) < CountMax of
-				false ->
-					playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Full),
+	case OpenLevel of
+		_ when erlang:is_integer(OpenLevel), OpenLevel > 0 ->
+			RecGuildRideUser = queryRideUser(GuildID, RideID),
+			ListRideUser = [Role || #recGuildRideUser{role = Role} <- RecGuildRideUser],
+			%% 乘坐操作下需要额外判断
+			case ets:lookup(?EtsGuildRideUser, RoleID) of
+				[#recGuildRideUser{}] ->
+					playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Riding),
 					false;
 				_ ->
-					%% 没有乘坐任何设施，可以乘坐
-					#recGuildRideParam{
-						guildID = GuildID,
-						cfg = Cfg,
-						ride = Ride,
-						listUser = ListRideUser
-					}
-			end
+					case erlang:length(ListRideUser) < CountMax of
+						false ->
+							playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_Full),
+							false;
+						_ ->
+							%% 没有乘坐任何设施，可以乘坐
+							#recGuildRideParam{
+								guildID = GuildID,
+								cfg = Cfg,
+								ride = Ride,
+								listUser = ListRideUser
+							}
+					end
+			end;
+		_ ->
+			playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_NotOpen),
+			false
 	end;
-useRide_check_(_RoleID, NetPid, GuildID, RideID, false, #rec_guild_ride{rideLevel = 0}) ->
-	?ERROR_OUT("useRide_check_ down invalid rideID(~w) guildID(~w)", [RideID, GuildID]),
+useRide_check_(_RoleID, NetPid, _GuildID, _RideID, false, #rec_guild_ride{rideLevel = 0}) ->
+	%?ERROR_OUT("useRide_check_ down invalid rideID(~w) guildID(~w)", [RideID, GuildID]),
 	playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_ErrorRideID),
 	false;
 useRide_check_(RoleID, _NetPid, GuildID, RideID, false, #rec_guild_ride{rideLevel = RideLevel} = Ride) ->
@@ -304,19 +339,32 @@ useRide_check(RoleID, NetPid, GuildID, RideID) ->
 		#rec_guild_ride{rideLevel = 0} ->
 			%% 如果没有加入家族，必然设备等级为0
 			%% 如果已经加入家族，可能传参RideID错误
+			%% 也可能是1级设施的open条件大于当前家族等级
 			%% 也有可能是cfg_guild_ride新增设备导致数据未能正确初始化
-			playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildNotJoin),
+			playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_NotOpen),
 			false;
 		#rec_guild_ride{rideLevel = RideLevel} ->
 			#guild_rideCfg{
 				upgrade = NeedRes,
 				upgradePower = PowerLimit
 			} = getCfg:getCfgPStack(cfg_guild_ride, RideID, RideLevel),
+			%% 获取下一级开关限制
+			OpenLevel =
+				case getCfg:getCfgByKey(cfg_guild_ride, RideID, RideLevel + 1) of
+					#guild_rideCfg{open = OpenLevel_} when erlang:is_integer(OpenLevel_), OpenLevel_ > 0 ->
+						OpenLevel_;
+					_ ->
+						0
+				end,
 			%% 验证家族等级限制
 			case ets:lookup(rec_guild, GuildID) of
 				[#rec_guild{guildLevel = GuildLevel}]
 					when RideLevel >= GuildLevel ->
 					playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_LevelLimit),
+					false;
+				[#rec_guild{guildLevel = GuildLevel}]
+					when OpenLevel =:= 0; OpenLevel > GuildLevel ->
+					playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_GuildFairground_NotOpen),
 					false;
 				%% 验证资金
 				[#rec_guild{resource = Res}] when Res >= NeedRes ->
@@ -494,6 +542,18 @@ useRideAck(#recUseRide{type = ?RideUseType_Up, rideID = RideID, exParam = {CostT
 	ok.
 
 %% 离开地图或下线引起的尝试取消乘坐操作
+-spec tryRideDown() -> ok.
+tryRideDown() ->
+	MapID = playerState:getMapID(),
+	case getCfg:getCfgByKey(cfg_mapsetting, MapID) of
+		#mapsettingCfg{subtype = ?MapSubTypeGuildFairground} ->
+			RoleID = playerState:getRoleID(),
+			MapPid = playerState:getMapPid(),
+			tryRideDown(RoleID, MapPid);
+		_ ->
+			skip
+	end,
+	ok.
 -spec tryRideDown(RoleID::uint64(), MapPid::pid()) -> ok.
 tryRideDown(RoleID, MapPid) ->
 	MatchSpec = ets:fun2ms(

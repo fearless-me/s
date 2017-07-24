@@ -44,8 +44,8 @@ createActivityChildProcess() ->
 	%% 黑暗之地
 	addActivityChildPID(?ActivityType_Darkness, acDarknessOtp),
 
-	%% 骑宠争夺战
-	addActivityChildPID(?ActivityType_PetBattle, acPetBattleOtp),
+%%	%% 骑宠争夺战 废弃
+%%	addActivityChildPID(?ActivityType_PetBattle, acPetBattleOtp),
 
 	%% 军团争霸
 	addActivityChildPID(?ActivityType_GuildWar, acGuildwarOtp),
@@ -59,8 +59,13 @@ createActivityChildProcess() ->
 %%	%% 乱世为王活动
 %%	addActivityChildPID(?ActivityType_LSBattleField, acLSBattlefieldOtp),
 
-	%% 港口竞速
-	addActivityChildPID(?ActivityType_NeedForSpeed, needForSpeedOtp),
+	%% 跨服骑宠竞速
+	case core:isCross() of
+		true ->
+			addActivityChildPID(?ActivityType_CrossRace, cacRaceOtp);
+		_ ->
+			skip
+	end,
 
 	%% 港口竞速
 	addActivityChildPID(?ActivityType_Material, acMaterialOtp),
@@ -134,31 +139,46 @@ getAllActivityDataAck([#rec_activity{} = Activity|List]) ->
 	getAllActivityDataAck(List).
 
 %% 发消息给活动逻辑模块
-sendMsgToAcModule(11, MsgID, Msg) ->  %% 跨服活动，仅在跨服中开启
+sendMsgToAcModule(?ActivityType_CrossHDBattle, MsgID, Msg) ->  %% 跨服活动，仅在跨服中开启
 	case core:isCross() of
 		false ->
 			skip;
 		_ ->
-			case getActivityPIDByType(11) of
+			case getActivityPIDByType(?ActivityType_CrossHDBattle) of
 				Pid when erlang:is_pid(Pid) ->
 					psMgr:sendMsg2PS(Pid, MsgID, Msg);
 				_ ->
-					?ERROR_OUT("sendMsgToAcModule target activity not found: {~p,~p,~p}", [11, MsgID, Msg])
+					?ERROR_OUT("sendMsgToAcModule target activity not found: {~p,~p,~p}", [?ActivityType_CrossHDBattle, MsgID, Msg])
 			end
 	end,
 	ok;
-sendMsgToAcModule(12, MsgID, Msg) ->  %% 跨服活动，仅在跨服中开启
+sendMsgToAcModule(?ActivityType_CrossArenaBattle, MsgID, Msg) ->  %% 跨服活动，仅在跨服中开启
 	case core:isCross() of
 		false ->
 			skip;
 		_ ->
-			case getActivityPIDByType(12) of
+			case getActivityPIDByType(?ActivityType_CrossArenaBattle) of
 				Pid when erlang:is_pid(Pid) ->
 					psMgr:sendMsg2PS(Pid, MsgID, Msg);
 				_ ->
-					?ERROR_OUT("sendMsgToAcModule target activity not found: {~p,~p,~p}", [12, MsgID, Msg])
+					?ERROR_OUT("sendMsgToAcModule target activity not found: {~p,~p,~p}", [?ActivityType_CrossArenaBattle, MsgID, Msg])
 			end
 	end,
+	ok;
+sendMsgToAcModule(?ActivityType_CrossRace, MsgID, Msg) ->  %% 跨服活动，仅在跨服中开启
+	case core:isCross() of
+		false ->
+			skip;
+		_ ->
+			case getActivityPIDByType(?ActivityType_CrossRace) of
+				Pid when erlang:is_pid(Pid) ->
+					psMgr:sendMsg2PS(Pid, MsgID, Msg);
+				_ ->
+					?ERROR_OUT("sendMsgToAcModule target activity not found: {~p,~p,~p}", [?ActivityType_CrossRace, MsgID, Msg])
+			end
+	end,
+	ok;
+sendMsgToAcModule(?ActivityType_PetBattle, _MsgID, _Msg) ->  %% fixme 9号活动骑宠争夺战 ?ActivityType_PetBattle 已废弃
 	ok;
 sendMsgToAcModule(?ActivityType_LSBattleField, _MsgID, _Msg) ->  %% fixme 15号活动乱世为王 ?ActivityType_LSBattleField 进程已关闭
 	ok;

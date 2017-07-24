@@ -12,7 +12,7 @@ getRow(1)->
     name = "通关普通本",
     type = 1,
     subType = 0,
-    activeReward = 4,
+    activeReward = 0,
     activeDegree = 4,
     limit = 3,
     relation_UI = [20,101],
@@ -26,7 +26,7 @@ getRow(2)->
     name = "通关英雄本",
     type = 1,
     subType = 6,
-    activeReward = 16,
+    activeReward = 0,
     activeDegree = 16,
     limit = 1,
     relation_UI = [20,201],
@@ -40,10 +40,10 @@ getRow(4)->
     name = "公会的委托",
     type = 2,
     subType = 15,
-    activeReward = 8,
+    activeReward = 0,
     activeDegree = 8,
     limit = 2,
-    relation_UI = [22,15],
+    relation_UI = [15,0],
     completeCondition = 0,
     itemshow = 4200
     };
@@ -54,7 +54,7 @@ getRow(5)->
     name = "女神禁闭室",
     type = 2,
     subType = 13,
-    activeReward = 15,
+    activeReward = 0,
     activeDegree = 15,
     limit = 1,
     relation_UI = [22,13],
@@ -68,7 +68,7 @@ getRow(6)->
     name = "守护女神",
     type = 2,
     subType = 1,
-    activeReward = 15,
+    activeReward = 0,
     activeDegree = 15,
     limit = 1,
     relation_UI = [22,1],
@@ -82,7 +82,7 @@ getRow(7)->
     name = "惊天喵盗团",
     type = 2,
     subType = 4,
-    activeReward = 10,
+    activeReward = 0,
     activeDegree = 10,
     limit = 2,
     relation_UI = [22,4],
@@ -96,7 +96,7 @@ getRow(8)->
     name = "首领入侵",
     type = 2,
     subType = 2,
-    activeReward = 10,
+    activeReward = 0,
     activeDegree = 10,
     limit = 1,
     relation_UI = [22,2],
@@ -110,7 +110,7 @@ getRow(9)->
     name = "竞技场",
     type = 2,
     subType = 16,
-    activeReward = 3,
+    activeReward = 0,
     activeDegree = 3,
     limit = 5,
     relation_UI = [22,16],
@@ -124,7 +124,7 @@ getRow(10)->
     name = "萝莉与绅士",
     type = 2,
     subType = 30,
-    activeReward = 8,
+    activeReward = 0,
     activeDegree = 8,
     limit = 2,
     relation_UI = [22,30],
@@ -138,7 +138,7 @@ getRow(12)->
     name = "元素保卫战",
     type = 2,
     subType = 31,
-    activeReward = 15,
+    activeReward = 0,
     activeDegree = 15,
     limit = 1,
     relation_UI = [22,31],
@@ -152,12 +152,26 @@ getRow(13)->
     name = "体力赠送",
     type = 3,
     subType = 0,
-    activeReward = 20,
+    activeReward = 0,
     activeDegree = 20,
     limit = 1,
     relation_UI = [3,0],
     completeCondition = 0,
-    itemshow = 4002
+    itemshow = 85
+    };
+getRow(14)->
+    #dailyActiveCfg {
+    iD = 14,
+    sort = 13,
+    name = "乘坐家族游乐设施",
+    type = 3,
+    subType = 0,
+    activeReward = 0,
+    activeDegree = 20,
+    limit = 1,
+    relation_UI = [15,0],
+    completeCondition = 0,
+    itemshow = 11
     };
 getRow(_)->[].
 
@@ -172,7 +186,8 @@ getKeyList()->[
     {9},
     {10},
     {12},
-    {13}
+    {13},
+    {14}
     ].
 
 get1KeyList()->[
@@ -186,6 +201,7 @@ get1KeyList()->[
     9,
     10,
     12,
-    13
+    13,
+    14
     ].
 

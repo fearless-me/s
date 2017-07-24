@@ -334,8 +334,8 @@ getLvlPhase() ->
 	getLvlPhase(NKey1List, PlayerLvl).
 
 getLvlPhase([], PlayerLvl) ->
-	?ERROR_OUT("getLvlPhase, config error, roleid = ~p, lvl = ~p", [playerState:getRoleID(), PlayerLvl])
-		-1;
+	?ERROR_OUT("getLvlPhase, config error, roleid = ~p, lvl = ~p", [playerState:getRoleID(), PlayerLvl]),
+	-1;
 getLvlPhase([LvlPhase|List], PlayerLvl) ->
 	case getCfg:get2KeyList(cfg_mysterious_shop,LvlPhase) of
 		[OnlyID |_] ->
@@ -348,6 +348,8 @@ getLvlPhase([LvlPhase|List], PlayerLvl) ->
 			getLvlPhase(List, PlayerLvl)
 	end.
 
+getSelectItemListAndInsert(-1) ->
+	ok;
 getSelectItemListAndInsert(LvlPhase) ->
 	OnlyIDList = getCfg:get2KeyList(cfg_mysterious_shop,LvlPhase),
 	L = lists:map(fun(OnlyID) -> getCfg:getCfgByArgs(cfg_mysterious_shop,LvlPhase, OnlyID) end, OnlyIDList),

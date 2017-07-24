@@ -394,6 +394,13 @@ working(#materialMap{chapterData = Data,deadlineTime = DeadLine} = R)->
 			R
 	end.
 
+noticeMapPlayerUpdateSevenDayAim(CopyMapID, PlayerEts) ->
+	FunSend =
+		fun(#recMapObject{pid = Pid}, _) ->
+			psMgr:sendMsg2PS(Pid, updateMaterial, CopyMapID)
+		end,
+	ets:foldl(FunSend, 0, PlayerEts).
+
 %%----------------------------------------------------------------------------------------------
 -spec reward(R::#materialMap{}) -> #materialMap{}.
 reward(#materialMap{mapID = MapID, mapPID = MapPid,
@@ -427,7 +434,7 @@ failed(#materialMap{} = R)->
 
 %%----------------------------------------------------------------------------------------------
 -spec pass(R::#materialMap{}) -> #materialMap{}.
-pass(#materialMap{chapterData = Data, monsterEts = Ets,playerEts = PlayerEts} = R)->
+pass(#materialMap{chapterData = Data, monsterEts = Ets,playerEts = PlayerEts, mapID = MapID} = R)->
 	#chapter{
 		disappearMonster = Disappeared,
 		killedMonster = KilledNumber,
@@ -439,6 +446,7 @@ pass(#materialMap{chapterData = Data, monsterEts = Ets,playerEts = PlayerEts} = 
 	if
 		KilledNumber + Disappeared >= CreatedNumber andalso LeftNumber =< ?TowerMaxNumber ->
 			?LOG_OUT("~w pass",[R]),
+			noticeMapPlayerUpdateSevenDayAim(MapID, PlayerEts),
 			R#materialMap{state = ?CHAPTER_FINISH};
 		PlayerSize =< 0 ->
 			?LOG_OUT("no player reset[~w]",[R]),

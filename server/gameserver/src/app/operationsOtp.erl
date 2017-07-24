@@ -9,7 +9,7 @@
 -module(operationsOtp).
 -author(tiancheng).
 
--behaviour(myGenServer).
+-behaviour(gen_server).
 
 -include("gameaccount.hrl").
 -include("logger.hrl").
@@ -29,8 +29,7 @@
 	handle_cast/2,
 	handle_info/2,
 	terminate/2,
-	code_change/3,
-	handle_exception/3
+	code_change/3
 ]).
 
 -define(SERVER, ?MODULE).
@@ -50,7 +49,7 @@
 -spec(start_link() ->
 	{ok, Pid :: pid()} | ignore | {error, Reason :: term()}).
 start_link() ->
-	myGenServer:start_link({local, ?SERVER}, ?MODULE, [], []).
+	gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
 
 %%%===================================================================
 %%% gen_server callbacks
@@ -73,6 +72,7 @@ start_link() ->
 init([]) ->
 	case modifyGameServerConfig() of
 		true ->
+			?WARN_OUT("ServerType isNormalServer [~p]", [not core:isCross()]),
 			erlang:send_after(1000, self(), delay_start_server_app);
 		_ ->
 			?ERROR_OUT("ERROR ERROR ERROR modifyGameServerConfig FAILED!")
@@ -126,7 +126,7 @@ handle_cast(_Request, State) ->
 	{noreply, NewState :: #state{}, timeout() | hibernate} |
 	{stop, Reason :: term(), NewState :: #state{}}).
 handle_info(delay_start_server_app, State) ->
-	?LOG_OUT("delay_start_server_app"),
+	?LOG_OUT("delay_start_server_app..."),
 	case server_sup:start_link() of
 		{ok, Pid} ->
 			?LOG_OUT("delay_start_server_app success, pid=~p",[Pid]);
@@ -168,9 +168,6 @@ terminate(_Reason, _State) ->
 code_change(_OldVsn, State, _Extra) ->
 	{ok, State}.
 
-handle_exception(Type,Why,State) ->
-	myGenServer:default_handle_excetion(Type, Why, State).
-
 %%%===================================================================
 %%% Internal functions
 %%%===================================================================
@@ -182,8 +179,8 @@ modifyGameServerConfig() ->
 			case connectPool() of
 				true ->
 					%% 连接成功，查询配置
-					?LOG_OUT("connect operations success!"),
 					ServerName = config:getOperationsString("ServerName", ""),
+					?LOG_OUT("connect operations success, servername = ~ts", [ServerName]),
 					Return =
 						case ServerName /= "" of
 							true ->
@@ -191,65 +188,88 @@ modifyGameServerConfig() ->
 								Ret = emysql:execute(?OPERATION_CONNECT_POOL, SQL),
 								{Result, _LeftResult} = mysql:nextResult(Ret),
 								case emysql_util:as_record(Result, rec_configdb, record_info(fields, rec_configdb)) of
-									[#rec_configdb{regionid = RegionID, serverid = ServerID} = Server] ->
-										OperationEts = config:getOperationsEts(),
-										?LOG_OUT("operations adid=~p, dbid=~p", [RegionID, ServerID]),
-										updateGameServerConfig(OperationEts, "ADBID", RegionID),
-										updateGameServerConfig(OperationEts, "DBID", ServerID),
-
-										Ets = config:getGameServerEts(),
-
-										%% 逻辑库
-										updateGameServerConfig(Ets, "DBIP", Server#rec_configdb.data_ip),
-										updateGameServerConfig(Ets, "DBUserName", Server#rec_configdb.data_username),
-										updateGameServerConfig(Ets, "DBPassword", Server#rec_configdb.data_password),
-										updateGameServerConfig(Ets, "DBPort", Server#rec_configdb.data_port),
-										updateGameServerConfig(Ets, "DBName", Server#rec_configdb.data_dbname),
-
-										%% 日志库
-										updateGameServerConfig(Ets, "LogDBIP", Server#rec_configdb.log_ip),
-										updateGameServerConfig(Ets, "LogDBUserName", Server#rec_configdb.log_username),
-										updateGameServerConfig(Ets, "LogDBPassword", Server#rec_configdb.log_password),
-										updateGameServerConfig(Ets, "LogDBPort", Server#rec_configdb.log_port),
-										updateGameServerConfig(Ets, "LogDBName", Server#rec_configdb.log_dbname),
-
-										%% 账号库
-										updateGameServerConfig(Ets, "LOGINDBIP", Server#rec_configdb.global_account_ip),
-										updateGameServerConfig(Ets, "LOGINDBUserName", Server#rec_configdb.global_account_username),
-										updateGameServerConfig(Ets, "LOGINDBPassword", Server#rec_configdb.global_account_password),
-										updateGameServerConfig(Ets, "LOGINDBPort", Server#rec_configdb.global_account_port),
-										updateGameServerConfig(Ets, "LOGINDBName", Server#rec_configdb.global_account_dbname),
-
-										%% 激活码库
-										updateGameServerConfig(Ets, "ActiveCodeDBIP", Server#rec_configdb.global_activecode_ip),
-										updateGameServerConfig(Ets, "ActiveCodeDBUserName", Server#rec_configdb.global_activecode_username),
-										updateGameServerConfig(Ets, "ActiveCodeDBPassword", Server#rec_configdb.global_activecode_password),
-										updateGameServerConfig(Ets, "ActiveCodeDBPort", Server#rec_configdb.global_activecode_port),
-										updateGameServerConfig(Ets, "ActiveCodeDBName", Server#rec_configdb.global_activecode_dbname),
-
-										%% 端口
-										updateGameServerConfig(Ets, "ClientPort", Server#rec_configdb.gameport1),
-										updateGameServerConfig(Ets, "ListenToUserPort", Server#rec_configdb.gameport2),
-										updateGameServerConfig(Ets, "Web2LsPort", Server#rec_configdb.gameport_gm),
-										updateGameServerConfig(Ets, "HttpServerPort", Server#rec_configdb.gameport_recharge),
-
-										%% 跨服
-										case ets:lookup(Ets, "CrosNode") of
-											[#recConfigValue{}] ->
-												updateGameServerConfig(Ets, "CrosNode", binary_to_list(Server#rec_configdb.cross_node));
-											_ ->
-												skip
-										end,
-
-										%% 备份保存运行配置
-										config:saveConfig(),
-
-										%% 最后再检测一下服务器类型
-										case core:isCross() of
-											false ->
-												Server#rec_configdb.serverType =:= ?ServerType_Normal;
+									[#rec_configdb{regionid = RegionID, serverid = ServerID, gamekey = DBGameKeyBin} = Server] ->
+										%% 运维数据库配置的关键Key
+										ConfigKey = config:getOperationsString("GameKey", "luna2019"),
+										DBGameKey = binary_to_list(DBGameKeyBin),
+										DBGameKeyPair = myse:getKeyPairRight(DBGameKey),
+										case ConfigKey =:= DBGameKeyPair of
 											true ->
-												true
+												?DEBUG_OUT("operations adid=~p, dbid=~p", [RegionID, ServerID]),
+
+												Ets = config:getGameServerEts(),
+												updateGameServerConfig(Ets, "ADBID", RegionID),
+												updateGameServerConfig(Ets, "DBID", ServerID),
+
+												%% IP
+												updateGameServerConfig(Ets, "ListenToUserIP", Server#rec_configdb.externalip),
+
+												%% 逻辑库
+												updateGameServerConfig(Ets, "DBIP", Server#rec_configdb.data_ip),
+												updateGameServerConfig(Ets, "DBUserName", Server#rec_configdb.data_username),
+												updateGameServerConfig(Ets, "DBPassword", Server#rec_configdb.data_password),
+												updateGameServerConfig(Ets, "DBPort", Server#rec_configdb.data_port),
+												updateGameServerConfig(Ets, "DBName", Server#rec_configdb.data_dbname),
+
+												%% 日志库
+												updateGameServerConfig(Ets, "LogDBIP", Server#rec_configdb.log_ip),
+												updateGameServerConfig(Ets, "LogDBUserName", Server#rec_configdb.log_username),
+												updateGameServerConfig(Ets, "LogDBPassword", Server#rec_configdb.log_password),
+												updateGameServerConfig(Ets, "LogDBPort", Server#rec_configdb.log_port),
+												updateGameServerConfig(Ets, "LogDBName", Server#rec_configdb.log_dbname),
+
+												%% 账号库
+												updateGameServerConfig(Ets, "LOGINDBIP", Server#rec_configdb.global_account_ip),
+												updateGameServerConfig(Ets, "LOGINDBUserName", Server#rec_configdb.global_account_username),
+												updateGameServerConfig(Ets, "LOGINDBPassword", Server#rec_configdb.global_account_password),
+												updateGameServerConfig(Ets, "LOGINDBPort", Server#rec_configdb.global_account_port),
+												updateGameServerConfig(Ets, "LOGINDBName", Server#rec_configdb.global_account_dbname),
+
+												%% 激活码库
+												updateGameServerConfig(Ets, "ActiveCodeDBIP", Server#rec_configdb.global_activecode_ip),
+												updateGameServerConfig(Ets, "ActiveCodeDBUserName", Server#rec_configdb.global_activecode_username),
+												updateGameServerConfig(Ets, "ActiveCodeDBPassword", Server#rec_configdb.global_activecode_password),
+												updateGameServerConfig(Ets, "ActiveCodeDBPort", Server#rec_configdb.global_activecode_port),
+												updateGameServerConfig(Ets, "ActiveCodeDBName", Server#rec_configdb.global_activecode_dbname),
+
+												%% 端口
+												updateGameServerConfig(Ets, "ClientPort", Server#rec_configdb.gameport1),
+												updateGameServerConfig(Ets, "ListenToUserPort", Server#rec_configdb.gameport2),
+												updateGameServerConfig(Ets, "Web2LsPort", Server#rec_configdb.gameport_gm),
+												updateGameServerConfig(Ets, "HttpServerPort", Server#rec_configdb.gameport_recharge),
+
+												%% 新增字段
+												updateGameServerConfig(Ets, "GameID", Server#rec_configdb.gameID),
+												updateGameServerConfig(Ets, "EveUrl", Server#rec_configdb.eveUrl),
+												updateGameServerConfig(Ets, "PaymentVerifyUrl", Server#rec_configdb.paymentVerifyUrl),
+												updateGameServerConfig(Ets, "preLoadDayNumber", Server#rec_configdb.preLoadDayNumber),
+												updateGameServerConfig(Ets, "preLoadRoleNumber", Server#rec_configdb.preLoadRoleNumber),
+												updateGameServerConfig(Ets, "serverType", Server#rec_configdb.serverType),
+												updateGameServerConfig(Ets, "biInterface", Server#rec_configdb.biInterface),
+
+												%% 跨服
+												case ets:lookup(Ets, "CrosNode") of
+													[#recConfigValue{}] ->
+														updateGameServerConfig(Ets, "CrosNode", binary_to_list(Server#rec_configdb.cross_node));
+													_ ->
+														skip
+												end,
+
+												%% 备份保存运行配置
+%%												config:saveConfig(),
+
+												%% 最后再检测一下服务器类型
+												case core:isCross() of
+													false ->
+														Server#rec_configdb.serverType =:= ?ServerType_Normal
+															orelse Server#rec_configdb.serverType =:= ?ServerType_Test_Normal;
+													true ->
+														Server#rec_configdb.serverType =:= ?ServerType_Cross
+															orelse Server#rec_configdb.serverType =:= ?ServerType_Test_Cross
+												end;
+											_ ->
+												?ERROR_OUT("registration code is not correct"),
+												false
 										end;
 									Error ->
 										?ERROR_OUT("error operations config:~p", [Error]),
@@ -285,10 +305,10 @@ updateGameServerConfig(Ets, Key, NewValue) ->
 		[#recConfigValue{value = NewValue}] ->
 			skip;
 		[#recConfigValue{}] ->
-			?LOG_OUT("modify ~p config:~ts", [Ets, Key]),
+			?DEBUG_OUT("modify ~p config:~ts", [Ets, Key]),
 			ets:update_element(Ets, Key, {#recConfigValue.value, NewValue});
 		[] ->
-			?LOG_OUT("new ~p config:~ts", [Ets, Key]),
+			?DEBUG_OUT("new ~p config:~ts", [Ets, Key]),
 			ets:insert(Ets, #recConfigValue{key = Key, value = NewValue, index = getEtsIndex(Ets) + 1})
 	end,
 	ok.
@@ -308,7 +328,7 @@ connectPool() ->
 	DBPassword = config:getOperationsString("DBPassword", "123"),
 	DBPort = config:getOperationsInt("DBPort", 3306),
 	DBName = config:getOperationsString("DBName", "test"),
-	?LOG_OUT("Connect Operations DB[~p:~p ~p]", [DBIP, DBPort, DBName]),
+	?DEBUG_OUT("Connect Operations DB[~p:~p ~p]", [DBIP, DBPort, DBName]),
 	ok =:= emysql:add_pool(?OPERATION_CONNECT_POOL, 1,
 		DBUserName,
 		DBPassword,

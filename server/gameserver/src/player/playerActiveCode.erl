@@ -24,26 +24,32 @@
 
 -spec getActiveCodeRequest(ActiveCode::string()) -> ok.
 getActiveCodeRequest(ActiveCode)->
-	IsTimeTooShort =
-		case playerState:getLastGetActiveCodeTime() of
-			undefined ->
-				playerState:setLastGetActiveCodeTime(time:getUTCNowSec()),
-				false;
-			LastGetActiveCodeTime->
-				case (time:getUTCNowSec() - LastGetActiveCodeTime) < ?RequestActiveCodeCD of
-					true->
-						true;
-					_->
-						false
-				end
-		end,
-	case IsTimeTooShort of
-		true->
-			?ERROR_OUT("getActiveCodeRequest player ~p too fast", [playerState:getRoleID()]),
-			playerMsg:sendTipsErrorCodeMsg(?ErrorCode_ActiveCode_Fail_TooFast),
-			skip;
-		_->
-			gsSendMsg:sendMsg2DBServer(getActiveCodeRequest, playerState:getAccountID(), {ActiveCode, playerState:getRoleID()})
+	Len = erlang:length(ActiveCode),
+	case Len >= 6 andalso Len =< 16 of
+		true ->
+			IsTimeTooShort =
+				case playerState:getLastGetActiveCodeTime() of
+					undefined ->
+						playerState:setLastGetActiveCodeTime(time:getUTCNowSec()),
+						false;
+					LastGetActiveCodeTime->
+						case (time:getUTCNowSec() - LastGetActiveCodeTime) < ?RequestActiveCodeCD of
+							true->
+								true;
+							_->
+								false
+						end
+				end,
+			case IsTimeTooShort of
+				true->
+					?ERROR_OUT("getActiveCodeRequest player ~p too fast", [playerState:getRoleID()]),
+					playerMsg:sendTipsErrorCodeMsg(?ErrorCode_ActiveCode_Fail_TooFast),
+					skip;
+				_->
+					gsSendMsg:sendMsg2DBServer(getActiveCodeRequest, playerState:getAccountID(), {ActiveCode, playerState:getRoleID()})
+			end;
+		_ ->
+			playerMsg:sendTipsErrorCodeMsg(?ErrorCode_ActiveCode_Fail_NotExist)
 	end,
 	ok.
 

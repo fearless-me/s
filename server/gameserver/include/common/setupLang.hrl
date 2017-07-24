@@ -9,6 +9,8 @@
 
 -author("ZhongYuanWei").
 
+%% 增加语言设定需要修改 cfg.erl
+
 %% 不同语言定义
 -define(Lang_CHS, chs).   % 简体中文版
 -define(Lang_CHT, cht).   % 繁体中文版

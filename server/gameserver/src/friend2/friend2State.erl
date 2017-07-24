@@ -19,12 +19,34 @@
 	queryInteraction/2,
 	queryChatMsg/2,
 	queryUnGainAP/1,
+	queryFriendCloseness/2,
 	sortRelations/2,
 	sortRelationsForMarriage/2,
 	sortRelationsApplicant/1,
+
 	isBlack/2,
 	beBlackCount/1,
-	isFriend/2
+	isFriend/2,
+	relation2frt/1,
+	queryFRT/2,
+
+	%% 跨服相关
+	queryFriend2Cross/1,	%% 查询目标的所有跨服好友相关信息
+	queryFriend2CrossF/2,	%% 查询目标A与目标B（双向）的跨服好友信息
+	queryFriend2CrossA/2,	%% 查询目标A与目标B（单向，B在A中）的跨服申请者信息
+	replaceFriend2CrossF/1,	%% 新增/更新好友信息
+	replaceFriend2CrossA/1,	%% 新增/更新申请者信息
+	deleteFriend2CrossF/1,	%% 删除好友信息
+	deleteFriend2CrossF/2,	%% 删除好友信息
+	deleteFriend2CrossA/1,	%% 删除申请者信息
+	deleteFriend2CrossA/2,	%% 删除申请者信息
+	isMaxFriend2CrossF/1,	%% 好友列表是否已满
+	isInitCross/0,			%% 跨服好友列表是否已向跨服初始化（普通服）
+	setInitCross/0,			%% 设置跨服好友列表已向跨服初始化（普通服）
+	getSyncDS/0,			%% 获取延迟同步状态（跨服）
+	setSyncDS/1,			%% 设置延迟同步状态（跨服）
+	getAskNormalList/0,		%% 查询正在询问的普通服列表（跨服）
+	setAskNormalList/1		%% 设置正在询问的普通服列表（跨服）
 ]).
 -export([
 	replaceFriend2Data/1,
@@ -37,6 +59,21 @@
 %%%-------------------------------------------------------------------
 %% 任意进程可用的读取数据接口 begin
 
+%% 查询好友亲密度
+-spec queryFriendCloseness(RoleID::uint64(), TargetRoleID::uint64()) -> integer().
+queryFriendCloseness(RoleID, TargetRoleID) ->
+	case ets:lookup(?EtsFriend2Data, RoleID) of
+		[#recFriend2Data{} = Rec] ->
+			case queryRelation(Rec, TargetRoleID) of
+				#rec_friend2_relation{closeness = Closeness} ->
+					Closeness;
+				_ ->
+					0
+			end;
+		_ ->
+			-1
+	end.
+
 %% 查询总体信息
 -spec queryFriend2Data(RoleID::uint64()) -> Friend2Data::#recFriend2Data{}.
 queryFriend2Data(RoleID) ->
@@ -48,8 +85,8 @@ queryFriend2Data(RoleID) ->
 	end.
 
 %% 查询双方关系
--spec queryRelation(Friend2Data::#recFriend2Data{}, TargetRoleID::uint64()) -> Realtion::#rec_friend2_relation{}.
-queryRelation(Friend2Data, TargetRoleID) ->
+-spec queryRelation(Friend2Data::#recFriend2Data{}, TargetRoleID::uint64()) -> Relation::#rec_friend2_relation{}.
+queryRelation(#recFriend2Data{relations = Relations, roleID = RoleID}, TargetRoleID) ->
 	FunQuery =
 		fun(#rec_friend2_relation{targetRoleID = TargetRoleID_} = Rec, {Mark, Result}) ->
 			case TargetRoleID_ of
@@ -59,8 +96,7 @@ queryRelation(Friend2Data, TargetRoleID) ->
 					{Mark, Result}
 			end
 		end,
-	Relations = Friend2Data#recFriend2Data.relations,
-	RelationDefault = ?DefaultValueOfRelation(Friend2Data#recFriend2Data.roleID, TargetRoleID),
+	RelationDefault = ?DefaultValueOfRelation(RoleID, TargetRoleID),
 	{_, Relation} = misc:foldlEx(FunQuery, {false, RelationDefault}, Relations),
 	Relation.
 
@@ -263,6 +299,182 @@ isFriend(RoleID, TargetRoleID) ->
 			false
 	end.
 
+%%%-------------------------------------------------------------------
+%% type_relation() 转换为 type_frt()
+-spec relation2frt(type_relation()) -> type_frt().
+relation2frt(?RELATION_NONE) -> ?FRT_NoneL;	%% 此时仍有可能是 ?FRT_Self ?FRT_NoneC ?FRT_Apply ?FRT_Cross ?FRT_CApply
+relation2frt(?RELATION_FORMAL) -> ?FRT_Formal;
+relation2frt(?RELATION_TEMP) -> ?FRT_Temp;
+relation2frt(?RELATION_BLACK) -> ?FRT_Black.
+
+%%%-------------------------------------------------------------------
+%% 查询两者整体关系定义
+-spec queryFRT(RoleID::uint64(), TargetRoleID::uint64()) -> type_frt().
+queryFRT(0, _TargetRoleID) ->
+	?FRT_NoneL;
+queryFRT(_RoleID, 0) ->
+	?FRT_NoneL;
+queryFRT(RoleID, RoleID) ->
+	?FRT_Self;
+queryFRT(RoleID, TargetRoleID) ->
+	case core:isCross() of
+		true ->
+			DBID_A = core:getRealDBIDByUID(RoleID),
+			case core:getRealDBIDByUID(TargetRoleID) of
+				DBID_A ->
+					?FRT_NoneL;	%% 来自同一归属服
+				_ ->
+					queryFRT_cross(RoleID, TargetRoleID)
+			end;
+		_ ->
+			DBID = core:getRealDBIDByUID(RoleID),
+			case core:getRealDBIDByUID(TargetRoleID) of
+				DBID ->
+					queryFRT_local(RoleID, TargetRoleID);
+				_ ->
+					queryFRT_cross(RoleID, TargetRoleID)
+			end
+	end.
+
+%% 仅查本地关系
+queryFRT_local(RoleID, TargetRoleID) ->
+	Friend2DataMine = queryFriend2Data(RoleID),
+	#rec_friend2_relation{relation = Relation} =
+		queryRelation(Friend2DataMine, TargetRoleID),
+	case relation2frt(Relation) of
+		?FRT_NoneL ->
+			case queryInteraction(Friend2DataMine, TargetRoleID) of
+				#rec_friend2_interaction{timeBeApply = TimeBeApply} when
+					TimeBeApply > 0 ->
+					?FRT_Apply;	%% 本地关系补充：本地申请者
+				_ ->
+					?FRT_NoneL	%% 本地关系补充：本地陌生人
+			end;
+		FRT ->
+			FRT	%% 已确定本地关系
+	end.
+
+%% 仅查跨服关系
+queryFRT_cross(RoleID, TargetRoleID) ->
+	Friend2CrossMine = queryFriend2Cross(RoleID),
+	case queryFriend2CrossF(Friend2CrossMine, TargetRoleID) of
+		{?FRT_NoneC, _} ->
+			case queryFriend2CrossA(Friend2CrossMine, TargetRoleID) of
+				{?FRT_NoneC, _} ->
+					?FRT_NoneC;
+				_ ->
+					?FRT_CApply
+			end;
+		_ ->
+			?FRT_Cross
+	end.
+
+%%%-------------------------------------------------------------------
+%% 跨服好友：查询总体信息
+-spec queryFriend2Cross(RoleID::uint64()) -> Friend2Cross::#recFriend2Cross{}.
+queryFriend2Cross(RoleID) ->
+	case ets:lookup(?EtsFriend2Cross, RoleID) of
+		[#recFriend2Cross{} = Rec] ->
+			Rec;
+		_ ->
+			?DefaultValueOfFriend2Cross(RoleID)
+	end.
+
+%%%-------------------------------------------------------------------
+%% 跨服好友：查询指定目标的好友信息
+-spec queryFriend2CrossF(MyData, TargetRoleID) -> Result when
+	MyData :: uint64() | #recFriend2Cross{},
+	TargetRoleID :: uint64(),
+	Result :: {type_frt(), Data},
+	Data :: #rec_friend2_cross{} | {}.
+queryFriend2CrossF(#recFriend2Cross{friends = L}, TargetRoleID) ->
+	case lists:keyfind(TargetRoleID, #rec_friend2_cross.tarRoleID, L) of
+		false ->
+			{?FRT_NoneC, {}};	%% 此处可能是?FRT_NoneL
+		Data ->
+			{?FRT_Cross, Data}
+	end;
+queryFriend2CrossF(RoleID, TargetRoleID) ->
+	Friend2CrossMine = queryFriend2Cross(RoleID),
+	queryFriend2CrossF(Friend2CrossMine, TargetRoleID).
+
+%%%-------------------------------------------------------------------
+%% 跨服好友：查询指定目标的申请者信息
+-spec queryFriend2CrossA(MyData, TargetRoleID) -> Result when
+	MyData :: uint64() | #recFriend2Cross{},
+	TargetRoleID :: uint64(),
+	Result :: {type_frt(), Data},
+	Data :: #rec_friend2_cross{} | {}.
+queryFriend2CrossA(#recFriend2Cross{applys = L}, TargetRoleID) ->
+	case lists:keyfind(TargetRoleID, #rec_friend2_cross.tarRoleID, L) of
+		false ->
+			{?FRT_NoneC, {}};	%% 此处可能是?FRT_NoneL
+		Data ->
+			{?FRT_CApply, Data}
+	end;
+queryFriend2CrossA(RoleID, TargetRoleID) ->
+	Friend2CrossMine = queryFriend2Cross(RoleID),
+	queryFriend2CrossA(Friend2CrossMine, TargetRoleID).
+%%%-------------------------------------------------------------------
+%% 跨服好友：跨服好友列表是否已满
+-spec isMaxFriend2CrossF(MyData::uint64()|#recFriend2Cross{}) -> boolean().
+isMaxFriend2CrossF(#recFriend2Cross{friends = L}) ->
+	Len = erlang:length(L),
+	#globalsetupCfg{setpara = [MAX]} =
+		getCfg:getCfgPStack(cfg_globalsetup, friends_crosscount),
+	Len >= MAX.
+
+%%%-------------------------------------------------------------------
+%% 跨服好友：跨服好友列表是否已向跨服初始化（普通服）
+-spec isInitCross() -> boolean().
+isInitCross() ->
+	case get(isInitCross) of
+		undefined ->
+			false;
+		V ->
+			V
+	end.
+
+%%%-------------------------------------------------------------------
+%% 跨服好友：设置跨服好友列表已向跨服初始化（普通服）
+-spec setInitCross() -> no_return().
+setInitCross() ->
+	put(isInitCross, true).
+
+%%%-------------------------------------------------------------------
+%% 跨服好友：获取延迟同步状态（跨服）
+-spec getSyncDS() -> type_syncDS().
+getSyncDS() ->
+	case get(getSyncDS) of
+		undefined ->
+			?SYNC_DS_Tick;
+		S ->
+			S
+	end.
+
+%%%-------------------------------------------------------------------
+%% 跨服好友：设置延迟同步状态（跨服）
+-spec setSyncDS(type_syncDS()) -> no_return().
+setSyncDS(S) ->
+	put(getSyncDS, S).
+
+%%%-------------------------------------------------------------------
+%% 跨服好友：查询正在询问的普通服列表（跨服）
+-spec getAskNormalList() -> [uint(), ...].
+getAskNormalList() ->
+	case get(getAskNormalList) of
+		undefined ->
+			[];
+		L ->
+			L
+	end.
+
+%%%-------------------------------------------------------------------
+%% 跨服好友：设置正在询问的普通服列表（跨服）
+-spec setAskNormalList([uint(), ...]) -> no_return().
+setAskNormalList(L) ->
+	put(getAskNormalList, L).
+
 %% 任意进程可用的读取数据接口 end
 %%%-------------------------------------------------------------------
 %%%-------------------------------------------------------------------
@@ -457,6 +669,88 @@ replaceChatMsg(RoleID, ChatMsg) ->
 	end,
 	DBOPT.
 
+%%%-------------------------------------------------------------------
+%% 跨服好友：新增/更新好友信息
+-spec replaceFriend2CrossF(#rec_friend2_cross{}) -> type_dbopt().
+replaceFriend2CrossF(#rec_friend2_cross{roleID = RoleID, tarRoleID = TarRoleID} = Data) ->
+	#recFriend2Cross{friends = L, applys = LA} =
+		Friend2CrossMine = queryFriend2Cross(RoleID),
+	LANew = lists:keydelete(TarRoleID, #rec_friend2_cross.tarRoleID, LA),
+	case queryFriend2CrossF(Friend2CrossMine, TarRoleID) of
+		{?FRT_Cross, Data} ->
+			?DBOPT_ERROR;
+		{?FRT_Cross, _} ->
+			LU = lists:keyreplace(TarRoleID, #rec_friend2_cross.tarRoleID, L, Data),
+			ets:insert(?EtsFriend2Cross, Friend2CrossMine#recFriend2Cross{friends = LU, applys = LANew}),
+			?DBOPT_UPDATE;
+		_ ->
+			ets:insert(?EtsFriend2Cross, Friend2CrossMine#recFriend2Cross{friends = [Data | L], applys = LANew}),
+			?DBOPT_INSERT
+	end.
+%%%-------------------------------------------------------------------
+%% 跨服好友：新增/更新申请者信息
+-spec replaceFriend2CrossA(#rec_friend2_cross{}) -> type_dbopt().
+replaceFriend2CrossA(#rec_friend2_cross{roleID = RoleID, tarRoleID = TarRoleID} = Data) ->
+	#recFriend2Cross{applys = L} =
+		Friend2CrossMine = queryFriend2Cross(RoleID),
+	case queryFriend2CrossA(Friend2CrossMine, TarRoleID) of
+		{?FRT_CApply, Data} ->
+			?DBOPT_ERROR;
+		{?FRT_CApply, _} ->
+			LU = lists:keyreplace(TarRoleID, #rec_friend2_cross.tarRoleID, L, Data),
+			ets:insert(?EtsFriend2Cross, Friend2CrossMine#recFriend2Cross{applys = LU}),
+			?DBOPT_UPDATE;
+		_ ->
+			ets:insert(?EtsFriend2Cross, Friend2CrossMine#recFriend2Cross{applys = [Data | L]}),
+			?DBOPT_INSERT
+	end.
+
+%%%-------------------------------------------------------------------
+%% 跨服好友：删除好友信息
+-spec deleteFriend2CrossF(#rec_friend2_cross{}) -> type_dbopt().
+deleteFriend2CrossF(#rec_friend2_cross{roleID = RoleID, tarRoleID = TarRoleID}) ->
+	deleteFriend2CrossF(RoleID, TarRoleID).
+-spec deleteFriend2CrossF(RoleID::uint64(), TarRoleID::uint64()) -> type_dbopt().
+deleteFriend2CrossF(RoleID, TarRoleID) ->
+	#recFriend2Cross{friends = L} =
+		Friend2CrossMine = queryFriend2Cross(RoleID),
+	case queryFriend2CrossF(Friend2CrossMine, TarRoleID) of
+		{?FRT_Cross, _} ->
+			case lists:keyfind(TarRoleID, #rec_friend2_cross.tarRoleID, L) of
+				false ->
+					?DBOPT_ERROR;
+				_ ->
+					LD = lists:keydelete(TarRoleID, #rec_friend2_cross.tarRoleID, L),
+					ets:insert(?EtsFriend2Cross, Friend2CrossMine#recFriend2Cross{friends = LD}),
+					?DBOPT_DELETE
+			end;
+		_ ->
+			?DBOPT_ERROR
+	end.
+
+%%%-------------------------------------------------------------------
+%% 跨服好友：删除申请者信息
+-spec deleteFriend2CrossA(#rec_friend2_cross{}) -> type_dbopt().
+deleteFriend2CrossA(#rec_friend2_cross{roleID = RoleID, tarRoleID = TarRoleID}) ->
+	deleteFriend2CrossA(RoleID, TarRoleID).
+-spec deleteFriend2CrossA(RoleID::uint64(), TarRoleID::uint64()) -> type_dbopt().
+deleteFriend2CrossA(RoleID, TarRoleID) ->
+	#recFriend2Cross{applys = L} =
+		Friend2CrossMine = queryFriend2Cross(RoleID),
+	case queryFriend2CrossF(Friend2CrossMine, TarRoleID) of
+		{FRT, _} when FRT =:= ?FRT_CApply; FRT =:= ?FRT_Cross ->
+			case lists:keyfind(TarRoleID, #rec_friend2_cross.tarRoleID, L) of
+				false ->
+					?DBOPT_ERROR;
+				_ ->
+					LD = lists:keydelete(TarRoleID, #rec_friend2_cross.tarRoleID, L),
+					ets:insert(?EtsFriend2Cross, Friend2CrossMine#recFriend2Cross{applys = LD}),
+					?DBOPT_DELETE
+			end;
+		_ ->
+			?DBOPT_ERROR
+	end.
+
 %% 限定本进程操作的写入数据接口 end
 %%%-------------------------------------------------------------------
 %%%-------------------------------------------------------------------
@@ -586,7 +880,7 @@ sort(
 							TimeLastOnline_A > TimeLastOnline_B
 					end;
 				true ->
-					TimeLastInteractive_A < TimeLastInteractive_B
+					TimeLastInteractive_A > TimeLastInteractive_B
 			end;
 		true ->
 			IsOnline_A
@@ -631,10 +925,10 @@ sortForMarriage(
 											TimeRelation_A < TimeRelation_B
 									end;
 								true ->
-									TimeLastOnline_A < TimeLastOnline_B
+									TimeLastOnline_A > TimeLastOnline_B
 							end;
 						true ->
-							TimeLastInteractive_A < TimeLastInteractive_B
+							TimeLastInteractive_A > TimeLastInteractive_B
 					end;
 				true ->
 					Closeness_A > Closeness_B

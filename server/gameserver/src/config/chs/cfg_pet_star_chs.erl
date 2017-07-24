@@ -9,85 +9,135 @@ getRow(1,0)->
     #pet_starCfg {
     petStar = 1,
     petQuality = 0,
-    maxHP2 = 736,
-    physicalAttack = 73,
-    magicAttack = 73,
-    physicalDefence = 73,
-    magicDefence = 73
+    maxHP2 = 600,
+    physicalAttack = 60,
+    magicAttack = 60,
+    physicalDefence = 60,
+    magicDefence = 60
     };
 getRow(1,1)->
     #pet_starCfg {
     petStar = 1,
     petQuality = 1,
-    maxHP2 = 921,
-    physicalAttack = 92,
-    magicAttack = 92,
-    physicalDefence = 92,
-    magicDefence = 92
+    maxHP2 = 660,
+    physicalAttack = 66,
+    magicAttack = 66,
+    physicalDefence = 66,
+    magicDefence = 66
     };
 getRow(1,2)->
     #pet_starCfg {
     petStar = 1,
     petQuality = 2,
-    maxHP2 = 1152,
-    physicalAttack = 115,
-    magicAttack = 115,
-    physicalDefence = 115,
-    magicDefence = 115
+    maxHP2 = 720,
+    physicalAttack = 72,
+    magicAttack = 72,
+    physicalDefence = 72,
+    magicDefence = 72
     };
 getRow(1,3)->
     #pet_starCfg {
     petStar = 1,
     petQuality = 3,
+    maxHP2 = 960,
+    physicalAttack = 96,
+    magicAttack = 96,
+    physicalDefence = 96,
+    magicDefence = 96
+    };
+getRow(1,4)->
+    #pet_starCfg {
+    petStar = 1,
+    petQuality = 4,
+    maxHP2 = 1200,
+    physicalAttack = 120,
+    magicAttack = 120,
+    physicalDefence = 120,
+    magicDefence = 120
+    };
+getRow(2,0)->
+    #pet_starCfg {
+    petStar = 2,
+    petQuality = 0,
+    maxHP2 = 1200,
+    physicalAttack = 120,
+    magicAttack = 120,
+    physicalDefence = 120,
+    magicDefence = 120
+    };
+getRow(2,1)->
+    #pet_starCfg {
+    petStar = 2,
+    petQuality = 1,
+    maxHP2 = 1320,
+    physicalAttack = 132,
+    magicAttack = 132,
+    physicalDefence = 132,
+    magicDefence = 132
+    };
+getRow(2,2)->
+    #pet_starCfg {
+    petStar = 2,
+    petQuality = 2,
     maxHP2 = 1440,
     physicalAttack = 144,
     magicAttack = 144,
     physicalDefence = 144,
     magicDefence = 144
     };
-getRow(1,4)->
+getRow(2,3)->
     #pet_starCfg {
-    petStar = 1,
+    petStar = 2,
+    petQuality = 3,
+    maxHP2 = 1920,
+    physicalAttack = 192,
+    magicAttack = 192,
+    physicalDefence = 192,
+    magicDefence = 192
+    };
+getRow(2,4)->
+    #pet_starCfg {
+    petStar = 2,
     petQuality = 4,
+    maxHP2 = 2400,
+    physicalAttack = 240,
+    magicAttack = 240,
+    physicalDefence = 240,
+    magicDefence = 240
+    };
+getRow(3,0)->
+    #pet_starCfg {
+    petStar = 3,
+    petQuality = 0,
     maxHP2 = 1800,
     physicalAttack = 180,
     magicAttack = 180,
     physicalDefence = 180,
     magicDefence = 180
     };
-getRow(2,0)->
+getRow(3,1)->
     #pet_starCfg {
-    petStar = 2,
-    petQuality = 0,
-    maxHP2 = 1474,
-    physicalAttack = 147,
-    magicAttack = 147,
-    physicalDefence = 147,
-    magicDefence = 147
-    };
-getRow(2,1)->
-    #pet_starCfg {
-    petStar = 2,
+    petStar = 3,
     petQuality = 1,
-    maxHP2 = 1843,
-    physicalAttack = 184,
-    magicAttack = 184,
-    physicalDefence = 184,
-    magicDefence = 184
+    maxHP2 = 1980,
+    physicalAttack = 198,
+    magicAttack = 198,
+    physicalDefence = 198,
+    magicDefence = 198
     };
-getRow(2,2)->
+getRow(3,2)->
     #pet_starCfg {
-    petStar = 2,
+    petStar = 3,
     petQuality = 2,
-    maxHP2 = 2304,
-    physicalAttack = 230,
-    magicAttack = 230,
-    physicalDefence = 230,
-    magicDefence = 230
+    maxHP2 = 2160,
+    physicalAttack = 216,
+    magicAttack = 216,
+    physicalDefence = 216,
+    magicDefence = 216
     };
-getRow(2,3)->
+getRow(3,3)->
     #pet_starCfg {
-    petStar = 2,
+    petStar = 3,
     petQuality = 3,
     maxHP2 = 2880,
     physicalAttack = 288,
@@ -95,9 +145,9 @@ getRow(2,3)->
     physicalDefence = 288,
     magicDefence = 288
     };
-getRow(2,4)->
+getRow(3,4)->
     #pet_starCfg {
-    petStar = 2,
+    petStar = 3,
     petQuality = 4,
     maxHP2 = 3600,
     physicalAttack = 360,
@@ -105,639 +155,839 @@ getRow(2,4)->
     physicalDefence = 360,
     magicDefence = 360
     };
-getRow(3,0)->
-    #pet_starCfg {
-    petStar = 3,
-    petQuality = 0,
-    maxHP2 = 2211,
-    physicalAttack = 220,
-    magicAttack = 220,
-    physicalDefence = 220,
-    magicDefence = 220
-    };
-getRow(3,1)->
-    #pet_starCfg {
-    petStar = 3,
-    petQuality = 1,
-    maxHP2 = 2764,
-    physicalAttack = 276,
-    magicAttack = 276,
-    physicalDefence = 276,
-    magicDefence = 276
-    };
-getRow(3,2)->
-    #pet_starCfg {
-    petStar = 3,
-    petQuality = 2,
-    maxHP2 = 3456,
-    physicalAttack = 345,
-    magicAttack = 345,
-    physicalDefence = 345,
-    magicDefence = 345
-    };
-getRow(3,3)->
-    #pet_starCfg {
-    petStar = 3,
-    petQuality = 3,
-    maxHP2 = 4320,
-    physicalAttack = 432,
-    magicAttack = 432,
-    physicalDefence = 432,
-    magicDefence = 432
-    };
-getRow(3,4)->
-    #pet_starCfg {
-    petStar = 3,
-    petQuality = 4,
-    maxHP2 = 5400,
-    physicalAttack = 540,
-    magicAttack = 540,
-    physicalDefence = 540,
-    magicDefence = 540
-    };
 getRow(4,0)->
     #pet_starCfg {
     petStar = 4,
     petQuality = 0,
-    maxHP2 = 2948,
-    physicalAttack = 294,
-    magicAttack = 294,
-    physicalDefence = 294,
-    magicDefence = 294
+    maxHP2 = 2400,
+    physicalAttack = 240,
+    magicAttack = 240,
+    physicalDefence = 240,
+    magicDefence = 240
     };
 getRow(4,1)->
     #pet_starCfg {
     petStar = 4,
     petQuality = 1,
-    maxHP2 = 3686,
-    physicalAttack = 368,
-    magicAttack = 368,
-    physicalDefence = 368,
-    magicDefence = 368
+    maxHP2 = 2640,
+    physicalAttack = 264,
+    magicAttack = 264,
+    physicalDefence = 264,
+    magicDefence = 264
     };
 getRow(4,2)->
     #pet_starCfg {
     petStar = 4,
     petQuality = 2,
-    maxHP2 = 4608,
-    physicalAttack = 460,
-    magicAttack = 460,
-    physicalDefence = 460,
-    magicDefence = 460
+    maxHP2 = 2880,
+    physicalAttack = 288,
+    magicAttack = 288,
+    physicalDefence = 288,
+    magicDefence = 288
     };
 getRow(4,3)->
     #pet_starCfg {
     petStar = 4,
     petQuality = 3,
-    maxHP2 = 5760,
-    physicalAttack = 576,
-    magicAttack = 576,
-    physicalDefence = 576,
-    magicDefence = 576
+    maxHP2 = 3840,
+    physicalAttack = 384,
+    magicAttack = 384,
+    physicalDefence = 384,
+    magicDefence = 384
     };
 getRow(4,4)->
     #pet_starCfg {
     petStar = 4,
     petQuality = 4,
-    maxHP2 = 7200,
-    physicalAttack = 720,
-    magicAttack = 720,
-    physicalDefence = 720,
-    magicDefence = 720
+    maxHP2 = 4800,
+    physicalAttack = 480,
+    magicAttack = 480,
+    physicalDefence = 480,
+    magicDefence = 480
     };
 getRow(5,0)->
     #pet_starCfg {
     petStar = 5,
     petQuality = 0,
-    maxHP2 = 5160,
-    physicalAttack = 515,
-    magicAttack = 515,
-    physicalDefence = 515,
-    magicDefence = 515
+    maxHP2 = 4200,
+    physicalAttack = 420,
+    magicAttack = 420,
+    physicalDefence = 420,
+    magicDefence = 420
     };
 getRow(5,1)->
     #pet_starCfg {
     petStar = 5,
     petQuality = 1,
-    maxHP2 = 6451,
-    physicalAttack = 644,
-    magicAttack = 644,
-    physicalDefence = 644,
-    magicDefence = 644
+    maxHP2 = 4620,
+    physicalAttack = 462,
+    magicAttack = 462,
+    physicalDefence = 462,
+    magicDefence = 462
     };
 getRow(5,2)->
     #pet_starCfg {
     petStar = 5,
     petQuality = 2,
-    maxHP2 = 8064,
-    physicalAttack = 806,
-    magicAttack = 806,
-    physicalDefence = 806,
-    magicDefence = 806
+    maxHP2 = 5040,
+    physicalAttack = 504,
+    magicAttack = 504,
+    physicalDefence = 504,
+    magicDefence = 504
     };
 getRow(5,3)->
     #pet_starCfg {
     petStar = 5,
     petQuality = 3,
-    maxHP2 = 10080,
-    physicalAttack = 1008,
-    magicAttack = 1008,
-    physicalDefence = 1008,
-    magicDefence = 1008
+    maxHP2 = 6720,
+    physicalAttack = 672,
+    magicAttack = 672,
+    physicalDefence = 672,
+    magicDefence = 672
     };
 getRow(5,4)->
     #pet_starCfg {
     petStar = 5,
     petQuality = 4,
-    maxHP2 = 12600,
-    physicalAttack = 1260,
-    magicAttack = 1260,
-    physicalDefence = 1260,
-    magicDefence = 1260
+    maxHP2 = 8400,
+    physicalAttack = 840,
+    magicAttack = 840,
+    physicalDefence = 840,
+    magicDefence = 840
     };
 getRow(6,0)->
     #pet_starCfg {
     petStar = 6,
     petQuality = 0,
-    maxHP2 = 6020,
-    physicalAttack = 601,
-    magicAttack = 601,
-    physicalDefence = 601,
-    magicDefence = 601
+    maxHP2 = 4900,
+    physicalAttack = 490,
+    magicAttack = 490,
+    physicalDefence = 490,
+    magicDefence = 490
     };
 getRow(6,1)->
     #pet_starCfg {
     petStar = 6,
     petQuality = 1,
-    maxHP2 = 7526,
-    physicalAttack = 752,
-    magicAttack = 752,
-    physicalDefence = 752,
-    magicDefence = 752
+    maxHP2 = 5390,
+    physicalAttack = 539,
+    magicAttack = 539,
+    physicalDefence = 539,
+    magicDefence = 539
     };
 getRow(6,2)->
     #pet_starCfg {
     petStar = 6,
     petQuality = 2,
-    maxHP2 = 9408,
-    physicalAttack = 940,
-    magicAttack = 940,
-    physicalDefence = 940,
-    magicDefence = 940
+    maxHP2 = 5880,
+    physicalAttack = 588,
+    magicAttack = 588,
+    physicalDefence = 588,
+    magicDefence = 588
     };
 getRow(6,3)->
     #pet_starCfg {
     petStar = 6,
     petQuality = 3,
-    maxHP2 = 11760,
-    physicalAttack = 1176,
-    magicAttack = 1176,
-    physicalDefence = 1176,
-    magicDefence = 1176
+    maxHP2 = 7840,
+    physicalAttack = 784,
+    magicAttack = 784,
+    physicalDefence = 784,
+    magicDefence = 784
     };
 getRow(6,4)->
     #pet_starCfg {
     petStar = 6,
     petQuality = 4,
-    maxHP2 = 14700,
-    physicalAttack = 1470,
-    magicAttack = 1470,
-    physicalDefence = 1470,
-    magicDefence = 1470
+    maxHP2 = 9800,
+    physicalAttack = 980,
+    magicAttack = 980,
+    physicalDefence = 980,
+    magicDefence = 980
     };
 getRow(7,0)->
     #pet_starCfg {
     petStar = 7,
     petQuality = 0,
-    maxHP2 = 6840,
-    physicalAttack = 683,
-    magicAttack = 683,
-    physicalDefence = 683,
-    magicDefence = 683
+    maxHP2 = 5600,
+    physicalAttack = 560,
+    magicAttack = 560,
+    physicalDefence = 560,
+    magicDefence = 560
     };
 getRow(7,1)->
     #pet_starCfg {
     petStar = 7,
     petQuality = 1,
-    maxHP2 = 8550,
-    physicalAttack = 854,
-    magicAttack = 854,
-    physicalDefence = 854,
-    magicDefence = 854
+    maxHP2 = 6160,
+    physicalAttack = 616,
+    magicAttack = 616,
+    physicalDefence = 616,
+    magicDefence = 616
     };
 getRow(7,2)->
     #pet_starCfg {
     petStar = 7,
     petQuality = 2,
-    maxHP2 = 10688,
-    physicalAttack = 1068,
-    magicAttack = 1068,
-    physicalDefence = 1068,
-    magicDefence = 1068
+    maxHP2 = 6720,
+    physicalAttack = 672,
+    magicAttack = 672,
+    physicalDefence = 672,
+    magicDefence = 672
     };
 getRow(7,3)->
     #pet_starCfg {
     petStar = 7,
     petQuality = 3,
-    maxHP2 = 13360,
-    physicalAttack = 1336,
-    magicAttack = 1336,
-    physicalDefence = 1336,
-    magicDefence = 1336
+    maxHP2 = 8960,
+    physicalAttack = 896,
+    magicAttack = 896,
+    physicalDefence = 896,
+    magicDefence = 896
     };
 getRow(7,4)->
     #pet_starCfg {
     petStar = 7,
     petQuality = 4,
-    maxHP2 = 16700,
-    physicalAttack = 1670,
-    magicAttack = 1670,
-    physicalDefence = 1670,
-    magicDefence = 1670
+    maxHP2 = 11200,
+    physicalAttack = 1120,
+    magicAttack = 1120,
+    physicalDefence = 1120,
+    magicDefence = 1120
     };
 getRow(8,0)->
     #pet_starCfg {
     petStar = 8,
     petQuality = 0,
-    maxHP2 = 7700,
-    physicalAttack = 769,
-    magicAttack = 769,
-    physicalDefence = 769,
-    magicDefence = 769
+    maxHP2 = 6250,
+    physicalAttack = 625,
+    magicAttack = 625,
+    physicalDefence = 625,
+    magicDefence = 625
     };
 getRow(8,1)->
     #pet_starCfg {
     petStar = 8,
     petQuality = 1,
-    maxHP2 = 9625,
-    physicalAttack = 962,
-    magicAttack = 962,
-    physicalDefence = 962,
-    magicDefence = 962
+    maxHP2 = 6875,
+    physicalAttack = 687.5,
+    magicAttack = 687.5,
+    physicalDefence = 687.5,
+    magicDefence = 687.5
     };
 getRow(8,2)->
     #pet_starCfg {
     petStar = 8,
     petQuality = 2,
-    maxHP2 = 12032,
-    physicalAttack = 1203,
-    magicAttack = 1203,
-    physicalDefence = 1203,
-    magicDefence = 1203
+    maxHP2 = 7500,
+    physicalAttack = 750,
+    magicAttack = 750,
+    physicalDefence = 750,
+    magicDefence = 750
     };
 getRow(8,3)->
     #pet_starCfg {
     petStar = 8,
     petQuality = 3,
-    maxHP2 = 15040,
-    physicalAttack = 1504,
-    magicAttack = 1504,
-    physicalDefence = 1504,
-    magicDefence = 1504
+    maxHP2 = 10000,
+    physicalAttack = 1000,
+    magicAttack = 1000,
+    physicalDefence = 1000,
+    magicDefence = 1000
     };
 getRow(8,4)->
     #pet_starCfg {
     petStar = 8,
     petQuality = 4,
-    maxHP2 = 18800,
-    physicalAttack = 1880,
-    magicAttack = 1880,
-    physicalDefence = 1880,
-    magicDefence = 1880
+    maxHP2 = 12500,
+    physicalAttack = 1250,
+    magicAttack = 1250,
+    physicalDefence = 1250,
+    magicDefence = 1250
     };
 getRow(9,0)->
     #pet_starCfg {
     petStar = 9,
     petQuality = 0,
-    maxHP2 = 8519,
-    physicalAttack = 851,
-    magicAttack = 851,
-    physicalDefence = 851,
-    magicDefence = 851
+    maxHP2 = 6950,
+    physicalAttack = 695,
+    magicAttack = 695,
+    physicalDefence = 695,
+    magicDefence = 695
     };
 getRow(9,1)->
     #pet_starCfg {
     petStar = 9,
     petQuality = 1,
-    maxHP2 = 10649,
-    physicalAttack = 1064,
-    magicAttack = 1064,
-    physicalDefence = 1064,
-    magicDefence = 1064
+    maxHP2 = 7645,
+    physicalAttack = 764.5,
+    magicAttack = 764.5,
+    physicalDefence = 764.5,
+    magicDefence = 764.5
     };
 getRow(9,2)->
     #pet_starCfg {
     petStar = 9,
     petQuality = 2,
-    maxHP2 = 13312,
-    physicalAttack = 1331,
-    magicAttack = 1331,
-    physicalDefence = 1331,
-    magicDefence = 1331
+    maxHP2 = 8340,
+    physicalAttack = 834,
+    magicAttack = 834,
+    physicalDefence = 834,
+    magicDefence = 834
     };
 getRow(9,3)->
     #pet_starCfg {
     petStar = 9,
     petQuality = 3,
-    maxHP2 = 16640,
-    physicalAttack = 1664,
-    magicAttack = 1664,
-    physicalDefence = 1664,
-    magicDefence = 1664
+    maxHP2 = 11120,
+    physicalAttack = 1112,
+    magicAttack = 1112,
+    physicalDefence = 1112,
+    magicDefence = 1112
     };
 getRow(9,4)->
     #pet_starCfg {
     petStar = 9,
     petQuality = 4,
-    maxHP2 = 20800,
-    physicalAttack = 2080,
-    magicAttack = 2080,
-    physicalDefence = 2080,
-    magicDefence = 2080
+    maxHP2 = 13900,
+    physicalAttack = 1390,
+    magicAttack = 1390,
+    physicalDefence = 1390,
+    magicDefence = 1390
     };
 getRow(10,0)->
     #pet_starCfg {
     petStar = 10,
     petQuality = 0,
-    maxHP2 = 13312,
-    physicalAttack = 1331,
-    magicAttack = 1331,
-    physicalDefence = 1331,
-    magicDefence = 1331
+    maxHP2 = 10850,
+    physicalAttack = 1085,
+    magicAttack = 1085,
+    physicalDefence = 1085,
+    magicDefence = 1085
     };
 getRow(10,1)->
     #pet_starCfg {
     petStar = 10,
     petQuality = 1,
-    maxHP2 = 16640,
-    physicalAttack = 1664,
-    magicAttack = 1664,
-    physicalDefence = 1664,
-    magicDefence = 1664
+    maxHP2 = 11935,
+    physicalAttack = 1193.5,
+    magicAttack = 1193.5,
+    physicalDefence = 1193.5,
+    magicDefence = 1193.5
     };
 getRow(10,2)->
     #pet_starCfg {
     petStar = 10,
     petQuality = 2,
-    maxHP2 = 20800,
-    physicalAttack = 2080,
-    magicAttack = 2080,
-    physicalDefence = 2080,
-    magicDefence = 2080
+    maxHP2 = 13020,
+    physicalAttack = 1302,
+    magicAttack = 1302,
+    physicalDefence = 1302,
+    magicDefence = 1302
     };
 getRow(10,3)->
     #pet_starCfg {
     petStar = 10,
     petQuality = 3,
-    maxHP2 = 26000,
-    physicalAttack = 2600,
-    magicAttack = 2600,
-    physicalDefence = 2600,
-    magicDefence = 2600
+    maxHP2 = 17360,
+    physicalAttack = 1736,
+    magicAttack = 1736,
+    physicalDefence = 1736,
+    magicDefence = 1736
     };
 getRow(10,4)->
     #pet_starCfg {
     petStar = 10,
     petQuality = 4,
-    maxHP2 = 32500,
-    physicalAttack = 3250,
-    magicAttack = 3250,
-    physicalDefence = 3250,
-    magicDefence = 3250
+    maxHP2 = 21700,
+    physicalAttack = 2170,
+    magicAttack = 2170,
+    physicalDefence = 2170,
+    magicDefence = 2170
     };
 getRow(11,0)->
     #pet_starCfg {
     petStar = 11,
     petQuality = 0,
-    maxHP2 = 14294,
-    physicalAttack = 1428,
-    magicAttack = 1428,
-    physicalDefence = 1428,
-    magicDefence = 1428
+    maxHP2 = 11650,
+    physicalAttack = 1165,
+    magicAttack = 1165,
+    physicalDefence = 1165,
+    magicDefence = 1165
     };
 getRow(11,1)->
     #pet_starCfg {
     petStar = 11,
     petQuality = 1,
-    maxHP2 = 17868,
-    physicalAttack = 1786,
-    magicAttack = 1786,
-    physicalDefence = 1786,
-    magicDefence = 1786
+    maxHP2 = 12815,
+    physicalAttack = 1281.5,
+    magicAttack = 1281.5,
+    physicalDefence = 1281.5,
+    magicDefence = 1281.5
     };
 getRow(11,2)->
     #pet_starCfg {
     petStar = 11,
     petQuality = 2,
-    maxHP2 = 22336,
-    physicalAttack = 2233,
-    magicAttack = 2233,
-    physicalDefence = 2233,
-    magicDefence = 2233
+    maxHP2 = 13980,
+    physicalAttack = 1398,
+    magicAttack = 1398,
+    physicalDefence = 1398,
+    magicDefence = 1398
     };
 getRow(11,3)->
     #pet_starCfg {
     petStar = 11,
     petQuality = 3,
-    maxHP2 = 27920,
-    physicalAttack = 2792,
-    magicAttack = 2792,
-    physicalDefence = 2792,
-    magicDefence = 2792
+    maxHP2 = 18640,
+    physicalAttack = 1864,
+    magicAttack = 1864,
+    physicalDefence = 1864,
+    magicDefence = 1864
     };
 getRow(11,4)->
     #pet_starCfg {
     petStar = 11,
     petQuality = 4,
-    maxHP2 = 34900,
-    physicalAttack = 3490,
-    magicAttack = 3490,
-    physicalDefence = 3490,
-    magicDefence = 3490
+    maxHP2 = 23300,
+    physicalAttack = 2330,
+    magicAttack = 2330,
+    physicalDefence = 2330,
+    magicDefence = 2330
     };
 getRow(12,0)->
     #pet_starCfg {
     petStar = 12,
     petQuality = 0,
-    maxHP2 = 15277,
-    physicalAttack = 1527,
-    magicAttack = 1527,
-    physicalDefence = 1527,
-    magicDefence = 1527
+    maxHP2 = 12450,
+    physicalAttack = 1245,
+    magicAttack = 1245,
+    physicalDefence = 1245,
+    magicDefence = 1245
     };
 getRow(12,1)->
     #pet_starCfg {
     petStar = 12,
     petQuality = 1,
-    maxHP2 = 19097,
-    physicalAttack = 1909,
-    magicAttack = 1909,
-    physicalDefence = 1909,
-    magicDefence = 1909
+    maxHP2 = 13695,
+    physicalAttack = 1369.5,
+    magicAttack = 1369.5,
+    physicalDefence = 1369.5,
+    magicDefence = 1369.5
     };
 getRow(12,2)->
     #pet_starCfg {
     petStar = 12,
     petQuality = 2,
-    maxHP2 = 23872,
-    physicalAttack = 2387,
-    magicAttack = 2387,
-    physicalDefence = 2387,
-    magicDefence = 2387
+    maxHP2 = 14940,
+    physicalAttack = 1494,
+    magicAttack = 1494,
+    physicalDefence = 1494,
+    magicDefence = 1494
     };
 getRow(12,3)->
     #pet_starCfg {
     petStar = 12,
     petQuality = 3,
-    maxHP2 = 29840,
-    physicalAttack = 2984,
-    magicAttack = 2984,
-    physicalDefence = 2984,
-    magicDefence = 2984
+    maxHP2 = 19920,
+    physicalAttack = 1992,
+    magicAttack = 1992,
+    physicalDefence = 1992,
+    magicDefence = 1992
     };
 getRow(12,4)->
     #pet_starCfg {
     petStar = 12,
     petQuality = 4,
-    maxHP2 = 37300,
-    physicalAttack = 3730,
-    magicAttack = 3730,
-    physicalDefence = 3730,
-    magicDefence = 3730
+    maxHP2 = 24900,
+    physicalAttack = 2490,
+    magicAttack = 2490,
+    physicalDefence = 2490,
+    magicDefence = 2490
     };
 getRow(13,0)->
     #pet_starCfg {
     petStar = 13,
     petQuality = 0,
-    maxHP2 = 16260,
-    physicalAttack = 1625,
-    magicAttack = 1625,
-    physicalDefence = 1625,
-    magicDefence = 1625
+    maxHP2 = 13250,
+    physicalAttack = 1325,
+    magicAttack = 1325,
+    physicalDefence = 1325,
+    magicDefence = 1325
     };
 getRow(13,1)->
     #pet_starCfg {
     petStar = 13,
     petQuality = 1,
-    maxHP2 = 20326,
-    physicalAttack = 2032,
-    magicAttack = 2032,
-    physicalDefence = 2032,
-    magicDefence = 2032
+    maxHP2 = 14575,
+    physicalAttack = 1457.5,
+    magicAttack = 1457.5,
+    physicalDefence = 1457.5,
+    magicDefence = 1457.5
     };
 getRow(13,2)->
     #pet_starCfg {
     petStar = 13,
     petQuality = 2,
-    maxHP2 = 25408,
-    physicalAttack = 2540,
-    magicAttack = 2540,
-    physicalDefence = 2540,
-    magicDefence = 2540
+    maxHP2 = 15900,
+    physicalAttack = 1590,
+    magicAttack = 1590,
+    physicalDefence = 1590,
+    magicDefence = 1590
     };
 getRow(13,3)->
     #pet_starCfg {
     petStar = 13,
     petQuality = 3,
-    maxHP2 = 31760,
-    physicalAttack = 3176,
-    magicAttack = 3176,
-    physicalDefence = 3176,
-    magicDefence = 3176
+    maxHP2 = 21200,
+    physicalAttack = 2120,
+    magicAttack = 2120,
+    physicalDefence = 2120,
+    magicDefence = 2120
     };
 getRow(13,4)->
     #pet_starCfg {
     petStar = 13,
     petQuality = 4,
-    maxHP2 = 39700,
-    physicalAttack = 3970,
-    magicAttack = 3970,
-    physicalDefence = 3970,
-    magicDefence = 3970
+    maxHP2 = 26500,
+    physicalAttack = 2650,
+    magicAttack = 2650,
+    physicalDefence = 2650,
+    magicDefence = 2650
     };
 getRow(14,0)->
     #pet_starCfg {
     petStar = 14,
     petQuality = 0,
-    maxHP2 = 17244,
-    physicalAttack = 1724,
-    magicAttack = 1724,
-    physicalDefence = 1724,
-    magicDefence = 1724
+    maxHP2 = 14050,
+    physicalAttack = 1405,
+    magicAttack = 1405,
+    physicalDefence = 1405,
+    magicDefence = 1405
     };
 getRow(14,1)->
     #pet_starCfg {
     petStar = 14,
     petQuality = 1,
-    maxHP2 = 21555,
-    physicalAttack = 2155,
-    magicAttack = 2155,
-    physicalDefence = 2155,
-    magicDefence = 2155
+    maxHP2 = 15455,
+    physicalAttack = 1545.5,
+    magicAttack = 1545.5,
+    physicalDefence = 1545.5,
+    magicDefence = 1545.5
     };
 getRow(14,2)->
     #pet_starCfg {
     petStar = 14,
     petQuality = 2,
-    maxHP2 = 26944,
-    physicalAttack = 2694,
-    magicAttack = 2694,
-    physicalDefence = 2694,
-    magicDefence = 2694
+    maxHP2 = 16860,
+    physicalAttack = 1686,
+    magicAttack = 1686,
+    physicalDefence = 1686,
+    magicDefence = 1686
     };
 getRow(14,3)->
     #pet_starCfg {
     petStar = 14,
     petQuality = 3,
-    maxHP2 = 33680,
-    physicalAttack = 3368,
-    magicAttack = 3368,
-    physicalDefence = 3368,
-    magicDefence = 3368
+    maxHP2 = 22480,
+    physicalAttack = 2248,
+    magicAttack = 2248,
+    physicalDefence = 2248,
+    magicDefence = 2248
     };
 getRow(14,4)->
     #pet_starCfg {
     petStar = 14,
     petQuality = 4,
-    maxHP2 = 42100,
-    physicalAttack = 4210,
-    magicAttack = 4210,
-    physicalDefence = 4210,
-    magicDefence = 4210
+    maxHP2 = 28100,
+    physicalAttack = 2810,
+    magicAttack = 2810,
+    physicalDefence = 2810,
+    magicDefence = 2810
     };
 getRow(15,0)->
     #pet_starCfg {
     petStar = 15,
     petQuality = 0,
-    maxHP2 = 23183,
-    physicalAttack = 2317,
-    magicAttack = 2317,
-    physicalDefence = 2317,
-    magicDefence = 2317
+    maxHP2 = 18850,
+    physicalAttack = 1885,
+    magicAttack = 1885,
+    physicalDefence = 1885,
+    magicDefence = 1885
     };
 getRow(15,1)->
     #pet_starCfg {
     petStar = 15,
     petQuality = 1,
-    maxHP2 = 28979,
-    physicalAttack = 2897,
-    magicAttack = 2897,
-    physicalDefence = 2897,
-    magicDefence = 2897
+    maxHP2 = 20735,
+    physicalAttack = 2073.5,
+    magicAttack = 2073.5,
+    physicalDefence = 2073.5,
+    magicDefence = 2073.5
     };
 getRow(15,2)->
     #pet_starCfg {
     petStar = 15,
     petQuality = 2,
-    maxHP2 = 36224,
-    physicalAttack = 3622,
-    magicAttack = 3622,
-    physicalDefence = 3622,
-    magicDefence = 3622
+    maxHP2 = 22620,
+    physicalAttack = 2262,
+    magicAttack = 2262,
+    physicalDefence = 2262,
+    magicDefence = 2262
     };
 getRow(15,3)->
     #pet_starCfg {
     petStar = 15,
+    petQuality = 3,
+    maxHP2 = 30160,
+    physicalAttack = 3016,
+    magicAttack = 3016,
+    physicalDefence = 3016,
+    magicDefence = 3016
+    };
+getRow(15,4)->
+    #pet_starCfg {
+    petStar = 15,
+    petQuality = 4,
+    maxHP2 = 37700,
+    physicalAttack = 3770,
+    magicAttack = 3770,
+    physicalDefence = 3770,
+    magicDefence = 3770
+    };
+getRow(16,0)->
+    #pet_starCfg {
+    petStar = 16,
+    petQuality = 0,
+    maxHP2 = 19800,
+    physicalAttack = 1980,
+    magicAttack = 1980,
+    physicalDefence = 1980,
+    magicDefence = 1980
+    };
+getRow(16,1)->
+    #pet_starCfg {
+    petStar = 16,
+    petQuality = 1,
+    maxHP2 = 21780,
+    physicalAttack = 2178,
+    magicAttack = 2178,
+    physicalDefence = 2178,
+    magicDefence = 2178
+    };
+getRow(16,2)->
+    #pet_starCfg {
+    petStar = 16,
+    petQuality = 2,
+    maxHP2 = 23760,
+    physicalAttack = 2376,
+    magicAttack = 2376,
+    physicalDefence = 2376,
+    magicDefence = 2376
+    };
+getRow(16,3)->
+    #pet_starCfg {
+    petStar = 16,
+    petQuality = 3,
+    maxHP2 = 31680,
+    physicalAttack = 3168,
+    magicAttack = 3168,
+    physicalDefence = 3168,
+    magicDefence = 3168
+    };
+getRow(16,4)->
+    #pet_starCfg {
+    petStar = 16,
+    petQuality = 4,
+    maxHP2 = 39600,
+    physicalAttack = 3960,
+    magicAttack = 3960,
+    physicalDefence = 3960,
+    magicDefence = 3960
+    };
+getRow(17,0)->
+    #pet_starCfg {
+    petStar = 17,
+    petQuality = 0,
+    maxHP2 = 20700,
+    physicalAttack = 2070,
+    magicAttack = 2070,
+    physicalDefence = 2070,
+    magicDefence = 2070
+    };
+getRow(17,1)->
+    #pet_starCfg {
+    petStar = 17,
+    petQuality = 1,
+    maxHP2 = 22770,
+    physicalAttack = 2277,
+    magicAttack = 2277,
+    physicalDefence = 2277,
+    magicDefence = 2277
+    };
+getRow(17,2)->
+    #pet_starCfg {
+    petStar = 17,
+    petQuality = 2,
+    maxHP2 = 24840,
+    physicalAttack = 2484,
+    magicAttack = 2484,
+    physicalDefence = 2484,
+    magicDefence = 2484
+    };
+getRow(17,3)->
+    #pet_starCfg {
+    petStar = 17,
+    petQuality = 3,
+    maxHP2 = 33120,
+    physicalAttack = 3312,
+    magicAttack = 3312,
+    physicalDefence = 3312,
+    magicDefence = 3312
+    };
+getRow(17,4)->
+    #pet_starCfg {
+    petStar = 17,
+    petQuality = 4,
+    maxHP2 = 41400,
+    physicalAttack = 4140,
+    magicAttack = 4140,
+    physicalDefence = 4140,
+    magicDefence = 4140
+    };
+getRow(18,0)->
+    #pet_starCfg {
+    petStar = 18,
+    petQuality = 0,
+    maxHP2 = 21650,
+    physicalAttack = 2165,
+    magicAttack = 2165,
+    physicalDefence = 2165,
+    magicDefence = 2165
+    };
+getRow(18,1)->
+    #pet_starCfg {
+    petStar = 18,
+    petQuality = 1,
+    maxHP2 = 23815,
+    physicalAttack = 2381.5,
+    magicAttack = 2381.5,
+    physicalDefence = 2381.5,
+    magicDefence = 2381.5
+    };
+getRow(18,2)->
+    #pet_starCfg {
+    petStar = 18,
+    petQuality = 2,
+    maxHP2 = 25980,
+    physicalAttack = 2598,
+    magicAttack = 2598,
+    physicalDefence = 2598,
+    magicDefence = 2598
+    };
+getRow(18,3)->
+    #pet_starCfg {
+    petStar = 18,
+    petQuality = 3,
+    maxHP2 = 34640,
+    physicalAttack = 3464,
+    magicAttack = 3464,
+    physicalDefence = 3464,
+    magicDefence = 3464
+    };
+getRow(18,4)->
+    #pet_starCfg {
+    petStar = 18,
+    petQuality = 4,
+    maxHP2 = 43300,
+    physicalAttack = 4330,
+    magicAttack = 4330,
+    physicalDefence = 4330,
+    magicDefence = 4330
+    };
+getRow(19,0)->
+    #pet_starCfg {
+    petStar = 19,
+    petQuality = 0,
+    maxHP2 = 22550,
+    physicalAttack = 2255,
+    magicAttack = 2255,
+    physicalDefence = 2255,
+    magicDefence = 2255
+    };
+getRow(19,1)->
+    #pet_starCfg {
+    petStar = 19,
+    petQuality = 1,
+    maxHP2 = 24805,
+    physicalAttack = 2480.5,
+    magicAttack = 2480.5,
+    physicalDefence = 2480.5,
+    magicDefence = 2480.5
+    };
+getRow(19,2)->
+    #pet_starCfg {
+    petStar = 19,
+    petQuality = 2,
+    maxHP2 = 27060,
+    physicalAttack = 2706,
+    magicAttack = 2706,
+    physicalDefence = 2706,
+    magicDefence = 2706
+    };
+getRow(19,3)->
+    #pet_starCfg {
+    petStar = 19,
+    petQuality = 3,
+    maxHP2 = 36080,
+    physicalAttack = 3608,
+    magicAttack = 3608,
+    physicalDefence = 3608,
+    magicDefence = 3608
+    };
+getRow(19,4)->
+    #pet_starCfg {
+    petStar = 19,
+    petQuality = 4,
+    maxHP2 = 45100,
+    physicalAttack = 4510,
+    magicAttack = 4510,
+    physicalDefence = 4510,
+    magicDefence = 4510
+    };
+getRow(20,0)->
+    #pet_starCfg {
+    petStar = 20,
+    petQuality = 0,
+    maxHP2 = 28300,
+    physicalAttack = 2830,
+    magicAttack = 2830,
+    physicalDefence = 2830,
+    magicDefence = 2830
+    };
+getRow(20,1)->
+    #pet_starCfg {
+    petStar = 20,
+    petQuality = 1,
+    maxHP2 = 31130,
+    physicalAttack = 3113,
+    magicAttack = 3113,
+    physicalDefence = 3113,
+    magicDefence = 3113
+    };
+getRow(20,2)->
+    #pet_starCfg {
+    petStar = 20,
+    petQuality = 2,
+    maxHP2 = 33960,
+    physicalAttack = 3396,
+    magicAttack = 3396,
+    physicalDefence = 3396,
+    magicDefence = 3396
+    };
+getRow(20,3)->
+    #pet_starCfg {
+    petStar = 20,
     petQuality = 3,
     maxHP2 = 45280,
     physicalAttack = 4528,
@@ -745,9 +995,9 @@ getRow(15,3)->
     physicalDefence = 4528,
     magicDefence = 4528
     };
-getRow(15,4)->
+getRow(20,4)->
     #pet_starCfg {
-    petStar = 15,
+    petStar = 20,
     petQuality = 4,
     maxHP2 = 56600,
     physicalAttack = 5660,
@@ -755,505 +1005,255 @@ getRow(15,4)->
     physicalDefence = 5660,
     magicDefence = 5660
     };
-getRow(16,0)->
-    #pet_starCfg {
-    petStar = 16,
-    petQuality = 0,
-    maxHP2 = 24288,
-    physicalAttack = 2428,
-    magicAttack = 2428,
-    physicalDefence = 2428,
-    magicDefence = 2428
-    };
-getRow(16,1)->
-    #pet_starCfg {
-    petStar = 16,
-    petQuality = 1,
-    maxHP2 = 30361,
-    physicalAttack = 3036,
-    magicAttack = 3036,
-    physicalDefence = 3036,
-    magicDefence = 3036
-    };
-getRow(16,2)->
-    #pet_starCfg {
-    petStar = 16,
-    petQuality = 2,
-    maxHP2 = 37952,
-    physicalAttack = 3795,
-    magicAttack = 3795,
-    physicalDefence = 3795,
-    magicDefence = 3795
-    };
-getRow(16,3)->
-    #pet_starCfg {
-    petStar = 16,
-    petQuality = 3,
-    maxHP2 = 47440,
-    physicalAttack = 4744,
-    magicAttack = 4744,
-    physicalDefence = 4744,
-    magicDefence = 4744
-    };
-getRow(16,4)->
-    #pet_starCfg {
-    petStar = 16,
-    petQuality = 4,
-    maxHP2 = 59300,
-    physicalAttack = 5930,
-    magicAttack = 5930,
-    physicalDefence = 5930,
-    magicDefence = 5930
-    };
-getRow(17,0)->
-    #pet_starCfg {
-    petStar = 17,
-    petQuality = 0,
-    maxHP2 = 25436,
-    physicalAttack = 2543,
-    magicAttack = 2543,
-    physicalDefence = 2543,
-    magicDefence = 2543
-    };
-getRow(17,1)->
-    #pet_starCfg {
-    petStar = 17,
-    petQuality = 1,
-    maxHP2 = 31795,
-    physicalAttack = 3179,
-    magicAttack = 3179,
-    physicalDefence = 3179,
-    magicDefence = 3179
-    };
-getRow(17,2)->
-    #pet_starCfg {
-    petStar = 17,
-    petQuality = 2,
-    maxHP2 = 39744,
-    physicalAttack = 3974,
-    magicAttack = 3974,
-    physicalDefence = 3974,
-    magicDefence = 3974
-    };
-getRow(17,3)->
-    #pet_starCfg {
-    petStar = 17,
-    petQuality = 3,
-    maxHP2 = 49680,
-    physicalAttack = 4968,
-    magicAttack = 4968,
-    physicalDefence = 4968,
-    magicDefence = 4968
-    };
-getRow(17,4)->
-    #pet_starCfg {
-    petStar = 17,
-    petQuality = 4,
-    maxHP2 = 62100,
-    physicalAttack = 6210,
-    magicAttack = 6210,
-    physicalDefence = 6210,
-    magicDefence = 6210
-    };
-getRow(18,0)->
-    #pet_starCfg {
-    petStar = 18,
-    petQuality = 0,
-    maxHP2 = 26582,
-    physicalAttack = 2657,
-    magicAttack = 2657,
-    physicalDefence = 2657,
-    magicDefence = 2657
-    };
-getRow(18,1)->
-    #pet_starCfg {
-    petStar = 18,
-    petQuality = 1,
-    maxHP2 = 33228,
-    physicalAttack = 3322,
-    magicAttack = 3322,
-    physicalDefence = 3322,
-    magicDefence = 3322
-    };
-getRow(18,2)->
-    #pet_starCfg {
-    petStar = 18,
-    petQuality = 2,
-    maxHP2 = 41536,
-    physicalAttack = 4153,
-    magicAttack = 4153,
-    physicalDefence = 4153,
-    magicDefence = 4153
-    };
-getRow(18,3)->
-    #pet_starCfg {
-    petStar = 18,
-    petQuality = 3,
-    maxHP2 = 51920,
-    physicalAttack = 5192,
-    magicAttack = 5192,
-    physicalDefence = 5192,
-    magicDefence = 5192
-    };
-getRow(18,4)->
-    #pet_starCfg {
-    petStar = 18,
-    petQuality = 4,
-    maxHP2 = 64900,
-    physicalAttack = 6490,
-    magicAttack = 6490,
-    physicalDefence = 6490,
-    magicDefence = 6490
-    };
-getRow(19,0)->
-    #pet_starCfg {
-    petStar = 19,
-    petQuality = 0,
-    maxHP2 = 27729,
-    physicalAttack = 2772,
-    magicAttack = 2772,
-    physicalDefence = 2772,
-    magicDefence = 2772
-    };
-getRow(19,1)->
-    #pet_starCfg {
-    petStar = 19,
-    petQuality = 1,
-    maxHP2 = 34662,
-    physicalAttack = 3465,
-    magicAttack = 3465,
-    physicalDefence = 3465,
-    magicDefence = 3465
-    };
-getRow(19,2)->
-    #pet_starCfg {
-    petStar = 19,
-    petQuality = 2,
-    maxHP2 = 43328,
-    physicalAttack = 4332,
-    magicAttack = 4332,
-    physicalDefence = 4332,
-    magicDefence = 4332
-    };
-getRow(19,3)->
-    #pet_starCfg {
-    petStar = 19,
-    petQuality = 3,
-    maxHP2 = 54160,
-    physicalAttack = 5416,
-    magicAttack = 5416,
-    physicalDefence = 5416,
-    magicDefence = 5416
-    };
-getRow(19,4)->
-    #pet_starCfg {
-    petStar = 19,
-    petQuality = 4,
-    maxHP2 = 67700,
-    physicalAttack = 6770,
-    magicAttack = 6770,
-    physicalDefence = 6770,
-    magicDefence = 6770
-    };
-getRow(20,0)->
-    #pet_starCfg {
-    petStar = 20,
-    petQuality = 0,
-    maxHP2 = 34774,
-    physicalAttack = 3476,
-    magicAttack = 3476,
-    physicalDefence = 3476,
-    magicDefence = 3476
-    };
-getRow(20,1)->
-    #pet_starCfg {
-    petStar = 20,
-    petQuality = 1,
-    maxHP2 = 43468,
-    physicalAttack = 4346,
-    magicAttack = 4346,
-    physicalDefence = 4346,
-    magicDefence = 4346
-    };
-getRow(20,2)->
-    #pet_starCfg {
-    petStar = 20,
-    petQuality = 2,
-    maxHP2 = 54336,
-    physicalAttack = 5433,
-    magicAttack = 5433,
-    physicalDefence = 5433,
-    magicDefence = 5433
-    };
-getRow(20,3)->
-    #pet_starCfg {
-    petStar = 20,
-    petQuality = 3,
-    maxHP2 = 67920,
-    physicalAttack = 6792,
-    magicAttack = 6792,
-    physicalDefence = 6792,
-    magicDefence = 6792
-    };
-getRow(20,4)->
-    #pet_starCfg {
-    petStar = 20,
-    petQuality = 4,
-    maxHP2 = 84900,
-    physicalAttack = 8490,
-    magicAttack = 8490,
-    physicalDefence = 8490,
-    magicDefence = 8490
-    };
 getRow(21,0)->
     #pet_starCfg {
     petStar = 21,
     petQuality = 0,
-    maxHP2 = 36003,
-    physicalAttack = 3600,
-    magicAttack = 3600,
-    physicalDefence = 3600,
-    magicDefence = 3600
+    maxHP2 = 29300,
+    physicalAttack = 2930,
+    magicAttack = 2930,
+    physicalDefence = 2930,
+    magicDefence = 2930
     };
 getRow(21,1)->
     #pet_starCfg {
     petStar = 21,
     petQuality = 1,
-    maxHP2 = 45004,
-    physicalAttack = 4500,
-    magicAttack = 4500,
-    physicalDefence = 4500,
-    magicDefence = 4500
+    maxHP2 = 32230,
+    physicalAttack = 3223,
+    magicAttack = 3223,
+    physicalDefence = 3223,
+    magicDefence = 3223
     };
 getRow(21,2)->
     #pet_starCfg {
     petStar = 21,
     petQuality = 2,
-    maxHP2 = 56256,
-    physicalAttack = 5625,
-    magicAttack = 5625,
-    physicalDefence = 5625,
-    magicDefence = 5625
+    maxHP2 = 35160,
+    physicalAttack = 3516,
+    magicAttack = 3516,
+    physicalDefence = 3516,
+    magicDefence = 3516
     };
 getRow(21,3)->
     #pet_starCfg {
     petStar = 21,
     petQuality = 3,
-    maxHP2 = 70320,
-    physicalAttack = 7032,
-    magicAttack = 7032,
-    physicalDefence = 7032,
-    magicDefence = 7032
+    maxHP2 = 46880,
+    physicalAttack = 4688,
+    magicAttack = 4688,
+    physicalDefence = 4688,
+    magicDefence = 4688
     };
 getRow(21,4)->
     #pet_starCfg {
     petStar = 21,
     petQuality = 4,
-    maxHP2 = 87900,
-    physicalAttack = 8790,
-    magicAttack = 8790,
-    physicalDefence = 8790,
-    magicDefence = 8790
+    maxHP2 = 58600,
+    physicalAttack = 5860,
+    magicAttack = 5860,
+    physicalDefence = 5860,
+    magicDefence = 5860
     };
 getRow(22,0)->
     #pet_starCfg {
     petStar = 22,
     petQuality = 0,
-    maxHP2 = 37232,
-    physicalAttack = 3722,
-    magicAttack = 3722,
-    physicalDefence = 3722,
-    magicDefence = 3722
+    maxHP2 = 30300,
+    physicalAttack = 3030,
+    magicAttack = 3030,
+    physicalDefence = 3030,
+    magicDefence = 3030
     };
 getRow(22,1)->
     #pet_starCfg {
     petStar = 22,
     petQuality = 1,
-    maxHP2 = 46540,
-    physicalAttack = 4653,
-    magicAttack = 4653,
-    physicalDefence = 4653,
-    magicDefence = 4653
+    maxHP2 = 33330,
+    physicalAttack = 3333,
+    magicAttack = 3333,
+    physicalDefence = 3333,
+    magicDefence = 3333
     };
 getRow(22,2)->
     #pet_starCfg {
     petStar = 22,
     petQuality = 2,
-    maxHP2 = 58176,
-    physicalAttack = 5817,
-    magicAttack = 5817,
-    physicalDefence = 5817,
-    magicDefence = 5817
+    maxHP2 = 36360,
+    physicalAttack = 3636,
+    magicAttack = 3636,
+    physicalDefence = 3636,
+    magicDefence = 3636
     };
 getRow(22,3)->
     #pet_starCfg {
     petStar = 22,
     petQuality = 3,
-    maxHP2 = 72720,
-    physicalAttack = 7272,
-    magicAttack = 7272,
-    physicalDefence = 7272,
-    magicDefence = 7272
+    maxHP2 = 48480,
+    physicalAttack = 4848,
+    magicAttack = 4848,
+    physicalDefence = 4848,
+    magicDefence = 4848
     };
 getRow(22,4)->
     #pet_starCfg {
     petStar = 22,
     petQuality = 4,
-    maxHP2 = 90900,
-    physicalAttack = 9090,
-    magicAttack = 9090,
-    physicalDefence = 9090,
-    magicDefence = 9090
+    maxHP2 = 60600,
+    physicalAttack = 6060,
+    magicAttack = 6060,
+    physicalDefence = 6060,
+    magicDefence = 6060
     };
 getRow(23,0)->
     #pet_starCfg {
     petStar = 23,
     petQuality = 0,
-    maxHP2 = 38460,
-    physicalAttack = 3845,
-    magicAttack = 3845,
-    physicalDefence = 3845,
-    magicDefence = 3845
+    maxHP2 = 31300,
+    physicalAttack = 3130,
+    magicAttack = 3130,
+    physicalDefence = 3130,
+    magicDefence = 3130
     };
 getRow(23,1)->
     #pet_starCfg {
     petStar = 23,
     petQuality = 1,
-    maxHP2 = 48076,
-    physicalAttack = 4807,
-    magicAttack = 4807,
-    physicalDefence = 4807,
-    magicDefence = 4807
+    maxHP2 = 34430,
+    physicalAttack = 3443,
+    magicAttack = 3443,
+    physicalDefence = 3443,
+    magicDefence = 3443
     };
 getRow(23,2)->
     #pet_starCfg {
     petStar = 23,
     petQuality = 2,
-    maxHP2 = 60096,
-    physicalAttack = 6009,
-    magicAttack = 6009,
-    physicalDefence = 6009,
-    magicDefence = 6009
+    maxHP2 = 37560,
+    physicalAttack = 3756,
+    magicAttack = 3756,
+    physicalDefence = 3756,
+    magicDefence = 3756
     };
 getRow(23,3)->
     #pet_starCfg {
     petStar = 23,
     petQuality = 3,
-    maxHP2 = 75120,
-    physicalAttack = 7512,
-    magicAttack = 7512,
-    physicalDefence = 7512,
-    magicDefence = 7512
+    maxHP2 = 50080,
+    physicalAttack = 5008,
+    magicAttack = 5008,
+    physicalDefence = 5008,
+    magicDefence = 5008
     };
 getRow(23,4)->
     #pet_starCfg {
     petStar = 23,
     petQuality = 4,
-    maxHP2 = 93900,
-    physicalAttack = 9390,
-    magicAttack = 9390,
-    physicalDefence = 9390,
-    magicDefence = 9390
+    maxHP2 = 62600,
+    physicalAttack = 6260,
+    magicAttack = 6260,
+    physicalDefence = 6260,
+    magicDefence = 6260
     };
 getRow(24,0)->
     #pet_starCfg {
     petStar = 24,
     petQuality = 0,
-    maxHP2 = 39689,
-    physicalAttack = 3968,
-    magicAttack = 3968,
-    physicalDefence = 3968,
-    magicDefence = 3968
+    maxHP2 = 32300,
+    physicalAttack = 3230,
+    magicAttack = 3230,
+    physicalDefence = 3230,
+    magicDefence = 3230
     };
 getRow(24,1)->
     #pet_starCfg {
     petStar = 24,
     petQuality = 1,
-    maxHP2 = 49612,
-    physicalAttack = 4960,
-    magicAttack = 4960,
-    physicalDefence = 4960,
-    magicDefence = 4960
+    maxHP2 = 35530,
+    physicalAttack = 3553,
+    magicAttack = 3553,
+    physicalDefence = 3553,
+    magicDefence = 3553
     };
 getRow(24,2)->
     #pet_starCfg {
     petStar = 24,
     petQuality = 2,
-    maxHP2 = 62016,
-    physicalAttack = 6201,
-    magicAttack = 6201,
-    physicalDefence = 6201,
-    magicDefence = 6201
+    maxHP2 = 38760,
+    physicalAttack = 3876,
+    magicAttack = 3876,
+    physicalDefence = 3876,
+    magicDefence = 3876
     };
 getRow(24,3)->
     #pet_starCfg {
     petStar = 24,
     petQuality = 3,
-    maxHP2 = 77520,
-    physicalAttack = 7752,
-    magicAttack = 7752,
-    physicalDefence = 7752,
-    magicDefence = 7752
+    maxHP2 = 51680,
+    physicalAttack = 5168,
+    magicAttack = 5168,
+    physicalDefence = 5168,
+    magicDefence = 5168
     };
 getRow(24,4)->
     #pet_starCfg {
     petStar = 24,
     petQuality = 4,
-    maxHP2 = 96900,
-    physicalAttack = 9690,
-    magicAttack = 9690,
-    physicalDefence = 9690,
-    magicDefence = 9690
+    maxHP2 = 64600,
+    physicalAttack = 6460,
+    magicAttack = 6460,
+    physicalDefence = 6460,
+    magicDefence = 6460
     };
 getRow(25,0)->
     #pet_starCfg {
     petStar = 25,
     petQuality = 0,
-    maxHP2 = 47840,
-    physicalAttack = 4784,
-    magicAttack = 4784,
-    physicalDefence = 4784,
-    magicDefence = 4784
+    maxHP2 = 38900,
+    physicalAttack = 3890,
+    magicAttack = 3890,
+    physicalDefence = 3890,
+    magicDefence = 3890
     };
 getRow(25,1)->
     #pet_starCfg {
     petStar = 25,
     petQuality = 1,
-    maxHP2 = 59801,
-    physicalAttack = 5980,
-    magicAttack = 5980,
-    physicalDefence = 5980,
-    magicDefence = 5980
+    maxHP2 = 42790,
+    physicalAttack = 4279,
+    magicAttack = 4279,
+    physicalDefence = 4279,
+    magicDefence = 4279
     };
 getRow(25,2)->
     #pet_starCfg {
     petStar = 25,
     petQuality = 2,
-    maxHP2 = 74752,
-    physicalAttack = 7475,
-    magicAttack = 7475,
-    physicalDefence = 7475,
-    magicDefence = 7475
+    maxHP2 = 46680,
+    physicalAttack = 4668,
+    magicAttack = 4668,
+    physicalDefence = 4668,
+    magicDefence = 4668
     };
 getRow(25,3)->
     #pet_starCfg {
     petStar = 25,
     petQuality = 3,
-    maxHP2 = 93440,
-    physicalAttack = 9344,
-    magicAttack = 9344,
-    physicalDefence = 9344,
-    magicDefence = 9344
+    maxHP2 = 62240,
+    physicalAttack = 6224,
+    magicAttack = 6224,
+    physicalDefence = 6224,
+    magicDefence = 6224
     };
 getRow(25,4)->
     #pet_starCfg {
     petStar = 25,
     petQuality = 4,
-    maxHP2 = 116800,
-    physicalAttack = 11680,
-    magicAttack = 11680,
-    physicalDefence = 11680,
-    magicDefence = 11680
+    maxHP2 = 77800,
+    physicalAttack = 7780,
+    magicAttack = 7780,
+    physicalDefence = 7780,
+    magicDefence = 7780
     };
 getRow(_,_)->[].
 

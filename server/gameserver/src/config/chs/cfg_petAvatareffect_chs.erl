@@ -8,7 +8,7 @@
 getRow(0)->
     #petAvatareffectCfg {
     petAvatarelevel = 0,
-    effect = "0",
+    effect = "",
     scale = 0.7
     };
 getRow(1)->

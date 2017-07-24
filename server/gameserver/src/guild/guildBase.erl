@@ -117,6 +117,8 @@ onCreateGuild({GuildName, RoleID, _RoleName, _Career, _Level, Denoter, Notice}) 
             ets:insert(rec_guild_member, MM),
 			guildLogic:saveToMySql(MM),
 
+			?LOG_OUT("onCreateGuild:~p,~p", [GuildID, RoleID]),
+
 			%% 通知玩家进程刷新家族兑换的属性
 			case core:queryOnLineRoleByRoleID(RoleID) of
 				#rec_OnlinePlayer{pid = Pid} ->
@@ -539,6 +541,7 @@ upgrade({GuildID, RoleID}) ->
 						_ ->
 							skip
 					end,
+					guildLogic:tryOpenRide(GuildID, Lvl + 1),
                     {GuildID, Lvl + 1};
                 _ ->
                     false
@@ -547,7 +550,7 @@ upgrade({GuildID, RoleID}) ->
             false
     end.
 
-%% 军团升级时，通知在线的成员刷新家族兑换功能产生的属性
+%% 军团升级时，通知在线的成员
 upgrade_exchange_refresh(GuildLevel) ->
 	FunNotice =
 		fun(#rec_guild_member{roleID = RoleID}, _) ->
@@ -1030,11 +1033,24 @@ createGuild_initRide(GuildID) ->
 	List1Key = getCfg:get1KeyList(cfg_guild_ride),
 	FunInit =
 		fun(RideID) ->
+
+			%% 创建家族时家族等级必然为1
+			%% 初始设施等级最大为1
+			%% 需要验证家族等级为1时，是否满足等级为1的设施的开启条件
+			%% 等级为0时保持关闭状态
+			{RideLevel, RideState} =
+				case getCfg:getCfgByKey(cfg_guild_ride, RideID, 1) of
+					#guild_rideCfg{open = OpenLevel} when erlang:is_integer(OpenLevel), OpenLevel =:= 1 ->
+						{1, ?RideState_Open};
+					_ ->
+						{0, ?RideState_Close}
+				end,
+
 			#rec_guild_ride{
 				guildID = GuildID,
 				rideID = RideID,
-				rideLevel = 1,
-				rideState = ?RideState_Open
+				rideLevel = RideLevel,
+				rideState = RideState
 			}
 		end,
 	ListRide = [FunInit(RideID) || RideID <- List1Key],

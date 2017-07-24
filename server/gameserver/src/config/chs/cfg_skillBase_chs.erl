@@ -17,7 +17,7 @@ getRow(critdamRange)->
     id = 4,
     settype = critdamRange,
     descStr = "爆伤范围",
-    setpara = [0,0.5,1.5]
+    setpara = [0,1,1.5]
     };
 getRow(critRange)->
     #skillBaseCfg {
@@ -80,7 +80,7 @@ getRow(player_player_battlevalue)->
     id = 11,
     settype = player_player_battlevalue,
     descStr = "人打人伤害系数",
-    setpara = [0.2]
+    setpara = [0.3]
     };
 getRow(_)->[].
 

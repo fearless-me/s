@@ -94,6 +94,7 @@
 -type action_status() :: ?CreatureActionStatusNone .. ?CreatureActionStatusMax.
 
 %%生物由技能或者BUFF产生的状态
+-define(CreatureSpeStatusPolymorph, 32768).    %15.变动物状态
 -define(CreatureSpeStatusComa, 65536).    %16.昏迷
 -define(CreatureSpeStautsFixed, 131072).    %17.定身
 -define(CreatureSpeStautsFreeze, 262144).    %18.冻结
@@ -110,6 +111,7 @@
 -define(CreatureSpecStautsImmuneShift, 536870912). %29.免疫位移
 -define(CreatureSpecStautsRedName, 1073741824). %30.红名
 -define(CreatureSpecStautsRidicule, 2147483648). %31.嘲讽
+-define(CreatureSpecStautsPeaceEnvoy, 4294967296). %32.和平使者，不可攻击，不可被攻击
 
 %%玩家主菜单激活状态
 -define(PlayerMainMenuWake, 1). %%觉醒

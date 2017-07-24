@@ -29,7 +29,7 @@ menu() ->
 	dispatchInput(1).
 -else.
 menu() ->
-	io:format(
+	log(
 		"~n##########################################################~n"
 		"\t\tLUNA multi-language compile~n"
 		"~n"
@@ -69,7 +69,7 @@ dispatchInput(888) -> jump_package();
 dispatchInput(_) -> menu().
 
 menu2(Lang) ->
-	io:format(
+	log(
 		"~n##########################################################~n"
 		"\t\tselect compile sub order~n"
 		"~n"
@@ -120,7 +120,7 @@ dispatchInput2(_Lang, 9) ->
 dispatchInput2(_Lang, 8) ->
 	dets:delete_all_objects(?CompileListDEts),
 	os:cmd("cd ../ebin/ && del /q /s *.*"),
-	io:format("===> clean success!! <===~n~n"),
+	warnLog("===> clean success!! <===~n~n"),
 	menu();
 %%dispatchInput2(Lang, 23) ->
 %%	setSearchFileData(undefined),
@@ -132,7 +132,7 @@ dispatchInput2(_Lang, _) ->
 	menu().
 
 searchFile(false, {Lang, _XH} = Param1, {_HrlFileList, ErlFileList, _Opts} = Param2) ->
-	io:format("\t[0] ===> return to main menu~n", []),
+	log("\t[0] ===> return to main menu~n", []),
 	InputNoStr1 = io:get_line("Input search file key words:"),
 	InputNoStr2 = string_strip(string_strip(InputNoStr1), "\n"),
 	case InputNoStr2 of
@@ -161,21 +161,20 @@ searchFile(false, {Lang, _XH} = Param1, {_HrlFileList, ErlFileList, _Opts} = Par
 				true ->
 					FF =
 						fun({N, File}) ->
-							io:format("[~p] ===> ~ts~n", [N, File])
+							warnLog("[~p] ===> ~ts", [N, File])
 						end,
 					lists:foreach(FF, lists:reverse(List)),
 					setSearchFileData(List),
 					searchFile(true, Param1, Param2);
 				_ ->
-					io:format("No search~n"),
+					warnLog("No search~n"),
 					searchFile(false, Param1, Param2)
 			end
 	end;
 	
 searchFile(_, {Lang, _XH} = Param1, {_HrlFileList, _ErlFileList, Opts} = Param2) ->
-	
-	io:format("[*] ===> compile all searched ~p file(s) ~n", [safe_length(getSearchFileData())]),
-	io:format("[0] ===> return to main menu~n", []),
+	warnLog("[*] ===> compile all searched ~p file(s)", [safe_length(getSearchFileData())]),
+	warnLog("[0] ===> return to main menu", []),
 	
 	InputNoStr1 = io:get_line("Input compile file index:"),
 	InputNoStr2 = string_strip(string_strip(InputNoStr1), "\n"),
@@ -241,24 +240,34 @@ jump_package() ->
 	ok.
 
 compile(Lang, 1) ->
+	warnLog("now path:~p~n", [file:get_cwd()]),
+	%% 先生成版本文件
+	os:cmd("svn update ../src/version/version.erl"),
+	waitATime(2000),
+	os:cmd("start version.ers"),
+	waitATime(1000),
+	os:cmd("svn commit -m \"auto generate version\" ../src/version/version.erl"),
+	waitATime(5000),
+
 	%% 用于Release编译打包
 	Target = getCompileServer(1),
 	FileName = io_lib:format("compile_~p_~p.txt", [Lang, Target]),
 	file:write_file(FileName, ""),
 	CmdStr = io_lib:format("cd ../ && make all Region=\"~p\" -j8 > script/~ts", [Lang, FileName]),
 
-	io:format("compile [~p,~p] start [~ts], please wait...~n", [Lang, Target, time_format()]),
+	warnLog("compile [~p,~p] start [~ts], please wait...~n", [Lang, Target, time_format()]),
 	os:cmd(CmdStr),
 
 	case checkCompileError(FileName) of
 		0 ->
-			io:format("@@@compile [~p,~p] success@@@ at ~ts ~n", [Lang, Target, time_format()]);
+			log("@@@compile [~p,~p] success@@@ at ~ts ~n", [Lang, Target, time_format()]);
 		_ ->
-			io:format("***compile [~p,~p] ERROR ERROR ERROR !!!*** ~ts ~n", [Lang, Target, time_format()])
+			errorLog("***compile [~p,~p] ERROR ERROR ERROR !!!*** ~ts ~n", [Lang, Target, time_format()])
 	end,
 
 	menu2(Lang);
 compile(Lang, V) ->
+	warnLog("now path:~p~n", [file:get_cwd()]),
 	Target = getCompileServer(V),
 	ets:delete_all_objects(?CompileEts),
 
@@ -272,7 +281,7 @@ compile(Lang, V) ->
 		compile_done(Ms, LogFile, Lang, Target)
 	catch
 		_:Why ->
-			io:format("***compile [~p,~p] ERROR ERROR ERROR !!!*** ~ts ~p,~p ~n",
+			errorLog("***compile [~p,~p] ERROR ERROR ERROR !!!*** ~ts ~p,~p ~n",
 				[Lang, Target, time_format(), Why,erlang:get_stacktrace()])
 	end,
 
@@ -288,24 +297,32 @@ checkCompileError(FileName)->
 			V
 	end.
 
+waitATime(Time) ->
+	receive
+		tttttttttttttttcccccccccccccccc ->
+			ok
+	after Time ->
+		ok
+	end.
+
 loop_wait(0) ->
 	skip;
 loop_wait(N) ->
 	receive
-		{'DOWN', _MRef, _process, _Pid, _normal} ->
+		{'DOWN', _MRef, _process, _Pid, normal} ->
 			ok;
 		{'DOWN', MRef, process, Pid, Reason} ->
-			io:format("~p|~p finished ~p~n",[Pid, MRef, Reason]);
+			warnLog("~p|~p finished ~p~n",[Pid, MRef, Reason]);
 		{Pid, Result} ->
-			io:format("~p finished ~p~n",[Pid,  Result])
+			log("~p finished ~p~n",[Pid,  Result])
 	end,
 	loop_wait(N - 1).
 
 compile2(SrcFile, Opts, LogFile) ->
 	Ret = compile:file(SrcFile, [return, report_errors, error_summary | Opts]), %% report,
-	{IsSuccess, Str} = check_return(SrcFile, Ret),
+	{CompileResult, Str} = check_return(SrcFile, Ret),
 
-	case IsSuccess of
+	case CompileResult =/= error of
 		true ->
 			CurChangeTime = getFileChangeTime(SrcFile),
 			dets:insert(?CompileListDEts, #rec_serverfile{fileName = SrcFile, changeTime = CurChangeTime});
@@ -313,28 +330,28 @@ compile2(SrcFile, Opts, LogFile) ->
 			skip
 	end,
 
-	d_log(LogFile, "[~ts] compiled ~s ~p ~ts~n",
-		[time_format(), filename:basename(SrcFile), IsSuccess, Str]),
+	dLog(LogFile, "[~ts] compiled ~s ~p ~ts",
+		[time_format(), filename:basename(SrcFile), CompileResult =/= error, Str], CompileResult),
 	ok.
 
 check_return(_SrcFile, {ok,_}) ->
-	{true, ""};
+	{ok, ""};
 check_return(_SrcFile, {ok, _Mod, []}) ->
-	{true, ""};
+	{ok, ""};
 check_return(_SrcFile, {ok, _Mod, Binary}) ->
-	{true, io_lib:format("~n~ts", [report_warnings(Binary)])};
+	{warn, io_lib:format("~n~ts", [report_warnings(Binary)])};
 check_return(_SrcFile, {ok, _Mod, _Binary, Warnings}) ->
-	{true, io_lib:format("~n~ts", [report_warnings(Warnings)])};
+	{warn, io_lib:format("~n~ts", [report_warnings(Warnings)])};
 check_return(SrcFile, {error, Errors, Warnings}) ->
 	Msg = report_errors(Errors),
 	ets:insert(?CompileEts, {SrcFile, Msg}),
-	{false, io_lib:format("~n~ts~n~ts", [Msg, report_warnings(Warnings)])};
+	{error, io_lib:format("~n~ts~n~ts", [Msg, report_warnings(Warnings)])};
 check_return(SrcFile, error) ->
 	ets:insert(?CompileEts, {SrcFile, "error"}),
-	{false, "error"};
+	{error, "error"};
 check_return(SrcFile, _Reason) ->
 	ets:insert(?CompileEts, {SrcFile, "unknow reason"}),
-	{false, "unknow reason"}.
+	{error, "unknow reason"}.
 
 check_compile_error(_FileName) ->
 	ets:info(?CompileEts, size).
@@ -349,13 +366,13 @@ make_worker(FileList, Schedulers, LogFile, Lang, Target, Opts) ->
 	L1 = ssplit_all(Once, FileList),
 	TaskNum = length(L1),
 
-	d_log(LogFile,
+	dLog(LogFile,
 		"~n*********************************************************~n"
 		"*********************************************************~n"
 		"*  ~ts ~p ~p ~p files ~p workers\t*~n"
 		"*********************************************************~n"
 		"*********************************************************~n",
-		[time_format(), Target, Lang, FileNumbers, TaskNum]),
+		[time_format(), Target, Lang, FileNumbers, TaskNum], ok),
 
 
 	StartTime = os:system_time(milli_seconds),
@@ -380,7 +397,7 @@ compile_done(StartTime, LogFile, Lang, Target) ->
 	DiffMs = os:system_time(milli_seconds) - StartTime,
 	Now = time_format(),
 
-	d_log(LogFile, "~n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n~n"),
+	dLog(LogFile, "~n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n~n", ok),
 
 	case check_compile_error(LogFile) of
 		0 ->
@@ -405,19 +422,19 @@ compile_done(StartTime, LogFile, Lang, Target) ->
 					skip
 			end,
 
-			d_log(LogFile, "~n@@@compile [~p,~p] success@@@ at ~ts ~p seconds ~n",
-				[Lang, Target, Now, DiffMs / 1000]);
+			dLog(LogFile, "~n@@@compile [~p,~p] success@@@ at ~ts ~p seconds ~n",
+				[Lang, Target, Now, DiffMs / 1000], ok);
 		_ ->
 			ets:foldl(
 				fun({SrcFile, ErrMsg}, _) ->
-					d_log(LogFile, "~ts~n~ts", [filename:basename(SrcFile), ErrMsg]),
+					dLog(LogFile, "~ts~n~ts", [filename:basename(SrcFile), ErrMsg], error),
 					ok
 				end, 0, ?CompileEts),
-			d_log(LogFile, "~n!!!! compile [~p,~p] ERROR ERROR ERROR !!!*** at ~ts  ~p seconds ~n",
-				[Lang, Target, Now, DiffMs / 1000])
+			dLog(LogFile, "~n!!!! compile [~p,~p] ERROR ERROR ERROR !!!*** at ~ts  ~p seconds ~n",
+				[Lang, Target, Now, DiffMs / 1000], error)
 	end,
 
-	d_log(LogFile, "~n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n~n"),
+	dLog(LogFile, "~n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~n~n", ok),
 	ok.
 
 make_cfg(Lang, Target, _V) ->
@@ -460,16 +477,6 @@ schedulers()->
 		Cpu ->
 			Cpu * 2
 	end.
-
-d_log(File, Fmt) ->
-	Str = io_lib:format(Fmt,[]),
-	io:format(Str),
-	file:write_file(File, Str, [append]).
-
-d_log(File,Fmt, Args)->
-	Str = io_lib:format(Fmt, Args),
-	io:format(Str),
-	file:write_file(File, Str, [append]).
 
 make_opts(Opts, Lang, gsD) ->
 	[{d, 'Region', Lang}, debug_info | Opts];
@@ -577,17 +584,17 @@ list_errors(_F, [], Acc) -> Acc.
 
 getChangeFileList() ->
 	{HrlFileList, ErlFileList, Opts} = scan_all_files(),
-	io:format("===> scan files number include[~p] scr[~p]~n", [erlang:length(HrlFileList), erlang:length(ErlFileList)]),
+	warnLog("===> scan files number include[~p] scr[~p]", [erlang:length(HrlFileList), erlang:length(ErlFileList)]),
 	HrlChangeList = saveFileChangeTime(HrlFileList),
-	io:format("===> hrl changs number:~p~n", [erlang:length(HrlChangeList)]),
+	warnLog("===> hrl changs number:~p", [erlang:length(HrlChangeList)]),
 	ErlChangeList = saveFileChangeTime(ErlFileList),
-	io:format("===> erl changs number:~p~n", [erlang:length(ErlChangeList)]),
+	warnLog("===> erl changs number:~p", [erlang:length(ErlChangeList)]),
 	case HrlChangeList of
 		[] ->
-			io:format("===> compile fast ...~n"),
+			warnLog("===> compile fast ...~n"),
 			{true, ErlChangeList, Opts, []};
 		_ ->
-			io:format("===> compile all ...~n"),
+			warnLog("===> compile all ...~n"),
 			{false, ErlFileList, Opts, HrlFileList}
 	end.
 
@@ -612,7 +619,7 @@ getFileChangeTime(File) ->
 		{ok, Info} ->
 			erlang:element(5, Info);
 		_ ->
-			io:format("===> read getFileChangeTime:~ts failed~n", [File]),
+			errorLog("===> read getFileChangeTime:~ts failed~n", [File]),
 			throw(readfileerror)
 	end.
 
@@ -621,7 +628,7 @@ getFileMd5(File) ->
 		{ok, Data} ->
 			erlang:md5(Data);
 		_ ->
-			io:format("===> read getFileMd5:~ts failed~n", [File]),
+			errorLog("===> read getFileMd5:~ts failed~n", [File]),
 			throw(readfilemd5error)
 	end.
 
@@ -636,3 +643,28 @@ string_strip(Str, [])->
 	Str;
 string_strip(Str, [CH | L])-> 
 	string_strip(string:strip(Str, both, CH), L).
+	
+log(Fmt)-> log(Fmt, []).	
+log(Fmt, Args)-> cpc:print(green,io_lib:format(Fmt,Args)).	
+
+warnLog(Fmt)-> warnLog(Fmt, []).
+warnLog(Fmt, Args) -> cpc:print(yellow, io_lib:format(Fmt,Args)).
+
+errorLog(Fmt) -> errorLog(Fmt, []).
+errorLog(Fmt, Args)-> cpc:print(red, io_lib:format(Fmt,Args)).
+
+
+dLog(File, Fmt, Flag) ->
+	dLog(File,Fmt, [], Flag).
+
+dLog(File,Fmt, Args, Flag)->
+	Str = io_lib:format(Fmt, Args),
+	file:write_file(File, io_lib:format("~ts~n",[Str]), [append]),
+	case Flag of
+		error ->
+		   errorLog(Str);
+		warn ->
+		   warnLog(Str);
+		_ ->
+			log(Str)
+	end.

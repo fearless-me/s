@@ -6,7 +6,7 @@
 -include("../include/common/mysql.hrl").
 -include("../include/common/logger.hrl").
 -include("../include/gsDef.hrl").
--include("../src/database/emysql/include/emysql.hrl").
+-include("../include/emysql.hrl").
 
 %%ebin下包含app
 %%emysql.app
@@ -18,26 +18,27 @@
 
 -record(recTables,
 {
-	'Name', 		%%表名
-	'Comment'		%%表注释
+	'Name',        %%表名
+	'Comment'        %%表注释
 }).
 
 -record(recTablesFieldName,
 {
-	'Field',		%%表的字段名
-	'Type',			%%字段类型
-	'Key',			%%是否是关键字
-	'Default',		%%字段默认值
-	'Comment'		%%字段注释
+	'Field',        %%表的字段名
+	'Type',            %%字段类型
+	'Key',            %%是否是关键字
+	'Default',        %%字段默认值
+	'Extra',        %%额外信息
+	'Comment'        %%字段注释
 }).
 
 main(_) ->
-	io:setopts([{encoding,unicode}]),
+	io:setopts([{encoding, unicode}]),
 	{_, Cwd} = file:get_cwd(),
-	NewCwd = io_lib:format("~ts/~ts",[Cwd, "data"]),
+	NewCwd = io_lib:format("~ts/~ts", [Cwd, "data"]),
 	file:set_cwd(NewCwd),
 	code:add_path("../ebin"),
-	io:format("cwd=~p~n",[file:get_cwd()]),
+	io:format("cwd=~p~n", [file:get_cwd()]),
 
 	hdlt_logger:initEnv("DBTool"),
 	crypto:start(),
@@ -65,47 +66,47 @@ main(_) ->
 	FileGameLog = "../include/common/gamedataLog.hrl",
 
 
-	Fun = fun(#recTables{'Name' = Table, 'Comment' = TComment}, {Pool,List}) ->
+	Fun = fun(#recTables{'Name' = Table, 'Comment' = TComment}, {Pool, List}) ->
 		FieldList = getTablesFieldName(Pool, binary_to_list(Table)),
 		Result = getFieldList(FieldList),
-		ResultNew = formatRecord(Table,TComment, Result),
-		{Pool,[ResultNew | List]}
-		  end,
+		ResultNew = formatRecord(Table, TComment, Result),
+		{Pool, [ResultNew | List]}
+	      end,
 
-	Fun2 = fun(#recTables{'Name' = Table, 'Comment' = TComment}, {Pool,List}) ->
+	Fun2 = fun(#recTables{'Name' = Table, 'Comment' = TComment}, {Pool, List}) ->
 		FieldList = getTablesFieldName(Pool, binary_to_list(Table)),
 		Result = getFieldList(FieldList),
-		ResultNew = formatRecord2(Table,TComment, Result),
-		{Pool,[ResultNew | List]}
-		   end,
+		ResultNew = formatRecord2(Table, TComment, Result),
+		{Pool, [ResultNew | List]}
+	       end,
 
-	{?GAMEDB_CONNECT_POOL,RecGameData} = lists:foldr(Fun, {?GAMEDB_CONNECT_POOL,[]}, GameDataDB),
-	{?LOGINDB_CONNECT_POOL,RecGameAccount} = lists:foldr(Fun, {?LOGINDB_CONNECT_POOL,[]}, GameAccountDB),
-	{?LOGDB_CONNECT_POOL,RecGameLog} = lists:foldr(Fun, {?LOGDB_CONNECT_POOL,[]}, GameLogDB),
+	{?GAMEDB_CONNECT_POOL, RecGameData} = lists:foldr(Fun, {?GAMEDB_CONNECT_POOL, []}, GameDataDB),
+	{?LOGINDB_CONNECT_POOL, RecGameAccount} = lists:foldr(Fun, {?LOGINDB_CONNECT_POOL, []}, GameAccountDB),
+	{?LOGDB_CONNECT_POOL, RecGameLog} = lists:foldr(Fun, {?LOGDB_CONNECT_POOL, []}, GameLogDB),
 
 	RecGameDataNew = "-ifndef(DB_GAMEDATA_hrl).\n-define(DB_GAMEDATA_hrl,1).\n\n" ++ RecGameData ++ "-endif.\n",
 	RecGameAccountNew = "-ifndef(DB_GAMEACCOUNT_hrl).\n-define(DB_GAMEACCOUNT,1).\n\n" ++ RecGameAccount ++ "-endif.\n",
 	RecGameLogNew = "-ifndef(DB_GAMEDATALOG_hrl).\n-define(DB_GAMEDATALOG_hrl,1).\n\n" ++ RecGameLog ++ "-endif.\n",
 
 	io:setopts([{encoding, latin1}]),
-	checkFileContent(FileGameData,RecGameDataNew),
+	checkFileContent(FileGameData, RecGameDataNew),
 	checkFileContent(FileGameAccount, RecGameAccountNew),
 	checkFileContent(FileGameLog, RecGameLogNew),
 	io:get_line("all done!!! any key to exit"),
 	ok.
 
 
-checkFileContent(FileName,Content) ->
+checkFileContent(FileName, Content) ->
 	Bin = erlang:list_to_binary(Content),
 	case file:read_file(FileName) of
-		{ok,Bin} ->
+		{ok, Bin} ->
 			?LOG_OUT("...~ts未检测到修改~n", [FileName]);
 		_Other ->
 			case file:write_file(FileName, Bin) of
 				ok ->
-					?LOG_OUT("Write File:~ts OK~n",[FileName]);
-				{error,Reason} ->
-					?LOG_OUT("Write File:~ts Failed by:~p~n",[FileName,Reason])
+					?LOG_OUT("Write File:~ts OK~n", [FileName]);
+				{error, Reason} ->
+					?LOG_OUT("Write File:~ts Failed by:~p~n", [FileName, Reason])
 			end
 	end,
 	ok.
@@ -117,7 +118,7 @@ formatRecord(Table, TableComment, List) ->
 	io_lib:format("%%~ts~n"
 	"-record(rec_~ts,{~n"
 	"~ts~n}).~n~n",
-		[Comment,RecName,List]
+		[Comment, RecName, List]
 	).
 
 formatRecord2(Table, TableComment, List) ->
@@ -128,7 +129,7 @@ formatRecord2(Table, TableComment, List) ->
 	"~ts~n}).~n"
 	"-record(rec_~ts_list,{~n"
 	"\tkey=0,~n\t~ts_list=[]~n}).~n~n",
-		[Comment,RecName,List,RecName,RecName]
+		[Comment, RecName, List, RecName, RecName]
 	).
 
 
@@ -148,16 +149,16 @@ getFieldList(TableN) ->
 	Fun = fun(#recTablesFieldName{} = Key, AccOut) ->
 		ResultFie = setFormat(Key, Last),
 		[ResultFie | AccOut]
-		  end,
+	      end,
 	lists:foldr(Fun, [], TableN).
 
 -spec setFormat(#recTablesFieldName{}, LastF :: tuple()) -> list().
 setFormat(#recTablesFieldName{
-	'Field' = Fields,				%%表的字段名
-	'Type' = Types,					%%字段类型
-	'Key' = Key,					%%是否是关键字
-	'Default' = DefaultValues,		%%字段默认值
-	'Comment' =	Comment				%%字段注释
+	'Field' = Fields,                %%表的字段名
+	'Type' = Types,                    %%字段类型
+	'Key' = Key,                    %%是否是关键字
+	'Default' = DefaultValues,        %%字段默认值
+	'Comment' = Comment                %%字段注释
 }, LastF) ->
 	ArgF = binary_to_list(Fields),
 	ArgT = binary_to_list(Types),
@@ -165,11 +166,11 @@ setFormat(#recTablesFieldName{
 	#recTablesFieldName{'Field' = Arg1} = LastF,
 	%%如果是首字母大写则加上单引号
 	ArgFnew = case ArgF >= "A" andalso ArgF =< "Z" of
-				  true ->
-					  "'" ++ ArgF ++ "'";
-				  _ ->
-					  ArgF
-			  end,
+		          true ->
+			          "'" ++ ArgF ++ "'";
+		          _ ->
+			          ArgF
+	          end,
 	Int = string:str(ArgT, "int"),
 	Char = string:str(ArgT, "char"),
 	DataTime = string:str(ArgT, "datetime"),
@@ -197,7 +198,7 @@ setFormat(#recTablesFieldName{
 				Text > 0 ->
 					Val = "\"\"",
 					Valu = lists:append(" = ", Val);
-				true->
+				true ->
 					Valu = ""
 			end;
 		_ ->
@@ -215,9 +216,9 @@ setFormat(#recTablesFieldName{
 %%					Valu = lists:append(" = ", Val);
 				Int > 0 ->
 					Val = case DefaultValues =:= <<>> orelse DefaultValues =:= <<"">> of
-							  true -> "0";
-							  _ -> binary_to_list(DefaultValues)
-						  end,
+						      true -> "0";
+						      _ -> binary_to_list(DefaultValues)
+					      end,
 					Valu = lists:append(" = ", Val);
 				Float > 0 ->
 					Val = "0.0",
@@ -227,25 +228,25 @@ setFormat(#recTablesFieldName{
 					Valu = lists:append(" = ", Val);
 				true ->
 					Valu = if
-							   DefaultValues =:= <<>> orelse DefaultValues =:= <<"">> ->
-								   Val = "\"\"",
-								   lists:append(" = ", Val);
-							   DefaultValues =:= <<"[]">> ->
-								   Val = "[]",
-								   lists:append(" = ", Val);
-							   true ->
-								   Val = binary_to_list(DefaultValues),
-								   io_lib:format("=\"~ts\"", [Val])
-						   end
+						       DefaultValues =:= <<>> orelse DefaultValues =:= <<"">> ->
+							       Val = "\"\"",
+							       lists:append(" = ", Val);
+						       DefaultValues =:= <<"[]">> ->
+							       Val = "[]",
+							       lists:append(" = ", Val);
+						       true ->
+							       Val = binary_to_list(DefaultValues),
+							       io_lib:format("=\"~ts\"", [Val])
+					       end
 			end
 	end,
-
-	case Comment =:= <<>> of
-		true ->
-			Comments = "%%";
-		_ ->
-			Comments = lists:append("%%", ArgD)
-	end,
+	Comments =
+		case Comment =:= <<>> of
+			true ->
+				"%%";
+			_ ->
+				lists:append("%%", ArgD)
+		end,
 	case Fields =:= Arg1 of
 		false ->
 			Result = "\t" ++ ArgFnew ++ Valu ++ ",\t\t\t\t" ++ Comments ++ " " ++ ArgT ++ "\n";
@@ -258,12 +259,13 @@ setFormat(#recTablesFieldName{
 %% ====================================================================
 
 getTables(ConnectData, Database) ->
-	#result_packet{field_list = _List, rows = _Row}  = Ret = emysql:execute(ConnectData,
+	#result_packet{field_list = _List, rows = _Row} = Ret = emysql:execute(ConnectData,
 		"SHOW TABLE STATUS FROM " ++ Database),
 	emysql_util:as_record(Ret, recTables, record_info(fields, recTables)).
 
 getTablesFieldName(ConnectDataBase, Table) ->
 	#result_packet{field_list = _List, rows = _Row} = Ret = emysql:execute(ConnectDataBase,
 		"SHOW FULL COLUMNS FROM " ++ Table),
-	emysql_util:as_record(Ret, recTablesFieldName, record_info(fields, recTablesFieldName)).
+	FieldList = emysql_util:as_record(Ret, recTablesFieldName, record_info(fields, recTablesFieldName)),
+	[FieldRecord || FieldRecord <- FieldList, FieldRecord#recTablesFieldName.'Field' =/= <<"auto_id__">>].
 

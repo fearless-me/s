@@ -41,7 +41,9 @@
 	{?Item_Use_OpenAllFun,			fun useItemOpenAllFun/2},		%% 29 打开所有功能模块
 	{?Item_Use_GrowUp,				fun useItemBuyGrowUp/2},		%% 29 使用可打开成长礼包
 	{?Item_Use_PlayerBQ,			fun useItemPlayerBQ/2},			%% 32 使用获得表情
-	{?Item_Use_PlayerDZ,			fun useItemPlayerDZ/2}			%% 33 使用获得动作
+	{?Item_Use_PlayerDZ,			fun useItemPlayerDZ/2},			%% 33 使用获得动作
+	{?Item_Use_StarMoon,			fun useItemOpenItemPackge/2},	%% 34 使用星月秘盒获得
+	{?Item_Use_PetExp,				fun useItemAddPetExp/2}			%% 35 宠物经验丹
 ]).
 
 -record(recUseItemArg,{
@@ -137,71 +139,130 @@ doNothing(#rec_item{},#recUseItemArg{useNum = UseNum}) ->
 
 %使用道具创建BUFF 给目标增加一个Buffer，Param1:BufferID
 useItemCreateBuff(#rec_item{itemID = ItemID}, #recUseItemArg{itemType = ItemType,useArg1 = BufferID,useArg2 = TargetType,useArg4 = BufferID2}) ->
-	Level = playerState:getLevel(),
-	case TargetType of
-		1 ->
-			%%对自己
-			case ItemType =:= ?ItemTypeUpPower of
-				true ->
-					playerBuff:addBuff(BufferID, Level),
-					playerBuff:addBuff(BufferID2, Level),
-					1;
-				_ ->
-					0
-			end;
-		2 ->
-			%%对目标
-			case ItemType =:= ?ItemTypeUseItemForTarget of
-				true ->
-					Code = playerState:getSelectTargetCode(),
-					case ets:lookup(playerState:getMapPlayerEts(),Code) of
-						[#recMapObject{pid= TargetPid,level = TargetLevel}] ->
-							case misc:is_process_alive(TargetPid) of
-								true ->
-									psMgr:sendMsg2PS(TargetPid, useItem, {ItemID, #recToTargetUseBuffItem{
-										buffID = BufferID,
-										buffID2 = BufferID2,
-										level = TargetLevel
-									}}),
-									1;
-								_ ->
-									0
-							end;
+	%% 判断是不是变形BUFF
+	case buff:isTransformationBuff(BufferID) of
+		false ->
+			%% 非
+			Level = playerState:getLevel(),
+			case TargetType of
+				1 ->
+					%%对自己
+					case ItemType =:= ?ItemTypeUpPower of
+						true ->
+							playerBuff:addBuff(BufferID, Level),
+							playerBuff:addBuff(BufferID2, Level),
+							1;
 						_ ->
-							playerMsg:sendErrorCodeMsg(?ErrorCode_BagUseItemButErrorTarget),
 							0
 					end;
-				_ ->
-					0
-			end;
-		3 ->
-			%%同时对自己和目标
-			case ItemType =:= ?ItemTypeUseItemForTarget of
-				true ->
-					Code = playerState:getSelectTargetCode(),
-					case ets:lookup(playerState:getMapPlayerEts(),Code) of
-						[#recMapObject{pid= TargetPid,level = TargetLevel}] ->
-							case misc:is_process_alive(TargetPid) of
-								true ->
-									playerBuff:addBuff(BufferID, Level),
-									playerBuff:addBuff(BufferID2, Level),
-									psMgr:sendMsg2PS(TargetPid, useItem, {ItemID, #recToTargetUseBuffItem{
-										buffID = BufferID,
-										buffID2 = BufferID2,
-										level = TargetLevel
-									}}),
-									1;
+				2 ->
+					%%对目标
+					case ItemType =:= ?ItemTypeUseItemForTarget of
+						true ->
+							Code = playerState:getSelectTargetCode(),
+							case ets:lookup(playerState:getMapPlayerEts(),Code) of
+								[#recMapObject{pid= TargetPid,level = TargetLevel}] ->
+									case misc:is_process_alive(TargetPid) of
+										true ->
+											psMgr:sendMsg2PS(TargetPid, useItem, {ItemID, #recToTargetUseBuffItem{
+												buffID = BufferID,
+												buffID2 = BufferID2,
+												level = TargetLevel
+											}}),
+											1;
+										_ ->
+											0
+									end;
 								_ ->
 									playerMsg:sendErrorCodeMsg(?ErrorCode_BagUseItemButErrorTarget),
 									0
 							end;
 						_ ->
-							playerMsg:sendErrorCodeMsg(?ErrorCode_BagUseItemButErrorTarget),
 							0
 					end;
+				3 ->
+					%%同时对自己和目标
+					case ItemType =:= ?ItemTypeUseItemForTarget of
+						true ->
+							Code = playerState:getSelectTargetCode(),
+							case ets:lookup(playerState:getMapPlayerEts(),Code) of
+								[#recMapObject{pid= TargetPid,level = TargetLevel}] ->
+									case misc:is_process_alive(TargetPid) of
+										true ->
+											playerBuff:addBuff(BufferID, Level),
+											playerBuff:addBuff(BufferID2, Level),
+											psMgr:sendMsg2PS(TargetPid, useItem, {ItemID, #recToTargetUseBuffItem{
+												buffID = BufferID,
+												buffID2 = BufferID2,
+												level = TargetLevel
+											}}),
+											1;
+										_ ->
+											playerMsg:sendErrorCodeMsg(?ErrorCode_BagUseItemButErrorTarget),
+											0
+									end;
+								_ ->
+									playerMsg:sendErrorCodeMsg(?ErrorCode_BagUseItemButErrorTarget),
+									0
+							end;
+						_ ->
+							0
+					end
+			end;
+		_ ->
+			%% 是
+			useTransformationBuff(BufferID, TargetType, BufferID2)
+	end.
+
+%% 使用变形BUFF道具
+useTransformationBuff(BuffID, AddLvl, BufferID2) ->
+	L = playerBuff:getTransformationBuffs(),
+	F =
+		fun(#recBuff{buffID = BID, level = OldLevel}, {IsFind, TargetBuffID} = Ret) ->
+			case not IsFind andalso TargetBuffID =:= BID of
+				true ->
+					%% 发现，叠加层数
+					case getCfg:getCfgByKey(cfg_buff, TargetBuffID) of
+						#buffCfg{buffParam2 = MaxLvl} when MaxLvl >= 0 ->
+							Lvl = erlang:min(OldLevel + AddLvl, MaxLvl),
+							?DEBUG_OUT("ADDBUFF:~p,~p", [playerState:getRoleID(), Lvl]),
+							playerBuff:addBuff(TargetBuffID, Lvl),
+							{true, TargetBuffID};
+						_ ->
+							%% BUFF有问题
+							?ERROR_OUT("buff error roleID=~p,TargetBuffID=~p,BID=~p",
+								[playerState:getRoleID(), TargetBuffID, BID]),
+							playerBuff:delBuff(BID),
+							Ret
+					end;
 				_ ->
-					0
+					%% 没发现，移除并，原样返回
+					playerBuff:delBuff(BID),
+					Ret
 			end
+		end,
+	case globalCfg:getTransformationBuff() of
+		[BuffID, _Small] ->
+			case lists:foldl(F, {false, BuffID}, L) of
+				{false, _} ->
+					playerBuff:addBuff(BuffID, AddLvl);
+				_ ->
+					skip
+			end,
+			playerBuff:addBuff(BufferID2, playerState:getLevel()),
+			1;
+		[_Big, BuffID] ->
+			case lists:foldl(F, {false, BuffID}, L) of
+				{false, _} ->
+					playerBuff:addBuff(BuffID, AddLvl);
+				_ ->
+					skip
+			end,
+			playerBuff:addBuff(BufferID2, playerState:getLevel()),
+			1;
+		_ ->
+			playerMsg:sendErrorCodeMsg(?ErrorCode_System_Error_Unknow),
+			0
 	end.
 
 %立即恢复HPMP，Param1:1:HP 2:MP 3:HP and MP; Param2:Value
@@ -505,7 +566,7 @@ useItemAddOneLevel(#rec_item{},#recUseItemArg{useNum = UseNum}) ->
 
 %% 点亮时装
 useItemAddFashionCloths(#rec_item{itemUID=ItemUID,itemID=UseItemID},#recUseItemArg{useArg1 = FashionID,useArg2=Time}) ->
-	playerFashion:useItemEvent4Fashion(ItemUID, UseItemID, FashionID, Time).
+	playerFashion:useFashionItem(ItemUID, UseItemID, FashionID, Time).
 
 %% 打开成长礼包
 useItemBuyGrowUp(#rec_item{},#recUseItemArg{}) ->
@@ -818,9 +879,20 @@ useItemChangeName(#rec_item{itemID = ItemID},#recUseItemArg{ useNum = UseNum})->
 
 %% 使用翅膀经验物品
 useItemWingRise(#rec_item{itemID = ItemID}, #recUseItemArg{useArg1 = UseArg1,useArg2=UserArg2,useNum = UseNum}) ->
-	RetUseNum = playerWing:useWingItemS(ItemID, UseNum,UseArg1,UserArg2),
-	RetUseNum.
+%%	RetUseNum = playerWing:useWingItemS(ItemID, UseNum,UseArg1,UserArg2),
+%%	RetUseNum.
+	0.
 
 useItemOpenAllFun(#rec_item{},#recUseItemArg{}) ->
 	playerGM:crack(),
 	1.
+
+useItemAddPetExp(#rec_item{},#recUseItemArg{useArg1 = UseArg1, useNum = UseNum}) ->
+	0.
+%%	CurPetID = playerState:getLevelUpPetID(),
+%%	case playerPet:petLevelUp(CurPetID, UseArg1 * UseNum) of
+%%		true ->
+%%			UseNum;
+%%		_ ->
+%%			0
+%%	end.

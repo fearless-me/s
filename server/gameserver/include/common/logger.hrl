@@ -19,14 +19,23 @@
 -else.
 -define(LOG_LEVEL,?LogLevelDebug).
 -endif.
--define(ERROR_OUT(F, A),    logger:error(?LOG_LEVEL, F, A, ?MODULE, ?LINE)).
--define(ERROR_OUT(F),       logger:error(?LOG_LEVEL, F, [], ?MODULE, ?LINE)).
--define(WARN_OUT(F,A),      logger:warn(?LOG_LEVEL, F, A, ?MODULE, ?LINE)).
--define(WARN_OUT(F),        logger:warn(?LOG_LEVEL, F, [], ?MODULE, ?LINE)).
--define(LOG_OUT(F, A),      logger:log(?LOG_LEVEL, F, A, ?MODULE, ?LINE)).
--define(LOG_OUT(F),         logger:log(?LOG_LEVEL,F, [], ?MODULE, ?LINE)).
--define(DEBUG_OUT(F, A),    logger:debug(?LOG_LEVEL, F, A, ?MODULE, ?LINE)).
--define(DEBUG_OUT(F),       logger:debug(?LOG_LEVEL, F, [], ?MODULE, ?LINE)).
+
+-define(ERROR_OUT(F, A),    hdlt_logger:error_out(?LOG_LEVEL,lists:append("[~w:~w] ", F),lists:append([?MODULE, ?LINE],A))).
+-define(ERROR_OUT(F),       hdlt_logger:error_out(?LOG_LEVEL,lists:append("[~w:~w] ", F),[?MODULE, ?LINE])).
+-define(WARN_OUT(F,A),      hdlt_logger:warn_out(?LOG_LEVEL,lists:append("[~w:~w] ", F),lists:append([?MODULE, ?LINE],A))).
+-define(WARN_OUT(F),        hdlt_logger:warn_out(?LOG_LEVEL,lists:append("[~w:~w] ", F),[?MODULE, ?LINE])).
+-define(LOG_OUT(F, A),      hdlt_logger:log(?LOG_LEVEL,lists:append("[~w:~w] ", F),lists:append([?MODULE, ?LINE],A))).
+-define(LOG_OUT(F),         hdlt_logger:log(?LOG_LEVEL,lists:append("[~w:~w] ", F),[?MODULE, ?LINE])).
+
+-ifdef(RELEASE).
+%% RELEASE不显示DEBUG日志
+-define(DEBUG_OUT(F, A),    ok).
+-define(DEBUG_OUT(F),       ok).
+-else.
+-define(DEBUG_OUT(F, A),    hdlt_logger:debug(?LOG_LEVEL, F, A, ?MODULE, ?LINE)).
+-define(DEBUG_OUT(F),       hdlt_logger:debug(?LOG_LEVEL, F, [], ?MODULE, ?LINE)).
+-endif.
+
 -define(DefaultMsgLevel, 0).
 -define(DebugMsgLevel, 1).
 -define(ErrorMsgLevel, 2).

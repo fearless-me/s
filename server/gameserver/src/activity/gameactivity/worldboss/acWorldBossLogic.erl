@@ -67,7 +67,7 @@ activityMapMsg(?ACMapMsg_HurtMonster, {_MapID, _MapPID, RoleID, MonsterCode, Mon
 activityMapMsg(?ACMapMsg_KillMonster, {MapID, _MapPID, _AttackRoleID, _MonsterCode, MonsterID}) ->
 	?DEBUG_OUT("ACMapMsg_KillMonster:~w", [{MapID, MonsterID}]),
 	ok;
-activityMapMsg(?ACMapMsg_Offline, RoleID) ->
+activityMapMsg(?ACMapMsg_Offline, {RoleID, _}) ->
 	?DEBUG_OUT("ACMapMsg_Offline:~w", [RoleID]),
 	ok;
 activityMapMsg(_MsgType, _Data) ->
@@ -80,17 +80,35 @@ activityChangeCallBack(?ActivityPhase_Close) ->
 	acWorldBossState:setState(?ActivityPhase_Close);
 activityChangeCallBack(?ActivityType_WorldBoss_1) ->
 	?DEBUG_OUT("activityChangeCallBack(ActivityType_WorldBoss_1)"),
-	acWorldBossState:setState(?ActivityType_WorldBoss_1),
-	resetData(),
-	ready();
+	case acWorldBossState:getState() of
+		?ActivityPhase_Close ->
+			resetData(),
+			acWorldBossState:setState(?ActivityType_WorldBoss_1),
+			ready();
+		CurState ->
+			?ERROR_OUT("state error, should be[~p], but current[~p]",
+				[?ActivityPhase_Close, CurState])
+	end;
 activityChangeCallBack(?ActivityType_WorldBoss_2) ->
 	?DEBUG_OUT("activityChangeCallBack(ActivityType_WorldBoss_2)"),
-	acWorldBossState:setState(?ActivityType_WorldBoss_2),
-	going();
+	case acWorldBossState:getState() of
+		?ActivityType_WorldBoss_1 ->
+			acWorldBossState:setState(?ActivityType_WorldBoss_2),
+			going();
+		CurState ->
+			?ERROR_OUT("state error, should be[~p], but current[~p]",
+				[?ActivityType_WorldBoss_1, CurState])
+	end;
 activityChangeCallBack(?ActivityType_WorldBoss_3) ->
 	?DEBUG_OUT("activityChangeCallBack(ActivityType_WorldBoss_3)"),
-	acWorldBossState:setState(?ActivityType_WorldBoss_3),
-	finish(?FinishReason_Timeout);
+	case acWorldBossState:getState() of
+		?ActivityType_WorldBoss_2 ->
+			acWorldBossState:setState(?ActivityType_WorldBoss_3),
+			finish(?FinishReason_Timeout);
+		CurState ->
+			?WARN_OUT("state error, should be[~p], but current[~p]",
+				[?ActivityType_WorldBoss_2, CurState])
+	end;
 activityChangeCallBack(_Phase) ->
 	?DEBUG_OUT("activityChangeCallBack(~p)", [_Phase]),
 	ok.

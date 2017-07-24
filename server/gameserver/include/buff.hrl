@@ -96,6 +96,17 @@
 -define(FIXEDBODY, 24). %%定身
 -define(RIDICULE, 25). %%嘲讽
 -define(EXPLODE, 26). %%爆炸
+-define(DoNotControl, 27).%%27. 霸体（被守护类怪物用）
+-define(Meditation, 28).%%28. 灵力冥想
+-define(Elfin, 30).%%30.控制女神小精灵隐藏
+-define(Treat, 31).%%31.治疗，用于持续治疗
+-define(Transformation, 32).%%32.变形药水
+-define(Polymorph, 33).%%33.变羊
+-define(FollowMe, 34). %%任务骑宠预先体验中npc跟随buff
+-define(PeaceEnvoy, 35).%%35.和平使者，不可攻击，不可被攻击
+-define(Ring, 36).%%36.光环
+-define(AntiInjury, 37).%%37反伤
+
 
 %%免疫列表
 -define(ImmumeList, [?SLEEP, ?FREEZE, ?RESHAPE, ?SLIENCE,
@@ -160,5 +171,14 @@
 	kMagicFactor = 0.0,
 	kPhysicalFactor = 0.0,
 	criticalDamageFactor = 0.0
+}).
+
+-record(recRingBuff,{
+	srcCode = 0,
+	srcLevel = 0,
+	srcPid,
+	srcMapPid,
+	targetCode = 0,
+	ringBuffID = 0
 }).
 -endif.

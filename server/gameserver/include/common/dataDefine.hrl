@@ -31,6 +31,7 @@
     rec_task_accepted = [] :: [#rec_task{}, ...],      %% 接受任务列表
     rec_task_submitted = [] :: [#rec_task_submitted{}, ...],    %% 完成任务列表
 	activeCode4Many = [] ::[integer(),...],	%% 角色已经领取了的万用礼包keys
+	rec_player_monster_book = [] :: [#rec_player_monster_book{}, ...],	%% 怪物图鉴数据
     thisIsEndFlag = undefined
 }).
 

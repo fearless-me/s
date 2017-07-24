@@ -11,11 +11,29 @@
 
 -include("playerPrivate.hrl").
 
+
+%%: 接任务时给的buff；完成或者放弃时自动删除
+%%: 如果有buff，填写buffID
+%%: 【buff给予时机，buff id】
+%%: 任务阶段
+%%: 1.任务开始
+%%: 2.到达任务目标（采集、npc...等）
+%%: 3.任务完成
+%%: [{任务阶段，对话groupID}}
+%%: buff id-buff表的id
+-define(BuffEventAny, 0).
+-define(BuffEventOnAccept, 1).
+-define(BuffEventOnDoing, 2).
+-define(BuffEventOnSubmit, 3).
+-define(BuffEventOnCancel, 4).
+-define(BuffEventOnReset, 5).
+
 %% ====================================================================
 %% API functions
 %% ====================================================================
 -export([
 %%	onLogin/1,
+	triggerTaskBuff/1,
 	acceptTask/2,
 	cancelTask/1,
 	submitTask/3,
@@ -38,8 +56,19 @@
 
 -export([
 	updateTask/2,
-	updateTask/3
+	updateTask/3,
+	taskTriggerEventOnEnterMap/1
 ]).
+
+triggerTaskBuff(TaskID)->
+	 case getTaskFromAcceptedListByID(TaskID) of
+		 #rec_task{}->
+			 dealTaskBuff(?BuffEventOnDoing, getTaskCfgByID(TaskID)),
+			 ok;
+		 _ ->
+			 skip
+	 end,
+	ok.
 
 gmAddCompleteTask(TaskID) ->
 	addSubmittedTask(TaskID),
@@ -51,7 +80,7 @@ gmSubmitTask(TaskID) when erlang:is_integer(TaskID) andalso TaskID > 0 ->
 	Task = getTaskFromAcceptedListByID(TaskID),
 	case Task of
 		#rec_task{} ->
-			completeTask(Task, 0);	%% GM命令目前仅能提交单人任务
+			completeTask(Task, 0);    %% GM命令目前仅能提交单人任务
 		_ ->
 			skip
 	end,
@@ -93,8 +122,34 @@ requestTalkToNpc(Code) ->
 	ok.
 
 %% ====================================================================
+taskTriggerEventOnEnterMap(MapID)->
+	case getCfg:getCfgPStack(cfg_mapsetting, MapID) of
+		#mapsettingCfg{type = ?MapTypeNormal} ->
+			ok;
+		#mapsettingCfg{} ->
+			triggerEventOnEnterMap(MapID);
+		_ ->
+			ok
+	end,
+	ok.
+%% ====================================================================
+triggerEventOnEnterMap(MapID)->
+	L = filterAcceptTask(?TaskSubType_Convoy, MapID),
+	doTriggerEventOnEnterMap(L),
+	ok.
 
-updateTask(Type, Key, Target)->
+doTriggerEventOnEnterMap([])->
+	ok;
+doTriggerEventOnEnterMap([#rec_task{taskSubType = ?TaskSubType_Convoy, taskID = TaskID} | L])->
+	case getTaskCfgByID(TaskID) of
+		#taskCfg{target_conf =[_CopyMapID, _MonsterID,_StartWID,_EndWID]} = Cfg->
+			triggerEvent(Cfg);
+		_ ->
+			ok
+	end,
+	doTriggerEventOnEnterMap(L).
+%% ====================================================================
+updateTask(Type, Key, Target) ->
 	updateTask0(Type, Key, Target).
 
 updateTask(?TaskSubType_UseItem, Code) ->
@@ -135,10 +190,28 @@ updateTask2(
 			L2 = lists:keystore(TaskID, #rec_task.taskID, L1, NewTask),
 			playerState:setAcceptedTask(L2),
 			%%
-			playerMsg:sendNetMsg(#pk_GS2U_UpdateTask{info = makeMsgInfoFromRec(NewTask)});
+			playerMsg:sendNetMsg(#pk_GS2U_UpdateTask{info = makeMsgInfoFromRec(NewTask)}),
+			ok;
 		_ ->
 			0
 	end.
+
+
+filterAcceptTask(Type, FilterKey) ->
+	L1 = playerState:getAcceptedTask(),
+	lists:filter(
+		fun(R) ->
+			#rec_task{
+				taskSubType = SubType,
+				taskKey = TaskKey,
+				taskTargetCur = Cur,
+				taskTargetMax = Max
+			} = R,
+			SubType =:= Type andalso
+				TaskKey =:= FilterKey andalso
+				Cur < Max
+
+		end, L1).
 
 filterAcceptTask(Type, FilterKey, FilterTarget) ->
 	L1 = playerState:getAcceptedTask(),
@@ -153,7 +226,7 @@ filterAcceptTask(Type, FilterKey, FilterTarget) ->
 			} = R,
 			SubType =:= Type andalso
 				TaskKey =:= FilterKey andalso
-				Cur < Max  andalso
+				Cur < Max andalso
 				(TaskTarget =:= 0 orelse TaskTarget =:= FilterTarget)
 
 		end, L1).
@@ -167,7 +240,7 @@ canAddPlus(TaskID) ->
 			false
 	end.
 
-curNumber(TC, _Type, _TID, _Cur, _Max) when TC > 0->
+curNumber(TC, _Type, _TID, _Cur, _Max) when TC > 0 ->
 	TC;
 curNumber(_TC, ?TaskSubType_CollectItem, TaskID, Cur, Max) ->
 	case getTaskCfgByID(TaskID) of
@@ -182,7 +255,7 @@ curNumber(_TC, ?TaskSubType_CollectItem, TaskID, Cur, Max) ->
 		_ ->
 			Cur
 	end;
-curNumber(_TC,?TaskSubType_Drop, TaskID, Cur, Max) ->
+curNumber(_TC, ?TaskSubType_Drop, TaskID, Cur, Max) ->
 	case getTaskCfgByID(TaskID) of
 		#taskCfg{target_conf = Params} ->
 			case Params of
@@ -241,7 +314,9 @@ doResetTask(TaskID) ->
 	L2 = lists:keystore(TaskID, #rec_task.taskID, L1, NewTask),
 	playerState:setAcceptedTask(L2),
 	%%
-	playerMsg:sendNetMsg(#pk_GS2U_UpdateTask{info = makeMsgInfoFromRec(NewTask)}).
+	playerMsg:sendNetMsg(#pk_GS2U_UpdateTask{info = makeMsgInfoFromRec(NewTask)}),
+	dealTaskBuff(?BuffEventOnReset, getTaskCfgByID(TaskID)),
+	taskTriggerEventImmediately(getTaskCfgByID(TaskID)).
 
 %% ====================================================================
 %%接收任务
@@ -263,31 +338,47 @@ doAcceptTask(TaskID) ->
 	end.
 
 canAcceptTask(TaskID) ->
-	CurAccepted = getAcceptedTaskCurCount(),
-	case CurAccepted >= ?TaskAcceptedMax of
-		false ->
-			IsAccepted = isAcceptedTaskByID(TaskID),
-			IsCompleted =
-				case getTaskCfgByID(TaskID) of
-					#taskCfg{type = ?TaskMainType_Main} ->
-						isSubmittedTaskByID(TaskID);
+	case getTaskCfgByID(TaskID) of
+		#taskCfg{type = Type} ->
+			%% 主线任务可以直接接
+			%% 支线任务个数单独判断，不能超过?TaskAcceptedSideMax
+			%% 总任务个数不能超过?TaskAcceptedMax
+			{CurSideAccepted, CurAccepted} = getAcceptedTaskCurCount(),
+			CanAccept =
+				case Type of
+					?TaskMainType_Side ->
+						CurSideAccepted < ?TaskAcceptedSideMax;
 					_ ->
-						false
+						true
 				end,
-			case IsAccepted =:= false andalso IsCompleted =:= false of
+			case Type =:= ?TaskMainType_Main
+				orelse (CanAccept andalso CurAccepted < ?TaskAcceptedMax) of
 				true ->
-					Task = initTask(TaskID),
-					case Task of
-						#rec_task{} ->
-							{true, Task};
-						_E ->
-							{false, ?ErrorCode_TaskFailed_AcceptFail}
+					IsAccepted = isAcceptedTaskByID(TaskID),
+					IsCompleted =
+						case Type of
+							?TaskMainType_Main ->
+								isSubmittedTaskByID(TaskID);
+							_ ->
+								false
+						end,
+					case IsAccepted =:= false andalso IsCompleted =:= false of
+						true ->
+							Task = initTask(TaskID),
+							case Task of
+								#rec_task{} ->
+									{true, Task};
+								_ ->
+									{false, ?ErrorCode_TaskFailed_AcceptFail}
+							end;
+						_ ->
+							{false, ?ErrorCode_TaskFailed_IsExit}
 					end;
 				_ ->
-					{false, ?ErrorCode_TaskFailed_IsExit}
+					{false, ?ErrorCode_TaskFailed_IsMax}
 			end;
-		true ->
-			{false, ?ErrorCode_TaskFailed_IsMax}
+		_ ->
+			{false, ?ErrorCode_TaskFailed_IsNotExit}
 	end.
 %% ====================================================================
 
@@ -307,10 +398,32 @@ submitTask(TaskID, Code, PartnerRoleID) ->
 %% 是否能完成指定任务
 -spec canSubmitTask(TaskID :: uint(), Code :: uint()) -> {boolean(), uint()}.
 canSubmitTask(TaskID, Code) ->
+	#taskCfg{submit_task_npc = NpcID1, type = TaskType} = getTaskCfgByID(TaskID),
+	%% LUN-4475 【协议测试】【家族任务】在角色未加入家族情况下，可以使用协议直接发送请求接收家族任务和完成家族任务
+	case TaskType of
+		?TaskMainType_EveryDay ->
+			case playerState:getGuildID() of
+				0 ->
+					{false, ?ErrorCode_GuildNotJoin};
+				_ ->
+					canSubmitTask(TaskID, Code, NpcID1, TaskType)
+			end;
+		_ ->
+			canSubmitTask(TaskID, Code, NpcID1, TaskType)
+	end.
+
+-spec canSubmitTask(TaskID :: uint(), Code :: uint(), NpcID1 :: uint(), TaskType :: uint()) -> {boolean(), uint()}.
+canSubmitTask(TaskID, Code, NpcID1, TaskType) ->
 	case isAcceptedTaskByID(TaskID) of
 		true ->
-			#taskCfg{submit_task_npc = NpcID} = getTaskCfgByID(TaskID),
 			%%近程提交
+			NpcID =
+				case TaskType of
+					?TaskMainType_Marriage ->
+						0;  %%情缘任务忽略距离
+					_->
+						NpcID1
+				end,
 			case checkNpcDist(NpcID, Code) of
 				{true, _} ->
 					Task = getTaskFromAcceptedListByID(TaskID),
@@ -327,7 +440,6 @@ canSubmitTask(TaskID, Code) ->
 		false ->
 			{false, ?ErrorCode_TaskFailed_NotAccept}
 	end.
-
 
 %%判断任务个数是否达到提交个数
 -spec isCanSubmit(Task) -> boolean() when Task :: term().
@@ -431,7 +543,7 @@ initTask_subtype_common(
 %%
 initTask_subtype_common(
 	TaskRec,
-	#taskCfg{sub_type = ?TaskSubType_Operation, target_conf = [ItemID, _]}
+	#taskCfg{sub_type = ?TaskSubType_Operation, target_conf = [ItemID | _]}
 ) ->
 	TaskRec#rec_task{taskKey = ItemID, taskTarget = ItemID, taskTargetMax = 0};
 %%
@@ -451,16 +563,32 @@ initTask_subtype_common(
 	TaskRec,
 	#taskCfg{sub_type = ?TaskSubType_System, target_conf = [?TaskSubType_System_Sub_Tinker, Quality]}
 ) ->
-	TaskRec#rec_task{taskKey = ?TaskSubType_System_Sub_Tinker, taskTarget = Quality, taskTargetMax = Quality};
+	TaskRec#rec_task{taskKey = ?TaskSubType_System_Sub_Tinker, taskTarget = Quality, taskTargetMax = 1};
 initTask_subtype_common(
 	TaskRec,
-	#taskCfg{sub_type = ?TaskSubType_System, target_conf = [EventID], target_conf_params =[Num]}
+	#taskCfg{sub_type = ?TaskSubType_System, target_conf = [EventID], target_conf_params = [Num]}
 ) ->
 	TaskRec#rec_task{taskKey = EventID, taskTarget = EventID, taskTargetMax = Num};
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_Convoy,  target_conf = [0,MonsterID,0,0]} = Cfg
+) ->
+	TaskRec#rec_task{taskKey = MonsterID, taskTarget = MonsterID, taskTargetMax = convoyTaskTargetNumber(Cfg)};
+initTask_subtype_common(
+	TaskRec,
+	#taskCfg{sub_type = ?TaskSubType_Convoy, target_conf = [CopyMapID, MonsterID,_SW,_EW]} = Cfg
+) ->
+	TaskRec#rec_task{taskKey = CopyMapID, taskTarget = MonsterID, taskTargetMax = convoyTaskTargetNumber(Cfg)};
 %%
 initTask_subtype_common(TaskRec, TaskCfg) ->
 	?ERROR_OUT("TaskRec:~p,TaskCfg:~p", [TaskRec, TaskCfg]),
 	undefined.
+
+
+convoyTaskTargetNumber(#taskCfg{target_conf = [CopyMapID, _MonsterID,_SW,_EW]}) when CopyMapID > 0 ->
+	1;
+convoyTaskTargetNumber(_)->
+	0.
 %% ====================================================================
 
 %%保存新接取的任务
@@ -532,25 +660,83 @@ addOrDeletePet(TaskID) ->
 	end,
 	ok.
 
-onAddNewTask(TaskID) ->
-	#taskCfg{
-		type = TaskType,
-		give_buff = BuffID
-	} = getTaskCfgByID(TaskID),
-	case BuffID > 0 of
-		true ->
-			playerBuff:addBuff(BuffID, 1);
-		_ ->
-			skip
-	end,
+%% ====================================================================
+dealTaskBuff(?BuffEventOnAccept,#taskCfg{give_buff = AddBuffList, del_buff = DelBuffList})->
+	addBuffWithFilter(true, ?BuffEventOnAccept, AddBuffList),
+	addBuffWithFilter(false, ?BuffEventOnAccept, DelBuffList),
+	ok;
 
+dealTaskBuff(?BuffEventOnSubmit,#taskCfg{give_buff = AddBuffList, del_buff = DelBuffList})->
+	addBuffWithFilter(true, ?BuffEventOnSubmit, AddBuffList),
+	addBuffWithFilter(false, ?BuffEventOnSubmit, DelBuffList),
+	ok;
+dealTaskBuff(?BuffEventOnDoing,#taskCfg{give_buff = AddBuffList, del_buff = DelBuffList})->
+	addBuffWithFilter(true, ?BuffEventOnDoing, AddBuffList),
+	addBuffWithFilter(false, ?BuffEventOnDoing, DelBuffList),
+	ok;
+%% 下面两种是特殊情况
+dealTaskBuff(?BuffEventOnCancel,#taskCfg{give_buff = AddBuffList})->
+	addBuffWithFilter(false, ?BuffEventAny, AddBuffList),
+	ok;
+dealTaskBuff(?BuffEventOnReset,#taskCfg{give_buff = AddBuffList})->
+	addBuffWithFilter(false, ?BuffEventAny, AddBuffList),
+	ok;
+dealTaskBuff(_Op,#taskCfg{})->
+	ok.
+
+addBuffWithFilter(true, EventID, BuffList) when is_list(BuffList)->
+	Level = playerState:getLevel(),
+	[playerBuff:addBuff(BuffID, Level) ||
+		{Event, BuffID} <- BuffList
+		, Event =:= EventID orelse EventID =:= ?BuffEventAny],
+	ok;
+addBuffWithFilter(false, EventID, BuffList) when is_list(BuffList)->
+	[playerBuff:delBuff(BuffID) ||
+		{Event, BuffID} <- BuffList
+		, Event =:= EventID orelse EventID =:= ?BuffEventAny],
+	ok;
+addBuffWithFilter(_IsAdd, _EventID, _BuffList)->
+	ok.
+
+
+
+%% ====================================================================
+onAddNewTask(TaskID)->
+	#taskCfg{type = TaskType} = Cfg = getTaskCfgByID(TaskID),
 	case TaskType of
 		?TaskMainType_Marriage ->
-			playerDaily:incCounter(?DailyType_MarriageTask, 0, 1);
+			playerDaily:incDailyCounter(?DailyType_MarriageTask, 0);
 		_ ->
 			skip
 	end,
+	dealTaskBuff(?TaskLogAccept, Cfg),
+	taskTriggerEventImmediately(Cfg),
+	IsSubmitted = isSubmittedTaskByID(TaskID),
+	playerMainMenu:onFuncIsOpenByMainMenu(?MainMenuType_TaskIDA, TaskID, IsSubmitted),
 	ok.
+%% ====================================================================
+taskTriggerEventImmediately(#taskCfg{sub_type = ?TaskSubType_Convoy, target_conf = [0, _MonsterID, 0, 0]} = Cfg)->
+	triggerEvent(Cfg),
+	ok;
+taskTriggerEventImmediately(_Cfg)->
+	ok.
+
+
+%% ====================================================================
+triggerEvent(#taskCfg{
+	id = TaskID,
+	sub_type = ?TaskSubType_Convoy,
+	target_conf = [0,MonsterID,0,0]
+})->
+	playerConvoy:init(MonsterID, {task, TaskID});
+triggerEvent(#taskCfg{
+	sub_type = ?TaskSubType_Convoy,
+	target_conf = [_CopyMapID, MonsterID,StartWID,EndWID]
+})->
+	playerConvoy:init(MonsterID, {waypoint, StartWID, EndWID});
+triggerEvent(_)->
+	skip.
+
 %% ====================================================================
 
 %%NPC检查
@@ -563,6 +749,7 @@ checkNpcDist(NpcDataID, NpcCode) ->
 		notFound ->
 			{false, ?ErrorCode_TaskFailed_TooFarFromNpc};
 		#recMapObject{id = NpcDataID} ->
+
 			DistSQ = misc:calcDistSquare(X, Y, Npc#recMapObject.x, Npc#recMapObject.y),
 			case DistSQ > ?TalkToNpc_Distance * ?TalkToNpc_Distance of
 				true ->
@@ -584,11 +771,13 @@ completeTask(#rec_task{taskID = TaskID, taskType = TaskType}, PartnerRoleID) ->
 		addSubmittedTask(TaskID),
 		deleteTask(TaskID, ?TaskLogSubmit),
 		giveTaskAward(TaskID, PartnerRoleID),
-		playerGoddess:autoActiveCard(TaskID),
+%%		playerGoddess:autoActiveCard(TaskID),
 		playerAchieve:achieveEvent(?Achieve_Task, [1]),
 		%%如果是日常任务，则自动接取下一个任务
 		playerLoopTask:onTaskComplete(TaskType, TaskID),
 		playerSideTask:onTaskComplete(TaskType, TaskID),
+%%		playerWing:needInitWingLevel(playerState:getLevel()),
+		onCompleteTask(getTaskCfgByID(TaskID)),
 		ok
 	catch
 		_ : Error ->
@@ -600,16 +789,23 @@ completeTask(#rec_task{taskID = TaskID, taskType = TaskType}, PartnerRoleID) ->
 
 addNextTask(TaskID) ->
 	case getTaskCfgByID(TaskID) of
-		#taskCfg{auto_next = L}  ->
-			[doAcceptTask(NextTask) || NextTask <- L, NextTask > 0 ];
+		#taskCfg{auto_next = L} ->
+			[doAcceptTask(NextTask) || NextTask <- L, NextTask > 0];
 		_ ->
 			skip
 	end.
+
+onCompleteTask(#taskCfg{sub_type = ?TaskSubType_Convoy})->
+	playerConvoy:convoySuccess( ),
+	ok;
+onCompleteTask(_)->
+	skip.
 
 %% ====================================================================
 %%添加提交任务
 -spec addSubmittedTask(TaskID) -> ok when TaskID :: uint16().
 addSubmittedTask(TaskID) ->
+	IsSubmitted = isSubmittedTaskByID(TaskID),
 	Slot = TaskID div 64,
 	Mod = TaskID rem 64,
 	L = playerState:getSubmittedTask(),
@@ -623,6 +819,7 @@ addSubmittedTask(TaskID) ->
 	L1 = lists:keystore(Slot, 1, L, {Slot, V1}),
 	playerState:setSubmittedTask(L1),
 	playerMsg:sendNetMsg(#pk_GS2U_AddNewCompleteTask{taskID = TaskID, result = 1}),
+	playerMainMenu:onFuncIsOpenByMainMenu(?MainMenuType_TaskIDS, TaskID, IsSubmitted),
 	ok.
 
 %% ====================================================================
@@ -632,6 +829,7 @@ deleteTask(TaskID, Reason) ->
 	playerMsg:sendNetMsg(#pk_GS2U_DeleteAcceptTask{
 		taskID = TaskID, result = Reason}),
 	%%添加任务完成log
+	dealTaskBuff(Reason, getTaskCfgByID(TaskID)),
 	dbLog:sendSaveLogTask(playerState:getRoleID(), TaskID, playerState:getLevel(), Reason).
 
 %% ====================================================================
@@ -671,7 +869,7 @@ giveTaskAward(TaskID, PartnerRoleID) ->
 giveTaskAwardForLoopTask(TaskID) ->
 	case getTaskCfgByID(TaskID) of
 		#taskCfg{type = ?TaskMainType_EveryDay} ->
-			giveTaskAward(TaskID, 0);	%% 环任务始终为单人任务，伙伴ID为0
+			giveTaskAward(TaskID, 0);    %% 环任务始终为单人任务，伙伴ID为0
 		_ ->
 			?ERROR_OUT("giveTaskAwardForLoopTask TaskID:~p is not loopTask", [TaskID])
 	end.
@@ -759,9 +957,35 @@ rewardSpecial1({?TaskReward_SPT_Liveness, _P1, Value}, _PartnerRoleID) ->
 rewardSpecial1({?TaskReward_SPT_MarriageCloseness, _P1, _Value}, 0) ->
 	?ERROR_OUT("?TaskReward_SPT_MarriageCloseness PartnerRoleID is 0");
 rewardSpecial1({?TaskReward_SPT_MarriageCloseness, _P1, Value}, PartnerRoleID) ->
+	%% LUN-4100 【情缘任务】完成一个情缘任务后，玩家实际亲密度增加值是配置表中的2倍
+	%% 排查原因：情缘任务的实现方式为，伴侣双方各领取、完成同样的任务，但增加亲密度时，必须是双方一起增加
+	%% 解决方法：仅在队长提交任务时处理增加亲密度
 	RoleID = playerState:getRoleID(),
-	?DEBUG_OUT("[DebugForMarriage] RoleID:~w Task Reward Value:~w with PartnerRoleID:~w", [RoleID, Value, PartnerRoleID]),
-	playerMarriage:closenessAdd({RoleID, PartnerRoleID, Value, ?ClosenessSource_MarriageTask});
+	case teamInterface:isTeamLeader(RoleID) of
+		true ->
+			?DEBUG_OUT("[DebugForMarriage] RoleID:~w Task Reward Value:~w with PartnerRoleID:~w", [RoleID, Value, PartnerRoleID]),
+			playerMarriage:closenessAdd({RoleID, PartnerRoleID, Value, ?ClosenessSource_MarriageTask});
+		_ ->
+			skip
+	end;
+rewardSpecial1({?TaskReward_SPT_GuildResource, _P1, Value}, _PartnerRoleID) ->
+	%% LUNA-2897 [服务器][每日任务（公会的委托）]每日任务移动到家族中改为家族任务
+	%% 新增家族资金奖励，仅在有家族时有效
+	case playerState:getGuildID() of
+		0 ->
+			skip;
+		GuildID ->
+			playerGuild:addguildresource(GuildID, Value)
+	end;
+rewardSpecial1({?TaskReward_SPT_GuildLiveness, _P1, Value}, _PartnerRoleID) ->
+	%% LUNA-3155 【服务器】【家族任务（原每日任务）】增加单次任务与十环奖励家族活跃配置
+	%% 新增家族活跃奖励，仅在有家族时有效
+	case playerState:getGuildID() of
+		0 ->
+			skip;
+		GuildID ->
+			playerGuild:addguildliveness(GuildID, Value)
+	end;
 rewardSpecial1({_P0, _P1, _P2}, _PartnerRoleID) ->
 	ok.
 
@@ -788,9 +1012,20 @@ getTaskCfgByID(TaskID) ->
 	end.
 
 %%当前已接取任务数量
--spec getAcceptedTaskCurCount() -> non_neg_integer().
+-spec getAcceptedTaskCurCount() -> {non_neg_integer(), non_neg_integer()}.
 getAcceptedTaskCurCount() ->
-	erlang:length(playerState:getAcceptedTask()).
+	FunFind =
+		fun(#rec_task{taskID = TaskID}, {SideCount, Count} = Result) ->
+			case getTaskCfgByID(TaskID) of
+				#taskCfg{type = ?TaskMainType_Side} ->
+					{SideCount + 1, Count + 1};
+				#taskCfg{} ->
+					{SideCount, Count + 1};
+				_ ->
+					Result
+			end
+		end,
+	lists:foldl(FunFind, {0, 0}, playerState:getAcceptedTask()).
 
 %%是否已接取某个任务
 -spec isAcceptedTaskByID(TaskID) -> boolean()

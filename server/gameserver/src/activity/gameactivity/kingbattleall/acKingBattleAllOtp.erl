@@ -71,7 +71,7 @@ handle_info({activityMapMsg, _Pid, {MsgType, Data}}, State) ->
 			acKingBattleAllLogic:createKingMirroring(),
 			ok;
 		?ACMapMsg_Offline ->
-			RoleID = Data,
+			{RoleID, _} = Data,
 			acKingBattleAllLogic:offlineInMap(RoleID);
 		?ACMapMsg_PlayerLeave ->
 			{RoleID, _, _}  = Data,

@@ -194,6 +194,7 @@
 
 -record(rec_fullData,{
 	base_role,
+	roleKeyInfo,
 	coin_list,
 	ext_role,
 	variant,
@@ -287,11 +288,12 @@
 -define(LivenessMoneyDungeon, 7).  %% 以前是铸币熔炉，现在改为了金币副本（惊天喵盗团）
 -define(LivenessLeaderInvade, 8).
 -define(LivenessArena, 9). %%竞技场
-%-define(LivenessFationCopy,10). %%阵营战场
 -define(LivenessExpCopyMap, 10). %经验副本
 -define(LivenessSpeedUp, 11). %港口竞速
 -define(LivenessMaterial, 12). %材料副本
 -define(LivenessFriendActionPoint, 13). %好友体力
+-define(LivenessGuildFairyGround, 14). %做游乐设施
+
 -define(LivenessHijack, 111).
 -define(LivenessFightAll, 112).%%战天下
 -define(LivenessArmyCopy, 113).%%军团副本

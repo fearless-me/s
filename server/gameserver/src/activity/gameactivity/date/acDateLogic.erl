@@ -21,7 +21,8 @@
 	clearAllObject/2,
 	setTimerMain/3,
 	getPlayerPidNetPidFromThisMap/2,
-	sendNetMsg2PlayerFromThisMap/3
+	sendNetMsg2PlayerFromThisMap/3,
+	getPlayerPosFromThisMap/2
 ]).
 
 %% 本进程调用的常规接口
@@ -41,7 +42,8 @@
 	breakRole/1,
 	deleteRole/1,
 	onTimerMain/2,
-	onTimerTick/0
+	onTimerTick/0,
+	canEnterMap/2
 ]).
 
 %%% ====================================================================
@@ -106,6 +108,22 @@ sendNetMsg2PlayerFromThisMap(RoleID, PlayerEts, Msg) ->
 			skip
 	end,
 	ok.
+
+
+%% 获取地图上玩家坐标
+-spec getPlayerPosFromThisMap(RoleID::uint64(), PlayerEts::etsTab()) -> {X::float(), Y::float()}.
+getPlayerPosFromThisMap(RoleID, PlayerEts) ->
+	case core:queryOnLineRoleByRoleID(RoleID) of
+		#rec_OnlinePlayer{code = Code} ->
+			case ets:lookup(PlayerEts, Code) of
+				[#recMapObject{x  = X, y = Y}] ->
+					{X, Y};
+				_ ->
+					{0,0} %% 在线但是不在这里
+			end;
+		_ ->
+			{0,0} %% 不在线
+	end.
 
 %%% ====================================================================
 %%% API functions 公共回调
@@ -190,14 +208,27 @@ activityMapMsg(?ACMapMsg_PlayerLeave, {RoleID, MapPid, #recMapObject{}} = _Data)
 			skip % 可能地图已被销毁
 	end,
 	ok;
+
+%% 怪物死亡
+activityMapMsg(?ACMapMsg_KillMonster ,{_MapID, _MapPID, AttackRoleID, _MonsterCode, MonsterID}=_Data) ->
+	%%MonsterID是战天下才用的镜像id,就是镜像被杀了
+	case acDateState:queryMapInfo(_MapPID) of
+		#recMapInfo{activeID = ActiveID} = RecOld ->
+			Mod = daid2mod(ActiveID),
+			Mod:monsterDead(RecOld,_MonsterCode);
+		_ ->
+			skip % 可能地图已被销毁
+	end,
+	ok;
+
 %% 忽略其它消息
-activityMapMsg(ErrorType, ErrorData) ->
-	?ERROR_OUT("msg:~p,~p", [ErrorType, ErrorData]),
+activityMapMsg(_, _) ->
+	%%?ERROR_OUT("msg:~p,~p", [ErrorType, ErrorData]),
 	ok.
 
 %% 创建地图成功（比?ACMapMsg_CreateMap更先收到）
--spec createActivityMapAck({MapID::uint(), ListMapPid::list(), {DateActiveID::type_daid(), RoleID::uint64(), AnotherRoleID::uint64()}}) -> ok.
-createActivityMapAck({MapID, [MapPid], {DateActiveID, RoleID, AnotherRoleID}} = _Data) ->
+-spec createActivityMapAck({MapID::uint(), ListMapPid::list(), {DateActiveID::type_daid(), RoleID::uint64(), AnotherRoleID::uint64(),DailyCount::uint(),AnOtherDailyCount::uint()}}) -> ok.
+createActivityMapAck({MapID, [MapPid], {DateActiveID, RoleID, AnotherRoleID,DailyCount,AnOtherDailyCount}} = _Data) ->
 	%?DEBUG_OUT("[DebugForDate] createActivityMapAck RoleID(~p) AnotherRoleID(~p) DateActiveID(~p) MapID(~p) MapPid(~p)", [RoleID, AnotherRoleID, DateActiveID, MapID, MapPid]),
 	case acDateState:queryMapInfoHelper(RoleID, DateActiveID) of
 		#recKeyInfo{} ->
@@ -205,12 +236,12 @@ createActivityMapAck({MapID, [MapPid], {DateActiveID, RoleID, AnotherRoleID}} = 
 			psMgr:sendMsg2PS(MapPid, resetCopyMap, {});	%% 错误的创建，强制关闭副本
 		_ ->
 			%% 构建地图信息
-			{RoleID_A, RoleID_B} =
+			{RoleID_A, RoleID_B,RoleA_DailyCount ,RoleB_DailyCount} =
 				case RoleID < AnotherRoleID of
 					true ->
-						{RoleID, AnotherRoleID};
+						{RoleID, AnotherRoleID,DailyCount,AnOtherDailyCount};
 					_ ->
-						{AnotherRoleID, RoleID}
+						{AnotherRoleID, RoleID,AnOtherDailyCount,DailyCount}
 				end,
 			MapInfo =
 				#recMapInfo{
@@ -222,6 +253,8 @@ createActivityMapAck({MapID, [MapPid], {DateActiveID, RoleID, AnotherRoleID}} = 
 					createMapTime   = time:getSyncUTCTimeFromDBS(),
 					isInitAfterC    = false,          % 玩法逻辑是否执行了创建地图后的初始化
 					isInitAfterFE   = false,          % 玩法逻辑是否执行了玩家首次进入后的初始化
+					roleA_enterCount        = RoleA_DailyCount,     % 玩家计入次数
+					roleB_enterCount        = RoleB_DailyCount,     % 玩家计入次数
 					paramEx         = undefined       % 各玩法自定义扩展数据
 				},
 			acDateState:replaceMapInfo(MapInfo)
@@ -325,21 +358,44 @@ init() ->
 	erlang:send_after(?TimeTick, self(), ?MsgTypeTimerTick),
 	ok.
 
+
+
+canEnterMap(RoleID,DateActiveID) ->
+	case acDateState:queryMapInfoHelper(RoleID, DateActiveID) of
+		#recKeyInfo{mapID = MapID, mapPID = MapPid, anotherRoleID = AnotherRoleID} ->
+			case acDateState:queryMapInfo(MapPid) of
+				#recMapInfo{paramEx = undefined} ->
+					%% 创建中
+					false;
+				MapInfoOld ->
+					%% 地图已存在，可以进入
+					%% 玩法判断是否可以进入
+					MapPid
+			end;
+		_ ->
+			%% 地图不存在
+			false
+	end.
 %% 尝试进入
 -spec enterTry(Pid::pid(), {RoleID::uint64(), DateActiveID::type_daid(), IsGM::boolean()}) -> ok.
 enterTry(Pid, {RoleID, DateActiveID, IsGM}) ->
 	%?DEBUG_OUT("[DebugForDate] enterTry RoleID(~p) DateActiveID(~p)", [RoleID, DateActiveID]),
 	case acDateState:queryMapInfoHelper(RoleID, DateActiveID) of
 		#recKeyInfo{mapID = MapID, mapPID = MapPid, anotherRoleID = AnotherRoleID} ->
-			MapInfoOld = acDateState:queryMapInfo(MapPid),
-			%% 地图已存在，可以进入
-			%% 玩法判断是否可以进入
-			Mod = daid2mod(DateActiveID),
-			case Mod:playerEnterCheck(MapInfoOld, RoleID) of
-				{_, true} ->
-					psMgr:sendMsg2PS(Pid, date_enterTryAck, {MapID, MapPid, DateActiveID, AnotherRoleID});
-				_ ->
-					skip  %% 已由各玩法逻辑处理
+			case acDateState:queryMapInfo(MapPid) of
+				#recMapInfo{paramEx = undefined} ->
+					%% 创建中
+					skip;
+				MapInfoOld ->
+					%% 地图已存在，可以进入
+					%% 玩法判断是否可以进入
+					Mod = daid2mod(DateActiveID),
+					case Mod:playerEnterCheck(MapInfoOld, RoleID) of
+						{_, true} ->
+							psMgr:sendMsg2PS(Pid, date_enterTryAck, {MapID, MapPid, DateActiveID, AnotherRoleID});
+						_ ->
+							skip  %% 已由各玩法逻辑处理
+					end
 			end;
 		_ ->
 			%% 地图不存在，需要创建
@@ -347,7 +403,7 @@ enterTry(Pid, {RoleID, DateActiveID, IsGM}) ->
 				true ->
 					%% GM模式直接创建地图
 					?ERROR_OUT("aIsGMs! ~p", [RoleID]),
-					enterCreate({DateActiveID, RoleID, 0});
+					enterCreate({DateActiveID, RoleID, 0,0,0});
 				_ ->
 					%% 正常模式继续走流程
 					psMgr:sendMsg2PS(Pid, date_enterTryAck, DateActiveID)
@@ -356,19 +412,18 @@ enterTry(Pid, {RoleID, DateActiveID, IsGM}) ->
 	ok.
 
 %% 创建地图
--spec enterCreate({DateActiveID::type_daid(), RoleID::uint64(), AnotherRoleID::uint64()}) -> ok.
-enterCreate({DateActiveID, RoleID, AnotherRoleID} = Key) ->
+-spec enterCreate({DateActiveID::type_daid(), RoleID::uint64(), AnotherRoleID::uint64(),DailyCount::uint(),AnOtherDailyCount::uint()}) -> ok.
+enterCreate({DateActiveID, RoleID, AnotherRoleID,DailyCount,AnOtherDailyCount} = Key) ->
 	%?DEBUG_OUT("[DebugForDate] enterCreate RoleID(~p) AnotherRoleID(~p) DateActiveID(~p)", [RoleID, AnotherRoleID, DateActiveID]),
 	case acDateState:queryMapInfoHelper(RoleID, DateActiveID) of
 		#recKeyInfo{} ->
 			%% 地图已存在，忽略该请求
-			?WARN_OUT("enterCreate map is exists! RoleID(~p) AnotherRoleID(~p) DateActiveID(~p)", [RoleID, AnotherRoleID, DateActiveID]),
+			?WARN_OUT("enterCreate map is exists! RoleID(~p) AnotherRoleID(~p) DateActiveID(~p)", [RoleID, AnotherRoleID, DateActiveID,DailyCount,AnOtherDailyCount]),
 			skip;
 		_ ->
 			%% 地图不存在，创建
 
 			MapID_ = acDateState:getMapIDWithActiveID(DateActiveID),
-			?ERROR_OUT("MapID_!MapID_MapID_MapID_MapID_ ~p", [MapID_]),
 			core:sendMsgToMapMgr(MapID_, createActivityMap, {MapID_, 1, Key})
 	end,
 	ok.
@@ -413,6 +468,9 @@ active(_FromPid, date_link_buff, {_RoleID, BuffType}, MapInfo) ->
 
 active(_FromPid, date_touch_box,Msg, MapInfo) ->
 	acDateActivity_PushBox:link(MapInfo, Msg),
+	ok;
+active(_FromPid, date_pool_shooting,Msg, MapInfo) ->
+	acDateActivity_PoolParty:link(MapInfo, Msg),
 	ok.
 
 %%% ====================================================================
@@ -433,7 +491,13 @@ notifyPlayerEnter(RoleID, Msg) ->
 %% 根据玩法ID获得玩法模块原子
 -spec daid2mod(DateActiveID::type_daid()) -> Mod::atom().
 daid2mod(?DateActiveID_Link) -> acDateActivity_Link;
-daid2mod(?DateActiveID_PushBox) -> acDateActivity_PushBox.
+daid2mod(?DateActiveID_PushBox) -> acDateActivity_PushBox;
+daid2mod(?DateActiveID_PoolParty) -> acDateActivity_PoolParty;
+daid2mod(?DateActiveID_FindTreasure) -> acDateActivity_FindeTreasure.
+
+
+
+
 
 
 %% 根据消息类型获得玩法ID
@@ -442,6 +506,7 @@ msgType2daid(date_link_link)      -> ?DateActiveID_Link;
 msgType2daid(date_link_reshuffle) -> ?DateActiveID_Link;
 msgType2daid(date_link_end)       -> ?DateActiveID_Link;
 msgType2daid(date_link_buff)      -> ?DateActiveID_Link;
-msgType2daid(date_touch_box)      -> ?DateActiveID_PushBox.
+msgType2daid(date_touch_box)      -> ?DateActiveID_PushBox;
+msgType2daid(date_pool_shooting)      -> ?DateActiveID_PoolParty.
 
 

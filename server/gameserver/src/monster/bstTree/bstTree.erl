@@ -48,6 +48,7 @@
 %%导出添加行为节点的函数
 -export([
 	addActionMove/2,
+	addActionMove2/2,
 	addActionMoveSpec/2,
 	addActionIdle/2,
 	addActionSelectTarget/3,
@@ -211,6 +212,16 @@ addActionMove(ParentID,PrevNodeID) ->
 		name="ActionMove",
 		actionType = ?BSTActionMove,
 		actionArg = ?BST_MOVE_RAND_DIR
+	},
+	addNode(ParentID,Action,PrevNodeID).
+
+-spec addActionMove2(ParentID,PrevNodeID) -> NodeID when
+	ParentID::uint(),NodeID::uint(),PrevNodeID::uint().
+addActionMove2(ParentID,PrevNodeID) ->
+	Action = #bstActionNode{
+		name="ActionMove",
+		actionType = ?BSTActionMove,
+		actionArg = ?BST_MOVE_STAND
 	},
 	addNode(ParentID,Action,PrevNodeID).
 

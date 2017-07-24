@@ -73,7 +73,8 @@
 	getSyncTime1970FromDBS/0,
 	getSyncUTCTime1970FromDBS/0,
 	getLocalTimeAdjustHour/0,
-	getSyncTimeFromDBS/0,
+	getSyncTimeFromDBS/0,		%% 本地时间，从1970年开始的秒数
+	getSyncTimeMSFromDBS/0,		%% 本地时间，从1970年开始的毫秒数
 	getSyncUTCTimeFromDBS/0
 ]).
 
@@ -147,9 +148,13 @@ getSyncTime1970FromDBS() ->
 getSyncUTCTime1970FromDBS() ->
 	time2:getUTCDateTimeSec().
 
-%%获取从DBS同步过来的本地相对时间，单位秒
+%% 本地时间，从1970年开始的秒数
 getSyncTimeFromDBS() ->
 	time2:getTimestampSec() + time2:getTimezoneSec().
+
+%% 本地时间，从1970年开始的毫秒数
+getSyncTimeMSFromDBS() ->
+	time2:getTimestampMS() + time2:getTimezoneSec() * 1000.
 
 %%获取从DBS同步过来的相对UTC时间秒
 -spec getSyncUTCTimeFromDBS() -> uint().

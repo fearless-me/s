@@ -276,47 +276,47 @@ refreshRank(?PlayerRankType_Achieve = Type, RankNumber, FreshTime) ->
     {_, RankList} = lists:foldl(Fun, {1, []}, NList2),
     RankList;
 
-%% 玩家被点赞榜
+%% 玩家被点赞榜 FIXME 点赞排行榜取数据太麻烦！涉及玩家变量分表
 refreshRank(?PlayerRankType_Praise = Type, RankNumber, FreshTime) ->
-    [MinLv,MaxLv]=rankLogic:getRankLVLimitCfg(),
-    Q = ets:fun2ms(
-        fun(#?RoleKeyRec{} = RankInfo) when RankInfo#?RoleKeyRec.roleID > 0,
-            RankInfo#?RoleKeyRec.praise > 0,
-            MinLv=<RankInfo#?RoleKeyRec.level,
-            RankInfo#?RoleKeyRec.level=< MaxLv ->
-            RankInfo
-        end
-    ),
-    List = ets:select(ets_rolekeyinfo, Q),
-    SortFun =
-        fun(#?RoleKeyRec{praise = P1, roleID = R1}, #?RoleKeyRec{praise = P2, roleID = R2}) ->
-            if
-                P1 > P2 ->
-                    true;
-                P1 =:= P2 andalso R1 > R2 ->
-                    true;
-                true ->
-                    false
-            end
-        end,
-    NList1 = lists:sort(SortFun, List),
-    NList2 = lists:sublist(NList1, RankNumber),
-    Fun =
-        fun(#?RoleKeyRec{roleID = RoleID,praise = Praise}, {SortID, RList}) ->
-            R = #recSaveRank{
-                roleID		= RoleID,
-                rankType	= Type,
-                rankSort	= SortID,
-                rankSortC 	= rankLogic:getRankSortC(Type, RoleID, SortID),
-                value1		= Praise,
-                value2		= 0,
-                value3		= 0,
-                createTime	= FreshTime
-            },
-            {SortID + 1, [R | RList]}
-        end,
-    {_, RankList} = lists:foldl(Fun, {1, []}, NList2),
-    RankList;
+%%    [MinLv,MaxLv]=rankLogic:getRankLVLimitCfg(),
+%%    Q = ets:fun2ms(
+%%        fun(#?RoleKeyRec{} = RankInfo) when RankInfo#?RoleKeyRec.roleID > 0,
+%%            RankInfo#?RoleKeyRec.praise > 0,
+%%            MinLv=<RankInfo#?RoleKeyRec.level,
+%%            RankInfo#?RoleKeyRec.level=< MaxLv ->
+%%            RankInfo
+%%        end
+%%    ),
+%%    List = ets:select(ets_rolekeyinfo, Q),
+%%    SortFun =
+%%        fun(#?RoleKeyRec{praise = P1, roleID = R1}, #?RoleKeyRec{praise = P2, roleID = R2}) ->
+%%            if
+%%                P1 > P2 ->
+%%                    true;
+%%                P1 =:= P2 andalso R1 > R2 ->
+%%                    true;
+%%                true ->
+%%                    false
+%%            end
+%%        end,
+%%    NList1 = lists:sort(SortFun, List),
+%%    NList2 = lists:sublist(NList1, RankNumber),
+%%    Fun =
+%%        fun(#?RoleKeyRec{roleID = RoleID,praise = Praise}, {SortID, RList}) ->
+%%            R = #recSaveRank{
+%%                roleID		= RoleID,
+%%                rankType	= Type,
+%%                rankSort	= SortID,
+%%                rankSortC 	= rankLogic:getRankSortC(Type, RoleID, SortID),
+%%                value1		= Praise,
+%%                value2		= 0,
+%%                value3		= 0,
+%%                createTime	= FreshTime
+%%            },
+%%            {SortID + 1, [R | RList]}
+%%        end,
+%%    {_, RankList} = lists:foldl(Fun, {1, []}, NList2),
+    [];
 
 %% (特殊排行榜－军团排行榜)
 refreshRank(?PlayerRankType_Guild = Type, RankNumber, FreshTime) ->
@@ -548,6 +548,11 @@ refreshRank(?PlayerRankType_KvNum = Type, RankNumber, FreshTime) ->
 refreshRank(?PlayerRankType_GuildWar, _RankNumber, _FreshTime) ->
 	[];
 
+%% 玩家魅力排行榜
+refreshRank(?PlayerRankType_Charm, RankNumber, FreshTime) ->
+	ListAll = refreshRank_charm1_queryAll(),
+	ListSort = refreshRank_charm2_sort(ListAll, RankNumber),
+	refreshRank_charm3_rank(ListSort, {1, []}, FreshTime);
 
 refreshRank(Type, RankNumber, FreshTime) ->
 	?ERROR_OUT("refreshRank:~p,~p,~p", [Type, RankNumber, FreshTime]),
@@ -572,4 +577,41 @@ refreshRank2Ets(RankType, RankList)->
     end,
     ok.
 
-
+refreshRank_charm1_queryAll() ->
+	[MinLv, MaxLv] = rankLogic:getRankLVLimitCfg(),
+	Q = ets:fun2ms(
+		fun (#?RoleKeyRec{} = RankInfo)
+			when RankInfo#?RoleKeyRec.roleID > 0,
+			MinLv =< RankInfo#?RoleKeyRec.level,
+			RankInfo#?RoleKeyRec.level =< MaxLv ->
+			RankInfo
+		end
+	),
+	ets:select(ets_rolekeyinfo, Q).
+refreshRank_charm2_sort(ListAll, RankNumber) ->
+	FunSort =
+		fun(#?RoleKeyRec{charm = Charm1},
+			#?RoleKeyRec{charm = Charm2}) ->
+			if
+				Charm1 > Charm2 ->
+					true;
+				true ->
+					false
+			end
+		end,
+	ListSort = lists:sort(FunSort, ListAll),
+	lists:sublist(ListSort, RankNumber).
+refreshRank_charm3_rank([], {_SortID, ListRank}, _FreshTime) ->
+	ListRank;
+refreshRank_charm3_rank([#?RoleKeyRec{roleID = RoleID, charm = Charm} | T], {SortID, ListRank}, FreshTime) ->
+	R = #recSaveRank{
+		roleID		= RoleID,
+		rankType	= ?PlayerRankType_Charm,
+		rankSort	= SortID,
+		rankSortC 	= rankLogic:getRankSortC(?PlayerRankType_Charm, RoleID, SortID),
+		value1		= Charm,
+		value2		= 0,
+		value3		= 0,
+		createTime	= FreshTime
+	},
+	refreshRank_charm3_rank(T, {SortID + 1, [R | ListRank]}, FreshTime).

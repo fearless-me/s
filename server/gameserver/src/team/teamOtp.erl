@@ -79,6 +79,12 @@ handle_info({setSearchFlag, _FromPid, Msg},State) ->
 handle_info({updateMemberInfo, _FromPid, Msg},State) ->
 	teamLogic:updateMemberInfo(Msg),
 	{noreply,State};
+handle_info({assistCopyMapStart, _FromPid, Msg},State) ->
+	teamLogic:assistCopyMapStart(Msg),
+	{noreply,State};
+handle_info({assistCopyMapCancel, _FromPid, Msg},State) ->
+	teamLogic:assistCopyMapCancel(Msg),
+	{noreply,State};
 handle_info(tick,State) ->
 	teamLogic:tick(),
 	{noreply,State};

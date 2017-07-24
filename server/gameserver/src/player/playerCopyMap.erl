@@ -58,7 +58,8 @@
 -export([
 	kickCopyMapPlayer/0,
 	onPassCopyMap/2,
-	completeNormalCopyMap/3,%%不要调用此接口，副本完成请调用onPassCopyMap/2
+	completeNormalCopyMap/1,%%不要调用此接口，副本完成请调用onPassCopyMap/2
+	completeNormalCopyMap_Not_Reward/1,%%不要调用此接口，副本完成请调用onPassCopyMap/2
 	enterCopyMap/1,
 	leaveCopyMap/0,
 	resetCopyMap/1,
@@ -74,11 +75,12 @@
 	addCopyMapDropList/1,
 	getCopyMapDropList/0,
 	goonCopyMap/1,
-	destoryMap_goonCopyMap_Ack/1,
+	destroyMap_goonCopyMap_Ack/1,
 	enterMapHook/1,
 	sendCopyMapDestroy2Client/0,
 	playAnimationOver/1,
-	show2/4	%% 客户端主动请求show2对话完成
+	show2/5,                    %% 客户端主动请求show2对话完成
+	gatherSuccessCopyBuff/1        %% 地表采集物采集成功
 ]).
 
 -export([
@@ -167,12 +169,11 @@ addCopyMapBuff(_L, 0) ->
 addCopyMapBuff(L, BuffID) ->
 	psMgr:sendMsg2PS(self(), addBuff, {BuffID}),
 	lists:foreach(
-		fun(Pid)->
-			psMgr:sendMsg2PS(Pid, addBuff, {BuffID})
-		end
+		  fun(Pid)->
+			  psMgr:sendMsg2PS(Pid, addBuff, {BuffID})
+		  end
 		, L
-	) .
-
+	).
 
 getFriendBuffID()->
 	case getCfg:getCfgByArgs(cfg_globalsetup, team_buff_friends) of
@@ -189,8 +190,6 @@ getGuildMemberBuffID()->
 		_ ->
 			0
 	end.
-
-
 
 %%将地图销毁时间发送给客户端
 sendCopyMapDestroy2Client() ->
@@ -241,8 +240,8 @@ goonCopyMap(MapID) ->
 	end,
 	ok.
 
--spec destoryMap_goonCopyMap_Ack({MapID :: uint(), RoleID :: uint64()}) -> ok.
-destoryMap_goonCopyMap_Ack({MapID, RoleID}) ->
+-spec destroyMap_goonCopyMap_Ack({MapID :: uint(), RoleID :: uint64()}) -> ok.
+destroyMap_goonCopyMap_Ack({MapID, RoleID}) ->
 	case RoleID =:= playerState:getRoleID() of
 		true ->
 			?LOG_OUT("destoryMap_goonCopyMap_Ack:mapid=~p,roleId=~p", [MapID, RoleID]),
@@ -270,69 +269,94 @@ getCopyMapHighestScoreAck(CopyMapScoreList) ->
 			_ ->
 				?ERROR_OUT("getCopyMapHighestScoreAck:~p,~p", [SelfRoleID, Other])
 		end
-	      end,
+		  end,
 	lists:foreach(Fun, CopyMapScoreList).
 
 %% 玩家第一次进入这个副本，fixme 可以用于每日副本计数
--spec playerEnterCopyMapFirst(MapID :: uint()) -> ok.
-playerEnterCopyMapFirst(MapID) ->
+-spec playerEnterCopyMapFirst({MapID :: uint(), MapPID::pid()}) -> ok.
+playerEnterCopyMapFirst({MapID, MapPID}) ->
+	RoleID = playerState:getRoleID(),
 	BitMapID = playerState:getMapIDGroup(),
-	?LOG_OUT("playerEnterCopyMapFirst:~p,~p,~p,~p,~p",
-		[playerState:getRoleID(), playerState:getPlayerCode(), MapID, BitMapID, playerState:getMapPid()]),
+	?LOG_OUT("playerEnterCopyMapFirst roleID=~p,code=~p,mapid=~p,mappid=~p,BitMapID=~p,pid=~p",
+			 [RoleID, playerState:getPlayerCode(), MapID, MapPID, BitMapID, playerState:getMapPid()]),
 
 	case playerScene:getMapType(BitMapID) of
-		?MapTypeNormal ->
-			skip;
-		?MapTypeActivity ->
-			skip;
 		?MapTypeCopyMap ->
-			#mapsettingCfg{type = Type, daily_entercount = DayCount, useVitality = UseVitality} = getCfg:getCfgPStack(cfg_mapsetting, BitMapID),
-			playerActionPoint:deductActionPoint(UseVitality),
-			%% 爵位优惠次数，大于已经使用的次数
-			YHTimes = playerVipInter:getCopyMapAddTimes(MapID),
-			HATimes = playerDaily:getDailyCounter(?DailyType_EnterCopyMap_Vip, MapID),
-			HasIn = playerDaily:getDailyCounter(?DailyType_EnterCopyMap, BitMapID),
-			BuyCount = playerDaily:getDailyCounter(?DailyType_BuyCopyMap_Number, MapID),
-			case YHTimes > HATimes of
-				true ->
-					%% 系统提示
-					playerMsg:sendErrorCodeMsg(?ErrorCode_EnterCopyMapReputationNotJiShu),
-
-					%% 系统频道提示
-					playerChat:onSystemChatMsg(stringCfg:getString(vipReputationTimesTips)),
-
-					%% 计入爵位优惠次数
-					playerDaily:incDailyCounter(?DailyType_EnterCopyMap_Vip, MapID);
-				_ when (Type =:= ?MapTypeCopyMap orelse Type =:= ?MapTypeActivity), DayCount > 0 ->
-					case HasIn >= DayCount + BuyCount of
+			case playerTeamCopyMap:isAssistCopyMapByCopyMapID(RoleID, MapID) of
+				false ->
+					case playerBattle:canGainDropGoods(MapID) of
 						true ->
-							{OldMapID, _OldX, _OldY} = playerState:getOldMapPos(),
-							?ERROR_OUT("enter count limit reEnterMap roleid:~p,oldMapID:~p", [playerState:getRobRoleID(), OldMapID]),
-							erlang:send_after(10000, self(), {goMap, OldMapID});
-						false ->
-							playerDaily:incDailyCounter(?DailyType_EnterCopyMap, BitMapID),
-							incEnterCopyMapGroupDailyCount(BitMapID)
-					end,
-					ok;
+							decResByEnterCopyMap(MapID);
+						_ ->
+							?LOG_OUT("player reward in the end:~p,~p,~p", [RoleID, MapID, MapPID]),
+							skip
+					end;
 				_ ->
-					%% 计入普通次数
-					playerDaily:incDailyCounter(?DailyType_EnterCopyMap, BitMapID),
-					incEnterCopyMapGroupDailyCount(BitMapID)
+					Ret = ets:insert(ets_recAssistCopyMap, #recAssistCopyMap{mapPID = MapPID, mapID = MapID, roleID = RoleID}),
+					?LOG_OUT("playerEnterCopyMapFirst assist roleid=~p, mapid=~p, mappid=~p ret=~p",
+							 [RoleID, MapID, MapPID, Ret]),
+					skip
 			end;
 		_ ->
 			skip
 	end,
 	ok.
 
+decResByEnterCopyMap(MapID) ->
+	#mapsettingCfg{type = Type, daily_entercount = DayCount, useVitality = UseVitality}
+		= getCfg:getCfgPStack(cfg_mapsetting, MapID),
+
+	%% 扣体力
+	playerActionPoint:deductActionPoint(UseVitality),
+
+	?LOG_OUT("decResByEnterCopyMap roleID=~p, MapID=~p, ActionPoint=~p",
+			 [playerState:getRoleID(), MapID, UseVitality]),
+
+	%% 扣次数
+	%% 爵位优惠次数，大于已经使用的次数
+	YHTimes = playerVipInter:getCopyMapAddTimes(MapID),
+	HATimes = playerDaily:getDailyCounter(?DailyType_EnterCopyMap_Vip, MapID),
+	HasIn = playerDaily:getDailyCounter(?DailyType_EnterCopyMap, MapID),
+	BuyCount = playerDaily:getDailyCounter(?DailyType_BuyCopyMap_Number, MapID),
+	case YHTimes > HATimes of
+		true ->
+			%% 系统提示
+			playerMsg:sendErrorCodeMsg(?ErrorCode_EnterCopyMapReputationNotJiShu),
+
+			%% 系统频道提示
+			playerChat:onSystemChatMsg(stringCfg:getString(vipReputationTimesTips)),
+
+			%% 计入爵位优惠次数
+			playerDaily:incDailyCounter(?DailyType_EnterCopyMap_Vip, MapID);
+		_ when (Type =:= ?MapTypeCopyMap orelse Type =:= ?MapTypeActivity), DayCount > 0 ->
+			case HasIn >= DayCount + BuyCount of
+				true ->
+					{OldMapID, _OldX, _OldY} = playerState:getOldMapPos(),
+					?ERROR_OUT("enter count limit reEnterMap roleid:~p,oldMapID:~p",
+							   [playerState:getRobRoleID(), OldMapID]),
+					erlang:send_after(10000, self(), {goMap, OldMapID});
+				false ->
+					playerDaily:incDailyCounter(?DailyType_EnterCopyMap, MapID),
+					incEnterCopyMapGroupDailyCount(MapID)
+			end,
+			ok;
+		_ ->
+			%% 计入普通次数
+			playerDaily:incDailyCounter(?DailyType_EnterCopyMap, MapID),
+			incEnterCopyMapGroupDailyCount(MapID)
+	end,
+	ok.
+
 %% 进入副本
 -spec enterCopyMap(CopyMapID :: uint()) -> boolean().
 enterCopyMap(CopyMapID) ->
-	{MapType, SubType} = case getCfg:getCfgPStack(cfg_mapsetting, CopyMapID) of
-		                     #mapsettingCfg{type = Type, subtype = SType} ->
-			                     {Type, SType};
-		                     _ ->
-			                     {999, 999}
-	                     end,
+	{MapType, SubType} =
+		case getCfg:getCfgPStack(cfg_mapsetting, CopyMapID) of
+			#mapsettingCfg{type = Type, subtype = SType} ->
+				{Type, SType};
+			_ ->
+				{999, 999}
+		end,
 	case MapType of
 		?MapTypeCopyMap ->
 			case SubType of
@@ -411,14 +435,15 @@ leaveCopyMap() ->
 			MapID = playerState:getMapID(),
 			GroupID = playerState:getGroupID(),
 			?LOG_OUT("leaveCopyMap ~p,~p,~p,~p", [MapID, playerState:getMapPid(), GroupID, playerState:getRoleID()]),
+			playerConvoy:giveUpConvoy(),
 			Ret = case GroupID > groupBase:getMinGroupID() of
-				      true ->
-					      %% 退出分组
-					      playerBattleLearn:outBitMapBattleLearn(),
-					      false;
-				      _ ->
-					      true
-			      end,
+					  true ->
+						  %% 退出分组
+						  playerBattleLearn:outBitMapBattleLearn(),
+						  false;
+					  _ ->
+						  true
+				  end,
 			case Ret of
 				true ->
 					MapType = playerScene:getMapType(MapID),
@@ -432,17 +457,18 @@ leaveCopyMap() ->
 							playerDarkness:playerLeaveMap(MapID),
 							playerMaterialCopy:leaveCopyMap(MapID),
 							%% 进入原来所在地图
-							{OldMapID, OldX, OldY} = case MapSubType of
-								                         ?MapSubTypeGuildExpedition ->
-									                         case playerGuildExpedition:getLeaveGuildExpeditionMap() of
-										                         undefined ->
-											                         playerState:getOldMapPos();
-										                         GeRet ->
-											                         GeRet
-									                         end;
-								                         _ ->
-									                         playerState:getOldMapPos()
-							                         end,
+							{OldMapID, OldX, OldY} =
+								case MapSubType of
+									?MapSubTypeGuildExpedition ->
+										case playerGuildExpedition:getLeaveGuildExpeditionMap() of
+											undefined ->
+												playerState:getOldMapPos();
+											GeRet ->
+												GeRet
+										end;
+									_ ->
+										playerState:getOldMapPos()
+								end,
 
 							?LOG_OUT("leaveCopyMap:roleid = ~p, curmapid = ~p, targetmapid = ~p", [playerState:getRoleID(), MapID, {OldMapID, OldX, OldY}]),
 
@@ -475,7 +501,7 @@ kickCopyMapPlayer() ->
 	#mapsettingCfg{type = MapType, subtype = MapSubType, all_time = All_time, useVitality = UseVitality} = getCfg:getCfgPStack(cfg_mapsetting, MapID),
 	CurHp = playerState:getCurHp(),
 	?LOG_OUT("kickCopyMapPlayer:~p,~p,~p,~p",
-		[MapID, playerState:getRoleID(), playerState:getMapPid(), CurHp]),
+			 [MapID, playerState:getRoleID(), playerState:getMapPid(), CurHp]),
 	case CurHp =< 0 of
 		true ->
 			case MapType =:= ?MapTypeBitplane andalso MapSubType =:= ?MapSubTypeBattleLearn of
@@ -496,22 +522,23 @@ kickCopyMapPlayer() ->
 			%% 记录副本日志
 			case MapType of
 				?MapTypeCopyMap ->
-					if MapSubType =:= ?MapSubTypeNormal orelse MapSubType =:= ?MapSubTypeHeroCopy orelse MapSubType =:= ?MapSubTypeChanllengeCopy ->
-						EndTime = time:getLogTimeSec(),
-						LogCopy = #rec_log_copy{
-							accountID = playerState:getAccountID(),
-							roleID = playerState:getRoleID(),
-							copyMapType = MapSubType,            %%副本类型（剧情、英雄、挑战）
-							copyMapID = MapID,
-							startTime = EndTime - All_time,
-							decrActionPoint = UseVitality,
-							isPass = 0,                    %%是否通关 （0表示未通关  1表示通关）
-							endTime = EndTime,
-							goldReward = [],
-							expReward = 0,
-							dropItems = []
-						},
-						dbLog:sendSaveLogCopyInfo(LogCopy);
+					if
+						MapSubType =:= ?MapSubTypeNormal orelse MapSubType =:= ?MapSubTypeHeroCopy orelse MapSubType =:= ?MapSubTypeChanllengeCopy ->
+							EndTime = time:getLogTimeSec(),
+							LogCopy = #rec_log_copy{
+								accountID = playerState:getAccountID(),
+								roleID = playerState:getRoleID(),
+								copyMapType = MapSubType,            %%副本类型（剧情、英雄、挑战）
+								copyMapID = MapID,
+								startTime = EndTime - All_time,
+								decrActionPoint = UseVitality,
+								isPass = 0,                    %%是否通关 （0表示未通关  1表示通关）
+								endTime = EndTime,
+								goldReward = [],
+								expReward = 0,
+								dropItems = []
+							},
+							dbLog:sendSaveLogCopyInfo(LogCopy);
 						true ->
 							ok
 					end;
@@ -531,10 +558,11 @@ resetCopyMap(CopyMapID) ->
 	case playerScene:getMapType(MapID) of
 		?MapTypeNormal ->
 			%% 只能在普通地图重置
-			RoleID = playerState:getRoleID(),
 			case playerScene:getMapType(CopyMapID) of
 				?MapTypeCopyMap ->
-					core:sendMsgToMapMgr(CopyMapID, resetCopyMap, {RoleID, CopyMapID});
+					RoleID = playerState:getRoleID(),
+					TeamID = playerState:getTeamID(),
+					core:sendMsgToMapMgr(CopyMapID, resetCopyMap, {RoleID, TeamID, CopyMapID});
 				_ ->
 					skip
 			end;
@@ -561,29 +589,40 @@ resetCopyMapAck(Other) ->
 %% 副本通关
 -spec onPassCopyMap(Score :: uint(), CopyMapID :: uint()) -> ok.
 onPassCopyMap(Score, CopyMapID) when erlang:is_integer(Score) ->
-	?LOG_OUT("onPassCopyMap:roleID=~p, score=~p, mapid=~p", [playerState:getRoleID(), Score, CopyMapID]),
-	IsAward = playerCopyMapReward:isRewardInCopyMap(),
+	SelfID = playerState:getRoleID(),
+	IsAward = playerCopyMapReward:isRewardInCopyMap(CopyMapID),
+	IsAwardReal =
+		case playerBattle:canGainDropGoods(CopyMapID) of
+			false when IsAward ->
+				%% 属于三种子类地图，都是完成后才扣消耗
+				case canEnterCopyMap2(CopyMapID, false) of
+					true ->
+						decResByEnterCopyMap(CopyMapID),
+						true;
+					ErrorCode ->
+						%% 扣消耗失败，不发奖
+						?ERROR_OUT("onPassCopyMap error roleID=~p, MapID=~p, ErrorCode=~p",
+								   [SelfID, CopyMapID, ErrorCode]),
+						playerMsg:sendErrorCodeMsg(ErrorCode),
+						false
+				end;
+			_ ->
+				IsAward
+		end,
+	?LOG_OUT("onPassCopyMap:roleID=~p, score=~p, mapid=~p, IsAwardReal=~p",
+			 [SelfID, Score, CopyMapID, IsAwardReal]),
+
 	case getCfg:getCfgPStack(cfg_mapsetting, CopyMapID) of
 		#mapsettingCfg{type = MapType, subtype = SubType} ->
 			case MapType of
-				?MapTypeBitplane -> completeBitMap(Score, CopyMapID, SubType);
-				?MapTypeCopyMap when IsAward =:= true ->
+				?MapTypeBitplane ->
+					completeBitMap(Score, CopyMapID, SubType);
+				?MapTypeCopyMap when IsAwardReal =:= true ->
 					completeCopyMapHook(CopyMapID),
 					%%更新完成副本的任务
-%%					playerTask2:updateCopyMapTask(CopyMapID),
 					playerTask:updateTask(?TaskSubType_CopyMap, CopyMapID),
 					%%发送伤害通知队友
-					SelfID = playerState:getRoleID(),
 					Hurt = playerState:getPlayerCopyMapStatHurt(),
-%%					TeamList = playerTeam2:getTeamAllMemberPidList(?PlayerTeamTypeNormal),
-%%					Fun = fun({RoleID, Pid}) ->
-%%						case RoleID =:= SelfID of
-%%							false ->
-%%								psMgr:sendMsg2PS(Pid, teamStatHurt, {SelfID, Hurt});
-%%							_ -> skip
-%%						end
-%%						  end,
-%%					lists:foreach(Fun, TeamList),
 					teamInterface:sendMsg2TeamWithRoleID(SelfID, teamStatHurt, {SelfID, Hurt}, true),
 					case SubType of
 						?MapSubTypeNormal ->
@@ -603,25 +642,22 @@ onPassCopyMap(Score, CopyMapID) when erlang:is_integer(Score) ->
 							playerliveness:onFinishLiveness(?LivenessExpCopyMap, 1);
 						_ -> skip
 					end,
-					erlang:send_after(1000, self(), {tickdelay_completeNormalCopyMap, {Score, CopyMapID, SubType}});
-				?MapTypeCopyMap when IsAward =:= false ->
+					erlang:send_after(
+						1000,
+						self(),
+						{tickdelay_completeNormalCopyMap, {Score, CopyMapID, SubType}}
+					);
+				?MapTypeCopyMap when IsAwardReal =:= false ->
 					%%更新完成副本的任务
-%%					playerTask2:updateCopyMapTask(CopyMapID),
 					playerTask:updateTask(?TaskSubType_CopyMap, CopyMapID),
 					%%发送伤害通知队友
-					SelfID = playerState:getRoleID(),
 					Hurt = playerState:getPlayerCopyMapStatHurt(),
-%%					TeamList = playerTeam2:getTeamAllMemberPidList(?PlayerTeamTypeNormal),
-%%					Fun = fun({RoleID, Pid}) ->
-%%						case RoleID =:= SelfID of
-%%							false ->
-%%								psMgr:sendMsg2PS(Pid, teamStatHurt, {SelfID, Hurt});
-%%							_ -> skip
-%%						end
-%%						  end,
-%%					lists:foreach(Fun, TeamList),
 					teamInterface:sendMsg2TeamWithRoleID(SelfID, teamStatHurt, {SelfID, Hurt}, true),
-					erlang:send_after(1000, self(), {tickdelay_completeNormalCopyMap_not_award, {Score, CopyMapID, SubType}});
+					erlang:send_after(
+						1000,
+						self(),
+						{tickdelay_completeNormalCopyMap_not_award, {Score, CopyMapID, playerState:getMapPid(), SubType}}
+					);
 				_ -> skip
 			end;
 		_ -> skip
@@ -629,11 +665,10 @@ onPassCopyMap(Score, CopyMapID) when erlang:is_integer(Score) ->
 	ok.
 
 %% 完成了一次普通副本
-completeNormalCopyMap(Score, CopyMapID, SubType) ->
-
+completeNormalCopyMap({Score, CopyMapID, SubType}) ->
 	case SubType of
-		?MapSubTypeDemonBattle ->
-			playerCopyMapReward:onPassCopyMap_Goddess(Score, CopyMapID);
+		%%?MapSubTypeDemonBattle ->
+		%%	skip;  %%守护女神奖励没有展示
 		?MapSubTypeMaterial ->
 			skip;
 		?MapSubTypeMoneyDungeon ->
@@ -647,9 +682,57 @@ completeNormalCopyMap(Score, CopyMapID, SubType) ->
 
 	playerAchieve:achieveEvent(?Achieve_CopyLiquidator, [1]),
 
-	playerGuild:addPlayerContribute(?GuildSupplies_CopyMap, CopyMapID),
+	case core:isAssistCopyMapByCopyMapPID(playerState:getRoleID(), playerState:getMapPid()) of
+		true ->
+			skip;
+		_ ->
+			playerGuild:addPlayerContribute(?GuildSupplies_CopyMap, CopyMapID)
+	end,
 
 	playerSevenDayAim:updateCondition(?SevenDayAim_CopyMap, [CopyMapID]),
+	ok.
+
+completeNormalCopyMap_Not_Reward({Score, CopyMapID, MapPID, _SubType}) ->
+	playerSevenDays:onMissionEvent(?SevenDayMission_Event_5, 1, CopyMapID),
+	R = #pk_GS2U_CopyMapResult{
+		copyMapID = CopyMapID,
+		second = Score,
+		goldReward = 0,
+		expReward = 0,
+		dropItems = [],
+		isAssist = core:isAssistCopyMapByCopyMapPID(playerState:getRoleID(), MapPID)
+	},
+	playerMsg:sendNetMsg(R),
+
+	playerStatistics:sendCopyMapHurtToClient(),
+	playerStatistics:clearCopyMapHurtStat(),
+
+	%% 记录副本日志
+	case getCfg:getCfgPStack(cfg_mapsetting, CopyMapID) of
+		#mapsettingCfg{type = ?MapTypeCopyMap, subtype = Subtype, useVitality = UseVitality} ->
+			if
+				Subtype =:= ?MapSubTypeNormal orelse Subtype =:= ?MapSubTypeHeroCopy orelse Subtype =:= ?MapSubTypeChanllengeCopy ->
+					EndTime = time:getLogTimeSec(),
+					LogCopy = #rec_log_copy{
+						accountID = playerState:getAccountID(),
+						roleID = playerState:getRoleID(),
+						copyMapType = Subtype,			%%副本类型（剧情、英雄、挑战）
+						copyMapID = CopyMapID,
+						startTime = EndTime-Score,
+						decrActionPoint = UseVitality,
+						isPass = 0,					%%是否通关 （0表示未通关  1表示通关）
+						endTime = EndTime,
+						goldReward = [],
+						expReward = 0,
+						dropItems = []
+					},
+					dbLog:sendSaveLogCopyInfo(LogCopy);
+				true ->
+					ok
+			end;
+		_ ->
+			ok
+	end,
 	ok.
 
 %% 完成了一次位面
@@ -682,23 +765,28 @@ completeBitMap_Rift(Score, CopyMapID) ->
 %% 能否进入副本
 %%-spec canEnterCopyMap(CopyMapID :: uint()) -> true | uint().
 canEnterCopyMap(CopyMapID) ->
-	case getCfg:getCfgPStack(cfg_mapsetting, CopyMapID) of
-		#mapsettingCfg{type = ?MapTypeCopyMap} = MapCfg ->
-			canEnterCopyMap2(MapCfg, true);
-		_ ->
-			%%进入位面的时候客户端也会向服务器发送进入副本请求
-			true
-	end.
+	canEnterCopyMap(CopyMapID, true).
 canEnterCopyMap(CopyMapID, CheckTeam) ->
 	case getCfg:getCfgPStack(cfg_mapsetting, CopyMapID) of
 		#mapsettingCfg{type = ?MapTypeCopyMap} = MapCfg ->
-			canEnterCopyMap2(MapCfg, CheckTeam);
+			case canEnterCopyMap_NotJudgeTimes(MapCfg) of
+				true ->
+					canEnterCopyMap2(MapCfg, CheckTeam);
+				ErrorCode ->
+					ErrorCode
+			end;
 		_ ->
 			%%进入位面的时候客户端也会向服务器发送进入副本请求
 			true
 	end.
 
-canEnterCopyMap2(#mapsettingCfg{type = ?MapTypeCopyMap, id = CopyMapID, daily_entercount = DailyEnterCount, useVitality = UseVitality} = MapCfg, CheckTeam) ->
+%% 这里就只判断了助战，体力与次数
+canEnterCopyMap2(
+	#mapsettingCfg{
+		type = ?MapTypeCopyMap,
+		id = CopyMapID,
+		daily_entercount = DailyEnterCount,
+		useVitality = UseVitality} = MapCfg, CheckTeam) ->
 	Can =
 		case core:isSingleCopyMap(CopyMapID) of
 			false when CheckTeam ->
@@ -709,8 +797,8 @@ canEnterCopyMap2(#mapsettingCfg{type = ?MapTypeCopyMap, id = CopyMapID, daily_en
 
 	case Can of
 		true ->
-			case canEnterCopyMap_NotJudgeTimes(MapCfg) of
-				true ->
+			case playerTeamCopyMap:isAssistCopyMapByCopyMapID(playerState:getRoleID(), CopyMapID) of
+				false ->
 					IsEnoughActivePoint = playerActionPoint:getActionPoint() >= UseVitality,
 					%% 判断进入次数
 					case checkEnterCopyMapDailyCount(MapCfg, CopyMapID, DailyEnterCount) of
@@ -721,11 +809,20 @@ canEnterCopyMap2(#mapsettingCfg{type = ?MapTypeCopyMap, id = CopyMapID, daily_en
 						ErrorCode2 ->
 							ErrorCode2
 					end;
-				ErrorCode ->
-					ErrorCode
+				_ ->
+					%% 助战不判断体力与次数
+					true
 			end;
 		_ ->
 			?ErrorCode_NeedTeamEnterCopyMap
+	end;
+canEnterCopyMap2(CopyMapID, CheckTeam) ->
+	case getCfg:getCfgPStack(cfg_mapsetting, CopyMapID) of
+		#mapsettingCfg{type = ?MapTypeCopyMap} = MapCfg ->
+			canEnterCopyMap2(MapCfg, CheckTeam);
+		_ ->
+			%%进入位面的时候客户端也会向服务器发送进入副本请求
+			true
 	end.
 
 %% 能否进入副本，不判断进入次数
@@ -734,7 +831,7 @@ canEnterCopyMap_NotJudgeTimes(CopyMapID) when is_integer(CopyMapID) ->
 	MapCfg = getCfg:getCfgPStack(cfg_mapsetting, CopyMapID),
 	canEnterCopyMap_NotJudgeTimes(MapCfg);
 canEnterCopyMap_NotJudgeTimes(#mapsettingCfg{type = ?MapTypeCopyMap, maxnum = MaxNum, id = CopyMapID,
-	playerEnter_MinLevel = MinLevel, playerEnter_MaxLevel = MaxLevel}) ->
+											 playerEnter_MinLevel = MinLevel, playerEnter_MaxLevel = MaxLevel}) ->
 	TeamID = playerState:getTeamID(),
 	case TeamID > 0 andalso MaxNum =< 1 of
 		true ->
@@ -884,22 +981,22 @@ addCopyMapDropList(List) ->
 			Fun = fun(Goods, AccList) ->
 				GoodsCache = makeCopyMapDropItem(Goods),
 				[GoodsCache | AccList]
-			      end,
+				  end,
 
 			NList = case playerPropSync:getProp(?SerProp_CopyMapDropItems) of
-				        {MapPID, MapID, ItemList} ->
-					        case NMapPID =:= MapPID andalso NMapID =:= MapID of
-						        true ->
-							        %% 追加
-							        lists:foldl(Fun, ItemList, List);
-						        false ->
-							        %% 新的副本或者分组了
-							        lists:foldl(Fun, [], List)
-					        end;
-				        _ ->
-					        %% 原来没有记录
-					        lists:foldl(Fun, [], List)
-			        end,
+						{MapPID, MapID, ItemList} ->
+							case NMapPID =:= MapPID andalso NMapID =:= MapID of
+								true ->
+									%% 追加
+									lists:foldl(Fun, ItemList, List);
+								false ->
+									%% 新的副本或者分组了
+									lists:foldl(Fun, [], List)
+							end;
+						_ ->
+							%% 原来没有记录
+							lists:foldl(Fun, [], List)
+					end,
 %%			?DEBUG_OUT("addCopyMapDropList:~s,~p,~p", [playerState:getName(),List,NList]),
 			playerPropSync:setAny(?SerProp_CopyMapDropItems, {NMapPID, NMapID, NList}),
 
@@ -939,12 +1036,12 @@ getCopyMapDropList() ->
 										[Item | AccList]
 								end
 						end
-					       end,
+						   end,
 					LL = lists:foldl(FunH, [], ItemList),
 %% 					?DEBUG_OUT("AAAAAAA:~p,~p", [ItemList, LL]),
 					%% 按品质排序
 					FunS = fun(#pk_CopyMapDropItem{itemID = I1, quality = Q1},
-						#pk_CopyMapDropItem{itemID = I2, quality = Q2}) ->
+							   #pk_CopyMapDropItem{itemID = I2, quality = Q2}) ->
 						if
 							I1 > I2 ->
 								true;
@@ -953,7 +1050,7 @@ getCopyMapDropList() ->
 							true ->
 								false
 						end
-					       end,
+						   end,
 					lists:sort(FunS, LL);
 				_ ->
 					[]
@@ -967,7 +1064,7 @@ splitWithByIDAndBind([], _ID, _Bind) ->
 splitWithByIDAndBind(List, ID, Bind) ->
 	Fun = fun(#pk_CopyMapDropItem{itemID = ItemID, isBind = BI}) ->
 		ID =:= ItemID andalso Bind =:= BI
-	      end,
+		  end,
 	L1 = lists:filter(Fun, List),
 	L2 = lists:subtract(List, L1),
 	{L1, L2}.
@@ -1162,19 +1259,42 @@ playAnimationOver(AN) ->
 			skip
 	end.
 
-show2(MapID, Show2ID, GroupID, ScheduleID) ->
+show2(MapID, Show2ID, GroupID, ScheduleID, IsInit) ->
 	case playerState:getMapID() of
 		MapID ->
 			case playerState:getGroupID() of
 				GroupID ->
-					?DEBUG_OUT("[DebugForShow2] show2/4 hit MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w", [MapID, Show2ID, GroupID, ScheduleID]),
-					psMgr:sendMsg2PS(playerState:getMapPid(), show2, {GroupID, ScheduleID, Show2ID});
+					?DEBUG_OUT("[DebugForShow2] show2/4 hit MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w IsInit:~w", [MapID, Show2ID, GroupID, ScheduleID, IsInit]),
+					psMgr:sendMsg2PS(playerState:getMapPid(), show2, {GroupID, ScheduleID, Show2ID, IsInit});
 				_ ->
-					?DEBUG_OUT("[DebugForShow2] show2/4 skip MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w", [MapID, Show2ID, GroupID, ScheduleID]),
+					?DEBUG_OUT("[DebugForShow2] show2/4 skip MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w IsInit:~w", [MapID, Show2ID, GroupID, ScheduleID, IsInit]),
 					skip
 			end;
 		_ ->
-			?DEBUG_OUT("[DebugForShow2] show2/4 skip MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w", [MapID, Show2ID, GroupID, ScheduleID]),
+			?DEBUG_OUT("[DebugForShow2] show2/4 skip MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w IsInit:~w", [MapID, Show2ID, GroupID, ScheduleID, IsInit]),
+			skip
+	end,
+	ok.
+
+
+%%% --------------------------------------------------------------------
+%% 采集成功
+-spec gatherSuccessCopyBuff(GatherID::uint32()) -> ok.
+gatherSuccessCopyBuff(GatherID) ->
+	case getCfg:getCfgByKey(cfg_object, GatherID) of
+		#objectCfg{type = ?GatherType_CopyBuff, param1 = BuffData} ->
+			case BuffData of
+				{BuffID, BuffLevel} when
+					erlang:is_integer(BuffID), BuffID > 0,
+					erlang:is_integer(BuffLevel), BuffLevel > 0 ->
+					playerBuff:addBuff(BuffID, BuffLevel);
+				BuffID when
+					erlang:is_integer(BuffID), BuffID > 0 ->
+					playerBuff:addBuff(BuffID, 1);
+				_ ->
+					?ERROR_OUT("invalid param1:~w with cfg_object.id=~w", [BuffData, GatherID])
+			end;
+		_ ->
 			skip
 	end,
 	ok.

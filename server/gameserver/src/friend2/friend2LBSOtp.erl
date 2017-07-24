@@ -30,6 +30,8 @@
 ]).
 
 -define(SERVER, ?MODULE).
+-define(Online,		1).
+-define(Offline,	0).
 
 %% 心跳频率
 %% 执行心跳时用于在线角色队列中的数据计算，假设最大在线量3000，那也仅仅是3000次遍历，一瞬间的事情
@@ -50,9 +52,29 @@
 %% 1.上线时添加至列表尾
 %% 2.下线时从列表中移除，同时需要移除缓存的计算结果
 %% 3.计算时将首元素与其它元素遍历计算，后将首元素移值列表尾
--record(state, {
-    queueOnline = [] :: [{uint64(), uint32()}, ...] %% 在线角色队列
-}).
+-record(state, {n = 0}).
+setQueueOnline(Q) ->
+	put(qo, Q).
+getQueueOnline() ->
+	case get(qo) of
+		undefined ->
+			[];
+		Q ->
+			Q
+	end.
+
+%% 上下线请求列表
+%% N个心跳处理一次，避免频繁上下线导致的消息堆积
+-define(TickN,	60).
+setOnOffList(L) ->
+	put(ool, L).
+getOnOffList() ->
+	case get(ool) of
+		undefined ->
+			[];
+		L ->
+			L
+	end.
 
 %%%===================================================================
 %%% API
@@ -145,39 +167,23 @@ handle_info({alreadyConnectDBServer, _Pid, _}, State) ->
     {noreply, State};
 
 %% 心跳
-handle_info(tick, #state{queueOnline = Q0} = State) ->
+handle_info(tick, State = #state{n = N}) ->
     erlang:send_after(?TimeTick, self(), tick),
-    case Q0 of
-        [] ->
-            {noreply, State};   %% 无可计算之物
-        [H|T] ->
-            updateDistance0(H, T),
-            {noreply, State#state{queueOnline = T ++ [H]}}
-    end;
+	%% 处理上下线列表
+	NNew = updateOnOffList(N),
+	%% 处理计算队列
+	updateDistance(),
+	{noreply, State#state{n = NNew}};
 
 %% 上下线
-handle_info({friend2_online, _, RoleID}, #state{queueOnline = Q0} = State) ->
-    Q1 = lists:keydelete(RoleID, 1, Q0),                %% 插入前的删除是为了防止意外导致的重复插入
-    Q2 = lists:keystore(RoleID, 1, Q1, {RoleID, 0}),    %% 上线时插入时间为0以便尽快计算距离
-    {noreply, State#state{queueOnline = Q2}};
-handle_info({friend2_offline, _, RoleID}, #state{queueOnline = Q0} = State) ->
-    Q1 = lists:keydelete(RoleID, 1, Q0),
-    %% 删除相关的计算结果（计算结果的累积并不是什么好事）
-    FunFilter =
-        fun(#recFriend2LBS{mixRoleID = {R1, R2}}, R) ->
-            case RoleID of
-                R1 ->
-                    [{R1, R2} | R];
-                R2 ->
-                    [{R1, R2} | R];
-                _ ->
-                    R
-            end
-        end,
-    List1 = ets:foldl(FunFilter, [], ?EtsFriend2LBS),
-    List2 = lists:usort(List1),
-    [ets:delete(?EtsFriend2LBS, Key) || Key <- List2],
-    {noreply, State#state{queueOnline = Q1}};
+handle_info({friend2_online, _, RoleID}, State) ->
+	L = lists:keydelete(RoleID, 1, getOnOffList()),
+	setOnOffList([{RoleID, ?Online} | L]),
+	{noreply, State};
+handle_info({friend2_offline, _, RoleID}, State) ->
+	L = lists:keydelete(RoleID, 1, getOnOffList()),
+	setOnOffList([{RoleID, ?Offline} | L]),
+	{noreply, State};
 
 handle_info(Info, State) ->
     ?ERROR_OUT("~p ~p recv undefined msg:~p", [?MODULE, self(), Info]),
@@ -239,7 +245,79 @@ queryDistance(RoleID, TargetRoleID) ->
 mixRoleID(RoleID, TargetRoleID) when RoleID < TargetRoleID -> {RoleID, TargetRoleID};
 mixRoleID(RoleID, TargetRoleID) -> {TargetRoleID, RoleID}.
 
+%% 处理上下线列表
+-spec updateOnOffList(N::uint()) -> no_return().
+updateOnOffList(?TickN) ->
+	OnOffLineList = getOnOffList(),
+	setOnOffList([]),
+	{OnList, OffList} = updateOnOffList_split(OnOffLineList, [], []),
+	Q1 = getQueueOnline(),
+	Q2 = updateOnOffList_off(OffList, Q1),	%% Q2 是反转状态
+	Q3 = lists:reverse(OnList ++ Q2),
+	setQueueOnline(Q3),
+	0;
+updateOnOffList(N) ->
+	N + 1.
+
+-spec updateOnOffList_split(OnOffList, AccOnList, AccOffList) -> {OnList, OffList} when
+	OnOffList::[{uint64(), bool01()}, ...],
+	AccOnList::[uint64(), ...],
+	AccOffList::[uint64(), ...],
+	OnList::[uint64(), ...],
+	OffList::[uint64(), ...].
+updateOnOffList_split([], AccOnList, AccOffList) ->
+	{AccOnList, AccOffList};
+updateOnOffList_split([{RoleID, ?Online} | T], AccOnList, AccOffList) ->
+	updateOnOffList_split(T, [{RoleID, 0} | AccOnList], AccOffList);	%% 上线时插入时间为0以便尽快计算距离
+updateOnOffList_split([{RoleID, ?Offline} | T], AccOnList, AccOffList) ->
+	updateOnOffList_split(T, AccOnList, [RoleID | AccOffList]).
+
+-spec updateOnOffList_off(OffList, QueueOnline) -> ReverseNewQueueOnline when
+	OffList::[uint64(), ...],
+	QueueOnline::[{uint64(), uint32()}, ...],
+	ReverseNewQueueOnline::[{uint64(), uint32()}, ...].
+updateOnOffList_off(OffList, QueueOnline) ->
+	%% 根据下线列表删除在线队列中的元素
+	{ReverseNewQueueOnline, _} = lists:foldl(fun updateOnOffList_off_func1/2, {[], OffList}, QueueOnline),
+	%% 根据下线列表删除计算结果
+	{ListKey, _} = ets:foldl(fun updateOnOffList_off_func2/2, {[], OffList}, ?EtsFriend2LBS),
+	lists:foreach(fun updateOnOffList_off_func3/1, ListKey),
+	%% 返回新的在线队列（反转状态）
+	ReverseNewQueueOnline.
+
+updateOnOffList_off_func1({RoleID, _} = E, {Result, OffList}) ->
+	case lists:member(RoleID, OffList) of
+		true ->
+			{Result, OffList};
+		_ ->
+			{[E | Result], OffList}
+	end.
+updateOnOffList_off_func2(#recFriend2LBS{mixRoleID = {R1, R2} = Key}, {Result, OffList}) ->
+	case lists:member(R1, OffList) of
+		true ->
+			{Result, OffList};
+		_ ->
+			case lists:member(R2, OffList) of
+				true ->
+					{Result, OffList};
+				_ ->
+					{[Key | Result], OffList}
+			end
+	end.
+updateOnOffList_off_func3(Key) ->
+	ets:delete(?EtsFriend2LBS, Key).
+
 %% 更新距离
+-spec updateDistance() -> no_return().
+updateDistance() ->
+	case getQueueOnline() of
+		[] ->
+			skip;
+		[H|T] ->
+			updateDistance0(H, T),
+			setQueueOnline(T ++ [H])
+	end.
+
 -spec updateDistance0({RoleID::uint64(), Time::uint32()}, ListRoleIDTime::[{uint64(), uint32()}, ...]) -> ok.
 updateDistance0({RoleID, Time}, ListRoleIDTime) ->
     TimeNow = time2:getTimestampSec(),

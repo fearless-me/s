@@ -1,33 +1,17 @@
 -ifndef(TEAM_HRL).
 -define(TEAM_HRL,1).
 
--define(CreateTeamCaptain, 1).		%% 
--define(CreateTeamMember, 2).		%%
+%%%-------------------------------------------------------------------
+%%%-------------------------------------------------------------------
 
-%% 邀请入队
--define(InviteTeamTypeInviteJoin, 1).
-%% 申请入队
--define(InviteTeamTypeRequestJoin, 2).
-%% T人
--define(KickTeamMember, 3).
-%% 给予队长
--define(GiveLeaderToMember, 4).
+-define(TeamRst_0, 0).
+-define(TeamRst_Kick,1).
+-define(TeamRst_Leave,2).
+-define(TeamRst_Dismiss,3).
 
 %% 队伍最大人数
 -define(MAX_TeamMemberNum, 4).
 
--define(TeamDisAgree, 0).
--define(TeamAgree, 1).
-
--define(NearRequestCD, 3).
--define(NearDistance, 32).
-%%服务器队伍的类型，决定队伍的属性
--define(TeamTypeNormal, 0).%%普通队伍（五分钟没有人就会删除，可以任意换队长）
--define(TeamTypeSystem, 1).%%系统队伍（服务器逻辑去删除和创建,只在服务器内部使用，不可换队长）
--define(TeamTypePlayLogic, 2).%%灵魂伙伴玩法队伍（玩家去删除和创建，不可换队长）
-
-%%%-------------------------------------------------------------------
-%%%-------------------------------------------------------------------
 %% 队员点击同意开始副本的时间
 -define(AckStartCopyMapTimeOut, 15).
 %% 系统自动匹配tick时间
@@ -54,6 +38,8 @@
 %%% 13(取消系统自动为我匹配队伍, *)
 %%% 14(发送组队链接消息, 聊天频道)
 %%% 15(快速组队, 目标角色ID, 副本ID)
+%%% 16离队并进入副本
+%%% 17开启助战(operatedID:1开启助战，2取消助战，param1:副本ID)
 -define(TeamOP_Create, 1).
 -define(TeamOP_Invite, 2).
 -define(TeamOP_FastJoin, 3).
@@ -70,6 +56,7 @@
 -define(TeamOP_SendTeamQuickInfo, 14).
 -define(TeamOP_FastCreate, 15).
 -define(TeamOP_LeaveTeamAndEnterCopy, 16).
+-define(TeamOP_AssistCopyMap, 17).
 
 %% 附近的人
 -define(Search_Online, 1).
@@ -107,6 +94,7 @@
 %%	teamID = 0,             %%队伍id
 	targetMapCount = 0,     %%目标副本次数
 	actionPoint = 0,        %%体力值
+	assistMapID = 0,			%%助战地图ID
 	fightingCapacity = 0	%%战斗力
 }).
 

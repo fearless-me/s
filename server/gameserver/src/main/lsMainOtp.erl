@@ -114,7 +114,26 @@ handle_info(lsLoadDataMsg, State) ->
 	%% tiancheng
 	lsLoadData(getRandIpList, {}, getRandIpListAck),
 
+	%% 如果是普通服，且配置了跨服，则必须跨服连接成功了才允许登录
+	case core:isCross() of
+		false ->
+			case config:getString("CrosNode", "" ) of
+				"" ->
+					?WARN_OUT("~p node found CrosNode!", [?MODULE]);
+				NodeStr ->
+					addAckMsgToList(waitConnectCrossSuccessAck),
+					?WARN_OUT("need wait connect cross node:~p", [NodeStr]),
+					psMgr:sendMsg2PS(?PsNameNormalCross, waitConnectCrossSuccess, waitConnectCrossSuccessAck)
+			end;
+		_ ->
+			skip
+	end,
+
 	?LOG_OUT("~p lsLoadDataMsg",[?MODULE]),
+	{noreply, State};
+
+handle_info({waitConnectCrossSuccessAck, _Pid, _}, State) ->
+	lsLoadDataAck(waitConnectCrossSuccessAck),
 	{noreply, State};
 
 %%接收处理DBS回馈的黑名单
@@ -205,9 +224,7 @@ handle_info({getRandIpListAck, _, {List1, List2}}, StateData) ->
 	{noreply, StateData};
 
 %% 定时更新本线在线人数
-handle_info(gsRefreshOnlineCount, State) ->
-	erlang:send_after(5000, self(), gsRefreshOnlineCount),
-	Num = playerMgrOtp:getAllPlayerNumAndModifyData(),
+handle_info({gsRefreshOnlineCount, _Pid, Num}, State) ->
 	updateGSOnlineCount(Num),
 	{noreply, State};
 
@@ -511,10 +528,15 @@ serverInfoInit() ->
 	?WARN_OUT("LSServer Succ,canLoginNumInit[~w]", [MaxPlayer]),
 
 	%%GS注册成功，增加可登录名额
-	loginQueueOtp:send2me(canLoginNumInit, {ServerID, MaxPlayer, MaxPlayer}),
+	loginQueueOtp:send2me(canLoginNumInit, MaxPlayer),
 	ok.
 
 lsLoadData(Msg, MsgData, AckMsg) ->
+	addAckMsgToList(AckMsg),
+	lsSendMsg:sendMsg2DBServer(Msg, MsgData),
+	ok.
+
+addAckMsgToList(AckMsg) ->
 	L = getLoadDataWaitList(),
 	case lists:member(AckMsg, L) of
 		true ->
@@ -522,8 +544,6 @@ lsLoadData(Msg, MsgData, AckMsg) ->
 		_ ->
 			setLoadDataWaitList([AckMsg | L])
 	end,
-
-	lsSendMsg:sendMsg2DBServer(Msg, MsgData),
 	ok.
 
 lsLoadDataAck(AckMsg) ->
@@ -537,8 +557,6 @@ lsLoadDataAck(AckMsg) ->
 					updateGSState(?GameServer_State_Running),
 
 					psMgr:sendMsg2PS(self(), syncDBDataOK, gsMainLogic:getServerID()),
-
-					erlang:send_after(5000, self(), gsRefreshOnlineCount),
 					ok;
 				_ ->
 					skip

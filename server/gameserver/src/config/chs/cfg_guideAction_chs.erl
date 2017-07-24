@@ -9,1500 +9,1799 @@ getRow(1001)->
     #guideActionCfg {
     id = 1001,
     trigger = 1,
-    triggerParam = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "TaskTipsPanel&Anchor/Offset/TaskList/TaskItem(Clone)",
     finishTrigger = 1,
     watingtime = 0,
     content = "[A06729]欢迎来到露娜世界，点击这里开始魔幻之旅吧！",
     nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    resControl = "6&vfx_25_66&vfx_25_67&5||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 1,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1002)->
     #guideActionCfg {
     id = 1002,
-    trigger = 3,
-    triggerParam = 1,
-    guideType = [1,3,6],
-    uiTarget = "TaskTipsPanel&Anchor/Offset/TaskList/TaskItem(Clone)",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]完成了任务，点击[ff4242]领取[-]任务奖励！",
-    nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 0,
-    mainStep = 1,
-    module = 0
-    };
-getRow(1003)->
-    #guideActionCfg {
-    id = 1003,
-    trigger = 2,
-    triggerParam = 3,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "EquipmentGuidePanel&Anchor/Offest/PutOnBtn",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]恭喜你获得了一件装备，快穿上吧！",
-    nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    content = "[A06729]冒险之中[ff4242]【武器】[-]可是至关重要的！",
+    nextGuide = 1003,
+    resControl = "6&vfx_25_66&vfx_25_67&4||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1003)->
+    #guideActionCfg {
+    id = 1003,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "TaskTipsPanel&Anchor/Offset/TaskList/TaskItem(Clone)",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]继续冒险，试试[ff4242]【武器】[-]的威力吧！",
+    nextGuide = 0,
+    resControl = "6&vfx_25_66&vfx_25_67&4||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = -1,
+    closemsgpanle = 0
     };
 getRow(1004)->
     #guideActionCfg {
     id = 1004,
-    trigger = 7,
-    triggerParam = 300,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainPanel&BottomRight/SkillOffset/AttackButton",
     finishTrigger = 1,
     watingtime = 1,
-    content = "[A06729]点击[ff4242]攻击[-]按钮进行攻击击杀小鱼人",
+    content = "[A06729]使用[ff4242]【攻击】[-]击败小鱼人",
     nextGuide = 0,
     resControl = "6&vfx_25_66&vfx_25_67&1||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 1,
     mainStep = 1,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1005)->
     #guideActionCfg {
     id = 1005,
-    trigger = 2,
-    triggerParam = 5,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainPanel&TopLeft/MyHeadOffset/Head",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]快点击人物头像看看刚获取的技能吧",
+    content = "[A06729]冒险者的战斗需要更加强力的技能",
     nextGuide = 1006,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    resControl = "6&vfx_25_66&vfx_25_67&8||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1006)->
     #guideActionCfg {
     id = 1006,
-    trigger = 6,
-    triggerParam = 1005,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "CharacterPanel&Anchor/Offset/switchBtns/Skill_Button",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]技能[-]”页签可查看刚获取的技能",
+    content = "[A06729]点击[ff4242]【技能】[-]查看自己的全部技能",
     nextGuide = 1007,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1007)->
     #guideActionCfg {
     id = 1007,
-    trigger = 6,
-    triggerParam = 1006,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "CharacterPanel&Anchor/Offset/skill/skill(Clone)/allSkills/panel/grid/0/add",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击技能后的[ff4242]加号[-]按钮能升级技能，提高技能的伤害",
-    nextGuide = 0,
+    content = "[A06729]技能需要经常[ff4242]【升级】[-]，提升伤害和效果！",
+    nextGuide = 1008,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 1,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1008)->
     #guideActionCfg {
     id = 1008,
-    trigger = 7,
-    triggerParam = 301,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&BottomRight/SkillOffset/AllSkill/Skill_0/Button",
+    uiTarget = "CharacterPanel&Anchor/Offset/Close_Button",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]技能[-]图标释放技能，能更高效的消灭敌人！",
+    content = "[A06729]点击[ff4242]关闭[-]，继续冒险吧！",
     nextGuide = 0,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
-    needWaitTarget = 1,
-    mainStep = 1,
-    module = 0
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1009)->
     #guideActionCfg {
     id = 1009,
     trigger = 1,
-    triggerParam = 4,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&TopLeft/MyHeadOffset/Head",
+    uiTarget = "MainPanel&BottomRight/SkillOffset/AllSkill/Skill_0/Button",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]又学会了一个技能，我们来看看吧",
-    nextGuide = 1010,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    content = "[A06729]请使用[ff4242]【技能】[-]，消灭阻挡的魔物！",
+    nextGuide = 0,
+    resControl = "6&vfx_25_66&vfx_25_67&1||1&2&50",
     couldBeSkip = 0,
-    needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
+    needWaitTarget = 1,
+    mainStep = 1,
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1010)->
     #guideActionCfg {
     id = 1010,
-    trigger = 6,
-    triggerParam = 1009,
-    guideType = [1,3,6],
-    uiTarget = "CharacterPanel&Anchor/Offset/switchBtns/Skill_Button",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]点击“[ff4242]技能[-]”页签可查看刚获取的技能",
-    nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
-    };
-getRow(1011)->
-    #guideActionCfg {
-    id = 1011,
-    trigger = 7,
-    triggerParam = 302,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainPanel&TopRight/OtherBtns/Skill_6/Button",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]使用[ff4242]自动战斗[-]，打怪物更轻松哦！",
+    content = "[A06729]使用[ff4242]【自动战斗】[-]，打怪物更轻松哦！",
     nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    resControl = "6&vfx_25_66&vfx_25_67&4||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
-getRow(1012)->
+getRow(1011)->
     #guideActionCfg {
-    id = 1012,
-    trigger = 7,
-    triggerParam = 305,
+    id = 1011,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "SpecificEventPanel&UIAchor/Skill_Goddess/Button",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]女神之力—仁慈召唤可以使用了，赶紧试试吧",
+    content = "[A06729]冒险旅途危险重重，使用[ff4242]【女神之力-仁慈】[-]可以治愈自己。",
     nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    resControl = "6&vfx_25_66&vfx_25_67&6||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 1,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1012)->
+    #guideActionCfg {
+    id = 1012,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainPanel&TopRight/Goddness",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]女神之力溢满身体，请激活仁慈女神为你而战吧！",
+    nextGuide = 1013,
+    resControl = "6&vfx_25_66&vfx_25_67&6||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 1,
+    mainStep = 0,
+    module = 18,
+    closemsgpanle = 0
     };
 getRow(1013)->
     #guideActionCfg {
     id = 1013,
     trigger = 1,
-    triggerParam = 6,
-    guideType = [1,3,6],
-    uiTarget = "MainPanel&TopRight/Goddness",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]善良的女神们前来帮助你闯荡露娜世界啦~",
-    nextGuide = 1014,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 1,
-    mainStep = 0,
-    module = 18
-    };
-getRow(1014)->
-    #guideActionCfg {
-    id = 1014,
-    trigger = 6,
-    triggerParam = 1013,
-    guideType = [1,3,6],
-    uiTarget = "MainPanel&TopRight/Goddness",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]仁慈女神，擅长治愈！",
-    nextGuide = 1015,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 1,
-    mainStep = 0,
-    module = 0
-    };
-getRow(1015)->
-    #guideActionCfg {
-    id = 1015,
-    trigger = 6,
-    triggerParam = 1014,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "TransformPanel&PageGoddess/Btn/GoddessGoFight",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]请点击[ff4242][出战][-]吧~",
+    content = "[A06729]请[ff4242][出战][-]仁慈女神！",
+    nextGuide = 1014,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1014)->
+    #guideActionCfg {
+    id = 1014,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "TransformPanel&PageGoddess/SpBg/BtnLevelUp",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]请经常[ff4242][升级女神][-]，提升女神的属性",
+    nextGuide = 1015,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 1,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1015)->
+    #guideActionCfg {
+    id = 1015,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "TransformPanel&ButtonClose",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]点击[ff4242]关闭[-]，继续冒险吧！",
     nextGuide = 1016,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1016)->
     #guideActionCfg {
     id = 1016,
-    trigger = 6,
-    triggerParam = 1015,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "TransformPanel&PageGoddess/SpBg/BtnLevelUp",
+    uiTarget = "MainPanel&BottomLeft/System",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242][升级女神][-]按钮，可以提升女神的属性",
+    content = "[A06729]新功能解锁啦，点击这里查看",
     nextGuide = 1017,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
+    resControl = "6&vfx_25_66&vfx_25_67&3||1&2&50",
+    couldBeSkip = 1,
     needWaitTarget = 0,
-    mainStep = 1,
-    module = 0
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1017)->
     #guideActionCfg {
     id = 1017,
-    trigger = 6,
-    triggerParam = 1016,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "TransformPanel&ButtonClose",
+    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/29",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]关闭[-]按钮，关闭当前界面",
+    content = "[A06729]你获得了一个[ff4242]【成就】[-]！",
     nextGuide = 1018,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1018)->
     #guideActionCfg {
     id = 1018,
-    trigger = 6,
-    triggerParam = 1017,
-    guideType = [1,3,6],
-    uiTarget = "MainPanel&BottomLeft/System",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]获得了一个成就，快来这里看看吧！",
-    nextGuide = 1019,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 1,
-    needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
-    };
-getRow(1019)->
-    #guideActionCfg {
-    id = 1019,
-    trigger = 6,
-    triggerParam = 1018,
-    guideType = [1,3,6],
-    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/29",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]点击[ff4242]成就[-]图标，看看你完成了什么成就吧",
-    nextGuide = 1020,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
-    };
-getRow(1020)->
-    #guideActionCfg {
-    id = 1020,
-    trigger = 6,
-    triggerParam = 1019,
-    guideType = [1,3,6],
-    uiTarget = "AchievementPanel&Anchor/Offset/AchievePanel/TypeList%3",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]点击“[ff4242]登峰造极[-]”页签，切换到登峰造极界面",
-    nextGuide = 1021,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
-    };
-getRow(1021)->
-    #guideActionCfg {
-    id = 1021,
-    trigger = 6,
-    triggerParam = 1020,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "AchievementPanel&Anchor/Offset/AchievePanel/DetailList/DetailItem(Clone)_700/Button",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]领奖[-]按钮，领取奖励吧~",
-    nextGuide = 0,
+    content = "[A06729]请[ff4242]【领取】[-]你的奖励吧！",
+    nextGuide = 1019,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 1,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
-getRow(1022)->
+getRow(1019)->
     #guideActionCfg {
-    id = 1022,
-    trigger = 3,
-    triggerParam = 27,
+    id = 1019,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "AchievementPanel&Anchor/Offset/Btns/CloseBtn",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]点击[ff4242]【关闭】[-]，继续冒险吧！",
+    nextGuide = 0,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1020)->
+    #guideActionCfg {
+    id = 1020,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [5],
     uiTarget = "MainPanel&BottomLeft/System",
     finishTrigger = 3,
     watingtime = 0,
-    nextGuide = 1023,
-    resControl = "5&34",
+    nextGuide = 1021,
+    resControl = "5&9",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 9
+    module = 9,
+    closemsgpanle = 0
     };
-getRow(1023)->
+getRow(1021)->
     #guideActionCfg {
-    id = 1023,
-    trigger = 6,
-    triggerParam = 1022,
+    id = 1021,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainPanel&BottomLeft/System",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]头像[-]，打开人物面板",
+    content = "[A06729]新功能解锁啦，点击这里查看",
+    nextGuide = 1022,
+    resControl = "6&vfx_25_66&vfx_25_67&3||1&2&50",
+    couldBeSkip = 1,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1022)->
+    #guideActionCfg {
+    id = 1022,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/9",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729][ff4242]【强化】[-]功能已解锁",
+    nextGuide = 1023,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1023)->
+    #guideActionCfg {
+    id = 1023,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "StrengthenPanel&strengthen_content/SwitchPackage/EquipmentRefining/Parts/ScrollView/Grid/0",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]武器是重要的力量，需要随时精炼",
     nextGuide = 1024,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1024)->
     #guideActionCfg {
     id = 1024,
-    trigger = 6,
-    triggerParam = 1023,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/9",
+    uiTarget = "StrengthenPanel&strengthen_content/SwitchPackage/EquipmentRefining/ImproveBtn",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击选择“[ff4242]强化[-]”页签",
+    content = "[A06729]点击[ff4242]【精炼】[-]，提升武器的等级吧",
     nextGuide = 1025,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
+    mainStep = 1,
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1025)->
     #guideActionCfg {
     id = 1025,
-    trigger = 6,
-    triggerParam = 1024,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "StrengthenPanel&strengthen_content/SwitchPackage/EquipmentRefining/Parts/ScrollView/Grid/0",
+    uiTarget = "StrengthenPanel&Close_Button",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]选择武器精炼提升武器等级",
-    nextGuide = 1026,
+    content = "[A06729]点击[ff4242]【关闭】[-]，继续冒险吧！",
+    nextGuide = 0,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1026)->
     #guideActionCfg {
     id = 1026,
-    trigger = 6,
-    triggerParam = 1025,
-    guideType = [1,3,6],
-    uiTarget = "StrengthenPanel&strengthen_content/SwitchPackage/EquipmentRefining/ImproveBtn",
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [5],
+    uiTarget = "MainPanel&TopLeft/MyHeadOffset/Head",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]精炼[-]按钮，提升武器的等级吧",
     nextGuide = 1027,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    resControl = "5&52",
     couldBeSkip = 0,
     needWaitTarget = 0,
-    mainStep = 1,
-    module = 0
+    mainStep = 0,
+    module = 52,
+    closemsgpanle = 0
     };
 getRow(1027)->
     #guideActionCfg {
     id = 1027,
-    trigger = 6,
-    triggerParam = 1026,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "StrengthenPanel&strengthen_content/SwitchPackage/EquipmentRefining/Parts/ScrollView/Grid/3",
+    uiTarget = "MainPanel&TopLeft/MyHeadOffset/Head",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]很好，接下来精炼一下衣服吧",
+    content = "[A06729]新功能解锁啦，点击这里查看",
     nextGuide = 1028,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
+    resControl = "6&vfx_25_66&vfx_25_67&8||1&2&50",
+    couldBeSkip = 1,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 52,
+    closemsgpanle = 0
     };
 getRow(1028)->
     #guideActionCfg {
     id = 1028,
-    trigger = 6,
-    triggerParam = 1027,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "StrengthenPanel&strengthen_content/SwitchPackage/EquipmentRefining/ImproveBtn",
+    uiTarget = "CharacterPanel&Anchor/Offset/switchBtns/Fashion_Button",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]精炼[-]按钮，提升衣服的等级吧",
+    content = "[A06729][ff4242]【时装】[-]功能已开启",
     nextGuide = 1029,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1029)->
     #guideActionCfg {
     id = 1029,
-    trigger = 6,
-    triggerParam = 1028,
-    guideType = [1,3,6],
-    uiTarget = "StrengthenPanel&Close_Button",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]点击[ff4242]关闭[-]按钮，关闭当前界面",
-    nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
-    };
-getRow(1030)->
-    #guideActionCfg {
-    id = 1030,
-    trigger = 2,
-    triggerParam = 35,
-    guideType = [1,3,6],
-    uiTarget = "MainPanel&TopLeft/MyHeadOffset/Head",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]时装功能已开启，赶快试试新衣服吧",
-    nextGuide = 1031,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 0,
-    mainStep = 0,
-    module = 52
-    };
-getRow(1031)->
-    #guideActionCfg {
-    id = 1031,
-    trigger = 6,
-    triggerParam = 1030,
-    guideType = [1,3,6],
-    uiTarget = "CharacterPanel&Anchor/Offset/switchBtns/Fashion_Button",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]点击选择“[ff4242]时装[-]”页签",
-    nextGuide = 1032,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
-    };
-getRow(1032)->
-    #guideActionCfg {
-    id = 1032,
-    trigger = 6,
-    triggerParam = 1031,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "CharacterPanel&Anchor/Offset/Fashion/fashion(Clone)/single/items/store/panel/grid/0/Grid/head/BG",
     finishTrigger = 1,
     watingtime = 0,
     content = "[A06729]点击可预览时装样式",
-    nextGuide = 1033,
+    nextGuide = 1030,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
-getRow(1033)->
+getRow(1030)->
     #guideActionCfg {
-    id = 1033,
-    trigger = 6,
-    triggerParam = 1032,
-    guideType = [1,3,6],
+    id = 1030,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [2],
     uiTarget = "CharacterPanel&Anchor/Offset/Fashion/fashion(Clone)/single/items/store/panel/grid/0/Grid/cloth/BG",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]再看看另一款时装吧！是否想买一件呢？",
+    finishTrigger = 2,
+    watingtime = 3,
+    content = "[A06729]你可以购买任意一件绿色时装，然后在[ff4242]【我的衣橱】[-]里穿上它！",
     nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
-getRow(1034)->
+getRow(1031)->
     #guideActionCfg {
-    id = 1034,
-    trigger = 2,
-    triggerParam = 39,
+    id = 1031,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainPanel&TopRight/Goddness",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]战争女神可以解锁了，快来解锁战争女神",
-    nextGuide = 1035,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    content = "[A06729]女神之力溢满身体，请激活战争女神为你而战吧！",
+    nextGuide = 1032,
+    resControl = "6&vfx_25_66&vfx_25_67&6||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 1,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
-getRow(1035)->
+getRow(1032)->
     #guideActionCfg {
-    id = 1035,
-    trigger = 6,
-    triggerParam = 1034,
-    guideType = [1,3,6],
-    uiTarget = "MainPanel&TopRight/Goddness",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]让战争女神出战吧！",
-    nextGuide = 1036,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 1,
-    mainStep = 0,
-    module = 0
-    };
-getRow(1036)->
-    #guideActionCfg {
-    id = 1036,
-    trigger = 6,
-    triggerParam = 1035,
+    id = 1032,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "TransformPanel&PageGoddess/List%2",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]选中[ff4242]战争女神[-]",
-    nextGuide = 1037,
+    content = "[A06729]不同女神具备不同的力量，需要看时机切换使用",
+    nextGuide = 1033,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 1,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
-getRow(1037)->
+getRow(1033)->
     #guideActionCfg {
-    id = 1037,
-    trigger = 6,
-    triggerParam = 1036,
+    id = 1033,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "TransformPanel&PageGoddess/Btn/GoddessGoFight",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]出战[-]按钮，让战争女神陪你征战吧！",
-    nextGuide = 0,
+    content = "[A06729]现在让战争女神随你[ff4242]【出战】[-]吧！",
+    nextGuide = 1034,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 1,
     mainStep = 1,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1034)->
+    #guideActionCfg {
+    id = 1034,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "TransformPanel&ButtonClose",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]点击[ff4242]【关闭】[-]，继续冒险吧！",
+    nextGuide = 0,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1035)->
+    #guideActionCfg {
+    id = 1035,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "CopyPanel&Copy/Enter",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]点击[ff4242]单人前往[-]，进行副本历练吧！",
+    nextGuide = 1036,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 1,
+    mainStep = 1,
+    module = 0,
+    closemsgpanle = 1
+    };
+getRow(1036)->
+    #guideActionCfg {
+    id = 1036,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MessageBoxPanel&Anchor/Offset/ButtonOne",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]副本功能已开启，前方危机重重，请小心[ff4242]【进入】[-]！",
+    nextGuide = 1037,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 1
+    };
+getRow(1037)->
+    #guideActionCfg {
+    id = 1037,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "SpecificEventPanel&UIAchor/WeaponSkill/Button",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]器灵之力在体内流淌，使用[ff4242]【器灵觉醒】[-]体验一下力量吧！",
+    nextGuide = 0,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 1,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1038)->
     #guideActionCfg {
     id = 1038,
     trigger = 1,
-    triggerParam = 10,
-    guideType = [1,3,6],
-    uiTarget = "CopyPanel&Copy/Enter",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]点击[ff4242]单人前往[-]按钮，进行副本历练吧！",
-    nextGuide = 1039,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 1,
-    mainStep = 1,
-    module = 0
-    };
-getRow(1039)->
-    #guideActionCfg {
-    id = 1039,
-    trigger = 6,
-    triggerParam = 1038,
-    guideType = [1,3,6],
-    uiTarget = "MessageBoxPanel&Anchor/Offset/ButtonOne",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]点击[ff4242]进入[-]按钮，进入副本吧！",
-    nextGuide = 1040,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
-    };
-getRow(1040)->
-    #guideActionCfg {
-    id = 1040,
-    trigger = 6,
-    triggerParam = 1039,
-    guideType = [1,3,6],
-    uiTarget = "SpecificEventPanel&UIAchor/WeaponSkill/Button",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]器灵觉醒了，让我们体验一下吧！",
-    nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
-    needWaitTarget = 1,
-    mainStep = 0,
-    module = 0
-    };
-getRow(1041)->
-    #guideActionCfg {
-    id = 1041,
-    trigger = 2,
-    triggerParam = 47,
+    triggerParam = 100,
     guideType = [5],
     uiTarget = "MainPanel&BottomLeft/System",
     finishTrigger = 1,
     watingtime = 0,
-    nextGuide = 1042,
+    nextGuide = 1039,
     resControl = "5&34",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 1
     };
-getRow(1042)->
+getRow(1039)->
     #guideActionCfg {
-    id = 1042,
-    trigger = 6,
-    triggerParam = 1041,
+    id = 1039,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainPanel&BottomLeft/System",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]有新的功能解锁了，点击这里可以查看新功能",
-    nextGuide = 1043,
+    content = "[A06729]有新的功能解锁啦，点击这里查看",
+    nextGuide = 1040,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 1,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 1
     };
-getRow(1043)->
+getRow(1040)->
     #guideActionCfg {
-    id = 1043,
-    trigger = 6,
-    triggerParam = 1042,
+    id = 1040,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/34",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]器灵[-]图标，打开器灵界面",
-    nextGuide = 1044,
+    content = "[A06729][ff4242]【器灵】[-]功能已解锁",
+    nextGuide = 1041,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 1
     };
-getRow(1044)->
+getRow(1041)->
     #guideActionCfg {
-    id = 1044,
-    trigger = 6,
-    triggerParam = 1043,
+    id = 1041,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "WeaponImprovePanel&Anchor/Offset/Content/BaseDesc/ActiveBtn",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]有可解封的器灵，快进行器灵解封吧！",
-    nextGuide = 0,
+    content = "[A06729]每个器灵需要对应的解锁道具才能激活！",
+    nextGuide = 1042,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 1,
-    module = 0
+    module = 0,
+    closemsgpanle = 1
     };
-getRow(1045)->
+getRow(1042)->
     #guideActionCfg {
-    id = 1045,
-    trigger = 2,
-    triggerParam = 55,
+    id = 1042,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&BottomLeft/System",
+    uiTarget = "MessageBoxPanel&Anchor/Offset/ButtonOne",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击这里，查看刚获得的骑宠！",
-    nextGuide = 1046,
+    content = "[A06729]请激活火器灵",
+    nextGuide = 1043,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 1
+    };
+getRow(1043)->
+    #guideActionCfg {
+    id = 1043,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [2],
+    uiTarget = "WeaponImprovePanel&Anchor/Offset/Content2/Top/WeaponBtn",
+    finishTrigger = 2,
+    watingtime = 3,
+    content = "[A06729]提升各个器灵都将为你的觉醒武器提供经验值！力量来自于日夜累积！",
+    nextGuide = 0,
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 1
+    };
+getRow(1044)->
+    #guideActionCfg {
+    id = 1044,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainPanel&TopRight/ActivityOffset/Show",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]有新的[ff4242]【活动】[-]解锁啦，点击这里查看",
+    nextGuide = 1045,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 1,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1045)->
+    #guideActionCfg {
+    id = 1045,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainPanel&TopRight/ActivityOffset/ActivityClip/MenuOne/22",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]有新的功能[ff4242]【活动】[-]解锁啦，点击这里查看",
+    nextGuide = 1046,
+    resControl = "6&vfx_25_66&vfx_25_67&6||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1046)->
     #guideActionCfg {
     id = 1046,
-    trigger = 6,
-    triggerParam = 1045,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/5",
+    uiTarget = "DailyPanel&Anchor/Offset/ScrollView/PveButton/34",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]骑宠[-]图标，打开骑宠界面",
+    content = "[A06729][ff4242]【混沌灵界】[-]已开启",
     nextGuide = 1047,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1047)->
     #guideActionCfg {
     id = 1047,
-    trigger = 6,
-    triggerParam = 1046,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "RidePetPanel&Pages/RidePet/InfoPanel/Info/BtnInfo",
+    uiTarget = "DailyPanel&Anchor/Offset/Content/34/ButtonChallenge",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]详情[-]按钮，打开详情面板",
+    content = "[A06729]许多挑战地域中你都需要先[ff4242]【创建组队】[-]",
     nextGuide = 1048,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1048)->
     #guideActionCfg {
     id = 1048,
-    trigger = 6,
-    triggerParam = 1047,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "RidePetInfoPanel&Anchor/Offset/InfoPanel/MAndPInfoBasePanel/Content/Attribute/Up/ButtonUpdate",
+    uiTarget = "NewTeamHallPanel&rightBottom/creatTeamBtn",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]升星[-]”按钮，为骑宠升星吧",
+    content = "[A06729]许多挑战地域中你都需要先[ff4242]【创建组队】[-]",
+    nextGuide = 1049,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1049)->
+    #guideActionCfg {
+    id = 1049,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "NewTeamPanel&rightBottom/btnGrid/quickStartBtn",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]选择[ff4242]【快速开始】[-]挑战六系元素器灵吧！",
     nextGuide = 0,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
-    };
-getRow(1049)->
-    #guideActionCfg {
-    id = 1049,
-    trigger = 2,
-    triggerParam = 72,
-    guideType = [1,3,6],
-    uiTarget = "MainPanel&TopRight/ActivityOffset/Show",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]点击这里查看新开启的功能吧",
-    nextGuide = 1050,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 1,
-    needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1050)->
     #guideActionCfg {
     id = 1050,
-    trigger = 6,
-    triggerParam = 1049,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&TopRight/ActivityOffset/ActivityClip/MenuOne/12",
+    uiTarget = "MainPanel&BottomLeft/System",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]兑换[-]’图标，打开资源兑换界面",
+    content = "[A06729]获得了厉害的道具，来强化骑宠吧！",
     nextGuide = 1051,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
+    couldBeSkip = 1,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1051)->
     #guideActionCfg {
     id = 1051,
-    trigger = 6,
-    triggerParam = 1050,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "ResExchangePanel&Anchor/Offset/Package/Panel/Sprite(Clone)/2160",
+    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/5",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]选择[ff4242]兽灵精华[-]来进行一次兑换吧！",
+    content = "[A06729]获得了厉害的道具，来强化骑宠吧！",
     nextGuide = 1052,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
-    needWaitTarget = 1,
+    needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1052)->
     #guideActionCfg {
     id = 1052,
-    trigger = 6,
-    triggerParam = 1051,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "ResExchangePanel&Anchor/Offset/BuyInfo/MaxButton",
+    uiTarget = "RidePetPanel&Pages/RidePet/InfoPanel/Info/BtnInfo",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击这里，能够将购买数量设置为最大哦！",
+    content = "[A06729]在[ff4242]【详情】[-]可以查看骑宠的信息",
     nextGuide = 1053,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1053)->
     #guideActionCfg {
     id = 1053,
-    trigger = 6,
-    triggerParam = 1052,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "ResExchangePanel&Anchor/Offset/BuyInfo/BuyButton",
+    uiTarget = "RidePetInfoPanel&Anchor/Offset/InfoPanel/MAndPInfoBasePanel/Content/Attribute/Up/ButtonUpdate",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]购买[-]”按钮，进行购买操作吧",
+    content = "[A06729]请经常[ff4242]【升星】[-]你的骑宠，它将变得更加灵性和强大！",
     nextGuide = 0,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
-    mainStep = 1,
-    module = 0
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1054)->
     #guideActionCfg {
     id = 1054,
     trigger = 1,
-    triggerParam = 15,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainPanel&TopRight/ActivityOffset/Show",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击这里查看新开启的功能吧",
+    content = "[A06729]有新的功能解锁啦，点击这里查看",
     nextGuide = 1055,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 1,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 53
+    module = 0,
+    closemsgpanle = 1
     };
 getRow(1055)->
     #guideActionCfg {
     id = 1055,
-    trigger = 6,
-    triggerParam = 1054,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&TopRight/ActivityOffset/ActivityClip/MenuOne/53",
+    uiTarget = "MainPanel&TopRight/ActivityOffset/ActivityClip/MenuOne/12",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]扭蛋[-]”图标，打开扭蛋界面",
+    content = "[A06729][ff4242]【兑换】[-]功能已解锁",
     nextGuide = 1056,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    resControl = "6&vfx_25_66&vfx_25_67&6||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 1
     };
 getRow(1056)->
     #guideActionCfg {
     id = 1056,
-    trigger = 6,
-    triggerParam = 1055,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "TreasurehousePanel&Offset/InnerPanelBg/Preview_0/btnOnceTime/Bg",
+    uiTarget = "ResExchangePanel&Anchor/Offset/Background/ButtonAnchor/_ToggleButtonClone(Clone)",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击按钮进行一次免费抽取吧",
+    content = "[A06729][ff4242]选择【硬币兑换】[-]",
     nextGuide = 1057,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    resControl = "6&vfx_25_66&vfx_25_67&6||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
-    mainStep = 1,
-    module = 0
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 1
     };
 getRow(1057)->
     #guideActionCfg {
     id = 1057,
-    trigger = 6,
-    triggerParam = 1056,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "TreasurehouseRewardPanel&Offset/Btns/CloseBtn",
+    uiTarget = "ResExchangePanel&Anchor/Offset/Package/Panel/Sprite(Clone)/2160",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]离开[-]按钮，离开当前界面",
+    content = "[A06729]尝试兑换一些[ff4242]【兽灵精华I】[-]",
     nextGuide = 1058,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 1,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 1
     };
 getRow(1058)->
     #guideActionCfg {
     id = 1058,
-    trigger = 6,
-    triggerParam = 1057,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "TreasurehousePanel&Offset/Btns/CloseBtn",
+    uiTarget = "ResExchangePanel&Anchor/Offset/BuyInfo/BuyButton",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]关闭[-]按钮，关闭当前界面",
+    content = "[A06729]点击[ff4242]【购买】[-]！",
     nextGuide = 1059,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
+    mainStep = 1,
+    module = 0,
+    closemsgpanle = 1
     };
 getRow(1059)->
     #guideActionCfg {
     id = 1059,
-    trigger = 6,
-    triggerParam = 1058,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&TopLeft/PetHeadOffset/Head",
+    uiTarget = "MessageBoxPanel&Anchor/Offset/ButtonOne",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]骑宠[-]按钮，打开骑宠界面",
+    content = "[A06729][ff4242]【确定】[-]购买，就是这么简单！",
     nextGuide = 1060,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 1
     };
 getRow(1060)->
     #guideActionCfg {
     id = 1060,
-    trigger = 6,
-    triggerParam = 1059,
-    guideType = [1,3,6],
-    uiTarget = "RidePetPanel&Pages/RidePet/InfoPanel/Info/BtnInfo",
-    finishTrigger = 1,
-    watingtime = 0,
-    content = "[A06729]点击“[ff4242]详情[-]”按钮，打开骑宠详情界面",
-    nextGuide = 1061,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [2],
+    uiTarget = "ResExchangePanel&Anchor/Offset/BuyInfo/BuyButton",
+    finishTrigger = 2,
+    watingtime = 3,
+    content = "[A06729]通过在[ff4242]【背包】[-]中[ff4242]【分解】[-]装备，您可以获得大量的紫色精华哦！",
+    nextGuide = 0,
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 1
     };
 getRow(1061)->
     #guideActionCfg {
     id = 1061,
-    trigger = 6,
-    triggerParam = 1060,
-    guideType = [3,6],
-    uiTarget = "RidePetInfoPanel&Anchor/Offset/InfoPanel/MAndPInfoBasePanel/Content/Attribute/Up/ButtonReborn",
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainPanel&TopRight/ActivityOffset/Show",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]当材料足够时，点击“[ff4242]转生[-]”按钮，可以转生骑宠",
-    nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0",
-    couldBeSkip = 0,
+    content = "[A06729]有新的功能解锁啦，点击这里查看",
+    nextGuide = 1062,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 1,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 53,
+    closemsgpanle = 0
     };
 getRow(1062)->
     #guideActionCfg {
     id = 1062,
-    trigger = 2,
-    triggerParam = 86,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&BottomLeft/System",
+    uiTarget = "MainPanel&TopRight/ActivityOffset/ActivityClip/MenuOne/53",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击这里，查看新获得的骑宠！",
+    content = "[A06729][ff4242]【扭蛋】[-]功能已解锁",
     nextGuide = 1063,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    resControl = "6&vfx_25_66&vfx_25_67&6||1&2&50",
     couldBeSkip = 0,
-    needWaitTarget = 1,
+    needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1063)->
     #guideActionCfg {
     id = 1063,
-    trigger = 6,
-    triggerParam = 1062,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/5",
+    uiTarget = "TreasurehousePanel&Offset/InnerPanelBg/Preview_0/btnOnceTime/Bg",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]骑宠[-]图标，打开骑宠界面",
+    content = "[A06729]来一次免费的抽取吧",
     nextGuide = 1064,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
+    mainStep = 1,
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1064)->
     #guideActionCfg {
     id = 1064,
-    trigger = 6,
-    triggerParam = 1063,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "RidePetPanel&Pages/RidePet/InfoPanel/List/0",
+    uiTarget = "TreasurehouseRewardPanel&Offset/Btns/CloseBtn",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]选择新骑宠",
+    content = "[A06729]点击[ff4242]【离开】[-]，离开当前界面",
     nextGuide = 1065,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
-    needWaitTarget = 0,
+    needWaitTarget = 1,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1065)->
     #guideActionCfg {
     id = 1065,
-    trigger = 6,
-    triggerParam = 1064,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "RidePetPanel&Pages/RidePet/InfoPanel/Info/BtnFight",
+    uiTarget = "TreasurehousePanel&Offset/Btns/CloseBtn",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]出战新骑宠",
+    content = "[A06729]点击[ff4242]【关闭】[-]，关闭当前界面",
     nextGuide = 1066,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1066)->
     #guideActionCfg {
     id = 1066,
-    trigger = 6,
-    triggerParam = 1065,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "RidePetPanel&Tab/Assist",
+    uiTarget = "MainPanel&TopLeft/PetHeadOffset/Head",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]选择“[ff4242]骑宠助阵[-]”页签",
+    content = "[A06729]点击[ff4242]【骑宠】[-]，打开骑宠界面",
     nextGuide = 1067,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1067)->
     #guideActionCfg {
     id = 1067,
-    trigger = 6,
-    triggerParam = 1066,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "RidePetPanel&Pages/Assist/RidePetAssistPanel(Clone)/Offset/Assist/PetList/1",
+    uiTarget = "RidePetPanel&Pages/RidePet/InfoPanel/Info/BtnInfo",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]选择[ff4242]未出战[-]的骑宠进行助战",
+    content = "[A06729]点击[ff4242]【详情】[-]，打开骑宠详情界面",
     nextGuide = 1068,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
-    mainStep = 1,
-    module = 0
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1068)->
     #guideActionCfg {
     id = 1068,
-    trigger = 6,
-    triggerParam = 1067,
-    guideType = [1,3,6],
-    uiTarget = "RidePetPanel&ButtonClose",
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [3,6],
+    uiTarget = "RidePetInfoPanel&Anchor/Offset/InfoPanel/MAndPInfoBasePanel/Content/Attribute/Up/ButtonReborn",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]关闭[-]按钮，关闭当前界面",
+    content = "[A06729]使用相同骑宠的碎片，可以[ff4242]【转生】[-]骑宠",
     nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    resControl = "6&vfx_25_66&vfx_25_67&0",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1069)->
     #guideActionCfg {
     id = 1069,
-    trigger = 2,
-    triggerParam = 90,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainPanel&TopLeft/PetHeadOffset/Head",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]骑宠[-]按钮，打开骑宠界面",
+    content = "[A06729]恭喜你获得了一只新的骑宠！",
     nextGuide = 1070,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    resControl = "6&vfx_25_66&vfx_25_67&5||1&2&50",
     couldBeSkip = 0,
-    needWaitTarget = 0,
+    needWaitTarget = 1,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1070)->
     #guideActionCfg {
     id = 1070,
-    trigger = 6,
-    triggerParam = 1069,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "RidePetPanel&Tab/Equip",
+    uiTarget = "RidePetPanel&Pages/RidePet/InfoPanel/List/1",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]装备[-]”页签，切换至骑宠装备界面",
+    content = "[A06729]选择新骑宠",
     nextGuide = 1071,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1071)->
     #guideActionCfg {
     id = 1071,
-    trigger = 6,
-    triggerParam = 1070,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "RidePetPanel&Pages/Equip/RidePetEquipPanel(Clone)/Anchor/Offset/EquipPanel/Content/Attribute/ButtonUpdate",
+    uiTarget = "RidePetPanel&Pages/RidePet/InfoPanel/Info/BtnFight",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]升级[-]”按钮，升级骑宠装备",
+    content = "[A06729]出战新骑宠",
     nextGuide = 1072,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1072)->
     #guideActionCfg {
     id = 1072,
-    trigger = 6,
-    triggerParam = 1071,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "RidePetPanel&Pages/Equip/RidePetEquipPanel(Clone)/Anchor/Offset/EquipPanel/Equip/1",
+    uiTarget = "RidePetPanel&Tab/Assist",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]选中骑宠铠甲装备，再次进行升级",
+    content = "[A06729][ff4242]【骑宠助阵】[-]功能已开启",
     nextGuide = 1073,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1073)->
     #guideActionCfg {
     id = 1073,
-    trigger = 6,
-    triggerParam = 1072,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "RidePetPanel&Pages/Equip/RidePetEquipPanel(Clone)/Anchor/Offset/EquipPanel/Content/Attribute/ButtonUpdate",
+    uiTarget = "RidePetPanel&Pages/Assist/RidePetAssistPanel(Clone)/Offset/Assist/PetList/1",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]升级[-]”按钮，升级骑宠铠甲",
+    content = "[A06729]上阵一只骑宠，你将获得其[ff4242]【10%】[-]的属性加成！",
     nextGuide = 1074,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
-    mainStep = 0,
-    module = 0
+    mainStep = 1,
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1074)->
     #guideActionCfg {
     id = 1074,
-    trigger = 6,
-    triggerParam = 1073,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "RidePetPanel&ButtonClose",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]关闭[-]按钮，关闭当前界面",
+    content = "[A06729]点击[ff4242]【关闭】[-]，继续冒险吧！",
     nextGuide = 0,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1075)->
     #guideActionCfg {
     id = 1075,
     trigger = 1,
-    triggerParam = 18,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&TopRight/ActivityOffset/Show",
+    uiTarget = "MainPanel&TopLeft/PetHeadOffset/Head",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击这里查看新开启的功能吧",
+    content = "[A06729]有新的功能解锁啦，点击这里查看",
     nextGuide = 1076,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 1,
+    resControl = "6&vfx_25_66&vfx_25_67&5||1&2&50",
+    couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1076)->
     #guideActionCfg {
     id = 1076,
-    trigger = 6,
-    triggerParam = 1075,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&TopRight/ActivityOffset/ActivityClip/MenuOne/22",
+    uiTarget = "RidePetPanel&Tab/Equip",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]日常[-]”按钮，打开日常界面",
+    content = "[A06729][ff4242]【骑宠装备】[-]功能已开启",
     nextGuide = 1077,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1077)->
     #guideActionCfg {
     id = 1077,
-    trigger = 6,
-    triggerParam = 1076,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "DailyPanel&Anchor/Offset/ScrollView/PveButton/30",
+    uiTarget = "RidePetPanel&Pages/Equip/RidePetEquipPanel(Clone)/Anchor/Offset/EquipPanel/Content/Attribute/ButtonUpdate",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]萝莉与绅士[-]”页签，进入副本界面",
+    content = "[A06729]点击[ff4242]【升级】[-]，升级骑宠装备",
     nextGuide = 1078,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1078)->
     #guideActionCfg {
     id = 1078,
-    trigger = 6,
-    triggerParam = 1077,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "DailyPanel&Anchor/Offset/Content/30/ButtonChallenge",
+    uiTarget = "RidePetPanel&Pages/Equip/RidePetEquipPanel(Clone)/Anchor/Offset/EquipPanel/Equip/1",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]进入[-]”按钮，进入副本吧！",
+    content = "[A06729]选中另一级装备，再次进行升级",
     nextGuide = 1079,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1079)->
     #guideActionCfg {
     id = 1079,
-    trigger = 6,
-    triggerParam = 1078,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&TopRight/ActivityOffset/Expbutton",
+    uiTarget = "RidePetPanel&Pages/Equip/RidePetEquipPanel(Clone)/Anchor/Offset/EquipPanel/Content/Attribute/ButtonUpdate",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]效率[-]”图标，使用药水，提高练级效率",
+    content = "[A06729]点击[ff4242]【升级】[-]，升级骑宠装备",
     nextGuide = 1080,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
-    needWaitTarget = 1,
+    needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1080)->
     #guideActionCfg {
     id = 1080,
-    trigger = 6,
-    triggerParam = 1079,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "UseExpPanel&Anchor/Offset/Information/grid/tmp(Clone)/Buttonuse",
+    uiTarget = "RidePetPanel&ButtonClose",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]使用[-]”按钮，使用药水！",
+    content = "[A06729]点击[ff4242]【关闭】[-]，继续冒险吧！",
     nextGuide = 0,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1081)->
     #guideActionCfg {
     id = 1081,
-    trigger = 2,
-    triggerParam = 111,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&TopLeft/MyHeadOffset/Head",
+    uiTarget = "MainPanel&TopRight/ActivityOffset/Show",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]转职后，技能点会被重置",
+    content = "[A06729]有新的[ff4242]【活动】[-]解锁啦，点击这里查看",
     nextGuide = 1082,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
+    couldBeSkip = 1,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1082)->
     #guideActionCfg {
     id = 1082,
-    trigger = 6,
-    triggerParam = 1081,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "CharacterPanel&Anchor/Offset/switchBtns/Skill_Button",
+    uiTarget = "MainPanel&TopRight/ActivityOffset/ActivityClip/MenuOne/22",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击技能面板重新进行加点儿吧！",
-    nextGuide = 0,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    content = "[A06729]有新的[ff4242]【活动】[-]解锁啦，点击这里查看",
+    nextGuide = 1083,
+    resControl = "6&vfx_25_66&vfx_25_67&6||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1083)->
     #guideActionCfg {
     id = 1083,
-    trigger = 2,
-    triggerParam = 114,
-    guideType = [5],
-    uiTarget = "MainPanel&BottomLeft/System",
-    finishTrigger = 3,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "DailyPanel&Anchor/Offset/ScrollView/PveButton/30",
+    finishTrigger = 1,
     watingtime = 0,
+    content = "[A06729]经验副本-[ff4242]【萝莉与绅士】[-]已开启",
     nextGuide = 1084,
-    resControl = "5&42",
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 42
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1084)->
     #guideActionCfg {
     id = 1084,
-    trigger = 6,
-    triggerParam = 1083,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainPanel&BottomLeft/System",
+    uiTarget = "DailyPanel&Anchor/Offset/Content/30/ButtonChallenge",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]有新的功能解锁了，点击这里可以查看新功能",
+    content = "[A06729][ff4242]【进入】[-]副本获得大量经验吧！",
     nextGuide = 1085,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1085)->
     #guideActionCfg {
     id = 1085,
-    trigger = 6,
-    triggerParam = 1084,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/42",
+    uiTarget = "MainPanel&TopRight/ActivityOffset/Expbutton",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]星空之翼[-]图标，打开星空之翼界面",
+    content = "[A06729]获得经验时，需要一些[ff4242]【效率】[-]！",
     nextGuide = 1086,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
-    needWaitTarget = 0,
+    needWaitTarget = 1,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1086)->
     #guideActionCfg {
     id = 1086,
-    trigger = 6,
-    triggerParam = 1085,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "WingPanel&Anchor/Offset/Right/ItemSelect/ItemAdd",
+    uiTarget = "UseExpPanel&Anchor/Offset/Information/grid/tmp(Clone)/Buttonuse",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击这里，添加升级星空之翼所需的材料",
-    nextGuide = 1087,
+    content = "[A06729][ff4242]【使用】[-]经验药水可以极大的提升效率！",
+    nextGuide = 0,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1087)->
     #guideActionCfg {
     id = 1087,
-    trigger = 6,
-    triggerParam = 1086,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "WingPanel&Anchor/Offset/Right/ItemAdd/ListPoint1/0",
+    uiTarget = "MainPanel&BottomLeft/System",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]使用刚获得的[ff4242]星星石[-]来提升星空之翼的等级吧！",
+    content = "[A06729]获得了更高等级的[ff4242]【药水】[-]，来替换上去吧",
     nextGuide = 1088,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
-    couldBeSkip = 0,
+    couldBeSkip = 1,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1088)->
     #guideActionCfg {
     id = 1088,
-    trigger = 6,
-    triggerParam = 1087,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
-    uiTarget = "WingPanel&Anchor/Offset/Right/ExpAdd/1",
+    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/16",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]提升[-]按钮，提升星空之翼的等级！",
+    content = "[A06729]获得了更高等级的[ff4242]【药水】[-]，来替换上去吧",
     nextGuide = 1089,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(1089)->
     #guideActionCfg {
     id = 1089,
-    trigger = 6,
-    triggerParam = 1088,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "GameSetting&Anchor/Offset/hangContents/autoUseItem/change/SelectItem",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]选择[ff4242]【切换】[-]药水！",
+    nextGuide = 1090,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1090)->
+    #guideActionCfg {
+    id = 1090,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "GameSetting&Anchor/Offset/hangContents/autoUseItem/autoUseItemObj/autoUseItemPanel/grid/103",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729][ff4242]【选择】[-]使用30级药水！",
+    nextGuide = 1091,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1091)->
+    #guideActionCfg {
+    id = 1091,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "GameSetting&Anchor/Offset/Close_Button",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]点击[ff4242]【关闭】[-]，继续冒险吧！",
+    nextGuide = 0,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1092)->
+    #guideActionCfg {
+    id = 1092,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainPanel&TopLeft/MyHeadOffset/Head",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]转职后你将获得新的技能！",
+    nextGuide = 1093,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1093)->
+    #guideActionCfg {
+    id = 1093,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "CharacterPanel&Anchor/Offset/switchBtns/Skill_Button",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]转职后你将获得新的技能！",
+    nextGuide = 1094,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1094)->
+    #guideActionCfg {
+    id = 1094,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [2],
+    uiTarget = "CharacterPanel&Anchor/Offset/skill/skill(Clone)/allSkills/resetSkillPoint",
+    finishTrigger = 2,
+    watingtime = 3,
+    content = "[A06729]你的技能点已被重置，请随意升级你的技能吧！",
+    nextGuide = 0,
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1095)->
+    #guideActionCfg {
+    id = 1095,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [5],
+    uiTarget = "MainPanel&BottomLeft/System",
+    finishTrigger = 3,
+    watingtime = 0,
+    nextGuide = 1096,
+    resControl = "5&42",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 42,
+    closemsgpanle = 0
+    };
+getRow(1096)->
+    #guideActionCfg {
+    id = 1096,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainPanel&BottomLeft/System",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]有新的功能解锁啦，点击这里查看",
+    nextGuide = 1097,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 1,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1097)->
+    #guideActionCfg {
+    id = 1097,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/42",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729][ff4242]【星空之翼】[-]功能已解锁",
+    nextGuide = 1098,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1098)->
+    #guideActionCfg {
+    id = 1098,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "WingPanel&Anchor/Offset/Right/ItemSelect/ItemAdd",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]请添加升级星空之翼所需的材料",
+    nextGuide = 1099,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1099)->
+    #guideActionCfg {
+    id = 1099,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "WingPanel&Anchor/Offset/Right/ItemAdd/ListPoint1/0",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]请添加升级星空之翼所需的材料",
+    nextGuide = 1100,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1100)->
+    #guideActionCfg {
+    id = 1100,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "WingPanel&Anchor/Offset/Right/ExpAdd/1",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]点击[ff4242]【提升】[-]，提升星空之翼的等级！",
+    nextGuide = 1101,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1101)->
+    #guideActionCfg {
+    id = 1101,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "WingPanel&Anchor/Offset/Right/ExpAdd/Auto",
     finishTrigger = 1,
@@ -1513,108 +1812,450 @@ getRow(1089)->
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
-getRow(1090)->
+getRow(1102)->
     #guideActionCfg {
-    id = 1090,
+    id = 1102,
     trigger = 1,
-    triggerParam = 24,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainPanel&TopRight/BeibaoButton",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]请注意在冒险中时刻补充[ff4242]【恢复药水】[-]！",
+    nextGuide = 1103,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1103)->
+    #guideActionCfg {
+    id = 1103,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "BagPanel&Anchor/Offset/BtnGrid/NpcShop_Button",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729][ff4242]【恢复药水】[-]可以在随身补给商店中购买！",
+    nextGuide = 1104,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1104)->
+    #guideActionCfg {
+    id = 1104,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [2],
+    uiTarget = "BagPanel&Anchor/Offset/NpcShopRoot/NPCShopPanel(Clone)/Anchor/Offset/BuyInfo/BuyButton",
+    finishTrigger = 2,
+    watingtime = 3,
+    content = "[A06729][ff4242]【恢复药水】[-]每10级一种，请根据自身等级选择使用！",
+    nextGuide = 0,
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1105)->
+    #guideActionCfg {
+    id = 1105,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [5],
     uiTarget = "MainPanel&BottomLeft/System",
     finishTrigger = 3,
     watingtime = 0,
-    nextGuide = 1091,
+    nextGuide = 1106,
     resControl = "5&15",
     couldBeSkip = 0,
     needWaitTarget = 1,
     mainStep = 0,
-    module = 15
+    module = 15,
+    closemsgpanle = 0
     };
-getRow(1091)->
+getRow(1106)->
     #guideActionCfg {
-    id = 1091,
-    trigger = 6,
-    triggerParam = 1090,
+    id = 1106,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainPanel&BottomLeft/System",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]有新的功能解锁了，点击这里可以查看新功能",
-    nextGuide = 1092,
+    content = "[A06729]有新的功能解锁啦，点击这里查看",
+    nextGuide = 1107,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 1,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
-getRow(1092)->
+getRow(1107)->
     #guideActionCfg {
-    id = 1092,
-    trigger = 6,
-    triggerParam = 1091,
+    id = 1107,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/15",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]家族[-]图标，可以加入或创建一个家族",
-    nextGuide = 0,
+    content = "[A06729][ff4242]【家族】[-]功能已解锁",
+    nextGuide = 1108,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
-getRow(1093)->
+getRow(1108)->
     #guideActionCfg {
-    id = 1093,
+    id = 1108,
     trigger = 1,
-    triggerParam = 26,
+    triggerParam = 100,
+    guideType = [2],
+    uiTarget = "OtherGuildPanel&BtnJoin",
+    finishTrigger = 2,
+    watingtime = 3,
+    content = "[A06729]可以选择[ff4242]快速加入[-]，或者[ff4242]创建[-]一个家族！",
+    nextGuide = 0,
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1109)->
+    #guideActionCfg {
+    id = 1109,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainPanel&TopRight/ActivityOffset/Show",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]冒险中缺乏[ff4242]【经验】[-]时，可以选择进行副本扫荡",
+    nextGuide = 1110,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 1,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1110)->
+    #guideActionCfg {
+    id = 1110,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainPanel&TopRight/ActivityOffset/ActivityClip/MenuOne/20",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]冒险中缺乏[ff4242]【经验】[-]时，可以选择进行副本扫荡",
+    nextGuide = 1111,
+    resControl = "6&vfx_25_66&vfx_25_67&6||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1111)->
+    #guideActionCfg {
+    id = 1111,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [2],
+    uiTarget = "CopyPanel&Copy/Clear",
+    finishTrigger = 2,
+    watingtime = 3,
+    content = "[A06729]所有副本的经验相同，但高级副本能获得更多的[ff4242]【强化材料】[-]！",
+    nextGuide = 0,
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1112)->
+    #guideActionCfg {
+    id = 1112,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainPanel&TopRight/ActivityOffset/Show",
     finishTrigger = 1,
     watingtime = 0,
     content = "[A06729]点击这里查看新开启的功能吧",
-    nextGuide = 1094,
+    nextGuide = 1113,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 1,
     needWaitTarget = 1,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
-getRow(1094)->
+getRow(1113)->
     #guideActionCfg {
-    id = 1094,
-    trigger = 6,
-    triggerParam = 1093,
+    id = 1113,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "MainPanel&TopRight/ActivityOffset/ActivityClip/MenuOne/26",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击[ff4242]福利[-]页签，可打开福利界面",
-    nextGuide = 1095,
-    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    content = "[A06729]点击这里查看新开启的功能吧",
+    nextGuide = 1114,
+    resControl = "6&vfx_25_66&vfx_25_67&6||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
     };
-getRow(1095)->
+getRow(1114)->
     #guideActionCfg {
-    id = 1095,
-    trigger = 6,
-    triggerParam = 1094,
+    id = 1114,
+    trigger = 1,
+    triggerParam = 100,
     guideType = [1,3,6],
     uiTarget = "WelfarePanel&Anchor/Offset/ChangeButton/LeavedExp",
     finishTrigger = 1,
     watingtime = 0,
-    content = "[A06729]点击“[ff4242]灵力冥想[-]”页签切换至灵力冥想页签",
-    nextGuide = 0,
+    content = "[A06729][ff4242]【灵力冥想】[-]功能已开启",
+    nextGuide = 1115,
     resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
     couldBeSkip = 0,
     needWaitTarget = 0,
     mainStep = 0,
-    module = 0
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1115)->
+    #guideActionCfg {
+    id = 1115,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [2],
+    uiTarget = "WelfarePanel&Anchor/Offset/Content/LeavedExp/Buttons/ButtonThree",
+    finishTrigger = 2,
+    watingtime = 3,
+    content = "[A06729]角色会经常进入[ff4242]【灵力冥想】[-]状态，请记得回来领取经验值",
+    nextGuide = 0,
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1116)->
+    #guideActionCfg {
+    id = 1116,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [5],
+    uiTarget = "MainPanel&BottomLeft/System",
+    finishTrigger = 3,
+    watingtime = 0,
+    nextGuide = 1117,
+    resControl = "5&43",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 43,
+    closemsgpanle = 0
+    };
+getRow(1117)->
+    #guideActionCfg {
+    id = 1117,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainPanel&BottomLeft/System",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]新功能解锁啦，点击这里查看",
+    nextGuide = 1118,
+    resControl = "6&vfx_25_66&vfx_25_67&3||1&2&50",
+    couldBeSkip = 1,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1118)->
+    #guideActionCfg {
+    id = 1118,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/43",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729][ff4242]【合成】[-]功能已解锁",
+    nextGuide = 1119,
+    resControl = "6&vfx_25_66&vfx_25_67&3||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1119)->
+    #guideActionCfg {
+    id = 1119,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "ResourceMakePanel&Anchor/Offset/SwitchButton/MakeEquips",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729][ff4242]【合成】[-]功能已解锁",
+    nextGuide = 1120,
+    resControl = "6&vfx_25_66&vfx_25_67&3||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1120)->
+    #guideActionCfg {
+    id = 1120,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [3,6],
+    uiTarget = "ResourceMakePanel&Anchor/Offset/Content/MakeEquips/Detail/Panel/List%2/Make",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729][ff4242]【合成】[-]一件30级红色胸甲",
+    nextGuide = 1121,
+    resControl = "6&vfx_25_66&vfx_25_67&3||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1121)->
+    #guideActionCfg {
+    id = 1121,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [3,6],
+    uiTarget = "EquipmentGuidePanel&Anchor/Offest/PutOnBtn",
+    finishTrigger = 2,
+    watingtime = 2,
+    content = "[A06729]穿上新装备继续冒险吧！",
+    nextGuide = 0,
+    resControl = "6&vfx_25_66&vfx_25_67&3||1&2&50",
+    couldBeSkip = 1,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1122)->
+    #guideActionCfg {
+    id = 1122,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [5],
+    uiTarget = "MainPanel&BottomLeft/System",
+    finishTrigger = 3,
+    watingtime = 0,
+    nextGuide = 1123,
+    resControl = "5&38",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 9,
+    closemsgpanle = 0
+    };
+getRow(1123)->
+    #guideActionCfg {
+    id = 1123,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainPanel&BottomLeft/System",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729]新功能解锁啦，点击这里查看",
+    nextGuide = 1124,
+    resControl = "6&vfx_25_66&vfx_25_67&3||1&2&50",
+    couldBeSkip = 1,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1124)->
+    #guideActionCfg {
+    id = 1124,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "MainMenuPanel&BottomLeft/Panel2/Grid/9",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729][ff4242]【升星】[-]功能已解锁",
+    nextGuide = 1125,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1125)->
+    #guideActionCfg {
+    id = 1125,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [1,3,6],
+    uiTarget = "StrengthenPanel&switchBtn/ImproveEquip",
+    finishTrigger = 1,
+    watingtime = 0,
+    content = "[A06729][ff4242]【升星】[-]功能已解锁",
+    nextGuide = 1126,
+    resControl = "6&vfx_25_66&vfx_25_67&0||1&2&50",
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
+    };
+getRow(1126)->
+    #guideActionCfg {
+    id = 1126,
+    trigger = 1,
+    triggerParam = 100,
+    guideType = [2],
+    uiTarget = "StrengthenPanel&strengthen_content/SwitchPackage/ImproveEquip/Buttons/ImproveBtn",
+    finishTrigger = 2,
+    watingtime = 3,
+    content = "[A06729][ff4242]【升星】[-]可以激发装备的本源力量，请尽情尝试吧！",
+    nextGuide = 0,
+    couldBeSkip = 0,
+    needWaitTarget = 0,
+    mainStep = 0,
+    module = 0,
+    closemsgpanle = 0
     };
 getRow(_)->[].
 
@@ -1713,7 +2354,38 @@ getKeyList()->[
     {1092},
     {1093},
     {1094},
-    {1095}
+    {1095},
+    {1096},
+    {1097},
+    {1098},
+    {1099},
+    {1100},
+    {1101},
+    {1102},
+    {1103},
+    {1104},
+    {1105},
+    {1106},
+    {1107},
+    {1108},
+    {1109},
+    {1110},
+    {1111},
+    {1112},
+    {1113},
+    {1114},
+    {1115},
+    {1116},
+    {1117},
+    {1118},
+    {1119},
+    {1120},
+    {1121},
+    {1122},
+    {1123},
+    {1124},
+    {1125},
+    {1126}
     ].
 
 get1KeyList()->[
@@ -1811,6 +2483,37 @@ get1KeyList()->[
     1092,
     1093,
     1094,
-    1095
+    1095,
+    1096,
+    1097,
+    1098,
+    1099,
+    1100,
+    1101,
+    1102,
+    1103,
+    1104,
+    1105,
+    1106,
+    1107,
+    1108,
+    1109,
+    1110,
+    1111,
+    1112,
+    1113,
+    1114,
+    1115,
+    1116,
+    1117,
+    1118,
+    1119,
+    1120,
+    1121,
+    1122,
+    1123,
+    1124,
+    1125,
+    1126
     ].
 

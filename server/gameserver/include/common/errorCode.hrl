@@ -52,7 +52,7 @@
 -define(ErrorCode_SystemNotOpen, 19).
 %% 不在地图开放时间段，进入失败
 -define(ErrorCode_SystemNotInTimeChangeSceneFailed, 20).
-%% 距离护送目标太远，即将失败！
+%% 距离护送目标太远！
 -define(ErrorCode_SystemConvoyTargetDistince, 21).
 %% 从当前所在场景不允许进入[%s]的位面
 -define(ErrorCode_SystemFromNowMapEnterBitMap, 22).
@@ -60,6 +60,8 @@
 -define(ErrorCode_SystemGatherTooFar, 23).
 %% 状态限制,采集失败
 -define(ErrorCode_SystemGatherStateError, 24).
+%% 很遗憾护送失败！
+-define(ErrorCode_SystemConvoyFailed, 25).
 %% ====================================================================
 %% 登录系统错误号范围：1001 ~ 1100
 %% ====================================================================
@@ -305,7 +307,7 @@
 -define(ErrorCode_ChatErrorHornLimit, 4007).
 %% 需要完成主线[%s]任务才能在世界频道聊天
 -define(ErrorCode_ChatErrorTaskNosubmit, 4008).
-%% 今日聊天次数已达上限，升级到%u级或开通爵位即可解除限制
+%% 今日聊天次数已达上限，升级到%u级即可解除限制
 -define(ErrorCode_ChatErrorDailyCount, 4009).
 %% ====================================================================
 %% 技能系统错误号范围：5001 ~ 6000
@@ -381,8 +383,22 @@
 -define(ErrorCode_Friend2Ban_Partner, 6125).
 %% 您的体力即将溢出，无法领取
 -define(ErrorCode_Friend2AP_Max, 6126).
+%% 已经是跨服好友
+-define(ErrorCode_Friend2CrossAdd_AlreadyIs, 6127).
+%% 短时间内不能重复申请
+-define(ErrorCode_Friend2CrossAdd_Wait, 6128).
+%% 申请成功，请耐心等待
+-define(ErrorCode_Friend2CrossAdd_Success, 6129).
+%% 拒绝成功
+-define(ErrorCode_Friend2CrossAdd2_Refuse, 6130).
+%% 您的跨服好友列表已满
+-define(ErrorCode_Friend2CrossAdd2_Max1, 6131).
+%% 对方的跨服好友列表已满
+-define(ErrorCode_Friend2CrossAdd2_Max2, 6132).
+%% 同步数据校正
+-define(ErrorCode_Friend2CrossAdd2_Fix, 6133).
 %% ====================================================================
-%% 身份证系统提示：6201 ~ 6300
+%% 身份证系统提示：6201 ~ 6250
 %% ====================================================================
 %% 无法查看离线玩家的身份证信息。
 -define(ErrorCode_IdentityGet_Offline, 6201).
@@ -418,6 +434,13 @@
 -define(ErrorCode_IdentityPicUp_OutTime, 6216).
 %% 照片超过最大尺寸限制
 -define(ErrorCode_IdentityPicUp_PicLimitSize, 6217).
+%% ====================================================================
+%% 赠礼功能提示：6251 ~ 6300
+%% ====================================================================
+%% 不能赠送给自己
+-define(ErrorCode_GiveGift_Self, 6251).
+%% 你成功向%s赠送了%u个%s
+-define(ErrorCode_GiveGift_Success, 6252).
 %% ====================================================================
 %% 约会地下城活动提示 6301 ~ 6400
 %% ====================================================================
@@ -500,6 +523,64 @@
 -define(ErrorCode_PetTerritory_Plunder_PetNone, 6516).
 %% 没有足够的精力进行掠夺
 -define(ErrorCode_PetTerritory_Plunder_NotEnoughVigor, 6517).
+%% ====================================================================
+%% 乱世为王活动提示：6551 ~ 6600
+%% ====================================================================
+%% @(Tips)不在活动时间内，无法参加活动！
+-define(ErrorCode_LSBattleFieldNotRightTime, 6551).
+%% @(Tips)等级不满足活动需求，无法参加活动！
+-define(ErrorCode_LSBattleFieldNotEnoughLevel, 6552).
+%% @(Tips)活动地图所有分线满员，请耐心等待...
+-define(ErrorCode_LSBattleFieldNotEnoughPlace, 6553).
+%% ====================================================================
+%% 体力值系统提示：6601 ~ 6650
+%% ====================================================================
+%% @(Tips)体力值购买次数已达到最大值
+-define(ErrorCode_ActionPointNoBuyNumber, 6601).
+%% @(Tips)体力值将要满了，无法购买
+-define(ErrorCode_ActionPointFull, 6602).
+%% @(Tips)体力值不足
+-define(ErrorCode_ActionPointNotEnough, 6603).
+%% @(Chat | Tips)体力值不足，无法获得结算奖励
+-define(ErrorCode_ActionPointNotEnoughByCopyMapEnd, 6604).
+%% ====================================================================
+%% 港口竞速：6651 ~ 6700
+%% ====================================================================
+%% @(Tips)活动在40级时开启
+-define(ErrorCode_NeedForSpeedMinLV, 6651).
+%% @(Tips)活动在20:00-20:30时开启
+-define(ErrorCode_NeedForSpeedTime, 6652).
+%% @(Tips)活动需要在单人骑乘或双人骑乘状态下才能进行匹配
+-define(ErrorCode_NeedForSpeedMatch, 6653).
+%% 您需要前往%s进行报名
+-define(ErrorCode_Race_Apply_InvalidMap, 6654).
+%% 您的同伴等级太低无法报名
+-define(ErrorCode_Race_Apply_PartnerLevelTooLow, 6655).
+%% 您需要骑上您的爱宠进行报名
+-define(ErrorCode_Race_Apply_NeedPet, 6656).
+%% 乘客无法报名，请让司机去报名
+-define(ErrorCode_Race_Apply_NeedMaster, 6657).
+%% 不在报名时间
+-define(ErrorCode_Race_Apply_NotTime, 6658).
+%% 不能在位面中报名
+-define(ErrorCode_Race_Apply_FromGroup, 6659).
+%% 活动尚未开启
+-define(ErrorCode_Race_Apply_NotOpen, 6660).
+%% 活动人数已满，请下次参与，或者等等看有没有人退票？
+-define(ErrorCode_Race_Apply_Max, 6661).
+%% ====================================================================
+%% 怪物图鉴：6701 ~ 6750
+%% ====================================================================
+%% 重复拍照，忽略请求
+-define(ErrorCode_MonsterBook_AlreadySnap, 6701).
+%% 没有达到解锁条件
+-define(ErrorCode_MonsterBook_Locked, 6702).
+%% 没有达到领奖条件
+-define(ErrorCode_MonsterBook_NoReward, 6703).
+%% 已经解锁了
+-define(ErrorCode_MonsterBook_UnLocked, 6704).
+%% 已经领过了
+-define(ErrorCode_MonsterBook_Rewarded, 6705).
 %% ====================================================================
 %% 组队系统错误号范围：7001 ~ 7500
 %% ====================================================================
@@ -615,7 +696,7 @@
 -define(ErrorCode_GuildBattle_NoGuild, 7055).
 %% 低于 %u 级的家族不能参加家族联赛
 -define(ErrorCode_GuildBattle_LevelLow, 7056).
-%% 大长老及以上权限才能报名
+%% 只有族长才有权限报名
 -define(ErrorCode_GuildBattle_PowerLvelLow, 7057).
 %% 我方进入战场的成员已满，进入失败
 -define(ErrorCode_GuildBattle_EnterBattleMore, 7058).
@@ -641,9 +722,9 @@
 -define(ErrorCode_TeamEnterTeam, 7068).
 %% 没有家族，进入战场失败
 -define(ErrorCode_GuildBattle_EnterBattleFailed, 7069).
-%% 当前不能进入家族联赛争夺战场
+%% 家族战场活动在20：00点正式开始，请稍侯
 -define(ErrorCode_GuildBattle_NowCanotEnterBattle, 7070).
-%% 你不是本次家族联赛争夺的成员，无法进入战场
+%% 家族战场活动在19：30分配对战家族，请等待
 -define(ErrorCode_GuildBattle_EnterBattleNotMember, 7071).
 %% 你的家族权限不满足进入争夺战的条件
 -define(ErrorCode_GuildBattle_EnterBattlePowerLow, 7072).
@@ -759,7 +840,7 @@
 -define(ErrorCode_Guild_Res_Liv_isless, 7127).
 %% 当前不能提升家族商店等级
 -define(ErrorCode_Guild_Not_UpShopLevel, 7128).
-%% 报名家族战失败
+%% 家族资金不足，报名家族战失败
 -define(ErrorCode_GuildBattle_ApplyFailed, 7130).
 %% 玩家等级不满足加入家族的条件
 -define(ErrorCode_JoinGuildFailed_PlayerLevel, 7131).
@@ -793,7 +874,7 @@
 -define(ErrorCode_GuildExchangeNotEnoughContribute, 7145).
 %% 物资已经被抢走了
 -define(ErrorCode_GuildBattle_GoodsNone, 7146).
-%% 已占领无需操作
+%% 已被本方阵营占领，无需再次占领
 -define(ErrorCode_GuildBattle_AlreadyZhanLing, 7147).
 %% 敌方的 %s 占领了 %s 旗点，勇士们快去夺回
 -define(ErrorCode_GuildBattle_EnemyZhanLingFlag, 7148).
@@ -835,6 +916,20 @@
 -define(ErrorCode_GuildSnowmanDonate, 7166).
 %% 您申请的家族已经超过%u个，已为您保留最近的%u个申请！
 -define(ErrorCode_GuildApplyMax, 7167).
+%% 您今天已经发布过祈愿了
+-define(ErrorCode_GuildSupp_AlreadyHave, 7168).
+%% 无法通过祈愿获得该物品
+-define(ErrorCode_GuildSupp_InvalidItem, 7169).
+%% 只能向同家族成员赠送碎片
+-define(ErrorCode_GuildSupp_InvalidTar, 7170).
+%% 对方今日收到的碎片已经足够多了
+-define(ErrorCode_GuildSupp_Enough, 7171).
+%% 您今天已经给这位成员赠送过碎片了
+-define(ErrorCode_GuildSupp_AlreadyGive, 7172).
+%% 对方不接受您的赠礼（对方的祈愿无效）
+-define(ErrorCode_GuildSupp_Refuse, 7173).
+%% 获得 %u 积分
+-define(ErrorCode_GuildButtle_Point, 7174).
 %% ====================================================================
 %% 组队系统错误号范围：7500 ~ 8000
 %% ====================================================================
@@ -884,6 +979,12 @@
 -define(ErrorCode_TeamLeaderKickU, 7521).
 %% 有队员离线，不能开始副本
 -define(ErrorCode_TeamSomeoneOffline, 7522).
+%% 当前队伍人数超过副本人数[%s]人，将无法进入副本
+-define(ErrorCode_TeamMemberTooMuchForMap, 7523).
+%% 队伍已经被锁定
+-define(ErrorCode_TeamCantJoinBeLocked, 7524).
+%% 当前地图不允许加入队伍
+-define(ErrorCode_TeamCantJoinInSpecialMap, 7525).
 %% ====================================================================
 %% 道具、装备系统错误号范围：8001 ~ 9000
 %% ====================================================================
@@ -1031,6 +1132,18 @@
 -define(ErrorCode_BagSortPiecesBagComplete, 8071).
 %% 碎片仓库整理完毕
 -define(ErrorCode_BagSortPiecesStorageComplete, 8072).
+%% 装备孔位未镶嵌纹章
+-define(ErrorCode_EquipSlotInvalidGem, 8073).
+%% 装备孔位错误
+-define(ErrorCode_EquipSlotInvalid, 8074).
+%% 升级纹章所需材料不足
+-define(ErrorCode_EquipSlotCostNotEnough, 8075).
+%% 纹章不存在
+-define(ErrorCode_EquipGemNotInvalid, 8076).
+%% 时装激活条件不满足
+-define(ErrorCode_FashionActiveCondition, 8077).
+%% 时装消耗不足
+-define(ErrorCode_FashionConsumeNotEnough, 8078).
 %% ====================================================================
 %% 宠物系统错误号范围：9001 ~ 10000
 %% ====================================================================
@@ -1062,7 +1175,7 @@
 -define(ErrorCode_PetHasExistError, 9013).
 %% 坐骑不存在
 -define(ErrorCode_PetMountNotExist, 9014).
-%% 战斗状态中,不能上坐骑
+%% 当前状态不能上坐骑
 -define(ErrorCode_PetMountHasBattle, 9015).
 %% 骑宠正在休眠状态
 -define(ErrorCode_PetMountHasSleep, 9016).
@@ -1164,6 +1277,18 @@
 -define(ErrorCode_PetDoubleMountInDouble, 9064).
 %% 已经死亡，不能进行操作
 -define(ErrorCode_PetDoubleMountInDead, 9065).
+%% 宠物技能不存在
+-define(ErrorCode_PetSkillNotExists, 9066).
+%% 宠物技能升级条件不满足
+-define(ErrorCode_PetSkillConditionErr, 9067).
+%% 宠物技能升级消耗不足
+-define(ErrorCode_PetSkillCostNotEnough, 9068).
+%% 已经达到最大技能等级
+-define(ErrorCode_PetSkillMaxLevel, 9069).
+%% 狂怒值高于%u时不可召唤宠物助战
+-define(ErrorCode_PetCantShowPKValue, 9070).
+%% 宠物技能等级不能超过宠物等级
+-define(ErrorCode_PetSkillCantSelfLevel, 9071).
 %% ====================================================================
 %% 副本系统错误号范围：10001 ~ 11000
 %% ====================================================================
@@ -1623,7 +1748,9 @@
 %% ====================================================================
 %% 玩家成就、爵位错误号范围：21001 ~ 21500
 %% ====================================================================
+%% 当前成就不存在
 -define(ErrorCode_AchieveErrorNotExist, 21001).
+%% 未完成条件,不能领取成就值
 -define(ErrorCode_AchieveErrorNotComplete, 21002).
 %% 爵位等级不足
 -define(ErrorCode_VipLevelLimit, 21003).
@@ -1701,46 +1828,72 @@
 -define(ErrorCode_NotInDancePhase, 23013).
 %% 不在跳舞区域
 -define(ErrorCode_NotInDanceArea, 23014).
-%% 灵魂伙伴队伍已解散
--define(ErrorCode_JSCompanionTips, 23015).
-%% 你被驱逐出灵魂伙伴队伍
--define(ErrorCode_YouBeExitCompanion, 23016).
-%% 你不是灵魂队伍成员，进入失败
--define(ErrorCode_CompanionCopyMapNotMember, 23017).
-%% 你所在的队伍成员数量不满足灵魂副本进入条件
--define(ErrorCode_CompanionCopyMapNotMemberNumber, 23018).
-%% 你所在的队伍成员不是同一个灵魂队伍成员
--define(ErrorCode_CompanionCopyMapNotMemberOne, 23019).
-%% 你所在的队伍队长不是灵魂队伍的队长
--define(ErrorCode_CompanionCopyMapNotLeader, 23020).
-%% 必须是队伍才能进入灵魂副本
--define(ErrorCode_CompanionCopyMapInTeam, 23021).
-%% 目标好友当前不在线或跨服中，邀请失败
--define(ErrorCode_CompanionInivteFriendOffline, 23022).
-%% 你在对方黑名单中，邀请失败
--define(ErrorCode_CompanionInivteFriendInBlack, 23023).
-%% 您尚未建立灵魂伙伴队伍，无法邀请
--define(ErrorCode_CompanionInivteFriendSelfState, 23024).
-%% %s 加入灵魂伙伴队伍失败
--define(ErrorCode_Target_JoinCompanionFailed, 23025).
-%% %s 等级不足 %u，加入灵魂伙伴队伍失败
--define(ErrorCode_InviteFriendEnterCompanionFailedLvl, 23026).
-%% 传送失败，伙伴当前不在线或跨服中
--define(ErrorCode_CompanionToFriend, 23027).
-%% %s已接收请求，正在前往途中
--define(ErrorCode_CompanionIscomming, 23028).
-%% %s正在忙碌，暂未赶来
--define(ErrorCode_CompanionIsNotcomming, 23029).
-%% 已向在线灵魂伙伴发出支援消息
--define(ErrorCode_CompanionInvited, 23030).
-%% 非普通地图不能发起召唤
--define(ErrorCode_CompanionCantInviteNotNormalMap, 23031).
-%% 目的地不是普通地图，不能进入
--define(ErrorCode_CompanionCantTransferToNotNormalMap, 23032).
-%% 不在普通地图，不能传送
--define(ErrorCode_CompanionCantTransferFromNotNormalMap, 23033).
-%% %s不在普通地图，暂未赶来
--define(ErrorCode_CompanionCantCommingFromNotNormalMap, 23034).
+%% 已经开启助战
+-define(ErrorCode_AlreadyOpenAssist, 23015).
+%% 已经取消助战
+-define(ErrorCode_AlreadyCancelAssist, 23016).
+%% 开启助战成功
+-define(ErrorCode_OpenAssistSuccess, 23017).
+%% 取消助战成功
+-define(ErrorCode_CancelAssistSuccess, 23018).
+%% 当前地图不允许使用变形药水
+-define(ErrorCode_CurMapNotAllowTransformation, 23019).
+%% 你的变形效果被清除
+-define(ErrorCode_DeleteTransformationState, 23020).
+%% 当前没有可收取附件！
+-define(ErrorCode_MailGetItemAllFailed, 23021).
+%% 背包已满，请清理背包！
+-define(ErrorCode_MailGetItemAllFailedBePackageMore, 23022).
+%% 家园不存在
+-define(ErrorCode_HomeNotExist, 23023).
+%% 目标还没有家园
+-define(ErrorCode_TargetHavaNotHome, 23024).
+%% 创建家园失败
+-define(ErrorCode_CreateHomeFailed, 23025).
+%% 不满足开垦条件
+-define(ErrorCode_NotMatchOpenCondition, 23026).
+%% 不满足升级条件
+-define(ErrorCode_NotMatchUpgradeCondition, 23027).
+%% 出现系统错误，开垦失败
+-define(ErrorCode_SystemErrorOpenFailed, 23028).
+%% 开垦成功
+-define(ErrorCode_HomeOpenSuccess, 23029).
+%% 升级成功
+-define(ErrorCode_HomeUpgradeSuccess, 23030).
+%% 出现系统错误，升级失败
+-define(ErrorCode_SystemErrorUpgradeFailed, 23031).
+%% 家园名不合法
+-define(ErrorCode_HomeNameNotUse, 23032).
+%% 当前处于安全区，不会受到攻击
+-define(ErrorCode_InPeaceSafeMode, 23033).
+%% 当前处于非安全区，可能会受到攻击，请小心
+-define(ErrorCode_NotInPeaceSafeMode, 23034).
+%% 目标区域尚未开放
+-define(ErrorCode_HomePlant_NotOpen, 23035).
+%% 访客无操作权限
+-define(ErrorCode_HomePlant_Guest, 23036).
+%% 已经种植，无法再次种植
+-define(ErrorCode_HomePlant_AlreadyPlant, 23037).
+%% 背包中没有种子，也有没足够的货币购买种子
+-define(ErrorCode_HomePlant_PlantWithoutMoney, 23038).
+%% 目标无效，无法操作
+-define(ErrorCode_HomePlant_TarNull, 23039).
+%% 目标已经枯萎，无法操作
+-define(ErrorCode_HomePlant_TarDie, 23040).
+%% 怎么也找不到虫子
+-define(ErrorCode_HomePlant_PestisNull, 23041).
+%% 没有成熟，没有收获
+-define(ErrorCode_HomePlant_HarvestNot, 23042).
+%% 今天已经浇了太多水，再浇就淹死了
+-define(ErrorCode_HomePlant_WartringMore, 23043).
+%% 浇水不能太频繁，请等作物歇口气
+-define(ErrorCode_HomePlant_WartringCD, 23044).
+%% 今天已经施肥太多，小心土地盐碱化
+-define(ErrorCode_HomePlant_CompostMore, 23045).
+%% 施肥不能太频繁，请等作物歇口气
+-define(ErrorCode_HomePlant_CompostCD, 23046).
+%% 背包中没有对应的肥料
+-define(ErrorCode_HomePlant_CompostWithoutItem, 23047).
 %% ====================================================================
 %% 玩家杀戮模式范围：24001 ~ 25000
 %% ====================================================================
@@ -2101,7 +2254,7 @@
 -define(ErrorCode_GuildFairground_NeedIn, 28435).
 %% 使用设施时，目标设施无效
 -define(ErrorCode_GuildFairground_ErrorRideID, 28436).
-%% 设施正在维护中
+%% 家族资金不足，设施正在维护中
 -define(ErrorCode_GuildFairground_Maintain, 28437).
 %% 设施未到开放时间
 -define(ErrorCode_GuildFairground_Close, 28438).
@@ -2109,12 +2262,16 @@
 -define(ErrorCode_GuildFairground_Riding, 28439).
 %% 乘坐操作时，目标设施已满员
 -define(ErrorCode_GuildFairground_Full, 28440).
-%% 乘坐操作时，货币不足
+%% 贡献度不足，无法乘坐
 -define(ErrorCode_GuildFairground_CoinLess, 28441).
 %% 升级操作时，设施等级已达到家族等级
 -define(ErrorCode_GuildFairground_LevelLimit, 28442).
 %% 升级操作时，设施等级已达到最大等级
 -define(ErrorCode_GuildFairground_LevelMax, 28443).
+%% 升级操作时，设施等级已达到配置限制
+-define(ErrorCode_GuildFairground_LevelLimit2, 28444).
+%% 设施未开放
+-define(ErrorCode_GuildFairground_NotOpen, 28445).
 %% ====================================================================
 %% 跨服混沌战场：28501 ~ 28600
 %% 当前跨服战场线路已满
@@ -2252,55 +2409,55 @@
 %% ====================================================================
 %% ====================================================================
 %% 姻缘系统 29101 ~ 29200
-%% 您与对方的友好度不足%u，无法求婚。
+%% 你与目标好友的友好度不足%u，无法求婚
 -define(ErrorCode_Marriage_FriendlyLimit, 29101).
-%% 当前目标好友不在线，无法求婚。
+%% 当前目标好友不在线，无法求婚
 -define(ErrorCode_Marriage_Offline, 29102).
-%% 对方尚未答复，请耐心等候。
+%% 对方尚未答复，请耐心等候
 -define(ErrorCode_Marriage_NotCooldown, 29103).
-%% 您或目标好友已婚，无法求婚。
+%% 你或目标好友已经结婚，无法求婚
 -define(ErrorCode_Marriage_Married, 29104).
-%% 对方性别不符，无法求婚。
+%% 目标好友性别不符，无法求婚
 -define(ErrorCode_Marriage_InvalidSex, 29105).
-%% 您或对方的等级不足u%，无法求婚。
+%% 你或目标好友等级不足u%，无法求婚
 -define(ErrorCode_Marriage_LevelLimit, 29106).
-%% 您尚未结婚，无法解除伴侣关系。
+%% 你尚未结婚，无法解除伴侣关系
 -define(ErrorCode_Marriage_NotMarried, 29107).
-%% 您的金币不足，无法强制解除伴侣关系。
+%% 金币不足，无法强制解除伴侣关系
 -define(ErrorCode_Marriage_NoMoney, 29108).
-%% 您的亲密度不足，无法注入。
+%% 亲密度不足，无法注入
 -define(ErrorCode_Marriage_SkillNoEnergy, 29109).
-%% 技能等级已达上限，无法升级。
+%% 技能等级已达可学习上限，请提升婚戒等级来提升可学习上限等级
 -define(ErrorCode_Marriage_SkillLevelLimit, 29110).
-%% 您的亲密度不足，无法注入。
+%% 亲密度不足，无法注入
 -define(ErrorCode_Marriage_RingNoEnergy, 29111).
-%% 您的道具不足，无法突破
+%% 道具不足，无法突破
 -define(ErrorCode_Marriage_RingNoItem, 29112).
-%% 婚戒等级已达上限，无法升级。
+%% 婚戒等级已达上限，无法升级
 -define(ErrorCode_Marriage_RingLevelLimit, 29113).
-%% 协议离婚失败，需要与伴侣双人组队。
+%% 协议离婚失败，需要与伴侣双人组队
 -define(ErrorCode_Marriage_BreakNeedTeam, 29114).
-%% 下一级需要角色等级达到%u，注入失败。
+%% 下一级需要角色等级达到%u，注入失败
 -define(ErrorCode_Marriage_SkillRoleLimit, 29115).
-%% 下一级需要角色等级达到%u，注入失败。
+%% 下一级需要角色等级达到%u，注入失败
 -define(ErrorCode_Marriage_RingRoleLimit, 29116).
 %% 需要与伴侣双人组队在同一地图才能领取或提交情缘任务
 -define(ErrorCode_Marriage_AcceptTask, 29117).
-%% 婚戒阶级已达上限，无法突破。
+%% 婚戒阶级已达上限，无法突破
 -define(ErrorCode_Marriage_RingTopLimit, 29118).
 %% 需要满级满经验才能突破
 -define(ErrorCode_Marriage_RingTopLevelLimit, 29119).
-%% 下一阶需要角色等级达到%u，突破失败。
+%% 下一阶需要角色等级达到%u，突破失败
 -define(ErrorCode_Marriage_RingTopRoleLimit, 29120).
-%% 您或伴侣身上已经存在情缘任务，无法再次接取。
+%% 你或伴侣身上已经存在情缘任务，无法再次接取
 -define(ErrorCode_Marriage_AlreadyAcceptTask, 29121).
-%% 您或伴侣的每日次数不足，无法领取情缘任务。
+%% 你或伴侣的每日次数不足，无法领取情缘任务
 -define(ErrorCode_Marriage_AcceptTaskDaily, 29122).
 %% 需要队长才能领取或提交情缘任务
 -define(ErrorCode_Marriage_AcceptTaskLeader, 29123).
-%% 完成本轮情缘任务！
+%% 已完成本轮情缘任务！
 -define(ErrorCode_Marriage_CompleteTask, 29124).
-%% 您或伴侣没有完成任务，请两人都完成任务后再提交。
+%% 你或伴侣没有完成任务，请两人都完成任务后再提交
 -define(ErrorCode_Marriage_NotComplete, 29125).
 %% 请求已超时
 -define(ErrorCode_Marriage_Timeout, 29126).
@@ -2343,25 +2500,25 @@
 %% 服务器提示：30001 ~ 32768
 %% ====================================================================
 %% boss战
-%% @(Chat)异界首领开始入侵世界，勇士们为了荣誉而战吧！
+%% @(Chat)异界首领1分钟后将入侵女神树界，冒险者们请迅速前往战斗！
 -define(ErrorCode_CnText4BossWaring, 30001).
-%% @(Chat)幸运玩家：勇士<%s>在与异界首领的交战中人品爆发意外拾取了“虚空落物”。
+%% @(Chat)幸运玩家：冒险者<%s>在与异界首领的交战中人品爆发意外拾取了“虚空落物”。
 -define(ErrorCode_CnText4BossLuckerNotice, 30002).
-%% @(Chat)异界首领的战斗正在进行中，勇士们为了荣誉而战吧
+%% @(Chat)异界首领的战斗正在进行中，冒险者们为了荣誉而战吧
 -define(ErrorCode_CnText4BossDoingNotice, 30003).
-%% 拿第一的玩家：勇士<%s>骁勇善战，在与异界首领的对抗中作出了杰出贡献，故此奖励“虚空王者宝箱
+%% 冒险者<%s>骁勇善战，在与异界首领的战斗中伤害排行第一，获得奖励[树界王者宝箱]！
 -define(ErrorCode_CnText4BossTopOneNotice, 30004).
-%% @(Chat)勇士们，你们成功击退了异界首领，世界恢复了和平。
+%% @(Chat)冒险者们，你们成功击退了异界首领，世界恢复了和平。
 -define(ErrorCode_CnText4BossSuccEndNotice, 30005).
-%% @(Chat)扭曲的虚空发生了异动，异界的首领暂且退去，世界恢复了往昔的宁静。
+%% @(Chat)异界首领被众多冒险者击退，女神树界又恢复了往昔的宁静。
 -define(ErrorCode_CnText4BossFailEndNotice, 30006).
-%% @(Chat)勇士们，你们成功击退了一名异界首领，在30秒后更强大的异界首领将会出现在这个战场，做好准备吧。
+%% @(Chat)冒险者们，你们成功击退了一名异界首领，在30秒后更强大的异界首领将会出现在这个战场，做好准备吧。
 -define(ErrorCode_CnText4BossScheduleEndNotice, 30007).
-%% @(Chat)异界首领将会在5分钟后入侵，请勇士们做好应战准备
+%% @(Chat)异界首领5分钟后将入侵女神树界，请冒险者们准备前往战斗！
 -define(ErrorCode_CnText4BossFiveMinuteNotice, 30008).
-%% @(Chat)异界首领将会在1分钟后入侵，请勇士们做好应战准备
+%% @(Chat)异界首领1分钟后将入侵女神树界，请冒险者们准备前往战斗！
 -define(ErrorCode_CnText4BossOneMinuteNotice, 30009).
-%% @(Chat)异界首领入侵活动已结束，地图即将在1分钟后关闭
+%% @(Chat)首领入侵活动已结束，地图即将在1分钟后关闭
 -define(ErrorCode_CnText4BossEndNotice, 30010).
 %% 哥布林玩法
 %% @(Chat)传言，世界各处发现了宝图盗宝贼的踪迹，3分钟后将会暴露他们的行踪！
@@ -2419,34 +2576,7 @@
 -define(ErrorCode_ExpMapNotEnoughLevel, 30103).
 %% @(Tips)本日无剩余有效时间，无法参加活动
 -define(ErrorCode_ExpMapNotEnoughTime, 30104).
-%% ====================================================================
-%% 乱世为王活动提示：30105 ~ 30110
-%% ====================================================================
-%% @(Tips)不在活动时间内，无法参加活动！
--define(ErrorCode_LSBattleFieldNotRightTime, 30105).
-%% @(Tips)等级不满足活动需求，无法参加活动！
--define(ErrorCode_LSBattleFieldNotEnoughLevel, 30106).
-%% @(Tips)活动地图所有分线满员，请耐心等待...
--define(ErrorCode_LSBattleFieldNotEnoughPlace, 30107).
-%% ====================================================================
-%% 体力值系统提示：30111 ~ 30120
-%% ====================================================================
-%% @(Tips)体力值购买次数已达到最大值
--define(ErrorCode_ActionPointNoBuyNumber, 30111).
-%% @(Tips)体力值将要满了，无法购买
--define(ErrorCode_ActionPointFull, 30112).
-%% @(Tips)体力值不足
--define(ErrorCode_ActionPointNotEnough, 30113).
 %% 请在服务器提示前面加errorcode，小于30001
-%% ====================================================================
-%% 港口竞速：30114 ~ 30116
-%% ====================================================================
-%% @(Tips)活动在40级时开启
--define(ErrorCode_NeedForSpeedMinLV, 30114).
-%% @(Tips)活动在20:00-20:30时开启
--define(ErrorCode_NeedForSpeedTime, 30115).
-%% @(Tips)活动需要在单人骑乘或双人骑乘状态下才能进行匹配
--define(ErrorCode_NeedForSpeedMatch, 30116).
 
 -define(ErrorCodeParams,
         [
@@ -2475,6 +2605,7 @@
 		{22, [s]},
 		{23, []},
 		{24, []},
+		{25, []},
 		{1001, []},
 		{1002, []},
 		{1003, []},
@@ -2623,6 +2754,13 @@
 		{6124, []},
 		{6125, []},
 		{6126, []},
+		{6127, []},
+		{6128, []},
+		{6129, []},
+		{6130, []},
+		{6131, []},
+		{6132, []},
+		{6133, []},
 		{6201, []},
 		{6202, [u,u]},
 		{6203, []},
@@ -2640,6 +2778,8 @@
 		{6215, []},
 		{6216, []},
 		{6217, []},
+		{6251, []},
+		{6252, [s,u,s]},
 		{6301, []},
 		{6302, []},
 		{6303, []},
@@ -2675,6 +2815,29 @@
 		{6515, []},
 		{6516, []},
 		{6517, []},
+		{6551, []},
+		{6552, []},
+		{6553, []},
+		{6601, []},
+		{6602, []},
+		{6603, []},
+		{6604, []},
+		{6651, []},
+		{6652, []},
+		{6653, []},
+		{6654, [s]},
+		{6655, []},
+		{6656, []},
+		{6657, []},
+		{6658, []},
+		{6659, []},
+		{6660, []},
+		{6661, []},
+		{6701, []},
+		{6702, []},
+		{6703, []},
+		{6704, []},
+		{6705, []},
 		{7001, []},
 		{7002, []},
 		{7003, []},
@@ -2841,6 +3004,13 @@
 		{7165, [u]},
 		{7166, [u,s]},
 		{7167, [u,u]},
+		{7168, []},
+		{7169, []},
+		{7170, []},
+		{7171, []},
+		{7172, []},
+		{7173, []},
+		{7174, [u]},
 		{7500, []},
 		{7501, []},
 		{7502, []},
@@ -2864,6 +3034,9 @@
 		{7520, [s]},
 		{7521, []},
 		{7522, []},
+		{7523, [s]},
+		{7524, []},
+		{7525, []},
 		{8001, []},
 		{8002, []},
 		{8003, []},
@@ -2936,6 +3109,12 @@
 		{8070, []},
 		{8071, []},
 		{8072, []},
+		{8073, []},
+		{8074, []},
+		{8075, []},
+		{8076, []},
+		{8077, []},
+		{8078, []},
 		{9001, []},
 		{9002, []},
 		{9003, []},
@@ -3001,6 +3180,12 @@
 		{9063, []},
 		{9064, []},
 		{9065, []},
+		{9066, []},
+		{9067, []},
+		{9068, []},
+		{9069, []},
+		{9070, [u]},
+		{9071, []},
 		{10001, []},
 		{10002, []},
 		{10003, []},
@@ -3211,6 +3396,8 @@
 		{19156, []},
 		{19157, []},
 		{19158, []},
+		{21001, []},
+		{21002, []},
 		{21003, []},
 		{21004, []},
 		{21005, [u]},
@@ -3253,16 +3440,29 @@
 		{23022, []},
 		{23023, []},
 		{23024, []},
-		{23025, [s]},
-		{23026, [s,u]},
+		{23025, []},
+		{23026, []},
 		{23027, []},
-		{23028, [s]},
-		{23029, [s]},
+		{23028, []},
+		{23029, []},
 		{23030, []},
 		{23031, []},
 		{23032, []},
 		{23033, []},
-		{23034, [s]},
+		{23034, []},
+		{23035, []},
+		{23036, []},
+		{23037, []},
+		{23038, []},
+		{23039, []},
+		{23040, []},
+		{23041, []},
+		{23042, []},
+		{23043, []},
+		{23044, []},
+		{23045, []},
+		{23046, []},
+		{23047, []},
 		{24001, []},
 		{24002, []},
 		{24003, []},
@@ -3433,6 +3633,8 @@
 		{28441, []},
 		{28442, []},
 		{28443, []},
+		{28444, []},
+		{28445, []},
 		{28501, []},
 		{28502, []},
 		{28503, []},
@@ -3572,16 +3774,7 @@
 		{30101, []},
 		{30102, []},
 		{30103, []},
-		{30104, []},
-		{30105, []},
-		{30106, []},
-		{30107, []},
-		{30111, []},
-		{30112, []},
-		{30113, []},
-		{30114, []},
-		{30115, []},
-		{30116, []}
+		{30104, []}
         ]).
 
 %% End Of File!

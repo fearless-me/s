@@ -106,7 +106,7 @@ resetKingData() ->
         {RoleID, FightForce} ->
             resetKingData(RoleID, FightForce);
         R ->
-            ?ERROR_OUT("getKingFromRankAndMail no forceRank4king,R=~p~n", [R]),
+            ?WARN_OUT("getKingFromRankAndMail no forceRank4king,R=~p~n", [R]),
 %%            psMgr:sendMsg2PS(?PsNameActivity, setActivePhase, {?ActivityType_KingBattleAll, ?ActivityPhase_Close}),
             {error, none}
     end.
@@ -251,62 +251,70 @@ activityChangeCallBack(?ActivityPhase_KingBattleAll_6) ->
                     KillNumber = erlang:length(getKillRoleIDList()),
                     #?RoleKeyRec{roleName = Name,career = Career,race = Race,sex = Sex,head = Head} = core:queryRoleKeyInfoByRoleID(RoleID),
                     %%[#rec_base_role{roleName = Name,career = Career,race = Race,sex = Sex,head = Head}] = ets:lookup(ets_rec_base_role,RoleID),
-                    {ok,#king_battle_mirror_appearance{equipIDList =EquipList,equipLevelList = EquipLevelIDList,fashionIDList = FashionIDList,wingLevel=WingLevel }}=acKingBattleAllLogic:getMirrorAppearance(RoleID),
-                    MsgEquipmentList = [#pk_PlayerKingBattleEquip{equipID =EquipID,quality = Quarlity }||#recVisibleEquip{equipID = EquipID,quality = Quarlity}<-EquipList],
-                    MsgEquipLevelIDLis=[#pk_PlayerKingBattleEquipLevel{type = EqType,level = EqLv}||{ EqType, EqLv}<-EquipLevelIDList] ,
-                    %% .发防守方
-                    case core:queryOnLineRoleByRoleID(RoleID) of
-                        #rec_OnlinePlayer{netPid = NetPid1} ->
-                            NetMsg1 =
-                                #pk_GS2U_KingBattleResult{
-                                    isNewKing = true,
-                                    killNumOrHurt = KillNumber,
-                                    days = 0,
-                                    declaration = "",
-                                    name = Name,
-                                    roleID =RoleID,
-                                    career = Career,
-                                    race = Race,
-                                    sex = Sex,
-                                    head = Head,
-                                    wingLevel = WingLevel,
-                                    fashionIDs = FashionIDList,
-                                    equipIDList = MsgEquipmentList,
-                                    equipLevelList = MsgEquipLevelIDLis
-                                },
-                            gsSendMsg:sendNetMsg(NetPid1, NetMsg1);
-                        _ ->
+
+
+                    case acKingBattleAllLogic:getMirrorAppearance(RoleID) of
+                        {ok,#king_battle_mirror_appearance{equipIDList =EquipList,equipLevelList = EquipLevelIDList,fashionIDList = FashionIDList,wingLevel=WingLevel }} ->
+                            MsgEquipmentList = [#pk_PlayerKingBattleEquip{equipID =EquipID,quality = Quarlity }||#recVisibleEquip{equipID = EquipID,quality = Quarlity}<-EquipList],
+                            MsgEquipLevelIDLis=[#pk_PlayerKingBattleEquipLevel{type = EqType,level = EqLv}||{ EqType, EqLv}<-EquipLevelIDList] ,
+                            %% .发防守方
+                            case core:queryOnLineRoleByRoleID(RoleID) of
+                                #rec_OnlinePlayer{netPid = NetPid1} ->
+                                    NetMsg1 =
+                                        #pk_GS2U_KingBattleResult{
+                                            isNewKing = true,
+                                            killNumOrHurt = KillNumber,
+                                            days = 0,
+                                            declaration = "",
+                                            name = Name,
+                                            roleID =RoleID,
+                                            career = Career,
+                                            race = Race,
+                                            sex = Sex,
+                                            head = Head,
+                                            wingLevel = WingLevel,
+                                            fashionIDs = FashionIDList,
+                                            equipIDList = MsgEquipmentList,
+                                            equipLevelList = MsgEquipLevelIDLis
+                                        },
+                                    gsSendMsg:sendNetMsg(NetPid1, NetMsg1);
+                                _ ->
+                                    skip
+                            end,
+                            %% .发防守方进攻方
+                            AttackerSortList = acKingBattleAllLogic:sortAttackerByDamage(),
+                            %%{ok, #king_battle_attacker{mirrorDamage = OldDamage}} = getAttackerInfo(RoleID),
+                            F =  fun(#king_battle_attacker{roleID = RoleId}) ->
+                                case core:queryOnLineRoleByRoleID(RoleId) of
+                                    #rec_OnlinePlayer{netPid = NetPid} ->
+                                        NetMsg =
+                                            #pk_GS2U_KingBattleResult{
+                                                isNewKing = false,
+                                                killNumOrHurt = KillNumber,
+                                                days = Days,
+                                                declaration = binToString(Declaration),
+                                                name = Name,
+                                                roleID =RoleID,
+                                                career = Career,
+                                                race = Race,
+                                                sex = Sex,
+                                                head = Head,
+                                                wingLevel = WingLevel,
+                                                fashionIDs = FashionIDList,
+                                                equipIDList = MsgEquipmentList,
+                                                equipLevelList = MsgEquipLevelIDLis
+                                            },
+                                        gsSendMsg:sendNetMsg(NetPid, NetMsg);
+                                    _ ->
+                                        skip
+                                end
+                              end,
+                            lists:foreach(F,AttackerSortList);
+                        _->
                             skip
-                    end,
-                    %% .发防守方进攻方
-                    AttackerSortList = acKingBattleAllLogic:sortAttackerByDamage(),
-                    %%{ok, #king_battle_attacker{mirrorDamage = OldDamage}} = getAttackerInfo(RoleID),
-                    F =  fun(#king_battle_attacker{roleID = RoleId}) ->
-                        case core:queryOnLineRoleByRoleID(RoleId) of
-                            #rec_OnlinePlayer{netPid = NetPid} ->
-                                NetMsg =
-                                    #pk_GS2U_KingBattleResult{
-                                        isNewKing = false,
-                                        killNumOrHurt = KillNumber,
-                                        days = Days,
-                                        declaration = binToString(Declaration),
-                                        name = Name,
-                                        roleID =RoleID,
-                                        career = Career,
-                                        race = Race,
-                                        sex = Sex,
-                                        head = Head,
-                                        wingLevel = WingLevel,
-                                        fashionIDs = FashionIDList,
-                                        equipIDList = MsgEquipmentList,
-                                        equipLevelList = MsgEquipLevelIDLis
-                                    },
-                                gsSendMsg:sendNetMsg(NetPid, NetMsg);
-                            _ ->
-                                skip
-                        end
-                         end,
-                    lists:foreach(F,AttackerSortList);
+                    end;
+                    %%{ok,#king_battle_mirror_appearance{equipIDList =EquipList,equipLevelList = EquipLevelIDList,fashionIDList = FashionIDList,wingLevel=WingLevel }}=acKingBattleAllLogic:getMirrorAppearance(RoleID),
+
                 _ -> skip
             end;
         {ok, #king_battle_attacker{roleID = AttackRoleID, fightForce = FightForce}} ->
@@ -809,7 +817,8 @@ sortAttackerByDamage() ->
     lists:reverse(AscSortList).
 %%将玩家战斗力转换成镜像血量
 playerForce2MirroeHp(FightForce) ->
-    erlang:trunc(FightForce * 400).
+    Fightall_mirror_HP = configfightall_mirror_HP(),
+    erlang:trunc(FightForce * Fightall_mirror_HP).
 %%获取新的守护者
 getNewDefender() ->
     AttackerList = ets:tab2list(king_battle_attacker),
@@ -909,8 +918,13 @@ getMirrorInfo(RoleID) ->
     MirroringList = globalCfg:getGlobalCfgList(mirroring),
     case ets:lookup(ets_rec_base_role, RoleID) of
         [#rec_base_role{career = Career, sex = Sex, camp = Camp}] ->
-            {_, {MonsterID, X, Y}} = lists:keyfind({Career, Sex, Camp}, 1, MirroringList),
-            {ok,{MonsterID, X, Y}};
+                case lists:keyfind({Career, Sex, Camp}, 1, MirroringList) of
+                    {_, {MonsterID, X, Y}} ->
+                        {ok,{MonsterID, X, Y}};
+                    _ ->
+                        ?ERROR_OUT("globalsetup.mirroring [~p] not exists",[{Career, Sex, Camp}]),
+                        {error,none}
+                end;
         _ ->
             {error,none}
     end.
@@ -970,3 +984,8 @@ activeStateIsOpen() ->
         _ ->
             false
     end.
+
+configfightall_mirror_HP()->
+    #globalsetupCfg{setpara = [Value]} =
+        getCfg:getCfgPStack(cfg_globalsetup, fightall_mirror_HP),
+    Value.

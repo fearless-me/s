@@ -21,7 +21,7 @@
 	delBothHate/1,
 	delHate/2,
 	addHate/3,
-	killedTarget/6,
+	killedTarget/7,
 	treat/5,
 	addTreat/3,
 	setAIBattleCondEvent/1,
@@ -92,7 +92,7 @@ attack(Code, #recSkill{} = Skill, SN, TargetList, IsCarrier) ->
 -spec attack1(TargetList :: list(), BeAttack :: #recBeAttack{}, MonsterCode :: uint(), CasterCode :: uint()) -> ok.
 attack1([], _BeAttack, _MonsterCode, _CasterCode) ->
 	ok;
-attack1([{IsRan, #recMapObject{type = Type, code = Code, pid = Pid}, Times} | List], BeAttack, MonsterCode, CasterCode) ->
+attack1([{IsRan, #recMapObject{type = Type, code = Code, pid = Pid, level = TargetLevel}, Times} | List], BeAttack, MonsterCode, CasterCode) ->
 	case mapState:getMapSubType() of
 		%% 新版骑宠领地中，无法对玩家及骑宠造成伤害
 		?MapSubTypePetTerritory when Type =:= ?ObjTypePlayer; Type =:= ?ObjTypePet ->
@@ -107,7 +107,7 @@ attack1([{IsRan, #recMapObject{type = Type, code = Code, pid = Pid}, Times} | Li
 						hatePid = Pid,
 						hateValue = 1
 					},
-					addKillValue(MonsterCode, Code),
+					addKillValue(MonsterCode, Code, TargetLevel),
 					addHate(MonsterCode, Hate, BeAttack#recBeAttack.isCarrier),
 					NewBeAttack = BeAttack#recBeAttack{
 						targetCode = Code,
@@ -215,14 +215,15 @@ beAttack(_MonsterCode, AttackerPid, #recBeAttack{
 	ok.
 
 %%杀死目标
--spec killedTarget(AttackerCode, TargetCode, Msg, X, Y, BossTargetCode) -> ok when
+-spec killedTarget(AttackerCode, TargetCode, TargetLevel, Msg, X, Y, BossTargetCode) -> ok when
 	AttackerCode :: uint(),
+	TargetLevel :: uint(),
 	TargetCode :: uint(),
 	Msg :: term(),
 	X :: float(),
 	Y :: float(),
 	BossTargetCode :: uint().
-killedTarget(AttackerCode, TargetCode, Msg, X, Y, BossTargetCode) ->
+killedTarget(AttackerCode, TargetCode, TargetLevel, Msg, X, Y, BossTargetCode) ->
 	PlayerEts = monsterState:getMapPlayerEts(AttackerCode),
 	mapView:sendMsg2NearPlayerByPos(monsterState:getMapPid(AttackerCode), PlayerEts, Msg, X, Y, monsterState:getGroupID(AttackerCode)),
 	CodeType = monsterState:getCodeType(AttackerCode),
@@ -230,7 +231,7 @@ killedTarget(AttackerCode, TargetCode, Msg, X, Y, BossTargetCode) ->
 		true ->
 			case monsterState:getCasterInfo(AttackerCode) of
 				#recCasterInfo{casterPid = Pid, casterType = ?AttackerTypePlayer} ->
-					psMgr:sendMsg2PS(Pid, addKillValue, {false, TargetCode, BossTargetCode});
+					psMgr:sendMsg2PS(Pid, addKillValue, {false, TargetCode, TargetLevel, BossTargetCode});
 				_ ->
 					skip
 			end;
@@ -616,20 +617,6 @@ calcActMonster(#recBeAttack{attackerCamp = Camp, targetCode = Code,
 		attackerPkMode = BeAttack#recBeAttack.attackerPkMode
 	},
 
-	%%构造被攻击者数据
-	ATD = #recAttackTargetDamage{
-		skillID = BeAttack#recBeAttack.skillID,
-		serial = BeAttack#recBeAttack.serial,
-		attackerCode = BeAttack#recBeAttack.attackerCode,
-		attackerHit = HitResultList,
-		targetCode = Code,
-		targetName = Name,
-		targetPid = self(),
-		targetID = TargetID,
-		targetDamageList = RealDamageList,
-		totalDamageBack = 0
-	},
-
 	%%更新效果伤害百分比(不能更改顺序,必须要在效果包后面)
 	CurHp = monsterState:getCurHp(Code),
 	MaxHp = monsterState:getBattlePropTotal(Code, ?Prop_MaxHP),
@@ -655,6 +642,21 @@ calcActMonster(#recBeAttack{attackerCamp = Camp, targetCode = Code,
 		Code, TargetID,
 		DamageMsg#pk_GS2U_AttackResult.diffHp
 	),
+
+	%%构造被攻击者数据
+	ATD = #recAttackTargetDamage{
+		skillID = BeAttack#recBeAttack.skillID,
+		serial = BeAttack#recBeAttack.serial,
+		attackerCode = BeAttack#recBeAttack.attackerCode,
+		attackerHit = HitResultList,
+		targetCode = Code,
+		targetName = Name,
+		targetPid = self(),
+		targetID = TargetID,
+		targetDamageList = RealDamageList,
+		totalDamageBack = 0
+	},
+
 	case BeAttack#recBeAttack.attackerPid =:= self() of
 		true ->
 			dealAttackRes([], RecEffect, ATD, DamageMsg);
@@ -670,6 +672,18 @@ calcActMonster(#recBeAttack{attackerCamp = Camp, targetCode = Code,
 			skip
 	end.
 
+calcBackDamage(Code, SkillID, AttackVal)->
+	Percent =
+		case getCfg:getCfgPStack(cfg_skill, SkillID) of
+			#skillCfg{damageType = ?SkillDamageTypePhys} ->
+				monsterState:getPhysicalAntiInjury(Code);
+			#skillCfg{damageType = ?SkillDamageTypeMagic} ->
+				monsterState:getMagicAntiInjury(Code);
+			_ ->
+				0
+		end,
+	erlang:abs(erlang:trunc( AttackVal * Percent / 100)).
+
 -spec calcBeAttackDamage(AttackerPid, HitResultList, #recBeAttack{}, IsMainTarget, SecTarget, HateValue) -> ok when
 	AttackerPid :: pid(), HitResultList :: list(), IsMainTarget :: boolean(), SecTarget :: float(), HateValue :: uint().
 calcBeAttackDamage(AttackerPid, HitResultList, #recBeAttack{} = BeAttack, IsMainTarget, _SecTarget, _HateValue) ->
@@ -678,35 +692,44 @@ calcBeAttackDamage(AttackerPid, HitResultList, #recBeAttack{} = BeAttack, IsMain
 	AttackerCode = BeAttack#recBeAttack.attackerCode,
 	AttackerName = BeAttack#recBeAttack.attackerName,
 	IsCarrier = BeAttack#recBeAttack.isCarrier,
+	MaxHp = monsterState:getMaxHp(TargetCode),
 	OldHp = monsterState:getCurHp(TargetCode),
-	RealDamageList = calcSkillDamageToTarget(TargetCode, BeAttack, HitResultList),
+	RealDamageList = calcSkillDamageToMe(TargetCode, BeAttack, HitResultList),
 	%%构造仇恨
 	Hate = #recHate{hateCode = AttackerCode,
 		hatePid = AttackerPid},
 	addHate(TargetCode, Hate, IsCarrier),
 	%%处理效果
-	calcSkillEffect(BeAttack, HitResultList, 0, RealDamageList, IsMainTarget, OldHp),
+	calcSkillEffect(BeAttack, HitResultList, RealDamageList, IsMainTarget, OldHp),
 	CurHp = monsterState:getCurHp(TargetCode),
+
 	%%检查是否死亡
 	case CurHp =:= 0 of
 		true ->
 			monsterState:setCurHp(TargetCode, 0),
 			onDead(TargetCode, AttackerPid, AttackerCode, AttackerName, SkillID);
 		_ ->
+			monsterSkill:attackTriggerSkill(
+				TargetCode
+				, SkillID
+				, HitResultList
+				, AttackerCode
+				, ?BeAttackTriggerHpLow
+				, {skill:getPercent(OldHp, MaxHp), skill:getPercent(CurHp, MaxHp)}
+			),
+			monsterEventTrigger:triggerEvent(?MonsterTriggerE_Hp, TargetCode, 0),
 			skip
 	end,
 	ok.
 
--spec calcSkillEffect(#recBeAttack{}, HitResultList, DamageBack, RealDamageList, IsMainTarget, OldHp) -> ok when
+-spec calcSkillEffect(#recBeAttack{}, HitResultList, RealDamageList, IsMainTarget, OldHp) -> ok when
 	HitResultList :: list(),
-	DamageBack :: number(),
 	RealDamageList :: list(),
 	IsMainTarget :: boolean(),
 	OldHp :: uint().
 calcSkillEffect(
 	#recBeAttack{targetCode = TargetCode} = BeAttack,
 	HitResultList,
-	DamageBack,
 	RealDamageList,
 	IsMainTarget,
 	OldHp
@@ -746,20 +769,6 @@ calcSkillEffect(
 		attackerProp = BeAttack#recBeAttack.attackerProp,
 		attackerEnergy = BeAttack#recBeAttack.attackerEnergy,
 		attackerPkMode = BeAttack#recBeAttack.attackerPkMode
-	},
-
-	%%构造被攻击者数据
-	ATD = #recAttackTargetDamage{
-		skillID = BeAttack#recBeAttack.skillID,
-		serial = BeAttack#recBeAttack.serial,
-		attackerCode = BeAttack#recBeAttack.attackerCode,
-		attackerHit = HitResultList,
-		targetCode = TargetCode,
-		targetName = Name,
-		targetPid = TargetPid,
-		targetID = TargetID,
-		targetDamageList = RealDamageList,
-		totalDamageBack = DamageBack
 	},
 
 	%%分离攻击者和被攻击者的效果列表
@@ -826,6 +835,20 @@ calcSkillEffect(
 	%% end 【野外BOSS优化改动】
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%通知攻击者执行效果,并广播伤害
+	DamageBack = calcBackDamage(TargetCode, BeAttack#recBeAttack.skillID, DiffHp),
+	%%构造被攻击者数据
+	ATD = #recAttackTargetDamage{
+		skillID = BeAttack#recBeAttack.skillID,
+		serial = BeAttack#recBeAttack.serial,
+		attackerCode = BeAttack#recBeAttack.attackerCode,
+		attackerHit = HitResultList,
+		targetCode = TargetCode,
+		targetName = Name,
+		targetPid = TargetPid,
+		targetID = TargetID,
+		targetDamageList = RealDamageList,
+		totalDamageBack = DamageBack
+	},
 	case BeAttack#recBeAttack.attackerPid =:= self() of
 		true ->
 			dealAttackRes(AttackEffect, RecEffect, ATD, DamageMsg);
@@ -904,8 +927,6 @@ isStatHurt(MapID) ->
 %%isStatHurt(?CrosArenaMapID3) ->
 %%	true;
 %%isStatHurt(?HDBattleMapID) ->
-%%	true;
-%%isStatHurt(?GuildBattleMapID) ->
 %%	true;
 %%isStatHurt(?EscortMapID) ->
 %%	true;
@@ -1136,18 +1157,17 @@ broadcastAttackResult(
 	end,
 	ok.
 
-calcSkillDamageToTarget(Code, BeAttack, ResList) ->
-	AbsorbValue = monsterState:getAbsorbShield(Code),
-	CurHp = monsterState:getCurHp(Code),
-	BattleProps = monsterState:getBattleProp(Code),
-	{NewAbsorbValue, NewHp, DamageList} = battle:calcDamage(
-		AbsorbValue
-		, CurHp
-		, Code
-		, BattleProps
-		, BeAttack
-		, ResList
-	),
+calcSkillDamageToMe(Code, BeAttack, ResList) ->
+	RecDef = #recDefender{
+		code = Code,
+		absorbValue = monsterState:getAbsorbShield(Code),
+		curHp = monsterState:getCurHp(Code),
+		props = monsterState:getBattleProp(Code),
+		status = monsterState:getStatus(Code)                 %%被攻击者状态
+	},
+	{NewAbsorbValue, NewHp, DamageList}
+		= battle:calcDamage(RecDef, BeAttack, ResList),
+	
 	monsterState:setAbsorbShield(Code, NewAbsorbValue),
 	case monsterWorldBoss:isDirectDecHP(Code) of
 		true ->
@@ -1155,90 +1175,90 @@ calcSkillDamageToTarget(Code, BeAttack, ResList) ->
 		_ ->
 			skip
 	end,
-	DamageList;
-calcSkillDamageToTarget(Code, #recBeAttack{attackerProp = Props, attackerLevel = Alv, skillID = SkillID, damage = Damage}, ResList) ->
-
-	Dlv = monsterState:getLevel(Code),
-
-	%%护甲减伤
-	#skillCfg{damageType = DamageType} = getCfg:getCfgPStack(cfg_skill, SkillID),
-
-	%%系数
-	#attedfCfg{dEF = Def, rES = Res, tOU = Tou} = getCfg:getCfgPStack(cfg_attedf, Dlv),
-
-	#attedfCfg{cRITICAL = Critical} = getCfg:getCfgPStack(cfg_attedf, Alv),
-
-	ArmorRatio =
-		case DamageType of
-			?SkillDamageTypePhys ->
-				%%物攻
-				monsterState:getBattlePropTotal(Code, ?Prop_PhysicalDefence) / (monsterState:getBattlePropTotal(Code, ?Prop_PhysicalDefence) + Def);
-			_ ->
-				%%法防
-				monsterState:getBattlePropTotal(Code, ?Prop_MagicDefence) / (monsterState:getBattlePropTotal(Code, ?Prop_MagicDefence) + Res)
-		end,
-
-	TouDamage = monsterState:getBattlePropTotal(Code, ?Prop_TenaciousLevel) / Tou,
-	CriDamage = 1.5 + battle:getPropValue(?Prop_CriticalLevel, Props) / Critical - TouDamage,
-
-	DamageReduce = monsterState:getBattlePropTotal(Code, ?Prop_DamageReduce),
-	DamagePlus = battle:getPropValue(?Prop_DamagePlus, Props),
-
-	Fun =
-		fun(R, Acc) ->
-			Hp = monsterState:getCurHp(Code),
-
-			DamageFactor = DamagePlus * DamageReduce,
-			FinalDamage1 =
-				if
-					R =:= ?HitResultBreakHead ->
-						Damage * DamageFactor;
-					R =:= ?HitResultCritical ->
-						Damage * CriDamage * (1 - ArmorRatio) * DamageFactor;
-					R =:= ?HitResultOrdinary ->
-						Damage * (1 - ArmorRatio) * DamageFactor;
-					true ->
-						0
-				end,
-			FinalDamage2 = case FinalDamage1 < 1 of
-							   true ->
-								   1;
-							   _ ->
-								   FinalDamage1
-						   end,
-
-			Absorb = monsterState:getAbsorbShield(Code),
-			FinalDamage3 =
-				case Absorb >= FinalDamage2 of
-					true ->
-						monsterState:setAbsorbShield(Code, Absorb - FinalDamage2),
-						0;
-					_ ->
-						[monsterBuff:delBuff(BuffID) || BuffID <- [?AbsorbBuff1, ?AbsorbBuff2, ?AbsorbBuff3]],
-						monsterState:setAbsorbShield(Code, 0),
-						FinalDamage2 - Absorb
-				end,
-
-			FinalDamage =
-				case FinalDamage3 > 1 of
-					true ->
-						FinalDamage3 * 0.95 + FinalDamage3 * 0.1 * random:uniform();
-					_ ->
-						FinalDamage3
-				end,
-%%			?DEBUG_OUT("//////attack(~w->~w), plus(~w), reduct(~w), addplus(~w),origian(~w), final(~w) \\\\\\\\\\\\",
-%%				[BeAttack#recBeAttack.attackerCode, Code,DamagePlus, DamageReduce, DamageFactor,FinalDamage1, FinalDamage]),
-			NewHp =
-				case Hp > FinalDamage of
-					true ->
-						Hp - FinalDamage;
-					_ ->
-						0
-				end,
-			monsterState:setCurHp(Code, trunc(NewHp)),
-			[-trunc(FinalDamage) | Acc]
-		end,
-	lists:reverse(lists:foldl(Fun, [], ResList)).
+	DamageList.
+%%calcSkillDamageToTarget(Code, #recBeAttack{attackerProp = Props, attackerLevel = Alv, skillID = SkillID, damage = Damage}, ResList) ->
+%%
+%%	Dlv = monsterState:getLevel(Code),
+%%
+%%	%%护甲减伤
+%%	#skillCfg{damageType = DamageType} = getCfg:getCfgPStack(cfg_skill, SkillID),
+%%
+%%	%%系数
+%%	#attedfCfg{dEF = Def, rES = Res, tOU = Tou} = getCfg:getCfgPStack(cfg_attedf, Dlv),
+%%
+%%	#attedfCfg{cRITICAL = Critical} = getCfg:getCfgPStack(cfg_attedf, Alv),
+%%
+%%	ArmorRatio =
+%%		case DamageType of
+%%			?SkillDamageTypePhys ->
+%%				%%物攻
+%%				monsterState:getBattlePropTotal(Code, ?Prop_PhysicalDefence) / (monsterState:getBattlePropTotal(Code, ?Prop_PhysicalDefence) + Def);
+%%			_ ->
+%%				%%法防
+%%				monsterState:getBattlePropTotal(Code, ?Prop_MagicDefence) / (monsterState:getBattlePropTotal(Code, ?Prop_MagicDefence) + Res)
+%%		end,
+%%
+%%	TouDamage = monsterState:getBattlePropTotal(Code, ?Prop_TenaciousLevel) / Tou,
+%%	CriDamage = 1.5 + battle:getPropValue(?Prop_CriticalLevel, Props) / Critical - TouDamage,
+%%
+%%	DamageReduce = monsterState:getBattlePropTotal(Code, ?Prop_DamageReduce),
+%%	DamagePlus = battle:getPropValue(?Prop_DamagePlus, Props),
+%%
+%%	Fun =
+%%		fun(R, Acc) ->
+%%			Hp = monsterState:getCurHp(Code),
+%%
+%%			DamageFactor = DamagePlus * DamageReduce,
+%%			FinalDamage1 =
+%%				if
+%%					R =:= ?HitResultBreakHead ->
+%%						Damage * DamageFactor;
+%%					R =:= ?HitResultCritical ->
+%%						Damage * CriDamage * (1 - ArmorRatio) * DamageFactor;
+%%					R =:= ?HitResultOrdinary ->
+%%						Damage * (1 - ArmorRatio) * DamageFactor;
+%%					true ->
+%%						0
+%%				end,
+%%			FinalDamage2 = case FinalDamage1 < 1 of
+%%							   true ->
+%%								   1;
+%%							   _ ->
+%%								   FinalDamage1
+%%						   end,
+%%
+%%			Absorb = monsterState:getAbsorbShield(Code),
+%%			FinalDamage3 =
+%%				case Absorb >= FinalDamage2 of
+%%					true ->
+%%						monsterState:setAbsorbShield(Code, Absorb - FinalDamage2),
+%%						0;
+%%					_ ->
+%%						[monsterBuff:delBuff(BuffID) || BuffID <- [?AbsorbBuff1, ?AbsorbBuff2, ?AbsorbBuff3]],
+%%						monsterState:setAbsorbShield(Code, 0),
+%%						FinalDamage2 - Absorb
+%%				end,
+%%
+%%			FinalDamage =
+%%				case FinalDamage3 > 1 of
+%%					true ->
+%%						FinalDamage3 * 0.95 + FinalDamage3 * 0.1 * random:uniform();
+%%					_ ->
+%%						FinalDamage3
+%%				end,
+%%%%			?DEBUG_OUT("//////attack(~w->~w), plus(~w), reduct(~w), addplus(~w),origian(~w), final(~w) \\\\\\\\\\\\",
+%%%%				[BeAttack#recBeAttack.attackerCode, Code,DamagePlus, DamageReduce, DamageFactor,FinalDamage1, FinalDamage]),
+%%			NewHp =
+%%				case Hp > FinalDamage of
+%%					true ->
+%%						Hp - FinalDamage;
+%%					_ ->
+%%						0
+%%				end,
+%%			monsterState:setCurHp(Code, trunc(NewHp)),
+%%			[-trunc(FinalDamage) | Acc]
+%%		end,
+%%	lists:reverse(lists:foldl(Fun, [], ResList)).
 
 %% %%计算被攻击时技能作用到目标的伤害
 %% -spec calcSkillDamageToTarget(Code, #recBeAttack{}, HitResultList, IsMainTarget, SecTarget) -> list() when
@@ -1335,6 +1355,7 @@ onDead(Code, AttackerPid1, AttackerCode1, AttackerName1, SkillID) ->
 	{X, Y} = monsterState:getMonsterPos(Code),
 	BossID = monsterState:getId(Code),
 	MapPid = monsterState:getMapPid(Code),
+	Level  = monsterState:getLevel(Code),
 
 	{AttackerPid, AttackerCode, AttackerName} = case getRandOwnerFromPlayerEts(Code, AttackerCode1, AttackerPid1) of
 													{true, AttackerPid2, AttackerCode2, AttackerName2} ->
@@ -1361,9 +1382,9 @@ onDead(Code, AttackerPid1, AttackerCode1, AttackerName1, SkillID) ->
 			erlang:send_after(?RmbPetReviveTime, self(), {rmbPetRevive, Code}),
 			case AttackerPid =:= self() of
 				true ->
-					killedTarget(AttackerCode, Code, Msg1, X, Y, BossTargetCode);
+					killedTarget(AttackerCode, Code, Level, Msg1, X, Y, BossTargetCode);
 				_ ->
-					psMgr:sendMsg2PS(AttackerPid, killedTarget, {AttackerCode, Code, Msg1, X, Y, BossTargetCode})
+					psMgr:sendMsg2PS(AttackerPid, killedTarget, {AttackerCode, Code, Level, Msg1, X, Y, BossTargetCode})
 			end;
 		_ ->
 			case CodeType of
@@ -1488,12 +1509,13 @@ onDead(Code, AttackerPid1, AttackerCode1, AttackerName1, SkillID) ->
 			},
 			case AttackerPid =:= self() of
 				true ->
-					killedTarget(AttackerCode, Code, Msg, X, Y, BossTargetCode);
+					killedTarget(AttackerCode, Code, Level, Msg, X, Y, BossTargetCode);
 				_ ->
-					psMgr:sendMsg2PS(AttackerPid, killedTarget, {AttackerCode, Code, Msg, X, Y, BossTargetCode})
+					psMgr:sendMsg2PS(AttackerPid, killedTarget, {AttackerCode, Code, Level, Msg, X, Y, BossTargetCode})
 			end,
 
 			%%一定要在最后清除信息
+			monsterEventTrigger:triggerEvent(?MonsterTriggerE_Dead, Code, 0),
 			creatureBase:monsterDead(Code, CodeType)
 	end.
 
@@ -1540,7 +1562,7 @@ dealOwnerAward(Code, AttackerCode, AttackerPid) ->
 					case codeMgr:isCodeType(?CodeTypeMonster, DropOwnerCode2) of
 						false ->
 							pinterrorlog(11, Code, AttackerCode, AttackerPid, HateList, MonsterID, MonsterLevel, CallerCode, DropOwnerCode, DropOwnerPid, DropOwnerCode2, DropOwnerPid2),
-							psMgr:sendMsg2PS(DropOwnerPid2, dropBykilledMonster, {Code, MonsterID, MonsterLevel});
+							psMgr:sendMsg2PS(DropOwnerPid2, dropBykilledMonster, {Code, MonsterID, MonsterLevel, self()});
 						_ ->
 							skip
 					end;
@@ -1733,8 +1755,10 @@ getPlayerRealPid(Code, AttackCode, AttackPid) ->
 				?ObjTypeMonster ->
 					MonsterEts = monsterState:getMapMonsterEts(Code),
 					case ets:lookup(MonsterEts, AttackCode) of
-						[#recMapObject{ownCode = OwnCode, pid = OwnPid}] ->
+						[#recMapObject{ownCode = OwnCode, ownPid = OwnPid}] when OwnCode > 0 ->
 							{OwnCode, OwnPid};
+						[#recMapObject{}] ->
+							{AttackCode, AttackPid};
 						_ ->
 							?ERROR_OUT("getPlayerPid ObjTypeMonster:~p,~p,~p", [Code, AttackCode, AttackPid]),
 							{AttackCode, AttackPid}
@@ -1974,25 +1998,28 @@ noticeHate(CasterCode, Hate, Operate) ->
 	end.
 
 %%增加杀戮值
--spec addKillValue(MonsterCode :: uint(), TargetCode :: uint()) -> ok.
-addKillValue(MonsterCode, TargetCode) ->
+-spec addKillValue(MonsterCode :: uint(), TargetCode :: uint(), TargetLevel :: uint()) -> ok.
+addKillValue(MonsterCode, TargetCode, TargetLevel) ->
 	BossID = monsterState:getId(MonsterCode),
 	CodeType = monsterState:getCodeType(MonsterCode),
 	BossTargetCode = mapWildBoss:getWildBossTarget(BossID),
-	addKillValue(MonsterCode, CodeType, TargetCode, BossTargetCode).
-addKillValue(MonsterCode, CodeType, TargetCode, BossTargetCode) when CodeType =:= ?SpawnCarrier orelse CodeType =:= ?SpawnPet orelse CodeType =:= ?SpawnCallPet ->
+	addKillValue(MonsterCode, CodeType, TargetCode, TargetLevel, BossTargetCode).
+
+addKillValue(MonsterCode, CodeType, TargetCode, TargetLevel, BossTargetCode)
+	when CodeType =:= ?SpawnCarrier orelse CodeType =:= ?SpawnPet orelse CodeType =:= ?SpawnCallPet
+	->
 	case monsterState:getCasterInfo(MonsterCode) of
 		#recCasterInfo{casterPid = Pid, casterType = ?AttackerTypePlayer} ->
 			case Pid =:= self() of
 				true ->
 					skip;
 				_ ->
-					psMgr:sendMsg2PS(Pid, addKillValue, {true, TargetCode, BossTargetCode})
+					psMgr:sendMsg2PS(Pid, addKillValue, {true, TargetCode, TargetLevel, BossTargetCode})
 			end;
 		_ ->
 			skip
 	end;
-addKillValue(_, _, _, _) ->
+addKillValue(_, _, _, _, _) ->
 	ok.
 
 

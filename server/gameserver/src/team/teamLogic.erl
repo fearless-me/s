@@ -35,7 +35,9 @@
 	memberStartCopyMapAck/1,
 	kickMember/1,
 	updateMemberInfo/1,
-	setSearchFlag/1
+	setSearchFlag/1,
+	assistCopyMapCancel/1,
+	assistCopyMapStart/1
 ]).
 
 %%%-------------------------------------------------------------------
@@ -169,14 +171,19 @@ matchFast(R, []) ->
 	R;
 matchFast(true, [#recTeamInfo{} = R | L]) ->
 	matchFast(R, L);
-matchFast(#recTeamInfo{memberList = ML1} = R1, [#recTeamInfo{memberList = ML2} = R2 | L1]) ->
+matchFast(
+	#recTeamInfo{memberList = ML1, copyMapID = CopyMapID1} = R1,
+	[#recTeamInfo{memberList = ML2, copyMapID = CopyMapID2} = R2 | L1]
+) ->
 	LR1 = length(ML1),
 	LR2 = length(ML2),
+	MN1 = teamInterface:getCfgTeamMaxMember(CopyMapID1),
+	MN2 = teamInterface:getCfgTeamMaxMember(CopyMapID2),
 	{R, L2} =
 		if
-			LR1 =:= ?MAX_TeamMemberNum - 1 ->
+			LR1 =:= MN1 - 1 ->
 				{R1, []};
-			LR2 =:= ?MAX_TeamMemberNum - 1 ->
+			LR2 =:= MN2 - 1 ->
 				{R2, []};
 			true ->
 				case LR2 > LR1 of
@@ -197,8 +204,8 @@ createNewTeam({CopyMapID, TargetRoleID, MemberInfo}) ->
 		{_, ErrorCode} ->
 			playerMsg:sendErrorCodeMsg(MemberInfo#recTeamMemberInfo.netPid, ErrorCode)
 	end.
-canCreateTeam(0, _RoleID) ->
-	{false, ?ErrorCode_TeamCantChangeMapZero};
+%%canCreateTeam(0, _RoleID) ->
+%%	{false, ?ErrorCode_TeamCantChangeMapZero};
 canCreateTeam(_CopyMapID, RoleID) ->
 	case teamInterface:getTeamID(RoleID) of
 		TeamID when TeamID > 0 ->
@@ -208,6 +215,7 @@ canCreateTeam(_CopyMapID, RoleID) ->
 	end.
 
 doCreateNewTeam(CopyMapID, TargetRoleID, #recTeamMemberInfo{
+	pid = Pid,
 	netPid = NetPid,
 	roleID = RoleID
 } = MemberInfo) ->
@@ -230,6 +238,9 @@ doCreateNewTeam(CopyMapID, TargetRoleID, #recTeamMemberInfo{
 	fastInviteOther(TargetRoleID, RoleID, CopyMapID, MemberInfo),
 	?DEBUG_OUT("[~p]create Team[~p] with[~p], leader[~p],targetMap[~p], member[~p]",
 		[RoleID, NewTeamID, TargetRoleID, RoleID, CopyMapID, RoleID]),
+
+	%% 加入组队后向角色进程反馈
+	psMgr:sendMsg2PS(Pid, joinTeamOK, NewTeamID),
 	ok.
 
 fastInviteOther(0, _LeaderID, _CopyMapID, _MemberInfo) ->
@@ -259,7 +270,7 @@ canDismissTeam(RoleID) ->
 doDismissTeam(RoleID, 0) ->
 	?ERROR_OUT("[~p]dismissTeam,but no team", [RoleID]);
 doDismissTeam(RoleID, TeamID) ->
-	ResetMsg = #pk_GS2U_TeamReset{},
+	ResetMsg = #pk_GS2U_TeamReset{reason = ?TeamRst_Dismiss},
 	teamInterface:sendNetMsg2TeamWithRoleID(RoleID, ResetMsg, true),
 	RoleIDList = teamInterface:getTeamMemberRoleIDListWithTeamID(TeamID),
 	myEts:deleteRecord(?Ets_TeamList, TeamID),
@@ -268,6 +279,9 @@ doDismissTeam(RoleID, TeamID) ->
 			myEts:deleteRecord(?Ets_RoleIDRefTeamID, MemberRoleID)
 		end, RoleIDList),
 	?DEBUG_OUT("[~p]dismiss team[~p],memberList[~w]", [RoleID, TeamID, RoleIDList]),
+
+	%% 离开组队后向角色进程反馈
+	teamInterface:sendMsg2TeamWithRoleID(RoleID, leaveTeamOK,TeamID, true),
 	ok.
 
 %%%-------------------------------------------------------------------
@@ -286,8 +300,8 @@ canJoinTeam(RoleID, TeamID) ->
 	case teamInterface:isInTeam(RoleID) of
 		false ->
 			case myEts:readRecord(?Ets_TeamList, TeamID) of
-				#recTeamInfo{memberList = ML} = TeamInfo ->
-					case length(ML) >= ?MAX_TeamMemberNum of
+				#recTeamInfo{} = TeamInfo ->
+					case teamInterface:isTeamFullWithTeamInfo(TeamInfo) of
 						true ->
 							{false, ?ErrorCode_TeamMemberMax};
 						_ ->
@@ -302,7 +316,7 @@ canJoinTeam(RoleID, TeamID) ->
 
 doJoinTeam(
 	#recTeamInfo{teamID = TeamID, memberList = ML} = TeamInfo,
-	#recTeamMemberInfo{roleID = RoleID, netPid = NetPid} = MemberInfo
+	#recTeamMemberInfo{roleID = RoleID, netPid = NetPid, pid = Pid} = MemberInfo
 ) ->
 	myEts:deleteRecord(?Ets_RoleMatchTeam, RoleID),
 	true = myEts:insertEts(?Ets_RoleIDRefTeamID,
@@ -333,6 +347,85 @@ doJoinTeam(
 		false
 	),
 	?DEBUG_OUT("[~p] join team[~p]", [RoleID, TeamID]),
+
+	%% 加入组队后向角色进程反馈
+	psMgr:sendMsg2PS(Pid, joinTeamOK, TeamID),
+	ok.
+
+assistCopyMapStart({RoleID, CopyMapID, NetPid}) ->
+	ErrorCode =
+		case teamInterface:getTeamInfoWithRoleID(RoleID) of
+			#recTeamInfo{copyMapID = CopyMapID, memberList = ML} = TeamInfo ->
+				case teamInterface:isTeamStartCopyMapAck(TeamInfo) of
+					false ->
+						case lists:keyfind(RoleID, #recTeamMemberInfo.roleID, ML) of
+							#recTeamMemberInfo{assistMapID = AssistMapID} = Info when AssistMapID /= CopyMapID ->
+								NewMember = Info#recTeamMemberInfo{
+									assistMapID = CopyMapID
+								},
+								NML = lists:keystore(RoleID, #recTeamMemberInfo.roleID, ML, NewMember),
+								NewTeamInfo = TeamInfo#recTeamInfo{memberList = NML},
+								myEts:insertEts(?Ets_TeamList, NewTeamInfo),
+
+								%% 助战成功，广播
+								teamInterface:sendMsg2TeamWithRoleID(
+									RoleID,
+									forceSychInfoToTeam,
+									CopyMapID,
+									true
+								),
+
+								?ErrorCode_OpenAssistSuccess;
+							_ ->
+								?ErrorCode_AlreadyOpenAssist
+						end;
+					_ ->
+						?ErrorCode_TeamAreadyStartCopy
+				end;
+			_ ->
+				?ErrorCode_TeamSelftNotInTeam
+		end,
+	Msg = playerMsg:getErrorCodeMsg(ErrorCode),
+	gsSendMsg:sendNetMsg(NetPid, Msg),
+	ok.
+
+assistCopyMapCancel({RoleID, NetPid}) ->
+	ErrorCode =
+		case teamInterface:getTeamInfoWithRoleID(RoleID) of
+			#recTeamInfo{memberList = ML, copyMapID = CopyMapID} = TeamInfo ->
+				case teamInterface:isTeamStartCopyMapAck(TeamInfo) of
+					false ->
+						case lists:keyfind(RoleID, #recTeamMemberInfo.roleID, ML) of
+							#recTeamMemberInfo{assistMapID = 0} ->
+								?ErrorCode_AlreadyCancelAssist;
+							#recTeamMemberInfo{assistMapID = AssistMapID} = Info when AssistMapID > 0 ->
+								NewMember = Info#recTeamMemberInfo{
+									assistMapID = 0
+								},
+								NML = lists:keystore(RoleID, #recTeamMemberInfo.roleID, ML, NewMember),
+								NewTeamInfo = TeamInfo#recTeamInfo{memberList = NML},
+								myEts:insertEts(?Ets_TeamList, NewTeamInfo),
+
+								%% 助战成功，广播
+								teamInterface:sendMsg2TeamWithRoleID(
+									RoleID,
+									forceSychInfoToTeam,
+									CopyMapID,
+									true
+								),
+
+								?ErrorCode_CancelAssistSuccess;
+							_ ->
+								?ErrorCode_System_Error_Unknow
+						end;
+					_ ->
+						?ErrorCode_TeamAreadyStartCopy
+				end;
+			_ ->
+				?ErrorCode_TeamSelftNotInTeam
+		end,
+	Msg = playerMsg:getErrorCodeMsg(ErrorCode),
+	gsSendMsg:sendNetMsg(NetPid, Msg),
 	ok.
 
 %%%-------------------------------------------------------------------
@@ -348,14 +441,14 @@ leaveTeamAndEnter({RoleID, Pid, NetPid, CopyMapID}) ->
 	ok.
 
 doLeaveTeamAndEnter(RoleID, Pid, NetPid, CopyMapID, TeamInfo)->
-	doLeaveTeam(RoleID, NetPid, TeamInfo),
+	doLeaveTeam(RoleID, Pid, NetPid, TeamInfo),
 	psMgr:sendMsg2PS(Pid,leaveTeamAndEnterAck, CopyMapID),
 	ok.
 %%%-------------------------------------------------------------------
-leaveTeam({RoleID, NetPid, IsNotify}) ->
+leaveTeam({RoleID, Pid, NetPid, IsNotify}) ->
 	case canLeaveTeam(RoleID) of
 		{true, TeamInfo} ->
-			doLeaveTeam(RoleID, NetPid, TeamInfo);
+			doLeaveTeam(RoleID, Pid, NetPid, TeamInfo);
 		{_, ErrorCode} when IsNotify ->
 			playerMsg:sendErrorCodeMsg(NetPid, ErrorCode);
 		_ ->
@@ -371,15 +464,18 @@ canLeaveTeam(RoleID) ->
 			{false, ?ErrorCode_TeamSelftNotInTeam}
 	end.
 
-doLeaveTeam(RoleID, NetPid,
+doLeaveTeam(RoleID, Pid, NetPid,
 	#recTeamInfo{teamID = TeamID, leaderID = LeaderID} = TeamInfo
 ) ->
 %%	NewTeamInfo =
-	playerMsg:sendNetMsg(NetPid, #pk_GS2U_TeamReset{}),
+	playerMsg:sendNetMsg(NetPid, #pk_GS2U_TeamReset{reason = ?TeamRst_Leave}),
 	onMemberLeaveTeam(RoleID, LeaderID, TeamInfo),
 	myEts:deleteRecord(?Ets_RoleIDRefTeamID, RoleID),
 	?DEBUG_OUT("[~p] leave team[~p],leadre[~p -> ~p]",
 		[RoleID, TeamID, LeaderID, teamInterface:getLeaderIDWithTeamID(TeamID)]),
+
+	%% 离开组队后向角色进程反馈
+	psMgr:sendMsg2PS(Pid, leaveTeamOK, TeamID),
 	ok.
 
 %% 队长离队
@@ -441,27 +537,27 @@ onMemberLeaveTeam(RoleID, _LeaderID,
 	onMemberCountDec(RoleID, TeamID, NML),
 	ok.
 %%%-------------------------------------------------------------------
-changeLeader({LeaderID, NetPid, NewLeaderID, MapPid, IsNotInCopy}) ->
+changeLeader({LeaderID, NetPid, NewLeaderID, _MapPid, MapID, IsNotInCopy}) ->
 	case canChangeLeader(LeaderID, NewLeaderID) of
 		{true, TeamInfo} ->
-			doChangeLeader(LeaderID, NewLeaderID, TeamInfo, MapPid, IsNotInCopy);
+			doChangeLeader(LeaderID, NewLeaderID, TeamInfo, MapID, IsNotInCopy);
 		{_, ErrorCode} ->
 			playerMsg:sendErrorCodeMsg(NetPid, ErrorCode)
 	end,
 	ok.
 
 %%%-------------------------------------------------------------------
-leaderOffline({LeaderID, MapPid, IsNotInCopy}) ->
+leaderOffline({LeaderID, MapPid, MapID, IsNotInCopy}) ->
 	case teamInterface:getTeamInfoWithRoleID(LeaderID) of
 		#recTeamInfo{leaderID = LeaderID} = TeamInfo ->
-			doLeaderOffline(MapPid, IsNotInCopy, TeamInfo);
+			doLeaderOffline(MapPid, MapID, IsNotInCopy, TeamInfo);
 		_ ->
 			skip
 	end,
 	ok.
 
 doLeaderOffline(
-	MapPid, IsNotInCopy,
+	_MapPid, MapID, IsNotInCopy,
 	#recTeamInfo{leaderID = LeaderID, teamID = TeamID, memberList = ML} = TeamInfo
 ) ->
 	OL = lists:foldl(
@@ -482,7 +578,7 @@ doLeaderOffline(
 				LeaderID
 				, NewLeaderID
 				, TeamInfo
-				, MapPid
+				, MapID
 				, IsNotInCopy
 			);
 		_ ->
@@ -514,8 +610,8 @@ doChangeLeader(
 	LeaderID
 	, NewLeaderID
 	, #recTeamInfo{teamID = TeamID} = TeamInfo
-	, MapPid
-	, IsNotInCopy
+	, _MapID
+	, _IsNotInCopy
 ) ->
 	NewTeamInfo = TeamInfo#recTeamInfo{leaderID = NewLeaderID},
 	myEts:insertEts(?Ets_TeamList, NewTeamInfo),
@@ -525,12 +621,6 @@ doChangeLeader(
 			base = teamInterface:makeNetTeamBaseInfo(NewTeamInfo)
 		},
 		true),
-	case IsNotInCopy of
-		false ->
-			core:sendMsgToMapMgr(MapPid, changeTeamLeader, {LeaderID, NewLeaderID});
-		_ ->
-			skip
-	end,
 	?DEBUG_OUT("changeLeader,team[~p], leader[~p -> ~p]", [TeamID, LeaderID, NewLeaderID]),
 	ok.
 %%%-------------------------------------------------------------------
@@ -549,9 +639,9 @@ canChangeTargetMap(RoleID, _MapID) ->
 			TeamInfo = teamInterface:getTeamInfoWithRoleID(RoleID),
 			case TeamInfo of
 				#recTeamInfo{} ->
-					case teamInterface:isTeamStartCopyMapAcking(TeamInfo) of
-						 false ->
-							 {true, TeamInfo};
+					case teamInterface:isTeamStartCopyMapAck(TeamInfo) of
+						false ->
+							{true, TeamInfo};
 						_ ->
 							{false, ?ErrorCode_TeamAreadyStartCopy}
 					end;
@@ -589,7 +679,11 @@ leaderStartCopyMap({LeaderID, NetPid}) ->
 		{true, TeamInfo} ->
 			doLeaderStartCopyMap(LeaderID, TeamInfo);
 		{_, ErrorCode} ->
-			playerMsg:sendErrorCodeMsg(NetPid, ErrorCode)
+			playerMsg:sendErrorCodeMsg(NetPid, ErrorCode);
+		{_, ErrorCode,Params} ->
+			playerMsg:sendErrorCodeMsg(NetPid, ErrorCode, Params);
+		_ ->
+			skip
 	end,
 	ok.
 
@@ -598,20 +692,27 @@ canLeaderStartCopyMap(LeaderID) ->
 		true ->
 			TeamInfo = teamInterface:getTeamInfoWithRoleID(LeaderID),
 			case TeamInfo of
-				#recTeamInfo{memberList = ML} ->
-					case teamInterface:isTeamStartCopyMapAcking(TeamInfo) of
+				#recTeamInfo{copyMapID = 0} ->
+					{false, ?ErrorCode_TeamCantChangeMapZero};
+				#recTeamInfo{memberList = ML, copyMapID = CopyMapID} ->
+					case teamInterface:isTooMuchMemberForMapWithTeamInfo(TeamInfo) of
 						false ->
-							MOL = [RoleID ||
-								#recTeamMemberInfo{roleID = RoleID, code = Code} <- ML
-								, Code =:= 0],
-							case MOL of
-								[] ->
-									{true, TeamInfo};
+							case teamInterface:isTeamStartCopyMapAck(TeamInfo) of
+								false ->
+									MOL = [RoleID ||
+										#recTeamMemberInfo{roleID = RoleID, code = Code} <- ML
+										, Code =:= 0],
+									case MOL of
+										[] ->
+											{true, TeamInfo};
+										_ ->
+											{false, ?ErrorCode_TeamSomeoneOffline}
+									end;
 								_ ->
-									{false, ?ErrorCode_TeamSomeoneOffline}
+									{false, ?ErrorCode_TeamAreadyStartCopy}
 							end;
 						_ ->
-							{false, ?ErrorCode_TeamAreadyStartCopy}
+							{false, ?ErrorCode_TeamMemberTooMuchForMap, [teamInterface:getCfgTeamMaxMember(CopyMapID)]}
 					end;
 				_ ->
 					{false, ?ErrorCode_TeamDissmissed}
@@ -675,7 +776,7 @@ canMemberStartCopyMapAck(RoleID, _) ->
 			case TeamInfo of
 				%%至少有个队长
 				#recTeamInfo{ackStartCopyRoleList = ACL} ->
-					case teamInterface:isTeamStartCopyMapAcking(TeamInfo) of
+					case teamInterface:isTeamStartCopyMapAck(TeamInfo) of
 						true ->
 							case lists:member(RoleID, ACL) of
 								true ->
@@ -709,7 +810,8 @@ doMemberStartCopyMapAck(RoleID, Ack, _Active,
 				};
 			_ ->
 				TeamInfo#recTeamInfo{
-					ackStartCopyRoleList = [RoleID | ACL]
+					ackStartCopyRoleList = [RoleID | ACL],
+					leaderStartCopyTime = time2:getTimestampSec()
 				}
 		end,
 	myEts:insertEts(?Ets_TeamList, NewTeamInfo),
@@ -768,7 +870,7 @@ canKickMember(LeaderID, TargetID) ->
 					TeamInfo = teamInterface:getTeamInfoWithRoleID(LeaderID),
 					case TeamInfo of
 						#recTeamInfo{} ->
-							case teamInterface:isTeamStartCopyMapAcking(TeamInfo) of
+							case teamInterface:isTeamStartCopyMapAck(TeamInfo) of
 								false->
 									{true, TeamInfo};
 								_->
@@ -790,7 +892,7 @@ doKickMember(RoleID,
 	case core:queryNetPidByRoleID(RoleID) of
 		NetPid when erlang:is_pid(NetPid) ->
 			playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_TeamLeaderKickU),
-			playerMsg:sendNetMsg(NetPid, #pk_GS2U_TeamReset{});
+			playerMsg:sendNetMsg(NetPid, #pk_GS2U_TeamReset{reason = ?TeamRst_Kick});
 		_ ->
 			skip
 	end,
@@ -807,6 +909,14 @@ doKickMember(RoleID,
 	onMemberCountDec(RoleID, TeamID, NewTeamInfo#recTeamInfo.memberList),
 	myEts:deleteRecord(?Ets_RoleIDRefTeamID, RoleID),
 	?DEBUG_OUT("[~p]KickMember,team[~p],target[~p]", [LeaderID, TeamID, RoleID]),
+
+	%% 离开组队后向角色进程反馈
+	case core:queryOnLineRoleByRoleID(RoleID) of
+		#rec_OnlinePlayer{pid = Pid} ->
+			psMgr:sendMsg2PS(Pid, leaveTeamOK, TeamID);
+		_ ->
+			skip
+	end,
 	ok.
 
 %%%-------------------------------------------------------------------

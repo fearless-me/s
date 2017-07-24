@@ -239,6 +239,22 @@
         %%: 排行榜模型缩放
         mankmodescale,
 
+        %%: admin:
+        %%: 新增字段，表示暴击，闪避，破甲百分比的附加
+        rarePro,
+
+        %%: 骑宠移动速度
+        runSpeed,
+
+        %%: 出战宠物属性转化比例
+        masterAdd,
+
+        %%: 助战宠物属性转化比例
+        petToMaster,
+
+        %%: 非出战非助战的已获得的宠物的属性转化比例
+        idlePetToMaster,
+
         %%: 生命修正系数
         hpMulti,
 
@@ -266,17 +282,7 @@
         %%: 元素伤害系数
         eleDamMulti,
 
-        %%: 骑宠移动速度
-        runSpeed,
-
-        %%: 出战宠物属性转化比例
-        masterAdd,
-
-        %%: 助战宠物属性转化比例
-        petToMaster,
-
-        %%: 非出战非助战的已获得的宠物的属性转化比例
-        idlePetToMaster
+        priProp_SkillMinusCDFactor
 
  }).
 

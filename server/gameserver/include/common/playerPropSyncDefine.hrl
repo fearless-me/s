@@ -47,8 +47,8 @@
 	?PriProp_PlayerKpNum,
 	?PubProp_TitleOutDate,
 	?PubProp_WingLevel,
-	?PriProp_WingExp,
-	?PriProp_WingMaxLevel,
+	?PriProp_FashionRoomExp,
+	?PriProp_FashionRoomLevel,
 	?PriProp_CrosArenaInte,
 	?PriProp_PlayerOnlineTime,
 	?PriProp_PlayerOnlineReward,
@@ -102,7 +102,12 @@
 	?SerProp_SevenDayAimAlreadyReward,
 	?SerProp_ThirtyDayTimeAlreadyReward,
 	?SerProp_SideTaskCompleteList,
-	?SerProp_SevenDayAim_ProtectGod
+	?SerProp_SevenDayAim_ProtectGod,
+	?SerProp_SevenDayAim_Material,
+	?SerProp_UpSkill_CostList,
+	?SerProp_EquipGems,
+	?SerProp_ThirtyDayTimeBegin,
+	?SerProp_AlreadyEnterNormalMap
 ]).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -126,15 +131,18 @@
 -define(PubProp_GemSpriteLevel,		14).	% int 宝石精灵等级
 -define(PubProp_FashionVisibleFlag,	15).	% int 0显示时装，1不显示时装
 -define(PubProp_PetTurnRaw,			16).	% int 宠物转生
--define(PubProp_TitleOutDate,		17).	%int 过期称号的ID
--define(PubProp_WingLevel,			18).	%int 翅膀等级
--define(PubProp_DarknessCamp,		19).	%int 黑暗之地阵营，0无，1正义，2邪恶
+-define(PubProp_TitleOutDate,		17).	% int 过期称号的ID
+-define(PubProp_WingLevel,			18).	% (废弃)int 翅膀等级（实际上是翅膀阶级），参考?PriProp_WingMaxLevel
+-define(PubProp_DarknessCamp,		19).	% int 黑暗之地阵营，0无，1正义，2邪恶
 -define(PubProp_ActiveGoddessID,    20).    % 激活的女神id
--define(PubProp_WakeSkillLv, 21).  %% 觉醒技能等级uint32
--define(PubProp_HeadEmoticonIcon,   22).  %% 头顶表情符号索引 int
--define(PubProp_MoveSpeed,   23).  %% float 移动速度
--define(PubProp_PlayerKillValue,   24).  %% 杀戮值
--define(PubProp_End, 				25).
+-define(PubProp_WakeSkillLv, 		21).  	%% 觉醒技能等级uint32
+-define(PubProp_HeadEmoticonIcon,   22).  	%% 头顶表情符号索引 int
+-define(PubProp_MoveSpeed,   		23).  	%% float 移动速度
+-define(PubProp_PlayerKillValue,   	24).  	%% 杀戮值
+-define(PubProp_FashionBack, 		25).	% int 时装背部
+-define(PubProp_FashionSpirit, 		26).	% int 时装精灵
+-define(PubProp_FashionEmotion, 	27).	% int 时装表情
+-define(PubProp_End, 				28).
 -type pubProp() :: ?PubProp_Start .. ?PubProp_End.
 
 
@@ -149,14 +157,14 @@
 -define(PriProp_MeditationExp,		10004). % int 灵力冥想基础经验
 -define(PriProp_RoleCreateTime,		10005). % int 角色创建时间
 -define(PriProp_Guild_GodBless_LastTime,	10006).	% int 家族系统-女神祈福-上次成功祈福的时间
--define(PriProp_WingMaxLevel,		10007). % int 翅膀最大等级
+-define(PriProp_FashionRoomLevel,		10007). % int 衣帽间等级
 -define(PriProp_PreRecharge,		10008). % int 预充值金额
 -define(PriProp_PlayerForce,		10009). % int64 玩家战力
 -define(PriProp_LoopTaskProcess,	10010). % int 环任务进度子类型
 -define(PriProp_PlayerKillValue,	10011).	% int 玩家杀戮值  <!!!!!!!废弃!!!!!!>
 -define(PriProp_PetForce,			10013).	% int64 宠物战力、宠物总战斗力
 -define(PriProp_PlayerKpNum,		10014).	% int 玩家杀人数量
--define(PriProp_WingExp,			10015).	% int 翅膀当前经验
+-define(PriProp_FashionRoomExp,			10015).	% int 衣帽间
 -define(PriProp_CrosArenaInte,		10016). % int 跨服竞技场积分
 -define(PriProp_PlayerOnlineTime,	10017). % int 玩家在线时长 分钟计算
 -define(PriProp_PlayerOnlineReward, 10018).	% int64 玩家在线领取奖励列表
@@ -256,12 +264,18 @@
 -define(SerProp_SevenDayAim_Force,			20074).	% ?SevenDayAim_Force		Force::uint64()
 -define(SerProp_SevenDayAim_EquipQuality,	20075).	% ?SevenDayAim_EquipQuality [Count::uint(),...]
 -define(SerProp_SevenDayAim_PetAdd,			20076).	% ?SevenDayAim_PetAdd 		[{PetID::uint16(),Count::uint()},...]
--define(SerProp_SevenDayAimTimeBegin,		20077).	% 七日目标开始时间 与 30日大礼包开始时间兼容 目前设定的是角色首次登录当天凌晨4点的本地时间，时间格式如同time:getSyncTimeFromDBS/0
+-define(SerProp_SevenDayAimTimeBegin,		20077).	% 七日目标开始时间 目前设定的是角色 功能开启后 首次登录当天凌晨4点的本地时间，时间格式如同time:getSyncTimeFromDBS/0
 -define(SerProp_SevenDayAimAlreadyReward,	20078).	% 七日目标已领取奖励 存的是seven_day_aimCfg.id [uint(),...]
 -define(SerProp_ThirtyDayTimeAlreadyReward,	20079).	% 30日大礼包已领取奖励 存的是已领取的最大thirty_day_login_giftCfg.id uint()
 -define(SerProp_SideTaskCompleteList, 20080).
 -define(SerProp_SevenDayAim_ProtectGod,		20081).	% ?SevenDayAim_ProtectGod	Wave::uint()
--define(SerProp_End, 20082).
+-define(SerProp_SevenDayAim_Material,		20082).	% ?SevenDayAim_Material		[MapID::uint16(),...]
+-define(SerProp_UpSkill_CostList,		20083).	% [{MoneyType, MoneyNumber}]
+-define(SerProp_EquipGems,		20084).	% [#recGemInfo{}]
+-define(SerProp_ThirtyDayTimeBegin,		20085).	% 30日大礼包开始时间 目前设定的是角色首次登录当天凌晨4点的本地时间，时间格式如同time:getSyncTimeFromDBS/0
+-define(SerProp_AlreadyEnterNormalMap,		20086).	% 玩家进入过的普通地图列表 [MapID::uint16(), ...]
+-define(SerProp_MonsterBookProp,		20087).	% 怪物图鉴附加属性，加法值，不存DB [{propType::uint(), propValue::uint()}, ...]
+-define(SerProp_End, 20088).
 -type serProp() :: ?SerProp_Start .. ?SerProp_End.
 
 

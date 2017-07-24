@@ -133,9 +133,18 @@ doBackGoddessHp(_MonsterCode) ->
 
 -spec goddessBeKilled(MonsterID::uint32(), AttackerCode::uint64()) ->term().
 goddessBeKilled(MonsterID,AttackerCode) ->
-	#globalsetupCfg{setpara =[ID,_X,_Y] } = getCfg:getCfgByArgs(cfg_globalsetup, goddess),
+
+	MapID = mapState:getMapId(),
+	#globalsetupCfg{setpara =GoddIDList } = getCfg:getCfgByArgs(cfg_globalsetup, goddess),
+
+	GoddID =
+		case  lists:keyfind(MapID, 1, GoddIDList) of
+			{MpID,GID }-> GID;
+			_->
+				0
+		end,
 	if
-		MonsterID =:= ID ->
+		MonsterID =:= GoddID ->
 			?LOG_OUT("goddessBeKilled MapPid:~p attackerCode:~p",[self(),AttackerCode]),
 			mapState:setGoddessDead(true);
 		true ->

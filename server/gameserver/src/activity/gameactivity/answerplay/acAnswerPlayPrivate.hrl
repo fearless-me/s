@@ -8,13 +8,17 @@
 
 -record(recAnswerResult, {
 		roleID = 0,			%%角色ID
-        roleName = "",      %%角色名字
-		answerTime = 0,		%%角色答题时间
-        trueNum = 0,        %%答题正确数
-		rusult = 0,  	    %%角色答题结果
-        exp = 0 :: uint(),  %%角色累积经验
-        coin = 0 ::uint(),  %%角色累积金币
-        answerNum=0         %%答题次数
+		pid = undefined,
+		netPid = undefined,
+        roleName = ""     ::string(),      %%角色名字
+		isRusult =   false ::boolean(),  	    %%是否已经答题
+		score = 0 , %%积分
+		race			= 0, %% 玩家种族
+		career          = 0, %% 职业
+		sex				= 0, %% 性别
+		level           = 0, %% 等级
+		head            = 0  %%头像
+
 	 }).
 
 -record(recAnswerTrue, {
@@ -26,4 +30,8 @@
 	startTime = 0,		%%开始时间
 	prepareTime = 0		%%间隔时间					 
  }).
+
+%% 心跳，用于驱动地图状态
+-define(AnswerTimerTick, answer_timerTick).	% 秒级心跳消息
+-define(TimeTick, 30000).							% 心跳时间
 -endif.

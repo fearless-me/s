@@ -29,7 +29,8 @@
 	link_reshuffle/1,
 	link_giveup/1,
 	link_resetPos/1,
-	link_buff/1
+	link_buff/1,
+	poolShooting/1
 ]).
 
 %%% ====================================================================
@@ -143,32 +144,33 @@ enterTryAck(DateActiveID) ->
 enterTryAsk(Pid, {_FromRoleID, DateActiveID}) ->
 	RoleID = playerState:getRoleID(),
 	%?DEBUG_OUT("[DebugForDate] enterTryAsk DateActiveID(~p) at RoleID(~p) _FromRoleID(~p)", [DateActiveID, RoleID, _FromRoleID]),
-	ErrorCode =
+	{ErrorCode,DailyCount} =
 		%% 1.检查自己的地图位置是否正确
 		case checkMyMap() of
 			?ErrorCode_Date_Map_NotGroup ->
-				?ErrorCode_Date_Team_Map_NotGroup;
+				{?ErrorCode_Date_Team_Map_NotGroup,0};
 			?ErrorCode_Date_Map_NeedNormal ->
-				?ErrorCode_Date_Team_Map_NeedNormal;
+				{?ErrorCode_Date_Team_Map_NeedNormal,0};
 			ok ->
 				%% 2.检查自身等级与每日次数限制
 				DailyType = acDateState:getDailyTypeWithActiveID(DateActiveID),
-				DailyCount = playerDaily:getDailyCounter(DailyType, 0),
-				case acDateState:checkLevelAndDailyCounter(DateActiveID, playerState:getLevel(), DailyCount) of
+				case acDateState:checkLevelAndDailyCounter(DateActiveID, playerState:getLevel(),0) of
 					ok ->
 						%% 此处增加队员的每日计数
 						playerDaily:incDailyCounter(DailyType, 0),
-						0;
+						Count = playerDaily:getDailyCounter(DailyType, 0),
+						{0 ,Count};
 					ErrorCodeLevelOrDailyCount ->
-						ErrorCodeLevelOrDailyCount
+						{ErrorCodeLevelOrDailyCount,0}
 				end
 		end,
-	psMgr:sendMsg2PS(Pid, date_enterTryReply, {RoleID, DateActiveID, ErrorCode}),
+
+	psMgr:sendMsg2PS(Pid, date_enterTryReply, {RoleID, DateActiveID, ErrorCode,DailyCount}),
 	ok.
 
 %% 收到询问的反馈
--spec enterTryReply({FromRoleID::uint64(), DateActiveID::type_daid(), ErrorCode::uint()}) -> ok.
-enterTryReply({FromRoleID, DateActiveID, ErrorCode}) ->
+-spec enterTryReply({FromRoleID::uint64(), DateActiveID::type_daid(), ErrorCode::uint(), OhterDailyCount::uint()}) -> ok.
+enterTryReply({FromRoleID, DateActiveID, ErrorCode,OhterDailyCount}) ->
 	RoleID = playerState:getRoleID(),
 	%?DEBUG_OUT("[DebugForDate] enterTryReply DateActiveID(~p) at RoleID(~p) FromRoleID(~p) ErrorCode(~p)", [DateActiveID, RoleID, FromRoleID, ErrorCode]),
 	case ErrorCode of
@@ -177,7 +179,8 @@ enterTryReply({FromRoleID, DateActiveID, ErrorCode}) ->
 			%% 此处增加队长的每日计数
 			DailyType = acDateState:getDailyTypeWithActiveID(DateActiveID),
 			playerDaily:incDailyCounter(DailyType, 0),
-			core:sendMsgToActivity(?ActivityType_Date, date_enterCreate, {DateActiveID, RoleID, FromRoleID});
+			DailyCount = playerDaily:getDailyCounter(DailyType, 0),
+			core:sendMsgToActivity(?ActivityType_Date, date_enterCreate, {DateActiveID, RoleID, FromRoleID,DailyCount,OhterDailyCount});
 		_ ->
 			%% 队友验证未通过
 			error_code(ErrorCode)
@@ -226,12 +229,26 @@ touchBox(Code, PosXY,  IsDelete,GMMod) ->
 	%?DEBUG_OUT("[DebugForDate] link at RoleID(~p) Pos(~p) IsSelect(~p) GMMod(~p)", [RoleID, Pos, IsSelect, GMMod]),
 	case isInMap(?ActivityType_Date) of
 		true ->
-			playerMove:stopMove(true),
 			core:sendMsgToActivity(?ActivityType_Date, date_touch_box, {RoleID, {Code, PosXY,IsDelete, GMMod}});
 		_ ->
 			skip
 	end,
 	ok.
+
+
+%% 碰撞到箱子
+-spec poolShooting( GMMod::0|1|2) -> ok.
+poolShooting(GMMod) ->
+	RoleID = playerState:getRoleID(),
+	%?DEBUG_OUT("[DebugForDate] link at RoleID(~p) Pos(~p) IsSelect(~p) GMMod(~p)", [RoleID, Pos, IsSelect, GMMod]),
+	case isInMap(?ActivityType_Date) of
+		true ->
+			core:sendMsgToActivity(?ActivityType_Date, date_pool_shooting, {RoleID, { GMMod}});
+		_ ->
+			skip
+	end,
+	ok.
+
 
 
 %% 活动进程通知添加BUFF
@@ -347,6 +364,10 @@ isInMap(DateActiveID) ->
 		#mapsettingCfg{type = ?MapTypeActivity, subtype = MapSubType} ->
 			true;
 		#mapsettingCfg{type = ?MapTypeActivity, subtype = ?MapSubTypeDatebox} ->
+			true;
+		#mapsettingCfg{type = ?MapTypeActivity, subtype = ?MapSubTypeDatePoolParty} ->
+			true;
+		#mapsettingCfg{type = ?MapTypeActivity, subtype = ?MapSubTypeDateFindTreasure} ->
 			true;
 		#mapsettingCfg{} ->
 			false;

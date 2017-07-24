@@ -42,7 +42,8 @@ tickSavePlayerData({AccountID, RoleID}) ->
 				#rec_playerdata{
 					rec_player_prop = Props,
 					rec_task_accepted = Accepts,
-					rec_task_submitted = Submitted
+					rec_task_submitted = Submitted,
+					rec_player_monster_book = MonsterBook
 				} = Data
 			] ->
 				%% 检查有哪些改变，没改变的不存
@@ -53,8 +54,9 @@ tickSavePlayerData({AccountID, RoleID}) ->
 					[#rec_playerdata{
 						rec_player_prop = Props2,
 						rec_task_accepted = Accepts2,
-						rec_task_submitted = Submitted2}
-					] ->
+						rec_task_submitted = Submitted2,
+						rec_player_monster_book = MonsterBook2
+					}] ->
 						Data2 =
 							case Props =:= Props2 of
 								true -> Data#rec_playerdata{rec_player_prop = undefined};
@@ -70,7 +72,12 @@ tickSavePlayerData({AccountID, RoleID}) ->
 								true -> Data3#rec_playerdata{rec_task_submitted = undefined};
 								_ -> Data3
 							end,
-						gsSendMsg:sendMsg2DBServer(playerDataCommonMsg, AccountID, Data4),
+						Data5 =
+							case MonsterBook =:= MonsterBook2 of
+								true -> Data4#rec_playerdata{rec_player_monster_book = undefined};
+								_ -> Data4
+							end,
+						gsSendMsg:sendMsg2DBServer(playerDataCommonMsg, AccountID, Data5),
 						ok;
 					_ ->
 						gsSendMsg:sendMsg2DBServer(playerDataCommonMsg, AccountID, Data),

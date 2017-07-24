@@ -41,19 +41,20 @@
 %%
 -record(rec_configdb,{
 	id = 0,				%% int(11)
+	gameID = 165,				%%平台分配的游戏ID int(11)
 	regionid = 0,				%% int(11)
 	serverid = 0,				%%大区下服务器ID,serverid,范围1~1023 smallint(5) unsigned
 	ptid = 0,				%% int(50)
-	serverType = 0,				%%1普通服，2跨服中心服，3跨服普通服 int(11)
+	serverType = 0,				%% 0是测试服,1是正式服,3是正式跨服,4是正式战斗服,5测试跨服 int(11)
 	servername = "",				%% varchar(255)
 	externalip = "",				%%服务器所在公网ip char(32)
 	internalip = "",				%%服务器所在内网ip char(32)
-	data_ip = "",				%%逻辑数据库ip char(32)
 	slave_id = 0,				%% int(11)
 	gameport1 = 0,				%% int(11)
 	gameport2 = 0,				%% int(11)
 	gameport_gm = 0,				%% int(11)
 	gameport_recharge = 0,				%% int(11)
+	data_ip = "",				%%逻辑数据库ip char(32)
 	data_username = "",				%% varchar(64)
 	data_password = "",				%% varchar(64)
 	data_port = 0,				%% smallint(6) unsigned
@@ -74,7 +75,16 @@
 	global_activecode_port = 0,				%% smallint(6) unsigned
 	global_activecode_dbname = "",				%% varchar(64)
 	cross_node = "",				%%跨服节点 varchar(64)
-	server_des = "",				%%服务器描述 varchar(255)
+	eveUrl = "",				%% varchar(255)
+	paymentVerifyUrl = "",				%% varchar(255)
+	biInterface="http://gather-client-data.funcell123.com",				%% varchar(255)
+	preLoadDayNumber = 3,				%%预加载最近登陆的天数的账号 int(11)
+	preLoadRoleNumber = 2000,				%%预加载最近登陆的天数账号下的所有角色 int(11)
+	gamekey = "",				%%游戏服启动读取的key varchar(1024)
+	gm_select_username = "",				%%GM查询从库的用户 varchar(64)
+	gm_select_password = "",				%%GM查询从库的密码 varchar(64)
+	gm_select_dbport = 0,				%%GM查询从库的端口 int(11)
+	serverIdList = "",				%%主要用于区分合服 varchar(255)
 	ismerged = 0,				%% int(11)
 	mergeindate = 0,				%% datetime
 	createdate = 0				%% timestamp

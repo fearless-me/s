@@ -62,6 +62,26 @@ start_link() ->
 	ignore |
 	{error, Reason :: term()}).
 init([]) ->
+	%%跨服窗口进程
+	GSCrossServer = {
+		gsCrosOtp,
+		{gsCrosOtp, start_link, []},
+		permanent,
+		2000,
+		worker,
+		[gsCrosOtp]
+	},
+
+	%%跨服窗口进程
+	CrossGSServer = {
+		crossGsOtp,
+		{crossGsOtp, start_link, []},
+		permanent,
+		2000,
+		worker,
+		[crossGsOtp]
+	},
+
 	%% main进程
 	Main = {lsMainOtp,                         			% Id       = internal id
 		{lsMainOtp, start_link, []},				% StartFun = {M, F, A}
@@ -89,14 +109,26 @@ init([]) ->
 		[lsSubSup]
 	},
 
+	List = case core:isCross() of
+			   false ->
+				   [
+					   GSCrossServer,
+					   Main,
+					   LoginQueue,
+					   LSSubSup
+				   ];
+			   _ ->
+				   [
+					   CrossGSServer,
+					   Main,
+					   LoginQueue,
+					   LSSubSup
+				   ]
+		   end,
+
 	{ok,
 		{
-			{one_for_one, ?MAX_RESTART, ?MAX_TIME},
-			[
-				Main,
-				LoginQueue,
-				LSSubSup
-			]
+			{one_for_one, ?MAX_RESTART, ?MAX_TIME}, List
 		}
 	}.
 

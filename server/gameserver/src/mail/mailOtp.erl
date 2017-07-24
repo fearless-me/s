@@ -20,11 +20,11 @@ start_link() ->
 init([]) ->
 	?LOG_OUT("init..."),
 
-    edb:createTable(?MnesiaMail, [{type, ordered_set}, {attributes, record_info(fields, ?MnesiaMail)}, {index, [toRoleID]}]),
-    edb:createTable(?MnesiaSysMail, [{type, ordered_set}, {attributes, record_info(fields, ?MnesiaSysMail)}, {index, [toRoleID]}]),
+    edb:createTable(?MnesiaMail, [{type, ordered_set}, {ram_copies, [node()]}, {attributes, record_info(fields, ?MnesiaMail)}, {index, [toRoleID]}]),
+    edb:createTable(?MnesiaSysMail, [{type, ordered_set}, {ram_copies, [node()]}, {attributes, record_info(fields, ?MnesiaSysMail)}, {index, [toRoleID]}]),
 
     %% 等待加载完成
-    mnesia:wait_for_tables([?MnesiaMail, ?MnesiaSysMail], 20000),
+%%    mnesia:wait_for_tables([?MnesiaMail, ?MnesiaSysMail], 20000),
 
     %% 判断过期邮件
     judgeTimeOutMail(),
@@ -96,6 +96,11 @@ handle_info({newMailAck, _Pid, {Mail, Attachments, Ret}}, State)->
 handle_info({readMail, PidFromGS, Msg},State) ->
     Ret = libMail:readMail(Msg),
     psMgr:sendMsg2PS(PidFromGS, readMailAck, {Ret}),
+    {noreply, State};
+
+%% 阅读邮件
+handle_info({readMailNoAck, _PidFromGS, Msg},State) ->
+    libMail:readMail(Msg),
     {noreply, State};
 
 %% 锁定邮件

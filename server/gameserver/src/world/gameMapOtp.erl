@@ -22,7 +22,7 @@ start_link(#recCreateMapArg{} = CreateMapArg) ->
 init([#recCreateMapArg{mapId = MapID, mapLine = MapLine, createRoleID = CreateRoleID}] = Msg) ->
 	%% 对象数据管理ETS
 	PlayerEts = ets:new(mapPlayerEts, [public, {keypos, #recMapObject.code}, {write_concurrency, true}, {read_concurrency, true}]),
-	MonsterEts = ets:new(mapMonsterEts, [protected, {keypos, #recMapObject.code}, {write_concurrency, true}, {read_concurrency, true}]),
+	MonsterEts = ets:new(mapMonsterEts, [public, {keypos, #recMapObject.code}, {write_concurrency, true}, {read_concurrency, true}]),
 	NpcEts = ets:new(mapNcEts, [public, {keypos, #recMapObject.code}, {write_concurrency, true}, {read_concurrency, true}]),
 	PetEts = ets:new(mapPetEts, [public, {keypos, #recMapObject.code}, {write_concurrency, true}, {read_concurrency, true}]),
 	CollectEts = ets:new(mapCollectEts, [protected, {keypos, #recMapObject.code}, {write_concurrency, true}, {read_concurrency, true}]),
@@ -123,14 +123,6 @@ handle_info({requestGatherItem, PidFrom, Msg}, State) ->
 	psMgr:sendMsg2PS(PidFrom, requestGatherItemAck, {Ret, Msg}),
 	{noreply, State};
 
-%% 副本拥有者改变
-handle_info({changeTeamLeader, _Pid, NewLeaderID}, State) ->
-	OwnerID = mapState:getMapOwnerID(0),
-	MapID = mapState:getMapId(),
-	mapState:setMapOwnerID(0, NewLeaderID),
-	?LOG_OUT("~p ~p changeTeamLeader:~p -> ~p,~p", [?MODULE, self(), OwnerID, NewLeaderID, MapID]),
-	{noreply, State};
-
 %% 更新NPC出现的坐标位置
 handle_info(tickUpdateNpcPos, State) ->
 	case npcMove:updateMoveNpcPos() of
@@ -160,9 +152,9 @@ handle_info({mapOtpAfterDo, Fun}, State) when erlang:is_function(Fun, 0) ->
 	{noreply, State};
 
 %%产指定怪（新地宫）
-handle_info({randAddMonster, _Pid, {LocationInstanceList, MapLevel}}, State) ->
-	copyMapGoddess:createMonster(LocationInstanceList, MapLevel),
-	{noreply, State};
+%%handle_info({randAddMonster, _Pid, {LocationInstanceList, MapLevel}}, State) ->
+%%	copyMapGoddess:createMonster(LocationInstanceList, MapLevel),
+%%	{noreply, State};
 
 %%沙盘PVP，雕像
 handle_info({createExpeditionOccGuildStatue, _Pid, Param}, State) ->
@@ -171,6 +163,10 @@ handle_info({createExpeditionOccGuildStatue, _Pid, Param}, State) ->
 
 handle_info({createExpeditionPointOwnerGuildBannerNpc, _Pid, Param}, State) ->
 	gameMapGuildExpedition:createBannerNpc(Param),
+	{noreply, State};
+
+handle_info({tickUpdateMonsterPos, _Pid, {Code, X, Y}}, State) ->
+	monsterState:setMonsterPos(Code, X, Y),
 	{noreply, State};
 
 %%%%王者战天下结束，广播给参与者
@@ -381,7 +377,7 @@ handle_info({playerEntermap, PID, {PlayerCode, GroupID}}, State) ->
 					skip
 			end,
 			gameMapLogic:sendMapLeftTimeToMapPlayer(NetPid),
-			copyMapGoddess:initFirstSchedule4demonBattle(PID),
+%%			copyMapGoddess:initFirstSchedule4demonBattle(PID),
 			gameMapActivityLogic:playerEnterACMap(RoleID, RoleObj),
 
 			%% 同步全图血怪给客户端
@@ -469,6 +465,9 @@ handle_info({destory, Pid, {}}, State) when Pid =:= self() ->
 	%% 通知活动进程地图销毁
 	gameMapActivityLogic:destoryMap(),
 
+	%% 如果是家园，则销毁家园地图
+	homeInterface:destroyHomeMap(MapID, self()),
+
 	%% 销毁军团地图
 	case MapID of
 		?GuildFairgroundMapID ->
@@ -499,13 +498,25 @@ handle_info(reallyDestorySelf, State) ->
 
 	gameMapLogic:eraseGroup(0),
 
+	MapID = mapState:getMapId(),
 	case mapState:getGoonCopyMapState() of
 		true -> skip;
 		_ ->
-			MapID = mapState:getMapId(),
 			core:sendMsgToMapMgr(MapID, destoryMap, {MapID, self()})
 	end,
 	mapBase:reclaimAllCode(),
+
+	%% 回收助战地图
+	case getCfg:getCfgPStack(cfg_mapsetting, MapID) of
+		#mapsettingCfg{type = ?MapTypeCopyMap} ->
+			%% 删除助战数据
+			MS = ets:fun2ms(fun(#recAssistCopyMap{mapPID = MapPID} = Apply) when MapPID =:= self() -> Apply end),
+			L = ets:select(ets_recAssistCopyMap, MS),
+			[ets:delete_object(ets_recAssistCopyMap, AY) || AY <- L],
+			ok;
+		_ ->
+			skip
+	end,
 	{stop, normal, State};
 
 handle_info({resetCopyMap, _Pid, _}, State) ->
@@ -610,6 +621,16 @@ handle_info({addMonsterToMap_EscortGharry, _Pid, Data}, State) ->
 handle_info({addMonsterToMap_GuildMonster, _Pid, {GroupID, Radius, GuildID, MonsterList}}, State) ->
 	List = copyMapScheduleInit:getMapObjDataList(GroupID, MonsterList, Radius),
 	mapBase:spawnAllMonster(List,undefined,0,GuildID),
+	{noreply, State};
+
+%% 家园-种植区-操作成功后需要同步给地图上所有角色
+handle_info({plantSuccess, _Pid, Msg}, State) ->
+	PlayerEts = mapState:getMapPlayerEts(),
+	FunSend =
+		fun(#recMapObject{netPid = NetPid}, _) ->
+			playerMsg:sendNetMsg(NetPid, Msg)
+		end,
+	ets:foldl(FunSend, 0, PlayerEts),
 	{noreply, State};
 
 %%=============================================
@@ -760,8 +781,8 @@ handle_info({addHate, _Pid, {MonsterCode, Hate}}, State) ->
 	monsterInterface:addHate(MonsterCode, Hate, false),
 	{noreply, State};
 
-handle_info({killedTarget, _Pid, {AttackerCode, TargetCode, Msg, X, Y, BossTargetCode}}, State) ->
-	monsterInterface:killedTarget(AttackerCode, TargetCode, Msg, X, Y, BossTargetCode),
+handle_info({killedTarget, _Pid, {AttackerCode, TargetCode, TargetLevel, Msg, X, Y, BossTargetCode}}, State) ->
+	monsterInterface:killedTarget(AttackerCode, TargetCode, TargetLevel, Msg, X, Y, BossTargetCode),
 	{noreply, State};
 
 %%技能效果返回结果
@@ -891,7 +912,8 @@ handle_info({createTowerMonsetr, _Pid, Msg}, State) ->
 handle_info({monsterUseSkill, _Pid, {MonsterCode, SkillID, TargetCode}}, State) ->
 	?DEBUG_OUT("[DebugForMonsterSkill] ~p", [{MonsterCode, SkillID, TargetCode}]),
 	SN = monsterState:getAttackSN(MonsterCode),
-	monsterSkill:useSkill(MonsterCode, SkillID, SN, TargetCode),
+	monsterState:setAttackSN(MonsterCode, SN + 1),
+	monsterSkill:useSkill(MonsterCode, SkillID, SN, TargetCode, true),
 	{noreply,State};
 
 %% 动画
@@ -919,9 +941,31 @@ handle_info({worldBossSetHp, _Pid, {DataID, HP}}, State) ->
 	gameMapWorldBoss:setHp(DataID, HP),
 	{noreply,State};
 %% ====================================================================
-handle_info({show2, _Pid, Msg}, State) ->
+handle_info({show2, _Pid, {_GroupID, _ConfigID, _Show2ID, true} = Msg}, State) ->
 	copyMapScheduleInit:show2(Msg),
 	{noreply,State};
+handle_info({show2, _Pid, {_GroupID, _ConfigID, _Show2ID, false} = Msg}, State) ->
+	copyMapScheduleComplete:show2(Msg),
+	{noreply,State};
+
+handle_info({addRingBuff, _Pid, Msg}, State) ->
+	monsterBuff:addRingBuff(Msg),
+	{noreply, State};
+
+handle_info({clearRingBuffOfMe, _Pid, Msg}, State) ->
+	monsterBuff:clearRingBuffFromOther(Msg),
+	{noreply, State};
+
+%%
+handle_info({monsterTrigger, _Pid, Msg}, State) ->
+	monsterEventTrigger:monsterTrigger(Msg),
+	{noreply, State};
+handle_info({monsterDelayTrigger, Msg}, State) ->
+	monsterEventTrigger:monsterTrigger(Msg),
+	{noreply, State};
+
+
+
 handle_info(Info, State) ->
 	?ERROR_OUT("unhandle info:[~p] in [~p] [~p,~p]", [Info, node(), ?MODULE, self()]),
 	{noreply, State}.
@@ -1026,7 +1070,8 @@ clearAllObject(?CodeTypeCollect) ->
 			[Code | L]
 		end,
 	CodeList = ets:foldl(FunGetCodeList, [], CollectEts),
-	[gatherNpcMgr:deleteCollect(Code) || Code <- CodeList],
+	[gatherNpcMgr:deleteCollectFast(Code) || Code <- CodeList],
+	mapState:setGatherWaitReliveList([]),	%% 清空复活列表
 	ok;
 %% 清除怪物
 clearAllObject(?CodeTypeMonster) ->
@@ -1038,23 +1083,28 @@ clearAllObject(?CodeTypeMonster) ->
 		end,
 	CodeList = ets:foldl(FunGetCodeList, [], MonsterEts),
 	[monsterInterface:clearSpawn(Code) || Code <- CodeList],
+	monsterState:setDeadMonsterList([]),	%% 清空复活列表
 	ok.
 
 %% 根据对象类型执行清除操作
-%% 快速清除对象，目前仅支持NPC
+%% 快速清除对象，目前仅支持NPC、Collect
 %% 在服务端的清除效果如同clearObject，但会通知客户端立即删除对象而非放在队列里慢慢删除
 -spec clearObjectFast({CodeType::code_type(), CodeList::[uint64(), ...]}) -> ok.
 %% 清除NPC
 clearObjectFast({?CodeTypeNPC, CodeList}) ->
 	NpcEts = mapState:getMapNpcEts(),
 	[gatherNpcMgr:deleteObjectFast(NpcEts, Code) || Code <- CodeList],
+	ok;
+%% 清除采集物
+clearObjectFast({?CodeTypeCollect, CodeList}) ->
+	[gatherNpcMgr:deleteCollectFast(Code) || Code <- CodeList],
 	ok.
 
 
 %% 新版骑宠领地
 %% 创建怪物
 -spec spawnPetAsMonster({Arg::#recSpawnMonster{}, Pet::#rec_player_territory_pet{}}) -> ok.
-spawnPetAsMonster({#recSpawnMonster{} = Arg, #rec_player_territory_pet{prop = {PropS, PropM}, skill = Skill}}) ->
+spawnPetAsMonster({#recSpawnMonster{camp = _Camp} = Arg, #rec_player_territory_pet{prop = Prop, skill = Skill}}) ->
 	%% 1.创建怪物
 	ArgNew =
 		Arg#recSpawnMonster{
@@ -1062,11 +1112,17 @@ spawnPetAsMonster({#recSpawnMonster{} = Arg, #rec_player_territory_pet{prop = {P
 			monsterEts      = mapState:getMapMonsterEts(),
 			petEts          = mapState:getMapPetEts()
 		},
-	%% 2.添加属性
+	%% 2.添加技能
 	Code = monsterInterface:spawnMonster(ArgNew),
-	monsterInterface:changeProp_AddMulti(Code, PropS, PropM, true),
-	%% 3.添加技能
 	[monsterSkill:addTempSkill(Code, SkillID, SkillLevel) || {SkillID, SkillLevel} <- Skill],
+	%% 3.重置属性
+	monsterInterface:updatePetTotalProp(Code, Prop),
 	%% 4.重置血量（添加属性后导致当前血量小于最大血量）
 	monsterState:setCurHp(Code, monsterState:getBattlePropTotal(Code, ?Prop_MaxHP)),
+	?DEBUG_OUT("[DebugForPetTerritoryFight] pid:~w camp:~w~n~p", [self(), _Camp, Prop]),
+	?DEBUG_OUT("[DebugForPetTerritoryFight] pid:~w camp:~w ~w:~w", [self(), _Camp, ?Prop_MaxHP, monsterState:getBattlePropTotal(Code, ?Prop_MaxHP)]),
+	?DEBUG_OUT("[DebugForPetTerritoryFight] pid:~w camp:~w ~w:~w", [self(), _Camp, ?Prop_PhysicalAttack, monsterState:getBattlePropTotal(Code, ?Prop_PhysicalAttack)]),
+	?DEBUG_OUT("[DebugForPetTerritoryFight] pid:~w camp:~w ~w:~w", [self(), _Camp, ?Prop_MagicAttack, monsterState:getBattlePropTotal(Code, ?Prop_MagicAttack)]),
+	?DEBUG_OUT("[DebugForPetTerritoryFight] pid:~w camp:~w ~w:~w", [self(), _Camp, ?Prop_PhysicalDefence, monsterState:getBattlePropTotal(Code, ?Prop_PhysicalDefence)]),
+	?DEBUG_OUT("[DebugForPetTerritoryFight] pid:~w camp:~w ~w:~w", [self(), _Camp, ?Prop_MagicDefence, monsterState:getBattlePropTotal(Code, ?Prop_MagicDefence)]),
 	ok.

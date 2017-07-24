@@ -11,7 +11,7 @@
 -author("Administrator").
 -include("globalSetup.hrl").
 -define(HTTPC_AUTH_TIMEOUT,1000*3).%%http请求超时设置S
--define(HTTPBODY,{
+-define(HTTP_BODY,{
 	{_,200,_},
 	_Head,
 	Body
@@ -156,7 +156,7 @@ httpPost(Url,SendData) ->
 	Result =
 		try
 			case httpc:request(post,{Url,RequestHeader, RequestType, SendData},[{connect_timeout,?HTTPC_AUTH_TIMEOUT},{timeout,?HTTPC_AUTH_TIMEOUT}],[{sync,true}]) of
-				{ok,?HTTPBODY} ->
+				{ok,?HTTP_BODY} ->
 					{ok,Body};
 				{error, Reason} ->
 					?ERROR_OUT("httpPost error=~p,postInfo=~p",[Reason,{Url,RequestHeader, RequestType, SendData}]),

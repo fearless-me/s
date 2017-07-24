@@ -7,246 +7,333 @@
 
 getRow(1)->
     #bussyItemTreeCfg {
-    order = 1,
+    order = 10,
     isFirst = 1,
     mainType = 1,
-    type = [0,1,2,3,4,5,6,7],
+    type = [-1],
+    text = "装备",
+    icon = 0,
+    quality = -1,
     subType = -1,
-    text = "装备"
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 0
     };
 getRow(2)->
     #bussyItemTreeCfg {
-    order = 2,
+    order = 11,
     isFirst = 0,
     mainType = 1,
-    type = [0],
+    type = [-1],
+    text = "全部",
+    icon = 1005,
+    quality = -1,
     subType = -1,
-    text = "主手"
+    qualityRangeShow = 1,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 1
     };
 getRow(3)->
     #bussyItemTreeCfg {
-    order = 3,
+    order = 12,
     isFirst = 0,
     mainType = 1,
-    type = [1],
+    type = [0],
+    text = "武器",
+    icon = 1001,
+    quality = -1,
     subType = -1,
-    text = "头盔"
+    qualityRangeShow = 1,
+    weaponRangeShow = 1,
+    raceRangeShow = 0,
+    levelRangeShow = 1
     };
 getRow(4)->
     #bussyItemTreeCfg {
-    order = 4,
+    order = 13,
     isFirst = 0,
     mainType = 1,
-    type = [2],
+    type = [1],
+    text = "头盔",
+    icon = 1302,
+    quality = -1,
     subType = -1,
-    text = "耳环"
+    qualityRangeShow = 1,
+    weaponRangeShow = 0,
+    raceRangeShow = 1,
+    levelRangeShow = 1
     };
 getRow(5)->
     #bussyItemTreeCfg {
-    order = 5,
+    order = 14,
     isFirst = 0,
     mainType = 1,
-    type = [3],
+    type = [2],
+    text = "耳环",
+    icon = 201,
+    quality = -1,
     subType = -1,
-    text = "胸甲"
+    qualityRangeShow = 1,
+    weaponRangeShow = 0,
+    raceRangeShow = 1,
+    levelRangeShow = 1
     };
 getRow(6)->
     #bussyItemTreeCfg {
-    order = 6,
+    order = 15,
     isFirst = 0,
     mainType = 1,
-    type = [4],
+    type = [3],
+    text = "衣服",
+    icon = 1105,
+    quality = -1,
     subType = -1,
-    text = "项链"
+    qualityRangeShow = 1,
+    weaponRangeShow = 0,
+    raceRangeShow = 1,
+    levelRangeShow = 1
     };
 getRow(7)->
     #bussyItemTreeCfg {
-    order = 7,
+    order = 16,
     isFirst = 0,
     mainType = 1,
-    type = [5],
+    type = [4],
+    text = "项链",
+    icon = 101,
+    quality = -1,
     subType = -1,
-    text = "裤子"
+    qualityRangeShow = 1,
+    weaponRangeShow = 0,
+    raceRangeShow = 1,
+    levelRangeShow = 1
     };
 getRow(8)->
     #bussyItemTreeCfg {
-    order = 8,
+    order = 17,
     isFirst = 0,
     mainType = 1,
-    type = [6],
+    type = [5],
+    text = "裤子",
+    icon = 1402,
+    quality = -1,
     subType = -1,
-    text = "戒指"
+    qualityRangeShow = 1,
+    weaponRangeShow = 0,
+    raceRangeShow = 1,
+    levelRangeShow = 1
     };
 getRow(9)->
     #bussyItemTreeCfg {
-    order = 9,
+    order = 18,
     isFirst = 0,
     mainType = 1,
-    type = [7],
+    type = [6],
+    text = "戒指",
+    icon = 1,
+    quality = -1,
     subType = -1,
-    text = "靴子"
+    qualityRangeShow = 1,
+    weaponRangeShow = 0,
+    raceRangeShow = 1,
+    levelRangeShow = 1
     };
 getRow(10)->
     #bussyItemTreeCfg {
-    order = 10,
-    isFirst = 1,
-    mainType = 2,
-    type = [4],
+    order = 19,
+    isFirst = 0,
+    mainType = 1,
+    type = [7],
+    text = "鞋子",
+    icon = 2202,
+    quality = -1,
     subType = -1,
-    text = "纹章"
+    qualityRangeShow = 1,
+    weaponRangeShow = 0,
+    raceRangeShow = 1,
+    levelRangeShow = 1
     };
 getRow(11)->
-    #bussyItemTreeCfg {
-    order = 11,
-    isFirst = 0,
-    mainType = 2,
-    type = [4],
-    subType = 1,
-    text = "赤尖纹章"
-    };
-getRow(12)->
-    #bussyItemTreeCfg {
-    order = 12,
-    isFirst = 0,
-    mainType = 2,
-    type = [4],
-    subType = 2,
-    text = "天蓝纹章"
-    };
-getRow(13)->
-    #bussyItemTreeCfg {
-    order = 13,
-    isFirst = 0,
-    mainType = 2,
-    type = [4],
-    subType = 4,
-    text = "碧月纹章"
-    };
-getRow(14)->
-    #bussyItemTreeCfg {
-    order = 14,
-    isFirst = 1,
-    mainType = 2,
-    type = [9],
-    subType = -1,
-    text = "强化"
-    };
-getRow(15)->
-    #bussyItemTreeCfg {
-    order = 15,
-    isFirst = 0,
-    mainType = 2,
-    type = [9],
-    subType = 0,
-    text = "装备强化"
-    };
-getRow(16)->
-    #bussyItemTreeCfg {
-    order = 16,
-    isFirst = 0,
-    mainType = 2,
-    type = [9],
-    subType = 1,
-    text = "器灵强化"
-    };
-getRow(17)->
-    #bussyItemTreeCfg {
-    order = 17,
-    isFirst = 0,
-    mainType = 2,
-    type = [9],
-    subType = 2,
-    text = "骑宠强化"
-    };
-getRow(18)->
-    #bussyItemTreeCfg {
-    order = 18,
-    isFirst = 1,
-    mainType = 2,
-    type = [8],
-    subType = -1,
-    text = "礼包"
-    };
-getRow(19)->
-    #bussyItemTreeCfg {
-    order = 19,
-    isFirst = 1,
-    mainType = 2,
-    type = [12],
-    subType = -1,
-    text = "钻石卡"
-    };
-getRow(20)->
-    #bussyItemTreeCfg {
-    order = 20,
-    isFirst = 1,
-    mainType = 2,
-    type = [14],
-    subType = -1,
-    text = "藏宝图"
-    };
-getRow(21)->
     #bussyItemTreeCfg {
     order = 21,
     isFirst = 1,
     mainType = 2,
-    type = [2],
+    type = [3],
+    text = "装备材料",
+    icon = 0,
+    quality = -1,
     subType = -1,
-    text = "药水合剂"
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 0
+    };
+getRow(12)->
+    #bussyItemTreeCfg {
+    order = 22,
+    isFirst = 0,
+    mainType = 2,
+    type = [3],
+    text = "全部",
+    icon = 228,
+    quality = -1,
+    subType = -1,
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 1
+    };
+getRow(13)->
+    #bussyItemTreeCfg {
+    order = 23,
+    isFirst = 0,
+    mainType = 2,
+    type = [3],
+    text = "红装",
+    icon = 42,
+    quality = 3,
+    subType = -1,
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 1
+    };
+getRow(14)->
+    #bussyItemTreeCfg {
+    order = 24,
+    isFirst = 0,
+    mainType = 2,
+    type = [3],
+    text = "紫装",
+    icon = 230,
+    quality = 4,
+    subType = -1,
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 1
+    };
+getRow(15)->
+    #bussyItemTreeCfg {
+    order = 31,
+    isFirst = 1,
+    mainType = 2,
+    type = [28],
+    text = "宠物",
+    icon = 0,
+    quality = -1,
+    subType = -1,
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 0
+    };
+getRow(16)->
+    #bussyItemTreeCfg {
+    order = 32,
+    isFirst = 0,
+    mainType = 2,
+    type = [28],
+    text = "全部",
+    icon = 1011,
+    quality = -1,
+    subType = -1,
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 0
+    };
+getRow(17)->
+    #bussyItemTreeCfg {
+    order = 33,
+    isFirst = 0,
+    mainType = 2,
+    type = [28],
+    text = "红宠",
+    icon = 1034,
+    quality = 3,
+    subType = -1,
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 0
+    };
+getRow(18)->
+    #bussyItemTreeCfg {
+    order = 34,
+    isFirst = 0,
+    mainType = 2,
+    type = [28],
+    text = "紫宠",
+    icon = 1018,
+    quality = 4,
+    subType = -1,
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 0
+    };
+getRow(19)->
+    #bussyItemTreeCfg {
+    order = 41,
+    isFirst = 1,
+    mainType = 2,
+    type = [8],
+    text = "宝箱礼包",
+    icon = 0,
+    quality = -1,
+    subType = -1,
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 0
+    };
+getRow(20)->
+    #bussyItemTreeCfg {
+    order = 42,
+    isFirst = 0,
+    mainType = 2,
+    type = [8],
+    text = "全部",
+    icon = 98,
+    quality = -1,
+    subType = -1,
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 0
+    };
+getRow(21)->
+    #bussyItemTreeCfg {
+    order = 43,
+    isFirst = 0,
+    mainType = 2,
+    type = [8],
+    text = "装备礼包",
+    icon = 462,
+    quality = -1,
+    subType = 7,
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 1
     };
 getRow(22)->
     #bussyItemTreeCfg {
-    order = 22,
-    isFirst = 1,
-    mainType = 2,
-    type = [13],
-    subType = -1,
-    text = "能力卷轴"
-    };
-getRow(23)->
-    #bussyItemTreeCfg {
-    order = 23,
-    isFirst = 1,
-    mainType = 2,
-    type = [15],
-    subType = -1,
-    text = "称号卷轴"
-    };
-getRow(24)->
-    #bussyItemTreeCfg {
-    order = 24,
-    isFirst = 1,
-    mainType = 2,
-    type = [1,5,6,7,10,11,16],
-    subType = -1,
-    text = "其他"
-    };
-getRow(25)->
-    #bussyItemTreeCfg {
-    order = 25,
-    isFirst = 1,
-    mainType = 4,
-    type = [24,25],
-    subType = -1,
-    text = "符文"
-    };
-getRow(26)->
-    #bussyItemTreeCfg {
-    order = 26,
+    order = 44,
     isFirst = 0,
-    mainType = 4,
-    type = [24],
-    subType = 0,
-    text = "角色符文"
-    };
-getRow(27)->
-    #bussyItemTreeCfg {
-    order = 27,
-    isFirst = 0,
-    mainType = 4,
-    type = [25],
-    subType = 1,
-    text = "骑宠符文"
+    mainType = 2,
+    type = [8],
+    text = "时装礼包",
+    icon = 4026,
+    quality = -1,
+    subType = 34,
+    qualityRangeShow = 0,
+    weaponRangeShow = 0,
+    raceRangeShow = 0,
+    levelRangeShow = 0
     };
 getRow(_)->[].
 
@@ -272,12 +359,7 @@ getKeyList()->[
     {19},
     {20},
     {21},
-    {22},
-    {23},
-    {24},
-    {25},
-    {26},
-    {27}
+    {22}
     ].
 
 get1KeyList()->[
@@ -302,11 +384,6 @@ get1KeyList()->[
     19,
     20,
     21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27
+    22
     ].
 

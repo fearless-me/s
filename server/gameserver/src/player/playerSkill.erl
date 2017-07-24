@@ -59,7 +59,9 @@
 	addSysSkill/2,
 	delSysSkill/1,
 	addGoddessSkill/2,
-	delGoddessSkill/1
+	delGoddessSkill/1,
+	addPolymorphSkill/2,
+	delPolymorphSkill/1
 ]).
 
 %% 条件判断
@@ -595,6 +597,43 @@ delGoodsSkill(SkillID) ->
 		_ ->
 			skip
 	end.
+
+%%增加装备物品对主人加成技能
+-spec addPolymorphSkill(SkillID :: uint(), Level :: uint()) -> ok.
+addPolymorphSkill(0, _Level) ->
+	skip;
+addPolymorphSkill(SkillID, Level) ->
+	#skillCfg{
+		skillClass = Class,
+		skillType = SkillType,
+		skillEx = Ex
+	} = getCfg:getCfgPStack(cfg_skill, SkillID),
+	case Class =:= ?PolymorphRoleSkill of
+		true ->
+			?DEBUG_OUT("addGoodsSkill(~p)", [SkillID]),
+			addSysSkill(SkillType, Ex, SkillID, Level);
+		_ ->
+			skip
+	end.
+
+%%删除装备物品对主人加成技能
+-spec delPolymorphSkill(SkillID :: uint()) -> ok.
+delPolymorphSkill(0) ->
+	skip;
+delPolymorphSkill(SkillID) ->
+	#skillCfg{
+		skillClass = Class,
+		skillType = SkillType,
+		skillEx = Ex
+	} = getCfg:getCfgPStack(cfg_skill, SkillID),
+	case Class =:= ?PolymorphRoleSkill of
+		true ->
+			delSysSkill(SkillType, Ex, SkillID);
+		_ ->
+			skip
+	end.
+
+
 %%增加神器技能
 -spec addGodWeaponSkill(SkillID :: uint(), Level :: uint()) -> ok.
 addGodWeaponSkill(0, _) ->
@@ -656,6 +695,7 @@ addMarriageSkill(SkillID, Level) ->
 	} = getCfg:getCfgPStack(cfg_skill, SkillID),
 	case Class =:= ?MarrigeSkill of
 		true ->
+			%?DEBUG_OUT("[DebugForMarriage] addMarriageSkill RoleID:~p will study ~w.~w", [playerState:getRoleID(), SkillID, Level]),
 			addSysSkill(SkillType, Ex, SkillID, Level);
 		_ ->
 			?ERROR_OUT("addMarriageSkill skill(~p) is not marriage skill", [SkillID]),
@@ -732,11 +772,11 @@ attackTriggerSkill(SkillList, HitList, TargetCode, SkillType, AttackType) ->
 		} = getCfg:getCfgPStack(cfg_skill, SkillID),
 		%%触发概率跟技能等级相关
 		TriggerChance1 = case TriggerChance of
-			                 undefined ->
-				                 [0, 0];
-			                 _ ->
-				                 TriggerChance
-		                 end,
+							 undefined ->
+								 [0, 0];
+							 _ ->
+								 TriggerChance
+						 end,
 		SkillList1 = playerState:getSkill(),
 		#recSkill{level = SkillLevel} = lists:keyfind(SkillID, #recSkill.skillID, SkillList1),
 		[Chance, LevelAdd] = TriggerChance1,
@@ -770,7 +810,7 @@ attackTriggerSkill(SkillList, HitList, TargetCode, SkillType, AttackType) ->
 			_ ->
 				skip
 		end
-	      end,
+		  end,
 	lists:foreach(Fun, SkillList).
 
 %%非攻击触发技能
@@ -791,11 +831,11 @@ noAttackTriggerSkill(SkillList, TargetCode) when is_list(SkillList) ->
 	Fun = fun(#recSlotSkill{skillID = SkillID}) ->
 		#skillCfg{triggerChance = TriggerChance} = getCfg:getCfgPStack(cfg_skill, SkillID),
 		TriggerChance1 = case TriggerChance of
-			                 undefined ->
-				                 [0, 0];
-			                 _ ->
-				                 TriggerChance
-		                 end,
+							 undefined ->
+								 [0, 0];
+							 _ ->
+								 TriggerChance
+						 end,
 		%%触发概率跟技能等级相关
 		[Chance, LevelAdd] = TriggerChance1,
 		SkillList1 = playerState:getSkill(),
@@ -808,7 +848,7 @@ noAttackTriggerSkill(SkillList, TargetCode) when is_list(SkillList) ->
 			_ ->
 				skip
 		end
-	      end,
+		  end,
 	lists:foreach(Fun, SkillList).
 
 %%释放技能触发
@@ -836,11 +876,11 @@ releaseTriggerSkill(SkillList, AttackType, SkillType) ->
 		} = getCfg:getCfgPStack(cfg_skill, SkillID),
 		%%触发概率跟技能等级相关
 		TriggerChance1 = case TriggerChance of
-			                 undefined ->
-				                 [0, 0];
-			                 _ ->
-				                 TriggerChance
-		                 end,
+							 undefined ->
+								 [0, 0];
+							 _ ->
+								 TriggerChance
+						 end,
 		[Chance, LevelAdd] = TriggerChance1,
 		SkillList1 = playerState:getSkill(),
 		#recSkill{level = SkillLevel} = lists:keyfind(SkillID, #recSkill.skillID, SkillList1),
@@ -867,7 +907,7 @@ releaseTriggerSkill(SkillList, AttackType, SkillType) ->
 			_ ->
 				skip
 		end
-	      end,
+		  end,
 	lists:foreach(Fun, SkillList).
 
 %%死亡技能触发
@@ -888,11 +928,11 @@ deadTriggerSkill(SkillList) when is_list(SkillList) ->
 		#skillCfg{triggerChance = TriggerChance} = getCfg:getCfgPStack(cfg_skill, SkillID),
 		%%触发概率跟技能等级相关
 		TriggerChance1 = case TriggerChance of
-			                 undefined ->
-				                 [0, 0];
-			                 _ ->
-				                 TriggerChance
-		                 end,
+							 undefined ->
+								 [0, 0];
+							 _ ->
+								 TriggerChance
+						 end,
 		[Chance, LevelAdd] = TriggerChance1,
 		SkillList1 = playerState:getSkill(),
 		#recSkill{level = SkillLevel} = lists:keyfind(SkillID, #recSkill.skillID, SkillList1),
@@ -903,7 +943,7 @@ deadTriggerSkill(SkillList) when is_list(SkillList) ->
 			_ ->
 				skip
 		end
-	      end,
+		  end,
 	lists:foreach(Fun, SkillList);
 deadTriggerSkill(_) ->
 	ok.
@@ -925,11 +965,11 @@ assistTriggerSkill(SkillList) when is_list(SkillList) ->
 	Fun = fun(#recSlotSkill{skillID = SkillID}) ->
 		#skillCfg{triggerChance = TriggerChance} = getCfg:getCfgPStack(cfg_skill, SkillID),
 		TriggerChance1 = case TriggerChance of
-			                 undefined ->
-				                 [0, 0];
-			                 _ ->
-				                 TriggerChance
-		                 end,
+							 undefined ->
+								 [0, 0];
+							 _ ->
+								 TriggerChance
+						 end,
 		[Chance, LevelAdd] = TriggerChance1,
 		SkillList1 = playerState:getSkill(),
 		#recSkill{level = SkillLevel} = lists:keyfind(SkillID, #recSkill.skillID, SkillList1),
@@ -940,7 +980,7 @@ assistTriggerSkill(SkillList) when is_list(SkillList) ->
 			_ ->
 				skip
 		end
-	      end,
+		  end,
 	lists:foreach(Fun, SkillList);
 assistTriggerSkill(_) ->
 	ok.
@@ -1176,17 +1216,18 @@ setSkillCD(SkillID) ->
 
 	%%检测这个技能是否触发组CD
 	SkillGCDList = playerState:getSkillGroupCD(),
-	case GID > 0 of
-		true ->
-			case lists:keyfind(GID, 1, SkillGCDList) of
-				false ->
-					NewSkillGCDList = [{GID, Time} | SkillGCDList];
-				_ ->
-					NewSkillGCDList = lists:keyreplace(GID, 1, SkillGCDList, {GID, Time})
-			end;
-		_ ->
-			NewSkillGCDList = SkillGCDList
-	end,
+	NewSkillGCDList =
+		case GID > 0 of
+			true ->
+				case lists:keyfind(GID, 1, SkillGCDList) of
+					false ->
+						[{GID, Time} | SkillGCDList];
+					_ ->
+						lists:keyreplace(GID, 1, SkillGCDList, {GID, Time})
+				end;
+			_ ->
+				SkillGCDList
+		end,
 	playerState:setSkillGroupCD(NewSkillGCDList),
 	if
 		GlobeCoolDown =:= 0 ->
@@ -1948,13 +1989,15 @@ calcCDTime(SkillID) ->
 	#skillCfg{cDFactor = CDFactor, skillClass = Class, skillType = Type, skillCoolDown = CDTime0} = getCfg:getCfgPStack(cfg_skill, SkillID),
 	MinusCDFactor = playerState:getBattlePropTotal(?Prop_SkillMinusCDFactor),
 	ExtraCD = playerState:getBattlePropTotal(CDFactor),
-	IsRoleSkill = lists:member(Class, ?RoleSkill),
+%%	IsRoleSkill = lists:member(Class, ?RoleSkill),
 	IsActiveSkill = lists:member(Type, ?ActiveSkillList),
-	case IsRoleSkill andalso IsActiveSkill of
-		true ->
-			trunc(CDTime0 * (1 - ExtraCD) * MinusCDFactor);
+
+	%% 不区分角色和宠物
+	case IsActiveSkill of
+		false ->
+			trunc(CDTime0 * (1 - ExtraCD));
 		_ ->
-			trunc(CDTime0 * (1 - ExtraCD))
+			trunc(CDTime0 * (1 - ExtraCD) * MinusCDFactor)
 	end.
 
 %% -1不会触发和被触发公共冷却
@@ -2283,7 +2326,7 @@ filterTypeTriSkill(Type, TriSkillList) ->
 			_ ->
 				false
 		end
-	      end,
+		  end,
 	lists:filter(Fun, TriSkillList).
 
 %%过滤指定技能触发
@@ -2299,7 +2342,7 @@ filterAssignTriSkill(SkillID, TriSkillList) ->
 			true ->
 				lists:member(SkillID, SkillList)
 		end
-	      end,
+		  end,
 	lists:filter(Fun, TriSkillList).
 
 %%获取特殊被动提高伤害百分比技能
@@ -2323,7 +2366,7 @@ getSpecSkill([#recSlotSkill{skillID = ID, type = ?PassivitySkill} | SSL], List) 
 					_ ->
 						Acc
 				end
-			      end,
+				  end,
 			getSpecSkill(SSL, lists:foldl(Fun, [], Ex) ++ List);
 		_ ->
 			getSpecSkill(SSL, List)
@@ -2363,7 +2406,7 @@ delSpecSkill2(PetID, BuffID, SkillLevel) ->
 			_ ->
 				skip
 		end
-	      end,
+		  end,
 	lists:foreach(Fun, PetList).
 
 %%生命低于某百分比增加buff

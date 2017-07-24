@@ -65,7 +65,9 @@
         %%: 掉落限制组，在dropcontrol表中配置
         %%: 用于服务器及个人掉落上限
         %%: 0 代表没有控制
-        dropclass
+        dropclass,
+
+        level
 
  }).
 

@@ -8,12 +8,12 @@
 getRow(1)->
     #logic_groupCfg {
     id = 1,
-    logicIdList = [1,2,3,7]
+    logicIdList = [1,2,3,7,101,102,103]
     };
 getRow(2)->
     #logic_groupCfg {
     id = 2,
-    logicIdList = [4,5,6]
+    logicIdList = [4,5,6,104,105]
     };
 getRow(3)->
     #logic_groupCfg {

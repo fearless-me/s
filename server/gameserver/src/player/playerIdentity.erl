@@ -16,6 +16,7 @@
 	init/0,
 	error_code/1,
 	queryIdentity/1,
+	makeQueryIdentity/1,
 	editIdentity/2,
 	editIdentity_Tags/2,
 	editIdentity_Pics/4,
@@ -23,9 +24,23 @@
 	editIdentityAck/1,
 	picUpload/1,
 	picDownloadBegin/1,
+	picDownloadBeginAck/1,
 	picDownloadContinue/1,
 	picOutTime/0,
-	requestRoleHeadPic/2
+	requestRoleHeadPic/2,
+
+	%% 玩家不在线时对点赞值和魅力值的管理
+	queryFace/1,
+	queryLike/1,
+	queryCharm/1,
+	addLike/3,
+	addCharm/3,
+
+	%% 赠礼
+	giveGift/4,
+
+	%% 删除角色
+	deleteRole/1
 ]).
 
 %%% ====================================================================
@@ -35,7 +50,52 @@
 %% 初始化
 -spec init() -> ok.
 init() ->
+	RoleID = playerState:getRoleID(),
+	queryIdentity(RoleID),
+	init_giveGift(RoleID),
 	ok.
+
+%% 上线时推送和当前角色相关的赠礼记录
+init_giveGift(RoleID) ->
+	ListGiftHistory = init_giveGift_history(RoleID),
+	ListID = init_giveGift_listID(ListGiftHistory, [], RoleID),
+	ListName = init_giveGift_name(ListID, []),
+	{ListItemID, ListItemCount} = init_giveGift_gifts(RoleID),
+	Msg =
+		#pk_GS2U_GiftHistory_Sync{
+			listHistory = ListGiftHistory,
+			nameTables = ListName,
+			listItemID = ListItemID,
+			listItemCount = ListItemCount
+		},
+	playerMsg:sendNetMsg(Msg),
+	ok.
+init_giveGift_history(RoleID) ->
+	Q = ets:fun2ms(
+		fun (#pk_GiftHistory{roleID = IDA, tarRoleID = IDB} = R)
+			when IDA =:= RoleID; IDB =:= RoleID ->
+			R
+		end
+	),
+	ets:select(?EtsGiftHistory, Q).
+init_giveGift_listID([], Acc, RoleID) ->
+	lists:usort([RoleID | Acc]);
+init_giveGift_listID([#pk_GiftHistory{roleID = RoleID, tarRoleID = IDB} | T], Acc, RoleID) ->
+	init_giveGift_listID(T, [IDB | Acc], RoleID);
+init_giveGift_listID([#pk_GiftHistory{roleID = IDA, tarRoleID = RoleID} | T], Acc, RoleID) ->
+	init_giveGift_listID(T, [IDA | Acc], RoleID).
+init_giveGift_name([], Acc) ->
+	Acc;
+init_giveGift_name([H | T], Acc) ->
+	Name = playerNameUID:getPlayerNameByUID(H),
+	init_giveGift_name(T, [#pk_NameTable{id = H, name = Name} | Acc]).
+init_giveGift_gifts(RoleID) ->
+	{_, #rec_player_identity{gifts = Gifts}} = identityState:queryIdentity(RoleID),
+	init_giveGift_gifts_split(Gifts, [], []).
+init_giveGift_gifts_split([], AccID, AccCount) ->
+	{AccID, AccCount};
+init_giveGift_gifts_split([{ID, Count} | T], AccID, AccCount) ->
+	init_giveGift_gifts_split(T, [ID | AccID], [Count | AccCount]).
 
 %% 异常码处理
 -spec error_code({
@@ -59,15 +119,8 @@ queryIdentity(IdentityID) ->
 	%?DEBUG_OUT("[DebugForIdentity] queryIdentity RoleID(~p) IdentityID(~p)", [playerState:getRoleID(), IdentityID]),
 	%% 验证是否在线，同时获取Code
 	case core:queryOnLineRoleByRoleID(IdentityID) of
-		#rec_OnlinePlayer{code = Code} ->
-			{_, Identity} = identityState:queryIdentity(IdentityID),
-			Msg =
-				case playerState:getRoleID() of
-					IdentityID ->
-						identity2NetMsgMySelf(Identity, Code);
-					_ ->
-						identity2NetMsgAnother(Identity, Code)
-				end,
+		#rec_OnlinePlayer{} ->
+			Msg = makeQueryIdentity(IdentityID),
 			%?DEBUG_OUT("[DebugForIdentity] ~p", [Msg]),
 			playerMsg:sendNetMsg(Msg);
 		_ ->
@@ -75,9 +128,26 @@ queryIdentity(IdentityID) ->
 	end,
 	ok.
 
+%% 生成身份证协议
+-spec makeQueryIdentity(IdentityID::uint64()) -> #pk_GS2U_Identity_Ack{}.
+makeQueryIdentity(IdentityID) ->
+	Code =
+		case core:queryOnLineRoleByRoleID(IdentityID) of
+			#rec_OnlinePlayer{code = C} -> C;
+			_ -> 0
+		end,
+	{_, Identity} = identityState:queryIdentity(IdentityID),
+	case playerState:getRoleID() of
+		IdentityID ->
+			identity2NetMsgMySelf(Identity, Code);
+		_ ->
+			identity2NetMsgAnother(Identity, Code)
+	end.
+
 %% 编辑身份证信息
 %% 注1：标签除外，使用其它方式进行编辑
 %% 注2：相册除外，使用其它方式进行管理
+%% 注3：点赞值和魅力值除外，不受玩家编辑，而是其它功能调用
 -spec editIdentity(IDIT::type_idit(), Data::term()) -> ok.
 editIdentity(IDIT, Data) ->
 	RoleID = playerState:getRoleID(),
@@ -249,7 +319,8 @@ editIdentity_PicsAck({MD5, true}) ->
 	ok.
 
 %% 编辑身份证信息反馈
-%% 注：反馈所有身份证信息的编辑反馈，包括标签、相册
+%% 注1：反馈所有身份证信息的编辑反馈，包括标签、相册
+%% 注2：点赞值和魅力值除外，不受玩家编辑，而是其它功能调用
 -spec editIdentityAck({IDIT::type_idit(), Data::term()}) -> ok.
 editIdentityAck({_IDIT, _Data} = Msg) ->
 	%?DEBUG_OUT("[DebugForIdentity] editIdentityAck IDIT(~p) RoleID(~p) Data(~p)", [_IDIT, playerState:getRoleID(), _Data]),
@@ -307,8 +378,11 @@ picUpload({MD5, _Count, Index, Data}) ->
 	ok.
 
 %% 下载图片_开始
--spec picDownloadBegin({MD5::list()}) -> ok.
-picDownloadBegin({MD5}) ->
+-spec picDownloadBegin({MD5::list(), ID::uint64()|0}) -> ok.
+picDownloadBegin({[], _ID}) ->
+	?DEBUG_OUT("[DebugForCross] face ~w []", [_ID]),
+	skip;
+picDownloadBegin({MD5, 0}) ->
 %%	?DEBUG_OUT("[DebugForIdentity] picDownload RoleID(~p) Msg(~p)", [playerState:getRoleID(), {MD5}]),
 	case playerState2:getIdentityUporDownLoadTaskInfo() of
 		undefined ->
@@ -367,7 +441,38 @@ picDownloadBegin({MD5}) ->
 		_ ->
 			error_code({?ErrorCode_IdentityEdit_UpOrDownOnlyOne, []})
 	end,
-	ok.
+	ok;
+picDownloadBegin({MD5, RoleID}) ->
+	case core:isCross() of
+		true ->
+			case core:getRealDBIDByUID(RoleID) of
+				0 ->
+					picDownloadBegin({MD5, 0});
+				DBID1 ->
+					?DEBUG_OUT("[DebugForCross] face ~w []", [RoleID]),
+					picDownloadBeginCross(DBID1, MD5, true, 0)
+			end;
+		_ ->
+			MyDBID = globalSetup:getDBID(),
+			case core:getRealDBIDByUID(RoleID) of
+				0 ->
+					picDownloadBegin({MD5, 0});
+				MyDBID ->
+					picDownloadBegin({MD5, 0});
+				DBID2 ->
+					picDownloadBeginCross(DBID2, MD5, false, MyDBID)
+			end
+	end.
+
+picDownloadBeginCross(DBID, MD5, IsCross, MyDBID) ->
+	%% bu创建下载任务
+	RoleID = playerState:getRoleID(),
+	case IsCross of
+		true ->
+			gsSendMsg:sendMsg2OneSource(DBID, ?PsNameIdentity, friend2Cross_pic, {MD5, MyDBID, RoleID});
+		_ ->
+			gsSendMsg:sendMsg2NormalServer(DBID, ?PsNameIdentity, friend2Cross_pic, {MD5, MyDBID, RoleID})
+	end.
 
 %% 反馈下载图片_开始
 -spec picDownloadBeginAck({IsExists::boolean(), MD5::list(), State::uint8(), Data::list()}) -> ok.
@@ -487,6 +592,163 @@ requestRoleHeadPic([#pk_RoleHeadPic{} = Head|Heads], RetList) ->
 	RetList2 = requestRoleHeadPic(Head, RetList),
 	requestRoleHeadPic(Heads, RetList2).
 
+%%%-------------------------------------------------------------------
+% 查询头像
+-spec queryFace(RoleID::uint64()) -> string().
+queryFace(RoleID) ->
+	case ets:lookup(?EtsIdentityData, RoleID) of
+		[#rec_player_identity{face = Face}] ->
+			Face;
+		_ ->
+			""
+	end.
+
+% 查询点赞值
+-spec queryLike(RoleID::uint64()) -> uint32().
+queryLike(RoleID) ->
+	case ets:lookup(?EtsIdentityData, RoleID) of
+		[#rec_player_identity{like = Like}] ->
+			Like;
+		_ ->
+			0
+	end.
+
+%%%-------------------------------------------------------------------
+% 查询魅力值
+-spec queryCharm(RoleID::uint64()) -> uint32().
+queryCharm(RoleID) ->
+	case ets:lookup(?EtsIdentityData, RoleID) of
+		[#rec_player_identity{charm = Charm}] ->
+			Charm;
+		_ ->
+			0
+	end.
+
+%%%-------------------------------------------------------------------
+% 增加点赞值
+-spec addLike(RoleID::uint64(), TargetRoleID::uint64(), Like::uint32()) -> no_return().
+addLike(RoleID, TargetRoleID, Like) when erlang:is_integer(Like), Like > 0 ->
+	psMgr:sendMsg2PS(?PsNameIdentity, identity_like, {RoleID, TargetRoleID, Like}).
+
+%%%-------------------------------------------------------------------
+% 增加魅力值
+-spec addCharm(RoleID::uint64(), TargetRoleID::uint64(), Charm::uint32()) -> no_return().
+addCharm(RoleID, TargetRoleID, Charm) when erlang:is_integer(Charm), Charm > 0 ->
+	psMgr:sendMsg2PS(?PsNameIdentity, identity_charm, {RoleID, TargetRoleID, Charm}).
+
+%%%-------------------------------------------------------------------
+% 赠礼
+-spec giveGift(TarRoleID::uint64(), ItemID::uint16(), ItemCount::uint16(), Content::string()) -> no_return().
+giveGift(0, _ItemID, _ItemCount, _Content) ->
+	skip;
+giveGift(_TarRoleID, 0, _ItemCount, _Content) ->
+	skip;
+giveGift(_TarRoleID, _ItemID, 0, _Content) ->
+	skip;
+giveGift(TarRoleID, ItemID, ItemCount, []) ->
+	%% 获取默认祝福语
+	case getCfg:getCfgPStack(cfg_globalsetup, giveGiftString) of
+		#globalsetupCfg{setpara = L} ->
+			FunIndex =
+				fun(C, {_, I}) ->
+					case ItemCount < C of
+						true ->
+							{true, I};
+						_ ->
+							{false, I + 1}
+					end
+				end,
+			case misc:foldlEx(FunIndex, {false, 0}, L) of
+				{_, 0} ->
+					?ERROR_OUT("can not match ~w from globalsetup.giveGiftString:~w", [ItemCount, L]),
+					skip;
+				{_, Index} ->
+					Key = erlang:list_to_atom(lists:flatten(io_lib:format("giveGiftString~w", [Index]))),
+					case stringCfg:getString(Key) of
+						[] ->
+							skip;
+						Content ->
+							giveGift(TarRoleID, ItemID, ItemCount, Content)
+					end
+			end;
+		_ ->
+			skip
+	end;
+giveGift(TarRoleID, ItemID, ItemCount, Content) ->
+	RoleLevel = playerState:getLevel(),
+	case getCfg:getCfgPStack(cfg_globalsetup, giveGiftLevel) of
+		#globalsetupCfg{setpara = [LevelMin]} when RoleLevel >= LevelMin ->
+			case playerState:getRoleID() of
+				TarRoleID ->
+					?ERROR_CODE(?ErrorCode_GiveGift_Self);
+				RoleID ->
+					case core:queryRoleKeyInfoByRoleID(TarRoleID) of
+						#?RoleKeyRec{} ->
+							case getCfg:getCfgByKey(cfg_item, ItemID) of
+								#itemCfg{
+									itemType = ?ItemTypeGift,
+									level = Level,
+									useParam1 = Charm,
+									useParam2 = Friendly
+								} when RoleLevel >= Level,
+									erlang:is_integer(Charm), Charm >= 0,
+									erlang:is_integer(Friendly), Friendly >= 0 ->
+									ItemCountOld = playerPackage:getItemNumByID(ItemID),
+									case ItemCountOld >= ItemCount of
+										true ->
+											giveGiftDo(RoleID, TarRoleID, ItemID, ItemCount, Content, Friendly, Charm, ItemCountOld);
+										_ ->
+											?ERROR_CODE(?ErrorCode_ActExchange_ItemNotEnough)
+									end;
+								_ ->
+									?ERROR_CODE(?ErrorCode_YourLevelIsTooLower)	%% 配置错误也会报这个ErrorCode
+							end;
+						_ ->
+							?ERROR_CODE(?ErrorCode_SystemWarning)
+					end
+			end;
+		_ ->
+			?ERROR_CODE(?ErrorCode_YourLevelIsTooLower)	%% 功能未开放
+	end.
+
+% 赠礼_执行
+giveGiftDo(RoleID, TarRoleID, ItemID, ItemCount, Content, Friendly, Charm, ItemCountOld) ->
+	%% 扣除道具
+	FriendlyAll =
+		case friend2State:queryFRT(RoleID, TarRoleID) of
+			?FRT_Formal ->
+				Friendly * ItemCount;
+			_ ->
+				0
+		end,
+	CharmAll = Charm * ItemCount,
+	PLog = #recPLogTSItem{
+		old = ItemCount,
+		change = -ItemCount,
+		target = ?PLogTS_GiveGift,
+		source = ?PLogTS_PlayerSelf,
+		changReason = ?ItemDeleteReasonGiveGift,
+		reasonParam = TarRoleID
+	},
+	case playerPackage:delGoodsByID(?Item_Location_Bag, ItemID, ItemCount, PLog) of
+		true ->
+			ContentNew =
+				case getCfg:getCfgPStack(cfg_globalsetup, giveGiftVIP) of
+					#globalsetupCfg{setpara = [Limit]} when
+						erlang:is_integer(Limit), ItemCount >= Limit ->
+						Content;
+					_ ->
+						[]
+				end,
+			psMgr:sendMsg2PS(?PsNameIdentity, giveGift, {RoleID, TarRoleID, ItemID, ItemCount, CharmAll, FriendlyAll, ContentNew});
+		_ ->
+			?ERROR_OUT(
+				"playerPackage:delGoodsByID/4 failed oldItemCount:~w wantDelItemCount:~w newItemCount:~w roleID:~w",
+				[ItemCountOld, ItemCount, playerPackage:getItemNumByID(ItemID), RoleID]
+			),
+			?ERROR_CODE(?ErrorCode_ActExchange_ItemNotEnough)
+	end.
+
 %%% ====================================================================
 %%% Internal functions
 %%% ====================================================================
@@ -510,7 +772,9 @@ identity2NetMsgAnother(
 			sign = Sign,
 			pic1 = Pic1,
 			pic2 = Pic2,
-			pic3 = Pic3
+			pic3 = Pic3,
+			like = Like,
+			charm = Charm
 }, Code) ->
 	{Name, Level, Career, Race, Sex, VipLv} =
 		case core:queryRoleKeyInfoByRoleID(RoleID) of
@@ -545,7 +809,8 @@ identity2NetMsgAnother(
 		race = Race,
 		sex = Sex,
 		vipLv = VipLv,
-		like = playerFriend2:queryLike(RoleID),
+		like = Like,
+		charm = Charm,
 		isGiveLike = IsGiveLike,
 		familyName = FamilyName,
 		idi_age = Age,
@@ -581,7 +846,9 @@ identity2NetMsgMySelf(
 			sign = Sign,
 			pic1 = Pic1,
 			pic2 = Pic2,
-			pic3 = Pic3
+			pic3 = Pic3,
+			like = Like,
+			charm = Charm
 }, Code) ->
 	#pk_GS2U_Identity_Ack{
 		id = RoleID,
@@ -593,7 +860,8 @@ identity2NetMsgMySelf(
 		race = playerState:getRace(),
 		sex = playerState:getSex(),
 		vipLv = playerState:getVip(),
-		like = playerFriend2:queryLike(RoleID),
+		like = Like,
+		charm = Charm,
 		isGiveLike = 1,   %% 不能给自己点赞
 		familyName = playerState:getGuildName(),
 		idi_age = Age,
@@ -706,32 +974,14 @@ checkValueLimit(?IDIT_LOCATION, {Location1, Location2}) ->
 					false
 			end
 	end;
-checkValueLimit(?IDIT_TAGS, Tags) ->
-	case Tags of
-		[] ->
-			true;
-		_ ->
-			CountMax =
-				case getCfg:getCfgByKey(cfg_globalsetup, identity_tag_count) of
-					#globalsetupCfg{setpara = [CountMax_]} ->
-						CountMax_;
-					_ ->
-						0
-				end,
-			case erlang:length(Tags) > CountMax of
-				true ->
-					error_code({?ErrorCode_IdentityEdit_TagLimitCount, [CountMax]}),
-					false;
-				_ ->
-					true
-			end
-	end;
-checkValueLimit(?IDIT_PIC1, _Pic) ->
-	true;
-checkValueLimit(?IDIT_PIC2, _Pic) ->
-	true;
-checkValueLimit(?IDIT_PIC3, _Pic) ->
-	true;
+%checkValueLimit(?IDIT_TAGS, Tags) ->
+%	false;	%% 标签数据不可使用该接口编辑
+%checkValueLimit(?IDIT_PIC1, _Pic) ->
+%	false;	%% 相册数据不可使用该接口编辑
+%checkValueLimit(?IDIT_PIC2, _Pic) ->
+%	false;	%% 相册数据不可使用该接口编辑
+%checkValueLimit(?IDIT_PIC3, _Pic) ->
+%	false;	%% 相册数据不可使用该接口编辑
 checkValueLimit(?IDIT_FACE, _Face) ->
 	true;
 checkValueLimit(?IDIT_SIGN, Sign) ->
@@ -754,10 +1004,15 @@ checkValueLimit(?IDIT_SIGN, Sign) ->
 					true
 			end
 	end;
+%checkValueLimit(?IDIT_LIKE, _Like) ->
+%	false;	%% 点赞值数据不可使用该接口编辑
+%checkValueLimit(?IDIT_CHARM, _Charm) ->
+%	false;	%% 魅力值数据不可使用该接口编辑
 checkValueLimit(InvalidIDIT, Data) ->
 	?ERROR_OUT("checkValueLimit invalid argument(~p)~n~p", [{InvalidIDIT, Data}, misc:getStackTrace()]).
 
 %% 编辑身份证信息反馈消息转换为网络消息
+%% 注：点赞值和魅力值除外，不受玩家编辑，而是其它功能调用
 -spec editIdentityAck_Data2Msg({IDIT::type_idit(), Data::term()}) -> term() | error.
 editIdentityAck_Data2Msg({?IDIT_AGE, Age}) ->
 	#pk_U2GS2U_IdentityEditAge{idi_age = Age};
@@ -943,3 +1198,12 @@ editIdentity_Pics_NewIdentity(MD5, IdentityOld, 2) ->
 editIdentity_Pics_NewIdentity(_MD5, _IdentityOld, _) ->
 	false.
 %% 20161229 更改流程，编辑相册操作以覆盖方式进行 end
+
+
+%%%-------------------------------------------------------------------
+% 删除角色
+-spec deleteRole(RoleID::uint64()) -> ok.
+deleteRole(RoleID) ->
+	?LOG_OUT("deleteRole ~p", [RoleID]),
+	psMgr:sendMsg2PS(?PsNameIdentity, deleteRole, RoleID),
+	ok.

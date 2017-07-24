@@ -16,10 +16,10 @@
 	getCopyMapMaxScore/1,
 	onPassCopyMap_Rift/2,
 	onPassCopyMap_Normal/2,
-	onPassCopyMap_Goddess/2,
 	onPassCopyMap_Material/5,
 	onPassCopyMap_MoneyDungeon/6,
-	isRewardInCopyMap/0
+	isRewardInCopyMap/0,
+	isRewardInCopyMap/1
 ]).
 
 %% 时空裂痕的奖励
@@ -80,13 +80,21 @@ onPassCopyMap_Rift(Score, CopyMapID) ->
 %% 普通副本的奖励
 -spec onPassCopyMap_Normal(Score::uint(), CopyMapID::uint()) -> ok.
 onPassCopyMap_Normal(Score, CopyMapID) ->
-
 	case getCopyMapRewardList(Score, CopyMapID) of
 		{Score,RewardExp, RewardGold, RewardList, ItemGift} ->
 			{AddExp, AddMoney} =  {erlang:trunc(RewardExp), erlang:trunc(RewardGold)},
+
+			RoleID = playerState:getRoleID(),
+			IsAssist = core:isAssistCopyMapByCopyMapPID(RoleID, playerState:getMapPid()),
+
 			%% 获得爵位加成后的值
-			New_AddMoney = playerVipInter:getCopyMapGold(AddMoney),
-			New_AddExp = playerVipInter:getCopyMapExp(AddExp),
+			{New_AddMoney, New_AddExp} =
+				case IsAssist of
+					false ->
+						{playerVipInter:getCopyMapGold(AddMoney), playerVipInter:getCopyMapExp(AddExp)};
+					_ ->
+						{0, 0}
+				end,
 			%% 经验和金币奖励（根据通关时间等级换算得到）
 			true = playerBase:addExp(New_AddExp, ?ExpSourceCopyMap, Score),
 			case New_AddMoney > 0 of
@@ -96,14 +104,14 @@ onPassCopyMap_Normal(Score, CopyMapID) ->
 				_ -> skip
 			end,
 
-			?LOG_OUT("onPassCopyMap_Normal [roleid=~p,mapid=~p] reward :score ~p, and got exp ~p,~p, got gold ~p,~p, reward list ~p, gift:~p",
-				[playerState:getRoleID(), CopyMapID, Score, RewardExp, New_AddExp, RewardGold, New_AddMoney, RewardList, ItemGift]),
+			?LOG_OUT("onPassCopyMap_Normal IsAssist:~p [roleid=~p,mapid=~p] reward :score ~p, and got exp ~p,~p, got gold ~p,~p, reward list ~p, gift:~p",
+				[IsAssist, RoleID, CopyMapID, Score, RewardExp, New_AddExp, RewardGold, New_AddMoney, RewardList, ItemGift]),
 
 			playerSevenDays:onMissionEvent(?SevenDayMission_Event_5, 1, CopyMapID),
 			%% 直接物品奖励
-			case ItemGift > 0 of
+			case ItemGift > 0 andalso not IsAssist of
 				true ->
-					Plog = #recPLogTSItem{
+					PLog = #recPLogTSItem{
 						old = 0,
 						new = 1,
 						change = 1,
@@ -114,8 +122,9 @@ onPassCopyMap_Normal(Score, CopyMapID) ->
 						changReason = ?ItemSourcePassCopyMap,
 						reasonParam = CopyMapID
 					},
-					playerPackage:addGoodsAndMail(ItemGift, 1, true, 0, Plog);
-				_ -> skip
+					playerPackage:addGoodsAndMail(ItemGift, 1, true, 0, PLog);
+				_ ->
+					skip
 			end,
 
 			%% 额外奖励
@@ -131,13 +140,17 @@ onPassCopyMap_Normal(Score, CopyMapID) ->
 %% 			end,
 
 			%% 取在副本中已经获利的掉落列表
-			DropList = playerCopyMap:getCopyMapDropList(),
+			DropList = case IsAssist of
+						   false -> playerCopyMap:getCopyMapDropList();
+						   _ -> []
+					   end,
 			R = #pk_GS2U_CopyMapResult{
 				copyMapID = CopyMapID,
 				second = Score,
 				goldReward = New_AddMoney,
 				expReward = New_AddExp,
-				dropItems = DropList
+				dropItems = DropList,
+				isAssist = IsAssist
 			},
 			playerMsg:sendNetMsg(R),
 
@@ -164,7 +177,7 @@ onPassCopyMap_Normal(Score, CopyMapID) ->
 						LL = lists:foldl(FunH, [], DropList),
 						LogCopy = #rec_log_copy{
 							accountID = playerState:getAccountID(),
-							roleID = playerState:getRoleID(),
+							roleID = RoleID,
 							copyMapType = Subtype,			%%副本类型（剧情、英雄、挑战）
 							copyMapID = CopyMapID,
 							startTime = EndTime-Score,
@@ -195,43 +208,28 @@ onPassCopyMap_Normal(Score, CopyMapID) ->
 	end,
 	ok.
 
-onPassCopyMap_Goddess(Score, _CopyMapID) ->
-	DropList = playerCopyMap:getCopyMapDropList(),
-	CMapPid = playerState:getMapPid(),
-	{Exp,Gold} =
-		case playerState:getMapAward() of
-			#recMapAward{mapPid=MapPid,exp=OldExp,gold=OldGold} when CMapPid =:= MapPid ->
-				{OldExp,OldGold};
-			_ ->
-				{0,0}
-		end,
-
-	R = #pk_GS2U_CopyMapResult{
-		copyMapID = playerState:getMapID(),
-		second = Score,
-		goldReward = Gold,
-		expReward = Exp,
-		dropItems = DropList
-	},
-	playerMsg:sendNetMsg(R),
-	%% 取副本伤害
-	playerStatistics:sendCopyMapHurtToClient(),
-	playerStatistics:clearCopyMapHurtStat(),
-	ok.
-
 onPassCopyMap_Material(Score,  CopyState, CopyMapID, MC, FC) ->
-	DropList = playerCopyMap:getCopyMapDropList(),
+	RoleID = playerState:getRoleID(),
 	CMapPid = playerState:getMapPid(),
-	{Exp,Gold} =
-		case playerState:getMapAward() of
-			#recMapAward{mapPid=MapPid,exp=OldExp,gold=OldGold} when CMapPid =:= MapPid ->
-				{OldExp,OldGold};
+	IsAssist = core:isAssistCopyMapByCopyMapPID(RoleID, CMapPid),
+
+	{Exp,Gold,DropList} =
+		case IsAssist of
+			false ->
+				DD = playerCopyMap:getCopyMapDropList(),
+				case playerState:getMapAward() of
+					#recMapAward{mapPid=MapPid,exp=OldExp,gold=OldGold} when CMapPid =:= MapPid ->
+						{OldExp,OldGold,DD};
+					_ ->
+						{0,0,DD}
+				end;
 			_ ->
-				{0,0}
+				{0,0,[]}
 		end,
 
-	?LOG_OUT("~w onPassCopyMap_Material(~w,~w,~w,~w),droplist(~w)",
-		[playerState:getRoleID(), Score, CopyMapID, MC, FC, DropList]),
+	?LOG_OUT("~w ~p onPassCopyMap_Material(~w,~w,~w,~w),droplist(~w)",
+		[RoleID, IsAssist, Score, CopyMapID, MC, FC, DropList]),
+
 	R = #pk_GS2U_MaterialCopyMapResult{
 		copyMapID = playerState:getMapID(),
 		score = Score,
@@ -240,14 +238,15 @@ onPassCopyMap_Material(Score,  CopyState, CopyMapID, MC, FC) ->
 		expReward = Exp,
 		dropItems = DropList,
 		maxChapter = MC,
-		finishChapter = FC
+		finishChapter = FC,
+		isAssist = IsAssist
 	},
 	playerMsg:sendNetMsg(R),
 
 	playerAchieve:achieveEvent(?Achieve_material_Copy, [1]),
 
 	F = fun({ItemID, Num}) ->
-		Plog = #recPLogTSItem{
+		PLog = #recPLogTSItem{
 			old = 0,
 			new = Num,
 			change = Num,
@@ -258,19 +257,22 @@ onPassCopyMap_Material(Score,  CopyState, CopyMapID, MC, FC) ->
 			changReason = ?ItemSourcePassCopyMap,
 			reasonParam = CopyMapID
 		},
-		playerPackage:addGoodsAndMail(ItemID, Num, true, 0, Plog)
+		playerPackage:addGoodsAndMail(ItemID, Num, true, 0, PLog)
 		end,
 
 	playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_YuanSu),
 
-
-	case getCfg:getCfgByArgs(cfg_specialinstance,CopyMapID, 1) of
-		#specialinstanceCfg{item = ItemList} when Score > 0 ->
-			lists:foreach(F, ItemList);
+	case IsAssist of
+		false ->
+			case getCfg:getCfgByArgs(cfg_specialinstance,CopyMapID, 1) of
+				#specialinstanceCfg{item = ItemList} when Score > 0 ->
+					lists:foreach(F, ItemList);
+				_ ->
+					ok
+			end;
 		_ ->
-			ok
+			skip
 	end,
-
 
 	%% 取副本伤害
 	playerStatistics:sendCopyMapHurtToClient(),
@@ -280,17 +282,26 @@ onPassCopyMap_Material(Score,  CopyState, CopyMapID, MC, FC) ->
 	ok.
 
 onPassCopyMap_MoneyDungeon(Score, _CopyMapID, MC, FC, ListMonsterID, ListMonsterCountKill) ->
-	%DropList = playerCopyMap:getCopyMapDropList(),
+	DropList = playerCopyMap:getCopyMapDropList(),
 	%CMapPid = playerState:getMapPid(),
 
-	R = #pk_GS2U_MoneyDungeonCopyMapResult{
-		copyMapID             = playerState:getMapID(),
-		score                 = Score,
-		maxChapter            = MC,
-		finishChapter         = FC,
-		listMonsterID         = ListMonsterID,
-		listMonsterCountKill  = ListMonsterCountKill
+
+	R = #pk_GS2U_CopyMapResult{
+		copyMapID = _CopyMapID,
+		second = Score,
+		goldReward = 0,
+		expReward = 0,
+		dropItems = DropList,
+		isAssist = core:isAssistCopyMapByCopyMapPID(playerState:getRoleID(), _CopyMapID)
 	},
+	%%R = #pk_GS2U_MoneyDungeonCopyMapResult{
+	%%	copyMapID             = playerState:getMapID(),
+	%%	score                 = Score,
+	%%	maxChapter            = MC,
+	%%	finishChapter         = FC,
+	%%	listMonsterID         = ListMonsterID,
+	%%	listMonsterCountKill  = ListMonsterCountKill
+	%%},
 	playerMsg:sendNetMsg(R),
 	playerAchieve:achieveEvent(?Achieve_Gold_Copy, [1]),
 
@@ -405,7 +416,7 @@ getCopyMapRewardList(Score, CopyMapID) ->
 
 			{Score, AddExp, AddGold, RewardList, ItemGift};
 		_ ->
-			?WARN_OUT("getCopyMapRewardList CopyMapID:~p is can not found from cfg_dungeonschallenge", [CopyMapID]),
+			?LOG_OUT("getCopyMapRewardList CopyMapID:~p is can not found from cfg_dungeonschallenge", [CopyMapID]),
 			false
 	end.
 
@@ -424,17 +435,23 @@ filterCopyMapRewardList([{RewardID, RewardRate} | LeftRewardList], Rate) ->
 			filterCopyMapRewardList(LeftRewardList, Rate - RewardRate)
 	end.
 %% 用户当前副本地图是否可以获得奖励，只针对指定副本进行判断，未指定的副本均认为可以领取奖励
--spec isRewardInCopyMap() -> true | false.
+-spec isRewardInCopyMap() -> boolean().
 isRewardInCopyMap() ->
-	CopyMapID = playerState:getMapID(),
+	isRewardInCopyMap(playerState:getMapID()).
+-spec isRewardInCopyMap(CopyMapID::uint16()) -> boolean().
+isRewardInCopyMap(CopyMapID) ->
 	DailyCount = playerDaily:getDailyCounter(?DailyType_EnterCopyMap, CopyMapID),
 	BuyCount = playerDaily:getDailyCounter(?DailyType_BuyCopyMap_Number, CopyMapID),
-	SubTypeList = [?MapSubTypeNormal, ?MapSubTypeChanllengeCopy, ?MapSubTypeHeroCopy],
-	#mapsettingCfg{type = MapType, daily_effectivecount = MaxAwardLimit, subtype = SubType} = getCfg:getCfgPStack(cfg_mapsetting, CopyMapID),
-	IsSubType = lists:member(SubType, SubTypeList),
-	if
-		IsSubType and (MapType =:= ?MapTypeCopyMap) ->
-			DailyCount =< MaxAwardLimit+BuyCount;
+
+	case playerBattle:canGainDropGoods(CopyMapID) of
+		false ->
+			%% 普通副本，英雄副本，挑战副本
+%%			SubTypeList = [?MapSubTypeNormal, ?MapSubTypeChanllengeCopy, ?MapSubTypeHeroCopy],
+			#mapsettingCfg{
+				daily_effectivecount = MaxAwardLimit
+			} = getCfg:getCfgPStack(cfg_mapsetting, CopyMapID),
+
+			DailyCount =< MaxAwardLimit + BuyCount;
 		true ->
 			true
 	end.

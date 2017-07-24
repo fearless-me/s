@@ -88,17 +88,19 @@ checkActiveOpenTime(DateActiveID) ->
 -spec checkLevelAndDailyCounter(DateActiveID::type_daid(), Level::uint(), DailyCount::uint()) -> ok | uint().
 checkLevelAndDailyCounter(DateActiveID, Level, DailyCount) ->
 	case getCfg:getCfgByKey(cfg_appointment, DateActiveID) of
-		#appointmentCfg{level = LevelMin, daily_count = DailyCountMax} ->
+		#appointmentCfg{level = LevelMin} ->
 			case Level < LevelMin of
 				true ->
 					?ErrorCode_Date_Level_Limit;
 				_ ->
-					case DailyCount >= DailyCountMax of
-						true ->
-							?ErrorCode_Date_DailyCount_Limit;
-						_ ->
-							ok
-					end
+
+					ok
+					%%case DailyCount >= DailyCountMax of
+					%%	true ->
+					%%		?ErrorCode_Date_DailyCount_Limit;
+					%%	_ ->
+					%%		ok
+					%%end
 			end;
 		_ ->
 			?ERROR_OUT("checkLevelAndDailyCounter can not find DateActiveID(~p) from cfg_appointment", [DateActiveID]),
@@ -108,7 +110,9 @@ checkLevelAndDailyCounter(DateActiveID, Level, DailyCount) ->
 %% 根据玩法ID获得每日计数类型ID
 -spec getDailyTypeWithActiveID(DateActiveID::type_daid()) -> dailyType().
 getDailyTypeWithActiveID(?DateActiveID_Link) -> ?DailyType_Date_Link;
-getDailyTypeWithActiveID(?DateActiveID_PushBox) -> ?DailyType_Date_PushBox.
+getDailyTypeWithActiveID(?DateActiveID_PushBox) -> ?DailyType_Date_PushBox;
+getDailyTypeWithActiveID(?DateActiveID_PoolParty) -> ?DailyType_Date_PoolParty;
+getDailyTypeWithActiveID(?DateActiveID_FindTreasure) -> ?DailyType_Date_FindTreasure.
 
 %% 根据玩法ID获得地图ID
 -spec getMapIDWithActiveID(DateActiveID::type_daid()) -> uint().

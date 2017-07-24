@@ -8,11 +8,12 @@
 getRow(1)->
     #petLevelPropertyCfg {
     level = 1,
-    maxHP2 = 400,
-    physicalAttack = 40,
-    magicAttack = 40,
-    physicalDefence = 40,
-    magicDefence = 40,
+    exp = 100,
+    maxHP2 = 1200,
+    physicalAttack = 120,
+    magicAttack = 120,
+    physicalDefence = 120,
+    magicDefence = 120,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -36,11 +37,12 @@ getRow(1)->
 getRow(2)->
     #petLevelPropertyCfg {
     level = 2,
-    maxHP2 = 50,
-    physicalAttack = 5,
-    magicAttack = 5,
-    physicalDefence = 5,
-    magicDefence = 5,
+    exp = 200,
+    maxHP2 = 150,
+    physicalAttack = 15,
+    magicAttack = 15,
+    physicalDefence = 15,
+    magicDefence = 15,
     hitLevel = 0,
     criticalLevel = 0,
     criticalDamageLevel = 0,
@@ -64,6 +66,7 @@ getRow(2)->
 getRow(3)->
     #petLevelPropertyCfg {
     level = 3,
+    exp = 300,
     maxHP2 = 500,
     physicalAttack = 50,
     magicAttack = 50,
@@ -92,6 +95,7 @@ getRow(3)->
 getRow(4)->
     #petLevelPropertyCfg {
     level = 4,
+    exp = 400,
     maxHP2 = 550,
     physicalAttack = 55,
     magicAttack = 55,
@@ -120,6 +124,7 @@ getRow(4)->
 getRow(5)->
     #petLevelPropertyCfg {
     level = 5,
+    exp = 500,
     maxHP2 = 600,
     physicalAttack = 60,
     magicAttack = 60,
@@ -148,6 +153,7 @@ getRow(5)->
 getRow(6)->
     #petLevelPropertyCfg {
     level = 6,
+    exp = 600,
     maxHP2 = 650,
     physicalAttack = 65,
     magicAttack = 65,
@@ -176,6 +182,7 @@ getRow(6)->
 getRow(7)->
     #petLevelPropertyCfg {
     level = 7,
+    exp = 700,
     maxHP2 = 700,
     physicalAttack = 70,
     magicAttack = 70,
@@ -204,6 +211,7 @@ getRow(7)->
 getRow(8)->
     #petLevelPropertyCfg {
     level = 8,
+    exp = 800,
     maxHP2 = 750,
     physicalAttack = 75,
     magicAttack = 75,
@@ -232,6 +240,7 @@ getRow(8)->
 getRow(9)->
     #petLevelPropertyCfg {
     level = 9,
+    exp = 900,
     maxHP2 = 800,
     physicalAttack = 80,
     magicAttack = 80,
@@ -260,6 +269,7 @@ getRow(9)->
 getRow(10)->
     #petLevelPropertyCfg {
     level = 10,
+    exp = 1000,
     maxHP2 = 850,
     physicalAttack = 85,
     magicAttack = 85,
@@ -288,6 +298,7 @@ getRow(10)->
 getRow(11)->
     #petLevelPropertyCfg {
     level = 11,
+    exp = 1100,
     maxHP2 = 900,
     physicalAttack = 90,
     magicAttack = 90,
@@ -316,6 +327,7 @@ getRow(11)->
 getRow(12)->
     #petLevelPropertyCfg {
     level = 12,
+    exp = 1200,
     maxHP2 = 950,
     physicalAttack = 95,
     magicAttack = 95,
@@ -344,6 +356,7 @@ getRow(12)->
 getRow(13)->
     #petLevelPropertyCfg {
     level = 13,
+    exp = 1300,
     maxHP2 = 1000,
     physicalAttack = 100,
     magicAttack = 100,
@@ -372,6 +385,7 @@ getRow(13)->
 getRow(14)->
     #petLevelPropertyCfg {
     level = 14,
+    exp = 1400,
     maxHP2 = 1050,
     physicalAttack = 105,
     magicAttack = 105,
@@ -400,6 +414,7 @@ getRow(14)->
 getRow(15)->
     #petLevelPropertyCfg {
     level = 15,
+    exp = 1500,
     maxHP2 = 1100,
     physicalAttack = 110,
     magicAttack = 110,
@@ -428,6 +443,7 @@ getRow(15)->
 getRow(16)->
     #petLevelPropertyCfg {
     level = 16,
+    exp = 1600,
     maxHP2 = 1150,
     physicalAttack = 115,
     magicAttack = 115,
@@ -456,6 +472,7 @@ getRow(16)->
 getRow(17)->
     #petLevelPropertyCfg {
     level = 17,
+    exp = 1700,
     maxHP2 = 1200,
     physicalAttack = 120,
     magicAttack = 120,
@@ -484,6 +501,7 @@ getRow(17)->
 getRow(18)->
     #petLevelPropertyCfg {
     level = 18,
+    exp = 1800,
     maxHP2 = 1250,
     physicalAttack = 125,
     magicAttack = 125,
@@ -512,6 +530,7 @@ getRow(18)->
 getRow(19)->
     #petLevelPropertyCfg {
     level = 19,
+    exp = 1900,
     maxHP2 = 1300,
     physicalAttack = 130,
     magicAttack = 130,
@@ -540,6 +559,7 @@ getRow(19)->
 getRow(20)->
     #petLevelPropertyCfg {
     level = 20,
+    exp = 2000,
     maxHP2 = 1350,
     physicalAttack = 135,
     magicAttack = 135,
@@ -568,6 +588,7 @@ getRow(20)->
 getRow(21)->
     #petLevelPropertyCfg {
     level = 21,
+    exp = 2100,
     maxHP2 = 1400,
     physicalAttack = 140,
     magicAttack = 140,
@@ -596,6 +617,7 @@ getRow(21)->
 getRow(22)->
     #petLevelPropertyCfg {
     level = 22,
+    exp = 2200,
     maxHP2 = 1450,
     physicalAttack = 145,
     magicAttack = 145,
@@ -624,6 +646,7 @@ getRow(22)->
 getRow(23)->
     #petLevelPropertyCfg {
     level = 23,
+    exp = 2300,
     maxHP2 = 1500,
     physicalAttack = 150,
     magicAttack = 150,
@@ -652,6 +675,7 @@ getRow(23)->
 getRow(24)->
     #petLevelPropertyCfg {
     level = 24,
+    exp = 2400,
     maxHP2 = 1550,
     physicalAttack = 155,
     magicAttack = 155,
@@ -680,6 +704,7 @@ getRow(24)->
 getRow(25)->
     #petLevelPropertyCfg {
     level = 25,
+    exp = 2500,
     maxHP2 = 1600,
     physicalAttack = 160,
     magicAttack = 160,
@@ -708,6 +733,7 @@ getRow(25)->
 getRow(26)->
     #petLevelPropertyCfg {
     level = 26,
+    exp = 2600,
     maxHP2 = 1650,
     physicalAttack = 165,
     magicAttack = 165,
@@ -736,6 +762,7 @@ getRow(26)->
 getRow(27)->
     #petLevelPropertyCfg {
     level = 27,
+    exp = 2700,
     maxHP2 = 1700,
     physicalAttack = 170,
     magicAttack = 170,
@@ -764,6 +791,7 @@ getRow(27)->
 getRow(28)->
     #petLevelPropertyCfg {
     level = 28,
+    exp = 2800,
     maxHP2 = 1750,
     physicalAttack = 175,
     magicAttack = 175,
@@ -792,6 +820,7 @@ getRow(28)->
 getRow(29)->
     #petLevelPropertyCfg {
     level = 29,
+    exp = 2900,
     maxHP2 = 1800,
     physicalAttack = 180,
     magicAttack = 180,
@@ -820,6 +849,7 @@ getRow(29)->
 getRow(30)->
     #petLevelPropertyCfg {
     level = 30,
+    exp = 3000,
     maxHP2 = 1850,
     physicalAttack = 185,
     magicAttack = 185,
@@ -848,6 +878,7 @@ getRow(30)->
 getRow(31)->
     #petLevelPropertyCfg {
     level = 31,
+    exp = 3100,
     maxHP2 = 1900,
     physicalAttack = 190,
     magicAttack = 190,
@@ -876,6 +907,7 @@ getRow(31)->
 getRow(32)->
     #petLevelPropertyCfg {
     level = 32,
+    exp = 3200,
     maxHP2 = 1950,
     physicalAttack = 195,
     magicAttack = 195,
@@ -904,6 +936,7 @@ getRow(32)->
 getRow(33)->
     #petLevelPropertyCfg {
     level = 33,
+    exp = 3300,
     maxHP2 = 2000,
     physicalAttack = 200,
     magicAttack = 200,
@@ -932,6 +965,7 @@ getRow(33)->
 getRow(34)->
     #petLevelPropertyCfg {
     level = 34,
+    exp = 3400,
     maxHP2 = 2050,
     physicalAttack = 205,
     magicAttack = 205,
@@ -960,6 +994,7 @@ getRow(34)->
 getRow(35)->
     #petLevelPropertyCfg {
     level = 35,
+    exp = 3500,
     maxHP2 = 2100,
     physicalAttack = 210,
     magicAttack = 210,
@@ -988,6 +1023,7 @@ getRow(35)->
 getRow(36)->
     #petLevelPropertyCfg {
     level = 36,
+    exp = 3600,
     maxHP2 = 2150,
     physicalAttack = 215,
     magicAttack = 215,
@@ -1016,6 +1052,7 @@ getRow(36)->
 getRow(37)->
     #petLevelPropertyCfg {
     level = 37,
+    exp = 3700,
     maxHP2 = 2200,
     physicalAttack = 220,
     magicAttack = 220,
@@ -1044,6 +1081,7 @@ getRow(37)->
 getRow(38)->
     #petLevelPropertyCfg {
     level = 38,
+    exp = 3800,
     maxHP2 = 2250,
     physicalAttack = 225,
     magicAttack = 225,
@@ -1072,6 +1110,7 @@ getRow(38)->
 getRow(39)->
     #petLevelPropertyCfg {
     level = 39,
+    exp = 3900,
     maxHP2 = 2300,
     physicalAttack = 230,
     magicAttack = 230,
@@ -1100,6 +1139,7 @@ getRow(39)->
 getRow(40)->
     #petLevelPropertyCfg {
     level = 40,
+    exp = 4000,
     maxHP2 = 2350,
     physicalAttack = 235,
     magicAttack = 235,
@@ -1128,6 +1168,7 @@ getRow(40)->
 getRow(41)->
     #petLevelPropertyCfg {
     level = 41,
+    exp = 4100,
     maxHP2 = 2400,
     physicalAttack = 240,
     magicAttack = 240,
@@ -1156,6 +1197,7 @@ getRow(41)->
 getRow(42)->
     #petLevelPropertyCfg {
     level = 42,
+    exp = 4200,
     maxHP2 = 2450,
     physicalAttack = 245,
     magicAttack = 245,
@@ -1184,6 +1226,7 @@ getRow(42)->
 getRow(43)->
     #petLevelPropertyCfg {
     level = 43,
+    exp = 4300,
     maxHP2 = 2500,
     physicalAttack = 250,
     magicAttack = 250,
@@ -1212,6 +1255,7 @@ getRow(43)->
 getRow(44)->
     #petLevelPropertyCfg {
     level = 44,
+    exp = 4400,
     maxHP2 = 2550,
     physicalAttack = 255,
     magicAttack = 255,
@@ -1240,6 +1284,7 @@ getRow(44)->
 getRow(45)->
     #petLevelPropertyCfg {
     level = 45,
+    exp = 4500,
     maxHP2 = 2600,
     physicalAttack = 260,
     magicAttack = 260,
@@ -1268,6 +1313,7 @@ getRow(45)->
 getRow(46)->
     #petLevelPropertyCfg {
     level = 46,
+    exp = 4600,
     maxHP2 = 2650,
     physicalAttack = 265,
     magicAttack = 265,
@@ -1296,6 +1342,7 @@ getRow(46)->
 getRow(47)->
     #petLevelPropertyCfg {
     level = 47,
+    exp = 4700,
     maxHP2 = 2700,
     physicalAttack = 270,
     magicAttack = 270,
@@ -1324,6 +1371,7 @@ getRow(47)->
 getRow(48)->
     #petLevelPropertyCfg {
     level = 48,
+    exp = 4800,
     maxHP2 = 2750,
     physicalAttack = 275,
     magicAttack = 275,
@@ -1352,6 +1400,7 @@ getRow(48)->
 getRow(49)->
     #petLevelPropertyCfg {
     level = 49,
+    exp = 4900,
     maxHP2 = 2800,
     physicalAttack = 280,
     magicAttack = 280,
@@ -1380,6 +1429,7 @@ getRow(49)->
 getRow(50)->
     #petLevelPropertyCfg {
     level = 50,
+    exp = 5000,
     maxHP2 = 2850,
     physicalAttack = 285,
     magicAttack = 285,
@@ -1408,6 +1458,7 @@ getRow(50)->
 getRow(51)->
     #petLevelPropertyCfg {
     level = 51,
+    exp = 5100,
     maxHP2 = 2900,
     physicalAttack = 290,
     magicAttack = 290,
@@ -1436,6 +1487,7 @@ getRow(51)->
 getRow(52)->
     #petLevelPropertyCfg {
     level = 52,
+    exp = 5200,
     maxHP2 = 2950,
     physicalAttack = 295,
     magicAttack = 295,
@@ -1464,6 +1516,7 @@ getRow(52)->
 getRow(53)->
     #petLevelPropertyCfg {
     level = 53,
+    exp = 5300,
     maxHP2 = 3000,
     physicalAttack = 300,
     magicAttack = 300,
@@ -1492,6 +1545,7 @@ getRow(53)->
 getRow(54)->
     #petLevelPropertyCfg {
     level = 54,
+    exp = 5400,
     maxHP2 = 3050,
     physicalAttack = 305,
     magicAttack = 305,
@@ -1520,6 +1574,7 @@ getRow(54)->
 getRow(55)->
     #petLevelPropertyCfg {
     level = 55,
+    exp = 5500,
     maxHP2 = 3100,
     physicalAttack = 310,
     magicAttack = 310,
@@ -1548,6 +1603,7 @@ getRow(55)->
 getRow(56)->
     #petLevelPropertyCfg {
     level = 56,
+    exp = 5600,
     maxHP2 = 3150,
     physicalAttack = 315,
     magicAttack = 315,
@@ -1576,6 +1632,7 @@ getRow(56)->
 getRow(57)->
     #petLevelPropertyCfg {
     level = 57,
+    exp = 5700,
     maxHP2 = 3200,
     physicalAttack = 320,
     magicAttack = 320,
@@ -1604,6 +1661,7 @@ getRow(57)->
 getRow(58)->
     #petLevelPropertyCfg {
     level = 58,
+    exp = 5800,
     maxHP2 = 3250,
     physicalAttack = 325,
     magicAttack = 325,
@@ -1632,6 +1690,7 @@ getRow(58)->
 getRow(59)->
     #petLevelPropertyCfg {
     level = 59,
+    exp = 5900,
     maxHP2 = 3300,
     physicalAttack = 330,
     magicAttack = 330,
@@ -1660,6 +1719,7 @@ getRow(59)->
 getRow(60)->
     #petLevelPropertyCfg {
     level = 60,
+    exp = 6000,
     maxHP2 = 3350,
     physicalAttack = 335,
     magicAttack = 335,
@@ -1688,6 +1748,7 @@ getRow(60)->
 getRow(61)->
     #petLevelPropertyCfg {
     level = 61,
+    exp = 6100,
     maxHP2 = 3400,
     physicalAttack = 340,
     magicAttack = 340,
@@ -1716,6 +1777,7 @@ getRow(61)->
 getRow(62)->
     #petLevelPropertyCfg {
     level = 62,
+    exp = 6200,
     maxHP2 = 3450,
     physicalAttack = 345,
     magicAttack = 345,
@@ -1744,6 +1806,7 @@ getRow(62)->
 getRow(63)->
     #petLevelPropertyCfg {
     level = 63,
+    exp = 6300,
     maxHP2 = 3500,
     physicalAttack = 350,
     magicAttack = 350,
@@ -1772,6 +1835,7 @@ getRow(63)->
 getRow(64)->
     #petLevelPropertyCfg {
     level = 64,
+    exp = 6400,
     maxHP2 = 3550,
     physicalAttack = 355,
     magicAttack = 355,
@@ -1800,6 +1864,7 @@ getRow(64)->
 getRow(65)->
     #petLevelPropertyCfg {
     level = 65,
+    exp = 6500,
     maxHP2 = 3600,
     physicalAttack = 360,
     magicAttack = 360,
@@ -1828,6 +1893,7 @@ getRow(65)->
 getRow(66)->
     #petLevelPropertyCfg {
     level = 66,
+    exp = 6600,
     maxHP2 = 3650,
     physicalAttack = 365,
     magicAttack = 365,
@@ -1856,6 +1922,7 @@ getRow(66)->
 getRow(67)->
     #petLevelPropertyCfg {
     level = 67,
+    exp = 6700,
     maxHP2 = 3700,
     physicalAttack = 370,
     magicAttack = 370,
@@ -1884,6 +1951,7 @@ getRow(67)->
 getRow(68)->
     #petLevelPropertyCfg {
     level = 68,
+    exp = 6800,
     maxHP2 = 3750,
     physicalAttack = 375,
     magicAttack = 375,
@@ -1912,6 +1980,7 @@ getRow(68)->
 getRow(69)->
     #petLevelPropertyCfg {
     level = 69,
+    exp = 6900,
     maxHP2 = 3800,
     physicalAttack = 380,
     magicAttack = 380,
@@ -1940,6 +2009,7 @@ getRow(69)->
 getRow(70)->
     #petLevelPropertyCfg {
     level = 70,
+    exp = 7000,
     maxHP2 = 3850,
     physicalAttack = 385,
     magicAttack = 385,
@@ -1968,6 +2038,7 @@ getRow(70)->
 getRow(71)->
     #petLevelPropertyCfg {
     level = 71,
+    exp = 7100,
     maxHP2 = 3900,
     physicalAttack = 390,
     magicAttack = 390,
@@ -1996,6 +2067,7 @@ getRow(71)->
 getRow(72)->
     #petLevelPropertyCfg {
     level = 72,
+    exp = 7200,
     maxHP2 = 3950,
     physicalAttack = 395,
     magicAttack = 395,
@@ -2024,6 +2096,7 @@ getRow(72)->
 getRow(73)->
     #petLevelPropertyCfg {
     level = 73,
+    exp = 7300,
     maxHP2 = 4000,
     physicalAttack = 400,
     magicAttack = 400,
@@ -2052,6 +2125,7 @@ getRow(73)->
 getRow(74)->
     #petLevelPropertyCfg {
     level = 74,
+    exp = 7400,
     maxHP2 = 4050,
     physicalAttack = 405,
     magicAttack = 405,
@@ -2080,6 +2154,7 @@ getRow(74)->
 getRow(75)->
     #petLevelPropertyCfg {
     level = 75,
+    exp = 7500,
     maxHP2 = 4100,
     physicalAttack = 410,
     magicAttack = 410,
@@ -2108,6 +2183,7 @@ getRow(75)->
 getRow(76)->
     #petLevelPropertyCfg {
     level = 76,
+    exp = 7600,
     maxHP2 = 4150,
     physicalAttack = 415,
     magicAttack = 415,
@@ -2136,6 +2212,7 @@ getRow(76)->
 getRow(77)->
     #petLevelPropertyCfg {
     level = 77,
+    exp = 7700,
     maxHP2 = 4200,
     physicalAttack = 420,
     magicAttack = 420,
@@ -2164,6 +2241,7 @@ getRow(77)->
 getRow(78)->
     #petLevelPropertyCfg {
     level = 78,
+    exp = 7800,
     maxHP2 = 4250,
     physicalAttack = 425,
     magicAttack = 425,
@@ -2192,6 +2270,7 @@ getRow(78)->
 getRow(79)->
     #petLevelPropertyCfg {
     level = 79,
+    exp = 7900,
     maxHP2 = 4300,
     physicalAttack = 430,
     magicAttack = 430,
@@ -2220,6 +2299,7 @@ getRow(79)->
 getRow(80)->
     #petLevelPropertyCfg {
     level = 80,
+    exp = 8000,
     maxHP2 = 4350,
     physicalAttack = 435,
     magicAttack = 435,
@@ -2248,6 +2328,7 @@ getRow(80)->
 getRow(81)->
     #petLevelPropertyCfg {
     level = 81,
+    exp = 8100,
     maxHP2 = 4400,
     physicalAttack = 440,
     magicAttack = 440,
@@ -2276,6 +2357,7 @@ getRow(81)->
 getRow(82)->
     #petLevelPropertyCfg {
     level = 82,
+    exp = 8200,
     maxHP2 = 4450,
     physicalAttack = 445,
     magicAttack = 445,
@@ -2304,6 +2386,7 @@ getRow(82)->
 getRow(83)->
     #petLevelPropertyCfg {
     level = 83,
+    exp = 8300,
     maxHP2 = 4500,
     physicalAttack = 450,
     magicAttack = 450,
@@ -2332,6 +2415,7 @@ getRow(83)->
 getRow(84)->
     #petLevelPropertyCfg {
     level = 84,
+    exp = 8400,
     maxHP2 = 4550,
     physicalAttack = 455,
     magicAttack = 455,
@@ -2360,6 +2444,7 @@ getRow(84)->
 getRow(85)->
     #petLevelPropertyCfg {
     level = 85,
+    exp = 8500,
     maxHP2 = 4600,
     physicalAttack = 460,
     magicAttack = 460,
@@ -2388,6 +2473,7 @@ getRow(85)->
 getRow(86)->
     #petLevelPropertyCfg {
     level = 86,
+    exp = 8600,
     maxHP2 = 4650,
     physicalAttack = 465,
     magicAttack = 465,
@@ -2416,6 +2502,7 @@ getRow(86)->
 getRow(87)->
     #petLevelPropertyCfg {
     level = 87,
+    exp = 8700,
     maxHP2 = 4700,
     physicalAttack = 470,
     magicAttack = 470,
@@ -2444,6 +2531,7 @@ getRow(87)->
 getRow(88)->
     #petLevelPropertyCfg {
     level = 88,
+    exp = 8800,
     maxHP2 = 4750,
     physicalAttack = 475,
     magicAttack = 475,
@@ -2472,6 +2560,7 @@ getRow(88)->
 getRow(89)->
     #petLevelPropertyCfg {
     level = 89,
+    exp = 8900,
     maxHP2 = 4800,
     physicalAttack = 480,
     magicAttack = 480,
@@ -2500,6 +2589,7 @@ getRow(89)->
 getRow(90)->
     #petLevelPropertyCfg {
     level = 90,
+    exp = 9000,
     maxHP2 = 4850,
     physicalAttack = 485,
     magicAttack = 485,
@@ -2528,6 +2618,7 @@ getRow(90)->
 getRow(91)->
     #petLevelPropertyCfg {
     level = 91,
+    exp = 9100,
     maxHP2 = 4900,
     physicalAttack = 490,
     magicAttack = 490,
@@ -2556,6 +2647,7 @@ getRow(91)->
 getRow(92)->
     #petLevelPropertyCfg {
     level = 92,
+    exp = 9200,
     maxHP2 = 4950,
     physicalAttack = 495,
     magicAttack = 495,
@@ -2584,6 +2676,7 @@ getRow(92)->
 getRow(93)->
     #petLevelPropertyCfg {
     level = 93,
+    exp = 9300,
     maxHP2 = 5000,
     physicalAttack = 500,
     magicAttack = 500,
@@ -2612,6 +2705,7 @@ getRow(93)->
 getRow(94)->
     #petLevelPropertyCfg {
     level = 94,
+    exp = 9400,
     maxHP2 = 5050,
     physicalAttack = 505,
     magicAttack = 505,
@@ -2640,6 +2734,7 @@ getRow(94)->
 getRow(95)->
     #petLevelPropertyCfg {
     level = 95,
+    exp = 9500,
     maxHP2 = 5100,
     physicalAttack = 510,
     magicAttack = 510,
@@ -2668,6 +2763,7 @@ getRow(95)->
 getRow(96)->
     #petLevelPropertyCfg {
     level = 96,
+    exp = 9600,
     maxHP2 = 5150,
     physicalAttack = 515,
     magicAttack = 515,
@@ -2696,6 +2792,7 @@ getRow(96)->
 getRow(97)->
     #petLevelPropertyCfg {
     level = 97,
+    exp = 9700,
     maxHP2 = 5200,
     physicalAttack = 520,
     magicAttack = 520,
@@ -2724,6 +2821,7 @@ getRow(97)->
 getRow(98)->
     #petLevelPropertyCfg {
     level = 98,
+    exp = 9800,
     maxHP2 = 5250,
     physicalAttack = 525,
     magicAttack = 525,
@@ -2752,6 +2850,7 @@ getRow(98)->
 getRow(99)->
     #petLevelPropertyCfg {
     level = 99,
+    exp = 9900,
     maxHP2 = 5300,
     physicalAttack = 530,
     magicAttack = 530,
@@ -2780,6 +2879,7 @@ getRow(99)->
 getRow(100)->
     #petLevelPropertyCfg {
     level = 100,
+    exp = 10000,
     maxHP2 = 5350,
     physicalAttack = 535,
     magicAttack = 535,

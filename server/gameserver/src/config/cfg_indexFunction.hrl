@@ -71,6 +71,8 @@
 
         %%: 离线经验——
         %%: 领取经验时每点经验消耗的钻石数
+        %%: 填入值需乘以10000
+        %%: 代码中取值会除以10000
         offLineDiamondCost,
 
         %%: 答题经验
@@ -81,7 +83,18 @@
 
         coinAddition,
 
-        coinHand_box
+        coinHand_box,
+
+        %%: Luoch:
+        %%: 广场舞经验配置，秒
+        %%: [每秒获得的经验值，当日可通过广场舞获得经验上限]
+        squaredance_exp,
+
+        field_exp_up,
+
+        map_name,
+
+        monster_id
 
  }).
 

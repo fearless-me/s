@@ -5,6 +5,7 @@
 -record(objectCfg, {
         %%: admin:
         %%: 采集品id
+        %%: 1000-1999为副本地表采集物type16
         id,
 
         %%: admin:
@@ -24,9 +25,17 @@
         %%: GuildResidentCollect = 9,// 军团驻地采集物
         %%: GuildGrabFlag = 10,     // 军团据点插旗
         %%: GuildGrabBuff = 11,     // 军团据点buff
-        %%:                 12,     //港口竞速的
+        %%:                 12,     //骑宠竞速，param1为类型， 1里程碑
+        %%:                                                    2加速带
+        %%:                                                    3减速陷阱
+        %%:                                                    4强化加速带
+        %%:                                                    5强化减速带
+        %%:                                                    6道具箱
+        %%:                                     param2，对于类型2345【buffid，强化buffid】，采集物所需要的buff，
+        %%:                                             对于里程碑，标记第几里程碑，终点为【0】
         %%: GuildSnowCollect = 13,  // 军团堆雪人采集物
-        %%: GuildBattle   = 15,     // 军团战采集物 
+        %%: GuildBattle   = 15,     // 家族战采集物 
+        %%: object.type=16    //副本地表采集物
         type,
 
         %%: admin:
@@ -45,6 +54,12 @@
         %%: 采集时间，毫秒。
         collect_time,
 
+        %%: 姜泓妃
+        %%: 0：采集动作
+        %%: 1：碰撞
+        %%: 不填：按已有采集物类型来处理
+        collect_mode,
+
         %%: 使用物品type2的
         %%: 使用后animation2的状态持续时间
         hold_time,
@@ -60,6 +75,8 @@
         %%: admin:
         %%: 备用参数
         param1,
+
+        param2,
 
         %%: 刷新时间(秒)
         %%: 0 表示不刷新，采集完就永远消失

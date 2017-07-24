@@ -32,6 +32,10 @@
 
 -export([parseMsgID/1]).
 
+-export([
+	getUserIpAndPort/0
+]).
+
 -callback init(Args :: term()) ->
 	{ok, State :: term()} | {ok, State :: term(), timeout() | hibernate} |
 	{stop, Reason :: term()} | ignore.
@@ -73,7 +77,20 @@ start_link(Module,[Socket,#listenTcpOptions{} = Option]) ->
 	myGenServer:start_link(?MODULE, [Module,Socket,Option], [{timeout,?Start_Link_TimeOut_ms}]).
 
 init([Module,Socket,#listenTcpOptions{isSendSessionKey = IsSendSessionKey} = Option]) ->
-	?LOG_OUT("socketHandler[~p ~p] init",[self(), Socket]),
+	setUserIpAndPort(undefined, undefined),
+	try
+		case misc:getRemoteIP_Port(Socket) of
+			{IP,Port} ->
+				setUserIpAndPort(IP, Port);
+			_ ->
+				?ERROR_OUT("Error CliSocket[~p] cannot get RemoteIP",[Socket])
+		end
+	catch
+		_:Why1 ->
+			?ERROR_OUT("getRemoteIP_Port exception:~p",[Why1])
+	end,
+
+	?LOG_OUT("socketHandler[~p ~p][~p] init",[self(), Socket, getUserIpAndPort()]),
 	setUserSocket(Socket),
 	setListenOption(Option),
 	setHalfMsg(<<>>),
@@ -140,6 +157,7 @@ handle_exception(Type,Why,#state{module = Module,subState = S} = State) ->
 
 handle_info(recvClientPackageInterval, State) ->
 	socketStatistics:recvClientPackageInterval(),
+	erlang:send_after(?RecvClientPackageIntervalTime, self(), recvClientPackageInterval),
 	{noreply, State};
 
 handle_info(printMsgStatisticsInterval, State) ->
@@ -401,6 +419,12 @@ getUserSocket() ->
 
 setUserSocket(Sock) ->
 	put(userSocket,Sock).
+
+setUserIpAndPort(IP, Port) ->
+	put(userIpAndPort, {IP, Port}).
+
+getUserIpAndPort() ->
+	get(userIpAndPort).
 
 setListenOption(#listenTcpOptions{} = Option) ->
 	put(listenOption,Option),

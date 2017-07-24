@@ -23,193 +23,18 @@ getRow(199)->
     enter_map = 0,
     button_para1 = 3,
     idleRestNum = 2,
-    offset = [-69.3,-315.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(200)->
-    #npcCfg {
-    id = 200,
-    refname = "卖药水的小蘑菇",
-    name = "瑞文",
-    title = "<药剂商人>",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 14,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "大量出售治愈药水哦！这位少侠…哦不，这位勇士，要不要来看看？",
-    button_type = 1,
-    enter_map = 0,
-    button_para1 = 3,
-    idleRestNum = 2,
-    offset = [-69.3,-315.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(201)->
-    #npcCfg {
-    id = 201,
-    refname = "卖药水的小蘑菇",
-    name = "瑞文",
-    title = "<药剂商人>",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 14,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "大量出售治愈药水哦！这位少侠…哦不，这位勇士，要不要来看看？",
-    button_type = 1,
-    enter_map = 0,
-    button_para1 = 3,
-    idleRestNum = 2,
-    offset = [-69.3,-315.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(202)->
-    #npcCfg {
-    id = 202,
-    refname = "卖药水的小蘑菇",
-    name = "瑞文",
-    title = "<药剂商人>",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 14,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "大量出售治愈药水哦！这位少侠…哦不，这位勇士，要不要来看看？",
-    button_type = 1,
-    enter_map = 0,
-    button_para1 = 3,
-    idleRestNum = 2,
-    offset = [-69.3,-315.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(203)->
-    #npcCfg {
-    id = 203,
-    refname = "卖药水的小蘑菇",
-    name = "瑞文",
-    title = "<药剂商人>",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 14,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "大量出售治愈药水哦！这位少侠…哦不，这位勇士，要不要来看看？",
-    button_type = 1,
-    enter_map = 0,
-    button_para1 = 3,
-    idleRestNum = 2,
-    offset = [-69.3,-315.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(204)->
-    #npcCfg {
-    id = 204,
-    refname = "卖药水的小蘑菇",
-    name = "瑞文",
-    title = "<药剂商人>",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 14,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "大量出售治愈药水哦！这位少侠…哦不，这位勇士，要不要来看看？",
-    button_type = 1,
-    enter_map = 0,
-    button_para1 = 3,
-    idleRestNum = 2,
-    offset = [-69.3,-315.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(205)->
-    #npcCfg {
-    id = 205,
-    refname = "卖药水的小蘑菇",
-    name = "瑞文",
-    title = "<药剂商人>",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 14,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "大量出售治愈药水哦！这位少侠…哦不，这位勇士，要不要来看看？",
-    button_type = 1,
-    enter_map = 0,
-    button_para1 = 3,
-    idleRestNum = 2,
-    offset = [-69.3,-315.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(206)->
-    #npcCfg {
-    id = 206,
-    refname = "卖药水的小蘑菇",
-    name = "瑞文",
-    title = "<药剂商人>",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 14,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "大量出售治愈药水哦！这位少侠…哦不，这位勇士，要不要来看看？",
-    button_type = 1,
-    enter_map = 0,
-    button_para1 = 3,
-    idleRestNum = 2,
-    offset = [-69.3,-315.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(220)->
     #npcCfg {
     id = 220,
     refname = "器灵活动场景展示NPC",
-    name = "暗",
     title = "<湮灭>",
     npc_level = 99,
     type = 0,
@@ -217,24 +42,24 @@ getRow(220)->
     param = "m",
     mo_type = 3005,
     multiple = 100,
-    npcface = 0,
+    npcface = 1,
     commonTalk = "<湮灭>",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-93.5,-283.6,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(221)->
     #npcCfg {
     id = 221,
     refname = "器灵活动场景展示NPC",
-    name = "冰",
     title = "<冷肃>",
     npc_level = 99,
     type = 0,
@@ -242,24 +67,24 @@ getRow(221)->
     param = "m",
     mo_type = 3010,
     multiple = 100,
-    npcface = 0,
+    npcface = 1,
     commonTalk = "<冷肃>",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-93.5,-283.6,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(222)->
     #npcCfg {
     id = 222,
     refname = "器灵活动场景展示NPC",
-    name = "光",
     title = "<神圣>",
     npc_level = 99,
     type = 0,
@@ -267,24 +92,24 @@ getRow(222)->
     param = "m",
     mo_type = 3015,
     multiple = 100,
-    npcface = 0,
+    npcface = 1,
     commonTalk = "<神圣>",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-93.5,-283.6,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(223)->
     #npcCfg {
     id = 223,
     refname = "器灵活动场景展示NPC",
-    name = "火",
     title = "<炽热>",
     npc_level = 99,
     type = 0,
@@ -292,24 +117,24 @@ getRow(223)->
     param = "m",
     mo_type = 3020,
     multiple = 100,
-    npcface = 0,
+    npcface = 1,
     commonTalk = "<炽热>",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-93.5,-283.6,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(224)->
     #npcCfg {
     id = 224,
     refname = "器灵活动场景展示NPC",
-    name = "风",
     title = "<轻灵>",
     npc_level = 99,
     type = 0,
@@ -317,24 +142,24 @@ getRow(224)->
     param = "m",
     mo_type = 3025,
     multiple = 100,
-    npcface = 0,
+    npcface = 1,
     commonTalk = "<轻灵>",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-93.5,-283.6,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(225)->
     #npcCfg {
     id = 225,
     refname = "器灵活动场景展示NPC",
-    name = "雷",
     title = "<正义>",
     npc_level = 99,
     type = 0,
@@ -342,18 +167,19 @@ getRow(225)->
     param = "m",
     mo_type = 3030,
     multiple = 100,
-    npcface = 0,
+    npcface = 1,
     commonTalk = "<正义>",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-93.5,-283.6,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(230)->
     #npcCfg {
@@ -367,18 +193,19 @@ getRow(230)->
     param = "n",
     mo_type = 46,
     multiple = 100,
-    npcface = 0,
+    npcface = 1,
     commonTalk = "无",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-115.3,-290.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(271)->
     #npcCfg {
@@ -398,12 +225,13 @@ getRow(271)->
     enter_map = 0,
     button_para1 = 1,
     idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(301)->
     #npcCfg {
@@ -423,12 +251,13 @@ getRow(301)->
     enter_map = 0,
     button_para1 = 2,
     idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(364)->
     #npcCfg {
@@ -448,19 +277,20 @@ getRow(364)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(376)->
+getRow(365)->
     #npcCfg {
-    id = 376,
-    refname = "士兵·卡斯特",
-    name = "士兵·卡斯特",
-    title = "<守护女神>",
+    id = 365,
+    refname = "战士转职",
+    name = "战士转职大师",
+    title = "<转职>",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -468,42 +298,67 @@ getRow(376)->
     mo_type = 12,
     multiple = 100,
     npcface = 0,
-    commonTalk = "守护女神是士兵存在的意义！",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
+    offset = [-546,0,0],
     modelUIScale = 100,
-    ncp_miniicon = 0,
+    ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(394)->
+getRow(366)->
     #npcCfg {
-    id = 394,
-    refname = "阿尔巴德",
-    name = "阿尔巴德",
-    title = "<礼拜者>",
+    id = 366,
+    refname = "法师转职",
+    name = "战士转职大师",
+    title = "<转职>",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "n",
-    mo_type = 6,
+    mo_type = 11,
     multiple = 100,
     npcface = 0,
-    commonTalk = "嘘…禁闭室里正关着一些调皮的大家伙",
     button_type = 0,
     enter_map = 0,
-    button_para1 = 13,
-    idleRestNum = 2,
-    offset = [-69.3,-284.9,0],
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-546,0,0],
     modelUIScale = 100,
-    ncp_miniicon = 0,
+    ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(367)->
+    #npcCfg {
+    id = 367,
+    refname = "刺客转职",
+    name = "战士转职大师",
+    title = "<转职>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 13,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-546,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(405)->
     #npcCfg {
@@ -523,12 +378,13 @@ getRow(405)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-213.3,-273.5,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(406)->
     #npcCfg {
@@ -548,12 +404,13 @@ getRow(406)->
     enter_map = 501,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-130.6,-270.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(407)->
     #npcCfg {
@@ -573,12 +430,13 @@ getRow(407)->
     enter_map = 502,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-130.6,-270.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(408)->
     #npcCfg {
@@ -598,12 +456,13 @@ getRow(408)->
     enter_map = 503,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-130.6,-270.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(409)->
     #npcCfg {
@@ -623,12 +482,13 @@ getRow(409)->
     enter_map = 504,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-130.6,-270.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(410)->
     #npcCfg {
@@ -648,12 +508,13 @@ getRow(410)->
     enter_map = 505,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-130.6,-270.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(411)->
     #npcCfg {
@@ -673,12 +534,13 @@ getRow(411)->
     enter_map = 500,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-130.6,-270.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(412)->
     #npcCfg {
@@ -698,12 +560,13 @@ getRow(412)->
     enter_map = 501,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-130.6,-270.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(413)->
     #npcCfg {
@@ -723,12 +586,13 @@ getRow(413)->
     enter_map = 502,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-130.6,-270.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(414)->
     #npcCfg {
@@ -748,12 +612,13 @@ getRow(414)->
     enter_map = 503,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-130.6,-270.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(415)->
     #npcCfg {
@@ -773,12 +638,13 @@ getRow(415)->
     enter_map = 504,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-130.6,-270.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(416)->
     #npcCfg {
@@ -798,573 +664,278 @@ getRow(416)->
     enter_map = 0,
     button_para1 = 10,
     idleRestNum = 0,
-    offset = [-69.3,-315.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(512)->
+getRow(450)->
     #npcCfg {
-    id = 512,
-    refname = "港口公告牌",
-    title = "<公告牌>",
+    id = 450,
+    refname = "丽莎（show1面板通用，纯界面展示用）",
+    name = "丽莎",
+    title = "<副本，任务>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 3031,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-240,30,0],
+    modelUIScale = 80,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(451)->
+    #npcCfg {
+    id = 451,
+    refname = "露娜女神（show1面板通用，纯界面展示用）",
+    name = "露娜女神",
+    title = "<任务>",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "n",
     mo_type = 1,
-    multiple = 200,
+    multiple = 80,
     npcface = 0,
-    commonTalk = "阿克勒港口人员流动性大，请居民们注意安全",
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
-    button_para1 = 11,
+    button_para1 = 0,
     idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
+    offset = [-240,-50,0],
+    modelUIScale = 50,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(513)->
+getRow(452)->
     #npcCfg {
-    id = 513,
-    refname = "港口图书管理员",
-    name = "玛丽",
-    title = "<图书管理员>",
+    id = 452,
+    refname = "小鱼人（show1面板通用，纯界面展示用）",
+    name = "小鱼人",
+    title = "<任务>",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
+    param = "m",
+    mo_type = 12,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-240,-50,0],
+    modelUIScale = 70,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(453)->
+    #npcCfg {
+    id = 453,
+    refname = "史莱姆（show1面板通用，纯界面展示用）",
+    name = "史莱姆",
+    title = "<任务>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
     mo_type = 1,
-    multiple = 200,
+    multiple = 100,
     npcface = 0,
-    commonTalk = "书中自有颜如玉，小哥哥，你看我，是不是颜如玉？",
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
+    offset = [-240,-50,0],
+    modelUIScale = 70,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(514)->
+getRow(454)->
     #npcCfg {
-    id = 514,
-    refname = "铁锤旁居民1",
-    name = "布莱克.史密斯",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 1,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "终于生着火了，我得歇会",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(515)->
-    #npcCfg {
-    id = 515,
-    refname = "港口富商",
-    name = "瑞驰.曼",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 1,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "这次我从神秘的东方进了些茶叶，丝绸。哈哈，运到城里去又能大赚一笔！",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(516)->
-    #npcCfg {
-    id = 516,
-    refname = "港口铁匠",
-    name = "艾伦.斯昂",
-    title = "<老铁匠>",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 1,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "你需要来点武器吗？这儿可不是那么太平",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(517)->
-    #npcCfg {
-    id = 517,
-    refname = "港口小雇工",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 1,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "老爷又在训斥小姐了，唉，小姐明明那么优秀···",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(518)->
-    #npcCfg {
-    id = 518,
-    refname = "港口蓝房少爷",
-    name = "艾迪森.布鲁",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 1,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "嗨，兄弟！有没有看到谁牵着一匹马？",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(519)->
-    #npcCfg {
-    id = 519,
-    refname = "港口蓝房小姐",
-    name = "特瑞萨.布鲁",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 1,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "我长大了，为什么父亲还当我是个小孩子呢？",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(520)->
-    #npcCfg {
-    id = 520,
-    refname = "港口蓝房老爷",
-    name = "阿道夫.布鲁",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 1,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "我错了吗？我辛辛苦苦给两个孩子打造了一座崭新的奥辛维斯，他们为什么不乖呢",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(521)->
-    #npcCfg {
-    id = 521,
-    refname = "东门虎皮女孩",
-    name = "达瓦",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 1,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "你是什么人？",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(522)->
-    #npcCfg {
-    id = 522,
-    refname = "东门虎皮大汉",
-    name = "全藏",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 1,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "这虎皮当然是真···假的！我可不是你们要抓的猎虎者",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-365.9,-598.7,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(523)->
-    #npcCfg {
-    id = 523,
-    refname = "北门女流氓",
-    name = "奥丽斯",
-    title = "<女流氓>",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 2,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "哟，小鲜肉啊！阿克勒很久没有像你这么漂亮的人了。来，让小姐姐摸摸",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-125.5,-290,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(524)->
-    #npcCfg {
-    id = 524,
-    refname = "女巫",
-    name = "芙兰",
-    title = "<占卜者>",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 2,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "事业200，爱情500，健康1000。凭学生证打八折。",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-125.5,-290,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(525)->
-    #npcCfg {
-    id = 525,
-    refname = "港口自恋男",
-    name = "汉森",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 2,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "现在不方便跟你说话，你帮我看看，安娜小姐是不是在看我？嘿嘿嘿",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-125.5,-290,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(526)->
-    #npcCfg {
-    id = 526,
-    refname = "港口桥上女精灵",
+    id = 454,
+    refname = "安娜（show1面板通用，纯界面展示用）",
     name = "安娜",
+    title = "<任务>",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
-    mo_type = 2,
-    multiple = 200,
+    param = "m",
+    mo_type = 82,
+    multiple = 100,
     npcface = 0,
-    commonTalk = "哈哈哈你看河边那个人，好搞笑哦！",
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-125.5,-290,0],
-    modelUIScale = 100,
+    idleRestNum = 0,
+    offset = [-240,-50,0],
+    modelUIScale = 70,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(527)->
+getRow(455)->
     #npcCfg {
-    id = 527,
-    refname = "港口走私商人",
-    name = "麦克",
-    title = "<诡异的人>",
+    id = 455,
+    refname = "罗撒特（show1面板通用，纯界面展示用）",
+    name = "罗撒特",
+    title = "<任务>",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
-    mo_type = 2,
-    multiple = 200,
+    param = "m",
+    mo_type = 23,
+    multiple = 100,
     npcface = 0,
-    commonTalk = "天王盖地虎",
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-125.5,-290,0],
-    modelUIScale = 100,
+    idleRestNum = 0,
+    offset = [-240,-50,0],
+    modelUIScale = 70,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(528)->
+getRow(456)->
     #npcCfg {
-    id = 528,
-    refname = "港口鹿族长老",
-    name = "希利克斯",
-    title = "<鹿族长老>",
+    id = 456,
+    refname = "蘑菇小跟班（show1面板通用，纯界面展示用）",
+    name = "蘑菇小跟班",
+    title = "<任务>",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
-    mo_type = 2,
-    multiple = 200,
+    param = "m",
+    mo_type = 9,
+    multiple = 100,
     npcface = 0,
-    commonTalk = "阿克勒欢迎你，这是个朝气蓬勃的地方，希望你和我一样爱上这儿",
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-125.5,-290,0],
-    modelUIScale = 100,
+    idleRestNum = 0,
+    offset = [-240,-50,0],
+    modelUIScale = 70,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(529)->
+getRow(457)->
     #npcCfg {
-    id = 529,
-    refname = "港口小女孩",
-    name = "洛丽塔",
+    id = 457,
+    refname = "火焰恶魔（show1面板通用，纯界面展示用）",
+    name = "火焰恶魔",
+    title = "<任务>",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
-    mo_type = 2,
-    multiple = 200,
+    param = "m",
+    mo_type = 7,
+    multiple = 100,
     npcface = 0,
-    commonTalk = "我在等我的爸爸，他很快就回来了",
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-125.5,-290,0],
-    modelUIScale = 100,
+    idleRestNum = 0,
+    offset = [-240,-50,0],
+    modelUIScale = 40,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(530)->
+getRow(458)->
     #npcCfg {
-    id = 530,
-    refname = "港口求婚女",
-    name = "安琪儿",
+    id = 458,
+    refname = "风暴恶魔（show1面板通用，纯界面展示用）",
+    name = "风暴恶魔",
+    title = "<任务>",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
-    mo_type = 2,
-    multiple = 200,
+    param = "m",
+    mo_type = 8,
+    multiple = 100,
     npcface = 0,
-    commonTalk = "<害羞>现在是我最快乐的时候",
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-125.5,-290,0],
-    modelUIScale = 100,
+    idleRestNum = 0,
+    offset = [-240,-50,0],
+    modelUIScale = 40,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(531)->
+getRow(500)->
     #npcCfg {
-    id = 531,
-    refname = "港口求婚男",
-    name = "沃夫",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 2,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "秉承着骑士精神，我必将誓死守护我的天使······直到遇到更美的天使",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-125.5,-290,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(532)->
-    #npcCfg {
-    id = 532,
-    refname = "港口看告示青年男",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 2,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "又是注意安全，贴个告示就能安全了吗？为什么不增派护卫呢？",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-125.5,-290,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(533)->
-    #npcCfg {
-    id = 533,
-    refname = "港口看告示老人",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 2,
-    multiple = 200,
-    npcface = 0,
-    commonTalk = "没有消息就是最好的消息",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-125.5,-290,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(1100)->
-    #npcCfg {
-    id = 1100,
-    refname = "情缘任务领取NPC",
-    name = "玛利亚",
+    id = 500,
+    refname = "情缘任务领取NPC（界面左）",
+    name = "Mr.王",
     title = "<情缘任务>",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "n",
-    mo_type = 57,
+    mo_type = 500,
     multiple = 100,
     npcface = 0,
-    commonTalk = "历史与传说，你愿意与你的伴侣一同见证吗？",
+    commonTalk = "那些传说与爱情，你是否愿意与你的伴侣一同见证？",
     button_type = 2048,
     enter_map = 0,
     button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-401.8,-467.9,0],
-    modelUIScale = 100,
+    idleRestNum = 2,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(1101)->
+getRow(501)->
     #npcCfg {
-    id = 1101,
-    refname = "离婚NPC",
+    id = 501,
+    refname = "离婚NPC（界面左）",
     name = "康斯坦丁",
     title = "<离婚>",
     npc_level = 99,
@@ -1379,62 +950,325 @@ getRow(1101)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 2,
-    offset = [-98.2,-281.2,0],
-    modelUIScale = 100,
+    offset = [-370,-30,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(1102)->
+getRow(502)->
     #npcCfg {
-    id = 1102,
-    refname = "海贼王的宝藏_0",
+    id = 502,
+    refname = "海盗王的宝藏_0（界面左）",
     name = "罗杰",
-    title = "<情缘任务>",
+    title = "<海盗王的宝藏>",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "n",
     mo_type = 16,
     multiple = 100,
-    npcface = 1,
-    commonTalk = "知道吗？在大海的尽头，有一座巨大的宝藏，将它拿到手的人便是下一任的海贼王，是不是很令人兴奋呢？",
+    npcface = 0,
+    commonTalk = "“宾克斯美酒敬上，一个人的午夜场。喝醉了，梦里回味往日的时光...”",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-63.3,-284.1,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(1103)->
+getRow(503)->
     #npcCfg {
-    id = 1103,
-    refname = "海贼王的宝藏_1",
+    id = 503,
+    refname = "海盗王的宝藏_1（界面左）",
     name = "波特卡斯",
-    title = "<情缘任务>",
+    title = "<海盗王的宝藏>",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "n",
     mo_type = 15,
     multiple = 100,
-    npcface = 1,
-    commonTalk = "男儿的征途是星辰大海，而我们女人的征途则是征服男人。",
+    npcface = 0,
+    commonTalk = "男儿的征途是星辰大海，而我们女人的征途则是征服男人",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-69.3,-297,0],
-    modelUIScale = 100,
+    offset = [-370,25,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(504)->
+    #npcCfg {
+    id = 504,
+    refname = "海盗王的宝藏_0（界面右，纯任务界面展示用）",
+    name = "罗杰",
+    title = "<海盗王的宝藏>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 16,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(505)->
+    #npcCfg {
+    id = 505,
+    refname = "丽莎（界面右，纯任务界面展示用）",
+    name = "丽莎",
+    title = "<情缘任务>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 3031,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [370,80,0],
+    modelUIScale = 180,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(506)->
+    #npcCfg {
+    id = 506,
+    refname = "海盗王的宝藏_2（界面左）",
+    name = "夏洛克船长",
+    title = "<海盗王的宝藏>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 16,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(507)->
+    #npcCfg {
+    id = 507,
+    refname = "人鬼情未了_0（界面左）",
+    name = "爱德华·傻姆",
+    title = "<人鬼情未了>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 41,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "等着我，美丽，无论你在哪！！",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(508)->
+    #npcCfg {
+    id = 508,
+    refname = "人鬼情未了_1（界面左，鬼魂）",
+    name = "玛丽莲·美丽",
+    title = "<人鬼情未了>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 64,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "emmmm...他……还好吗？？",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(509)->
+    #npcCfg {
+    id = 509,
+    refname = "人鬼情未了_2（界面左）",
+    name = "龙套鬼魂",
+    title = "<人鬼情未了>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 66,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "我是谁，我到底是谁呢？？",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(510)->
+    #npcCfg {
+    id = 510,
+    refname = "人鬼情未了_3（界面左，纯任务界面展示用）",
+    name = "影子魔鬼",
+    title = "<人鬼情未了>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 323,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(511)->
+    #npcCfg {
+    id = 511,
+    refname = "人鬼情未了_1（界面右，人类，纯任务界面展示用）",
+    name = "玛丽莲·美丽",
+    title = "<人鬼情未了>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 43,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(512)->
+    #npcCfg {
+    id = 512,
+    refname = "人鬼情未了_4（界面左，丽莎外观,纯任务界面展示用）",
+    name = "漂流瓶",
+    title = "<人鬼情未了>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 3031,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,80,0],
+    modelUIScale = 180,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(513)->
+    #npcCfg {
+    id = 513,
+    refname = "人鬼情未了_5（界面左）",
+    name = "奥塔",
+    title = "<人鬼情未了>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 68,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "要敬老，要爱幼，先辈人的传统，不能在吾辈之时断绝！！",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,80,0],
+    modelUIScale = 180,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(1104)->
     #npcCfg {
@@ -1456,18 +1290,19 @@ getRow(1104)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(1105)->
     #npcCfg {
     id = 1105,
-    refname = "贪吃史莱姆",
+    refname = "抽奖",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "m",
-    mo_type = 1,
-    multiple = 100,
+    param = "n",
+    mo_type = 74,
+    multiple = 50,
     npcface = 0,
     button_type = 0,
     enter_map = 0,
@@ -1478,17 +1313,18 @@ getRow(1105)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(1106)->
     #npcCfg {
     id = 1106,
-    refname = "傲娇史莱姆",
+    refname = "冰淇淋车",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "m",
-    mo_type = 1,
+    param = "n",
+    mo_type = 901,
     multiple = 100,
     npcface = 0,
     button_type = 0,
@@ -1500,7 +1336,8 @@ getRow(1106)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(1107)->
     #npcCfg {
@@ -1522,7 +1359,8 @@ getRow(1107)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(1108)->
     #npcCfg {
@@ -1539,12 +1377,13 @@ getRow(1108)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-420,0,0],
+    offset = [-520,0,0],
     modelUIScale = 100,
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(1109)->
     #npcCfg {
@@ -1555,23 +1394,24 @@ getRow(1109)->
     subtype = 0,
     param = "m",
     mo_type = 8,
-    multiple = 100,
+    multiple = 80,
     npcface = 0,
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-420,0,0],
+    offset = [-520,0,0],
     modelUIScale = 100,
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(1110)->
     #npcCfg {
     id = 1110,
-    refname = "拉拉队长",
+    refname = "队长B酱",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -1585,10 +1425,11 @@ getRow(1110)->
     idleRestNum = 0,
     offset = [-420,0,0],
     modelUIScale = 100,
-    ncp_miniicon = 100,
+    ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(1111)->
     #npcCfg {
@@ -1601,6 +1442,7 @@ getRow(1111)->
     mo_type = 1,
     multiple = 100,
     npcface = 0,
+    commonTalk = "我是最可爱的史莱姆，咿呀咿呀呦~！",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
@@ -1610,17 +1452,66 @@ getRow(1111)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(1112)->
     #npcCfg {
     id = 1112,
-    refname = "香菇战士",
+    refname = "大白",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "m",
-    mo_type = 9,
+    mo_type = 543,
+    multiple = 60,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-554,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1113)->
+    #npcCfg {
+    id = 1113,
+    refname = "安娜右边",
+    name = "安娜",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 82,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "母亲，你为何离我远去……",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [370,80,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1114)->
+    #npcCfg {
+    id = 1114,
+    refname = "女神的小精灵",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 33,
     multiple = 100,
     npcface = 0,
     button_type = 0,
@@ -1632,88 +1523,112 @@ getRow(1112)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(2000)->
+getRow(1115)->
     #npcCfg {
-    id = 2000,
-    refname = "新手村村长",
-    name = "村长",
+    id = 1115,
+    refname = "莉安",
+    name = "莉安",
+    title = "武器掌管",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "n",
-    mo_type = 58,
+    mo_type = 42,
     multiple = 100,
     npcface = 0,
-    commonTalk = "我要守候这最后一片乐途，这是女神大人给我的使命！",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-264.2,-717.9,0],
+    offset = [-554,0,0],
     modelUIScale = 100,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
-getRow(2001)->
+getRow(1116)->
     #npcCfg {
-    id = 2001,
-    refname = "新手村龙虾人",
-    name = "龙虾人",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 23,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "一刀两断，你怕吗？",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-280.6,-354,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(2002)->
-    #npcCfg {
-    id = 2002,
-    refname = "新手村猫绅士",
-    name = "猫绅士",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 19,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "身为绅士应该谦虚，但是我真不想说话，喵~~~~~",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-97.9,-285,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(2003)->
-    #npcCfg {
-    id = 2003,
-    refname = "史莱姆大王空模型_追踪痕迹",
+    id = 1116,
+    refname = "喵咪咪",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "m",
+    mo_type = 13,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-554,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1117)->
+    #npcCfg {
+    id = 1117,
+    refname = "A君",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 200,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-554,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1118)->
+    #npcCfg {
+    id = 1118,
+    refname = "喵女",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 301,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-554,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1119)->
+    #npcCfg {
+    id = 1119,
+    refname = "巴克伦",
+    name = "巴克伦",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
     mo_type = 0,
     multiple = 100,
     npcface = 0,
@@ -1721,36 +1636,286 @@ getRow(2003)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-106.1,-156.6,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(2004)->
-    #npcCfg {
-    id = 2004,
-    refname = "新手村幼童",
-    name = "杰克",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 55,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "妈妈~你去哪了··",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-106.1,-156.6,0],
+    offset = [-554,0,0],
     modelUIScale = 100,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1120)->
+    #npcCfg {
+    id = 1120,
+    refname = "打败史莱姆-战斗点",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 0,
+    npcface = 0,
+    commonTalk = "别看我外表孤傲，其实我内心很孤独……",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-560,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1121)->
+    #npcCfg {
+    id = 1121,
+    refname = "玛格丽特夫人",
+    name = "玛格丽特夫人",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 24,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "蓝色大陆，没有骑宠，你好意思出来混吗？",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-550,-0.29,-8.72],
+    modelUIScale = 70,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1122)->
+    #npcCfg {
+    id = 1122,
+    refname = "安娜",
+    name = "安娜",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 82,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "那年考核，我遇到了守护我的人……",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-560,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1123)->
+    #npcCfg {
+    id = 1123,
+    refname = "小萝卜头",
+    name = "小萝卜头",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 506,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-460,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1124)->
+    #npcCfg {
+    id = 1124,
+    refname = "派诺_1",
+    name = "派诺",
+    title = "<考核官>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 47,
+    multiple = 120,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-459,0,0],
+    modelUIScale = 120,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1125)->
+    #npcCfg {
+    id = 1125,
+    refname = "史莱姆1",
+    name = "史莱姆",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 1,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "我是最可爱的史莱姆，咿呀咿呀呦~！",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-563,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1126)->
+    #npcCfg {
+    id = 1126,
+    refname = "史莱姆2",
+    name = "史莱姆",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 1,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "我是最可爱的史莱姆，咿呀咿呀呦~！",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-563,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1127)->
+    #npcCfg {
+    id = 1127,
+    refname = "红海龟",
+    name = "红海龟",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 508,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "我的速度超乎你想象。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-563,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1128)->
+    #npcCfg {
+    id = 1128,
+    refname = "变身伪装怪物",
+    name = "变身伪装",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 67,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-563,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1129)->
+    #npcCfg {
+    id = 1129,
+    refname = "学霸托比",
+    name = "托比",
+    title = "<学霸>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 41,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "没有什么考试能难到我。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-563,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(1130)->
+    #npcCfg {
+    id = 1130,
+    refname = "学霸托比-跟随npc",
+    name = "托比",
+    title = "<学霸>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 41,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-563,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(2005)->
     #npcCfg {
@@ -1764,7 +1929,6 @@ getRow(2005)->
     mo_type = 301,
     multiple = 100,
     npcface = 0,
-    commonTalk = "大王叫我来巡山啊~反正你们看不见啦~~~",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
@@ -1774,7 +1938,8 @@ getRow(2005)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2006)->
     #npcCfg {
@@ -1796,7 +1961,8 @@ getRow(2006)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2007)->
     #npcCfg {
@@ -1820,7 +1986,8 @@ getRow(2007)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2008)->
     #npcCfg {
@@ -1844,7 +2011,8 @@ getRow(2008)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2009)->
     #npcCfg {
@@ -1866,7 +2034,8 @@ getRow(2009)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2010)->
     #npcCfg {
@@ -1888,7 +2057,8 @@ getRow(2010)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2011)->
     #npcCfg {
@@ -1910,7 +2080,8 @@ getRow(2011)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2012)->
     #npcCfg {
@@ -1933,7 +2104,8 @@ getRow(2012)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2013)->
     #npcCfg {
@@ -1956,7 +2128,8 @@ getRow(2013)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2014)->
     #npcCfg {
@@ -1979,7 +2152,8 @@ getRow(2014)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2015)->
     #npcCfg {
@@ -2002,7 +2176,8 @@ getRow(2015)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2016)->
     #npcCfg {
@@ -2026,7 +2201,8 @@ getRow(2016)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2017)->
     #npcCfg {
@@ -2049,7 +2225,8 @@ getRow(2017)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2018)->
     #npcCfg {
@@ -2073,7 +2250,8 @@ getRow(2018)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2019)->
     #npcCfg {
@@ -2095,7 +2273,8 @@ getRow(2019)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2020)->
     #npcCfg {
@@ -2117,7 +2296,8 @@ getRow(2020)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2021)->
     #npcCfg {
@@ -2139,7 +2319,8 @@ getRow(2021)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2022)->
     #npcCfg {
@@ -2161,7 +2342,8 @@ getRow(2022)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2023)->
     #npcCfg {
@@ -2183,7 +2365,8 @@ getRow(2023)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2024)->
     #npcCfg {
@@ -2206,7 +2389,8 @@ getRow(2024)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2025)->
     #npcCfg {
@@ -2229,7 +2413,8 @@ getRow(2025)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2026)->
     #npcCfg {
@@ -2251,7 +2436,8 @@ getRow(2026)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2027)->
     #npcCfg {
@@ -2273,7 +2459,8 @@ getRow(2027)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2028)->
     #npcCfg {
@@ -2295,7 +2482,8 @@ getRow(2028)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2029)->
     #npcCfg {
@@ -2317,7 +2505,8 @@ getRow(2029)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2030)->
     #npcCfg {
@@ -2339,7 +2528,8 @@ getRow(2030)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2031)->
     #npcCfg {
@@ -2361,7 +2551,8 @@ getRow(2031)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2032)->
     #npcCfg {
@@ -2383,7 +2574,8 @@ getRow(2032)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2033)->
     #npcCfg {
@@ -2407,7 +2599,8 @@ getRow(2033)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2034)->
     #npcCfg {
@@ -2431,7 +2624,8 @@ getRow(2034)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2035)->
     #npcCfg {
@@ -2454,7 +2648,8 @@ getRow(2035)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2036)->
     #npcCfg {
@@ -2476,7 +2671,8 @@ getRow(2036)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2037)->
     #npcCfg {
@@ -2498,7 +2694,8 @@ getRow(2037)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2038)->
     #npcCfg {
@@ -2520,7 +2717,8 @@ getRow(2038)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2039)->
     #npcCfg {
@@ -2542,7 +2740,8 @@ getRow(2039)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2040)->
     #npcCfg {
@@ -2564,7 +2763,8 @@ getRow(2040)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2041)->
     #npcCfg {
@@ -2588,7 +2788,8 @@ getRow(2041)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(2042)->
     #npcCfg {
@@ -2610,45 +2811,48 @@ getRow(2042)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3000)->
     #npcCfg {
     id = 3000,
-    refname = "约克大叔",
-    name = "约克大叔",
+    refname = "派诺_0",
+    name = "派诺",
+    title = "<考核官>",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "n",
-    mo_type = 58,
-    multiple = 100,
+    mo_type = 47,
+    multiple = 120,
     npcface = 0,
-    commonTalk = "我要守候这最后一片乐途，这是女神大人给我的使命！",
+    commonTalk = "年年都有成年考核，今年的考核会有些不一样。",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
     offset = [-459,0,0],
-    modelUIScale = 80,
+    modelUIScale = 120,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3001)->
     #npcCfg {
     id = 3001,
-    refname = "新手村皮皮虾",
-    name = "皮皮虾",
+    refname = "迪艾勒",
+    name = "迪艾勒",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "n",
-    mo_type = 23,
+    mo_type = 401,
     multiple = 100,
     npcface = 0,
-    commonTalk = "一刀两断，你怕吗？",
+    commonTalk = "人生在世，开心也是一天，不开心也是一天，为啥要不开心呢？",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
@@ -2658,13 +2862,15 @@ getRow(3001)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3002)->
     #npcCfg {
     id = 3002,
     refname = "新手村猫绅士",
     name = "猫绅士",
+    title = "<时装达人>",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -2672,17 +2878,18 @@ getRow(3002)->
     mo_type = 19,
     multiple = 100,
     npcface = 0,
-    commonTalk = "身为绅士应该谦虚，但是我真不想说话，喵~~~~~",
+    commonTalk = "选衣服就像选对象，合不合适只有自己才知道，喵~~~~~",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 2,
-    offset = [-583,0,0],
+    offset = [-507,37,-641],
     modelUIScale = 100,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3003)->
     #npcCfg {
@@ -2706,13 +2913,15 @@ getRow(3003)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3004)->
     #npcCfg {
     id = 3004,
-    refname = "夏洛特船长",
-    name = "夏洛特船长",
+    refname = "夏普雷班",
+    name = "夏普雷班",
+    title = "<码头传送员>",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -2720,7 +2929,7 @@ getRow(3004)->
     mo_type = 16,
     multiple = 100,
     npcface = 0,
-    commonTalk = "我要成为阿克勒城港口内最棒的船长。",
+    commonTalk = "您想去哪儿？我这里可以送您去世界各地！",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
@@ -2730,7 +2939,8 @@ getRow(3004)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3005)->
     #npcCfg {
@@ -2754,21 +2964,23 @@ getRow(3005)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3006)->
     #npcCfg {
     id = 3006,
     refname = "戴安娜",
     name = "戴安娜",
+    title = "<魔法师>",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "n",
-    mo_type = 2,
+    mo_type = 9,
     multiple = 100,
     npcface = 0,
-    commonTalk = "他们都说这里出现了魔族，可为什么我们从来没有看到呢？",
+    commonTalk = "七分靠运气，三分天注定，敢来抽一个吗？",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
@@ -2778,36 +2990,39 @@ getRow(3006)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3007)->
     #npcCfg {
     id = 3007,
-    refname = "茜茜",
-    name = "茜茜",
+    refname = "丽莎",
+    name = "丽莎",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "m",
     mo_type = 3031,
-    multiple = 100,
+    multiple = 60,
     npcface = 0,
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-494,138,0],
+    offset = [-446,161,422],
     modelUIScale = 150,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3008)->
     #npcCfg {
     id = 3008,
-    refname = "铁匠维克托",
-    name = "维克托",
+    refname = "札克",
+    name = "札克",
+    title = "<铁匠>",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -2815,7 +3030,7 @@ getRow(3008)->
     mo_type = 44,
     multiple = 100,
     npcface = 0,
-    commonTalk = "绿宝石，红宝石，金属矿……我这里应有尽有。",
+    commonTalk = "打铁要趁热。",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
@@ -2825,36 +3040,38 @@ getRow(3008)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3009)->
     #npcCfg {
     id = 3009,
-    refname = "安娜",
-    name = "安娜",
-    npc_level = 99,
+    refname = "考核组",
+    name = "考核组",
+    npc_level = 40,
     type = 0,
     subtype = 0,
     param = "n",
-    mo_type = 40,
-    multiple = 100,
+    mo_type = 906,
+    multiple = 30,
     npcface = 0,
-    commonTalk = "你们欺负父亲，我恨你们，恨你们。",
+    commonTalk = "以遵守规则为荣，以投机取巧为耻。",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-560,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
+    offset = [-549,67,0],
+    modelUIScale = 30,
+    ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3010)->
     #npcCfg {
     id = 3010,
-    refname = "小鱼人，喵酱-小试身手",
+    refname = "执行点-跳舞",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -2871,12 +3088,13 @@ getRow(3010)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3011)->
     #npcCfg {
     id = 3011,
-    refname = "调查点-隐藏的魔族",
+    refname = "战斗点-打败史莱姆",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -2893,16 +3111,17 @@ getRow(3011)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3012)->
     #npcCfg {
     id = 3012,
-    refname = "调查点-港口居民",
+    refname = "执行点-苏珊处变身",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
+    param = "m",
     mo_type = 0,
     multiple = 100,
     npcface = 0,
@@ -2915,12 +3134,13 @@ getRow(3012)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3013)->
     #npcCfg {
     id = 3013,
-    refname = "调查点-帮助猫绅士",
+    refname = "采集点-采集布娃娃",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -2937,16 +3157,17 @@ getRow(3013)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3014)->
     #npcCfg {
     id = 3014,
-    refname = "调查点-被摧毁的货船",
+    refname = "执行点-抽取目标",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
+    param = "m",
     mo_type = 0,
     multiple = 100,
     npcface = 0,
@@ -2959,12 +3180,13 @@ getRow(3014)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3015)->
     #npcCfg {
     id = 3015,
-    refname = "战斗点-港口海盗",
+    refname = "战斗点-觉醒副本",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -2981,12 +3203,13 @@ getRow(3015)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3016)->
     #npcCfg {
     id = 3016,
-    refname = "调查点-前往仓库",
+    refname = "调查点-安娜跟随",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -3003,12 +3226,13 @@ getRow(3016)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3017)->
     #npcCfg {
     id = 3017,
-    refname = "战斗点-哭泣的女孩",
+    refname = "战斗点-安娜被绑架",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -3025,12 +3249,13 @@ getRow(3017)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3018)->
     #npcCfg {
     id = 3018,
-    refname = "调查点-安慰苏珊",
+    refname = "虚拟点-魔物出现",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -3047,12 +3272,13 @@ getRow(3018)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3019)->
     #npcCfg {
     id = 3019,
-    refname = "战斗点-勇士的愤怒",
+    refname = "虚拟点-变身伪装",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -3069,16 +3295,17 @@ getRow(3019)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3020)->
     #npcCfg {
     id = 3020,
-    refname = "调查点-约克的木屋",
+    refname = "执行点-制作冰淇淋",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
+    param = "m",
     mo_type = 0,
     multiple = 100,
     npcface = 0,
@@ -3091,12 +3318,13 @@ getRow(3020)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3021)->
     #npcCfg {
     id = 3021,
-    refname = "战斗点-阻止安娜",
+    refname = "战斗点-骑宠副本",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -3113,12 +3341,13 @@ getRow(3021)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3022)->
     #npcCfg {
     id = 3022,
-    refname = "调查点-真假项链",
+    refname = "执行点-寻找安娜",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -3135,12 +3364,13 @@ getRow(3022)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3023)->
     #npcCfg {
     id = 3023,
-    refname = "战斗点-安娜的家",
+    refname = "执行点-给予材料",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -3157,16 +3387,17 @@ getRow(3023)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3024)->
     #npcCfg {
     id = 3024,
-    refname = "战斗点-狠毒的罗撒特",
+    refname = "战斗点-勇士出海",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "m",
+    param = "n",
     mo_type = 0,
     multiple = 100,
     npcface = 0,
@@ -3179,16 +3410,17 @@ getRow(3024)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3025)->
     #npcCfg {
     id = 3025,
-    refname = "调查点-居民宝物(上)",
+    refname = "收到考核组通知",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
+    param = "m",
     mo_type = 0,
     multiple = 100,
     npcface = 0,
@@ -3201,12 +3433,13 @@ getRow(3025)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3026)->
     #npcCfg {
     id = 3026,
-    refname = "调查点-居民宝物(下)",
+    refname = "获得成年礼物",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -3223,16 +3456,17 @@ getRow(3026)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3027)->
     #npcCfg {
     id = 3027,
-    refname = "调查点-交还矿石",
+    refname = "安娜出现商量对策",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
+    param = "m",
     mo_type = 0,
     multiple = 100,
     npcface = 0,
@@ -3245,12 +3479,13 @@ getRow(3027)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3028)->
     #npcCfg {
     id = 3028,
-    refname = "调查点-戴安娜的礼物",
+    refname = "携伴同行",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -3261,18 +3496,19 @@ getRow(3028)->
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
-    idleRestNum = 2,
+    idleRestNum = 0,
     offset = [-420,0,0],
     modelUIScale = 100,
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3029)->
     #npcCfg {
     id = 3029,
-    refname = "调查点-搬动食物",
+    refname = "告别安娜",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -3289,12 +3525,15 @@ getRow(3029)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3030)->
     #npcCfg {
     id = 3030,
-    refname = "战斗点-港口之战",
+    refname = "虚拟点-考核官出现",
+    name = "派诺",
+    title = "<考核官>",
     npc_level = 99,
     type = 0,
     subtype = 0,
@@ -3311,531 +3550,128 @@ getRow(3030)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3032)->
     #npcCfg {
     id = 3032,
-    refname = "哨兵安迪",
-    name = "哨兵安迪",
+    refname = "虚拟点-选取武器",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "n",
-    mo_type = 20,
+    mo_type = 0,
     multiple = 100,
     npcface = 0,
-    commonTalk = "夏洛特船长好久没有回到这里了，难道他忘了露露么？",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-420,0,0],
+    offset = [-536,0,77],
     modelUIScale = 100,
-    ncp_miniicon = 0,
+    ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3033)->
     #npcCfg {
     id = 3033,
-    refname = "商人杰斯",
+    refname = "大白",
     name = "商人杰斯",
-    npc_level = 99,
+    npc_level = 40,
     type = 0,
     subtype = 0,
-    param = "n",
-    mo_type = 17,
-    multiple = 100,
+    param = "m",
+    mo_type = 67,
+    multiple = 300,
     npcface = 0,
-    commonTalk = "瘟疫固然可怕，但是对于商人来说赚不到金币是更可怕的事情。",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 2,
     offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
+    modelUIScale = 300,
+    ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3034)->
     #npcCfg {
     id = 3034,
-    refname = "灵兽师琳达",
-    name = "灵兽师琳达",
+    refname = "派诺_0",
+    name = "派诺",
+    title = "<考核官>",
     npc_level = 99,
     type = 0,
     subtype = 0,
     param = "n",
-    mo_type = 43,
+    mo_type = 47,
     multiple = 100,
     npcface = 0,
-    commonTalk = "呆呆，憨憨，别乱跑！",
+    commonTalk = "年年都有成年考核，今年的考核会有些不一样。",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-420,0,0],
-    modelUIScale = 100,
+    idleRestNum = 0,
+    offset = [-459,0,0],
+    modelUIScale = 80,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3035)->
     #npcCfg {
     id = 3035,
-    refname = "巡逻官鲍勃",
-    name = "巡逻官鲍勃",
+    refname = "变身伪装",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
-    mo_type = 3,
+    param = "m",
+    mo_type = 3021,
     multiple = 100,
     npcface = 0,
-    commonTalk = "身为城主大人的巡逻官，保护阿克勒城民是我的责任。",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
     offset = [-420,0,0],
     modelUIScale = 100,
-    ncp_miniicon = 0,
+    ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3036)->
     #npcCfg {
     id = 3036,
-    refname = "植物学者卡卡",
-    name = "植物学者卡卡",
+    refname = "丽莎",
+    name = "丽莎",
     npc_level = 99,
     type = 0,
     subtype = 0,
-    param = "n",
-    mo_type = 44,
-    multiple = 100,
+    param = "m",
+    mo_type = 3031,
+    multiple = 150,
     npcface = 0,
-    commonTalk = "今日我一定要找齐解除瘟疫的果实。",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
+    offset = [370,80,0],
+    modelUIScale = 150,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3037)->
-    #npcCfg {
-    id = 3037,
-    refname = "巡逻官路易丝",
-    name = "巡逻官路易丝",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 42,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "自从阿克勒城发生了瘟疫以后，已经很少有人进入这里了……",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3038)->
-    #npcCfg {
-    id = 3038,
-    refname = "巡逻官丹尼尔",
-    name = "巡逻官丹尼尔",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 4,
-    multiple = 100,
-    npcface = 0,
-    commonTalk = "平原里面出现了不少魔族，但是他们看上去却没有想象中那般凶恶。",
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 2,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3039)->
-    #npcCfg {
-    id = 3039,
-    refname = "荒野魔族伊凡",
-    name = "荒野魔族伊凡",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "m",
-    mo_type = 21,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 0,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3040)->
-    #npcCfg {
-    id = 3040,
-    refname = "污秽的大恶魔",
-    name = "污秽的大恶魔",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "m",
-    mo_type = 22,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3041)->
-    #npcCfg {
-    id = 3041,
-    refname = "污秽的小恶魔",
-    name = "污秽的小恶魔",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "m",
-    mo_type = 314,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3042)->
-    #npcCfg {
-    id = 3042,
-    refname = "调查点-东成郊告示栏",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3043)->
-    #npcCfg {
-    id = 3043,
-    refname = "调查点-摇动的花丛",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3044)->
-    #npcCfg {
-    id = 3044,
-    refname = "调查点-出示通行证",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3045)->
-    #npcCfg {
-    id = 3045,
-    refname = "调查点-合成药剂",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3046)->
-    #npcCfg {
-    id = 3046,
-    refname = "调查点-净化草丛（上）",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3047)->
-    #npcCfg {
-    id = 3047,
-    refname = "调查点-净化草丛（中）",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3048)->
-    #npcCfg {
-    id = 3048,
-    refname = "调查点-净化草丛（下）",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "n",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3049)->
-    #npcCfg {
-    id = 3049,
-    refname = "战斗点-污秽大魔王",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "m",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3050)->
-    #npcCfg {
-    id = 3050,
-    refname = "战斗点-乘胜追击",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "m",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3051)->
-    #npcCfg {
-    id = 3051,
-    refname = "战斗点-魔族的报复",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "m",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3052)->
-    #npcCfg {
-    id = 3052,
-    refname = "战斗点-伊凡首领",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "m",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3053)->
-    #npcCfg {
-    id = 3053,
-    refname = "灵兽秋秋",
-    name = "灵兽秋秋",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "m",
-    mo_type = 503,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
-    };
-getRow(3054)->
-    #npcCfg {
-    id = 3054,
-    refname = "战斗点-异化局鬼花",
-    npc_level = 99,
-    type = 0,
-    subtype = 0,
-    param = "m",
-    mo_type = 0,
-    multiple = 100,
-    npcface = 0,
-    button_type = 0,
-    enter_map = 0,
-    button_para1 = 0,
-    idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
-    ncp_miniicon = 100,
-    ndirection = 0,
-    npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3056)->
     #npcCfg {
@@ -3859,7 +3695,8 @@ getRow(3056)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3057)->
     #npcCfg {
@@ -3878,12 +3715,13 @@ getRow(3057)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-420,0,0],
-    modelUIScale = 100,
+    offset = [-525,0,-186],
+    modelUIScale = 70,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3058)->
     #npcCfg {
@@ -3907,7 +3745,8 @@ getRow(3058)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3059)->
     #npcCfg {
@@ -3931,7 +3770,8 @@ getRow(3059)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3060)->
     #npcCfg {
@@ -3955,7 +3795,8 @@ getRow(3060)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3061)->
     #npcCfg {
@@ -3979,7 +3820,8 @@ getRow(3061)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3062)->
     #npcCfg {
@@ -4001,7 +3843,8 @@ getRow(3062)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3063)->
     #npcCfg {
@@ -4023,7 +3866,8 @@ getRow(3063)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3064)->
     #npcCfg {
@@ -4045,7 +3889,8 @@ getRow(3064)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3065)->
     #npcCfg {
@@ -4067,7 +3912,8 @@ getRow(3065)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3066)->
     #npcCfg {
@@ -4089,7 +3935,8 @@ getRow(3066)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3067)->
     #npcCfg {
@@ -4108,11 +3955,12 @@ getRow(3067)->
     button_para1 = 0,
     idleRestNum = 0,
     offset = [-420,0,0],
-    modelUIScale = 100,
+    modelUIScale = 70,
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3072)->
     #npcCfg {
@@ -4136,7 +3984,8 @@ getRow(3072)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3073)->
     #npcCfg {
@@ -4160,7 +4009,8 @@ getRow(3073)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3074)->
     #npcCfg {
@@ -4179,12 +4029,13 @@ getRow(3074)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-420,0,0],
+    offset = [-674,-89,946],
     modelUIScale = 100,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3075)->
     #npcCfg {
@@ -4208,7 +4059,8 @@ getRow(3075)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3076)->
     #npcCfg {
@@ -4232,7 +4084,8 @@ getRow(3076)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3077)->
     #npcCfg {
@@ -4256,7 +4109,8 @@ getRow(3077)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3078)->
     #npcCfg {
@@ -4280,7 +4134,8 @@ getRow(3078)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3079)->
     #npcCfg {
@@ -4304,7 +4159,8 @@ getRow(3079)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3080)->
     #npcCfg {
@@ -4328,7 +4184,8 @@ getRow(3080)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3081)->
     #npcCfg {
@@ -4351,7 +4208,8 @@ getRow(3081)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3082)->
     #npcCfg {
@@ -4374,7 +4232,8 @@ getRow(3082)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3083)->
     #npcCfg {
@@ -4397,7 +4256,8 @@ getRow(3083)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3084)->
     #npcCfg {
@@ -4415,12 +4275,13 @@ getRow(3084)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-420,0,0],
+    offset = [-420,-889,2473],
     modelUIScale = 100,
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3085)->
     #npcCfg {
@@ -4442,7 +4303,8 @@ getRow(3085)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3086)->
     #npcCfg {
@@ -4464,7 +4326,8 @@ getRow(3086)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3087)->
     #npcCfg {
@@ -4486,7 +4349,8 @@ getRow(3087)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3088)->
     #npcCfg {
@@ -4508,7 +4372,8 @@ getRow(3088)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3089)->
     #npcCfg {
@@ -4530,7 +4395,8 @@ getRow(3089)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3090)->
     #npcCfg {
@@ -4552,7 +4418,8 @@ getRow(3090)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3091)->
     #npcCfg {
@@ -4574,7 +4441,8 @@ getRow(3091)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3092)->
     #npcCfg {
@@ -4596,7 +4464,8 @@ getRow(3092)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3093)->
     #npcCfg {
@@ -4618,7 +4487,8 @@ getRow(3093)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3094)->
     #npcCfg {
@@ -4640,7 +4510,8 @@ getRow(3094)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3095)->
     #npcCfg {
@@ -4662,7 +4533,8 @@ getRow(3095)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3096)->
     #npcCfg {
@@ -4684,7 +4556,8 @@ getRow(3096)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3097)->
     #npcCfg {
@@ -4706,7 +4579,8 @@ getRow(3097)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3098)->
     #npcCfg {
@@ -4728,7 +4602,8 @@ getRow(3098)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3099)->
     #npcCfg {
@@ -4750,7 +4625,8 @@ getRow(3099)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3100)->
     #npcCfg {
@@ -4772,7 +4648,8 @@ getRow(3100)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3101)->
     #npcCfg {
@@ -4794,7 +4671,8 @@ getRow(3101)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3102)->
     #npcCfg {
@@ -4816,7 +4694,8 @@ getRow(3102)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3110)->
     #npcCfg {
@@ -4835,12 +4714,13 @@ getRow(3110)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-420,0,0],
+    offset = [-612,-48,653],
     modelUIScale = 100,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3111)->
     #npcCfg {
@@ -4859,12 +4739,13 @@ getRow(3111)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-420,0,0],
+    offset = [-313,0,83],
     modelUIScale = 100,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3112)->
     #npcCfg {
@@ -4888,7 +4769,8 @@ getRow(3112)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3113)->
     #npcCfg {
@@ -4912,7 +4794,8 @@ getRow(3113)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3114)->
     #npcCfg {
@@ -4936,7 +4819,8 @@ getRow(3114)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3115)->
     #npcCfg {
@@ -4960,7 +4844,8 @@ getRow(3115)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3116)->
     #npcCfg {
@@ -4984,7 +4869,8 @@ getRow(3116)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3117)->
     #npcCfg {
@@ -5008,7 +4894,8 @@ getRow(3117)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3118)->
     #npcCfg {
@@ -5031,7 +4918,8 @@ getRow(3118)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3119)->
     #npcCfg {
@@ -5054,7 +4942,8 @@ getRow(3119)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3120)->
     #npcCfg {
@@ -5076,7 +4965,8 @@ getRow(3120)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3121)->
     #npcCfg {
@@ -5098,7 +4988,8 @@ getRow(3121)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3122)->
     #npcCfg {
@@ -5120,7 +5011,8 @@ getRow(3122)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3123)->
     #npcCfg {
@@ -5142,7 +5034,8 @@ getRow(3123)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3124)->
     #npcCfg {
@@ -5164,7 +5057,8 @@ getRow(3124)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3125)->
     #npcCfg {
@@ -5186,7 +5080,8 @@ getRow(3125)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3126)->
     #npcCfg {
@@ -5208,7 +5103,8 @@ getRow(3126)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3127)->
     #npcCfg {
@@ -5230,7 +5126,8 @@ getRow(3127)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3128)->
     #npcCfg {
@@ -5252,7 +5149,8 @@ getRow(3128)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3129)->
     #npcCfg {
@@ -5274,7 +5172,8 @@ getRow(3129)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3130)->
     #npcCfg {
@@ -5296,7 +5195,8 @@ getRow(3130)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3131)->
     #npcCfg {
@@ -5318,7 +5218,8 @@ getRow(3131)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3132)->
     #npcCfg {
@@ -5340,7 +5241,8 @@ getRow(3132)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3133)->
     #npcCfg {
@@ -5362,7 +5264,8 @@ getRow(3133)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3134)->
     #npcCfg {
@@ -5384,7 +5287,8 @@ getRow(3134)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3135)->
     #npcCfg {
@@ -5406,7 +5310,8 @@ getRow(3135)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3136)->
     #npcCfg {
@@ -5428,7 +5333,8 @@ getRow(3136)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3137)->
     #npcCfg {
@@ -5450,7 +5356,8 @@ getRow(3137)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3138)->
     #npcCfg {
@@ -5472,7 +5379,8 @@ getRow(3138)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3139)->
     #npcCfg {
@@ -5494,7 +5402,8 @@ getRow(3139)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3140)->
     #npcCfg {
@@ -5516,7 +5425,8 @@ getRow(3140)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3141)->
     #npcCfg {
@@ -5538,7 +5448,8 @@ getRow(3141)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3142)->
     #npcCfg {
@@ -5560,7 +5471,8 @@ getRow(3142)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3143)->
     #npcCfg {
@@ -5582,7 +5494,8 @@ getRow(3143)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3144)->
     #npcCfg {
@@ -5604,7 +5517,8 @@ getRow(3144)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3145)->
     #npcCfg {
@@ -5626,7 +5540,8 @@ getRow(3145)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3146)->
     #npcCfg {
@@ -5648,7 +5563,8 @@ getRow(3146)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3147)->
     #npcCfg {
@@ -5670,7 +5586,8 @@ getRow(3147)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3148)->
     #npcCfg {
@@ -5692,7 +5609,8 @@ getRow(3148)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3149)->
     #npcCfg {
@@ -5714,7 +5632,8 @@ getRow(3149)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3150)->
     #npcCfg {
@@ -5736,7 +5655,8 @@ getRow(3150)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3151)->
     #npcCfg {
@@ -5758,7 +5678,8 @@ getRow(3151)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3152)->
     #npcCfg {
@@ -5780,7 +5701,8 @@ getRow(3152)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3153)->
     #npcCfg {
@@ -5802,7 +5724,8 @@ getRow(3153)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3154)->
     #npcCfg {
@@ -5824,7 +5747,8 @@ getRow(3154)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3155)->
     #npcCfg {
@@ -5846,7 +5770,8 @@ getRow(3155)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3156)->
     #npcCfg {
@@ -5868,7 +5793,8 @@ getRow(3156)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3157)->
     #npcCfg {
@@ -5890,7 +5816,8 @@ getRow(3157)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3158)->
     #npcCfg {
@@ -5912,7 +5839,8 @@ getRow(3158)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3159)->
     #npcCfg {
@@ -5934,7 +5862,8 @@ getRow(3159)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3160)->
     #npcCfg {
@@ -5956,7 +5885,8 @@ getRow(3160)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3161)->
     #npcCfg {
@@ -5978,7 +5908,8 @@ getRow(3161)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3162)->
     #npcCfg {
@@ -6000,7 +5931,8 @@ getRow(3162)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3163)->
     #npcCfg {
@@ -6022,7 +5954,8 @@ getRow(3163)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3164)->
     #npcCfg {
@@ -6044,7 +5977,8 @@ getRow(3164)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3165)->
     #npcCfg {
@@ -6066,7 +6000,8 @@ getRow(3165)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3166)->
     #npcCfg {
@@ -6088,7 +6023,8 @@ getRow(3166)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3167)->
     #npcCfg {
@@ -6110,7 +6046,8 @@ getRow(3167)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3168)->
     #npcCfg {
@@ -6132,7 +6069,8 @@ getRow(3168)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3169)->
     #npcCfg {
@@ -6154,7 +6092,8 @@ getRow(3169)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3170)->
     #npcCfg {
@@ -6176,7 +6115,8 @@ getRow(3170)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3171)->
     #npcCfg {
@@ -6198,7 +6138,8 @@ getRow(3171)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3172)->
     #npcCfg {
@@ -6220,7 +6161,8 @@ getRow(3172)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3173)->
     #npcCfg {
@@ -6242,7 +6184,8 @@ getRow(3173)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3174)->
     #npcCfg {
@@ -6264,7 +6207,8 @@ getRow(3174)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3175)->
     #npcCfg {
@@ -6286,7 +6230,8 @@ getRow(3175)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3176)->
     #npcCfg {
@@ -6308,7 +6253,8 @@ getRow(3176)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3177)->
     #npcCfg {
@@ -6330,7 +6276,8 @@ getRow(3177)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3178)->
     #npcCfg {
@@ -6352,7 +6299,8 @@ getRow(3178)->
     ncp_miniicon = 100,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3201)->
     #npcCfg {
@@ -6377,7 +6325,8 @@ getRow(3201)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3202)->
     #npcCfg {
@@ -6402,7 +6351,8 @@ getRow(3202)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3203)->
     #npcCfg {
@@ -6427,7 +6377,8 @@ getRow(3203)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3204)->
     #npcCfg {
@@ -6454,7 +6405,8 @@ getRow(3204)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3205)->
     #npcCfg {
@@ -6479,7 +6431,8 @@ getRow(3205)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3231)->
     #npcCfg {
@@ -6504,7 +6457,8 @@ getRow(3231)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3232)->
     #npcCfg {
@@ -6529,7 +6483,8 @@ getRow(3232)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3233)->
     #npcCfg {
@@ -6554,7 +6509,8 @@ getRow(3233)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3234)->
     #npcCfg {
@@ -6579,7 +6535,8 @@ getRow(3234)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3235)->
     #npcCfg {
@@ -6604,7 +6561,8 @@ getRow(3235)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3236)->
     #npcCfg {
@@ -6629,7 +6587,8 @@ getRow(3236)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3237)->
     #npcCfg {
@@ -6654,7 +6613,8 @@ getRow(3237)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3238)->
     #npcCfg {
@@ -6679,7 +6639,8 @@ getRow(3238)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3239)->
     #npcCfg {
@@ -6701,7 +6662,8 @@ getRow(3239)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3241)->
     #npcCfg {
@@ -6726,7 +6688,8 @@ getRow(3241)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3242)->
     #npcCfg {
@@ -6751,7 +6714,8 @@ getRow(3242)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3243)->
     #npcCfg {
@@ -6776,7 +6740,8 @@ getRow(3243)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3244)->
     #npcCfg {
@@ -6801,7 +6766,8 @@ getRow(3244)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3245)->
     #npcCfg {
@@ -6825,7 +6791,8 @@ getRow(3245)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3246)->
     #npcCfg {
@@ -6849,7 +6816,8 @@ getRow(3246)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3247)->
     #npcCfg {
@@ -6873,7 +6841,8 @@ getRow(3247)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3248)->
     #npcCfg {
@@ -6898,7 +6867,8 @@ getRow(3248)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3251)->
     #npcCfg {
@@ -6922,7 +6892,8 @@ getRow(3251)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3252)->
     #npcCfg {
@@ -6946,7 +6917,8 @@ getRow(3252)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3253)->
     #npcCfg {
@@ -6970,7 +6942,8 @@ getRow(3253)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3254)->
     #npcCfg {
@@ -6993,7 +6966,8 @@ getRow(3254)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3255)->
     #npcCfg {
@@ -7016,7 +6990,8 @@ getRow(3255)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3256)->
     #npcCfg {
@@ -7040,7 +7015,8 @@ getRow(3256)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3257)->
     #npcCfg {
@@ -7064,7 +7040,8 @@ getRow(3257)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3258)->
     #npcCfg {
@@ -7088,7 +7065,8 @@ getRow(3258)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(3259)->
     #npcCfg {
@@ -7112,7 +7090,980 @@ getRow(3259)->
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3300)->
+    #npcCfg {
+    id = 3300,
+    refname = "国王侍卫1",
+    name = "国王侍卫",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 46,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3301)->
+    #npcCfg {
+    id = 3301,
+    refname = "国王侍卫2",
+    name = "国王侍卫",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 46,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3302)->
+    #npcCfg {
+    id = 3302,
+    refname = "国王侍卫3",
+    name = "国王侍卫",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 46,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3303)->
+    #npcCfg {
+    id = 3303,
+    refname = "国王侍卫4",
+    name = "国王侍卫",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 46,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3304)->
+    #npcCfg {
+    id = 3304,
+    refname = "国王侍卫5",
+    name = "国王侍卫",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 46,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3305)->
+    #npcCfg {
+    id = 3305,
+    refname = "国王侍卫6",
+    name = "国王侍卫",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 46,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3306)->
+    #npcCfg {
+    id = 3306,
+    refname = "国王侍女1",
+    name = "国王侍女",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 63,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "嘿嘿嘿…",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3307)->
+    #npcCfg {
+    id = 3307,
+    refname = "国王侍女2",
+    name = "国王侍女",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 63,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "嘿嘿嘿…",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3308)->
+    #npcCfg {
+    id = 3308,
+    refname = "银行行长",
+    name = "银行行长",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 400,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "投资理财，记得来阿克勒空中银行。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3309)->
+    #npcCfg {
+    id = 3309,
+    refname = "银行职员1",
+    name = "银行职员",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 47,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "这个月的银行利率又调息了。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3310)->
+    #npcCfg {
+    id = 3310,
+    refname = "银行职员2",
+    name = "银行职员",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 47,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "这个月的银行利率又调息了。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3311)->
+    #npcCfg {
+    id = 3311,
+    refname = "冰淇淋车",
+    name = "冰淇淋车",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 901,
+    multiple = 50,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3312)->
+    #npcCfg {
+    id = 3312,
+    refname = "巡逻骑士1",
+    name = "巡逻骑士首领",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 12,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3313)->
+    #npcCfg {
+    id = 3313,
+    refname = "巡逻骑士2",
+    name = "巡逻骑士",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 3,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3314)->
+    #npcCfg {
+    id = 3314,
+    refname = "巡逻骑士3",
+    name = "巡逻骑士",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 3,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3315)->
+    #npcCfg {
+    id = 3315,
+    refname = "巡逻骑士4",
+    name = "巡逻骑士",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 3,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3316)->
+    #npcCfg {
+    id = 3316,
+    refname = "巡逻骑士5",
+    name = "巡逻骑士",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 3,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3317)->
+    #npcCfg {
+    id = 3317,
+    refname = "巡逻骑士6",
+    name = "巡逻骑士首领",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 12,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3318)->
+    #npcCfg {
+    id = 3318,
+    refname = "巡逻骑士7",
+    name = "巡逻骑士",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 3,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3319)->
+    #npcCfg {
+    id = 3319,
+    refname = "巡逻骑士8",
+    name = "巡逻骑士",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 3,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3320)->
+    #npcCfg {
+    id = 3320,
+    refname = "巡逻骑士9",
+    name = "巡逻骑士",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 3,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3321)->
+    #npcCfg {
+    id = 3321,
+    refname = "巡逻骑士10",
+    name = "巡逻骑士",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 3,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "守护阿克勒是我的责任。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3322)->
+    #npcCfg {
+    id = 3322,
+    refname = "魔法师艾琳娜",
+    name = "艾琳娜",
+    title = "<魔法导师>",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 9,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "魔法的力量超乎你想象。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3323)->
+    #npcCfg {
+    id = 3323,
+    refname = "魔法学员罗米亚",
+    name = "罗米亚",
+    title = "<魔法学员>",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 11,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "怎么老是学不会。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(3324)->
+    #npcCfg {
+    id = 3324,
+    refname = "装饰鸽子1",
+    name = "雕兄",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 105,
+    multiple = 50,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3325)->
+    #npcCfg {
+    id = 3325,
+    refname = "装饰鸽子2",
+    name = "鸽子",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 3102,
+    multiple = 500,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3326)->
+    #npcCfg {
+    id = 3326,
+    refname = "装饰鸽子3",
+    name = "鸽子",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 3102,
+    multiple = 500,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3327)->
+    #npcCfg {
+    id = 3327,
+    refname = "装饰鸽子4",
+    name = "鸽子",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 3104,
+    multiple = 500,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3328)->
+    #npcCfg {
+    id = 3328,
+    refname = "小丑卡特",
+    name = "卡特",
+    title = "<小丑>",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 67,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "我是小丑,一个被遗忘的小丑！",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3329)->
+    #npcCfg {
+    id = 3329,
+    refname = "杂货商人",
+    name = "辛达穆林",
+    title = "<杂货商人>",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 80,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "新鲜的鱼肉，新鲜的补给品。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3330)->
+    #npcCfg {
+    id = 3330,
+    refname = "家族管理员",
+    name = "珀西 ",
+    title = "<家族管理员>",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 21,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "家族的意义就是给你背后的支持。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3331)->
+    #npcCfg {
+    id = 3331,
+    refname = "皇家园林管理员",
+    name = "格里芬 ",
+    title = "<皇家园林管理员>",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 60,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "皇家猎场，门票30。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3332)->
+    #npcCfg {
+    id = 3332,
+    refname = "皇家总管",
+    name = "乔治 ",
+    title = "<皇家总管>",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 59,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "总有一天我要成为阿克勒城的主人。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3333)->
+    #npcCfg {
+    id = 3333,
+    refname = "装饰动物1",
+    name = "变异蝙蝠",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 16,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3334)->
+    #npcCfg {
+    id = 3334,
+    refname = "装饰动物2",
+    name = "变异蝙蝠",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 16,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3335)->
+    #npcCfg {
+    id = 3335,
+    refname = "装饰动物3",
+    name = "皇家猎犬",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 106,
+    multiple = 500,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3336)->
+    #npcCfg {
+    id = 3336,
+    refname = "装饰动物4",
+    name = "皇家猎犬",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 106,
+    multiple = 500,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3337)->
+    #npcCfg {
+    id = 3337,
+    refname = "装饰动物4",
+    name = "魔化猪儿虫",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 88,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(3338)->
+    #npcCfg {
+    id = 3338,
+    refname = "可乐星人",
+    name = "可乐星人",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 64,
+    multiple = 500,
+    npcface = 0,
+    commonTalk = "冰淇淋配可乐就像啤酒配炸鸡。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(4001)->
     #npcCfg {
@@ -7125,16 +8076,18 @@ getRow(4001)->
     mo_type = 71,
     multiple = 100,
     npcface = 1,
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-94.9,-283.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(4002)->
     #npcCfg {
@@ -7147,16 +8100,18 @@ getRow(4002)->
     mo_type = 73,
     multiple = 100,
     npcface = 1,
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-94.9,-283.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(4003)->
     #npcCfg {
@@ -7169,16 +8124,18 @@ getRow(4003)->
     mo_type = 70,
     multiple = 100,
     npcface = 1,
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-94.9,-283.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(4005)->
     #npcCfg {
@@ -7189,18 +8146,20 @@ getRow(4005)->
     subtype = 0,
     param = "n",
     mo_type = 74,
-    multiple = 100,
+    multiple = 40,
     npcface = 1,
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-94.9,-283.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 30,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(4011)->
     #npcCfg {
@@ -7211,43 +8170,3798 @@ getRow(4011)->
     subtype = 0,
     param = "n",
     mo_type = 76,
-    multiple = 100,
+    multiple = 150,
     npcface = 1,
+    commonTalk = "（此处省略一千字…）",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-94.9,-283.2,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4012)->
+    #npcCfg {
+    id = 4012,
+    refname = "约会地下城-游池派对水枪1",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4013)->
+    #npcCfg {
+    id = 4013,
+    refname = "约会地下城-游池派对水枪2",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4014)->
+    #npcCfg {
+    id = 4014,
+    refname = "约会地下城-游池派对水枪3",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4015)->
+    #npcCfg {
+    id = 4015,
+    refname = "约会地下城-游池派对水枪4",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4016)->
+    #npcCfg {
+    id = 4016,
+    refname = "约会地下城-游池派对水枪5",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4017)->
+    #npcCfg {
+    id = 4017,
+    refname = "约会地下城-游池派对水枪6",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4018)->
+    #npcCfg {
+    id = 4018,
+    refname = "约会地下城-游池派对水枪7",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4019)->
+    #npcCfg {
+    id = 4019,
+    refname = "约会地下城-游池派对水枪8",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4020)->
+    #npcCfg {
+    id = 4020,
+    refname = "约会地下城-游池派对水枪9",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4021)->
+    #npcCfg {
+    id = 4021,
+    refname = "约会地下城-游池派对水枪10",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4022)->
+    #npcCfg {
+    id = 4022,
+    refname = "约会地下城-游池派对水枪11",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(4023)->
+    #npcCfg {
+    id = 4023,
+    refname = "约会地下城-游池派对水枪12",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 76,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "（此处省略一千字…）",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(4100)->
     #npcCfg {
     id = 4100,
     refname = "世界守护-守护雕像",
-    name = "我就是王",
+    name = "守护者镜像",
     title = "<世界守护者>",
     npc_level = 99,
     type = 6,
     subtype = 0,
     param = "n",
     mo_type = 201,
-    multiple = 100,
+    multiple = 200,
     npcface = 1,
     commonTalk = "我是王国的利剑，黑暗的明灯，寒夜的火把！",
     button_type = 0,
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [16,-141,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(4110)->
+    #npcCfg {
+    id = 4110,
+    refname = "聪明的小女孩",
+    name = "聪明的小女孩",
+    title = "<全民答题>",
+    npc_level = 99,
+    type = 14,
+    subtype = 0,
+    param = "n",
+    mo_type = 200,
+    multiple = 100,
+    npcface = 1,
+    commonTalk = "你是来参加答题大赛的么？活动要到晚上7:00才开始哟=￣ω￣=",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5001)->
+    #npcCfg {
+    id = 5001,
+    refname = "骑士队长",
+    name = "骑士队长",
+    title = "<皇家骑士团>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 46,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "已经几天没吃过东西了，饿的我喘不上气。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5002)->
+    #npcCfg {
+    id = 5002,
+    refname = "魔族小鬼头",
+    name = "魔族小鬼头",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 78,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5003)->
+    #npcCfg {
+    id = 5003,
+    refname = "魔族女战士",
+    name = "魔族女战士",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 30,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5004)->
+    #npcCfg {
+    id = 5004,
+    refname = "骑士领主",
+    name = "骑士领主",
+    title = "<皇家骑士团>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 23,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "只要手中的剑还在，战斗就没有结束。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5005)->
+    #npcCfg {
+    id = 5005,
+    refname = "魔族卫兵",
+    name = "魔族卫兵",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 20,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "哪怕一只苍蝇，也飞不过我的把守。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5006)->
+    #npcCfg {
+    id = 5006,
+    refname = "战斗点-大风营救I",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5007)->
+    #npcCfg {
+    id = 5007,
+    refname = "战斗点-大风营救II",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5008)->
+    #npcCfg {
+    id = 5008,
+    refname = "战斗点-秘密潜入I",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5009)->
+    #npcCfg {
+    id = 5009,
+    refname = "战斗点-魔族的围攻",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5010)->
+    #npcCfg {
+    id = 5010,
+    refname = "调查点-伪装者",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5011)->
+    #npcCfg {
+    id = 5011,
+    refname = "调查点-东海望的警钟",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5012)->
+    #npcCfg {
+    id = 5012,
+    refname = "护送-绝地求生",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5013)->
+    #npcCfg {
+    id = 5013,
+    refname = "护送-冲锋！！！",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5014)->
+    #npcCfg {
+    id = 5014,
+    refname = "调查点-鲜美刺身",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5015)->
+    #npcCfg {
+    id = 5015,
+    refname = "调查点-警钟长鸣",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5016)->
+    #npcCfg {
+    id = 5016,
+    refname = "调查点-信仰圣光",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5017)->
+    #npcCfg {
+    id = 5017,
+    refname = "受惊的宝马",
+    name = "受惊的宝马",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 502,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "过度受到惊吓的宝马。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5018)->
+    #npcCfg {
+    id = 5018,
+    refname = "金大胖",
+    name = "金大胖",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 0,
+    multiple = 270,
+    npcface = 0,
+    commonTalk = "魔….魔...魔..魔王大人让我们封锁城门。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5019)->
+    #npcCfg {
+    id = 5019,
+    refname = "金中胖",
+    name = "金中胖",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 0,
+    multiple = 220,
+    npcface = 0,
+    commonTalk = "魔...魔..魔王大人让我们封锁城门。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5020)->
+    #npcCfg {
+    id = 5020,
+    refname = "金小胖",
+    name = "金小胖",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 0,
+    multiple = 170,
+    npcface = 0,
+    commonTalk = "魔..魔王大人让我们封锁城门。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5021)->
+    #npcCfg {
+    id = 5021,
+    refname = "大球",
+    name = "大球",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 26,
+    multiple = 120,
+    npcface = 0,
+    commonTalk = "魔王大人让我们封锁城门。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5022)->
+    #npcCfg {
+    id = 5022,
+    refname = "骑士领主_1",
+    name = "骑士领主",
+    title = "<皇家骑士团>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 46,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "信仰圣光的力量让我无比强大！",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5023)->
+    #npcCfg {
+    id = 5023,
+    refname = "阿克勒国王",
+    name = "阿克勒国王",
+    title = "<全境守护者>",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 6,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "是露娜女神赋予我阿克勒全境守护者的威名。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5024)->
+    #npcCfg {
+    id = 5024,
+    refname = "跟踪者",
+    name = "跟踪者",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 27,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5025)->
+    #npcCfg {
+    id = 5025,
+    refname = "酥乞儿",
+    name = "酥乞儿",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 22,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "酥酥脆脆就是我喔~",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5026)->
+    #npcCfg {
+    id = 5026,
+    refname = "金融",
+    name = "金融",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 2,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "我姓金，名融，请不要想歪了~",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5027)->
+    #npcCfg {
+    id = 5027,
+    refname = "巨鳄",
+    name = "巨鳄",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 10,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "金融的宠物大鳄鱼。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5028)->
+    #npcCfg {
+    id = 5028,
+    refname = "银行职员",
+    name = "银行职员",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 47,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "这个月的银行利率又调息了。",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5029)->
+    #npcCfg {
+    id = 5029,
+    refname = "银行劫匪",
+    name = "银行劫匪",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 23,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5030)->
+    #npcCfg {
+    id = 5030,
+    refname = "铁匠老板",
+    name = "铁匠老板",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 44,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "我可是这城中手艺最好的铁匠！",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5031)->
+    #npcCfg {
+    id = 5031,
+    refname = "黑市商人",
+    name = "黑市商人",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 17,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "八心八箭璀璨火钻！对你没看错，只要998只要998！",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5032)->
+    #npcCfg {
+    id = 5032,
+    refname = "地痞无赖",
+    name = "地痞无赖",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 54,
+    multiple = 100,
+    npcface = 0,
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5033)->
+    #npcCfg {
+    id = 5033,
+    refname = "守门人",
+    name = "守门人",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 31,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "我是魔…我是异魔人守卫！",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5034)->
+    #npcCfg {
+    id = 5034,
+    refname = "异魔人首领",
+    name = "异魔人首领",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 53,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "自律、自控、自强！我是强大的异魔人首领！",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5035)->
+    #npcCfg {
+    id = 5035,
+    refname = "调查点-王的召唤",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5036)->
+    #npcCfg {
+    id = 5036,
+    refname = "调查点-吃瓜群众I",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5037)->
+    #npcCfg {
+    id = 5037,
+    refname = "调查点-蛛丝马迹I",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5038)->
+    #npcCfg {
+    id = 5038,
+    refname = "调查点-蛛丝马迹II",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5039)->
+    #npcCfg {
+    id = 5039,
+    refname = "调查点-抢滩登陆",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5040)->
+    #npcCfg {
+    id = 5040,
+    refname = "调查点-异魔人？？？",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5041)->
+    #npcCfg {
+    id = 5041,
+    refname = "战斗点-被跟踪了",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5042)->
+    #npcCfg {
+    id = 5042,
+    refname = "战斗点-空中银行",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5043)->
+    #npcCfg {
+    id = 5043,
+    refname = "战斗点-大扫除",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(5044)->
+    #npcCfg {
+    id = 5044,
+    refname = "调查点-向阿克勒城进发",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5045)->
+    #npcCfg {
+    id = 5045,
+    refname = "骑士伤员",
+    name = "骑士伤员",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 3,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5046)->
+    #npcCfg {
+    id = 5046,
+    refname = "调查点-救治伤员",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5047)->
+    #npcCfg {
+    id = 5047,
+    refname = "调查点-准备就绪",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5048)->
+    #npcCfg {
+    id = 5048,
+    refname = "调查点-寻找能量源II",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5049)->
+    #npcCfg {
+    id = 5049,
+    refname = "战斗点-寻找能量源III",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5050)->
+    #npcCfg {
+    id = 5050,
+    refname = "调查点-物归原处",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5051)->
+    #npcCfg {
+    id = 5051,
+    refname = "调查点-挠痒痒I",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5052)->
+    #npcCfg {
+    id = 5052,
+    refname = "金小胖",
+    name = "金小胖",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 26,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5053)->
+    #npcCfg {
+    id = 5053,
+    refname = "调查点-挠痒痒II",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5054)->
+    #npcCfg {
+    id = 5054,
+    refname = "金中胖",
+    name = "金中胖",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 26,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5055)->
+    #npcCfg {
+    id = 5055,
+    refname = "调查点-挠痒痒III",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5056)->
+    #npcCfg {
+    id = 5056,
+    refname = "金大胖",
+    name = "金大胖",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 26,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5057)->
+    #npcCfg {
+    id = 5057,
+    refname = "战斗点-愤怒的大胖",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5058)->
+    #npcCfg {
+    id = 5058,
+    refname = "调查点-乘坐飞空艇",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5059)->
+    #npcCfg {
+    id = 5059,
+    refname = "调查点-飞向平原",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5060)->
+    #npcCfg {
+    id = 5060,
+    refname = "村菇",
+    name = "村菇",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 14,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5061)->
+    #npcCfg {
+    id = 5061,
+    refname = "弗洛多老爷",
+    name = "弗洛多老爷",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 21,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5062)->
+    #npcCfg {
+    id = 5062,
+    refname = "护送点-边走边聊I",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5063)->
+    #npcCfg {
+    id = 5063,
+    refname = "护送点-边走边聊II",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5064)->
+    #npcCfg {
+    id = 5064,
+    refname = "战斗点-拜访异魔人",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5065)->
+    #npcCfg {
+    id = 5065,
+    refname = "失疯的异魔人",
+    name = "失疯的异魔人",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 27,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5066)->
+    #npcCfg {
+    id = 5066,
+    refname = "异魔人首领-农场",
+    name = "异魔人首领",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 53,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5067)->
+    #npcCfg {
+    id = 5067,
+    refname = "调查点-事态紧急",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5068)->
+    #npcCfg {
+    id = 5068,
+    refname = "调查点-匕首的疑点",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5069)->
+    #npcCfg {
+    id = 5069,
+    refname = "调查点-潜入农场",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5070)->
+    #npcCfg {
+    id = 5070,
+    refname = "魔族军官-农场",
+    name = "魔族军官",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 31,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5071)->
+    #npcCfg {
+    id = 5071,
+    refname = "魔族士兵-农场",
+    name = "魔族士兵",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 22,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5072)->
+    #npcCfg {
+    id = 5072,
+    refname = "调查点-保护色",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5073)->
+    #npcCfg {
+    id = 5073,
+    refname = "魔族工程师",
+    name = "魔族工程师",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 314,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5074)->
+    #npcCfg {
+    id = 5074,
+    refname = "战斗点-小黄？",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5075)->
+    #npcCfg {
+    id = 5075,
+    refname = "魔族士兵-运河",
+    name = "魔族士兵",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 22,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5076)->
+    #npcCfg {
+    id = 5076,
+    refname = "调查点-接货",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5077)->
+    #npcCfg {
+    id = 5077,
+    refname = "护送-故入歧途",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5078)->
+    #npcCfg {
+    id = 5078,
+    refname = "调查点-小心火烛",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5079)->
+    #npcCfg {
+    id = 5079,
+    refname = "调查点-漂浮的水晶？",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5080)->
+    #npcCfg {
+    id = 5080,
+    refname = "魔族祭司-平原",
+    name = "魔族祭司",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 44,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5081)->
+    #npcCfg {
+    id = 5081,
+    refname = "战斗点-放开我！",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5082)->
+    #npcCfg {
+    id = 5082,
+    refname = "露娜女神幻象",
+    name = "露娜女神幻象",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 1,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5083)->
+    #npcCfg {
+    id = 5083,
+    refname = "护送-前往祭坛",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5084)->
+    #npcCfg {
+    id = 5084,
+    refname = "战斗点-准备作战",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5085)->
+    #npcCfg {
+    id = 5085,
+    refname = "调查点-净化巨石祭坛",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5086)->
+    #npcCfg {
+    id = 5086,
+    refname = "战斗点-平息怨气",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5087)->
+    #npcCfg {
+    id = 5087,
+    refname = "异魔人首领-祭坛",
+    name = "异魔人首领",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 53,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5100)->
+    #npcCfg {
+    id = 5100,
+    refname = "调查点-号角集合",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5110)->
+    #npcCfg {
+    id = 5110,
+    refname = "调查点-魔族的黑科技",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5111)->
+    #npcCfg {
+    id = 5111,
+    refname = "骑士领主_2",
+    name = "骑士领主",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 12,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5112)->
+    #npcCfg {
+    id = 5112,
+    refname = "调查点-苍空外围",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5113)->
+    #npcCfg {
+    id = 5113,
+    refname = "战斗点-集结号",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5114)->
+    #npcCfg {
+    id = 5114,
+    refname = "护送-耐力考核",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5115)->
+    #npcCfg {
+    id = 5115,
+    refname = "队员雷加",
+    name = "队员雷加",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 3,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5116)->
+    #npcCfg {
+    id = 5116,
+    refname = "调查点-力量考核",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5117)->
+    #npcCfg {
+    id = 5117,
+    refname = "队员卓耿",
+    name = "队员卓耿",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 4,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5118)->
+    #npcCfg {
+    id = 5118,
+    refname = "战斗点-勇气考核",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5119)->
+    #npcCfg {
+    id = 5119,
+    refname = "队员里昂",
+    name = "队员里昂",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 41,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5120)->
+    #npcCfg {
+    id = 5120,
+    refname = "调查点-开往前线",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5121)->
+    #npcCfg {
+    id = 5121,
+    refname = "护送-匍匐营救",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5122)->
+    #npcCfg {
+    id = 5122,
+    refname = "调查点-救治伤员",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5123)->
+    #npcCfg {
+    id = 5123,
+    refname = "友军伤员",
+    name = "友军伤员",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 3,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5124)->
+    #npcCfg {
+    id = 5124,
+    refname = "调查点-可疑的魔族",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5125)->
+    #npcCfg {
+    id = 5125,
+    refname = "战斗点-开始行动",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5126)->
+    #npcCfg {
+    id = 5126,
+    refname = "魔族工头",
+    name = "魔族工头",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 21,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5127)->
+    #npcCfg {
+    id = 5127,
+    refname = "魔族苦力",
+    name = "魔族苦力",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 308,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5128)->
+    #npcCfg {
+    id = 5128,
+    refname = "护送-烫手的货物",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5129)->
+    #npcCfg {
+    id = 5129,
+    refname = "炼金术尸",
+    name = "炼金术尸",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 315,
+    multiple = 150,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5130)->
+    #npcCfg {
+    id = 5130,
+    refname = "战斗点-一不做二不休",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5131)->
+    #npcCfg {
+    id = 5131,
+    refname = "调查点-清理现场",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5132)->
+    #npcCfg {
+    id = 5132,
+    refname = "调查点-寻找结界",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5133)->
+    #npcCfg {
+    id = 5133,
+    refname = "调查点-魔族渐盛",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5134)->
+    #npcCfg {
+    id = 5134,
+    refname = "调查点-双黄弹I",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5135)->
+    #npcCfg {
+    id = 5135,
+    refname = "调查点-双黄弹II",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5136)->
+    #npcCfg {
+    id = 5136,
+    refname = "战斗点-各个击破I",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5137)->
+    #npcCfg {
+    id = 5137,
+    refname = "魔族巡逻官",
+    name = "魔族巡逻官",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 31,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5138)->
+    #npcCfg {
+    id = 5138,
+    refname = "魔族巡逻兵",
+    name = "魔族巡逻兵",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 25,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5139)->
+    #npcCfg {
+    id = 5139,
+    refname = "战斗点-各个击破II",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5140)->
+    #npcCfg {
+    id = 5140,
+    refname = "调查点-佯装",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5141)->
+    #npcCfg {
+    id = 5141,
+    refname = "护送-打探军情",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5142)->
+    #npcCfg {
+    id = 5142,
+    refname = "魔族指挥官",
+    name = "魔族指挥官",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 32,
+    multiple = 150,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5143)->
+    #npcCfg {
+    id = 5143,
+    refname = "魔族工兵",
+    name = "魔族工兵",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 14,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5144)->
+    #npcCfg {
+    id = 5144,
+    refname = "魔族卫兵",
+    name = "魔族卫兵",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 36,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5145)->
+    #npcCfg {
+    id = 5145,
+    refname = "调查点-秘密会议",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5146)->
+    #npcCfg {
+    id = 5146,
+    refname = "魔族看守",
+    name = "魔族看守",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "m",
+    mo_type = 30,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5147)->
+    #npcCfg {
+    id = 5147,
+    refname = "调查点-暗助俘虏",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5148)->
+    #npcCfg {
+    id = 5148,
+    refname = "友军俘虏",
+    name = "友军俘虏",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 46,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5149)->
+    #npcCfg {
+    id = 5149,
+    refname = "调查点-泼洒硫磺I",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5150)->
+    #npcCfg {
+    id = 5150,
+    refname = "调查点-泼洒硫磺II",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5151)->
+    #npcCfg {
+    id = 5151,
+    refname = "战斗点-刺客信条",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5152)->
+    #npcCfg {
+    id = 5152,
+    refname = "调查点-易燃易爆炸",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5153)->
+    #npcCfg {
+    id = 5153,
+    refname = "调查点-解救俘虏",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5154)->
+    #npcCfg {
+    id = 5154,
+    refname = "调查点-奔向结界",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5155)->
+    #npcCfg {
+    id = 5155,
+    refname = "护送-冰冷的河水",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5156)->
+    #npcCfg {
+    id = 5156,
+    refname = "战斗点-切磋取暖",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5157)->
+    #npcCfg {
+    id = 5157,
+    refname = "护送-重返大路",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5158)->
+    #npcCfg {
+    id = 5158,
+    refname = "调查点-观察魔族动向",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5159)->
+    #npcCfg {
+    id = 5159,
+    refname = "战斗点-偷袭魔族残部I",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5160)->
+    #npcCfg {
+    id = 5160,
+    refname = "战斗点-偷袭魔族残部II",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5161)->
+    #npcCfg {
+    id = 5161,
+    refname = "调查点-关闭魔能结界",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(5162)->
+    #npcCfg {
+    id = 5162,
+    refname = "调查点-苍空之塔",
+    npc_level = 99,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "待填充",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 100,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(10000)->
     #npcCfg {
@@ -7266,12 +11980,13 @@ getRow(10000)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [-246.9,-1044.8,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(10001)->
     #npcCfg {
@@ -7291,12 +12006,13 @@ getRow(10001)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [16,-141,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(10002)->
     #npcCfg {
@@ -7316,12 +12032,13 @@ getRow(10002)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [16,-141,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(10003)->
     #npcCfg {
@@ -7341,12 +12058,13 @@ getRow(10003)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [16,-141,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(10004)->
     #npcCfg {
@@ -7366,12 +12084,13 @@ getRow(10004)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [16,-141,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(10005)->
     #npcCfg {
@@ -7391,12 +12110,13 @@ getRow(10005)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [16,-141,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(10006)->
     #npcCfg {
@@ -7416,12 +12136,113 @@ getRow(10006)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [16,-141,0],
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(11100)->
+    #npcCfg {
+    id = 11100,
+    refname = "艾伯特守卫",
+    name = "艾伯特守卫",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 46,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "什么人？前边是阿姆斯特朗城主的住所，闲人免进…",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-420,0,0],
     modelUIScale = 100,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(11101)->
+    #npcCfg {
+    id = 11101,
+    refname = "阿姆斯特朗",
+    name = "阿姆斯特朗",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 6,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "女神的使命，定当全力协助",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(11102)->
+    #npcCfg {
+    id = 11102,
+    refname = "索尔警官",
+    name = "索尔警官",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 400,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "保卫阿克勒城的和平…",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
+    };
+getRow(11103)->
+    #npcCfg {
+    id = 11103,
+    refname = "克拉姆名医",
+    name = "克拉姆名医",
+    npc_level = 40,
+    type = 0,
+    subtype = 0,
+    param = "n",
+    mo_type = 500,
+    multiple = 100,
+    npcface = 0,
+    commonTalk = "天下奇毒，我都可以解…",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 2,
+    offset = [-420,0,0],
+    modelUIScale = 100,
+    ncp_miniicon = 0,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 1
     };
 getRow(30000)->
     #npcCfg {
@@ -7440,12 +12261,13 @@ getRow(30000)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [180,-0.25,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30001)->
     #npcCfg {
@@ -7464,12 +12286,13 @@ getRow(30001)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [10,0,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30002)->
     #npcCfg {
@@ -7488,12 +12311,13 @@ getRow(30002)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [241,0.5,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30003)->
     #npcCfg {
@@ -7512,12 +12336,13 @@ getRow(30003)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [234,1,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30004)->
     #npcCfg {
@@ -7536,12 +12361,13 @@ getRow(30004)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30010)->
     #npcCfg {
@@ -7561,12 +12387,13 @@ getRow(30010)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30011)->
     #npcCfg {
@@ -7586,12 +12413,13 @@ getRow(30011)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30012)->
     #npcCfg {
@@ -7611,12 +12439,13 @@ getRow(30012)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30013)->
     #npcCfg {
@@ -7636,12 +12465,13 @@ getRow(30013)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30014)->
     #npcCfg {
@@ -7661,12 +12491,13 @@ getRow(30014)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30015)->
     #npcCfg {
@@ -7686,12 +12517,13 @@ getRow(30015)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30020)->
     #npcCfg {
@@ -7708,12 +12540,13 @@ getRow(30020)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30021)->
     #npcCfg {
@@ -7730,12 +12563,13 @@ getRow(30021)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30022)->
     #npcCfg {
@@ -7744,7 +12578,7 @@ getRow(30022)->
     type = 13,
     subtype = 3,
     param = "n",
-    mo_type = 999,
+    mo_type = 907,
     multiple = 100,
     npcface = 0,
     commonTalk = "看什么看",
@@ -7752,12 +12586,13 @@ getRow(30022)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30023)->
     #npcCfg {
@@ -7774,12 +12609,13 @@ getRow(30023)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30024)->
     #npcCfg {
@@ -7796,12 +12632,13 @@ getRow(30024)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30025)->
     #npcCfg {
@@ -7818,12 +12655,13 @@ getRow(30025)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(30026)->
     #npcCfg {
@@ -7840,24 +12678,66 @@ getRow(30026)->
     enter_map = 0,
     button_para1 = 0,
     idleRestNum = 0,
-    offset = [218,0.7,0],
-    modelUIScale = 100,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
     ncp_miniicon = 0,
     ndirection = 0,
     npc_head = 1,
-    npc_minimap = 0
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(30027)->
+    #npcCfg {
+    id = 30027,
+    refname = "我方基地",
+    npc_level = 99,
+    type = 13,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 40,
+    npcface = 1,
+    commonTalk = "家族战场景小地图用",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 6,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
+    };
+getRow(30028)->
+    #npcCfg {
+    id = 30028,
+    refname = "敌方基地",
+    npc_level = 99,
+    type = 13,
+    subtype = 0,
+    param = "n",
+    mo_type = 0,
+    multiple = 40,
+    npcface = 1,
+    commonTalk = "家族战场景小地图用",
+    button_type = 0,
+    enter_map = 0,
+    button_para1 = 0,
+    idleRestNum = 0,
+    offset = [-370,-20,0],
+    modelUIScale = 140,
+    ncp_miniicon = 6,
+    ndirection = 0,
+    npc_head = 1,
+    npc_minimap = 0,
+    istalk = 0
     };
 getRow(_)->[].
 
 getKeyList()->[
     {199},
-    {200},
-    {201},
-    {202},
-    {203},
-    {204},
-    {205},
-    {206},
     {220},
     {221},
     {222},
@@ -7868,8 +12748,9 @@ getKeyList()->[
     {271},
     {301},
     {364},
-    {376},
-    {394},
+    {365},
+    {366},
+    {367},
     {405},
     {406},
     {407},
@@ -7882,32 +12763,29 @@ getKeyList()->[
     {414},
     {415},
     {416},
+    {450},
+    {451},
+    {452},
+    {453},
+    {454},
+    {455},
+    {456},
+    {457},
+    {458},
+    {500},
+    {501},
+    {502},
+    {503},
+    {504},
+    {505},
+    {506},
+    {507},
+    {508},
+    {509},
+    {510},
+    {511},
     {512},
     {513},
-    {514},
-    {515},
-    {516},
-    {517},
-    {518},
-    {519},
-    {520},
-    {521},
-    {522},
-    {523},
-    {524},
-    {525},
-    {526},
-    {527},
-    {528},
-    {529},
-    {530},
-    {531},
-    {532},
-    {533},
-    {1100},
-    {1101},
-    {1102},
-    {1103},
     {1104},
     {1105},
     {1106},
@@ -7917,11 +12795,24 @@ getKeyList()->[
     {1110},
     {1111},
     {1112},
-    {2000},
-    {2001},
-    {2002},
-    {2003},
-    {2004},
+    {1113},
+    {1114},
+    {1115},
+    {1116},
+    {1117},
+    {1118},
+    {1119},
+    {1120},
+    {1121},
+    {1122},
+    {1123},
+    {1124},
+    {1125},
+    {1126},
+    {1127},
+    {1128},
+    {1129},
+    {1130},
     {2005},
     {2006},
     {2007},
@@ -7996,24 +12887,6 @@ getKeyList()->[
     {3034},
     {3035},
     {3036},
-    {3037},
-    {3038},
-    {3039},
-    {3040},
-    {3041},
-    {3042},
-    {3043},
-    {3044},
-    {3045},
-    {3046},
-    {3047},
-    {3048},
-    {3049},
-    {3050},
-    {3051},
-    {3052},
-    {3053},
-    {3054},
     {3056},
     {3057},
     {3058},
@@ -8157,12 +13030,205 @@ getKeyList()->[
     {3257},
     {3258},
     {3259},
+    {3300},
+    {3301},
+    {3302},
+    {3303},
+    {3304},
+    {3305},
+    {3306},
+    {3307},
+    {3308},
+    {3309},
+    {3310},
+    {3311},
+    {3312},
+    {3313},
+    {3314},
+    {3315},
+    {3316},
+    {3317},
+    {3318},
+    {3319},
+    {3320},
+    {3321},
+    {3322},
+    {3323},
+    {3324},
+    {3325},
+    {3326},
+    {3327},
+    {3328},
+    {3329},
+    {3330},
+    {3331},
+    {3332},
+    {3333},
+    {3334},
+    {3335},
+    {3336},
+    {3337},
+    {3338},
     {4001},
     {4002},
     {4003},
     {4005},
     {4011},
+    {4012},
+    {4013},
+    {4014},
+    {4015},
+    {4016},
+    {4017},
+    {4018},
+    {4019},
+    {4020},
+    {4021},
+    {4022},
+    {4023},
     {4100},
+    {4110},
+    {5001},
+    {5002},
+    {5003},
+    {5004},
+    {5005},
+    {5006},
+    {5007},
+    {5008},
+    {5009},
+    {5010},
+    {5011},
+    {5012},
+    {5013},
+    {5014},
+    {5015},
+    {5016},
+    {5017},
+    {5018},
+    {5019},
+    {5020},
+    {5021},
+    {5022},
+    {5023},
+    {5024},
+    {5025},
+    {5026},
+    {5027},
+    {5028},
+    {5029},
+    {5030},
+    {5031},
+    {5032},
+    {5033},
+    {5034},
+    {5035},
+    {5036},
+    {5037},
+    {5038},
+    {5039},
+    {5040},
+    {5041},
+    {5042},
+    {5043},
+    {5044},
+    {5045},
+    {5046},
+    {5047},
+    {5048},
+    {5049},
+    {5050},
+    {5051},
+    {5052},
+    {5053},
+    {5054},
+    {5055},
+    {5056},
+    {5057},
+    {5058},
+    {5059},
+    {5060},
+    {5061},
+    {5062},
+    {5063},
+    {5064},
+    {5065},
+    {5066},
+    {5067},
+    {5068},
+    {5069},
+    {5070},
+    {5071},
+    {5072},
+    {5073},
+    {5074},
+    {5075},
+    {5076},
+    {5077},
+    {5078},
+    {5079},
+    {5080},
+    {5081},
+    {5082},
+    {5083},
+    {5084},
+    {5085},
+    {5086},
+    {5087},
+    {5100},
+    {5110},
+    {5111},
+    {5112},
+    {5113},
+    {5114},
+    {5115},
+    {5116},
+    {5117},
+    {5118},
+    {5119},
+    {5120},
+    {5121},
+    {5122},
+    {5123},
+    {5124},
+    {5125},
+    {5126},
+    {5127},
+    {5128},
+    {5129},
+    {5130},
+    {5131},
+    {5132},
+    {5133},
+    {5134},
+    {5135},
+    {5136},
+    {5137},
+    {5138},
+    {5139},
+    {5140},
+    {5141},
+    {5142},
+    {5143},
+    {5144},
+    {5145},
+    {5146},
+    {5147},
+    {5148},
+    {5149},
+    {5150},
+    {5151},
+    {5152},
+    {5153},
+    {5154},
+    {5155},
+    {5156},
+    {5157},
+    {5158},
+    {5159},
+    {5160},
+    {5161},
+    {5162},
     {10000},
     {10001},
     {10002},
@@ -8170,6 +13236,10 @@ getKeyList()->[
     {10004},
     {10005},
     {10006},
+    {11100},
+    {11101},
+    {11102},
+    {11103},
     {30000},
     {30001},
     {30002},
@@ -8187,18 +13257,13 @@ getKeyList()->[
     {30023},
     {30024},
     {30025},
-    {30026}
+    {30026},
+    {30027},
+    {30028}
     ].
 
 get1KeyList()->[
     199,
-    200,
-    201,
-    202,
-    203,
-    204,
-    205,
-    206,
     220,
     221,
     222,
@@ -8209,8 +13274,9 @@ get1KeyList()->[
     271,
     301,
     364,
-    376,
-    394,
+    365,
+    366,
+    367,
     405,
     406,
     407,
@@ -8223,32 +13289,29 @@ get1KeyList()->[
     414,
     415,
     416,
+    450,
+    451,
+    452,
+    453,
+    454,
+    455,
+    456,
+    457,
+    458,
+    500,
+    501,
+    502,
+    503,
+    504,
+    505,
+    506,
+    507,
+    508,
+    509,
+    510,
+    511,
     512,
     513,
-    514,
-    515,
-    516,
-    517,
-    518,
-    519,
-    520,
-    521,
-    522,
-    523,
-    524,
-    525,
-    526,
-    527,
-    528,
-    529,
-    530,
-    531,
-    532,
-    533,
-    1100,
-    1101,
-    1102,
-    1103,
     1104,
     1105,
     1106,
@@ -8258,11 +13321,24 @@ get1KeyList()->[
     1110,
     1111,
     1112,
-    2000,
-    2001,
-    2002,
-    2003,
-    2004,
+    1113,
+    1114,
+    1115,
+    1116,
+    1117,
+    1118,
+    1119,
+    1120,
+    1121,
+    1122,
+    1123,
+    1124,
+    1125,
+    1126,
+    1127,
+    1128,
+    1129,
+    1130,
     2005,
     2006,
     2007,
@@ -8337,24 +13413,6 @@ get1KeyList()->[
     3034,
     3035,
     3036,
-    3037,
-    3038,
-    3039,
-    3040,
-    3041,
-    3042,
-    3043,
-    3044,
-    3045,
-    3046,
-    3047,
-    3048,
-    3049,
-    3050,
-    3051,
-    3052,
-    3053,
-    3054,
     3056,
     3057,
     3058,
@@ -8498,12 +13556,205 @@ get1KeyList()->[
     3257,
     3258,
     3259,
+    3300,
+    3301,
+    3302,
+    3303,
+    3304,
+    3305,
+    3306,
+    3307,
+    3308,
+    3309,
+    3310,
+    3311,
+    3312,
+    3313,
+    3314,
+    3315,
+    3316,
+    3317,
+    3318,
+    3319,
+    3320,
+    3321,
+    3322,
+    3323,
+    3324,
+    3325,
+    3326,
+    3327,
+    3328,
+    3329,
+    3330,
+    3331,
+    3332,
+    3333,
+    3334,
+    3335,
+    3336,
+    3337,
+    3338,
     4001,
     4002,
     4003,
     4005,
     4011,
+    4012,
+    4013,
+    4014,
+    4015,
+    4016,
+    4017,
+    4018,
+    4019,
+    4020,
+    4021,
+    4022,
+    4023,
     4100,
+    4110,
+    5001,
+    5002,
+    5003,
+    5004,
+    5005,
+    5006,
+    5007,
+    5008,
+    5009,
+    5010,
+    5011,
+    5012,
+    5013,
+    5014,
+    5015,
+    5016,
+    5017,
+    5018,
+    5019,
+    5020,
+    5021,
+    5022,
+    5023,
+    5024,
+    5025,
+    5026,
+    5027,
+    5028,
+    5029,
+    5030,
+    5031,
+    5032,
+    5033,
+    5034,
+    5035,
+    5036,
+    5037,
+    5038,
+    5039,
+    5040,
+    5041,
+    5042,
+    5043,
+    5044,
+    5045,
+    5046,
+    5047,
+    5048,
+    5049,
+    5050,
+    5051,
+    5052,
+    5053,
+    5054,
+    5055,
+    5056,
+    5057,
+    5058,
+    5059,
+    5060,
+    5061,
+    5062,
+    5063,
+    5064,
+    5065,
+    5066,
+    5067,
+    5068,
+    5069,
+    5070,
+    5071,
+    5072,
+    5073,
+    5074,
+    5075,
+    5076,
+    5077,
+    5078,
+    5079,
+    5080,
+    5081,
+    5082,
+    5083,
+    5084,
+    5085,
+    5086,
+    5087,
+    5100,
+    5110,
+    5111,
+    5112,
+    5113,
+    5114,
+    5115,
+    5116,
+    5117,
+    5118,
+    5119,
+    5120,
+    5121,
+    5122,
+    5123,
+    5124,
+    5125,
+    5126,
+    5127,
+    5128,
+    5129,
+    5130,
+    5131,
+    5132,
+    5133,
+    5134,
+    5135,
+    5136,
+    5137,
+    5138,
+    5139,
+    5140,
+    5141,
+    5142,
+    5143,
+    5144,
+    5145,
+    5146,
+    5147,
+    5148,
+    5149,
+    5150,
+    5151,
+    5152,
+    5153,
+    5154,
+    5155,
+    5156,
+    5157,
+    5158,
+    5159,
+    5160,
+    5161,
+    5162,
     10000,
     10001,
     10002,
@@ -8511,6 +13762,10 @@ get1KeyList()->[
     10004,
     10005,
     10006,
+    11100,
+    11101,
+    11102,
+    11103,
     30000,
     30001,
     30002,
@@ -8528,6 +13783,8 @@ get1KeyList()->[
     30023,
     30024,
     30025,
-    30026
+    30026,
+    30027,
+    30028
     ].
 

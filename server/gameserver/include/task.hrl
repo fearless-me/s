@@ -7,9 +7,10 @@
 -define(FirstTaskID, 1).
 
 %%可接任务最大值
--define(TaskAcceptedMax, 15).
+-define(TaskAcceptedMax, 50).
+-define(TaskAcceptedSideMax, 30).
 -define(LoopTaskAcceptNum, 10).    %%环任务每环最大接受任务数
--define(LoopTaskLindID, 4001).  %%环任务的UI操作任务ID
+-define(LoopTaskLindID, 1501).  %%环任务的UI操作任务ID
 -define(GetTaskRewardSuccess, 1). %%领取环任务成功
 
 
@@ -44,6 +45,7 @@
 -define(TaskSubType_CareerChang, 9).          %转职任务
 -define(TaskSubType_Active, 10).          %活动任务
 -define(TaskSubType_System, 11).          %系统任务
+-define(TaskSubType_Convoy, 13).          %护送任务
 
 
 %% 活动类型子任务ID与dailyInterface对应
@@ -64,7 +66,7 @@
 -define(TaskSubType_Active_Sub_XueRen, 33).
 -define(TaskSubType_Active_Sub_HunDun, 34).
 -define(TaskSubType_Active_Sub_YueHui, 35).
--define(TaskSubType_Active_Sub_QiChongLingDi, 35).
+-define(TaskSubType_Active_Sub_QiChongLingDi, 36).
 
 
 %%
@@ -91,8 +93,10 @@
 -define(TaskLogSubmit, 3). %%完成任务
 
 %% 特殊奖励
--define(TaskReward_SPT_Buff, 1).    %buff
--define(TaskReward_SPT_Liveness, 2).%女神好感度
--define(TaskReward_SPT_MarriageCloseness, 3).%亲密度奖励
+-define(TaskReward_SPT_Buff,				1).		%% buff
+-define(TaskReward_SPT_Liveness,			2).		%% 女神好感度
+-define(TaskReward_SPT_MarriageCloseness,	3).		%% 亲密度奖励
+-define(TaskReward_SPT_GuildResource,		4).		%% 家族资金奖励
+-define(TaskReward_SPT_GuildLiveness,		5).		%% 家族活跃奖励
 
 -endif.

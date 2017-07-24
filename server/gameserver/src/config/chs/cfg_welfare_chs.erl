@@ -11,7 +11,7 @@ getRow(1)->
     name = "每日签到",
     openconditions = 1,
     sort = 1,
-    parameter = 1,
+    parameter = 10,
     stars = 1
     };
 getRow(2)->
@@ -20,7 +20,7 @@ getRow(2)->
     name = "七日签到",
     openconditions = 1,
     sort = 4,
-    parameter = 6,
+    parameter = 14,
     stars = 1
     };
 getRow(3)->
@@ -74,7 +74,7 @@ getRow(9)->
     name = "成长礼包",
     openconditions = 1,
     sort = 5,
-    parameter = 10,
+    parameter = 1000,
     stars = 1
     };
 getRow(10)->
@@ -83,7 +83,7 @@ getRow(10)->
     name = "在线福利",
     openconditions = 1,
     sort = 2,
-    parameter = 1,
+    parameter = 6,
     stars = 1
     };
 getRow(11)->
@@ -92,7 +92,7 @@ getRow(11)->
     name = "等级福利",
     openconditions = 1,
     sort = 3,
-    parameter = 1,
+    parameter = 10,
     stars = 1
     };
 getRow(12)->
@@ -110,7 +110,16 @@ getRow(13)->
     name = "资源找回",
     openconditions = 1,
     sort = 9,
-    parameter = 20,
+    parameter = 21,
+    stars = 1
+    };
+getRow(14)->
+    #welfareCfg {
+    id = 14,
+    name = "点金手",
+    openconditions = 1,
+    sort = 13,
+    parameter = 14,
     stars = 1
     };
 getRow(100)->
@@ -137,6 +146,7 @@ getKeyList()->[
     {11},
     {12},
     {13},
+    {14},
     {100}
     ].
 
@@ -153,6 +163,7 @@ get1KeyList()->[
     11,
     12,
     13,
+    14,
     100
     ].
 

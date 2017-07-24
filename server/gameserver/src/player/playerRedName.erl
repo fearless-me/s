@@ -32,7 +32,7 @@
 -export([
 	addKp/2,
 	delKv/2,
-	addKv/3,
+	addKv/4,
 	tickKp/0,
 	tickKv/0,
 	clearKv/0,
@@ -40,6 +40,50 @@
 	broadCastKv/0,
 	isInWildBoss/2
 ]).
+-export([
+	onKVChange/2
+]).
+
+onKVChange(OldVal, NewVal)->
+	OldBuffID = kvNeedBuff(OldVal),
+	NewBuffID = kvNeedBuff(NewVal),
+	case OldBuffID =/= NewBuffID of
+		true ->
+			playerBuff:delBuff(OldBuffID),
+			playerBuff:addBuff(NewBuffID, 1),
+			playerForce:calcPlayerForce(true),
+			?DEBUG_OUT("kvbuff[~p->~p]",[OldBuffID, NewBuffID]);
+		_ ->
+			skip
+	end,
+	case NewVal >= 100 of
+		true ->
+			case playerPet:getPetBattle() of
+				#recPetInfo{pet_status = Status} when Status =:= ?PetState_Battle_Show->
+					playerPet:petHide();
+				_ ->
+					skip
+			end;
+		_ ->
+			skip
+	end,
+	ok.
+
+kvNeedBuff(Val)->
+	case getCfg:getCfgByArgs(cfg_globalsetup, evilkill_effect) of
+		#globalsetupCfg{setpara = BuffList}->
+			lists:foldl(
+				fun({Min, BuffID}, Acc)->
+					case Val >= Min of
+						true ->
+							BuffID;
+						_ ->
+							Acc
+					end
+				end, 0, BuffList);
+		_ ->
+			0
+	end.
 
 %%tick杀戮值
 -spec tickKv() -> ok.
@@ -88,20 +132,10 @@ delKv(Num, SingleNum) ->
 
 
 %%增加杀戮值
--spec addKv(IsFirst::boolean(), Code::uint(), BossTargetCode::uint()) -> ok.
-addKv(IsFirst, Code, BossTargetCode) ->
-	OldKv= playerPropSync:getProp(?PubProp_PlayerKillValue),
-	addKv1(isSet(Code, BossTargetCode, IsFirst), IsFirst, Code),
-	NewKv = playerPropSync:getProp(?PubProp_PlayerKillValue),
-	case OldKv =/= NewKv orelse playerState:getRoleID() =:= 173012553750807308 of
-		true ->
-			?LOG_OUT("addkv roleid=~p, selfcode=~p,tarcode=~p, bosstarcode=~p, isinbatlearn=~p, mapId=~p, oldv=~p,newv=~p",
-				[playerState:getRoleID(), playerState:getPlayerCode(),Code, BossTargetCode, isInBattleLearn(), playerState:getMapID(), OldKv, NewKv]);
-		_ ->
-			skip
-	end,
+-spec addKv(IsFirst::boolean(), Code::uint(), TargetLevel :: uint(),BossTargetCode::uint()) -> ok.
+addKv(IsFirst, Code, TargetLevel, BossTargetCode) ->
+	addKv1(isSet(Code, BossTargetCode, IsFirst), IsFirst, Code, TargetLevel),
 	ok.
-
 
 %%增加杀戮人
 -spec addKp(Code::uint(), BossTargetCode::uint()) -> ok.
@@ -172,26 +206,67 @@ sendKp(Code) ->
 %% Internal functions
 %% ====================================================================
 %%设置初次杀戮值
--spec setFirstKv() -> ok.
-setFirstKv() ->
+setFirstKv(TargetLevel) ->
+	Add = getAddKV(true, TargetLevel),
 	Kv = playerPropSync:getProp(?PubProp_PlayerKillValue),
-	setFirstKv(Kv).
-setFirstKv(0) ->
-	FristKv = globalCfg:getFirstKv(),
-	playerPropSync:setInt(?PubProp_PlayerKillValue, FristKv);
-setFirstKv(_) ->
+	setFirstKv1(Kv, Add).
+
+setFirstKv1(0, Add) ->
+	case canAddKv() of
+		true ->
+			playerPropSync:setInt(?PubProp_PlayerKillValue, Add);
+		_ ->
+			ok
+	end;
+setFirstKv1(_, _) ->
 	ok.
 
 %%设置每次杀死玩家杀戮值
--spec setEachKv() -> ok.
-setEachKv() ->
+setEachKv(_TCode, TargetLevel) ->
 	%%增加恶人榜数量
 	KpNum = playerPropSync:getProp(?PriProp_PlayerKpNum),
 	playerPropSync:setInt(?PriProp_PlayerKpNum, KpNum + 1),
-	EachKv = globalCfg:getEachKv(),
-	Kv = playerPropSync:getProp(?PubProp_PlayerKillValue),
-	playerPropSync:setInt(?PubProp_PlayerKillValue, Kv + EachKv),
-	playerMsg:sendErrorCodeMsg(?ErrorCode_BattleLearnKillValue, [EachKv]).
+
+	case canAddKv() of
+		true ->
+			EachKv = getAddKV(false, TargetLevel),
+			Kv = playerPropSync:getProp(?PubProp_PlayerKillValue),
+			playerPropSync:setInt(?PubProp_PlayerKillValue, Kv + EachKv),
+
+			playerMsg:sendErrorCodeMsg(?ErrorCode_BattleLearnKillValue, [EachKv]);
+		_ ->
+			ok
+	end,
+	ok.
+
+%% 能否增加杀戮值
+-spec canAddKv() -> boolean().
+canAddKv() ->
+	case getCfg:getCfgByKey(cfg_mapsetting, playerState:getMapID()) of
+		#mapsettingCfg{if_addkillvalue = 1} -> true;
+		_ -> false
+	end.
+
+getAddKV(true, TargetLevel)->
+	getAddKvDiffLevel(TargetLevel);
+getAddKV(false, TargetLevel)->
+	getAddKvDiffLevel(TargetLevel);
+getAddKV(_IsFirst, _TargetLevel)->
+	0.
+
+getAddKvDiffLevel(TargetLevel)->
+	PlayerLevel = playerState:getLevel(),
+	case getCfg:getCfgByArgs(cfg_globalsetup, evilkill_level) of
+		#globalsetupCfg{setpara = [DiffLv, LowKv, HighKv]}->
+			case PlayerLevel > TargetLevel + DiffLv of
+				true ->
+					HighKv;
+				_ ->
+					LowKv
+			end;
+		_ ->
+			0
+	end.
 
 %%获取攻击目标code
 -spec getAttackedCode(Code::uint()) -> uint() | false.
@@ -271,13 +346,6 @@ getCasteredCode(Code) ->
 %%是否设置杀戮值or杀戮人
 -spec isSet(TargetCode::uint(), BossTargetCode::uint(), IsFirst::boolean()) -> boolean().
 isSet(TargetCode, BossTargetCode, _IsFirst) ->
-	%%print log
-%%	case IsFirst of
-%%		false ->
-%%			?LOG_OUT("kill player, is add kill value [~ts], ~p, ~p, ~p, ~p, ~p",[playerState:getName(), TargetCode, BossTargetCode, isInBattleLearn(), isInActivityMap(), isInWildBoss(TargetCode, BossTargetCode)]);
-%%		_ ->
-%%			skip
-%%	end,
 	not (isInBattleLearn() orelse isInActivityMap() orelse isInWildBoss(TargetCode, BossTargetCode)).
 
 %%是否设置首次杀戮值
@@ -350,21 +418,21 @@ tickKv(Kv) when Kv >= 0 ->
 tickKv(_) ->
 	playerPropSync:setInt(?PubProp_PlayerKillValue, 0).
 
-addKv1(false, _, _) ->
+addKv1(false, _, _, _) ->
 	ok;
-addKv1(true, true, Code) ->
-	addKv2(isSetFirstKv(Code));
-addKv1(true, _, Code) ->
-	addKv3(isSetEachKv(Code)).
+addKv1(true, true, Code, TargetLevel) ->
+	addKv2(isSetFirstKv(Code), TargetLevel);
+addKv1(true, _, Code, TargetLevel) ->
+	addKv3(isSetEachKv(Code), Code, TargetLevel).
 
-addKv2(true) ->
-	setFirstKv();
-addKv2(_) ->
+addKv2(true, TargetLevel) ->
+	setFirstKv(TargetLevel);
+addKv2(_, _TargetLevel) ->
 	ok.
 
-addKv3(true) ->
-	setEachKv();
-addKv3(_) ->
+addKv3(true, TCode, TargetLevel) ->
+	setEachKv(TCode, TargetLevel);
+addKv3(_B, _T, _TargetLevel) ->
 	ok.
 
 addKp1(false, _) ->
@@ -398,36 +466,16 @@ isInBattleLearn(_) -> false.
 isInActivityMap(true) -> true;
 isInActivityMap(_) -> false.
 
-%isInWildBoss(true) -> true;
-%isInWildBoss(_) -> false.
-
-deadPunish2(Pkv, Kv) when Kv >= Pkv ->
-	CostCoin = globalCfg:getCostKv() * Kv,
-	BuffID = globalCfg:getPunishBuff(),
-	GoldIsEnough = playerMoney:canUseCoin(?CoinUseTypeGold, CostCoin),
-	case GoldIsEnough of
-		true ->
-			true = playerMoney:useCoin(?CoinUseTypeGold, CostCoin,
-				#recPLogTSMoney{reason=?CoinUseReName, param= 0, target=?PLogTS_RedName,source=?PLogTS_PlayerSelf}),
-			CostCoin;
-		_ ->
-			Lv = playerState:getLevel(),
-			playerBuff:addBuff(BuffID, Lv),
-			Coin = playerState:getCoin(?CoinTypeGold),
-			true = playerMoney:decCoin(?CoinTypeGold, Coin,
-				#recPLogTSMoney{reason=?CoinUseReName, param= 0, target=?PLogTS_RedName,source=?PLogTS_PlayerSelf}),
-			Coin
-	end;
 deadPunish2(_, _) ->
 	0.
 
-deadPunish3(AttackName, Coin) ->
+deadPunish3(AttackName, _Coin) ->
 	MinKv = globalCfg:getBroadCastBeKv(),
 	Kv = playerPropSync:getProp(?PubProp_PlayerKillValue),
-	case Kv >= MinKv andalso Coin =/= 0 of
+	case Kv >= MinKv of
 		true ->
 			playerDaily:incDailyCounter(?DailyType_BroadCastKv, 0),
-			N = stringCfg:getString(dieBroadcast, [AttackName, playerState:getName(),Coin]),
+			N = stringCfg:getString(dieBroadcast, [AttackName, playerState:getName()]),
 			core:sendBroadcastNotice(N);
 		_ ->
 			skip

@@ -139,17 +139,6 @@ modifyRecord(#rec_role_fashions{roleID = RoleID, fashionID = SK} = Rec) ->
 	Rec#rec_role_fashions{roleID = {RoleID,SK}};
 modifyRecord(#rec_player_ms_shop{roleID = RoleID, only_id = SK} = Rec) ->
 	Rec#rec_player_ms_shop{roleID = {RoleID,SK}};
-modifyRecord(#rec_personality_info{photoData = Data,birthday = BD, starSign = SS,location = Loc,sign = S,tags = Tags,impressions = IMP} = Rec) ->
-	NewData = binary_to_list(Data),
-	Rec#rec_personality_info{
-		photoData = NewData,
-		birthday = erlang:binary_to_list(BD),
-		starSign = erlang:binary_to_list(SS),
-		location = erlang:binary_to_list(Loc),
-		sign = erlang:binary_to_list(S),
-		tags = misc:string_to_term(erlang:binary_to_list(Tags)),
-		impressions = misc:string_to_term(erlang:binary_to_list(IMP))
-	};
 modifyRecord(#rec_ext_role{updateReward = UpdateReward} = Rec) ->
 	Rec#rec_ext_role{updateReward = misc:string_to_term(erlang:binary_to_list(UpdateReward))};
 modifyRecord(#rec_operate_data{roleID = RoleID, id = SK, arg1 = Arg} = Rec) ->

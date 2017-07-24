@@ -81,6 +81,9 @@ init([]) ->
 	ets:new(?EtsGuildRide, [public, named_table, set, {keypos, #recGuildRide.guildID}, {write_concurrency, false}, {read_concurrency, true}]),
 	ets:new(?EtsGuildRideUser, [public, named_table, set, {keypos, #recGuildRideUser.roleID}, {write_concurrency, false}, {read_concurrency, true}]),
 
+	%% 碎片祈福内存记录表
+	ets:new(?EtsSuppHistory, [public, named_table, duplicate_bag, {write_concurrency, false}, {read_concurrency, true}]),
+
     %% 默认5分钟检查一次
     guildState:setNextCheckGuildDataTime({time:getUTCNowSec(), 5}),
 	{ok, #state{}}.
@@ -201,6 +204,17 @@ handle_info({deleteRole, _Pid, {RoleID}}, State) ->
 
 	%% 清掉申请的数据
     ets:delete(rec_guild_apply, RoleID),
+
+	%% 删除有关碎片赠送记录
+	Q = ets:fun2ms(
+		fun (#pk_SuppHistory{roleID = IDA, tarRoleID = IDB} = Rec)
+			when IDA =:= RoleID; IDB =:= RoleID ->
+			Rec
+		end
+	),
+	L = ets:select(?EtsSuppHistory, Q),
+	lists:foreach(fun(Rec) -> ets:delete_object(?EtsSuppHistory, Rec) end, L),
+
 	{noreply, State};
 
 %% 解散公会
@@ -372,6 +386,7 @@ handle_info({guild_godbless, _FromPidGs, {GuildID, AddSchedule}}, State) ->
 handle_info({dailyreset, _FromPidGs, _Data}, State) ->
 	guildBase:resetGodBless(),
 	guildLogic:maintainRide(),
+	ets:delete_all_objects(?EtsSuppHistory),	%% 清空碎片祈愿内存记录表
 	{noreply, State};
 
 %% 设置雪人数量
@@ -402,6 +417,21 @@ handle_info({guildFairground_ride, FromPidGs, Data}, State) ->
 %% 游乐场_设施计时消息
 handle_info({guildFairground_rideTime, _FromPidGs, Data}, State) ->
 	guildLogic:useRide_time(Data),
+	{noreply, State};
+
+%% 游乐场_设施计时消息
+handle_info({guildFairground_pit, _FromPidGs, _Msg}, State) ->
+	guildLogic:maintainRide(),
+	{noreply, State};
+
+%% 碎片祈愿_发布祈愿
+handle_info({guild_suppSupp, _FromPidGs, Msg}, State) ->
+	guildLogic:suppSupp(Msg),
+	{noreply, State};
+
+%% 碎片祈愿_赠送碎片
+handle_info({guild_suppGive, _FromPidGs, Msg}, State) ->
+	guildLogic:suppGive(Msg),
 	{noreply, State};
 
 handle_info(Info, State) ->

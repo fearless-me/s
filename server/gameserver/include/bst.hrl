@@ -21,6 +21,7 @@
 -define(AI_Type_PassiveSpecWay,			7).	%% 多岔路正走'打怪
 -define(AI_TYPE_ConvoyFollowPlayer,		8).	%% 护送，跟随玩家
 -define(AI_TYPE_ConvoyPlayerFollow,		9).	%% 护送(固定路线行走)，玩家跟随
+-define(AI_Type_ActiveCopyMapConvoy,	10).%% 主动怪，副本护送助战怪，选择目标必须是5
 -define(AI_TYPE_Max, 9).
 -export_type([ai_type/0]).
 -type ai_type() :: ?AI_TYPE_Min .. ?AI_TYPE_Max.

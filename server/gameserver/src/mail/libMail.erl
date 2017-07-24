@@ -29,7 +29,8 @@
     getSelfMailList/1,
 	newMailAck/3,
     dealOverTimeMail/0,
-    noticeNewMail/1
+    noticeNewMail/1,
+	isItemOrCoin/1
 ]).
 
 %% 处理过期邮件
@@ -519,6 +520,10 @@ getItem(Attachment, ItemUID) ->
         Mtype =:= 0 andalso ItemUID =:= Mvalue
     end,
     lists:filter(Fun, Attachment).
+
+isItemOrCoin(#recMailAttachMent{mtype = 0, mvalue = ItemUID, mvalue2 = ItemID}) -> {ItemUID, ItemID};
+isItemOrCoin(#recMailAttachMent{}) -> true;
+isItemOrCoin(_) -> undefined.
 
 %% 获取货币
 -spec getMailItem({SenderID::uint(), OwnerID::uint(), MailID::uint(), ItemUID::uint()}) -> {uint(), uint(), #recMail{}} | false.

@@ -22,11 +22,25 @@
         %%: itemtype
         type,
 
+        text,
+
+        icon,
+
+        quality,
+
         %%: 物品次类型
         %%: 如果没有用，则填-1
         subType,
 
-        text
+        %%: 作者:
+        %%: 只有装备模块用到，当这边配置1的时候·品质筛选quality那个字段就无效·
+        qualityRangeShow,
+
+        weaponRangeShow,
+
+        raceRangeShow,
+
+        levelRangeShow
 
  }).
 

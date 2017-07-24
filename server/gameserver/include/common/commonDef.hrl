@@ -11,12 +11,17 @@
 -define(SyncTimeInterval,10000).
 -endif.
 
-%% 服务器类型，普通服
+%% 服务器类型，运维统一定义，不允许随便修改
+%% 正式环境，普通服
 -define(ServerType_Normal, 1).
-%% 跨服中心服
--define(ServerType_CrossCenter, 2).
-%% 跨服普通服
--define(ServerType_CrossNormal, 3).
+%% 正式环境，跨服
+-define(ServerType_Cross, 3).
+%% 正式环境，战斗服
+-define(ServerType_Battle, 4).
+%% 测试环境，普通服
+-define(ServerType_Test_Normal, 0).
+%% 测试环境，跨服
+-define(ServerType_Test_Cross, 5).
 
 %% 服务器监控，数据保存
 -define(ServerMonitor_Save, 1).
@@ -89,6 +94,17 @@
 -define(CoinUseTypeMax,			106).	%%最大使用货币类型
 -type coinUseType() :: ?CoinUseTypeMin .. ?CoinUseTypeMax.
 
+%% 货币使用规则映射至货币类型
+-define(CoinUseType2CoinType, [
+	{?CoinUseTypeGold, ?CoinTypeGold},
+	{?CoinUseTypePrestige, ?CoinTypePrestige},
+	{?CoinUseTypeHonor, ?CoinTypeHonor},
+	{?CoinUseTypeDiamond, ?CoinTypeBindDiamond},
+	{?CoinUseTypeScore, ?CoinTypeScore},
+	{?CoinUseTypeDiamondJustNotBind, ?CoinTypeDiamond},
+	{?CoinUseTypeGuildContribute, ?CoinTypeGuildContribute}
+]).
+
 %% 服务器监控类型定义
 -define(Monitor_Min, 1).
 -define(Monitor_SyncToDB, 1).           %%DB同步数据结构到数据库的功能
@@ -156,6 +172,14 @@
 	achieve         = 0  % 成就值
 }).
 
+%% 角色身份证相关扩展数据
+-record(recRoleKeyInfoIdentity, {
+	roleID			= 0,	% 角色ID
+	face			= [],	% 自定义头像
+	like			= 0,	% 点赞值
+	charm			= 0		% 魅力值
+}).
+
 %% 角色信息内存表，包含全服有效玩家, recRoleKeyInfo表是本表的子表
 -record(?RoleKeyRec,
 {
@@ -175,7 +199,6 @@
 	petForce            = 0, % 宠物战力
 	petID               = 0, % 出战宠物ID
 	achieve             = 0, % 玩家成就值
-	praise              = 0, % 玩家被点赞值
 	wtPhase             = 0, % 勇者试炼当前的关卡
 	wtPhaseTime         = 0, % 勇者试炼当前的关卡所耗时间
 	lastUpdateTime      = 0, % 最后一次更新时间
@@ -184,7 +207,12 @@
 %%	onlinePlayerInfo    = {}, % 在线信息，不在线为{}，在线则为onlinePlayerInfo表信息
 	vipLv				= 0, % 等级
 	maxForce			= 0, % 历史最高战斗力
-	offlineTime			= 0  % 离线时间
+	offlineTime			= 0,  % 离线时间
+	actionPoint         = 0,    %%体力值 在线更新
+	%% 身份证相关扩展数据
+	face				= [],	% 自定义头像
+	like				= 0,	% 点赞值
+	charm				= 0		% 魅力值
 }).
 
 
@@ -234,8 +262,15 @@
 -define(PlayerRankType_PetPvp,11).              %%宠物远征pvp（领地积分榜）
 -define(PlayerRankType_KvNum,12).				%%恶人排行榜
 -define(PlayerRankType_GuildWar,13).			%%军团争霸杀人榜(巅峰对决榜)
--define(PlayerRankType_End, 13).
+-define(PlayerRankType_Charm,14).				%%玩家魅力排行榜
+-define(PlayerRankType_End, 14).
 -type playerRankType() :: ?PlayerRankType_Start .. ?PlayerRankType_End.
+
+%% 排行榜发奖类型
+-define(RankRewardType_Start,	1).
+-define(RankRewardType_Draw,	1).		%% 客户端主动领取
+-define(RankRewardType_Mail,	2).		%% 排行榜刷新时邮件发放
+-define(RankRewardType_End, 	2).
 
 %% 玩家排行榜内存数据
 -record(recPlayerRank,
@@ -264,6 +299,16 @@
 	fashionIDs = [],				%%穿在身上的时装ID列表
 	visibleEquipLevels = [],		%%装备精炼等级列表
 	visibleEquips = []			  	%%装备列表#recVisibleEquip{}
+}).
+
+%% 远程玩家数据
+-record(recRPView, {
+	roleID = 0,
+	pk_GS2U_LookRPInfo_Fashion = undefined,
+	pk_GS2U_LookRPInfo_Marriage = undefined,
+	pk_GS2U_Identity_Ack = undefined,
+	pk_GS2U_LookRPInfo_Pet = undefined,
+	pk_GS2U_LookRPInfo_Result = undefined
 }).
 
 %% 军团内存表

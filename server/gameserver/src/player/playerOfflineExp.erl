@@ -150,7 +150,7 @@ getOfflineReward(?OfflineExpType2) ->
 		true ->
 			case getCfg:getCfgByKey(cfg_indexFunction, playerState:getLevel()) of
 				#indexFunctionCfg{offLineExpDiamond = OfflineExpGold, offLineDiamondCost = OfflineGoldCost} ->
-					Money = misc:ceil(BaseExp * OfflineGoldCost),
+					Money = misc:ceil(BaseExp * OfflineGoldCost / 10000),
 					case playerMoney:canUseCoin(?CoinUseTypeDiamond, Money) of
 						true ->
 							Plo = #recPLogTSMoney{

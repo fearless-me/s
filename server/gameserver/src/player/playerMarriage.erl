@@ -53,32 +53,37 @@ error_code(Code, Param) ->
 %% 上线初始化
 -spec init() -> ok.
 init() ->
-	?DEBUG_OUT("[DebugForMarriage] init RoleID(~p)", [playerState:getRoleID()]),
-	%% 同步一波信息给客户端
-	syncBaseInfo(),
-	syncRingInfo(0, 0, 0),
-	syncSkillInfo(),
-	%% 初始化夫妻技能和婚戒附加属性
-	resetSkill(true, true),
-	resetRingPropAdd(true),
-	resetRingPropAdd(false),
-	%% 处理上次下线前未处理完的超时返还
-	doWantBuildTimeout(false),
-	% 以凌晨4点为界，不是今天则重置情缘任务
-	case playerPropSync:getProp(?SerProp_MarriageTaskInfo) of
-		{_, TimeLast} when TimeLast > 0 ->
-			TimeNow = time:getSyncTime1970FromDBS(),
-			{{YearN, MonthN, DayN}, _} = time:convertSec2DateTime(TimeNow - ?ResetTimeHour * 3600),
-			case time:convertSec2DateTime(TimeLast - ?ResetTimeHour * 3600) of
-				{{YearN, MonthN, DayN}, _} ->
+	case playerMainMenu:isOpen(?ModeType_Marriage) of
+		true ->
+			?DEBUG_OUT("[DebugForMarriage] init RoleID(~p)", [playerState:getRoleID()]),
+			%% 同步一波信息给客户端
+			syncBaseInfo(),
+			syncRingInfo(0, 0, 0),
+			syncSkillInfo(),
+			%% 初始化夫妻技能和婚戒附加属性
+			resetSkill(true, true),
+			resetRingPropAdd(true),
+			resetRingPropAdd(false),
+			%% 处理上次下线前未处理完的超时返还
+			doWantBuildTimeout(false),
+			% 以凌晨4点为界，不是今天则重置情缘任务
+			case playerPropSync:getProp(?SerProp_MarriageTaskInfo) of
+				{_, TimeLast} when TimeLast > 0 ->
+					TimeNow = time:getSyncTime1970FromDBS(),
+					{{YearN, MonthN, DayN}, _} = time:convertSec2DateTime(TimeNow - ?ResetTimeHour * 3600),
+					case time:convertSec2DateTime(TimeLast - ?ResetTimeHour * 3600) of
+						{{YearN, MonthN, DayN}, _} ->
+							skip;
+						_ ->
+							playerMarriageTask:resetTask(true)
+					end;
+				{_, _} ->
 					skip;
 				_ ->
-					playerMarriageTask:resetTask(true)
+					playerMarriageTask:resetTask(true) %% 开发期间对旧的数据结构直接重置
 			end;
-		{_, _} ->
-			skip;
 		_ ->
-			playerMarriageTask:resetTask(true) %% 开发期间对旧的数据结构直接重置
+			skip
 	end,
 	ok.
 
@@ -101,136 +106,174 @@ tick() ->
 %% 请求用于求婚的好友列表
 -spec queryList_Formal(Page :: uint8()) -> ok.
 queryList_Formal(Page) ->
-	?DEBUG_OUT("[DebugForMarriage] queryList_Formal RoleID(~p) Page(~p)", [playerState:getRoleID(), Page]),
-	playerFriend2:queryList_FormalForMarriage(Page),
+	case playerMainMenu:isOpen(?ModeType_Marriage) of
+		true ->
+			?DEBUG_OUT("[DebugForMarriage] queryList_Formal RoleID(~p) Page(~p)", [playerState:getRoleID(), Page]),
+			playerFriend2:queryList_FormalForMarriage(Page);
+		_ ->
+			skip
+	end,
 	ok.
 
 %%% --------------------------------------------------------------------
 %% 求婚
 -spec wantBuild(TargetRoleID :: uint64(), ItemID :: uint32(), Manifesto :: string()) -> ok.
 wantBuild(TargetRoleID, ItemID, Manifesto) ->
-	RoleID = playerState:getRoleID(),
-	?DEBUG_OUT("[DebugForMarriage] wantBuild RoleID(~p) TargetRoleID(~p) ItemID(~p)", [RoleID, TargetRoleID, ItemID]),
-	%% 1.检查是否处已经冷却
-	case getWantBuildCooldown(TargetRoleID) of
+	case playerMainMenu:isOpen(?ModeType_Marriage) of
 		true ->
-			%% 2.检查性别
-			MySex = playerState:getSex(),
-			#globalsetupCfg{setpara = [IsCoupleSame]} =
-				getCfg:getCfgPStackWithDefaultValue(
-					cfg_globalsetup,
-					#globalsetupCfg{setpara = [0]},
-					marriage_iscouplesame
-				),
-			case core:queryRoleKeyInfoByRoleID(TargetRoleID) of
-				#?RoleKeyRec{sex = Sex} when (IsCoupleSame =:= 0 andalso Sex =/= MySex) orelse IsCoupleSame =:= 1 ->
-					%% 3.检查已婚状态
-					case {marriageState:queryRelation(RoleID), marriageState:queryRelation(TargetRoleID)} of
-						{#rec_marriage{targetRoleID = TargetRoleID_A}, #rec_marriage{targetRoleID = TargetRoleID_B}}
-							when TargetRoleID_A > 0 orelse TargetRoleID_B > 0 ->
-							error_code(?ErrorCode_Marriage_Married, []);
-						_ ->
-							%% 4.检查友好度
-							Friend2Data = friend2State:queryFriend2Data(RoleID),
-							#rec_friend2_relation{closeness = Friendliness} =
-								friend2State:queryRelation(Friend2Data, TargetRoleID),
-							FriendlinessLimit = marriageState:configFriendlinessLimit(),
-							case FriendlinessLimit > Friendliness of
-								true ->
-									error_code(?ErrorCode_Marriage_FriendlyLimit, [FriendlinessLimit]);
-								_ ->
-									%% 5.检查对方是否在线
-									case core:queryOnLineRoleByRoleID(TargetRoleID) of
-										#rec_OnlinePlayer{pid = Pid} ->
-											%% 6.检查道具是否存在
-											ListRingItem = marriageState:configRingItemList(),
-											FunFind =
-												fun(ID, {_, _}) ->
-													{ID =:= ItemID, 0}
-												end,
-											case misc:foldlEx(FunFind, {false, 0}, ListRingItem) of
-												{true, _} ->
-													case playerPackage:getItemNumByID(ItemID) of
-														Num when Num > 0 ->
-															%% 扣除道具并向公共进程发起请求（由公共进程处理超时）
-															Plog = #recPLogTSItem{
-																old = Num,
-																new = Num - 1,
-																change = -1,
-																target = ?PLogTS_Item,
-																source = ?PLogTS_PlayerSelf,
-																gold = 0,
-																goldtype = 0,
-																changReason = ?ItemDeleteReasonMarriageWantBuild,
-																reasonParam = 0
-															},
-															case playerPackage:delGoodsByID(?Item_Location_Bag, ItemID, 1, Plog) of
-																true ->
-																	setWantBuildCooldown(TargetRoleID, ItemID),
-																	playerMsg:sendNetMsg(#pk_GS2U_MarriageProposeRefresh_Ack{}),
-																	psMgr:sendMsg2PS(Pid, marriage_wantBuild, {RoleID, ItemID, Manifesto});
-																_ ->
-																	?DEBUG_OUT("[DebugForMarriage] wantBuild RoleID(~p) TargetRoleID(~p) ItemID(~p) item dec failed", [RoleID, TargetRoleID, ItemID]),
-																	skip  %% 不应该发生的扣除道具失败
-															end;
-														_ ->
-															?DEBUG_OUT("[DebugForMarriage] wantBuild RoleID(~p) TargetRoleID(~p) ItemID(~p) item miss", [RoleID, TargetRoleID, ItemID]),
-															skip  %% 客户端应判断没有道具的时候不应该发起请求，故此忽略
-													end;
-												_ ->
-													?DEBUG_OUT("[DebugForMarriage] wantBuild RoleID(~p) TargetRoleID(~p) ItemID(~p) item err", [RoleID, TargetRoleID, ItemID]),
-													skip  %% 客户端应判断没有道具的时候不应该发起请求，故此忽略
-											end;
-										_ ->
-											error_code(?ErrorCode_Marriage_Offline, [])
-									end
-							end
-					end;
-				_ ->
-					error_code(?ErrorCode_Marriage_InvalidSex, [])
-			end;
-		_Minute ->
-			error_code(?ErrorCode_Marriage_NotCooldown, [])
-	end,
-	ok.
+			RoleID = playerState:getRoleID(),
+			?DEBUG_OUT("[DebugForMarriage] wantBuild RoleID(~p) TargetRoleID(~p) ItemID(~p)", [RoleID, TargetRoleID, ItemID]),
+			Ret0 = getWantBuildCooldown(TargetRoleID),										%% 1.检查是否处已经冷却
+			Ret1 = wantBuild_checkSex(Ret0, TargetRoleID),									%% 2.检查性别
+			Ret2 = wantBuild_checkMarriage(Ret1, RoleID, TargetRoleID),						%% 3.检查已婚状态
+			Ret3 = wantBuild_checkFriend(Ret2, RoleID, TargetRoleID),						%% 4.检查友好度
+			{Ret4, TargetPid} = wantBuild_checkOnline(Ret3, TargetRoleID),					%% 5.检查对方是否在线
+			Ret5 = wantBuild_checkItem(Ret4, ItemID),										%% 6.检查道具材料是否足够
+			Ret6 = wantBuild_costItem(Ret5, ItemID),										%% 7.扣除道具材料
+			wantBuild_sendMsg(Ret6, RoleID, TargetRoleID, TargetPid, ItemID, Manifesto);	%% 8.发送求婚请求
+		_ ->
+			skip
+	end.
 
+% 检查性别
+wantBuild_checkSex(false, _) ->
+	false;
+wantBuild_checkSex(true, TargetRoleID) ->
+	MySex = playerState:getSex(),
+	#globalsetupCfg{setpara = [IsCoupleSame]} =
+		getCfg:getCfgPStack(cfg_globalsetup, marriage_iscouplesame),
+	case core:queryRoleKeyInfoByRoleID(TargetRoleID) of
+		#?RoleKeyRec{sex = Sex} when (IsCoupleSame =:= 0 andalso Sex =/= MySex) orelse IsCoupleSame =:= 1 ->
+			true;
+		_ ->
+			?ERROR_CODE(?ErrorCode_Marriage_InvalidSex),
+			false
+	end.
+
+% 检查婚姻情况
+wantBuild_checkMarriage(false, _, _) ->
+	false;
+wantBuild_checkMarriage(true, RoleID, TargetRoleID) ->
+	case {marriageState:queryRelation(RoleID), marriageState:queryRelation(TargetRoleID)} of
+		{#rec_marriage{targetRoleID = TargetRoleID_A}, #rec_marriage{targetRoleID = TargetRoleID_B}}
+			when TargetRoleID_A > 0 ; TargetRoleID_B > 0 ->
+			?ERROR_CODE(?ErrorCode_Marriage_Married),
+			false;
+		_ ->
+			true
+	end.
+
+% 检查友好度
+wantBuild_checkFriend(false, _, _) ->
+	false;
+wantBuild_checkFriend(true, RoleID, TargetRoleID) ->
+	Friend2Data = friend2State:queryFriend2Data(RoleID),
+	#rec_friend2_relation{closeness = Friendliness} =
+		friend2State:queryRelation(Friend2Data, TargetRoleID),
+	FriendlinessLimit = marriageState:configFriendlinessLimit(),
+	case FriendlinessLimit > Friendliness of
+		true ->
+			?ERROR_CODE(?ErrorCode_Marriage_FriendlyLimit, [FriendlinessLimit]),
+			false;
+		_ ->
+			true
+	end.
+
+% 检查在线情况
+wantBuild_checkOnline(false, _) ->
+	{false, offline};
+wantBuild_checkOnline(true, TargetRoleID) ->
+	case core:queryOnLineRoleByRoleID(TargetRoleID) of
+		#rec_OnlinePlayer{pid = Pid} ->
+			{true, Pid};
+		_ ->
+			?ERROR_CODE(?ErrorCode_Marriage_Offline),
+			{false, offline}
+	end.
+
+% 检查道具材料是否足够
+wantBuild_checkItem(false, _) ->
+	false;
+wantBuild_checkItem(true, ItemID) ->
+	%% 与配置不符、客户端没有道具时，不应该发送请求，故而没有ErrorCode
+	ListRingItem = marriageState:configRingItemList(),
+	case lists:member(ItemID, ListRingItem) of
+		true ->
+			playerPackage:getItemNumByID(ItemID) > 0;
+		_ ->
+			false
+	end.
+
+% 扣除道具材料
+wantBuild_costItem(false, _) ->
+	false;
+wantBuild_costItem(true, ItemID) ->
+	PLog = #recPLogTSItem{
+		old = 1,
+		change = -1,
+		target = ?PLogTS_Item,
+		source = ?PLogTS_PlayerSelf,
+		changReason = ?ItemDeleteReasonMarriageWantBuild
+	},
+	playerPackage:delGoodsByID(?Item_Location_Bag, ItemID, 1, PLog).
+
+% 发送求婚请求
+wantBuild_sendMsg(false, _, _, _, _, _) ->
+	skip;
+wantBuild_sendMsg(true, RoleID, TargetRoleID, TargetPid, ItemID, Manifesto) ->
+	setWantBuildCooldown(TargetRoleID, ItemID),
+	playerMsg:sendNetMsg(#pk_GS2U_MarriageProposeRefresh_Ack{}),
+	psMgr:sendMsg2PS(TargetPid, marriage_wantBuild, {RoleID, ItemID, Manifesto}).
+
+%%% --------------------------------------------------------------------
 %% 被求婚
 -spec beWantBuild({FromRoleID :: uint64(), ItemID :: uint32(), Manifesto :: string()}) -> ok.
 beWantBuild({FromRoleID, ItemID, Manifesto}) ->
-	?DEBUG_OUT("[DebugForMarriage] beWantBuild RoleID(~p) FromRoleID(~p)", [playerState:getRoleID(), FromRoleID]),
-	Msg =
-		#pk_GS2U_MarriagePropose_Ask{
-			id = FromRoleID,
-			name = playerNameUID:getPlayerNameByUID(FromRoleID),
-			item = ItemID,
-			manifesto = Manifesto
-		},
-	playerMsg:sendNetMsg(Msg),
+	case playerMainMenu:isOpen(?ModeType_Marriage) of
+		true ->
+			?DEBUG_OUT("[DebugForMarriage] beWantBuild RoleID(~p) FromRoleID(~p)", [playerState:getRoleID(), FromRoleID]),
+			Msg =
+				#pk_GS2U_MarriagePropose_Ask{
+					id = FromRoleID,
+					name = playerNameUID:getPlayerNameByUID(FromRoleID),
+					item = ItemID,
+					manifesto = Manifesto
+				},
+			playerMsg:sendNetMsg(Msg);
+		_ ->
+			psMgr:sendMsg2PS(FromRoleID, marriage_wantBuildAck, {playerState:getRoleID(), false})	%% 功能未开放，强制拒绝
+	end,
 	ok.
 
+%%% --------------------------------------------------------------------
 %% 是否同意被求婚
 -spec beBuild(FromRoleID :: uint64(), IsAgreed :: boolean()) -> ok.
 beBuild(FromRoleID, IsAgreed) ->
-	RoleID = playerState:getRoleID(),
-	?DEBUG_OUT("[DebugForMarriage] beBuild RoleID(~p) FromRoleID(~p) IsAgreed(~p)", [RoleID, FromRoleID, IsAgreed]),
-	case core:queryOnLineRoleByRoleID(FromRoleID) of
-		#rec_OnlinePlayer{pid = Pid} ->
-			%% 需要最终验证好友关系，可能求婚中途解除了好友关系
-			Friend2Data = friend2State:queryFriend2Data(RoleID),
-			case friend2State:queryRelation(Friend2Data, FromRoleID) of
-				#rec_friend2_relation{relation = ?RELATION_FORMAL} ->
-					psMgr:sendMsg2PS(Pid, marriage_wantBuildAck, {RoleID, IsAgreed});
+	case playerMainMenu:isOpen(?ModeType_Marriage) of
+		true ->
+			RoleID = playerState:getRoleID(),
+			?DEBUG_OUT("[DebugForMarriage] beBuild RoleID(~p) FromRoleID(~p) IsAgreed(~p)", [RoleID, FromRoleID, IsAgreed]),
+			case core:queryOnLineRoleByRoleID(FromRoleID) of
+				#rec_OnlinePlayer{pid = Pid} ->
+					%% 需要最终验证好友关系，可能求婚中途解除了好友关系
+					Friend2Data = friend2State:queryFriend2Data(RoleID),
+					case friend2State:queryRelation(Friend2Data, FromRoleID) of
+						#rec_friend2_relation{relation = ?RELATION_FORMAL} ->
+							psMgr:sendMsg2PS(Pid, marriage_wantBuildAck, {RoleID, IsAgreed});
+						_ ->
+							psMgr:sendMsg2PS(Pid, marriage_wantBuildAck, {RoleID, false}),        %% 不是好友了，强制拒绝
+							error_code(?ErrorCode_Marriage_Timeout, [])                            %% 不是好友了提示超时
+					end;
 				_ ->
-					psMgr:sendMsg2PS(Pid, marriage_wantBuildAck, {RoleID, false}),        %% 不是好友了，强制拒绝
-					error_code(?ErrorCode_Marriage_Timeout, [])                            %% 不是好友了提示超时
+					case IsAgreed of
+						true ->
+							error_code(?ErrorCode_Marriage_Timeout, []);    %% 仅同意时提示超时
+						_ ->
+							skip
+					end
 			end;
 		_ ->
-			case IsAgreed of
-				true ->
-					error_code(?ErrorCode_Marriage_Timeout, []);    %% 仅同意时提示超时
-				_ ->
-					skip
-			end
+			skip
 	end,
 	ok.
 
@@ -285,6 +328,42 @@ build({TargetRoleID, true}) ->
 				_ ->
 					error_code(?ErrorCode_Marriage_InvalidSex, [])
 			end
+	end,
+	ok;
+build({TargetRoleID, gm}) ->
+	RoleID = playerState:getRoleID(),
+	?DEBUG_OUT("[DebugForMarriage] build RoleID(~p) TargetRoleID(~p) gm", [RoleID, TargetRoleID]),
+	%% 1.检查性别
+	MySex = playerState:getSex(),
+	#globalsetupCfg{setpara = [IsCoupleSame]} =
+		getCfg:getCfgPStackWithDefaultValue(
+			cfg_globalsetup,
+			#globalsetupCfg{setpara = [0]},
+			marriage_iscouplesame
+		),
+	case core:queryRoleKeyInfoByRoleID(TargetRoleID) of
+		#?RoleKeyRec{sex = Sex} when (IsCoupleSame =:= 0 andalso Sex =/= MySex) orelse IsCoupleSame =:= 1 ->
+			%% 2.检查已婚状态
+			case {marriageState:queryRelation(RoleID), marriageState:queryRelation(TargetRoleID)} of
+				{#rec_marriage{targetRoleID = TargetRoleID_A}, #rec_marriage{targetRoleID = TargetRoleID_B}}
+					when TargetRoleID_A > 0 orelse TargetRoleID_B > 0 ->
+					error_code(?ErrorCode_Marriage_Married, []);
+				_ ->
+					%% 3.检查友好度
+					Friend2Data = friend2State:queryFriend2Data(RoleID),
+					#rec_friend2_relation{closeness = Friendliness} =
+						friend2State:queryRelation(Friend2Data, TargetRoleID),
+					FriendlinessLimit = marriageState:configFriendlinessLimit(),
+					case FriendlinessLimit > Friendliness of
+						true ->
+							error_code(?ErrorCode_Marriage_FriendlyLimit, [FriendlinessLimit]);
+						_ ->
+							ItemID = doWantBuild(TargetRoleID, true, false),  %% 标记对应道具不返还
+							psMgr:sendMsg2PS(?PsNameMarriage, marriage_build, {RoleID, TargetRoleID, ItemID})
+					end
+			end;
+		_ ->
+			error_code(?ErrorCode_Marriage_InvalidSex, [])
 	end,
 	ok.
 
@@ -386,7 +465,8 @@ skillUp(CostCloseness, SlotID) ->
 								_CfgLimitLast,
 								NeedExpMax,
 								CfgCannotNext
-							} = marriageState:configSkillLimit(SlotID, RoleLevel, RoleLevel),
+							} = marriageState:configSkillLimit(SlotID, RoleLevel, LevelRing),
+							?DEBUG_OUT("[DebugForMarriage] ~w:~w", [{CostCloseness, SlotID, RoleLevel, RoleLevel}, {_CfgLimitLast, NeedExpMax, CfgCannotNext}]),
 							case SlotExp >= NeedExpMax of
 								true ->
 									%% 注：若此处CfgCannotNext无法解析为#spouseskillCfg{}，则应该是配置变动造成已有经验比所需经验多，需要增大配置中的经验要求或者扣除经验
@@ -650,15 +730,15 @@ closenessAddAck(_) ->
 %%    2.下线时 playerOtp:handle_info({netQuit,Pid,Reason},State) 不需要处理自己，但是需要通知伴侣玩家进程
 %%    3.结婚时 playerMarriage:buildAck/1 此处由公共进程通知双方，不需要另外通知伴侣玩家进程
 %%    4.离婚时 playerMarriage:breakAck/1 此处由公共进程通知双方，不需要另外通知伴侣玩家进程
-%%    5.加入队伍时 playerTeam:addNewTeam/2 另外需要通知伴侣玩家进程
-%%    6.退出队伍时 playerTeam:leaveTeam/1 另外需要通知伴侣玩家进程
+%%    5.加入队伍时 playerOtp:handle_info({joinTeamOK, _Pid, Msg}, State) 另外需要通知伴侣玩家进程
+%%    6.退出队伍时 playerOtp:handle_info({leaveTeamOK, _Pid, Msg}, State) 另外需要通知伴侣玩家进程
 %%    7.进入地图时 playerMap:dealOnlyEnteredGame/1 另外需要通知伴侣玩家进程
 %%    8.技能升级时 playerMarraige:skillUp/2 不需要另外通知伴侣玩家进程
 %%    注1：没有【退出地图时】的处理，被【下线时】包括了
 %%    注2：【上线时】本质上时特殊的【进入地图时】，有些微差别
 -spec resetSkill(NeedResetMyself :: boolean(), NeedNoticeParter :: boolean()) -> ok.
 resetSkill(true, false) ->
-	%?DEBUG_OUT("[DebugForMarriage] resetSkill true false RoleID:~p", [playerState:getRoleID()]),
+	?DEBUG_OUT("[DebugForMarriage] resetSkill true false RoleID:~p", [playerState:getRoleID()]),
 	%% 删除已有技能
 	[playerSkill:delMarriageSkill(ID) || ID <- playerPropSync:getProp(?SerProp_MarriageSkillListCache)],
 	%% 发动条件1.已婚
@@ -673,6 +753,7 @@ resetSkill(true, false) ->
 					#rec_OnlinePlayer{code = TargetCode} ->
 						case ets:lookup(PlayerEts, TargetCode) of
 							[#recMapObject{teamID = TeamID}] when TeamID =/= 0 ->
+								%?DEBUG_OUT("[DebugForMarriage] resetSkill true false RoleID:~p study", [playerState:getRoleID()]),
 								%% 习得所有槽位对应的技能
 								FunStudy =
 									fun(SlotID, ListSkillID) ->
@@ -688,13 +769,16 @@ resetSkill(true, false) ->
 										[SkillID | ListSkillID]
 									end,
 								lists:foldl(FunStudy, [], getCfg:get1KeyList(cfg_spouseskill));
-							_ ->
+							_T ->
+								%?DEBUG_OUT("[DebugForMarriage] resetSkill true false RoleID:~p not togather ~w", [playerState:getRoleID(), _T]),
 								[] %% 不在同一队伍或者同一地图
 						end;
 					_ ->
+						%?DEBUG_OUT("[DebugForMarriage] resetSkill true false RoleID:~p offline", [playerState:getRoleID()]),
 						[] %% 不在线
 				end;
 			_ ->
+				%?DEBUG_OUT("[DebugForMarriage] resetSkill true false RoleID:~p unmarriage", [playerState:getRoleID()]),
 				[]  %% 未婚
 		end,
 	playerPropSync:setAny(?SerProp_MarriageSkillListCache, ListCacheNew),

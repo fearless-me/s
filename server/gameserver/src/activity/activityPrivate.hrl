@@ -21,7 +21,7 @@
 -define(AcMgrEts, acMgrEts).
 -define(AcEts, acEts).
 
--define(ActivityModuleTick, 10*1000).
+-define(ActivityModuleTick, 1000).
 -define(ActivityModuleTickMsg, activityModuleTickMsg).
 
 %% 误差分钟数

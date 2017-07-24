@@ -40,8 +40,7 @@ init([]) ->
 	?LOG_OUT("[~w] start",[?MODULE]),
 	LoginQue = queue:new(),
 	ets:new(?QueCanLoginUserEts, [named_table,public, {keypos, #recQueCanLoginUserEts.accountID}]),
-	erlang:send_after(?QueTickFrequenceMillSec, self(), tick),
-	{ok, #state{loginQueue = LoginQue ,canLoginNum = 0}}.
+	{ok, #state{loginQueue = LoginQue , curNum = 0, maxNum = 0}}.
 
 handle_call(Request, From, State) ->
 	?ERROR_OUT("handle_call:[~p] in [~p],form:~p",[Request,?MODULE,From]),

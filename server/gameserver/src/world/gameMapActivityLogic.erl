@@ -76,7 +76,7 @@ playerOffline(RoleID) ->
 			#activityCfg{mapidlist = MapIDList} = getCfg:getCfgPStack(cfg_activity, Key),
 			case lists:member(MapID, MapIDList) of
 				true ->
-					core:sendMsgToActivity(Key,activityMapMsg,{?ACMapMsg_Offline, RoleID});
+					core:sendMsgToActivity(Key,activityMapMsg,{?ACMapMsg_Offline, {RoleID, self()}});
 				_ ->
 					skip
 			end

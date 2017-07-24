@@ -23,7 +23,8 @@
 %% API
 -export([
 	init/0,				%% 上线初始化
-	updateCondition/2	%% 更新条件值
+	updateCondition/2,	%% 更新条件值
+	queryForGM/1		%% GM用查询进度（返回字符串以在聊天框显示）
 ]).
 
 %%% ====================================================================
@@ -35,39 +36,45 @@
 -spec reward(ID::uint()) -> ok.
 reward(ID) ->
 	?DEBUG_OUT("[DebugForSevenDayAim] RoleID:~w ID:~w", [playerState:getRoleID(), ID]),
-	%% 取消配置时请将type设置为0，新增配置请增加在末尾
-	%% 以这种方式保证已有的配置ID不会发生变化，确保服务端记录的已领取奖励是正确的
-	ListAlreadyReward = playerPropSync:getProp(?SerProp_SevenDayAimAlreadyReward),
-	case lists:member(ID, ListAlreadyReward) of
+	%% 功能未开启时忽略
+	case playerMainMenu:isOpen(?ModeType_SevenDay) of	%% 58对应七日目标
 		true ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimAlreadyReward);
-		_ ->
-			#seven_day_aimCfg{
-				day			= Day,			%% 第几日
-				type		= Type,			%% 主题类型，0无效
-				subType1	= SubType1,		%% 条件类型 参考类型sevenDayAim() 但是为0时无效
-				args1		= Args1,		%% 条件参数 参考类型sevenDayAim()
-				subType2	= SubType2,		%% 如同subType1
-				args2		= Args2,		%% Args1
-				subType3	= SubType3,		%% 如同subType1
-				args3		= Args3,		%% Args1
-				rewardCoin	= RewardCoin,	%% 货币奖励 [{CoinType, CoinNum}, ...]
-				rewardItem	= RewardItem	%% 道具奖励 [{ItemID, ItemNum}, ...]
-			} = getCfg:getCfgPStack(cfg_seven_day_aim, ID),
-			Ret1 = reward_CheckType(Type),
-			Ret2 = reward_checkTime(Ret1, Day),
-			Ret3 = reward_checkCondition(Ret2, SubType1, Args1),
-			Ret4 = reward_checkCondition(Ret3, SubType2, Args2),
-			Ret5 = reward_checkCondition(Ret4, SubType3, Args3),
-			case Ret5 of
-				1 ->
-					playerPropSync:setAny(?SerProp_SevenDayAimAlreadyReward, [ID | ListAlreadyReward]),
-					reward_coin(Ret5, RewardCoin),
-					reward_item(Ret5, RewardItem),
-					playerMsg:sendNetMsg(#pk_GS2U_SevenDayAimReward_Ack{id = ID});
+			%% 取消配置时请将type设置为0，新增配置请增加在末尾
+			%% 以这种方式保证已有的配置ID不会发生变化，确保服务端记录的已领取奖励是正确的
+			ListAlreadyReward = playerPropSync:getProp(?SerProp_SevenDayAimAlreadyReward),
+			case lists:member(ID, ListAlreadyReward) of
+				true ->
+					playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimAlreadyReward);
 				_ ->
-					ok
-			end
+					#seven_day_aimCfg{
+						day			= Day,			%% 第几日
+						type		= Type,			%% 主题类型，0无效
+						subType1	= SubType1,		%% 条件类型 参考类型sevenDayAim() 但是为0时无效
+						args1		= Args1,		%% 条件参数 参考类型sevenDayAim()
+						subType2	= SubType2,		%% 如同subType1
+						args2		= Args2,		%% Args1
+						subType3	= SubType3,		%% 如同subType1
+						args3		= Args3,		%% Args1
+						rewardCoin	= RewardCoin,	%% 货币奖励 [{CoinType, CoinNum}, ...]
+						rewardItem	= RewardItem	%% 道具奖励 [{ItemID, ItemNum}, ...]
+					} = getCfg:getCfgPStack(cfg_seven_day_aim, ID),
+					Ret1 = reward_CheckType(Type),
+					Ret2 = reward_checkTime(Ret1, Day),
+					Ret3 = reward_checkCondition(Ret2, SubType1, Args1),
+					Ret4 = reward_checkCondition(Ret3, SubType2, Args2),
+					Ret5 = reward_checkCondition(Ret4, SubType3, Args3),
+					case Ret5 of
+						1 ->
+							playerPropSync:setAny(?SerProp_SevenDayAimAlreadyReward, [ID | ListAlreadyReward]),
+							reward_coin(Ret5, RewardCoin),
+							reward_item(Ret5, RewardItem),
+							playerMsg:sendNetMsg(#pk_GS2U_SevenDayAimReward_Ack{id = ID});
+						_ ->
+							ok
+					end
+			end;
+		_ ->
+			skip
 	end.
 
 %% 检查主题类型（兼有开关功能）
@@ -90,7 +97,7 @@ reward_checkTime(_Mark, Day) ->
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimTimeOut),
 			0;
 		_ ->
-			case (TimeNow - getTimeBegin() div 86400) + 1 of
+			case ((TimeNow - getTimeBegin()) div 86400) + 1 of
 				DayNow when DayNow >= Day ->
 					1;
 				_ ->
@@ -111,6 +118,7 @@ reward_checkCondition(_Mark, ?SevenDayAim_CopyMap = SubType, [MapID]) ->
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [Args]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
@@ -120,6 +128,27 @@ reward_checkCondition(_Mark, ?SevenDayAim_WarriorTrial = SubType, [LayerAim]) ->
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [Layer]),
+			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
+			0
+	end;
+reward_checkCondition(_Mark, ?SevenDayAim_ProtectGod = SubType, [LayerAim]) ->
+	#pk_SevenDayAimUpdate{args = [Layer]} = getCondition(SubType),
+	case Layer >= LayerAim of
+		true ->
+			1;
+		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [Layer]),
+			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
+			0
+	end;
+reward_checkCondition(_Mark, ?SevenDayAim_Material = SubType, [MapID]) ->
+	#pk_SevenDayAimUpdate{args = Args} = getCondition(SubType),
+	case lists:member(MapID, Args) of
+		true ->
+			1;
+		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [Args]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
@@ -129,6 +158,7 @@ reward_checkCondition(_Mark, ?SevenDayAim_RoleLevel = SubType, [LevelAim]) ->
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [Level]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
@@ -138,16 +168,18 @@ reward_checkCondition(_Mark, ?SevenDayAim_PetCount = SubType, [-1, CountAim]) ->
 		Count when Count >= CountAim ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [ListPet]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
 reward_checkCondition(_Mark, ?SevenDayAim_PetCount = SubType, [QualityAim, CountAim]) ->
 	#pk_SevenDayAimUpdate{args = ListPet} = getCondition(SubType),
 	try
-		case lists:nth(QualityAim, ListPet) >= CountAim of
+		case lists:nth(QualityAim + 1, ListPet) >= CountAim of
 			true ->
 				1;
 			_ ->
+				?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [ListPet]),
 				playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 				0
 		end
@@ -162,6 +194,7 @@ reward_checkCondition(_Mark, ?SevenDayAim_FashionCount = SubType, [CountAim]) ->
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [Count]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
@@ -171,15 +204,17 @@ reward_checkCondition(_Mark, ?SevenDayAim_Force = SubType, [ForceAim]) ->
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [Force]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
 reward_checkCondition(_Mark, ?SevenDayAim_Ranking = SubType, [RankAim]) ->
 	#pk_SevenDayAimUpdate{args = [Rank]} = getCondition(SubType),
-	case Rank >= RankAim of
+	case Rank =< RankAim andalso Rank > 0 of
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [Rank]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
@@ -189,21 +224,24 @@ reward_checkCondition(_Mark, ?SevenDayAim_EquipQuality = SubType, [-1, CountAim]
 		Count when Count >= CountAim ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [ListEquip]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
 reward_checkCondition(_Mark, ?SevenDayAim_EquipQuality = SubType, [QualityAim, CountAim]) ->
 	#pk_SevenDayAimUpdate{args = ListEquip} = getCondition(SubType),
 	try
-		case lists:nth(QualityAim, ListEquip) >= CountAim of
+		case lists:nth(QualityAim + 1, ListEquip) >= CountAim of
 			true ->
 				1;
 			_ ->
+				?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [ListEquip]),
 				playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 				0
 		end
 	catch
 		_:_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [ListEquip]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
@@ -222,6 +260,7 @@ reward_checkCondition(_Mark, ?SevenDayAim_EquipStar = SubType, [StarAim, CountAi
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [ListEquip]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
@@ -240,6 +279,7 @@ reward_checkCondition(_Mark, ?SevenDayAim_EquipRefine = SubType, [RefineAim, Cou
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [ListEquip]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
@@ -253,6 +293,7 @@ reward_checkCondition(_Mark, ?SevenDayAim_WingLevel = SubType, [LevelAim]) ->
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [Level]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
@@ -271,29 +312,31 @@ reward_checkCondition(_Mark, ?SevenDayAim_GodWeapon = SubType, [LevelAim, CountA
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [ListGodWeapon]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
 reward_checkCondition(_Mark, ?SevenDayAim_PetStar = SubType, [StarAim, CountAim]) ->
-	#pk_SevenDayAimUpdate{args = ListEquip} = getCondition(SubType),
+	#pk_SevenDayAimUpdate{args = ListPet} = getCondition(SubType),
 	FunCount =
 		fun(Star, Count) ->
-			case Star >= StarAim of
+			case Star + 1 >= StarAim of
 				true ->
 					Count + 1;
 				_ ->
 					Count
 			end
 		end,
-	case lists:foldl(FunCount, 0, ListEquip) >= CountAim of
+	case lists:foldl(FunCount, 0, ListPet) >= CountAim of
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [ListPet]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
 reward_checkCondition(_Mark, ?SevenDayAim_PetTurn = SubType, [TurnAim, CountAim]) ->
-	#pk_SevenDayAimUpdate{args = ListEquip} = getCondition(SubType),
+	#pk_SevenDayAimUpdate{args = ListPet} = getCondition(SubType),
 	FunCount =
 		fun(Turn, Count) ->
 			case Turn >= TurnAim of
@@ -303,17 +346,18 @@ reward_checkCondition(_Mark, ?SevenDayAim_PetTurn = SubType, [TurnAim, CountAim]
 					Count
 			end
 		end,
-	case lists:foldl(FunCount, 0, ListEquip) >= CountAim of
+	case lists:foldl(FunCount, 0, ListPet) >= CountAim of
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [ListPet]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
 reward_checkCondition(_Mark, ?SevenDayAim_PetAdd = SubType, [AddAim, CountAim]) ->
-	#pk_SevenDayAimUpdate{args = ListEquip} = getCondition(SubType),
+	#pk_SevenDayAimUpdate{args = ListPet} = getCondition(SubType),
 	FunCount =
-		fun({_, Add}, Count) ->
+		fun(Add, Count) ->
 			case Add >= AddAim of
 				true ->
 					Count + 1;
@@ -321,10 +365,11 @@ reward_checkCondition(_Mark, ?SevenDayAim_PetAdd = SubType, [AddAim, CountAim]) 
 					Count
 			end
 		end,
-	case lists:foldl(FunCount, 0, ListEquip) >= CountAim of
+	case lists:foldl(FunCount, 0, ListPet) >= CountAim of
 		true ->
 			1;
 		_ ->
+			?DEBUG_OUT("[DebugForSevenDayAim] Args:~w", [ListPet]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SevenDayAimCannot),
 			0
 	end;
@@ -340,7 +385,7 @@ reward_coin(0, _RewardCoin) ->
 reward_coin(_Mark, RewardCoin) when erlang:is_list(RewardCoin) ->
 	reward_coin(RewardCoin),
 	ok;
-reward_coin(_Mark, RewardCoin) ->
+reward_coin(_Mark, _RewardCoin) ->
 	ok.
 reward_coin([]) ->
 	ok;
@@ -366,7 +411,7 @@ reward_item(0, _RewardItem) ->
 reward_item(_Mark, RewardItem) when erlang:is_list(RewardItem) ->
 	reward_item(RewardItem),
 	ok;
-reward_item(_Mark, RewardItem) ->
+reward_item(_Mark, _RewardItem) ->
 	ok.
 reward_item([]) ->
 	ok;
@@ -398,30 +443,40 @@ reward_item(_Null) ->
 %% 上线初始化并推送状态
 -spec init() -> ok.
 init() ->
-	case playerPropSync:getProp(?SerProp_SevenDayAimTimeBegin) of
-		0 ->
-			%% 取当天凌晨4点时间
-			TimeNowUTC = time:getSyncTime1970FromDBS(),
-			Date = time:convertSec2DateTime(TimeNowUTC),
-			TimeBeginOfDay = time:getDayBeginSeconds(Date) + ?ResetTimeHour * 3600 - ?SECS_FROM_0_TO_1970,
-			playerPropSync:setInt(?SerProp_SevenDayAimTimeBegin, TimeBeginOfDay);
-		_ ->
-			skip
-	end,
-	Conditions =
-		case checkTime() of
-			true ->
-				[getCondition(Aim, true) || Aim <- ?SevenDayAim_ALL];
-			_ ->
-				[]
-		end,
-	Msg = #pk_GS2U_SevenDayAimState_Sync{
-		timeBegin = getTimeBegin(),
-		conditions = Conditions,
-		alreadyReward = playerPropSync:getProp(?SerProp_SevenDayAimAlreadyReward)
-	},
-	playerMsg:sendNetMsg(Msg),
-	playerState2:setSevenDayAimIsInit(true),
+	%case playerBase:funcIsOpenByMainMenu(58) of	%% 58对应七日目标
+	%	true ->
+			case playerState2:getSevenDayAimIsInit() of
+				true ->
+					skip;
+				_ ->
+					case playerPropSync:getProp(?SerProp_SevenDayAimTimeBegin) of
+						0 ->
+							%% 取当天凌晨4点时间
+							TimeNowUTC = time:getSyncTime1970FromDBS(),
+							Date = time:convertSec2DateTime(TimeNowUTC),
+							TimeBeginOfDay = time:getDayBeginSeconds(Date) + ?ResetTimeHour * 3600 - ?SECS_FROM_0_TO_1970,
+							playerPropSync:setInt(?SerProp_SevenDayAimTimeBegin, TimeBeginOfDay);
+						_ ->
+							skip
+					end,
+					Conditions =
+						case checkTime() of
+							true ->
+								[getCondition(Aim, true) || Aim <- ?SevenDayAim_ALL];
+							_ ->
+								[]
+						end,
+					Msg = #pk_GS2U_SevenDayAimState_Sync{
+						timeBegin = getTimeBegin(),
+						conditions = Conditions,
+						alreadyReward = playerPropSync:getProp(?SerProp_SevenDayAimAlreadyReward)
+					},
+					playerMsg:sendNetMsg(Msg),
+					playerState2:setSevenDayAimIsInit(true)
+			end,
+	%	_ ->
+	%		skip
+	%end,
 	ok.
 
 %%% --------------------------------------------------------------------
@@ -467,6 +522,29 @@ updateCondition_(?SevenDayAim_WarriorTrial = ID, [Layer]) ->
 		_ ->
 			playerPropSync:setInt(?SerProp_SevenDayAim_WarriorTrial, Layer),
 			#pk_GS2U_SevenDayAimUpdate_Sync{type = ID, args = [Layer]}
+	end;
+
+%% 守护女神通过第几波
+updateCondition_(?SevenDayAim_ProtectGod = ID, [Wave]) ->
+	WaveOld = playerPropSync:getProp(?SerProp_SevenDayAim_ProtectGod),
+	case Wave =< WaveOld of
+		true ->
+			ok;	%% 已通关，忽略
+		_ ->
+			playerPropSync:setInt(?SerProp_SevenDayAim_ProtectGod, Wave),
+			#pk_GS2U_SevenDayAimUpdate_Sync{type = ID, args = [Wave]}
+	end;
+
+%% 材料副本/元素保卫战通过指定关卡
+updateCondition_(?SevenDayAim_Material = ID, [MapID]) ->
+	ListMapIDOld = playerPropSync:getProp(?SerProp_SevenDayAim_Material),
+	case lists:member(MapID, ListMapIDOld) of
+		true ->
+			ok;	%% 已通关，忽略
+		_ ->
+			ListMapIDNew = [MapID | ListMapIDOld],
+			playerPropSync:setAny(?SerProp_SevenDayAim_Material, ListMapIDNew),
+			#pk_GS2U_SevenDayAimUpdate_Sync{type = ID, args = ListMapIDNew}
 	end;
 
 %% 角色达到指定等级（客户端本地获取）
@@ -589,24 +667,224 @@ updateCondition_(?SevenDayAim_PetAdd = ID, [PetID, Count]) ->
 			[AddCount | R]
 		end,
 	ListMsg = lists:foldl(FunMsg, [], ListNew),
-	#pk_GS2U_SevenDayAimUpdate_Sync{type = ID, args = ListMsg};
+	#pk_GS2U_SevenDayAimUpdate_Sync{type = ID, args = ListMsg}.
 
-%% 守护女神通过第几波
-updateCondition_(?SevenDayAim_ProtectGod = ID, [Wave]) ->
-	WaveOld = playerPropSync:getProp(?SerProp_SevenDayAim_ProtectGod),
-	case Wave =< WaveOld of
-		true ->
-			ok;	%% 已通关，忽略
+%%% --------------------------------------------------------------------
+%% GM用查询进度（返回字符串以在聊天框显示）
+-spec queryForGM(ID::uint()) -> string().
+queryForGM(ID) ->
+	case getCfg:getCfgByKey(cfg_seven_day_aim, ID) of
+		#seven_day_aimCfg{} = Cfg ->
+			q1(Cfg);
 		_ ->
-			playerPropSync:setInt(?SerProp_SevenDayAim_ProtectGod, Wave),
-			#pk_GS2U_SevenDayAimUpdate_Sync{type = ID, args = [Wave]}
+			queryForGM_format("invalid id:~w of cfg_seven_day_aim", [ID])
 	end.
+
+queryForGM_format(F) ->
+	lists:flatten(io_lib:format(F, [])).
+queryForGM_format(F, A) ->
+	lists:flatten(io_lib:format(F, A)).
+
+-spec q1(#seven_day_aimCfg{}) -> string().
+q1(#seven_day_aimCfg{id = ID, subType1 = SubType1, args1 = Args1, subType2 = SubType2, args2 = Args2, subType3 = SubType3, args3 = Args3}) ->
+	Ret1 = q2(SubType1, Args1),
+	Ret2 = q2(SubType2, Args2),
+	Ret3 = q2(SubType3, Args3),
+	SubType1_ = makeString(SubType1),
+	Args1_ = makeString(Args1),
+	SubType2_ = makeString(SubType2),
+	Args2_ = makeString(Args2),
+	SubType3_ = makeString(SubType3),
+	Args3_ = makeString(Args3),
+	queryForGM_format(
+		"ID:~w~nsubType1:~ts,args1:~ts~n~ts~nsubType2:~ts,args2:~ts~n~ts~nsubType3:~ts,args3:~ts~n~ts",
+		[ID, SubType1_, Args1_, Ret1, SubType2_, Args2_, Ret2, SubType3_, Args3_, Ret3]
+	).
+
+%% 由于unity使用[整形]来标记文本颜色，因此聊天框输出字符时带有仅含1个整形元素的数组需要特殊处理以保证显示内容正确
+%% 这里的目的是为了显示数组中的参数，因此在上述情况时，在前中括号和内容中插入一个空格来进行特殊处理
+-spec makeString(Content::term()) -> string().
+makeString([Value]) when erlang:is_integer(Value), Value > 0 ->
+	queryForGM_format("[ ~w]", [Value]);
+makeString(Content) ->
+	queryForGM_format("~w", [Content]).
+
+-spec q2(SubType::sevenDayAim(), Args::list()) -> string().
+q2(0, _Args) ->
+	"skip";
+q2(?SevenDayAim_CopyMap = SubType, [MapID] = Args) ->
+	case getCfg:getCfgByKey(cfg_mapsetting, MapID) of
+		#mapsettingCfg{} = MapCfg ->
+			case MapCfg of
+				#mapsettingCfg{type = ?MapTypeCopyMap, subtype = SubType} when
+					SubType =:= ?MapSubTypeMoneyDungeon;	%% 金币副本/惊天喵盗团
+					SubType =:= ?MapSubTypeSpiritArea;		%% 灵界活动/原初灵界
+					SubType =:= ?MapSubTypeMaterial ->		%% 材料副本/元素保卫战
+					%% 这些是走副本逻辑的活动，不是真正的副本
+					"is not copymap when mapsetting.subtype is 1008,1009,1011";
+				#mapsettingCfg{type = ?MapTypeCopyMap} ->
+					#pk_SevenDayAimUpdate{args = Args} = getCondition(SubType),
+					case lists:member(MapID, Args) of
+						true ->
+							"1/1";
+						_ ->
+							"0/1"
+					end;
+				_ ->
+					"is not copymap"
+			end;
+		_ ->
+			queryForGM_format("invalid MapID:~w", [MapID])
+	end;
+q2(?SevenDayAim_WarriorTrial = SubType, [LayerAim]) ->
+	#pk_SevenDayAimUpdate{args = [Layer]} = getCondition(SubType),
+	queryForGM_format("~w/~w", [Layer, LayerAim]);
+q2(?SevenDayAim_ProtectGod = SubType, [LayerAim]) ->
+	#pk_SevenDayAimUpdate{args = [Layer]} = getCondition(SubType),
+	queryForGM_format("~w/~w", [Layer, LayerAim]);
+q2(?SevenDayAim_Material = SubType, [MapID]) ->
+	case getCfg:getCfgByKey(cfg_mapsetting, MapID) of
+		#mapsettingCfg{} = MapCfg ->
+			case MapCfg of
+				#mapsettingCfg{subtype = ?MapSubTypeMaterial} ->
+					#pk_SevenDayAimUpdate{args = Args} = getCondition(SubType),
+					case lists:member(MapID, Args) of
+						true ->
+							"1/1";
+						_ ->
+							"0/1"
+					end;
+				_ ->
+					"is not Material"
+			end;
+		_ ->
+			queryForGM_format("invalid MapID:~w", [MapID])
+	end;
+q2(?SevenDayAim_RoleLevel = SubType, [RoleLevelAim]) ->
+	#pk_SevenDayAimUpdate{args = [RoleLevel]} = getCondition(SubType),
+	queryForGM_format("~w/~w", [RoleLevel, RoleLevelAim]);
+q2(?SevenDayAim_PetCount = SubType, [QualityAim, CountAim]) ->
+	#pk_SevenDayAimUpdate{args = ListPet} = getCondition(SubType),
+	Count =
+		case QualityAim of
+			-1 ->
+				lists:foldl(fun(A, B) -> A + B end, 0, ListPet);
+			_ ->
+				lists:nth(QualityAim + 1, ListPet)
+		end,
+	queryForGM_format("~w/~w", [Count, CountAim]);
+q2(?SevenDayAim_FashionCount = SubType, [CountAim]) ->
+	#pk_SevenDayAimUpdate{args = [Count]} = getCondition(SubType),
+	queryForGM_format("~w/~w", [Count, CountAim]);
+q2(?SevenDayAim_Force = SubType, [ForceAim]) ->
+	#pk_SevenDayAimUpdate{args = [Force]} = getCondition(SubType),
+	queryForGM_format("~w/~w", [Force, ForceAim]);
+q2(?SevenDayAim_Ranking = SubType, [RankAim]) ->
+	#pk_SevenDayAimUpdate{args = [Rank]} = getCondition(SubType),
+	queryForGM_format("~w/~w", [Rank, RankAim]);
+q2(?SevenDayAim_EquipQuality = SubType, [QualityAim, CountAim]) ->
+	#pk_SevenDayAimUpdate{args = ListEquip} = getCondition(SubType),
+	Count =
+		case QualityAim of
+			-1 ->
+				lists:foldl(fun(A, B) -> A + B end, 0, ListEquip);
+			_ ->
+				lists:nth(QualityAim + 1, ListEquip)
+		end,
+	queryForGM_format("~w/~w", [Count, CountAim]);
+q2(?SevenDayAim_EquipStar = SubType, [StarAim, CountAim]) ->
+	#pk_SevenDayAimUpdate{args = ListEquip} = getCondition(SubType),
+	FunCount =
+		fun(Star, Count) ->
+			case Star >= StarAim of
+				true ->
+					Count + 1;
+				_ ->
+					Count
+			end
+		end,
+	Count = lists:foldl(FunCount, 0, ListEquip),
+	queryForGM_format("~w/~w", [Count, CountAim]);
+q2(?SevenDayAim_EquipRefine = SubType, [RefineAim, CountAim]) ->
+	#pk_SevenDayAimUpdate{args = ListEquip} = getCondition(SubType),
+	FunCount =
+		fun(Refine, Count) ->
+			case Refine >= RefineAim of
+				true ->
+					Count + 1;
+				_ ->
+					Count
+			end
+		end,
+	Count = lists:foldl(FunCount, 0, ListEquip),
+	queryForGM_format("~w/~w", [Count, CountAim]);
+q2(?SevenDayAim_GemLevel, _Args) ->
+	"not support";
+q2(?SevenDayAim_GemMaster, _Args) ->
+	"not support";
+q2(?SevenDayAim_WingLevel = SubType, [LevelAim]) ->
+	#pk_SevenDayAimUpdate{args = [Level]} = getCondition(SubType),
+	queryForGM_format("~w/~w", [Level, LevelAim]);
+q2(?SevenDayAim_GodWeapon = SubType, [LevelAim, CountAim]) ->
+	#pk_SevenDayAimUpdate{args = ListGodWeapon} = getCondition(SubType),
+	FunCount =
+		fun(Level, Count) ->
+			case Level >= LevelAim of
+				true ->
+					Count + 1;
+				_ ->
+					Count
+			end
+		end,
+	Count = lists:foldl(FunCount, 0, ListGodWeapon),
+	queryForGM_format("~w/~w", [Count, CountAim]);
+q2(?SevenDayAim_PetStar = SubType, [StarAim, CountAim]) ->
+	#pk_SevenDayAimUpdate{args = ListPet} = getCondition(SubType),
+	FunCount =
+		fun(Star, Count) ->
+			case Star + 1 >= StarAim of
+				true ->
+					Count + 1;
+				_ ->
+					Count
+			end
+		end,
+	Count = lists:foldl(FunCount, 0, ListPet),
+	queryForGM_format("~w/~w", [Count, CountAim]);
+q2(?SevenDayAim_PetTurn = SubType, [TurnAim, CountAim]) ->
+	#pk_SevenDayAimUpdate{args = ListPet} = getCondition(SubType),
+	FunCount =
+		fun(Turn, Count) ->
+			case Turn >= TurnAim of
+				true ->
+					Count + 1;
+				_ ->
+					Count
+			end
+		end,
+	Count = lists:foldl(FunCount, 0, ListPet),
+	queryForGM_format("~w/~w", [Count, CountAim]);
+q2(?SevenDayAim_PetAdd = SubType, [AddAim, CountAim]) ->
+	#pk_SevenDayAimUpdate{args = ListPet} = getCondition(SubType),
+	FunCount =
+		fun(Add, Count) ->
+			case Add >= AddAim of
+				true ->
+					Count + 1;
+				_ ->
+					Count
+			end
+		end,
+	Count = lists:foldl(FunCount, 0, ListPet),
+	queryForGM_format("~w/~w", [Count, CountAim]);
+q2(_SubType, _Args) ->
+	queryForGM_format("invalid subType or invalid args").
 
 %%% ====================================================================
 %%% Internal functions
 %%% ====================================================================
 
-%%% --------------------------------------------------------------------
+%%% --------------------------------------------------------------------\
 %% 获取活动开始时间
 -spec getTimeBegin() -> Sec::uint32().
 getTimeBegin() ->
@@ -639,6 +917,16 @@ getCondition(?SevenDayAim_WarriorTrial = ID, _IsInit) ->
 	#pk_SevenDayAimUpdate{
 		type = ID,
 		args = [playerPropSync:getProp(?SerProp_SevenDayAim_WarriorTrial)]
+	};
+getCondition(?SevenDayAim_ProtectGod = ID, _IsInit) ->
+	#pk_SevenDayAimUpdate{
+		type = ID,
+		args = [playerPropSync:getProp(?SerProp_SevenDayAim_ProtectGod)]
+	};
+getCondition(?SevenDayAim_Material = ID, _IsInit) ->
+	#pk_SevenDayAimUpdate{
+		type = ID,
+		args = playerPropSync:getProp(?SerProp_SevenDayAim_Material)
 	};
 getCondition(?SevenDayAim_RoleLevel = ID, true) ->
 	#pk_SevenDayAimUpdate{
@@ -745,7 +1033,7 @@ getCondition(?SevenDayAim_WingLevel = ID, true) ->
 getCondition(?SevenDayAim_WingLevel = ID, _IsInit) ->
 	#pk_SevenDayAimUpdate{
 		type = ID,
-		args = [playerWing:getWingLevel()]
+		args = [0]%%[playerWing:getWingMaxLevel()]
 	};
 getCondition(?SevenDayAim_GodWeapon = ID, true) ->
 	#pk_SevenDayAimUpdate{
@@ -781,9 +1069,4 @@ getCondition(?SevenDayAim_PetAdd = ID, _IsInit) ->
 	#pk_SevenDayAimUpdate{
 		type = ID,
 		args = [Count || {_PetID, Count} <- playerPropSync:getProp(?SerProp_SevenDayAim_PetAdd)]
-	};
-getCondition(?SevenDayAim_ProtectGod = ID, _IsInit) ->
-	#pk_SevenDayAimUpdate{
-		type = ID,
-		args = [playerPropSync:getProp(?SerProp_SevenDayAim_ProtectGod)]
 	}.

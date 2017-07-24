@@ -19,7 +19,7 @@
 	initCopyMapSchedule/1,
 	show2/1,
 	initParallelScheduleConf/1,
-	initParallelScheduleConf/2,
+	initParallelScheduleConf/3,
 	getOpenBlockList/1,
 	getMapObjDataList/3
 ]).
@@ -33,7 +33,8 @@
 ]).
 
 -export([
-	tryDoEvent/5
+	tryDoEvent/5,
+	findShow2ByGroupID/1
 ]).
 
 %% 设置副本最大进度为，当前配置的最大进度
@@ -71,10 +72,10 @@ initCopyMapSchedule(GroupID, Schedule) ->
 
 			case getCfg:getCfgPStack(cfg_copymapScheduleInit, InitConf) of
 				#copymapScheduleInitCfg{play_show2 = Show2ID, cd_show2 = CD} ->
-					case getCfg:getCfgByKey(cfg_show2, Show2ID) of
-						#show2Cfg{} ->
+					case findShow2ByGroupID(Show2ID) of
+						true ->
 							?DEBUG_OUT("[DebugForShow2] initCopyMapSchedule/2 GroupID:~w InitConf:~w Show2ID:~w CD:~w", [GroupID, InitConf, Show2ID, CD]),
-							TimerRef = erlang:send_after(CD * 1000, self(), {show2, self(), {GroupID, InitConf, Show2ID}}),
+							TimerRef = erlang:send_after(CD * 1000, self(), {show2, self(), {GroupID, InitConf, Show2ID, true}}),
 							mapState:setShow2Data(GroupID, {TimerRef, Args#copyMapScheduleInit{show2ID = Show2ID}});
 						_ ->
 							initCopyMapSchedule(Args)
@@ -129,7 +130,26 @@ initCopyMapSchedule(#copyMapScheduleInit{groupID = GroupID, scheduleID = Schedul
 	addMonsterToMap(GroupID, Conf),
 
 	%% 刷采集物
-	addCollectToMap(GroupID, AddCollect, Radius),
+	%?DEBUG_OUT("[DebugForCopyMapC] init false for collect begin ..."),
+	case ScheduleID > 1 of
+		true ->
+			{LastConfigID, _} = copyMapScheduleComplete:getCopyMapScheduleConf(MapID, ScheduleID - 1),
+			%?DEBUG_OUT(
+			%	"[DebugForCopyMapC] init false MapPID:~w ScheduleID:~w ConfigID:~w LastScheduleID:~w LastConfigID:~w",
+			%	[self(), ScheduleID, ConfigID, ScheduleID - 1, LastConfigID]
+			%),
+			clearOldCollect(GroupID, LastConfigID, false);
+		_ ->
+			%?DEBUG_OUT(
+			%	"[DebugForCopyMapC] init false MapID:~w ScheduleID:~w ConfigID:~w LastScheduleID:~w LastConfigID:~w",
+			%	[MapID, ScheduleID, ConfigID, 0, 0]
+			%),
+			skip
+	end,
+	ListCollectCode = addCollectToMap(GroupID, AddCollect, Radius),
+	%?DEBUG_OUT("[DebugForCopyMapC] init false addCollect:~w", [ListCollectCode]),
+	copyMapScheduleState:setMapScheduleCollectCode(GroupID, ConfigID, false, ListCollectCode),
+	%?DEBUG_OUT("[DebugForCopyMapC] init false for collect end ..."),
 
 	%% 阻档npc打开
 	openNpcBlock(GroupID, [OpenBlock1, OpenBlock2, OpenBlock3, OpenBlock4]),
@@ -174,11 +194,11 @@ initCopyMapSchedule(#copyMapScheduleInit{groupID = GroupID, scheduleID = Schedul
 	ok.
 
 %% 处理show2完成事件
--spec show2({GroupID::uint(), ConfigID::uint(), Show2ID::uint()}) -> ok.
-show2({GroupID, ConfigID, Show2ID}) ->
+-spec show2({GroupID::uint(), ConfigID::uint(), Show2ID::uint(), true}) -> ok.
+show2({GroupID, ConfigID, Show2ID, true}) ->
 	case mapState:getShow2Data(GroupID) of
 		{TimerRef, #copyMapScheduleInit{groupID = GroupID, configID = ConfigID, show2ID = Show2ID} = Rec} ->
-			?DEBUG_OUT("[DebugForShow2] show2/1 hit GroupID:~w ConfigID:~w Show2ID:~w", [GroupID, ConfigID, Show2ID]),
+			?DEBUG_OUT("[DebugForShow2] show2/1 true hit GroupID:~w ConfigID:~w Show2ID:~w", [GroupID, ConfigID, Show2ID]),
 
 			%% 清除暂存数据
 			case erlang:is_reference(TimerRef) of
@@ -195,7 +215,8 @@ show2({GroupID, ConfigID, Show2ID}) ->
 				mapID = MapID,
 				show2ID = Show2ID,
 				groupID = GroupID,
-				scheduleID = ConfigID
+				scheduleID = ConfigID,
+				isInit = true
 			},
 			List = mapView:getGroupObject(mapState:getMapPlayerEts(), GroupID),
 			[mapView:sendNetMsgToNetPid(NetPid, Msg) || #recMapObject{netPid = NetPid} <- List],
@@ -203,7 +224,7 @@ show2({GroupID, ConfigID, Show2ID}) ->
 			%% 正式初始化进度
 			initCopyMapSchedule(Rec);
 		_ ->
-			?DEBUG_OUT("[DebugForShow2] show2/1 skip GroupID:~w ConfigID:~w Show2ID:~w", [GroupID, ConfigID, Show2ID]),
+			?DEBUG_OUT("[DebugForShow2] show2/1 true skip GroupID:~w ConfigID:~w Show2ID:~w", [GroupID, ConfigID, Show2ID]),
 			skip
 	end,
 	ok.
@@ -222,7 +243,7 @@ initParallelScheduleConf(GroupID) ->
 									 CList = analysisList(C),    %% 取当前采集的物品个数
 									 case KList =/= [] orelse CList =/= [] of
 										 true ->
-											 [#recPSConf{completeDo = CompleteDo, killMonster = KList, collectItem = CList} | AccList];
+											 [#recPSConf{myConfigID = CompleteCondition, completeDo = CompleteDo, killMonster = KList, collectItem = CList} | AccList];
 										 _ ->
 											 AccList
 									 end;
@@ -239,8 +260,8 @@ initParallelScheduleConf(GroupID) ->
 
 %% 完成了一个并行子进度，做一个初始化
 %% 不支持show2及类似需要等待的事件
--spec initParallelScheduleConf(GroupID::uint(), InitID::uint()) -> ok.
-initParallelScheduleConf(GroupID, InitID) when erlang:is_integer(InitID) andalso InitID > 0 ->
+-spec initParallelScheduleConf(GroupID::uint(), CompleteID::uint(), InitID::uint()) -> ok.
+initParallelScheduleConf(GroupID, CompleteID, InitID) when erlang:is_integer(InitID) andalso InitID > 0 ->
 	case getCfg:getCfgPStack(cfg_copymapScheduleInit, InitID) of
 		#copymapScheduleInitCfg{addcollect = AddCollect,
 			openthedoor1 = OpenBlock1, openthedoor2 = OpenBlock2, openthedoor3 = OpenBlock3, openthedoor4 = OpenBlock4,
@@ -257,7 +278,16 @@ initParallelScheduleConf(GroupID, InitID) when erlang:is_integer(InitID) andalso
 			addMonsterToMap(GroupID, Conf),
 
 			%% 刷采集物
-			addCollectToMap(GroupID, AddCollect, Radius),
+			%?DEBUG_OUT("[DebugForCopyMapC] init true for collect begin ..."),
+			%?DEBUG_OUT(
+			%	"[DebugForCopyMapC] init true MapPID:~w ScheduleID:~w ConfigID:~w LastScheduleID:~w LastConfigID:~w",
+			%	[self(), unknown, InitID, unknown, CompleteID]
+			%),
+			clearOldCollect(GroupID, CompleteID, true),
+			ListCollectCode = addCollectToMap(GroupID, AddCollect, Radius),
+			%?DEBUG_OUT("[DebugForCopyMapC] init true addCollect:~w", [ListCollectCode]),
+			copyMapScheduleState:setMapScheduleCollectCode(GroupID, InitID, true, ListCollectCode),
+			%?DEBUG_OUT("[DebugForCopyMapC] init true for collect end ..."),
 
 			%% 阻档npc打开
 			openNpcBlock(GroupID, [OpenBlock1, OpenBlock2, OpenBlock3, OpenBlock4]),
@@ -269,7 +299,14 @@ initParallelScheduleConf(GroupID, InitID) when erlang:is_integer(InitID) andalso
 			false
 	end,
 	ok;
-initParallelScheduleConf(_GroupID, _InitID) ->
+initParallelScheduleConf(GroupID, CompleteID, _InitID) ->
+	%?DEBUG_OUT("[DebugForCopyMapC] init true for collect begin ..."),
+	%?DEBUG_OUT(
+	%	"[DebugForCopyMapC] init true MapPID:~w ScheduleID:~w ConfigID:~w LastScheduleID:~w LastConfigID:~w",
+	%	[self(), unknown, _InitID, unknown, CompleteID]
+	%),
+	clearOldCollect(GroupID, CompleteID, true),
+	%?DEBUG_OUT("[DebugForCopyMapC] init true for collect end ..."),
 	ok.
 
 %% 解析并行进度配置list
@@ -408,14 +445,13 @@ addBossToMap(GroupID, Boss, Radius) ->
 	ok.
 
 %% 往地图中刷采集物
--spec addCollectToMap(GroupID::uint(), AddList::list(), Radius::uint() | float()) -> ok.
+-spec addCollectToMap(GroupID::uint(), AddList::list(), Radius::uint() | float()) -> [{Code::uint(),ID::uint16(),X::number(),Y::number()},...] | [].
 addCollectToMap(GroupID, AddList, Radius) when ?IsListValid(AddList) ->
 	List = getMapObjDataList(GroupID, AddList, Radius),
 	%%?DEBUG_OUT("addCollectToMap:~p,~p,~p", [GroupID, AddList,List]),
-	mapBase:spawnAllCollect(List),
-	ok;
+	mapBase:spawnAllCollect(List);
 addCollectToMap(_,_,_) ->
-	ok.
+	[].
 
 %% 往地图中刷采NPC
 -spec addNpcToMap(GroupID::uint(), AddList::list(), Radius::uint() | float()) -> ok.
@@ -535,18 +571,18 @@ getMapObjDataList(GroupID, AddList, Radius) when ?IsListValid(AddList) ->
 
 	Fun =
 		fun(Need, ObjList) ->
-			{ObjID, Number, XX, YY} =
+			{ObjID, Number, XX, YY, IsRand} =
 				case Need of
 					{O, N, X, Y} ->
-						{O, N, erlang:float(X), erlang:float(Y)};
+						{O, N, erlang:float(X), erlang:float(Y), false};
 					[O, N, X, Y] ->
-						{O, N, erlang:float(X), erlang:float(Y)};
+						{O, N, erlang:float(X), erlang:float(Y), false};
 					{O, N} ->
 						{LX, LY} = getMapOwnerPos(GroupID),
-						{O, N, LX, LY};
+						{O, N, LX, LY, true};
 					[O, N] ->
 						{LX, LY} = getMapOwnerPos(GroupID),
-						{O, N, LX, LY}
+						{O, N, LX, LY, true}
 				end,
 			if
 				Number > 1 ->
@@ -554,12 +590,22 @@ getMapObjDataList(GroupID, AddList, Radius) when ?IsListValid(AddList) ->
 					L = lists:seq(1, Number),
 					FunAddObj =
 						fun(_, List) ->
-							{NX, NY} = getAddMonsterPos(MapCfg, XX, YY, R),
+							{NX, NY} = case IsRand of
+										   true ->
+											   getAddMonsterPos(MapCfg, XX, YY, R);
+										   _ ->
+											   {XX, YY}
+									   end,
 							[#recMapObjData{id = ObjID, mapX = NX, mapY = NY, groupID = GroupID} | List]
 						end,
 					lists:foldl(FunAddObj, ObjList, L);
 				Number =:= 1 ->
-					{NX, NY} = getAddMonsterPos(MapCfg, XX, YY, R),
+					{NX, NY} = case IsRand of
+								   true ->
+									   getAddMonsterPos(MapCfg, XX, YY, R);
+								   _ ->
+									   {XX, YY}
+							   end,
 					[#recMapObjData{id = ObjID, mapX = NX, mapY = NY, groupID = GroupID} | ObjList];
 				true ->
 					ObjList
@@ -730,4 +776,33 @@ tryDoEvent(Condition, Event, ConfigKey, PlayerEts, GroupID) ->
 			end
 		end,
 	ets:foldl(FunTry, 0, PlayerEts),
+	ok.
+
+%%%-------------------------------------------------------------------
+%% 检查条件、事件是否齐全，是的话发给地图上存在的玩家进程进行处理
+-spec findShow2ByGroupID(GroupID::uint()) -> boolean().
+findShow2ByGroupID(GroupID) ->
+	List1Key = getCfg:get1KeyList(cfg_show2),
+	findShow2ByGroupID(GroupID, List1Key).
+findShow2ByGroupID(_GroupID, []) ->
+	false;
+findShow2ByGroupID(GroupID, [ID | T]) ->
+	case getCfg:getCfgByKey(cfg_show2, ID) of
+		#show2Cfg{groupid = GroupID} ->
+			true;
+		_ ->
+			findShow2ByGroupID(GroupID, T)
+	end.
+
+%%%-------------------------------------------------------------------
+%% 清除旧有进度的采集物
+-spec clearOldCollect(GroupID::uint(), ScheduleID::uint(), IsParallel::boolean()) -> no_return().
+clearOldCollect(_GroupID, 0, _IsParallel) ->
+	%?DEBUG_OUT("[DebugForCopyMapC] init ~w clearCollect:~w", [_IsParallel, []]),
+	skip;
+clearOldCollect(GroupID, ScheduleID, IsParallel) ->
+	L = copyMapScheduleState:getMapScheduleCollectCode(GroupID, ScheduleID, IsParallel),
+	copyMapScheduleState:setMapScheduleCollectCode(GroupID, ScheduleID, IsParallel, []),
+	%?DEBUG_OUT("[DebugForCopyMapC] init ~w clearCollect:~w", [IsParallel, L]),
+	[gatherNpcMgr:deleteCollect(Code) || {Code, _ID, _X, _Y} <- L],
 	ok.

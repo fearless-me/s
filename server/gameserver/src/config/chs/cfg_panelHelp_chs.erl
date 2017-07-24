@@ -29,6 +29,12 @@ getRow(bravetrialspanel)->
     help = "yongzheshilian",
     tesk = "女神禁闭室"
     };
+getRow(bussypanel)->
+    #panelHelpCfg {
+    id = bussypanel,
+    help = "jiaoyihang",
+    tesk = "交易行"
+    };
 getRow(characterattribute)->
     #panelHelpCfg {
     id = characterattribute,
@@ -71,6 +77,12 @@ getRow(improvforcepanel)->
     help = "woyaobianqiang",
     tesk = "战力提升"
     };
+getRow(myguildpanel)->
+    #panelHelpCfg {
+    id = myguildpanel,
+    help = "juntuan",
+    tesk = "家族"
+    };
 getRow(newfriendspanel)->
     #panelHelpCfg {
     id = newfriendspanel,
@@ -106,6 +118,12 @@ getRow(petterritorypanel)->
     id = petterritorypanel,
     help = "petcity",
     tesk = "骑宠领地"
+    };
+getRow(proposepanel)->
+    #panelHelpCfg {
+    id = proposepanel,
+    help = "jiehun",
+    tesk = "婚姻"
     };
 getRow(rankpanel)->
     #panelHelpCfg {
@@ -160,6 +178,12 @@ getRow(shoppanel)->
     id = shoppanel,
     help = "shangcheng",
     tesk = "商城"
+    };
+getRow(strengthenpanel)->
+    #panelHelpCfg {
+    id = strengthenpanel,
+    help = "qianghua",
+    tesk = "强化"
     };
 getRow(taskpanel)->
     #panelHelpCfg {
@@ -216,6 +240,7 @@ getKeyList()->[
     {activationcodeinputpanel},
     {bagpanel},
     {bravetrialspanel},
+    {bussypanel},
     {characterattribute},
     {checkinpanel},
     {copypanel},
@@ -223,12 +248,14 @@ getKeyList()->[
     {equipresolve},
     {gamesettingpanel},
     {improvforcepanel},
+    {myguildpanel},
     {newfriendspanel},
     {newmarriagepanel},
     {noticepanel},
     {npcshoppanel},
     {otherguildpanel},
     {petterritorypanel},
+    {proposepanel},
     {rankpanel},
     {rechargeactivitypanel},
     {redenvelopepanel},
@@ -238,6 +265,7 @@ getKeyList()->[
     {runepanel},
     {secretshop},
     {shoppanel},
+    {strengthenpanel},
     {taskpanel},
     {teampanel},
     {transformpanel},
@@ -253,6 +281,7 @@ get1KeyList()->[
     activationcodeinputpanel,
     bagpanel,
     bravetrialspanel,
+    bussypanel,
     characterattribute,
     checkinpanel,
     copypanel,
@@ -260,12 +289,14 @@ get1KeyList()->[
     equipresolve,
     gamesettingpanel,
     improvforcepanel,
+    myguildpanel,
     newfriendspanel,
     newmarriagepanel,
     noticepanel,
     npcshoppanel,
     otherguildpanel,
     petterritorypanel,
+    proposepanel,
     rankpanel,
     rechargeactivitypanel,
     redenvelopepanel,
@@ -275,6 +306,7 @@ get1KeyList()->[
     runepanel,
     secretshop,
     shoppanel,
+    strengthenpanel,
     taskpanel,
     teampanel,
     transformpanel,

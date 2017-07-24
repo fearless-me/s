@@ -24,24 +24,23 @@
 -define(ActivityType_AnswerPlay, 6).            %% 幸运选择题
 -define(ActivityType_EscortGoods, 7).           %% 护送玩法
 -define(ActivityType_Darkness, 8).              %% 黑暗之地
--define(ActivityType_PetBattle,9).              %% 骑宠争夺战
--define(ActivityType_GuildWar,10).             %% 军团争霸赛
-%% 跨服战场
-%% 血腥角斗
+-define(ActivityType_PetBattle,9).              %% 骑宠争夺战	废弃
+-define(ActivityType_GuildWar,10).             	%% 军团争霸赛
+-define(ActivityType_CrossHDBattle, 11).		%% 跨服战场
+-define(ActivityType_CrossArenaBattle, 12).		%% 血腥角斗，跨服竞技场
 -define(ActivityType_GuildExpedition,13).       %% 军团沙盘PVP
-
-%%-define(ActivityType_WeddingSite,14).       %% 姻缘_婚礼现场（废弃，替换为约会地下城）
 -define(ActivityType_Date,14).       %% 约会地下城
-
 -define(ActivityType_LSBattleField,15).       %% 乱世为王
--define(ActivityType_NeedForSpeed,16).       %% 港口竞速
+-define(ActivityType_CrossRace,16).       %% 跨服骑宠竞速
 -define(ActivityType_MoneyDungeon,17).       %% 金币副本（惊天喵盗团）
 -define(ActivityType_Material,18).       %% 材料副本
 -define(ActivityType_Snowman,19).       %% 堆雪人
 -define(ActivityType_SpiritArea,20).       %% 灵界活动
 -define(ActivityType_PetTerritory,21).       %% 新版骑宠领地
 -define(ActivityType_Dance,22).       %% 限时广场舞
--define(ActivityType_End, 22).
+-define(ActivityType_AllAnswerPlay,23).       %% 全名答题
+-define(ActivityType_GuildBoss,24).       %% 家族战
+-define(ActivityType_End, 24).
 -type activityType() :: ?ActivityType_Start .. ?ActivityType_End.
 
 %% 全局变量控制活动开启与关闭(该占位未设置值，表示活动开启)，每个全局开关，控制32种活动的开启与关闭
@@ -62,10 +61,12 @@
 			{10, ?ActivityType_GuildWar},
 			{13, ?ActivityType_GuildExpedition},
 			{14, ?ActivityType_Date},
+			{16, ?ActivityType_CrossRace},
 			{19, ?ActivityType_Snowman},
 			{20, ?ActivityType_SpiritArea},
 			{21, ?ActivityType_PetTerritory},
-			{22, ?ActivityType_Dance}
+			{22, ?ActivityType_Dance},
+			{23, ?ActivityType_AllAnswerPlay}
 		]
 	}
 ]).
@@ -117,6 +118,8 @@
 -define(DarknessPrepareMapID, 6010).
 %%军团争霸比赛地图
 -define(GuildWarMapID, 4010).
+%% 家族战
+-define(GuildBattleMapID, 7002).
 %% 家族系统-游乐场-地图ID
 -define(GuildFairgroundMapID, 7001).
 %% 家族系统-堆雪人活动-地图ID
@@ -134,8 +137,8 @@
 -define(CrosArenaMapID3, 6020).
 %%跨服竞技场地图
 -define(CrosArenaMapIDList, [6018,6019,6020]).
-%%港口竞速地图id
--define(NeedForSpeedMapID, 9001).
+%% 跨服骑宠竞速
+-define(CrossRaceMapID, 9001).
 %%首领入侵地图id
 -define(WorldBossMapID, 22).
 

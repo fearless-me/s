@@ -1114,8 +1114,8 @@ getRoleAppearance(RoleIDList, IsCheckLoad) when erlang:is_list(RoleIDList) ->
 						color = getSyncPropIntValue(?PubProp_TitleColorSlot, PropList),
 						background = getSyncPropIntValue(?PubProp_TitleFloorSlot, PropList)
 					},
-					WingLevelProp = getSyncPropIntValue(?PubProp_WingLevel, PropList),
-					<< _IsShow:1,WingLevel:31>> = << WingLevelProp:32 >>,
+%%					WingLevelProp = getSyncPropIntValue(?PubProp_WingLevel, PropList),
+%%					<< _IsShow:1,WingLevel:31>> = << WingLevelProp:32 >>,
 
 					%% visibleEquipLevels
 					RefineList = dbGSLoad:getRoleEquipRefine(RoleID),
@@ -1132,7 +1132,7 @@ getRoleAppearance(RoleIDList, IsCheckLoad) when erlang:is_list(RoleIDList) ->
 								FNow = time:getUTCNowSec(),
 								FFashion =
 									fun(#recFashionOnLoad{value = FValue, endTime = FEndTime}, AccL) ->
-										case FEndTime =:= ?ForeverFashionSecond orelse
+										case FEndTime =:= 0 orelse
 											(erlang:is_integer(FEndTime) andalso FEndTime > FNow) of
 											true ->
 												[FValue | AccL];
@@ -1145,7 +1145,7 @@ getRoleAppearance(RoleIDList, IsCheckLoad) when erlang:is_list(RoleIDList) ->
 								[]
 						end,
 
-					Value = {RoleID, WingLevel, TitleRec, EquipInfoList, EquipLvList, FashionIDList},
+					Value = {RoleID, 0, TitleRec, EquipInfoList, EquipLvList, FashionIDList},
 					ets:update_element(recPlayerObjectID, RoleID, {#recKeyValue.value, Value}),
 					[Value | AccList];
 				false ->

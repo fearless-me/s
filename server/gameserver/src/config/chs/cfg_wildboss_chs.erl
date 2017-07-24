@@ -14,7 +14,7 @@ getRow(1105)->
     normal = 1502,
     lucky = 1501,
     refreshTime = 900,
-    item = [222,225,270,7000],
+    item = [222,225,271,7000],
     bust = 312,
     sequence = 1
     };

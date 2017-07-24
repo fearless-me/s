@@ -20,7 +20,7 @@ getRow(1,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(1,3)->
@@ -29,7 +29,7 @@ getRow(1,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(1,4)->
@@ -38,7 +38,7 @@ getRow(1,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(1,5)->
@@ -47,7 +47,7 @@ getRow(1,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(1,6)->
@@ -56,7 +56,7 @@ getRow(1,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(1,7)->
@@ -65,7 +65,7 @@ getRow(1,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(1,8)->
@@ -74,7 +74,7 @@ getRow(1,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(1,9)->
@@ -83,7 +83,7 @@ getRow(1,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(1,10)->
@@ -92,7 +92,7 @@ getRow(1,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(1,11)->
@@ -101,7 +101,7 @@ getRow(1,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(1,12)->
@@ -110,7 +110,7 @@ getRow(1,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(1,13)->
@@ -119,7 +119,7 @@ getRow(1,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(1,14)->
@@ -128,7 +128,7 @@ getRow(1,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(1,15)->
@@ -137,7 +137,7 @@ getRow(1,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(1,16)->
@@ -146,7 +146,7 @@ getRow(1,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(1,17)->
@@ -155,7 +155,7 @@ getRow(1,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(1,18)->
@@ -164,7 +164,7 @@ getRow(1,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(1,19)->
@@ -173,7 +173,7 @@ getRow(1,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(1,20)->
@@ -182,7 +182,7 @@ getRow(1,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(1,21)->
@@ -191,7 +191,7 @@ getRow(1,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(1,22)->
@@ -200,7 +200,7 @@ getRow(1,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(1,23)->
@@ -209,7 +209,7 @@ getRow(1,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(1,24)->
@@ -218,7 +218,7 @@ getRow(1,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(1,25)->
@@ -227,7 +227,7 @@ getRow(1,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(1,26)->
@@ -236,7 +236,7 @@ getRow(1,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(1,27)->
@@ -245,7 +245,7 @@ getRow(1,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(1,28)->
@@ -254,7 +254,7 @@ getRow(1,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(1,29)->
@@ -263,7 +263,7 @@ getRow(1,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(1,30)->
@@ -272,7 +272,7 @@ getRow(1,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(1,31)->
@@ -281,7 +281,7 @@ getRow(1,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(1,32)->
@@ -290,7 +290,7 @@ getRow(1,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(1,33)->
@@ -299,7 +299,7 @@ getRow(1,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(1,34)->
@@ -308,7 +308,7 @@ getRow(1,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(1,35)->
@@ -317,7 +317,7 @@ getRow(1,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(1,36)->
@@ -326,7 +326,7 @@ getRow(1,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(1,37)->
@@ -335,7 +335,7 @@ getRow(1,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(1,38)->
@@ -344,7 +344,7 @@ getRow(1,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(1,39)->
@@ -353,7 +353,7 @@ getRow(1,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(1,40)->
@@ -362,7 +362,7 @@ getRow(1,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(2,1)->
@@ -380,7 +380,7 @@ getRow(2,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(2,3)->
@@ -389,7 +389,7 @@ getRow(2,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(2,4)->
@@ -398,7 +398,7 @@ getRow(2,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(2,5)->
@@ -407,7 +407,7 @@ getRow(2,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(2,6)->
@@ -416,7 +416,7 @@ getRow(2,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(2,7)->
@@ -425,7 +425,7 @@ getRow(2,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(2,8)->
@@ -434,7 +434,7 @@ getRow(2,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(2,9)->
@@ -443,7 +443,7 @@ getRow(2,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(2,10)->
@@ -452,7 +452,7 @@ getRow(2,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(2,11)->
@@ -461,7 +461,7 @@ getRow(2,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(2,12)->
@@ -470,7 +470,7 @@ getRow(2,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(2,13)->
@@ -479,7 +479,7 @@ getRow(2,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(2,14)->
@@ -488,7 +488,7 @@ getRow(2,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(2,15)->
@@ -497,7 +497,7 @@ getRow(2,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(2,16)->
@@ -506,7 +506,7 @@ getRow(2,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(2,17)->
@@ -515,7 +515,7 @@ getRow(2,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(2,18)->
@@ -524,7 +524,7 @@ getRow(2,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(2,19)->
@@ -533,7 +533,7 @@ getRow(2,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(2,20)->
@@ -542,7 +542,7 @@ getRow(2,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(2,21)->
@@ -551,7 +551,7 @@ getRow(2,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(2,22)->
@@ -560,7 +560,7 @@ getRow(2,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(2,23)->
@@ -569,7 +569,7 @@ getRow(2,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(2,24)->
@@ -578,7 +578,7 @@ getRow(2,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(2,25)->
@@ -587,7 +587,7 @@ getRow(2,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(2,26)->
@@ -596,7 +596,7 @@ getRow(2,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(2,27)->
@@ -605,7 +605,7 @@ getRow(2,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(2,28)->
@@ -614,7 +614,7 @@ getRow(2,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(2,29)->
@@ -623,7 +623,7 @@ getRow(2,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(2,30)->
@@ -632,7 +632,7 @@ getRow(2,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(2,31)->
@@ -641,7 +641,7 @@ getRow(2,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(2,32)->
@@ -650,7 +650,7 @@ getRow(2,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(2,33)->
@@ -659,7 +659,7 @@ getRow(2,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(2,34)->
@@ -668,7 +668,7 @@ getRow(2,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(2,35)->
@@ -677,7 +677,7 @@ getRow(2,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(2,36)->
@@ -686,7 +686,7 @@ getRow(2,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(2,37)->
@@ -695,7 +695,7 @@ getRow(2,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(2,38)->
@@ -704,7 +704,7 @@ getRow(2,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(2,39)->
@@ -713,7 +713,7 @@ getRow(2,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(2,40)->
@@ -722,7 +722,7 @@ getRow(2,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(3,1)->
@@ -740,7 +740,7 @@ getRow(3,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(3,3)->
@@ -749,7 +749,7 @@ getRow(3,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(3,4)->
@@ -758,7 +758,7 @@ getRow(3,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(3,5)->
@@ -767,7 +767,7 @@ getRow(3,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(3,6)->
@@ -776,7 +776,7 @@ getRow(3,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(3,7)->
@@ -785,7 +785,7 @@ getRow(3,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(3,8)->
@@ -794,7 +794,7 @@ getRow(3,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(3,9)->
@@ -803,7 +803,7 @@ getRow(3,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(3,10)->
@@ -812,7 +812,7 @@ getRow(3,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(3,11)->
@@ -821,7 +821,7 @@ getRow(3,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(3,12)->
@@ -830,7 +830,7 @@ getRow(3,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(3,13)->
@@ -839,7 +839,7 @@ getRow(3,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(3,14)->
@@ -848,7 +848,7 @@ getRow(3,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(3,15)->
@@ -857,7 +857,7 @@ getRow(3,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(3,16)->
@@ -866,7 +866,7 @@ getRow(3,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(3,17)->
@@ -875,7 +875,7 @@ getRow(3,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(3,18)->
@@ -884,7 +884,7 @@ getRow(3,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(3,19)->
@@ -893,7 +893,7 @@ getRow(3,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(3,20)->
@@ -902,7 +902,7 @@ getRow(3,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(3,21)->
@@ -911,7 +911,7 @@ getRow(3,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(3,22)->
@@ -920,7 +920,7 @@ getRow(3,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(3,23)->
@@ -929,7 +929,7 @@ getRow(3,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(3,24)->
@@ -938,7 +938,7 @@ getRow(3,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(3,25)->
@@ -947,7 +947,7 @@ getRow(3,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(3,26)->
@@ -956,7 +956,7 @@ getRow(3,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(3,27)->
@@ -965,7 +965,7 @@ getRow(3,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(3,28)->
@@ -974,7 +974,7 @@ getRow(3,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(3,29)->
@@ -983,7 +983,7 @@ getRow(3,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(3,30)->
@@ -992,7 +992,7 @@ getRow(3,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(3,31)->
@@ -1001,7 +1001,7 @@ getRow(3,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(3,32)->
@@ -1010,7 +1010,7 @@ getRow(3,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(3,33)->
@@ -1019,7 +1019,7 @@ getRow(3,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(3,34)->
@@ -1028,7 +1028,7 @@ getRow(3,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(3,35)->
@@ -1037,7 +1037,7 @@ getRow(3,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(3,36)->
@@ -1046,7 +1046,7 @@ getRow(3,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(3,37)->
@@ -1055,7 +1055,7 @@ getRow(3,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(3,38)->
@@ -1064,7 +1064,7 @@ getRow(3,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(3,39)->
@@ -1073,7 +1073,7 @@ getRow(3,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(3,40)->
@@ -1082,7 +1082,7 @@ getRow(3,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(4,1)->
@@ -1100,7 +1100,7 @@ getRow(4,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(4,3)->
@@ -1109,7 +1109,7 @@ getRow(4,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(4,4)->
@@ -1118,7 +1118,7 @@ getRow(4,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(4,5)->
@@ -1127,7 +1127,7 @@ getRow(4,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(4,6)->
@@ -1136,7 +1136,7 @@ getRow(4,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(4,7)->
@@ -1145,7 +1145,7 @@ getRow(4,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(4,8)->
@@ -1154,7 +1154,7 @@ getRow(4,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(4,9)->
@@ -1163,7 +1163,7 @@ getRow(4,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(4,10)->
@@ -1172,7 +1172,7 @@ getRow(4,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(4,11)->
@@ -1181,7 +1181,7 @@ getRow(4,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(4,12)->
@@ -1190,7 +1190,7 @@ getRow(4,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(4,13)->
@@ -1199,7 +1199,7 @@ getRow(4,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(4,14)->
@@ -1208,7 +1208,7 @@ getRow(4,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(4,15)->
@@ -1217,7 +1217,7 @@ getRow(4,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(4,16)->
@@ -1226,7 +1226,7 @@ getRow(4,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(4,17)->
@@ -1235,7 +1235,7 @@ getRow(4,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(4,18)->
@@ -1244,7 +1244,7 @@ getRow(4,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(4,19)->
@@ -1253,7 +1253,7 @@ getRow(4,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(4,20)->
@@ -1262,7 +1262,7 @@ getRow(4,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(4,21)->
@@ -1271,7 +1271,7 @@ getRow(4,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(4,22)->
@@ -1280,7 +1280,7 @@ getRow(4,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(4,23)->
@@ -1289,7 +1289,7 @@ getRow(4,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(4,24)->
@@ -1298,7 +1298,7 @@ getRow(4,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(4,25)->
@@ -1307,7 +1307,7 @@ getRow(4,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(4,26)->
@@ -1316,7 +1316,7 @@ getRow(4,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(4,27)->
@@ -1325,7 +1325,7 @@ getRow(4,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(4,28)->
@@ -1334,7 +1334,7 @@ getRow(4,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(4,29)->
@@ -1343,7 +1343,7 @@ getRow(4,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(4,30)->
@@ -1352,7 +1352,7 @@ getRow(4,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(4,31)->
@@ -1361,7 +1361,7 @@ getRow(4,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(4,32)->
@@ -1370,7 +1370,7 @@ getRow(4,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(4,33)->
@@ -1379,7 +1379,7 @@ getRow(4,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(4,34)->
@@ -1388,7 +1388,7 @@ getRow(4,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(4,35)->
@@ -1397,7 +1397,7 @@ getRow(4,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(4,36)->
@@ -1406,7 +1406,7 @@ getRow(4,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(4,37)->
@@ -1415,7 +1415,7 @@ getRow(4,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(4,38)->
@@ -1424,7 +1424,7 @@ getRow(4,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(4,39)->
@@ -1433,7 +1433,7 @@ getRow(4,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(4,40)->
@@ -1442,7 +1442,7 @@ getRow(4,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(5,1)->
@@ -1460,7 +1460,7 @@ getRow(5,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(5,3)->
@@ -1469,7 +1469,7 @@ getRow(5,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(5,4)->
@@ -1478,7 +1478,7 @@ getRow(5,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(5,5)->
@@ -1487,7 +1487,7 @@ getRow(5,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(5,6)->
@@ -1496,7 +1496,7 @@ getRow(5,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(5,7)->
@@ -1505,7 +1505,7 @@ getRow(5,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(5,8)->
@@ -1514,7 +1514,7 @@ getRow(5,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(5,9)->
@@ -1523,7 +1523,7 @@ getRow(5,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(5,10)->
@@ -1532,7 +1532,7 @@ getRow(5,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(5,11)->
@@ -1541,7 +1541,7 @@ getRow(5,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(5,12)->
@@ -1550,7 +1550,7 @@ getRow(5,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(5,13)->
@@ -1559,7 +1559,7 @@ getRow(5,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(5,14)->
@@ -1568,7 +1568,7 @@ getRow(5,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(5,15)->
@@ -1577,7 +1577,7 @@ getRow(5,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(5,16)->
@@ -1586,7 +1586,7 @@ getRow(5,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(5,17)->
@@ -1595,7 +1595,7 @@ getRow(5,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(5,18)->
@@ -1604,7 +1604,7 @@ getRow(5,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(5,19)->
@@ -1613,7 +1613,7 @@ getRow(5,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(5,20)->
@@ -1622,7 +1622,7 @@ getRow(5,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(5,21)->
@@ -1631,7 +1631,7 @@ getRow(5,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(5,22)->
@@ -1640,7 +1640,7 @@ getRow(5,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(5,23)->
@@ -1649,7 +1649,7 @@ getRow(5,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(5,24)->
@@ -1658,7 +1658,7 @@ getRow(5,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(5,25)->
@@ -1667,7 +1667,7 @@ getRow(5,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(5,26)->
@@ -1676,7 +1676,7 @@ getRow(5,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(5,27)->
@@ -1685,7 +1685,7 @@ getRow(5,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(5,28)->
@@ -1694,7 +1694,7 @@ getRow(5,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(5,29)->
@@ -1703,7 +1703,7 @@ getRow(5,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(5,30)->
@@ -1712,7 +1712,7 @@ getRow(5,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(5,31)->
@@ -1721,7 +1721,7 @@ getRow(5,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(5,32)->
@@ -1730,7 +1730,7 @@ getRow(5,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(5,33)->
@@ -1739,7 +1739,7 @@ getRow(5,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(5,34)->
@@ -1748,7 +1748,7 @@ getRow(5,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(5,35)->
@@ -1757,7 +1757,7 @@ getRow(5,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(5,36)->
@@ -1766,7 +1766,7 @@ getRow(5,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(5,37)->
@@ -1775,7 +1775,7 @@ getRow(5,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(5,38)->
@@ -1784,7 +1784,7 @@ getRow(5,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(5,39)->
@@ -1793,7 +1793,7 @@ getRow(5,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(5,40)->
@@ -1802,7 +1802,7 @@ getRow(5,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(6,1)->
@@ -1820,7 +1820,7 @@ getRow(6,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(6,3)->
@@ -1829,7 +1829,7 @@ getRow(6,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(6,4)->
@@ -1838,7 +1838,7 @@ getRow(6,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(6,5)->
@@ -1847,7 +1847,7 @@ getRow(6,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(6,6)->
@@ -1856,7 +1856,7 @@ getRow(6,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(6,7)->
@@ -1865,7 +1865,7 @@ getRow(6,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(6,8)->
@@ -1874,7 +1874,7 @@ getRow(6,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(6,9)->
@@ -1883,7 +1883,7 @@ getRow(6,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(6,10)->
@@ -1892,7 +1892,7 @@ getRow(6,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(6,11)->
@@ -1901,7 +1901,7 @@ getRow(6,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(6,12)->
@@ -1910,7 +1910,7 @@ getRow(6,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(6,13)->
@@ -1919,7 +1919,7 @@ getRow(6,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(6,14)->
@@ -1928,7 +1928,7 @@ getRow(6,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(6,15)->
@@ -1937,7 +1937,7 @@ getRow(6,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(6,16)->
@@ -1946,7 +1946,7 @@ getRow(6,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(6,17)->
@@ -1955,7 +1955,7 @@ getRow(6,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(6,18)->
@@ -1964,7 +1964,7 @@ getRow(6,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(6,19)->
@@ -1973,7 +1973,7 @@ getRow(6,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(6,20)->
@@ -1982,7 +1982,7 @@ getRow(6,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(6,21)->
@@ -1991,7 +1991,7 @@ getRow(6,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(6,22)->
@@ -2000,7 +2000,7 @@ getRow(6,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(6,23)->
@@ -2009,7 +2009,7 @@ getRow(6,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(6,24)->
@@ -2018,7 +2018,7 @@ getRow(6,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(6,25)->
@@ -2027,7 +2027,7 @@ getRow(6,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(6,26)->
@@ -2036,7 +2036,7 @@ getRow(6,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(6,27)->
@@ -2045,7 +2045,7 @@ getRow(6,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(6,28)->
@@ -2054,7 +2054,7 @@ getRow(6,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(6,29)->
@@ -2063,7 +2063,7 @@ getRow(6,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(6,30)->
@@ -2072,7 +2072,7 @@ getRow(6,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(6,31)->
@@ -2081,7 +2081,7 @@ getRow(6,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(6,32)->
@@ -2090,7 +2090,7 @@ getRow(6,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(6,33)->
@@ -2099,7 +2099,7 @@ getRow(6,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(6,34)->
@@ -2108,7 +2108,7 @@ getRow(6,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(6,35)->
@@ -2117,7 +2117,7 @@ getRow(6,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(6,36)->
@@ -2126,7 +2126,7 @@ getRow(6,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(6,37)->
@@ -2135,7 +2135,7 @@ getRow(6,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(6,38)->
@@ -2144,7 +2144,7 @@ getRow(6,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(6,39)->
@@ -2153,7 +2153,7 @@ getRow(6,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(6,40)->
@@ -2162,7 +2162,7 @@ getRow(6,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(11,1)->
@@ -2180,7 +2180,7 @@ getRow(11,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(11,3)->
@@ -2189,7 +2189,7 @@ getRow(11,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(11,4)->
@@ -2198,7 +2198,7 @@ getRow(11,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(11,5)->
@@ -2207,7 +2207,7 @@ getRow(11,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(11,6)->
@@ -2216,7 +2216,7 @@ getRow(11,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(11,7)->
@@ -2225,7 +2225,7 @@ getRow(11,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(11,8)->
@@ -2234,7 +2234,7 @@ getRow(11,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(11,9)->
@@ -2243,7 +2243,7 @@ getRow(11,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(11,10)->
@@ -2252,7 +2252,7 @@ getRow(11,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(11,11)->
@@ -2261,7 +2261,7 @@ getRow(11,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(11,12)->
@@ -2270,7 +2270,7 @@ getRow(11,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(11,13)->
@@ -2279,7 +2279,7 @@ getRow(11,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(11,14)->
@@ -2288,7 +2288,7 @@ getRow(11,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(11,15)->
@@ -2297,7 +2297,7 @@ getRow(11,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(11,16)->
@@ -2306,7 +2306,7 @@ getRow(11,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(11,17)->
@@ -2315,7 +2315,7 @@ getRow(11,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(11,18)->
@@ -2324,7 +2324,7 @@ getRow(11,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(11,19)->
@@ -2333,7 +2333,7 @@ getRow(11,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(11,20)->
@@ -2342,7 +2342,7 @@ getRow(11,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(11,21)->
@@ -2351,7 +2351,7 @@ getRow(11,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(11,22)->
@@ -2360,7 +2360,7 @@ getRow(11,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(11,23)->
@@ -2369,7 +2369,7 @@ getRow(11,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(11,24)->
@@ -2378,7 +2378,7 @@ getRow(11,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(11,25)->
@@ -2387,7 +2387,7 @@ getRow(11,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(11,26)->
@@ -2396,7 +2396,7 @@ getRow(11,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(11,27)->
@@ -2405,7 +2405,7 @@ getRow(11,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(11,28)->
@@ -2414,7 +2414,7 @@ getRow(11,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(11,29)->
@@ -2423,7 +2423,7 @@ getRow(11,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(11,30)->
@@ -2432,7 +2432,7 @@ getRow(11,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(11,31)->
@@ -2441,7 +2441,7 @@ getRow(11,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(11,32)->
@@ -2450,7 +2450,7 @@ getRow(11,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(11,33)->
@@ -2459,7 +2459,7 @@ getRow(11,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(11,34)->
@@ -2468,7 +2468,7 @@ getRow(11,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(11,35)->
@@ -2477,7 +2477,7 @@ getRow(11,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(11,36)->
@@ -2486,7 +2486,7 @@ getRow(11,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(11,37)->
@@ -2495,7 +2495,7 @@ getRow(11,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(11,38)->
@@ -2504,7 +2504,7 @@ getRow(11,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(11,39)->
@@ -2513,7 +2513,7 @@ getRow(11,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(11,40)->
@@ -2522,7 +2522,7 @@ getRow(11,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(12,1)->
@@ -2540,7 +2540,7 @@ getRow(12,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(12,3)->
@@ -2549,7 +2549,7 @@ getRow(12,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(12,4)->
@@ -2558,7 +2558,7 @@ getRow(12,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(12,5)->
@@ -2567,7 +2567,7 @@ getRow(12,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(12,6)->
@@ -2576,7 +2576,7 @@ getRow(12,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(12,7)->
@@ -2585,7 +2585,7 @@ getRow(12,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(12,8)->
@@ -2594,7 +2594,7 @@ getRow(12,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(12,9)->
@@ -2603,7 +2603,7 @@ getRow(12,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(12,10)->
@@ -2612,7 +2612,7 @@ getRow(12,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(12,11)->
@@ -2621,7 +2621,7 @@ getRow(12,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(12,12)->
@@ -2630,7 +2630,7 @@ getRow(12,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(12,13)->
@@ -2639,7 +2639,7 @@ getRow(12,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(12,14)->
@@ -2648,7 +2648,7 @@ getRow(12,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(12,15)->
@@ -2657,7 +2657,7 @@ getRow(12,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(12,16)->
@@ -2666,7 +2666,7 @@ getRow(12,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(12,17)->
@@ -2675,7 +2675,7 @@ getRow(12,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(12,18)->
@@ -2684,7 +2684,7 @@ getRow(12,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(12,19)->
@@ -2693,7 +2693,7 @@ getRow(12,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(12,20)->
@@ -2702,7 +2702,7 @@ getRow(12,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(12,21)->
@@ -2711,7 +2711,7 @@ getRow(12,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(12,22)->
@@ -2720,7 +2720,7 @@ getRow(12,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(12,23)->
@@ -2729,7 +2729,7 @@ getRow(12,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(12,24)->
@@ -2738,7 +2738,7 @@ getRow(12,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(12,25)->
@@ -2747,7 +2747,7 @@ getRow(12,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(12,26)->
@@ -2756,7 +2756,7 @@ getRow(12,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(12,27)->
@@ -2765,7 +2765,7 @@ getRow(12,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(12,28)->
@@ -2774,7 +2774,7 @@ getRow(12,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(12,29)->
@@ -2783,7 +2783,7 @@ getRow(12,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(12,30)->
@@ -2792,7 +2792,7 @@ getRow(12,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(12,31)->
@@ -2801,7 +2801,7 @@ getRow(12,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(12,32)->
@@ -2810,7 +2810,7 @@ getRow(12,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(12,33)->
@@ -2819,7 +2819,7 @@ getRow(12,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(12,34)->
@@ -2828,7 +2828,7 @@ getRow(12,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(12,35)->
@@ -2837,7 +2837,7 @@ getRow(12,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(12,36)->
@@ -2846,7 +2846,7 @@ getRow(12,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(12,37)->
@@ -2855,7 +2855,7 @@ getRow(12,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(12,38)->
@@ -2864,7 +2864,7 @@ getRow(12,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(12,39)->
@@ -2873,7 +2873,7 @@ getRow(12,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(12,40)->
@@ -2882,7 +2882,7 @@ getRow(12,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(13,1)->
@@ -2900,7 +2900,7 @@ getRow(13,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(13,3)->
@@ -2909,7 +2909,7 @@ getRow(13,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(13,4)->
@@ -2918,7 +2918,7 @@ getRow(13,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(13,5)->
@@ -2927,7 +2927,7 @@ getRow(13,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(13,6)->
@@ -2936,7 +2936,7 @@ getRow(13,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(13,7)->
@@ -2945,7 +2945,7 @@ getRow(13,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(13,8)->
@@ -2954,7 +2954,7 @@ getRow(13,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(13,9)->
@@ -2963,7 +2963,7 @@ getRow(13,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(13,10)->
@@ -2972,7 +2972,7 @@ getRow(13,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(13,11)->
@@ -2981,7 +2981,7 @@ getRow(13,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(13,12)->
@@ -2990,7 +2990,7 @@ getRow(13,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(13,13)->
@@ -2999,7 +2999,7 @@ getRow(13,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(13,14)->
@@ -3008,7 +3008,7 @@ getRow(13,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(13,15)->
@@ -3017,7 +3017,7 @@ getRow(13,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(13,16)->
@@ -3026,7 +3026,7 @@ getRow(13,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(13,17)->
@@ -3035,7 +3035,7 @@ getRow(13,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(13,18)->
@@ -3044,7 +3044,7 @@ getRow(13,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(13,19)->
@@ -3053,7 +3053,7 @@ getRow(13,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(13,20)->
@@ -3062,7 +3062,7 @@ getRow(13,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(13,21)->
@@ -3071,7 +3071,7 @@ getRow(13,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(13,22)->
@@ -3080,7 +3080,7 @@ getRow(13,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(13,23)->
@@ -3089,7 +3089,7 @@ getRow(13,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(13,24)->
@@ -3098,7 +3098,7 @@ getRow(13,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(13,25)->
@@ -3107,7 +3107,7 @@ getRow(13,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(13,26)->
@@ -3116,7 +3116,7 @@ getRow(13,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(13,27)->
@@ -3125,7 +3125,7 @@ getRow(13,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(13,28)->
@@ -3134,7 +3134,7 @@ getRow(13,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(13,29)->
@@ -3143,7 +3143,7 @@ getRow(13,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(13,30)->
@@ -3152,7 +3152,7 @@ getRow(13,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(13,31)->
@@ -3161,7 +3161,7 @@ getRow(13,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(13,32)->
@@ -3170,7 +3170,7 @@ getRow(13,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(13,33)->
@@ -3179,7 +3179,7 @@ getRow(13,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(13,34)->
@@ -3188,7 +3188,7 @@ getRow(13,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(13,35)->
@@ -3197,7 +3197,7 @@ getRow(13,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(13,36)->
@@ -3206,7 +3206,7 @@ getRow(13,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(13,37)->
@@ -3215,7 +3215,7 @@ getRow(13,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(13,38)->
@@ -3224,7 +3224,7 @@ getRow(13,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(13,39)->
@@ -3233,7 +3233,7 @@ getRow(13,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(13,40)->
@@ -3242,7 +3242,7 @@ getRow(13,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(14,1)->
@@ -3260,7 +3260,7 @@ getRow(14,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(14,3)->
@@ -3269,7 +3269,7 @@ getRow(14,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(14,4)->
@@ -3278,7 +3278,7 @@ getRow(14,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(14,5)->
@@ -3287,7 +3287,7 @@ getRow(14,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(14,6)->
@@ -3296,7 +3296,7 @@ getRow(14,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(14,7)->
@@ -3305,7 +3305,7 @@ getRow(14,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(14,8)->
@@ -3314,7 +3314,7 @@ getRow(14,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(14,9)->
@@ -3323,7 +3323,7 @@ getRow(14,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(14,10)->
@@ -3332,7 +3332,7 @@ getRow(14,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(14,11)->
@@ -3341,7 +3341,7 @@ getRow(14,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(14,12)->
@@ -3350,7 +3350,7 @@ getRow(14,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(14,13)->
@@ -3359,7 +3359,7 @@ getRow(14,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(14,14)->
@@ -3368,7 +3368,7 @@ getRow(14,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(14,15)->
@@ -3377,7 +3377,7 @@ getRow(14,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(14,16)->
@@ -3386,7 +3386,7 @@ getRow(14,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(14,17)->
@@ -3395,7 +3395,7 @@ getRow(14,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(14,18)->
@@ -3404,7 +3404,7 @@ getRow(14,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(14,19)->
@@ -3413,7 +3413,7 @@ getRow(14,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(14,20)->
@@ -3422,7 +3422,7 @@ getRow(14,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(14,21)->
@@ -3431,7 +3431,7 @@ getRow(14,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(14,22)->
@@ -3440,7 +3440,7 @@ getRow(14,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(14,23)->
@@ -3449,7 +3449,7 @@ getRow(14,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(14,24)->
@@ -3458,7 +3458,7 @@ getRow(14,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(14,25)->
@@ -3467,7 +3467,7 @@ getRow(14,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(14,26)->
@@ -3476,7 +3476,7 @@ getRow(14,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(14,27)->
@@ -3485,7 +3485,7 @@ getRow(14,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(14,28)->
@@ -3494,7 +3494,7 @@ getRow(14,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(14,29)->
@@ -3503,7 +3503,7 @@ getRow(14,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(14,30)->
@@ -3512,7 +3512,7 @@ getRow(14,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(14,31)->
@@ -3521,7 +3521,7 @@ getRow(14,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(14,32)->
@@ -3530,7 +3530,7 @@ getRow(14,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(14,33)->
@@ -3539,7 +3539,7 @@ getRow(14,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(14,34)->
@@ -3548,7 +3548,7 @@ getRow(14,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(14,35)->
@@ -3557,7 +3557,7 @@ getRow(14,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(14,36)->
@@ -3566,7 +3566,7 @@ getRow(14,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(14,37)->
@@ -3575,7 +3575,7 @@ getRow(14,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(14,38)->
@@ -3584,7 +3584,7 @@ getRow(14,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(14,39)->
@@ -3593,7 +3593,7 @@ getRow(14,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(14,40)->
@@ -3602,7 +3602,7 @@ getRow(14,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(15,1)->
@@ -3620,7 +3620,7 @@ getRow(15,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(15,3)->
@@ -3629,7 +3629,7 @@ getRow(15,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(15,4)->
@@ -3638,7 +3638,7 @@ getRow(15,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(15,5)->
@@ -3647,7 +3647,7 @@ getRow(15,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(15,6)->
@@ -3656,7 +3656,7 @@ getRow(15,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(15,7)->
@@ -3665,7 +3665,7 @@ getRow(15,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(15,8)->
@@ -3674,7 +3674,7 @@ getRow(15,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(15,9)->
@@ -3683,7 +3683,7 @@ getRow(15,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(15,10)->
@@ -3692,7 +3692,7 @@ getRow(15,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(15,11)->
@@ -3701,7 +3701,7 @@ getRow(15,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(15,12)->
@@ -3710,7 +3710,7 @@ getRow(15,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(15,13)->
@@ -3719,7 +3719,7 @@ getRow(15,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(15,14)->
@@ -3728,7 +3728,7 @@ getRow(15,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(15,15)->
@@ -3737,7 +3737,7 @@ getRow(15,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(15,16)->
@@ -3746,7 +3746,7 @@ getRow(15,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(15,17)->
@@ -3755,7 +3755,7 @@ getRow(15,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(15,18)->
@@ -3764,7 +3764,7 @@ getRow(15,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(15,19)->
@@ -3773,7 +3773,7 @@ getRow(15,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(15,20)->
@@ -3782,7 +3782,7 @@ getRow(15,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(15,21)->
@@ -3791,7 +3791,7 @@ getRow(15,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(15,22)->
@@ -3800,7 +3800,7 @@ getRow(15,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(15,23)->
@@ -3809,7 +3809,7 @@ getRow(15,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(15,24)->
@@ -3818,7 +3818,7 @@ getRow(15,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(15,25)->
@@ -3827,7 +3827,7 @@ getRow(15,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(15,26)->
@@ -3836,7 +3836,7 @@ getRow(15,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(15,27)->
@@ -3845,7 +3845,7 @@ getRow(15,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(15,28)->
@@ -3854,7 +3854,7 @@ getRow(15,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(15,29)->
@@ -3863,7 +3863,7 @@ getRow(15,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(15,30)->
@@ -3872,7 +3872,7 @@ getRow(15,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(15,31)->
@@ -3881,7 +3881,7 @@ getRow(15,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(15,32)->
@@ -3890,7 +3890,7 @@ getRow(15,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(15,33)->
@@ -3899,7 +3899,7 @@ getRow(15,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(15,34)->
@@ -3908,7 +3908,7 @@ getRow(15,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(15,35)->
@@ -3917,7 +3917,7 @@ getRow(15,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(15,36)->
@@ -3926,7 +3926,7 @@ getRow(15,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(15,37)->
@@ -3935,7 +3935,7 @@ getRow(15,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(15,38)->
@@ -3944,7 +3944,7 @@ getRow(15,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(15,39)->
@@ -3953,7 +3953,7 @@ getRow(15,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(15,40)->
@@ -3962,7 +3962,7 @@ getRow(15,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(16,1)->
@@ -3980,7 +3980,7 @@ getRow(16,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(16,3)->
@@ -3989,7 +3989,7 @@ getRow(16,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(16,4)->
@@ -3998,7 +3998,7 @@ getRow(16,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(16,5)->
@@ -4007,7 +4007,7 @@ getRow(16,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(16,6)->
@@ -4016,7 +4016,7 @@ getRow(16,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(16,7)->
@@ -4025,7 +4025,7 @@ getRow(16,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(16,8)->
@@ -4034,7 +4034,7 @@ getRow(16,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(16,9)->
@@ -4043,7 +4043,7 @@ getRow(16,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(16,10)->
@@ -4052,7 +4052,7 @@ getRow(16,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(16,11)->
@@ -4061,7 +4061,7 @@ getRow(16,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(16,12)->
@@ -4070,7 +4070,7 @@ getRow(16,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(16,13)->
@@ -4079,7 +4079,7 @@ getRow(16,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(16,14)->
@@ -4088,7 +4088,7 @@ getRow(16,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(16,15)->
@@ -4097,7 +4097,7 @@ getRow(16,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(16,16)->
@@ -4106,7 +4106,7 @@ getRow(16,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(16,17)->
@@ -4115,7 +4115,7 @@ getRow(16,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(16,18)->
@@ -4124,7 +4124,7 @@ getRow(16,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(16,19)->
@@ -4133,7 +4133,7 @@ getRow(16,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(16,20)->
@@ -4142,7 +4142,7 @@ getRow(16,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(16,21)->
@@ -4151,7 +4151,7 @@ getRow(16,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(16,22)->
@@ -4160,7 +4160,7 @@ getRow(16,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(16,23)->
@@ -4169,7 +4169,7 @@ getRow(16,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(16,24)->
@@ -4178,7 +4178,7 @@ getRow(16,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(16,25)->
@@ -4187,7 +4187,7 @@ getRow(16,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(16,26)->
@@ -4196,7 +4196,7 @@ getRow(16,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(16,27)->
@@ -4205,7 +4205,7 @@ getRow(16,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(16,28)->
@@ -4214,7 +4214,7 @@ getRow(16,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(16,29)->
@@ -4223,7 +4223,7 @@ getRow(16,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(16,30)->
@@ -4232,7 +4232,7 @@ getRow(16,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(16,31)->
@@ -4241,7 +4241,7 @@ getRow(16,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(16,32)->
@@ -4250,7 +4250,7 @@ getRow(16,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(16,33)->
@@ -4259,7 +4259,7 @@ getRow(16,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(16,34)->
@@ -4268,7 +4268,7 @@ getRow(16,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(16,35)->
@@ -4277,7 +4277,7 @@ getRow(16,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(16,36)->
@@ -4286,7 +4286,7 @@ getRow(16,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(16,37)->
@@ -4295,7 +4295,7 @@ getRow(16,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(16,38)->
@@ -4304,7 +4304,7 @@ getRow(16,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(16,39)->
@@ -4313,7 +4313,7 @@ getRow(16,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(16,40)->
@@ -4322,7 +4322,7 @@ getRow(16,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(101,1)->
@@ -4340,7 +4340,7 @@ getRow(101,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(101,3)->
@@ -4349,7 +4349,7 @@ getRow(101,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(101,4)->
@@ -4358,7 +4358,7 @@ getRow(101,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(101,5)->
@@ -4367,7 +4367,7 @@ getRow(101,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(101,6)->
@@ -4376,7 +4376,7 @@ getRow(101,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(101,7)->
@@ -4385,7 +4385,7 @@ getRow(101,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(101,8)->
@@ -4394,7 +4394,7 @@ getRow(101,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(101,9)->
@@ -4403,7 +4403,7 @@ getRow(101,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(101,10)->
@@ -4412,7 +4412,7 @@ getRow(101,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(101,11)->
@@ -4421,7 +4421,7 @@ getRow(101,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(101,12)->
@@ -4430,7 +4430,7 @@ getRow(101,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(101,13)->
@@ -4439,7 +4439,7 @@ getRow(101,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(101,14)->
@@ -4448,7 +4448,7 @@ getRow(101,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(101,15)->
@@ -4457,7 +4457,7 @@ getRow(101,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(101,16)->
@@ -4466,7 +4466,7 @@ getRow(101,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(101,17)->
@@ -4475,7 +4475,7 @@ getRow(101,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(101,18)->
@@ -4484,7 +4484,7 @@ getRow(101,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(101,19)->
@@ -4493,7 +4493,7 @@ getRow(101,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(101,20)->
@@ -4502,7 +4502,7 @@ getRow(101,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(101,21)->
@@ -4511,7 +4511,7 @@ getRow(101,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(101,22)->
@@ -4520,7 +4520,7 @@ getRow(101,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(101,23)->
@@ -4529,7 +4529,7 @@ getRow(101,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(101,24)->
@@ -4538,7 +4538,7 @@ getRow(101,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(101,25)->
@@ -4547,7 +4547,7 @@ getRow(101,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(101,26)->
@@ -4556,7 +4556,7 @@ getRow(101,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(101,27)->
@@ -4565,7 +4565,7 @@ getRow(101,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(101,28)->
@@ -4574,7 +4574,7 @@ getRow(101,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(101,29)->
@@ -4583,7 +4583,7 @@ getRow(101,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(101,30)->
@@ -4592,7 +4592,7 @@ getRow(101,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(101,31)->
@@ -4601,7 +4601,7 @@ getRow(101,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(101,32)->
@@ -4610,7 +4610,7 @@ getRow(101,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(101,33)->
@@ -4619,7 +4619,7 @@ getRow(101,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(101,34)->
@@ -4628,7 +4628,7 @@ getRow(101,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(101,35)->
@@ -4637,7 +4637,7 @@ getRow(101,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(101,36)->
@@ -4646,7 +4646,7 @@ getRow(101,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(101,37)->
@@ -4655,7 +4655,7 @@ getRow(101,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(101,38)->
@@ -4664,7 +4664,7 @@ getRow(101,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(101,39)->
@@ -4673,7 +4673,7 @@ getRow(101,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(101,40)->
@@ -4682,7 +4682,7 @@ getRow(101,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(102,1)->
@@ -4700,7 +4700,7 @@ getRow(102,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(102,3)->
@@ -4709,7 +4709,7 @@ getRow(102,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(102,4)->
@@ -4718,7 +4718,7 @@ getRow(102,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(102,5)->
@@ -4727,7 +4727,7 @@ getRow(102,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(102,6)->
@@ -4736,7 +4736,7 @@ getRow(102,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(102,7)->
@@ -4745,7 +4745,7 @@ getRow(102,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(102,8)->
@@ -4754,7 +4754,7 @@ getRow(102,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(102,9)->
@@ -4763,7 +4763,7 @@ getRow(102,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(102,10)->
@@ -4772,7 +4772,7 @@ getRow(102,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(102,11)->
@@ -4781,7 +4781,7 @@ getRow(102,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(102,12)->
@@ -4790,7 +4790,7 @@ getRow(102,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(102,13)->
@@ -4799,7 +4799,7 @@ getRow(102,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(102,14)->
@@ -4808,7 +4808,7 @@ getRow(102,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(102,15)->
@@ -4817,7 +4817,7 @@ getRow(102,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(102,16)->
@@ -4826,7 +4826,7 @@ getRow(102,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(102,17)->
@@ -4835,7 +4835,7 @@ getRow(102,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(102,18)->
@@ -4844,7 +4844,7 @@ getRow(102,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(102,19)->
@@ -4853,7 +4853,7 @@ getRow(102,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(102,20)->
@@ -4862,7 +4862,7 @@ getRow(102,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(102,21)->
@@ -4871,7 +4871,7 @@ getRow(102,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(102,22)->
@@ -4880,7 +4880,7 @@ getRow(102,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(102,23)->
@@ -4889,7 +4889,7 @@ getRow(102,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(102,24)->
@@ -4898,7 +4898,7 @@ getRow(102,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(102,25)->
@@ -4907,7 +4907,7 @@ getRow(102,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(102,26)->
@@ -4916,7 +4916,7 @@ getRow(102,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(102,27)->
@@ -4925,7 +4925,7 @@ getRow(102,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(102,28)->
@@ -4934,7 +4934,7 @@ getRow(102,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(102,29)->
@@ -4943,7 +4943,7 @@ getRow(102,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(102,30)->
@@ -4952,7 +4952,7 @@ getRow(102,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(102,31)->
@@ -4961,7 +4961,7 @@ getRow(102,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(102,32)->
@@ -4970,7 +4970,7 @@ getRow(102,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(102,33)->
@@ -4979,7 +4979,7 @@ getRow(102,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(102,34)->
@@ -4988,7 +4988,7 @@ getRow(102,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(102,35)->
@@ -4997,7 +4997,7 @@ getRow(102,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(102,36)->
@@ -5006,7 +5006,7 @@ getRow(102,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(102,37)->
@@ -5015,7 +5015,7 @@ getRow(102,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(102,38)->
@@ -5024,7 +5024,7 @@ getRow(102,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(102,39)->
@@ -5033,7 +5033,7 @@ getRow(102,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(102,40)->
@@ -5042,7 +5042,7 @@ getRow(102,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(103,1)->
@@ -5060,7 +5060,7 @@ getRow(103,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(103,3)->
@@ -5069,7 +5069,7 @@ getRow(103,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(103,4)->
@@ -5078,7 +5078,7 @@ getRow(103,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(103,5)->
@@ -5087,7 +5087,7 @@ getRow(103,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(103,6)->
@@ -5096,7 +5096,7 @@ getRow(103,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(103,7)->
@@ -5105,7 +5105,7 @@ getRow(103,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(103,8)->
@@ -5114,7 +5114,7 @@ getRow(103,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(103,9)->
@@ -5123,7 +5123,7 @@ getRow(103,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(103,10)->
@@ -5132,7 +5132,7 @@ getRow(103,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(103,11)->
@@ -5141,7 +5141,7 @@ getRow(103,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(103,12)->
@@ -5150,7 +5150,7 @@ getRow(103,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(103,13)->
@@ -5159,7 +5159,7 @@ getRow(103,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(103,14)->
@@ -5168,7 +5168,7 @@ getRow(103,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(103,15)->
@@ -5177,7 +5177,7 @@ getRow(103,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(103,16)->
@@ -5186,7 +5186,7 @@ getRow(103,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(103,17)->
@@ -5195,7 +5195,7 @@ getRow(103,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(103,18)->
@@ -5204,7 +5204,7 @@ getRow(103,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(103,19)->
@@ -5213,7 +5213,7 @@ getRow(103,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(103,20)->
@@ -5222,7 +5222,7 @@ getRow(103,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(103,21)->
@@ -5231,7 +5231,7 @@ getRow(103,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(103,22)->
@@ -5240,7 +5240,7 @@ getRow(103,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(103,23)->
@@ -5249,7 +5249,7 @@ getRow(103,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(103,24)->
@@ -5258,7 +5258,7 @@ getRow(103,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(103,25)->
@@ -5267,7 +5267,7 @@ getRow(103,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(103,26)->
@@ -5276,7 +5276,7 @@ getRow(103,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(103,27)->
@@ -5285,7 +5285,7 @@ getRow(103,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(103,28)->
@@ -5294,7 +5294,7 @@ getRow(103,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(103,29)->
@@ -5303,7 +5303,7 @@ getRow(103,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(103,30)->
@@ -5312,7 +5312,7 @@ getRow(103,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(103,31)->
@@ -5321,7 +5321,7 @@ getRow(103,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(103,32)->
@@ -5330,7 +5330,7 @@ getRow(103,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(103,33)->
@@ -5339,7 +5339,7 @@ getRow(103,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(103,34)->
@@ -5348,7 +5348,7 @@ getRow(103,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(103,35)->
@@ -5357,7 +5357,7 @@ getRow(103,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(103,36)->
@@ -5366,7 +5366,7 @@ getRow(103,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(103,37)->
@@ -5375,7 +5375,7 @@ getRow(103,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(103,38)->
@@ -5384,7 +5384,7 @@ getRow(103,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(103,39)->
@@ -5393,7 +5393,7 @@ getRow(103,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(103,40)->
@@ -5402,7 +5402,7 @@ getRow(103,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(104,1)->
@@ -5420,7 +5420,7 @@ getRow(104,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(104,3)->
@@ -5429,7 +5429,7 @@ getRow(104,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(104,4)->
@@ -5438,7 +5438,7 @@ getRow(104,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(104,5)->
@@ -5447,7 +5447,7 @@ getRow(104,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(104,6)->
@@ -5456,7 +5456,7 @@ getRow(104,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(104,7)->
@@ -5465,7 +5465,7 @@ getRow(104,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(104,8)->
@@ -5474,7 +5474,7 @@ getRow(104,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(104,9)->
@@ -5483,7 +5483,7 @@ getRow(104,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(104,10)->
@@ -5492,7 +5492,7 @@ getRow(104,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(104,11)->
@@ -5501,7 +5501,7 @@ getRow(104,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(104,12)->
@@ -5510,7 +5510,7 @@ getRow(104,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(104,13)->
@@ -5519,7 +5519,7 @@ getRow(104,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(104,14)->
@@ -5528,7 +5528,7 @@ getRow(104,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(104,15)->
@@ -5537,7 +5537,7 @@ getRow(104,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(104,16)->
@@ -5546,7 +5546,7 @@ getRow(104,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(104,17)->
@@ -5555,7 +5555,7 @@ getRow(104,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(104,18)->
@@ -5564,7 +5564,7 @@ getRow(104,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(104,19)->
@@ -5573,7 +5573,7 @@ getRow(104,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(104,20)->
@@ -5582,7 +5582,7 @@ getRow(104,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(104,21)->
@@ -5591,7 +5591,7 @@ getRow(104,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(104,22)->
@@ -5600,7 +5600,7 @@ getRow(104,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(104,23)->
@@ -5609,7 +5609,7 @@ getRow(104,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(104,24)->
@@ -5618,7 +5618,7 @@ getRow(104,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(104,25)->
@@ -5627,7 +5627,7 @@ getRow(104,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(104,26)->
@@ -5636,7 +5636,7 @@ getRow(104,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(104,27)->
@@ -5645,7 +5645,7 @@ getRow(104,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(104,28)->
@@ -5654,7 +5654,7 @@ getRow(104,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(104,29)->
@@ -5663,7 +5663,7 @@ getRow(104,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(104,30)->
@@ -5672,7 +5672,7 @@ getRow(104,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(104,31)->
@@ -5681,7 +5681,7 @@ getRow(104,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(104,32)->
@@ -5690,7 +5690,7 @@ getRow(104,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(104,33)->
@@ -5699,7 +5699,7 @@ getRow(104,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(104,34)->
@@ -5708,7 +5708,7 @@ getRow(104,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(104,35)->
@@ -5717,7 +5717,7 @@ getRow(104,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(104,36)->
@@ -5726,7 +5726,7 @@ getRow(104,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(104,37)->
@@ -5735,7 +5735,7 @@ getRow(104,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(104,38)->
@@ -5744,7 +5744,7 @@ getRow(104,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(104,39)->
@@ -5753,7 +5753,7 @@ getRow(104,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(104,40)->
@@ -5762,7 +5762,7 @@ getRow(104,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(105,1)->
@@ -5780,7 +5780,7 @@ getRow(105,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(105,3)->
@@ -5789,7 +5789,7 @@ getRow(105,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(105,4)->
@@ -5798,7 +5798,7 @@ getRow(105,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(105,5)->
@@ -5807,7 +5807,7 @@ getRow(105,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(105,6)->
@@ -5816,7 +5816,7 @@ getRow(105,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(105,7)->
@@ -5825,7 +5825,7 @@ getRow(105,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(105,8)->
@@ -5834,7 +5834,7 @@ getRow(105,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(105,9)->
@@ -5843,7 +5843,7 @@ getRow(105,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(105,10)->
@@ -5852,7 +5852,7 @@ getRow(105,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(105,11)->
@@ -5861,7 +5861,7 @@ getRow(105,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(105,12)->
@@ -5870,7 +5870,7 @@ getRow(105,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(105,13)->
@@ -5879,7 +5879,7 @@ getRow(105,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(105,14)->
@@ -5888,7 +5888,7 @@ getRow(105,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(105,15)->
@@ -5897,7 +5897,7 @@ getRow(105,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(105,16)->
@@ -5906,7 +5906,7 @@ getRow(105,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(105,17)->
@@ -5915,7 +5915,7 @@ getRow(105,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(105,18)->
@@ -5924,7 +5924,7 @@ getRow(105,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(105,19)->
@@ -5933,7 +5933,7 @@ getRow(105,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(105,20)->
@@ -5942,7 +5942,7 @@ getRow(105,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(105,21)->
@@ -5951,7 +5951,7 @@ getRow(105,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(105,22)->
@@ -5960,7 +5960,7 @@ getRow(105,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(105,23)->
@@ -5969,7 +5969,7 @@ getRow(105,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(105,24)->
@@ -5978,7 +5978,7 @@ getRow(105,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(105,25)->
@@ -5987,7 +5987,7 @@ getRow(105,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(105,26)->
@@ -5996,7 +5996,7 @@ getRow(105,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(105,27)->
@@ -6005,7 +6005,7 @@ getRow(105,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(105,28)->
@@ -6014,7 +6014,7 @@ getRow(105,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(105,29)->
@@ -6023,7 +6023,7 @@ getRow(105,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(105,30)->
@@ -6032,7 +6032,7 @@ getRow(105,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(105,31)->
@@ -6041,7 +6041,7 @@ getRow(105,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(105,32)->
@@ -6050,7 +6050,7 @@ getRow(105,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(105,33)->
@@ -6059,7 +6059,7 @@ getRow(105,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(105,34)->
@@ -6068,7 +6068,7 @@ getRow(105,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(105,35)->
@@ -6077,7 +6077,7 @@ getRow(105,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(105,36)->
@@ -6086,7 +6086,7 @@ getRow(105,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(105,37)->
@@ -6095,7 +6095,7 @@ getRow(105,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(105,38)->
@@ -6104,7 +6104,7 @@ getRow(105,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(105,39)->
@@ -6113,7 +6113,7 @@ getRow(105,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(105,40)->
@@ -6122,7 +6122,7 @@ getRow(105,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(106,1)->
@@ -6140,7 +6140,7 @@ getRow(106,2)->
     lv = 2,
     exp = 40,
     smeltRatio = 1,
-    growRatio = 1.0019678927,
+    growRatio = 1.00196789265031,
     cost = 600
     };
 getRow(106,3)->
@@ -6149,7 +6149,7 @@ getRow(106,3)->
     lv = 3,
     exp = 118,
     smeltRatio = 1,
-    growRatio = 1.0091461905,
+    growRatio = 1.00914619053003,
     cost = 700
     };
 getRow(106,4)->
@@ -6158,7 +6158,7 @@ getRow(106,4)->
     lv = 4,
     exp = 228,
     smeltRatio = 1,
-    growRatio = 1.0193291549,
+    growRatio = 1.01932915485129,
     cost = 800
     };
 getRow(106,5)->
@@ -6167,7 +6167,7 @@ getRow(106,5)->
     lv = 5,
     exp = 365,
     smeltRatio = 1,
-    growRatio = 1.0313349117,
+    growRatio = 1.03133491170821,
     cost = 900
     };
 getRow(106,6)->
@@ -6176,7 +6176,7 @@ getRow(106,6)->
     lv = 6,
     exp = 521,
     smeltRatio = 1,
-    growRatio = 1.0442494757,
+    growRatio = 1.04424947567809,
     cost = 1000
     };
 getRow(106,7)->
@@ -6185,7 +6185,7 @@ getRow(106,7)->
     lv = 7,
     exp = 697,
     smeltRatio = 1,
-    growRatio = 1.0572278835,
+    growRatio = 1.05722788345845,
     cost = 1100
     };
 getRow(106,8)->
@@ -6194,7 +6194,7 @@ getRow(106,8)->
     lv = 8,
     exp = 889,
     smeltRatio = 1,
-    growRatio = 1.0695244711,
+    growRatio = 1.06952447106192,
     cost = 1200
     };
 getRow(106,9)->
@@ -6203,7 +6203,7 @@ getRow(106,9)->
     lv = 9,
     exp = 1098,
     smeltRatio = 1,
-    growRatio = 1.0805543318,
+    growRatio = 1.08055433177901,
     cost = 1300
     };
 getRow(106,10)->
@@ -6212,7 +6212,7 @@ getRow(106,10)->
     lv = 10,
     exp = 1320,
     smeltRatio = 1,
-    growRatio = 1.089934301,
+    growRatio = 1.08993430102626,
     cost = 1400
     };
 getRow(106,11)->
@@ -6221,7 +6221,7 @@ getRow(106,11)->
     lv = 11,
     exp = 1555,
     smeltRatio = 1,
-    growRatio = 1.0974865281,
+    growRatio = 1.0974865281408,
     cost = 1500
     };
 getRow(106,12)->
@@ -6230,7 +6230,7 @@ getRow(106,12)->
     lv = 12,
     exp = 1805,
     smeltRatio = 1,
-    growRatio = 1.1032087862,
+    growRatio = 1.10320878617244,
     cost = 1600
     };
 getRow(106,13)->
@@ -6239,7 +6239,7 @@ getRow(106,13)->
     lv = 13,
     exp = 2065,
     smeltRatio = 1,
-    growRatio = 1.1072262937,
+    growRatio = 1.10722629367885,
     cost = 1700
     };
 getRow(106,14)->
@@ -6248,7 +6248,7 @@ getRow(106,14)->
     lv = 14,
     exp = 2337,
     smeltRatio = 1,
-    growRatio = 1.1097406181,
+    growRatio = 1.10974061805296,
     cost = 1800
     };
 getRow(106,15)->
@@ -6257,7 +6257,7 @@ getRow(106,15)->
     lv = 15,
     exp = 2621,
     smeltRatio = 1,
-    growRatio = 1.1109862461,
+    growRatio = 1.11098624609589,
     cost = 1900
     };
 getRow(106,16)->
@@ -6266,7 +6266,7 @@ getRow(106,16)->
     lv = 16,
     exp = 2915,
     smeltRatio = 1,
-    growRatio = 1.1111992643,
+    growRatio = 1.11119926432477,
     cost = 2000
     };
 getRow(106,17)->
@@ -6275,7 +6275,7 @@ getRow(106,17)->
     lv = 17,
     exp = 3220,
     smeltRatio = 1,
-    growRatio = 1.1105980457,
+    growRatio = 1.11059804566676,
     cost = 2100
     };
 getRow(106,18)->
@@ -6284,7 +6284,7 @@ getRow(106,18)->
     lv = 18,
     exp = 3535,
     smeltRatio = 1,
-    growRatio = 1.1093735422,
+    growRatio = 1.10937354219876,
     cost = 2200
     };
 getRow(106,19)->
@@ -6293,7 +6293,7 @@ getRow(106,19)->
     lv = 19,
     exp = 3858,
     smeltRatio = 1,
-    growRatio = 1.1076862109,
+    growRatio = 1.10768621092623,
     cost = 2300
     };
 getRow(106,20)->
@@ -6302,7 +6302,7 @@ getRow(106,20)->
     lv = 20,
     exp = 4192,
     smeltRatio = 1,
-    growRatio = 1.105666958,
+    growRatio = 1.10566695801928,
     cost = 2400
     };
 getRow(106,21)->
@@ -6311,7 +6311,7 @@ getRow(106,21)->
     lv = 21,
     exp = 4535,
     smeltRatio = 1,
-    growRatio = 1.1034201672,
+    growRatio = 1.10342016717935,
     cost = 2500
     };
 getRow(106,22)->
@@ -6320,7 +6320,7 @@ getRow(106,22)->
     lv = 22,
     exp = 4887,
     smeltRatio = 1,
-    growRatio = 1.1010275441,
+    growRatio = 1.10102754407875,
     cost = 2600
     };
 getRow(106,23)->
@@ -6329,7 +6329,7 @@ getRow(106,23)->
     lv = 23,
     exp = 5247,
     smeltRatio = 1,
-    growRatio = 1.0985520304,
+    growRatio = 1.09855203037206,
     cost = 2700
     };
 getRow(106,24)->
@@ -6338,7 +6338,7 @@ getRow(106,24)->
     lv = 24,
     exp = 5616,
     smeltRatio = 1,
-    growRatio = 1.0960413996,
+    growRatio = 1.09604139963895,
     cost = 2800
     };
 getRow(106,25)->
@@ -6347,7 +6347,7 @@ getRow(106,25)->
     lv = 25,
     exp = 5993,
     smeltRatio = 1,
-    growRatio = 1.093531372,
+    growRatio = 1.09353137204109,
     cost = 2900
     };
 getRow(106,26)->
@@ -6356,7 +6356,7 @@ getRow(106,26)->
     lv = 26,
     exp = 6378,
     smeltRatio = 1,
-    growRatio = 1.091048213,
+    growRatio = 1.09104821298413,
     cost = 3000
     };
 getRow(106,27)->
@@ -6365,7 +6365,7 @@ getRow(106,27)->
     lv = 27,
     exp = 6772,
     smeltRatio = 1,
-    growRatio = 1.0886108473,
+    growRatio = 1.08861084734073,
     cost = 3100
     };
 getRow(106,28)->
@@ -6374,7 +6374,7 @@ getRow(106,28)->
     lv = 28,
     exp = 7172,
     smeltRatio = 1,
-    growRatio = 1.0862325496,
+    growRatio = 1.0862325495889,
     cost = 3200
     };
 getRow(106,29)->
@@ -6383,7 +6383,7 @@ getRow(106,29)->
     lv = 29,
     exp = 7581,
     smeltRatio = 1,
-    growRatio = 1.0839222781,
+    growRatio = 1.08392227805319,
     cost = 3300
     };
 getRow(106,30)->
@@ -6392,7 +6392,7 @@ getRow(106,30)->
     lv = 30,
     exp = 7997,
     smeltRatio = 1,
-    growRatio = 1.0816857185,
+    growRatio = 1.08168571854949,
     cost = 3400
     };
 getRow(106,31)->
@@ -6401,7 +6401,7 @@ getRow(106,31)->
     lv = 31,
     exp = 8421,
     smeltRatio = 1,
-    growRatio = 1.0795260951,
+    growRatio = 1.0795260951146,
     cost = 3500
     };
 getRow(106,32)->
@@ -6410,7 +6410,7 @@ getRow(106,32)->
     lv = 32,
     exp = 8852,
     smeltRatio = 1,
-    growRatio = 1.0774447964,
+    growRatio = 1.07744479644025,
     cost = 3600
     };
 getRow(106,33)->
@@ -6419,7 +6419,7 @@ getRow(106,33)->
     lv = 33,
     exp = 9289,
     smeltRatio = 1,
-    growRatio = 1.0754418578,
+    growRatio = 1.07544185779781,
     cost = 3700
     };
 getRow(106,34)->
@@ -6428,7 +6428,7 @@ getRow(106,34)->
     lv = 34,
     exp = 9734,
     smeltRatio = 1,
-    growRatio = 1.0735163304,
+    growRatio = 1.07351633037743,
     cost = 3800
     };
 getRow(106,35)->
@@ -6437,7 +6437,7 @@ getRow(106,35)->
     lv = 35,
     exp = 10186,
     smeltRatio = 1,
-    growRatio = 1.0716665633,
+    growRatio = 1.07166656331622,
     cost = 3900
     };
 getRow(106,36)->
@@ -6446,7 +6446,7 @@ getRow(106,36)->
     lv = 36,
     exp = 10645,
     smeltRatio = 1,
-    growRatio = 1.0698904182,
+    growRatio = 1.069890418241,
     cost = 4000
     };
 getRow(106,37)->
@@ -6455,7 +6455,7 @@ getRow(106,37)->
     lv = 37,
     exp = 11109,
     smeltRatio = 1,
-    growRatio = 1.0681854318,
+    growRatio = 1.06818543177784,
     cost = 4100
     };
 getRow(106,38)->
@@ -6464,7 +6464,7 @@ getRow(106,38)->
     lv = 38,
     exp = 11582,
     smeltRatio = 1,
-    growRatio = 1.066548938,
+    growRatio = 1.06654893801904,
     cost = 4200
     };
 getRow(106,39)->
@@ -6473,7 +6473,7 @@ getRow(106,39)->
     lv = 39,
     exp = 12060,
     smeltRatio = 1,
-    growRatio = 1.0649781602,
+    growRatio = 1.06497816022459,
     cost = 4300
     };
 getRow(106,40)->
@@ -6482,7 +6482,7 @@ getRow(106,40)->
     lv = 40,
     exp = 12545,
     smeltRatio = 1,
-    growRatio = 1.0634702789,
+    growRatio = 1.06347027892144,
     cost = 4400
     };
 getRow(_,_)->[].

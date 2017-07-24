@@ -15,21 +15,21 @@ getRow(0,604)->
     size = 0,
     posOffset = []
     };
-getRow(0,902)->
+getRow(0,903)->
     #signinawardCfg {
     id = 2,
     signtype = 0,
-    itemid = 902,
-    itemnum = 2,
+    itemid = 903,
+    itemnum = 1,
     angle = [],
     size = 0,
     posOffset = []
     };
-getRow(0,1111)->
+getRow(0,1113)->
     #signinawardCfg {
     id = 3,
     signtype = 0,
-    itemid = 1111,
+    itemid = 1113,
     itemnum = 1,
     angle = [],
     size = 0,
@@ -85,12 +85,12 @@ getRow(2,1835)->
     size = 0,
     posOffset = []
     };
-getRow(2,2161)->
+getRow(2,2160)->
     #signinawardCfg {
     id = 12,
     signtype = 2,
-    itemid = 2161,
-    itemnum = 15,
+    itemid = 2160,
+    itemnum = 50,
     angle = [],
     size = 0,
     posOffset = []
@@ -110,7 +110,7 @@ getRow(2,4303)->
     id = 11,
     signtype = 2,
     itemid = 4303,
-    itemnum = 50,
+    itemnum = 20,
     angle = [],
     size = 0,
     posOffset = []
@@ -175,12 +175,12 @@ getRow(4,271)->
     size = 0,
     posOffset = []
     };
-getRow(4,2161)->
+getRow(4,2160)->
     #signinawardCfg {
     id = 19,
     signtype = 4,
-    itemid = 2161,
-    itemnum = 20,
+    itemid = 2160,
+    itemnum = 80,
     angle = [],
     size = 0,
     posOffset = []
@@ -230,7 +230,7 @@ getRow(5,4304)->
     id = 24,
     signtype = 5,
     itemid = 4304,
-    itemnum = 50,
+    itemnum = 20,
     angle = [],
     size = 0,
     posOffset = []
@@ -285,12 +285,12 @@ getRow(7,904)->
     size = 0,
     posOffset = []
     };
-getRow(7,2162)->
+getRow(7,2160)->
     #signinawardCfg {
     id = 32,
     signtype = 7,
-    itemid = 2162,
-    itemnum = 30,
+    itemid = 2160,
+    itemnum = 120,
     angle = [],
     size = 0,
     posOffset = []
@@ -339,14 +339,14 @@ getRow(_,_)->[].
 
 getKeyList()->[
     {0,604},
-    {0,902},
-    {0,1111},
+    {0,903},
+    {0,1113},
     {1,222},
     {1,615},
     {1,904},
     {1,2160},
     {2,1835},
-    {2,2161},
+    {2,2160},
     {2,2600},
     {2,4303},
     {3,20},
@@ -355,7 +355,7 @@ getKeyList()->[
     {3,1835},
     {4,20},
     {4,271},
-    {4,2161},
+    {4,2160},
     {4,2600},
     {5,20},
     {5,222},
@@ -366,7 +366,7 @@ getKeyList()->[
     {6,615},
     {6,1113},
     {7,904},
-    {7,2162},
+    {7,2160},
     {7,2600},
     {7,4305},
     {8,616},
@@ -387,8 +387,8 @@ get1KeyList()->[
 
 get2KeyList(0)->[
     604,
-    902,
-    1111
+    903,
+    1113
     ];
 get2KeyList(1)->[
     222,
@@ -398,7 +398,7 @@ get2KeyList(1)->[
     ];
 get2KeyList(2)->[
     1835,
-    2161,
+    2160,
     2600,
     4303
     ];
@@ -411,7 +411,7 @@ get2KeyList(3)->[
 get2KeyList(4)->[
     20,
     271,
-    2161,
+    2160,
     2600
     ];
 get2KeyList(5)->[
@@ -428,7 +428,7 @@ get2KeyList(6)->[
     ];
 get2KeyList(7)->[
     904,
-    2162,
+    2160,
     2600,
     4305
     ];

@@ -64,44 +64,61 @@ init() ->
 %%签到
 -spec sign() -> ok.
 sign() ->
-	?DEBUG_OUT("[DebugForSignIn] sign"),
-	SignIn = playerPropSync:getProp(?PriProp_PlayerDailySignIn),
-	{SignMouth, SignDay, FristDay, SignNum, Stat} = getSignInfo(SignIn),
-	?DEBUG_OUT("[DebugForSignIn] sign SignIn(~p) SignMouth(~p) SignDay(~p) FristDay(~p) SignNum(~p) Stat(~p)", [SignIn, SignMouth, SignDay, FristDay, SignNum, Stat]),
-	%%日期
-	NowTime = time:getSyncTime1970FromDBS(),
-	{{_, Month, Day},{_, _, _}} = time:convertSec2DateTime(NowTime),
-	%% 修复数据
-	%% 如果周期内签到首日大于当前日期，则除非是系统时间被往前改了，就是重置的时候除了逻辑问题
-	NewFirstDay =
-		case FristDay > Day of
-			true ->
-				?ERROR_OUT("sign FristDay(~p) > Day(~p),curMon=~p, SignMon=~p, signday=~p, val=~p,now=~p",
-						   [FristDay, Day, Month,  SignMouth, SignDay, SignIn, NowTime]),
-				Day;
+	%% LUN-4486 【协议测试】【每日签到】角色未开启福利功能，使用协议代码跳过客户端发送每日签到请求，可以收到签到奖励
+	Level = playerState:getLevel(),
+	IsOK =
+		case getCfg:getCfgPStack(cfg_welfare, 1) of
+			#welfareCfg{openconditions = 1, parameter = LevelAim} when Level < LevelAim ->
+				playerMsg:sendErrorCodeMsg(?ErrorCode_YourLevelIsTooLower),
+				false;
+			#welfareCfg{openconditions = 2, parameter = TaskAim} ->
+				playerTask:isSubmittedTaskByID(TaskAim);
 			_ ->
-				FristDay
+				true
 		end,
-	case checkSign(SignNum, Day, NewFirstDay, Stat) of
-		{true, Gold} ->
-			%% 需要使用货币进行签到
-			playerMoney:useCoin(?CoinUseTypeDiamond, Gold,
-								#recPLogTSMoney{reason=?CoinUseSignInMoney, param= 0, target=?PLogTS_DailySignIn,source=?PLogTS_PlayerSelf}),
-			SignRes = getSignRes(Month, Day, NewFirstDay, SignNum + 1, 1),
-			playerPropSync:setInt(?PriProp_PlayerDailySignIn, SignRes),
-			getSignReWard(),
-			playerAchieve:achieveEvent(?Achieve_SignIn, [1]),
-			ok;
+	case IsOK of
 		true ->
-			%% 免费签到
-			SignRes = getSignRes(Month, Day, NewFirstDay, SignNum + 1, 1),
-			playerPropSync:setInt(?PriProp_PlayerDailySignIn, SignRes),
-			getSignReWard(),
-			playerAchieve:achieveEvent(?Achieve_SignIn, [1]),
-			ok;
-		Error ->
-			%% 无法签到
-			playerMsg:sendErrorCodeMsg(Error)
+			?DEBUG_OUT("[DebugForSignIn] sign"),
+			SignIn = playerPropSync:getProp(?PriProp_PlayerDailySignIn),
+			{SignMouth, SignDay, FristDay, SignNum, Stat} = getSignInfo(SignIn),
+			?DEBUG_OUT("[DebugForSignIn] sign SignIn(~p) SignMouth(~p) SignDay(~p) FristDay(~p) SignNum(~p) Stat(~p)", [SignIn, SignMouth, SignDay, FristDay, SignNum, Stat]),
+			%%日期
+			NowTime = time:getSyncTime1970FromDBS(),
+			{{_, Month, Day},{_, _, _}} = time:convertSec2DateTime(NowTime),
+			%% 修复数据
+			%% 如果周期内签到首日大于当前日期，则除非是系统时间被往前改了，就是重置的时候除了逻辑问题
+			NewFirstDay =
+				case FristDay > Day of
+					true ->
+						?ERROR_OUT("sign FristDay(~p) > Day(~p),curMon=~p, SignMon=~p, signday=~p, val=~p,now=~p",
+							[FristDay, Day, Month,  SignMouth, SignDay, SignIn, NowTime]),
+						Day;
+					_ ->
+						FristDay
+				end,
+			case checkSign(SignNum, Day, NewFirstDay, Stat) of
+				{true, Gold} ->
+					%% 需要使用货币进行签到
+					playerMoney:useCoin(?CoinUseTypeDiamond, Gold,
+						#recPLogTSMoney{reason=?CoinUseSignInMoney, param= 0, target=?PLogTS_DailySignIn,source=?PLogTS_PlayerSelf}),
+					SignRes = getSignRes(Month, Day, NewFirstDay, SignNum + 1, 1),
+					playerPropSync:setInt(?PriProp_PlayerDailySignIn, SignRes),
+					getSignReWard(),
+					playerAchieve:achieveEvent(?Achieve_SignIn, [1]),
+					ok;
+				true ->
+					%% 免费签到
+					SignRes = getSignRes(Month, Day, NewFirstDay, SignNum + 1, 1),
+					playerPropSync:setInt(?PriProp_PlayerDailySignIn, SignRes),
+					getSignReWard(),
+					playerAchieve:achieveEvent(?Achieve_SignIn, [1]),
+					ok;
+				Error ->
+					%% 无法签到
+					playerMsg:sendErrorCodeMsg(Error)
+			end;
+		_ ->
+			skip
 	end.
 
 %%签到（GM调试）

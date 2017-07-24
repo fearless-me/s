@@ -6,13 +6,11 @@
 -author(zhongyuanwei).
 
 -include("gsInc.hrl").
--include("dbsDefine.hrl").
 
 %% ====================================================================
 %% API functions
 %% ====================================================================
 -export([
-	sendMsg2Cross/3,
 	sendMsg2Main/2,
 	sendMsg2Mail/2,
 	sendMsg2DBServer/3,
@@ -26,6 +24,15 @@
 	callDBRechargeServer/3,
 	sendRolePidMsgByRoleID/3,
 	callRolePidMsgByRoleID/3
+]).
+
+%% 跨服相关消息
+-export([
+	sendMsg2Cross/3,
+	sendMsg2AllSource/3,
+	sendMsg2OneSource/4,
+	sendMsg2NormalServer/4,
+	sendMsg2OneNormalServer/4
 ]).
 
 %% 发消息给玩家数据管理进程
@@ -43,35 +50,75 @@ sendMsg2PublicDataMgr(MsgID, Msg) ->
 sendMsg2PublicDMSaveData(Data) ->
     sendMsg2PublicDataMgr(savePublicData, Data).
 
--spec sendMsg2Cross(OtpName::atom(),MsgID::atom(), Msg::term() ) ->ok.
+%% 普通服发送消息给跨服
+-spec sendMsg2Cross(OtpName::atom(),MsgID::atom(), Msg::term()) ->ok.
 sendMsg2Cross(OtpName, MsgID, Msg) ->
 	case core:isCross() of
 		false ->
 			%% 发给跨服进程中转
-			psMgr:sendMsg2PS(?PsNameCros, sendDataToCrossServer, {OtpName, MsgID, Msg});
+			psMgr:sendMsg2PS(?PsNameNormalCross, sendDataToCrossServer, {OtpName, MsgID, Msg});
 		_ ->
 			?ERROR_OUT("sendMsg2Cross:~p,~p,~p,~p", [OtpName, MsgID, Msg, misc:getStackTrace()])
 	end.
 
-%-spec sendMsg2AllSource(OtpName::atom(), MsgID::atom(), Msg::term()) -> ok.
-%sendMsg2AllSource(OtpName, MsgID, Msg) ->
-%	case core:isCross() of
-%		true ->
-%			psMgr:sendMsg2PS(?PsNamePlayerMgr, sendMsg2AllSource, {OtpName, MsgID, Msg});
-%		_ ->
-%			?ERROR_OUT("sendMsg2AllSource:~p,~p,~p,~p", [OtpName, MsgID, Msg, misc:getStackTrace()])
-%	end,
-%	ok.
-%
-%-spec sendMsg2OneSource(TargetServerID::integer(), OtpName::atom(), MsgID::atom(), Msg::term()) -> ok.
-%sendMsg2OneSource(TargetServerID, OtpName, MsgID, Msg) ->
-%	case core:isCross() of
-%		true ->
-%			psMgr:sendMsg2PS(?PsNamePlayerMgr, sendMsg2OneSource, {TargetServerID, OtpName, MsgID, Msg});
-%		_ ->
-%			?ERROR_OUT("sendMsg2AllSource:~p,~p,~p,~p,~p", [TargetServerID, OtpName, MsgID, Msg, misc:getStackTrace()])
-%	end,
-%	ok.
+%% 跨服发消息给所有连接的普通服
+-spec sendMsg2AllSource(OtpName::atom(), MsgID::atom(), Msg::term()) -> ok.
+sendMsg2AllSource(OtpName, MsgID, Msg) ->
+	case core:isCross() of
+		true ->
+			psMgr:sendMsg2PS(?PsNameCrossNormal, sendMsg2AllSource, {OtpName, MsgID, Msg});
+		_ ->
+			?ERROR_OUT("sendMsg2AllSource:~p,~p,~p,~p", [OtpName, MsgID, Msg, misc:getStackTrace()])
+	end,
+	ok.
+
+%% 跨服发消息给指定的普通服
+-spec sendMsg2OneSource(TargetServerID::integer(), OtpName::atom(), MsgID::atom(), Msg::term()) -> ok.
+sendMsg2OneSource(TargetServerID, OtpName, MsgID, Msg) ->
+	case core:isCross() of
+		true ->
+			psMgr:sendMsg2PS(?PsNameCrossNormal, sendMsg2OneSource, {TargetServerID, OtpName, MsgID, Msg});
+		_ ->
+			?ERROR_OUT("sendMsg2AllSource:~p,~p,~p,~p,~p", [TargetServerID, OtpName, MsgID, Msg, misc:getStackTrace()])
+	end,
+	ok.
+
+%% 普通服发消息给其它普通服
+-spec sendMsg2NormalServer(OtpName::atom(), MsgID::atom(), Msg::term(), IncludeSelf::boolean()) -> ok.
+sendMsg2NormalServer(OtpName, MsgID, Msg, IncludeSelf) ->
+	case core:isCross() of
+		false ->
+			case IncludeSelf of
+				true ->
+					psMgr:sendMsg2PS(OtpName, MsgID, self(), Msg);
+				_ ->
+					skip
+			end,
+			psMgr:sendMsg2PS(?PsNameCrossNormal, sendMsg2NormalServer,
+				{core:getServerID(), OtpName, MsgID, Msg});
+		_ ->
+			?ERROR_OUT("sendMsg2NormalServer:~p,~p,~p,~p",
+				[OtpName, MsgID, Msg, misc:getStackTrace()])
+	end,
+	ok.
+
+%% 普通服发消息给其它普通服
+-spec sendMsg2OneNormalServer(TargetServerID::integer(), OtpName::atom(), MsgID::atom(), Msg::term()) -> ok.
+sendMsg2OneNormalServer(TargetServerID, OtpName, MsgID, Msg) ->
+	case core:isCross() of
+		false ->
+			case core:getServerID() of
+				TargetServerID ->
+					psMgr:sendMsg2PS(OtpName, MsgID, self(), Msg);
+				_ ->
+					psMgr:sendMsg2PS(?PsNameCrossNormal, sendMsg2OneNormalServer,
+						{TargetServerID, OtpName, MsgID, Msg})
+			end;
+		_ ->
+			?ERROR_OUT("sendMsg2OneNormalServer:~p,~p,~p,~p,~p",
+				[TargetServerID, OtpName, MsgID, Msg, misc:getStackTrace()])
+	end,
+	ok.
 
 -spec sendMsg2Main(MsgID,Msg) -> ok when
 		  MsgID :: atom(), Msg :: tuple().
@@ -114,7 +161,7 @@ sendMsg2DBWithDBOPT(MsgID,AccountID,Msg) when erlang:is_atom(MsgID) ->
 -spec sendMsg2LogDBServer(MsgID,Msg) -> ok when
 		  MsgID::uint(),Msg::tuple().
 sendMsg2LogDBServer(MsgID,Msg) when erlang:is_integer(MsgID) ->
-	logDBPID ! {MsgID,Msg},
+	psMgr:sendMsg2PS(?LogDBPID, MsgID, Msg),
 	ok.
 %%call调用db支付服务器
 callDBRechargeServer(MsgID,Info,TimeOut)->

@@ -454,7 +454,12 @@ getPetWarPveArg() ->
 
 %%获取宠物属性洗练条目
 getPetAttaNum() ->
-	getGlobalCfg(petstronger_num).
+	case getCfg:getCfgPStack(cfg_globalsetup, petstronger_num) of
+		#globalsetupCfg{setpara = L} ->
+			L;
+		_ ->
+			[]
+	end.
 
 %%获取宠物属性洗练消耗材料
 getPetAttaMaterial() ->
@@ -792,6 +797,22 @@ getArenaGatherCd() ->
 getArenaInviteLv() ->
 	getGlobalCfg(arena_AddLevel).
 	
+getTransformationBuffBig() ->
+	case getGlobalCfgList(distortion_big_and_small) of
+		[Big, _] -> Big;
+		_ -> 0
+	end.
+getTransformationBuffSmall() ->
+	case getGlobalCfgList(distortion_big_and_small) of
+		[_, Small] -> Small;
+		_ -> 0
+	end.
+getTransformationBuff() ->
+	case getGlobalCfgList(distortion_big_and_small) of
+		[Big, Small] -> [Big, Small];
+		_ -> [0, 0]
+	end.
+
 
 %% ====================================================================
 %% Internal functions

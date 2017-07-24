@@ -37,10 +37,10 @@
 -define(Item_Rune, 4).
 
 
-%% 铜币交易
--define(TradeType_Silver, 1).
-%% 元宝交易
--define(TradeType_Gold, 2).
+%% 金币交易
+-define(TradeType_Gold, 1).
+%% 钻石交易
+-define(TradeType_Diamond, 2).
 %% 指定交易
 -define(TradeType_Private, 3).
 
@@ -66,33 +66,18 @@
 -define(LTOR_Back, 2).			% 退回
 -define(LTOR_Success, 3).		% 交易成功
 
-%% 铜币交易行
-%% 12小时
--define(TradeTime12, 12).
--define(TradeTime24, 24).
--define(TradeTime48, 48).
-%% 12小时保管费系数
--define(TradeMoney12, sellcost12).
--define(TradeMoney24, sellcost24).
--define(TradeMoney48, sellcost48).
-%% 交易费，对出售者扣的税，元宝交易不扣税
+%% 交易费，对出售者扣的税
 -define(TradeTax, selltax).
-%% 寄售为元宝时，扣除的铜币保管费系数
--define(TradeGoldMoney, gold_exchange).
 %% 上架个数
 -define(PutTradeNum, normal_sellnum).
-%% VIP上架个数
--define(PutTradeNumVip, vip_sellnum).
 %% 指定交易人数
 -define(PutTradeNumPrivate, order_sellnum).
-%% VIP指定交易人数
--define(PutTradeNumPrivateVip, viporder_sellnum).
 
 %% 金币交易行
--define(MNESIA_Trade_Silver, mnesia_trade_silver).
-
-%% 元宝交易行
 -define(MNESIA_Trade_Gold, mnesia_trade_gold).
+
+%% 钻石交易行
+-define(MNESIA_Trade_Diamond, mnesia_trade_diamond).
 
 %% 指定交易行
 -define(MNESIA_Trade_Private, mnesia_trade_private).
@@ -101,105 +86,119 @@
 %% 返回的查询过滤结果
 -record(?TradeQueryResult,
 {
-    orderID         = 0, % 订单ID
-    itemUID         = 0, % 出售者原装备唯一ID
-    itemID          = 0, % 道具编号ID
-    roleID          = 0, % 出售者角色ID
-    sellType        = 0, % 出售类型,1铜币交易,2元宝交易,3指定交易
-    sellState       = 0, % 出售状态,0待售,1已锁定,2已出售,3已完成交易,4已下架
-    putTime         = 0, % 上架时间
-    downTime        = 0, % 下架时间
-    silver          = 0, % 银币(铜币)
-    gold            = 0, % 金币(元宝)
-    destRoleID      = 0, % 指定卖给谁
-    quality         = 0, % 道具品质
-    pileNumber      = 0, % 叠加数量
-    itemLevel       = 0  % 道具等级
+	orderID         = 0, % 订单ID
+	itemUID         = 0, % 出售者原装备唯一ID
+	itemID          = 0, % 道具编号ID
+	roleID          = 0, % 出售者角色ID
+	sellType        = 0, % 出售类型,1金币交易,2钻石交易,3指定交易
+	sellState       = 0, % 出售状态,0待售,1已锁定,2已出售,3已完成交易,4已下架
+	putTime         = 0, % 上架时间
+	downTime        = 0, % 下架时间
+	silver          = 0, % 银币(金币)
+	gold            = 0, % 金币(钻石)
+	destRoleID      = 0, % 指定卖给谁
+	quality         = 0, % 道具品质
+	pileNumber      = 0, % 叠加数量
+	itemLevel       = 0  % 道具等级
 }).
 
-%% 铜币交易表
--record(?MNESIA_Trade_Silver,
-{
-    orderID         = 0, % 订单ID
-    itemUID         = 0, % 出售者原装备唯一ID
-    roleID          = 0, % 出售者角色ID
-    sellType        = 0, % 出售类型,1铜币交易,2元宝交易,3指定交易
-    putTime         = 0, % 上架时间
-    downTime        = 0, % 下架时间
-    silver          = 0, % 银币(铜币)
-    gold            = 0, % 金币(元宝)
-    destRoleID      = 0, % 指定卖给谁
-    sellState       = 0, % 出售状态,0待售,1已锁定,2已出售,3已完成交易,4已下架
-    relateRoleID    = 0, % 改变当前交易状态的人
-    itemID          = 0, % 道具编号ID
-    quality         = 0, % 道具品质
-    pileNumber      = 0, % 叠加数量
-    itemClass       = 0, % 道具分类，1为装备道具equip，2为普通道具item
-    itemType        = 0, % 道具主类型
-    itemSubType     = 0, % 道具子类型
-    itemLevel       = 0, % 道具等级
-    itemProfession  = 0  % 道具职业
-}).
-
-
-%% 元宝交易表
+%% 金币交易表
 -record(?MNESIA_Trade_Gold,
 {
-    orderID         = 0, % 订单ID
-    itemUID         = 0, % 出售者原装备唯一ID
-    roleID          = 0, % 出售者角色ID
-    sellType        = 0, % 出售类型,1铜币交易,2元宝交易,3指定交易
-    putTime         = 0, % 上架时间
-    downTime        = 0, % 下架时间
-    silver          = 0, % 银币(铜币)
-    gold            = 0, % 金币(元宝)
-    destRoleID      = 0, % 指定卖给谁
-    sellState       = 0, % 出售状态,0待售,1已锁定,2已出售,3已完成交易,4已下架
-    relateRoleID    = 0, % 改变当前交易状态的人
-    itemID          = 0, % 道具编号ID
-    quality         = 0, % 道具品质
-    pileNumber      = 0, % 叠加数量
-    itemClass       = 0, % 道具分类，1为装备道具equip，2为普通道具item
-    itemType        = 0, % 道具主类型
-    itemSubType     = 0, % 道具子类型
-    itemLevel       = 0, % 道具等级
-    itemProfession  = 0  % 道具职业
+	orderID         = 0, % 订单ID
+	itemUID         = 0, % 出售者原装备唯一ID
+	roleID          = 0, % 出售者角色ID
+	sellType        = 0, % 出售类型,1金币交易,2钻石交易,3指定交易
+	putTime         = 0, % 上架时间
+	downTime        = 0, % 下架时间
+	silver          = 0, % 银币(金币)
+	gold            = 0, % 金币(钻石)
+	destRoleID      = 0, % 指定卖给谁
+	sellState       = 0, % 出售状态,0待售,1已锁定,2已出售,3已完成交易,4已下架
+	relateRoleID    = 0, % 改变当前交易状态的人
+	itemID          = 0, % 道具编号ID
+	quality         = 0, % 道具品质
+	pileNumber      = 0, % 叠加数量
+	itemClass       = 0, % 道具分类，1为装备道具equip，2为普通道具item
+	itemType        = 0, % 道具主类型
+	itemSubType     = 0, % 道具子类型
+	itemLevel       = 0, % 道具等级
+	itemProfession  = 0  % 道具职业
+}).
+
+
+%% 钻石交易表
+-record(?MNESIA_Trade_Diamond,
+{
+	orderID         = 0, % 订单ID
+	itemUID         = 0, % 出售者原装备唯一ID
+	roleID          = 0, % 出售者角色ID
+	sellType        = 0, % 出售类型,1金币交易,2钻石交易,3指定交易
+	putTime         = 0, % 上架时间
+	downTime        = 0, % 下架时间
+	silver          = 0, % 银币(金币)
+	gold            = 0, % 金币(钻石)
+	destRoleID      = 0, % 指定卖给谁
+	sellState       = 0, % 出售状态,0待售,1已锁定,2已出售,3已完成交易,4已下架
+	relateRoleID    = 0, % 改变当前交易状态的人
+	itemID          = 0, % 道具编号ID
+	quality         = 0, % 道具品质
+	pileNumber      = 0, % 叠加数量
+	itemClass       = 0, % 道具分类，1为装备道具equip，2为普通道具item
+	itemType        = 0, % 道具主类型
+	itemSubType     = 0, % 道具子类型
+	itemLevel       = 0, % 道具等级
+	itemProfession  = 0  % 道具职业
 }).
 
 
 %% 指定交易表
 -record(?MNESIA_Trade_Private,
 {
-    orderID         = 0, % 订单ID
-    itemUID         = 0, % 出售者原装备唯一ID
-    roleID          = 0, % 出售者角色ID
-    sellType        = 0, % 出售类型,1铜币交易,2元宝交易,3指定交易
-    putTime         = 0, % 上架时间
-    downTime        = 0, % 下架时间
-    silver          = 0, % 银币(铜币)
-    gold            = 0, % 金币(元宝)
-    destRoleID      = 0, % 指定卖给谁
-    sellState       = 0, % 出售状态,0待售,1已锁定,2已出售,3已完成交易,4已下架
-    relateRoleID    = 0, % 改变当前交易状态的人
-    itemID          = 0, % 道具编号ID
-    quality         = 0, % 道具品质
-    pileNumber      = 0, % 叠加数量
-    itemClass       = 0, % 道具分类，1为装备道具equip，2为普通道具item
-    itemType        = 0, % 道具主类型
-    itemSubType     = 0, % 道具子类型
-    itemLevel       = 0, % 道具等级
-    itemProfession  = 0  % 道具职业
+	orderID         = 0, % 订单ID
+	itemUID         = 0, % 出售者原装备唯一ID
+	roleID          = 0, % 出售者角色ID
+	sellType        = 0, % 出售类型,1金币交易,2钻石交易,3指定交易
+	putTime         = 0, % 上架时间
+	downTime        = 0, % 下架时间
+	silver          = 0, % 银币(金币)
+	gold            = 0, % 金币(钻石)
+	destRoleID      = 0, % 指定卖给谁
+	sellState       = 0, % 出售状态,0待售,1已锁定,2已出售,3已完成交易,4已下架
+	relateRoleID    = 0, % 改变当前交易状态的人
+	itemID          = 0, % 道具编号ID
+	quality         = 0, % 道具品质
+	pileNumber      = 0, % 叠加数量
+	itemClass       = 0, % 道具分类，1为装备道具equip，2为普通道具item
+	itemType        = 0, % 道具主类型
+	itemSubType     = 0, % 道具子类型
+	itemLevel       = 0, % 道具等级
+	itemProfession  = 0  % 道具职业
 }).
 
 %% 交易行道具静态属性
 -record(tradeItemStaticRec, {
-    orderID         = 0, % 订单ID
-    itemUID         = 0, % 出售者原装备唯一ID
-    itemID          = 0, % 道具编号ID
-    itemType        = 0, % 道具主类型
-    itemSubType     = 0, % 道具子类型
-    itemLevel       = 0, % 道具等级
-    itemProfession  = 0  % 道具职业
+	orderID         = 0, % 订单ID
+	itemUID         = 0, % 出售者原装备唯一ID
+	itemID          = 0, % 道具编号ID
+	itemType        = 0, % 道具主类型
+	itemSubType     = 0, % 道具子类型
+	itemLevel       = 0, % 道具等级
+	itemProfession  = 0  % 道具职业
+}).
+
+%% 交易行成交记录
+-record(tradeDealRecord, {
+	itemID = 0,	%% 道具编号ID
+	sellRoleID = 0,	%% 出售者ID
+	buyRoleID = 0,	%% 购买者ID
+	sellType = 2,	%% 出售类型,1金币交易,2钻石交易,3指定交易
+	pileNumber  = 0, % 叠加数量
+	buyorsell = 1,	%% 1购买，2出售，在购买成功的时候记录，则该值永远为1
+	dealTime = 0,	%% 成交时间s
+	gold = 0,	%% 金币
+	diamond = 0,	%% 钻石
+	tax = 0	%% 税
 }).
 
 -endif. % Trade_Define_HHHHHH______

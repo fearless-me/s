@@ -15,6 +15,7 @@
 -include("logger.hrl").
 -include("emysql.hrl").
 -include("dbsInc.hrl").
+-include("gsDef.hrl").
 
 %% API
 -export([
@@ -50,7 +51,6 @@ initDBTable() ->
 		{rec_item,               [{ram_copies, [Node]}, {attributes, record_info(fields, rec_item)},{index, [roleID]}]},%%道具信息
 		{rec_item_used_cd,       [{ram_copies, [Node]}, {attributes, record_info(fields, rec_item_used_cd)}]},			%%道具使用CD
 		{rec_package_info,       [{ram_copies, [Node]}, {attributes, record_info(fields, rec_package_info)}]},			%%背包格子信息
-		{rec_personality_info,   [{ram_copies, [Node]}, {attributes, record_info(fields, rec_personality_info)}]},		%%玩家个人信息
 		{rec_pet_equip,          [{ram_copies, [Node]}, {attributes, record_info(fields, rec_pet_equip)}]},				%%宠物装备信息
 		{rec_pet_info,           [{ram_copies, [Node]}, {attributes, record_info(fields, rec_pet_info)}]},				%%宠物信息
 		{rec_pet_skill,          [{ram_copies, [Node]}, {attributes, record_info(fields, rec_pet_skill)}]},				%%宠物技能
@@ -162,7 +162,8 @@ getUpdateTableName(Table) ->
 syncToDB() ->
 	case core:isCross() of
 		true ->
-			?WARN_OUT("cross server skip save data to database!!");
+%%			?WARN_OUT("cross server skip save data to database!!"),
+			skip;
 		_ ->
 			syncInsert(),
 			syncUpdate()
@@ -179,7 +180,7 @@ syncToDB() ->
 	dbSendMsg:sendMsg2DBPID(server_monitor_msg, {self(), 0, {?ServerMonitor_Save, 0}}),
 
 	%% 告诉日志，保存
-	logDBPID ! {tick_saveCacheLog, 0},
+	psMgr:sendMsg2PS(?LogDBPID, tick_saveCacheLog, 0),
 	ok.
 
 syncInsert() ->
@@ -198,7 +199,6 @@ syncInsert() ->
 		fun syncInsertFashionSlot/0,
 		fun syncInsertItemUsedCD/0,
 		fun syncInsertPackageInfo/0,
-		fun syncInsertPersonalityInfo/0,
 		fun syncInsertPetInfo/0,
 		fun syncInsertPetEquip/0,
 		fun syncInsertPetSkill/0,
@@ -244,7 +244,6 @@ syncUpdate() ->
 		fun syncUpdateFashionSlot/0,
 		fun syncUpdateItemUsedCD/0,
 		fun syncUpdatePackageInfo/0,
-		fun syncUpdatePersonalityInfo/0,
 		fun syncUpdatePetInfo/0,
 		fun syncUpdatePetEquip/0,
 		fun syncUpdatePetSkill/0,
@@ -1010,64 +1009,6 @@ syncUpdatePackageInfo() ->
 	end,
 	ok.
 
-syncInsertPersonalityInfo() ->
-	List = edb:selectTableAndClearTable(new_rec_personality_info),
-	case List of
-		[] ->
-			skip;
-		_ ->
-			Fun = fun(#rec_personality_info{
-				roleID = RoleID,				%%角色ID bigint(20) unsigned
-				photoData = Data,				%%玩家照片数据 mediumblob
-				praiseNum = Num,				%%玩家的赞数量 int(10) unsigned
-				birthday = BD,				%%玩家生日 varchar(30)
-				starSign = SS,				%%玩家星座 varchar(24)
-				location = L,				%%玩家地址 varchar(57)
-				sign = S,				%%玩家签名 varchar(144)
-				tags = Tag,				%%玩家标签 text
-				impressions = Imp,				%%玩家获得印象 text
-				forbiddenTime = FT   %%禁止传照片的时间
-			}) ->
-				NewData = list_to_binary(Data),
-				NewTag = misc:term_to_string(Tag),
-				NewImp = misc:term_to_string(Imp),
-				Ret = emysql:execute(?GAMEDB_CONNECT_POOL, stSavePersonalityInfo, [RoleID, NewData, Num,
-					BD, L, SS, S, NewTag, NewImp, FT]),
-				libDB:logExecResult(stSavePersonalityInfo, RoleID, Ret)
-				  end,
-			lists:foreach(Fun, List)
-	end,
-	ok.
-
-syncUpdatePersonalityInfo() ->
-	List = edb:selectTableAndClearTable(update_rec_personality_info),
-	case List of
-		[] ->
-			skip;
-		_ ->
-			Fun = fun(#rec_personality_info{
-				roleID = RoleID,				%%角色ID bigint(20) unsigned
-				photoData = Data,				%%玩家照片数据 mediumblob
-				praiseNum = Num,				%%玩家的赞数量 int(10) unsigned
-				birthday = BD,				%%玩家生日 varchar(30)
-				starSign = SS,				%%玩家星座 varchar(24)
-				location = L,				%%玩家地址 varchar(57)
-				sign = S,				%%玩家签名 varchar(144)
-				tags = Tag,				%%玩家标签 text
-				impressions = Imp,				%%玩家获得印象 text
-				forbiddenTime = FT   %%禁止传照片的时间
-			}) ->
-				NewData = list_to_binary(Data),
-				NewTag = misc:term_to_string(Tag),
-				NewImp = misc:term_to_string(Imp),
-				Ret = emysql:execute(?GAMEDB_CONNECT_POOL, stSavePersonalityInfo, [RoleID, NewData, Num,
-					BD, L, SS, S, NewTag, NewImp, FT]),
-				libDB:logExecResult(stSavePersonalityInfo, RoleID, Ret)
-				  end,
-			lists:foreach(Fun,List)
-	end,
-	ok.
-
 syncInsertPetInfo() ->
 	List = edb:selectTableAndClearTable(new_rec_pet_info),
 	case List of
@@ -1084,12 +1025,16 @@ syncInsertPetInfo() ->
 					force = Force,				%%宠物战力 bigint(20)
 					attas = Attas,				%%宠物提升属性列表
 					raw = Raw,					%%宠物转生tinyint(4) unsigned
-					time = Time
+					time = Time,
+					upCount = UpCount,
+					petLv = PetLevel,
+					exp = Exp
 				},AccIn) ->
-					io_lib:format(",(~p,~p,~p,~p,'~s',~p,~p,'~s',~p)",[RoleID,PetID,Star,Status,Name,Force,Raw,misc:term_to_string(Attas), Time]) ++ AccIn
+					io_lib:format(",(~p,~p,~p,~p,'~s',~p,~p,'~s',~p,~p,~p,~p)",
+						[RoleID,PetID,Star,Status,Name,Force,Raw,misc:term_to_string(Attas), Time, UpCount, PetLevel, Exp]) ++ AccIn
 				end,
 			[_|T] = lists:foldl(Fun,[],List),
-			SQL = io_lib:format("insert pet_info(roleID,petID,star,`status`,name,`force`,raw,attas,`time`) values ~s",[T]),
+			SQL = io_lib:format("insert pet_info(roleID,petID,star,`status`,name,`force`,raw,attas,`time`, upCount, petLv,exp) values ~s",[T]),
 			Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
 			logResult("insert pet_info",Ret,SQL)
 	end,
@@ -1111,12 +1056,17 @@ syncUpdatePetInfo() ->
 					force = Force,				%%宠物战力 bigint(20)
 					attas = Attas,				%%宠物提升属性列表
 					raw = Raw,					%%宠物转生 tinyint(4) unsigned
-					time = Time
+					time = Time,
+					upCount = UpCount,
+					petLv = PetLevel,
+					exp = Exp
 				}) ->
 					SQL =
 						case PetID =:= PetID1 of
 							true ->
-								io_lib:format("update pet_info set star=~p,`status`=~p,name='~s',`force`=~p, attas=~p,raw=~p, time = ~p where roleID=~p and petID=~p",[Star,Status,Name,Force,misc:term_to_string(Attas),Raw,Time, RoleID,PetID]);
+								io_lib:format(
+									"update pet_info set star=~p,`status`=~p,name='~s',`force`=~p, attas=~p,raw=~p, time = ~p, upCount = ~p, petLv = ~p, exp = ~p where roleID=~p and petID=~p",
+									[Star,Status,Name,Force,misc:term_to_string(Attas),Raw,Time, UpCount, PetLevel, Exp, RoleID, PetID]);
 							_ ->
 								io_lib:format("DELETE FROM pet_info WHERE roleID = ~p AND petID = ~p;", [RoleID, PetID])
 						end,

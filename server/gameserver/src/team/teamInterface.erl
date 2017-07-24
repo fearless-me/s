@@ -23,10 +23,18 @@
 	%% 两个角色是否是队友
 	isInSameTeam/2,
 	%% 队伍是否满员，如果队伍不存在返回false
-	isTeamFullWithTeamID/1
+	isTeamFullWithTeamID/1,
+	isTeamFullWithTeamInfo/1,
+	%% 是否开始进入副本统计
+	isTeamStartCopyMapAck/1,
+	%% 检查队伍人数多于副本需要的人数
+	isTooMuchMemberForMapWithTeamID/1,
+	isTooMuchMemberForMapWithTeamInfo/1
 ]).
 
 -export([
+	%% 获取队伍最大人数配置
+	getCfgTeamMaxMember/1,
 	%% 获取队伍ID
 	getTeamID/1,
 	%% 取得队伍的队长ID（使用队伍ID)
@@ -43,6 +51,7 @@
 	getTeamMemberCountWithRoleID/1,
 	getTeamMemberCountWithRoleID/2,
 	getTeamMemberCountWithTeamID/1,
+	getTeamMemberCountInSameMapWithRoleID/3,
 	%% 队伍成员RoleID列表
 	getTeamMemberRoleIDListWithTeamID/1,
 	getTeamMemberRoleIDListWithRoleID/1,
@@ -53,7 +62,9 @@
 	%% 队伍成员Pid列表
 	getTeamMemberPidListWithTeamID/1,
 	getTeamMemberPidListWithRoleID/1,
-	getTeamMemberPidListInSameMapWithRoleID/3
+	getTeamMemberPidListInSameMapWithRoleID/3,
+	%% 获取队伍成员的recTeamMemberInfo
+	getTeamMemberInfoWithRoleID/1
 ]).
 
 -export([
@@ -79,15 +90,24 @@
 	makeTeamInfoMsg/1,
 	makeNetTeamBaseInfo/1,
 	makeNetMemberInfo/1,
-	makeNetMemberSnapshotInfo/1,
-	isTeamStartCopyMapAcking/1
+	makeNetMemberSnapshotInfo/1
 ]).
+
+getCfgTeamMaxMember(MapID)->
+	case getCfg:getCfgByArgs(cfg_mapsetting, MapID) of
+		#mapsettingCfg{teamtype = 0}->
+			0;
+		#mapsettingCfg{teamtype = V} ->
+			V;
+		_ ->
+			?MAX_TeamMemberNum
+	end.
 
 %% 查询自己自动匹配状态
 queryMatchState(RoleID) ->
 	case teamInterface:isInTeam(RoleID) of
 		true ->
-			?MatchState_NotIn;
+			{?MatchState_NotIn, 0};
 		_ ->
 			case myEts:readRecord(?Ets_RoleMatchTeam, RoleID) of
 				#recRoleMatchTeam{startTime = StartTime} ->
@@ -110,8 +130,19 @@ queryTeamList(MapIDList) ->
 		, CopyMapID =/= 0
 		, SearchFlag =/= 0
 		, lists:member(CopyMapID, MapIDList)
-		, length(ML) < ?MAX_TeamMemberNum
+		, isLeaderInNormalMap(R)
+		, length(ML) < getCfgTeamMaxMember(CopyMapID)
 		, length(AL) =:= 0].
+
+isLeaderInNormalMap(#recTeamInfo{leaderID = LeaderID, memberList = ML})->
+	case lists:keyfind(LeaderID, #recTeamMemberInfo.roleID, ML) of
+		#recTeamMemberInfo{mapID = MapID}->
+			playerScene:getMapType(MapID) =:= ?MapTypeNormal;
+		_ ->
+			false
+	end;
+isLeaderInNormalMap(_Any)->
+	false.
 
 %% 是否是队长
 isTeamLeader(RoleID) ->
@@ -133,13 +164,27 @@ isInSameTeam(RoleID, TargetRoleID) ->
 	TID1 =:= TID2 andalso TID1 > 0.
 
 %%
-isTeamFullWithTeamID(TeamID)->
-	case read_team_info_by_tid(TeamID) of
-		#recTeamInfo{memberList = ML}->
-			erlang:length(ML) >= ?MAX_TeamMemberNum;
-		_ ->
-			false
-	end.
+isTeamFullWithTeamInfo(#recTeamInfo{memberList = ML, copyMapID = CopyMapID})->
+	erlang:length(ML) >= getCfgTeamMaxMember(CopyMapID);
+isTeamFullWithTeamInfo(_Any)->
+	true.
+
+isTeamFullWithTeamID(TeamID) when is_number(TeamID) ->
+	isTeamFullWithTeamInfo(read_team_info_by_tid(TeamID));
+isTeamFullWithTeamID(_Any)->
+	true.
+
+isTooMuchMemberForMapWithTeamInfo(#recTeamInfo{memberList = ML, copyMapID = CopyMapID})->
+	erlang:length(ML) > getCfgTeamMaxMember(CopyMapID);
+isTooMuchMemberForMapWithTeamInfo(_)->
+	true.
+
+isTooMuchMemberForMapWithTeamID(TeamID) when is_number(TeamID) ->
+	isTooMuchMemberForMapWithTeamInfo(read_team_info_by_tid(TeamID));
+isTooMuchMemberForMapWithTeamID(_)->
+	true.
+
+
 
 %% 队伍ID
 getTeamID(RoleID) ->
@@ -202,6 +247,21 @@ getTeamMemberCountWithTeamID(TeamID) ->
 		_ ->
 			0
 	end.
+
+getTeamMemberCountInSameMapWithRoleID(_RoleID, undefined,_IncludeSelf)->
+	0;
+getTeamMemberCountInSameMapWithRoleID(RoleID, PlayerEts,IncludeSelf)->
+	TID = read_team_id_by_role(RoleID),
+	CodeList = read_team_member_code_by_tid(TID, RoleID, IncludeSelf),
+	lists:foldl(
+		fun(Code, ACC) ->
+			case myEts:readRecord(PlayerEts, Code) of
+				#recMapObject{} ->
+					ACC + 1;
+				_ ->
+					ACC
+			end
+		end, 0, CodeList).
 
 getTeamMemberCountWithRoleID(RoleID, IncludeSelf) ->
 	case read_team_info_by_role(RoleID) of
@@ -330,6 +390,10 @@ getTeamMemberRoleIDListInSameMapWithRoleID(RoleID, PlayerEts, IncludeSelf)->
 			end
 		end, [], CodeList).
 
+getTeamMemberInfoWithRoleID(RoleID) ->
+	ML = read_member_list_by_role(RoleID),
+	lists:keyfind(RoleID, #recTeamMemberInfo.roleID, ML).
+
 %% 组装信息
 makeTeamInfoMsg(#recTeamInfo{
 	memberList = MemberList
@@ -362,7 +426,8 @@ makeNetMemberInfo(#recTeamMemberInfo{
 	posY = Y,
 	actionPoint = AV,
 	targetMapCount = EnterCount,
-	customInfo = CustomInfo
+	customInfo = CustomInfo,
+	assistMapID = AssistMapID
 }) ->
 	#pk_TeamMemberInfo{                                                                                           
 		playerID = RoleID,
@@ -384,7 +449,8 @@ makeNetMemberInfo(#recTeamMemberInfo{
 		y = Y,
 		customInfo = CustomInfo,
 		copyMapLeftCount = EnterCount,
-		actionPoint = AV
+		actionPoint = AV,
+		assistMapID = AssistMapID
 	}.
 
 makeNetMemberSnapshotInfo(#recTeamMemberInfo{
@@ -395,7 +461,9 @@ makeNetMemberSnapshotInfo(#recTeamMemberInfo{
 	career = Career,
 	race = Race,
 	sex = Sex,
-	head = Head
+	head = Head,
+	fightingCapacity = Force,
+	guildID = GuildID
 }) ->
 	#pk_TeamMemberSnapshot{
 		playerID = RoleID,
@@ -406,7 +474,8 @@ makeNetMemberSnapshotInfo(#recTeamMemberInfo{
 		race = Race,
 		sex = Sex,
 		head = Head,
-		force = 0
+		force = Force,
+		guildID = GuildID
 	}.
 
 makeNetTeamBaseInfo(#recTeamInfo{
@@ -424,11 +493,11 @@ makeNetTeamBaseInfo(#recTeamInfo{
 		searchStartTime = SearchStartTime
 	}.
 
-isTeamStartCopyMapAcking(#recTeamInfo{ackStartCopyRoleList = []})->
+isTeamStartCopyMapAck(#recTeamInfo{ackStartCopyRoleList = []})->
 	false;
-isTeamStartCopyMapAcking(#recTeamInfo{leaderStartCopyTime = ST})->
+isTeamStartCopyMapAck(#recTeamInfo{leaderStartCopyTime = ST})->
 	time2:getTimestampSec() < ST + ?AckStartCopyMapTimeOut;
-isTeamStartCopyMapAcking(_)->
+isTeamStartCopyMapAck(_)->
 	false.
 
 %%%-------------------------------------------------------------------

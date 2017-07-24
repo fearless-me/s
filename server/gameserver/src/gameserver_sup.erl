@@ -31,15 +31,9 @@ start_link() ->
 %% Child :: {Id,StartFunc,Restart,Shutdown,Type,Modules}
 init([]) ->
 	try
-		Title =
-			case core:isCross() of
-				true ->
-					"CrossServer";
-				false ->
-					"GameServer"
-			end,
-
-		hdlt_logger:initEnv(Title),
+		%% 这里无法判断是不是跨服，直接设置名字
+		Name = io_lib:format("GameServer~p", [time2:getTimestampSec()]),
+		hdlt_logger:initEnv(Name),
 		crypto:start(),
 		application:start(localLog),
 		application:start(emysql),

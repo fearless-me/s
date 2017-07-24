@@ -80,6 +80,10 @@ init2() ->
 	setInt(?PubProp_FashionMajorHand, 0),
 	setInt(?PubProp_FashionHead, 0),
 	setInt(?PubProp_FashionClothes, 0),
+	setInt(?PubProp_FashionBack, 0),
+	setInt(?PubProp_FashionSpirit, 0),
+	setInt(?PubProp_FashionEmotion, 0),
+
 	setInt(?PubProp_FashionVisibleFlag, 0),
 	setInt(?PubProp_PetTurnRaw, 0),
 	setInt(?PubProp_TitleSlot1, 0),
@@ -105,9 +109,10 @@ init2() ->
 	setInt(?PriProp_PlayerSignReward, 0),
 	setInt(?PriProp_GuildApplyNumber, 0),
 
-	playerWing:setWingLevel(0, 0 ),
-	setInt(?PriProp_WingExp, 0),
-	setInt(?PriProp_WingMaxLevel, 0),
+%%	playerWing:setWingLevel(0, 0 ),
+    setInt(?PubProp_WingLevel, 0),
+	setInt(?PriProp_FashionRoomExp, 0),
+	setInt(?PriProp_FashionRoomLevel, 1),
 	setInt(?PriProp_CrosArenaInte, 0),
 
 	setInt64(?SerProp_PlayerDTime,NowTime),
@@ -206,12 +211,19 @@ init2() ->
 	setAny(?SerProp_SevenDayAim_EquipQuality, [0, 0, 0, 0, 0, 0]),
 	setAny(?SerProp_SevenDayAim_PetAdd, []),
 	setInt(?SerProp_SevenDayAimTimeBegin, 0),
+	setInt(?SerProp_ThirtyDayTimeBegin, 0),
 	setAny(?SerProp_SevenDayAimAlreadyReward, []),
-	setAny(?SerProp_SevenDayAim_ProtectGod, 0),
+	setInt(?SerProp_SevenDayAim_ProtectGod, 0),
+	setAny(?SerProp_SevenDayAim_Material, []),
+	setAny(?SerProp_UpSkill_CostList, []),
+	setAny(?SerProp_EquipGems, []),
 
 	setAny(?SerProp_SideTaskCompleteList, []),
 
 	setInt(?SerProp_ThirtyDayTimeAlreadyReward, 0),
+
+	setAny(?SerProp_AlreadyEnterNormalMap, []),
+	setAny(?SerProp_MonsterBookProp, []),
 
 	ok.
 
@@ -654,6 +666,17 @@ propChangeCallBack(?PriProp_PetForce, _PropType, _PropOldValue, PropNewValue) ->
 	ok;
 propChangeCallBack(?PriProp_Reputation, _PropType, _PropOldValue, PropNewValue) when erlang:is_integer(PropNewValue) andalso PropNewValue >= 0 ->
 	playerVip:vipReputationChange(),
+	ok;
+propChangeCallBack(?SerProp_ActionPoint, _PropType, _PropOldValue, PropNewValue) ->
+	[_, ActionPoint] = PropNewValue,
+	%%特殊处理下，一般不要这样做
+	myEts:updateEts(ets_rolekeyinfo, playerState:getRoleID(),{#?RoleKeyRec.actionPoint, ActionPoint}),
+	ok;
+propChangeCallBack(?PubProp_PlayerKillValue, _PropType, PropOldValue, PropNewValue) ->
+	playerRedName:onKVChange(PropOldValue, PropNewValue),
+	ok;
+propChangeCallBack(?PriProp_FashionRoomLevel, _PropType, PropOldValue, PropNewValue) ->
+	playerFashion:roomLevelChange(PropOldValue, PropNewValue),
 	ok;
 propChangeCallBack(_PropIndex, _PropType, _PropOldValue, _PropNewValue) ->
 	ok.

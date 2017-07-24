@@ -24,6 +24,11 @@
 -define(MonsterSTypeWorldBoss, 3).
 
 
+%% 
+-define(MonsterTriggerE_Dead, 1).
+-define(MonsterTriggerE_Hp, 2).
+
+
 -record(recSpawnMonster,{
 	id = 0,							    %%怪物的ID
 	mapPid = 0,                            %%怪物所在的地图Pid

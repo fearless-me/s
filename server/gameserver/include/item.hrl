@@ -31,6 +31,11 @@
 -define(ItemTypePlayerPetSkillBook, 26).             %%宠物技能书
 -define(ItemTypeRingLevelup, 27).                    %%***
 -define(ItemTypePieces, 28).                         %%碎片
+-define(ItemTypeGift, 29).                         %%用作赠礼的礼品
+-define(ItemTypeSeed, 30).                         %% 家园-种植区-种子
+-define(ItemTypePlant, 31).                         %% 家园-种植区-农作物
+-define(ItemTypeCompost, 32).                         %% 家园-种植区-肥料
+-define(ItemTypePetExp, 35).                         %% 宠物经验丹
 
 -define(Item_Use_Unkown, 1).        %% 什么都不做
 -define(Item_Use_Buffer, 2).        %% 给增加一个Buffer，Param1:BufferID
@@ -65,6 +70,8 @@
 -define(Item_Use_PetSkillBook, 31).    %% 宠物技能书，参数1是技能id 参数2为技能等级（0为等级随机）
 -define(Item_Use_PlayerBQ, 32).    %% 使用获得表情
 -define(Item_Use_PlayerDZ, 33).    %% 使用获得动作
+-define(Item_Use_StarMoon, 34).    %% 使用星月秘盒获得
+-define(Item_Use_PetExp, 35).    %% 骑宠经验丹
 
 %道具品质
 -define(ItemQulityNomal, 1).                                %普通

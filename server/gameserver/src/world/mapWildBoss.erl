@@ -463,6 +463,10 @@ recordDamageValue(_,_,_,_,_,_,_) ->
 
 %% 随机选取一名玩家给予幸运奖励，并返回其姓名用于系统公告
 -spec sendRewardLucky(BossID::integer()) -> string().
+sendRewardLucky(_BossID) ->
+	%% 屏蔽野外首领幸运奖励
+	%% http://192.168.2.32:8080/browse/LUNA-3093
+	[];
 sendRewardLucky(BossID) ->
 	ListRoleID = mapState:getWildBossDamageFromPlayer_validRoleID(BossID),
 	case getCfg:getCfgByKey(cfg_wildboss, BossID) of

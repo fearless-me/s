@@ -13,6 +13,16 @@
 
 -compile(export_all).
 
+%% 查询另一半ID
+-spec queryMarriageRoleID(RoleID::uint64()) -> TargetRoleID::uint64().
+queryMarriageRoleID(RoleID) ->
+	case queryRelation(RoleID) of
+		#rec_marriage{targetRoleID = TID} ->
+			TID;
+		_ ->
+			0
+	end.
+
 %% 查询姻缘关系
 -spec queryRelation(RoleID::uint64()) -> #rec_marriage{}.
 queryRelation(RoleID) ->

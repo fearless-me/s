@@ -50,7 +50,7 @@ applyDance(Type) ->
 			core:sendMsgToActivity(?ActivityType_Dance, applyDance,
 				{playerState:getRoleID(), self(), playerState:getNetPid(), IsIn});
 		_ ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_ApplyDanceFailedPlayerLevel)
+			playerMsg:sendErrorCodeMsg(?ErrorCode_ApplyDanceFailedPlayerLevel, [?DanceLevel])
 	end,
 	ok.
 
@@ -130,26 +130,54 @@ breakDance() ->
 
 dance_tick_addExp({RoleID, Correct}) ->
 	case playerState:getRoleID() of
-		RoleID -> dance_tick_addExp2({RoleID, Correct});
+		RoleID ->
+			dance_tick_addExp2({RoleID, Correct});
 		RID ->
 			?ERROR_OUT("dance_tick_addExp self=~p, role=~p, correct=~p", [RID, RoleID, Correct])
 	end.
 dance_tick_addExp2({_RoleID, true}) ->
-	case getCfg:getCfgPStack(cfg_globalsetup, square_dancing_1) of
-		#globalsetupCfg{setpara = [AddExp]} ->
-			playerBase:addExp(AddExp, ?ExpSourceDanceIng, 1);
-		_ ->
-			skip
-	end,
-	ok;
+	playerBase:addExp(getFinalExp(getExp(true)), ?ExpSourceDanceIng, 1);
 dance_tick_addExp2({_RoleID, false}) ->
-	case getCfg:getCfgPStack(cfg_globalsetup, square_dancing_4) of
-		#globalsetupCfg{setpara = [AddExp]} ->
-			playerBase:addExp(AddExp, ?ExpSourceDanceIng, 0);
+	playerBase:addExp(getFinalExp(getExp(false)), ?ExpSourceDanceIng, 0).
+
+getFinalExp({0, _MaxExp}) ->
+	0;
+getFinalExp({Exp, MaxExp}) ->
+	Have = playerDaily:getDailyCounter(?DailyType_DanceExp, 1),
+	case Have >= MaxExp of
+		false ->
+			NewHave = erlang:min(Have + Exp, MaxExp),
+			Add = NewHave - Have,
+			playerDaily:addDailyCounter(?DailyType_DanceExp, 1, Add),
+			Add;
 		_ ->
-			skip
-	end,
-	ok.
+			0
+	end.
+
+getExp(true) ->
+	getExpStand();
+getExp(false) ->
+	%% 乘以百分比
+	case getCfg:getCfgByKey(cfg_globalsetup, square_dancing_4) of
+		#globalsetupCfg{setpara = [Per]} when Per =< 100 ->
+			{Exp, MaxExp} = getExpStand(),
+			{erlang:trunc(Per * Exp / 100), MaxExp};
+		_ ->
+			{0, 0}
+	end.
+
+getExpStand() ->
+	case isPlayerLevelCondition() of
+		true ->
+			case getCfg:getCfgByKey(cfg_indexFunction, playerState:getLevel()) of
+				#indexFunctionCfg{squaredance_exp = [Exp, MaxExp]} ->
+					{Exp, MaxExp};
+				_ ->
+					{0, 0}
+			end;
+		_ ->
+			{0, 0}
+	end.
 
 %% 打断跳舞动作
 -spec breakDance(RoleID::uint64()) -> ok.

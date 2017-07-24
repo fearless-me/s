@@ -14,7 +14,9 @@
 %% 宠物战力排行榜 = 所有宠物
 %% 宠物属性折算 = 出战+助战+休息 (全部在宠物表)
 %%
-
+%% 要特别注意： 计算宠物的战力必须要在 save之后进行
+%% 就是要 savePetInfoToDB 之后再调用 playerForce:calcOnePetForce
+%% 整个模块不可能重构，只能这样了
 
 
 -module(playerPet).
@@ -49,12 +51,18 @@
 ]).
 
 -export([
+	petSkillLevelUp/2
+]).
+
+-export([
 	petMake/1,
 	petShow/0,
 	petHide/0,
 	petSwitch/1,
 	petUpStar/1,
 	petTurnRaw/1,
+	petLevelUp/3,
+	petAddExp/2,
 	petReName/2,
 	petOnMount/0,
 	petOffMount/1,
@@ -71,7 +79,6 @@
 ]).
 
 -export([
-	initExpressPet/1,
 	initPetEquip/0,
 	initPetBattle/0,
 	addExpressPet/1,
@@ -89,7 +96,10 @@
 	savePetSkillCDToDB/2,
 	savePetInfoToDB/1,
 	sendPetInfoToClient/1,
-	getPetSkills/1    %% 提取指定骑宠ID的所有技能，用于新版骑宠领地模拟战斗时的创建骑宠
+	getPetSkills/1,    %% 提取指定骑宠ID的所有技能，用于新版骑宠领地模拟战斗时的创建骑宠
+	makePetInfo/1,
+	makePetBaseInfo/1,
+	getPetAssistBattleInfo/0
 ]).
 -export([
 	spawnPet/1,
@@ -106,7 +116,8 @@
 	getSkillPet/0,
 	petOnRevive/1,
 	getPetCodeList/1,
-	syncPetObject/2
+	syncPetObject/2,
+	getPetNumber/1
 ]).
 
 -export([
@@ -119,88 +130,169 @@
 -export([
 	%updatePetAchieveEvent/0,	未被调用
 	checkBattlePet/0,
-	checkPetIsExist/1
+	checkPetIsExist/1,
+	canOnMount/0
 ]).
 
 -export([
 	gmDelPetTurnRaw/2
 ]).
 
+%% ====================================================================
+petSelfChangeOk(#recPetInfo{pet_id = PetID} = NetPetInfo) ->
+	savePetInfoToDB(NetPetInfo),
+	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOn, true),
+	playerForce:calcPlayerForce(true),
+	ok.
+
+%% ====================================================================
+petAddExp(PetID, Exp) ->
+	AddExp = erlang:trunc(Exp),
+	case canPetLevelUp(PetID, AddExp) of
+		{true, PetInfo, NeedExp} ->
+			doPetAddExp(PetInfo, NeedExp, AddExp);
+		_ ->
+			skip
+	end.
+
+doPetAddExp(
+	#recPetInfo{pet_id = PetID, pet_level = CurLevel, pet_exp = PetExp} = PetInfo
+	, NeedExp
+	, AddExp
+) ->
+	{NewLevel, LeftExp} = calcNewLevel(
+		CurLevel
+		, PetExp + AddExp
+		, NeedExp
+	),
+	NewPetInfo = PetInfo#recPetInfo{
+		pet_level = NewLevel
+		, pet_exp = LeftExp
+	},
+	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOff, false),
+	sendPetInfoToClient(NewPetInfo),
+	playerMsg:sendNetMsg(#pk_GS2U_PetLevelUp{petID = PetID, petLevel = NewLevel, petExp = LeftExp}),
+	petSelfChangeOk(NewPetInfo),
+	playerForce:calcOnePetForce(PetID, true).
+
+%% ====================================================================
+petLevelUp(PetID, ItemID, Num) ->
+	case checkItem(ItemID, Num) of
+		{true, #itemCfg{useParam1 = SingleExp}} ->
+			AddExp = erlang:trunc(SingleExp * Num),
+			case canPetLevelUp(PetID, AddExp) of
+				{true, PetInfo, NeedExp} ->
+					doPetLevelUp(PetInfo, NeedExp, AddExp, ItemID, Num);
+				_ ->
+					false
+			end;
+		_ ->
+			skip
+	end,
+	ok.
+
+checkItem(ItemID, Num) ->
+	case getCfg:getCfgByArgs(cfg_item, ItemID) of
+		#itemCfg{itemType = ?ItemTypePetExp} = Cfg ->
+			{playerPackage:getGoodsNumByID(?Item_Location_Bag, ItemID) >= Num, Cfg};
+		_ ->
+			false
+	end.
+
+doPetLevelUp(
+	#recPetInfo{pet_id = PetID, pet_level = CurLevel, pet_exp = PetExp} = PetInfo
+	, NeedExp
+	, AddExp
+	, ItemID
+	, Num
+) ->
+	try
+		PLog = #recPLogTSItem{
+			old = 0,
+			new = 0,
+			change = -Num,
+			target = ?PLogTS_Item,
+			source = ?PLogTS_PlayerSelf,
+			gold = 0,
+			goldtype = 0,
+			changReason = ?ItemDeleteReasonPetLevelup,
+			reasonParam = 0
+		},
+		true = playerPackage:delGoodsByID(?Item_Location_Bag, ItemID, Num, PLog),
+		doPetAddExp(PetInfo, NeedExp, AddExp)
+	catch
+		_ : ERR ->
+			?ERROR_OUT("player[~p,~p] levelupPe[~p], AddExp[~p], err[~p]",
+				[playerState:getRoleID(), self(), PetInfo, AddExp, ERR])
+	end,
+	true.
+
+calcNewLevel(CurLevel, TotalExp, NeedExp) when TotalExp < NeedExp ->
+	{CurLevel, TotalExp};
+calcNewLevel(CurLevel, TotalExp, NeedExp) ->
+	{_F, NextNeedExp} = getPetLevelNeedExp(playerState:getLevel(), CurLevel + 1),
+	calcNewLevel(CurLevel + 1, TotalExp - NeedExp, NextNeedExp).
+
+canPetLevelUp(PetID, AddExp) ->
+	case getPetByID(PetID) of
+		{ok, #recPetInfo{pet_level = Level, pet_exp = Exp} = PetInfo} ->
+			case getPetLevelNeedExp(playerState:getLevel(), Level) of
+				{true, NeedExp} ->
+					case Exp + AddExp >= NeedExp of
+						true ->
+							{true, PetInfo, NeedExp};
+						_ ->
+							{true, PetInfo, 999999999999}
+					end;
+				_ ->
+					skip
+			end;
+		_ ->
+			skip
+	end.
+
+getPetLevelNeedExp(PlayerLevel, Level) when PlayerLevel =< Level ->
+	{false, 999999999999};
+getPetLevelNeedExp(_PlayerLevel, Level) ->
+	case getCfg:getCfgByArgs(cfg_petLevelProperty, Level) of
+		#petLevelPropertyCfg{exp = Exp} ->
+			{true, Exp};
+		_ ->
+			{false, 999999999999}
+	end.
+
+
+%% ====================================================================
+getPetNumber(Quality) ->
+	PetList = playerState:getPets(),
+	lists:foldl(
+		fun(#recPetInfo{pet_id = PetID}, AccN) ->
+			case getPetQuality(PetID) of
+				Quality ->
+					AccN + 1;
+				_ ->
+					AccN
+			end
+		end, 0, PetList).
+
+
+getPetQuality(PetID) ->
+	case getCfg:getCfgByArgs(cfg_pet, PetID) of
+		#petCfg{petquality = Quality} ->
+			Quality;
+		_ ->
+			-1
+	end.
+
 %%tick限时宠物
 -spec tickExpressPet() -> ok.
 tickExpressPet() -> ok.
-%%	L = getExpressPet(),
-%%	Fun = fun(#recPetInfo{pet_id = ID, pet_status = Status} = Pet) ->
-%%		if
-%%			Status =:= ?PetState_Assist -> %%助战
-%%				clearTimeLimitPetAssistBattle(ID, Pet);
-%%			true ->    %%出战
-%%				case getNoExpressPet() of
-%%					#recPetInfo{} = NewPet ->
-%%						petSwitch(false, NewPet#recPetInfo.pet_id, {true, NewPet});
-%%					_ ->
-%%						?ERROR_OUT("player name [~ts],roleID [~w] have no express pet", [playerState:getName(), playerState:getRoleID()])
-%%				end
-%%		end
-%%	      end,
-%%	lists:foreach(Fun, L).
-
-%%初始化限时骑宠
--spec initExpressPet(PetID :: uint()) -> {#recPetInfo{}, [#recPetSkill{}, ...]}.
-initExpressPet(PetID) ->
-	#petCfg{
-		petName = PetName,
-		time = Time,
-		stronger = Stronger,
-		strongervalue = Value,
-		talentSkill = TalentSkill,
-		randomSkill = RandomSkill
-	} = getCfg:getCfgPStack(cfg_pet, PetID),
-	SL = getPetTalentSkill(TalentSkill) ++
-		getPetRandomSkill(RandomSkill),
-	Fun = fun(K) ->
-		#pet_strongerCfg{
-			maxvalue = MaxValue
-		} = getCfg:getCfgPStack(cfg_pet_stronger, K),
-		{K, MaxValue * Value}
-		  end,
-	PetAttas = lists:map(Fun, Stronger),
-	Pet = #recPetInfo{
-		pet_time = time2:getLocalDateTimeSec() + Time,
-		pet_id = PetID,
-		pet_star = ?ExpressPetLevel,
-		pet_raw = ?ExpressPetLevel,
-		pet_name = PetName,
-		pet_force = 0,
-		pet_attas = PetAttas,
-		pet_status = ?PetState_Assist
-	},
-	{Pet, SL}.
 
 %%增加限时骑宠
 -spec addExpressPet(PetID :: uint()) -> ok.
 addExpressPet(PetID) ->
 	?ERROR_OUT("can't  add express pet"),
 	ok.
-%%	Pets = playerState:getPets(),
-%%	case checkPetIsExist(PetID, Pets) of
-%%		false ->
-%%			{NewPetInfo, SL} = initExpressPet(PetID),
-%%			playerState:setPetSkills(PetID, SL),
-%%			Fun = fun(PetSkill) ->
-%%				savePetSkillToDB(PetID, PetSkill)
-%%			      end,
-%%			lists:foreach(Fun, SL);
-%%		#recPetInfo{} = PetInfo ->
-%%			#petCfg{
-%%				time = Time
-%%			} = getCfg:getCfgPStack(cfg_pet, PetID),
-%%			NewPetInfo = PetInfo#recPetInfo{
-%%				pet_time = time2:getLocalDateTimeSec() + Time
-%%			}
-%%	end,
-%%	savePetInfoToDB(NewPetInfo),
-%%	sendPetInfoToClient(NewPetInfo).
 
 getExpressPet() ->
 	Now = time2:getLocalDateTimeSec(),
@@ -283,9 +375,9 @@ petMake(PetID) ->
 	Pets = playerState:getPets(),
 	petMake(checkPetIsExist(PetID, Pets), PetID, Pets).
 petMake(false, PetID, Pets) ->
-	_PetSkill = makePetSkill(PetID),
 	PetInfo1 = makePetInfo(PetID),
 	PetInfo = playerForce:calcOnePetForce(PetInfo1, true),
+	makePetInitSkill(PetInfo),
 	%%添加坐骑外观成就统计
 	updatePetAchieve(PetID, ?Achieve_CollecteMounts, [1]),
 	dbLog:sendSaveLogCreatePet(playerState:getRoleID(), PetInfo),
@@ -323,15 +415,30 @@ petShow(false, #recPetInfo{}) ->
 petShow(true, #recPetInfo{pet_status = ?PetState_Battle_Show}) ->
 	playerMsg:sendErrorCodeMsg(?ErrorCode_PetHasShow);
 petShow(true, #recPetInfo{pet_id = PetID, pet_status = ?PetState_Battle_Hide} = Pet) ->
-	callPet(Pet),
-	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOff, false),
-	NewPet = Pet#recPetInfo{pet_status = ?PetState_Battle_Show},
-	savePetInfoToDB(NewPet),
-	sendPetStatusToClient(NewPet#recPetInfo.pet_id, NewPet#recPetInfo.pet_status),
-	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOn, true),
-	playerForce:calcPlayerForce(true);
+	case checkPkVal() of
+		{true, _Any} ->
+			callPet(Pet),
+			playerPetProp:onPetAttrChange2Master(PetID, ?EquipOff, false),
+			NewPet = Pet#recPetInfo{pet_status = ?PetState_Battle_Show},
+			petSelfChangeOk(NewPet),
+			sendPetStatusToClient(NewPet#recPetInfo.pet_id, NewPet#recPetInfo.pet_status),
+			ok;
+		{_, PkVal} ->
+			playerMsg:sendErrorCodeMsg(?ErrorCode_PetCantShowPKValue, [PkVal])
+	end,
+	ok;
 petShow(_, _) ->
 	playerMsg:sendErrorCodeMsg(?ErrorCode_PetMountHasSleep).
+
+checkPkVal() ->
+	LimitVal =
+		case getCfg:getCfgByArgs(cfg_globalsetup, limitCallPetKv) of
+			#globalsetupCfg{setpara = [V]} ->
+				V;
+			_ ->
+				100
+		end,
+	{playerPropSync:getProp(?PubProp_PlayerKillValue) < LimitVal, LimitVal}.
 
 %%隐藏当前出战宠物
 -spec petHide() -> ok.
@@ -365,14 +472,13 @@ petHide(TempPetPet = #recPetInfo{pet_id = PetID, pet_status = Status}) when Stat
 			Sl = getPetUnLockPassSkill(PetID),
 			F = fun(#recPetSkill{skill_id = SkillID}) ->
 				monsterInterface:delPetPassEffect(Code, SkillID)
-				end,
+			    end,
 			lists:foreach(F, Sl),
 			savePetSkillCDToDB(PetID, Code),
 			clearSpawnPet(Code),
-			savePetInfoToDB(Pet),
 			sendPetStatusToClient(PetID, Pet#recPetInfo.pet_status),
-			playerPetProp:onPetAttrChange2Master(PetID, ?EquipOn, true),
-			playerForce:calcPlayerForce(true)
+			petSelfChangeOk(Pet),
+			ok
 	end;
 petHide(_) ->
 	playerMsg:sendErrorCodeMsg(?ErrorCode_PetHasHide).
@@ -385,72 +491,22 @@ petUpStar(PetID) ->
 petUpStar(PetID, {Cost, Opens, Pet}) ->
 	OldStar = Pet#recPetInfo.pet_star,
 	NewStar = OldStar + 1,
-	case lists:keyfind(NewStar, 1, Opens) of
-		{NewStar, Pos} ->
-			SkillID = unlockPetSkill(PetID, Pos);
-		_ ->
-			SkillID = 0
-	end,
-
 	playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_PetStar),
 	playerAchieve:achieveEvent(?Achieve_PetUpstar, [1]),
 	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOff, false),
 	NewPet = Pet#recPetInfo{pet_star = NewStar},
 	delItem(Cost, ?ItemDeleteReasonPetUpStar),
-	savePetInfoToDB(NewPet),
-	sendPetUpStarToClient(PetID, NewStar, SkillID),
 
-	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOn, true),
+	sendPetUpStarToClient(PetID, NewStar, 0),
+	petSelfChangeOk(NewPet),
+	playerForce:calcOnePetForce(PetID, true),
 	playerSevenDayAim:updateCondition(?SevenDayAim_PetStar, []),
 
 	%%写日志
 	dbLog:sendSaveLogPetUpStar(playerState:getRoleID(), PetID, OldStar, NewStar),
-	playerForce:calcPlayerForce(true),
-	playerForce:calcOnePetForce(PetID, true);
+	ok;
 petUpStar(_PetID, Error) ->
 	playerMsg:sendErrorCodeMsg(Error).
-
-% 未被调用
-%%% 更新骑宠成就 fixme 这里有个问题没搞懂，playerAchieve:achieveEvent 更新一次成就，就把所有的加上了？
-%-spec updatePetAchieveEvent() -> ok.
-%updatePetAchieveEvent() ->
-%	MaxStar = getPetMaxStar(),
-%	case MaxStar > 0 andalso (MaxStar rem 2) =:= 0 of
-%		true ->
-%			Div = MaxStar div 2,
-%			#achievementCfg{reward = ReWardList} = getCfg:getCfgPStack(cfg_achievement, ?Achieve_PetUpstar),
-%			case lists:filter(fun([Star, _, _]) -> Div =:= Star end, ReWardList) of
-%				[_ | _] ->
-%					AchieveList = playerState:getPlayerAchieveList(),
-%					AchieveLvl =
-%						case lists:keyfind(?Achieve_PetUpstar, #recAchieve.aID, AchieveList) of
-%							#recAchieve{aScheduleLevel = Lvl} -> Lvl;
-%							_ -> 0
-%						end,
-%					case (Div - 1) > AchieveLvl of
-%						true ->
-%%%							?WARN_OUT("updatePetAchieveEvent:~ts,~p", [playerState:getName(), MaxStar]),
-%							playerAchieve:achieveEvent(?Achieve_PetUpstar, [1]),
-%
-%							%% 判断一下是否初始化设置
-%							case lists:keyfind(?Achieve_PetUpstar, #recAchieve.aID, playerState:getPlayerAchieveList()) of
-%								#recAchieve{aScheduleLevel = 0} = Value ->
-%									%% 再设置一次
-%									?LOG_OUT("updatePetAchieveEvent:roleID=~p,MaxStar=~p,Value=~p", [playerState:getRoleID(), MaxStar, Value]),
-%									playerAchieve:achieveEvent(?Achieve_PetUpstar, [1]);
-%								_ -> skip
-%							end,
-%							ok;
-%						_ ->
-%							skip
-%					end;
-%				_ ->
-%					skip
-%			end;
-%		_ ->
-%			skip
-%	end,
-%	ok.
 
 
 %%宠物激活与转生
@@ -482,16 +538,15 @@ petTurnRaw(PetID, {Cost, Pet}) ->
 	NewPet = Pet#recPetInfo{pet_raw = NewRaw},
 	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOff, false),
 	delItem(Cost, ?ItemDeleteReasonPetRaw),
-	savePetInfoToDB(NewPet),
-	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOn, true),
+	sendPetRawToClient(PetID, NewRaw),
+	petSelfChangeOk(NewPet),
+	playerForce:calcOnePetForce(PetID, true),
+	playerSevenDayAim:updateCondition(?SevenDayAim_PetTurn, []),
+	%%宠物转生成就
+	updatePetAchieve(PetID, ?Achieve_pet_rebon, [1]),
 	%%写日志
 	dbLog:sendSaveLogPetRaw(playerState:getRoleID(), PetID, Pet#recPetInfo.pet_raw, NewRaw),
-	sendPetRawToClient(PetID, NewRaw),
-	%%宠物转生成就
-	playerSevenDayAim:updateCondition(?SevenDayAim_PetTurn, []),
-	updatePetAchieve(PetID, ?Achieve_pet_rebon, [1]),
-	playerForce:calcPlayerForce(true),
-	playerForce:calcOnePetForce(PetID, true);
+	ok;
 %%updatePetBaseProp();
 petTurnRaw(_PetID, Error) ->
 	playerMsg:sendErrorCodeMsg(Error).
@@ -504,9 +559,7 @@ gmDelPetTurnRaw(PetID, Raw) ->
 		Pet ->
 			playerPetProp:onPetAttrChange2Master(PetID, ?EquipOff, false),
 			NewPet = Pet#recPetInfo{pet_raw = Raw},
-			savePetInfoToDB(NewPet),
-			playerPetProp:onPetAttrChange2Master(PetID, ?EquipOn, true),
-			playerForce:calcPlayerForce(true),
+			petSelfChangeOk(NewPet),
 			playerForce:calcOnePetForce(PetID, true)
 	end.
 
@@ -567,13 +620,11 @@ petSwitch(false, PetID, {true, Pet}) ->
 	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOff, false),
 
 	NewPet = Pet#recPetInfo{pet_status = ?PetState_Battle_Show},
-	savePetInfoToDB(NewPet),
-	playerForce:calcOnePetForce(PetID, true),
 	sendPetStatusToClient(NewPet#recPetInfo.pet_id, NewPet#recPetInfo.pet_status),
 	callPet(Pet),
-	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOn, true),
-	playerForce:calcPlayerForce(true),
 	onPetSwitch(BattlePetID, PetID, Pet#recPetInfo.pet_status),
+	petSelfChangeOk(NewPet),
+	playerForce:calcOnePetForce(PetID, true),
 	%%上坐骑
 	petOnMount(PetID);
 petSwitch(_, _, Error) ->
@@ -612,7 +663,9 @@ petOffMountOther(Code) ->
 			changeMoveSpeed(ID, ?PetOffMount),
 			playerVipInter:setMountSpeedAdd(?PetOffMount),
 			playerState:setPetMounts({ID, ?PetOffMount}),
-			sendPetOffMountResult(Code);
+			sendPetOffMountResult(Code, true),
+			playerRace:onGiveUp(),    %% 跨服骑宠竞速：下骑宠导致弃赛
+			playerRace:cancel();    %% 跨服骑宠竞速：下骑宠导致取消报名
 		_ ->
 			skip
 	end.
@@ -629,8 +682,8 @@ petOnMount() ->
 	ok.
 
 doPetOnMount() ->
-	case playerState:isPlayerBattleStatus() of
-		true ->
+	case canOnMount() of
+		false ->
 			playerMsg:sendErrorCodeMsg(?ErrorCode_PetMountHasBattle);
 		_ ->
 			case getPetBattle() of
@@ -656,6 +709,20 @@ doPetOnMount() ->
 									sendPetOnMountResult(Code, ID, playerState:getPlayerCode(), 0)
 							end
 					end
+			end
+	end.
+
+
+canOnMount() ->
+	case playerState:isPlayerBattleStatus() of
+		true ->
+			false;
+		_ ->
+			case misc:testBit(playerState:getStatus(), ?CreatureSpeStatusPolymorph) of
+				true ->
+					false;
+				_ ->
+					true
 			end
 	end.
 
@@ -723,7 +790,9 @@ doPetOffMount(IsSendErrorCode) ->
 					playerVipInter:setMountSpeedAdd(?PetOffMount),
 					playerState:setPetMounts({ID, ?PetOffMount}),
 					monsterInterface:setPetAction(getPetBattleCode(), ?CreatureActionStatusStand),
-					sendPetOffMountResult(getPetBattleCode());
+					sendPetOffMountResult(getPetBattleCode(), false),
+					playerRace:onGiveUp(),    %% 跨服骑宠竞速：下骑宠导致弃赛
+					playerRace:cancel();    %% 跨服骑宠竞速：下骑宠导致取消报名
 				_ ->
 					skip
 			end
@@ -780,7 +849,7 @@ getPetCodeList([]) ->
 getPetCodeList(PetList) ->
 	Fun = fun(#recCallPet{pet_code = Code}) ->
 		Code
-		  end,
+	      end,
 	lists:map(Fun, PetList).
 
 %%获取宠物升星精灵点数
@@ -882,13 +951,11 @@ callPet(true, Pet) ->
 	?ERROR_OUT("player name [~s] call pet [~p] has exist! ", [playerState:getName(), Pet#recPetInfo.pet_id]);
 callPet(
 	_,
-	#recPetInfo{pet_id = ID, pet_star = Star, pet_raw = Raw, pet_name = PetName} = Pet
+	#recPetInfo{pet_id = ID, pet_star = Star, pet_raw = Raw, pet_name = PetName, pet_level = Level} = Pet
 ) ->
 	{X, Y} = playerState:getPos(),
-	Level = playerState:getLevel(),
 	Time = time:getUTCNowMSDiff2010(),
-	BPL = playerPetProp:makePetProp(Level, Pet#recPetInfo{pet_status = ?PetState_Battle_Show}),
-	%%Force = calcPetForce(ID, BPL),
+	BPL = playerPetProp:makePetProp(Pet#recPetInfo{pet_status = ?PetState_Battle_Show}),
 	Skills = getPetUnLockActiveSkill(ID),
 	PetArg = #recSpawnPet{
 		caster_code = playerState:getPlayerCode(),
@@ -920,6 +987,7 @@ callPet(
 	},
 	playerState:setPetCD(Time),
 	playerPropSync:setInt(?PubProp_PetTurnRaw, Raw),
+	playerForce:calcOnePetForce(ID, true),    %% 召唤骑宠后刷新该骑宠的战力
 	spawnPet(PetArg).
 
 %%宠物属性
@@ -1561,7 +1629,7 @@ petQEquipStr(_EquipID, {#recPetEquip{} = Equip, Items, Coins}) ->
 	playerPetProp:onBattlePetAttrChange(?EquipOn, true),
 	playerPetProp:calcBattlePetForce(true),
 	playerForce:calcPlayerForce(true);
-petQEquipStr(_, {_,Error}) ->
+petQEquipStr(_, {_, Error}) ->
 	playerMsg:sendErrorCodeMsg(Error).
 
 petQEquipStr(#recPetEquip{} = OldEquip, #recPetEquip{} = NewEquip, {true, Items, Coins}) ->
@@ -1569,8 +1637,8 @@ petQEquipStr(#recPetEquip{} = OldEquip, #recPetEquip{} = NewEquip, {true, Items,
 	petQEquipStr(OldEquip, NewEquip1, checkPetEquipStrMaterial(NewEquip1));
 petQEquipStr(OldEquip, NewEquip, _) ->
 	sendPetEquipToClient(NewEquip),
-	{OldAddProps, OldMultiProps} = playerPetProp:makePetEquipProp([OldEquip], [], []),
-	{NewAddProps, NewMultiProps} = playerPetProp:makePetEquipProp([NewEquip], [], []),
+	{OldAddProps, OldMultiProps} = playerPetProp:makePetProp_equip([OldEquip], [], []),
+	{NewAddProps, NewMultiProps} = playerPetProp:makePetProp_equip([NewEquip], [], []),
 	Addlevel = NewEquip#recPetEquip.equip_lv - OldEquip#recPetEquip.equip_lv,
 	%%骑宠装备升级成就
 	playerAchieve:achieveEvent(?Achieve_pet_weapon, [Addlevel]),
@@ -1590,8 +1658,8 @@ petSEquipStr(_EquipID, {#recPetEquip{} = Equip, Items, Coins}) ->
 	playerPetProp:onBattlePetAttrChange(?EquipOff, false),
 	NewEquip = petEquipStr(Equip, Items, Coins),
 	sendPetEquipToClient(NewEquip),
-	{OldAddProps, OldMultiProps} = playerPetProp:makePetEquipProp([Equip], [], []),
-	{NewAddProps, NewMultiProps} = playerPetProp:makePetEquipProp([NewEquip], [], []),
+	{OldAddProps, OldMultiProps} = playerPetProp:makePetProp_equip([Equip], [], []),
+	{NewAddProps, NewMultiProps} = playerPetProp:makePetProp_equip([NewEquip], [], []),
 	playerPetProp:updateBattlePetProp(getDeductProps(OldAddProps), OldMultiProps, false),
 	playerPetProp:updateBattlePetProp(NewAddProps, NewMultiProps, true),
 	Addlevel = NewEquip#recPetEquip.equip_lv - Equip#recPetEquip.equip_lv,
@@ -1641,7 +1709,7 @@ petEquipStr(#recPetEquip{equip_lv = Lv, equip_id = ID} = Equip, Items, Coins) ->
 petAttaAdd(PetID, Times) ->
 	Pets = playerState:getPets(),
 	petAttaAdd(PetID, Times, canPetAddAtta(PetID, Pets, Times)).
-petAttaAdd(PetID, Times, {#recPetInfo{pet_attas = Atta}, true}) ->
+petAttaAdd(PetID, Times, {#recPetInfo{pet_attas = Atta, upCount = UpCount} = PetInfo, true}) ->
 	playerState:setRmbCastPetAtta(PetID, []),
 	[{CostId, CostNum}] = globalCfg:getPetAttaMaterial(),
 	delItem([{CostId, CostNum * Times}], ?ItemDeleteReasonAddPetAtta),
@@ -1661,6 +1729,9 @@ petAttaAdd(PetID, Times, {#recPetInfo{pet_attas = Atta}, true}) ->
 	?DEBUG_OUT("pet add atta list [~p], [~p]", [Atta, PropList]),
 	playerState:setRmbCastPetAtta(PetID, PropList),
 	sendPetAddAttaResult(PetID, PropList),
+	NewPetInfo = PetInfo#recPetInfo{upCount = UpCount + Times},
+	savePetInfoToDB(NewPetInfo),
+	sendPetInfoToClient(NewPetInfo),
 	playerSevenDayAim:updateCondition(?SevenDayAim_PetAdd, [PetID, Times]);
 petAttaAdd(_, _, Error) ->
 	playerMsg:sendErrorCodeMsg(Error).
@@ -1680,7 +1751,7 @@ petAttaSave(PetID, {#recPetInfo{pet_attas = Attas} = PetInfo, PropList}) ->
 			maxvalue = MaxValue
 		} = getCfg:getCfgPStack(cfg_pet_stronger, K),
 		{K, MaxValue * Value}
-		   end,
+	       end,
 	MaxList = lists:map(Fun1, Stronger),
 	Fun =
 		fun({K, V}, {Acc, Acc1}) ->
@@ -1705,23 +1776,13 @@ petAttaSave(PetID, {#recPetInfo{pet_attas = Attas} = PetInfo, PropList}) ->
 		end,
 
 	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOff, false),
-%%	playerPetProp:onBattlePetAttrChange(?EquipOff, false),
-	{NAttas, NewPropList} = lists:foldl(Fun, {Attas, []}, PropList),
-	NewPet = PetInfo#recPetInfo{pet_attas = NAttas},
-	savePetInfoToDB(NewPet),
+	{NewAttrList, _NewPropList} = lists:foldl(Fun, {Attas, []}, PropList),
+	NewPet = PetInfo#recPetInfo{pet_attas = NewAttrList},
+	sendPetSaveAttaResult(PetID, NewAttrList),
+	petSelfChangeOk(NewPet),
 	playerState:setRmbCastPetAtta(PetID, []),
 	playerForce:calcOnePetForce(PetID, true),
-	sendPetSaveAttaResult(PetID, NAttas),
-	case getPetBattle() of
-		#recPetInfo{pet_id = PetID} ->
-			playerPetProp:updateBattlePetProp(NewPropList, [], true);
-		_ ->
-			skip
-	end,
-	playerPetProp:onPetAttrChange2Master(PetID, ?EquipOn, true),
-
-	playerForce:calcPlayerForce(true);
-
+	ok;
 petAttaSave(_PetID, Error) ->
 	playerMsg:sendErrorCodeMsg(Error).
 
@@ -1729,13 +1790,12 @@ petAttaSave(_PetID, Error) ->
 -spec makePetInfo(PetID :: uint()) -> #recPetInfo{}.
 makePetInfo(PetID) ->
 	#petCfg{
-		%petquality = PetQuality,
 		petName = PetName,
 		stronger = Stronger
 	} = getCfg:getCfgPStack(cfg_pet, PetID),
 	Fun = fun(K) ->
 		{K, 0}
-		  end,
+	      end,
 	PetProps = lists:map(Fun, Stronger),
 	#recPetInfo{
 		pet_id = PetID,
@@ -1750,41 +1810,66 @@ makePetInfo(PetID) ->
 %%宠物技能
 
 %%生成宠物技能
--spec makePetSkill(PetID :: uint()) -> ok.
-makePetSkill(PetID) ->
-	makeInternalPetSkill(PetID),
-	makeAdditionalPetSkill(PetID),
-	PetSkills = playerState:getPetSkills(PetID),
-	Fun = fun(PetSkill) ->
-		savePetSkillToDB(PetID, PetSkill)
-		  end,
-	lists:foreach(Fun, PetSkills).
+makePetInitSkill(#recPetInfo{pet_id = PetID} = PetInfo) ->
+	%%	%%初始化基础技能
+	SL1 =
+		case getCfg:getCfgPStack(cfg_pet, PetID) of
+			#petCfg{baseSkill = BaseSkill} ->
+				getPetBaseSkill(BaseSkill);
+			_ ->
+				[]
+		end,
+	SL2 =
+		lists:foldl(
+			fun(#recPetSkill{skill_id = SkillID} = PetSkill, Acc) ->
+				case playerPetSkill:canAutoUnLockPetSkill(PetInfo, SkillID, 1) of
+					true ->
+						[PetSkill#recPetSkill{
+							skill_level = 1
+							, skill_is_unlock = ?PetSkillUnLock
+						} | Acc];
+					_ ->
+						[PetSkill | Acc]
+				end
+			end, [], SL1),
+
+	lists:foreach(
+		fun(PetSkill) ->
+			savePetSkillToDB(PetID, PetSkill)
+		end, SL2),
+	playerState:setPetSkills(PetID, SL2),
+	ok.
+%%	makeInternalPetSkill(PetID),
+%%	makeAdditionalPetSkill(PetID),
+%%	PetSkills = playerState:getPetSkills(PetID),
+%%	Fun = fun(PetSkill) ->
+%%		savePetSkillToDB(PetID, PetSkill)
+%%		  end,
+%%	lists:foreach(Fun, PetSkills).
 
 %%解锁宠物技能
--spec unlockPetSkill(PetID :: uint(), StarLv :: uint()) -> uint().
-unlockPetSkill(PetID, StarLv) ->
+-spec petSkillLevelUp(PetID :: uint(), SkillID :: uint()) -> uint().
+petSkillLevelUp(PetID, SkillID) ->
 	SkillList = playerState:getPetSkills(PetID),
 	Skill = lists:keyfind(
-		StarLv,
-		#recPetSkill.skill_index,
+		SkillID,
+		#recPetSkill.skill_id,
 		SkillList
 	),
-	#recPetSkill{
-		skill_id = SkillID,
-		skill_level = Level
-	} = NewSkill = Skill#recPetSkill{
-		skill_is_unlock = ?PetSkillLock
+	NewSkill = Skill#recPetSkill{
+		skill_is_unlock = ?PetSkillUnLock,
+		skill_level = Skill#recPetSkill.skill_level + 1
 	},
 	NewSkillList = lists:keyreplace(
-		StarLv,
-		#recPetSkill.skill_index,
+		SkillID,
+		#recPetSkill.skill_id,
 		SkillList,
 		NewSkill
 	),
 	playerState:setPetSkills(PetID, NewSkillList),
-	addPetBattleSkill(PetID, SkillID, Level),
+	addPetBattleSkill(PetID, SkillID, NewSkill#recPetSkill.skill_level),
 	savePetSkillToDB(PetID, NewSkill),
-	NewSkill#recPetSkill.skill_id.
+	ok.
 
 %%洗炼宠物技能
 -spec petSkillCast(PetID :: uint(), SkillIDs :: list()) -> ok.
@@ -1844,7 +1929,7 @@ petSkillReplace(PetID) ->
 				%%写日志
 				dbLog:sendSaveLogPetCast(playerState:getRoleID(), PetID, OldSkillID, NewSkillID, OldSkillLevel, NewSkillLevel),
 				NewSkills
-				  end,
+			      end,
 			playerState:setPetSkills(PetID, lists:foldl(Fun, Skills, List)),
 			playerState:setRmbCastPetSkill([]),
 			playerForce:calcOnePetForce(PetID, true),
@@ -1855,19 +1940,30 @@ petSkillReplace(PetID) ->
 %%根据ID删除指定宠物
 -spec delPetByID(ID :: uint32()) -> ok.
 delPetByID(ID) ->
+	RoleID = playerState:getRoleID(),
+	?LOG_OUT("delPetByID ~p, ~p", [RoleID, ID]),
+
+	%% 先下骑宠
+	case getPetBattle() of
+		#recPetInfo{pet_id = ID} ->
+			petOffMount(false);
+		_ ->
+			skip
+	end,
+
 	CallPetList = playerState:getCallPet(),
-	Fun = fun(#recCallPet{pet_id = PetID, pet_code = Code}) ->
-		if
-			ID =:= PetID ->
-				clearSpawnPet(Code);
-			true ->
-				skip
-		end
-		  end,
+	Fun =
+		fun(#recCallPet{pet_id = PetID, pet_code = Code}) ->
+			if
+				ID =:= PetID ->
+					clearSpawnPet(Code);
+				true ->
+					skip
+			end
+		end,
 	lists:foreach(Fun, CallPetList),
 
 	%% 删除宠物
-	RoleID = playerState:getRoleID(),
 	Key = {RoleID, ID},
 	case edb:readRecord(rec_pet_info, Key) of
 		[#rec_pet_info{} = Info] ->
@@ -1892,6 +1988,9 @@ delPetByID(ID) ->
 			ok
 		end,
 	lists:foreach(F, List),
+
+	%% 删除骑宠
+	playerMsg:sendNetMsg(#pk_GS2U_DeletePet{petID = ID}),
 	ok.
 
 %%获取召唤魔宠
@@ -1902,7 +2001,7 @@ getSkillPet() ->
 		true;
 		(#recCallPet{}) ->
 			false
-		  end,
+	      end,
 	lists:filter(Fun, PetList).
 
 %%召唤宠物(玩家进程创建)
@@ -1942,7 +2041,7 @@ clearAllPets() ->
 			[Code | Acc];
 			(_, Acc) ->
 				Acc
-			  end,
+		      end,
 		lists:foldl(Fun, [], PetList)
 	catch
 		_:_ ->
@@ -1961,7 +2060,7 @@ clearAllPetBuff() ->
 		[Code | Acc];
 		(_, Acc) ->
 			Acc
-		  end,
+	      end,
 	lists:foldl(Fun, [], PetList).
 
 %%收回宠物进程返回信息
@@ -2164,8 +2263,11 @@ canCastPetSkill(PetID, SkillIDs) ->
 %%宠物装备是否可以强化
 -spec canPetEquipStr(EquipID :: uint()) -> uint() | tuple().
 canPetEquipStr(EquipID) ->
+	PlayerLevel = playerState:getLevel(),
 	EquipList = playerState:getPetEquip(),
 	case checkPetEquipIsExist(EquipID, EquipList) of
+		#recPetEquip{equip_lv = Level} when Level >= PlayerLevel ->
+			{false, ?ErrorCode_PetEquipStrMaxLv};
 		#recPetEquip{} = Equip ->
 			case checkPetEquipStrMaterial(Equip) of
 				{true, Items, Coins} ->
@@ -2178,7 +2280,6 @@ canPetEquipStr(EquipID) ->
 	end.
 
 
-
 %%宠物是否可以改名
 -spec canPetReName(PetID :: uint(), Name :: string(), Pets :: list()) -> uint() | {#recPetInfo{}, list()}.
 canPetReName(PetID, Name, Pets) ->
@@ -2188,7 +2289,7 @@ canPetReName(PetID, Name, Pets) ->
 		Pet ->
 			case checkPetNameIsSame(Name, Pet) of
 				true ->
-					case checkPetNameChar(Name) of
+					case misc:checkChar(Name) of
 						true ->
 							case checkPetNameLength(Name) of
 								true ->
@@ -2268,18 +2369,6 @@ checkPetNameLength(Name) ->
 			true
 	end.
 
-%%检查是否有不合法字符
--spec checkPetNameChar(Name :: string()) -> boolean().
-checkPetNameChar([]) ->
-	true;
-checkPetNameChar([H | T]) ->
-	case H < 33 of
-		true ->
-			false;
-		_ ->
-			checkPetNameChar(T)
-	end.
-
 %%检查宠物装备是否存在
 -spec checkPetEquipIsExist(EquipID :: uint(), EquipList :: list()) -> uint() | #recPetEquip{}.
 checkPetEquipIsExist(EquipID, EquipList) ->
@@ -2295,21 +2384,26 @@ checkPetEquipStrMaterial(
 	#recPetEquip{
 		equip_lv = Lv
 	}) ->
-	case getCfg:getCfgByKey(cfg_petEquipmentLevel, Lv + 1) of
-		#petEquipmentLevelCfg{
-			coin = Coins,
-			item = Items
-		} ->
-			case checkPetEquipStrMaterial(Items, Items) of
-				{true, _} ->
-					case checkPetEquipStrMoney(Coins, Coins) of
+	case Lv < playerState:getLevel() of
+		true ->
+			case getCfg:getCfgByKey(cfg_petEquipmentLevel, Lv + 1) of
+				#petEquipmentLevelCfg{
+					coin = Coins,
+					item = Items
+				} ->
+					case checkPetEquipStrMaterial(Items, Items) of
 						{true, _} ->
-							{true, Items, Coins};
-						_ ->
-							{false, ?ErrorCode_PetEquipStrMaterialNotEnough}
+							case checkPetEquipStrMoney(Coins, Coins) of
+								{true, _} ->
+									{true, Items, Coins};
+								_ ->
+									{false, ?ErrorCode_PetEquipStrMaterialNotEnough}
+							end;
+						V ->
+							V
 					end;
-				V ->
-					V
+				_ ->
+					{false, ?ErrorCode_PetEquipStrMaxLv}
 			end;
 		_ ->
 			{false, ?ErrorCode_PetEquipStrMaxLv}
@@ -2326,9 +2420,9 @@ checkPetEquipStrMaterial(Items, [{ID, Num} | ItemList]) ->
 			{false, ?ErrorCode_PetEquipStrMaterialNotEnough}
 	end.
 
-checkPetEquipStrMoney(CoinList,[])->
+checkPetEquipStrMoney(CoinList, []) ->
 	{true, CoinList};
-checkPetEquipStrMoney(CoinList,[{UseType, Number} | List])->
+checkPetEquipStrMoney(CoinList, [{UseType, Number} | List]) ->
 	case playerMoney:canUseCoin(UseType, Number) of
 		true ->
 			checkPetEquipStrMoney(CoinList, List);
@@ -2481,7 +2575,6 @@ checkRawMaterial1(_) ->
 	?ErrorCode_PetRawMaterialNotEnough.
 
 
-
 %%检查宠物转生
 -spec checkPetIsRaw(PetID :: uint(), Pets :: list()) -> uint() | {list(), list(), #recPetInfo{}}.
 checkPetIsRaw(PetID, Pets) ->
@@ -2509,7 +2602,7 @@ checkPetSkillIsCanCast(_PetID, []) ->
 checkPetSkillIsCanCast(PetID, [SkillID | SkillIDs]) ->
 	CommonSkillList = getPetSkillByType(PetID, ?PetSkillTypeCommon),
 	case lists:keyfind(SkillID, #recPetSkill.skill_id, CommonSkillList) of
-		#recPetSkill{skill_is_unlock = UnLock} when UnLock =:= ?PetSkillLock ->
+		#recPetSkill{skill_is_unlock = UnLock} when UnLock =:= ?PetSkillUnLock ->
 			checkPetSkillIsCanCast(PetID, SkillIDs);
 		#recPetSkill{} ->
 			?ErrorCode_PetSkillUnLock;
@@ -2599,16 +2692,16 @@ delItem([{ID, Num} | List], Reason) ->
 	delItem(List, Reason).
 
 
-delCoin([], _)->
+delCoin([], _) ->
 	ok;
-delCoin([{UseType, Number} | List], Reason)->
+delCoin([{UseType, Number} | List], Reason) ->
 	playerMoney:useCoin(UseType, Number,
 		#recPLogTSMoney{
-		reason = Reason,
-		param = 0,
-		target = ?PLogTS_FindRes,
-		source = ?PLogTS_PlayerSelf
-	}),
+			reason = Reason,
+			param = 0,
+			target = ?PLogTS_Pet,
+			source = ?PLogTS_PlayerSelf
+		}),
 	delCoin(List, Reason).
 
 %%增加出战中宠物技能
@@ -2717,8 +2810,7 @@ getPetBattleProp(#recPetInfo{pet_status = ?PetState_Battle_Show}) ->
 			monsterInterface:getPetBattleProps(Code)
 	end;
 getPetBattleProp(Pet) ->
-	Level = playerState:getLevel(),
-	playerPetProp:makePetProp(Level, Pet).
+	playerPetProp:makePetProp(Pet).
 
 %%获取助战宠物个数
 %%-spec getPetBattleAssistNum() -> uint().
@@ -2770,7 +2862,7 @@ getPetBattleRPInfo(#recPetInfo{} = Pet) ->
 			equipID = Id,
 			equipLv = Lev
 		}
-			   end,
+	           end,
 	PropFun = fun(Key, Acc) ->
 		case lists:keyfind(Key, #battleProp.propIndex, BPL) of
 			false ->
@@ -2778,7 +2870,7 @@ getPetBattleRPInfo(#recPetInfo{} = Pet) ->
 			#battleProp{propIndex = _Index, totalValue = TotalValue} ->
 				[TotalValue | Acc]
 		end
-			  end,
+	          end,
 	PetSkill = playerState:getPetSkills(Pet#recPetInfo.pet_id),
 	PetFun = fun(#recPetSkill{
 		skill_id = SkillID,
@@ -2798,7 +2890,7 @@ getPetBattleRPInfo(#recPetInfo{} = Pet) ->
 			_ ->
 				Acc
 		end
-			 end,
+	         end,
 	PetSkillList = lists:foldr(PetFun, [], PetSkill),
 	case playerBase:getMainMenuAct(?ActivatePetEquip) of
 		true ->
@@ -2827,13 +2919,13 @@ getPetUnLockPassSkill(PetID) ->
 		#skillCfg{
 			skillType = Type
 		} = getCfg:getCfgPStack(cfg_skill, SkillID),
-		case Type =:= ?PassivitySkill andalso UnLock =:= ?PetSkillLock of
+		case Type =:= ?PassivitySkill andalso UnLock =:= ?PetSkillUnLock of
 			true ->
 				[Skill | Acc];
 			_ ->
 				Acc
 		end
-		  end,
+	      end,
 	lists:foldl(Fun, [], SkillList).
 
 %%获取宠物的主动技能
@@ -2845,13 +2937,13 @@ getPetUnLockActiveSkill(PetID) ->
 			skillType = Type
 		} = getCfg:getCfgPStack(cfg_skill, SkillID),
 		IsActive = lists:member(Type, ?ActiveSkillList),
-		case IsActive =:= true andalso UnLock =:= ?PetSkillLock of
+		case IsActive =:= true andalso UnLock =:= ?PetSkillUnLock of
 			true ->
 				[Skill | Acc];
 			_ ->
 				Acc
 		end
-		  end,
+	      end,
 	lists:foldl(Fun, [], SkillList).
 
 %%获取宠物天赋技能
@@ -2866,7 +2958,7 @@ getPetTalentSkill(PetID, SkillID) ->
 		skill_cd = 0,
 		skill_type = ?PetSkillTypeTalent,
 		skill_level = 1,
-		skill_is_unlock = ?PetSkillLock
+		skill_is_unlock = ?PetSkillUnLock
 	},
 	playerState:setPetSkills(PetID, [Skill | PetSkills]).
 
@@ -2879,9 +2971,30 @@ getPetTalentSkill(SkillID) ->
 		skill_cd = 0,
 		skill_type = ?PetSkillTypeTalent,
 		skill_level = 1,
-		skill_is_unlock = ?PetSkillLock
+		skill_is_unlock = ?PetSkillUnLock
 	},
 	[Skill].
+
+
+getPetBaseSkill(undefined) ->
+	[];
+getPetBaseSkill(L) when is_list(L) ->
+	Fun =
+		fun(SkillID, {Index, Acc}) ->
+			Skill = #recPetSkill{
+				skill_index = Index,
+				skill_id = SkillID,
+				skill_cd = 0,
+				skill_type = ?PetSkillTypeBase,
+				skill_level = 0,
+				skill_is_unlock = ?PetSkillLocked
+			},
+			{Index + 1, [Skill | Acc]}
+		end,
+	{_, SL} = lists:foldl(Fun, {2, []}, L),
+	SL;
+getPetBaseSkill(_) ->
+	[].
 
 getPetRandomSkill(undefined) ->
 	[];
@@ -2893,10 +3006,10 @@ getPetRandomSkill(L) when is_list(L) ->
 			skill_cd = 0,
 			skill_type = ?PetSkillTypeCommon,
 			skill_level = getPetSkillLevelByWeight(),
-			skill_is_unlock = ?PetSkillLock
+			skill_is_unlock = ?PetSkillUnLock
 		},
 		{Index + 1, [Skill | Acc]}
-		  end,
+	      end,
 	{_, SL} = lists:foldl(Fun, {2, []}, L),
 	SL;
 getPetRandomSkill(_) ->
@@ -2918,7 +3031,7 @@ getPetRandomSkill(PetID, [SkillID | SkillIDs], Index) ->
 		skill_cd = 0,
 		skill_type = ?PetSkillTypeCommon,
 		skill_level = getPetSkillLevelByWeight(),
-		skill_is_unlock = ?PetSkillUnLock
+		skill_is_unlock = ?PetSkillLocked
 	},
 	playerState:setPetSkills(PetID, [Skill | PetSkills]),
 	getPetRandomSkill(PetID, SkillIDs, Index + 1).
@@ -2937,7 +3050,7 @@ getPetAdditionalSkill(PetID, SkillList, Index) ->
 		skill_id = CfgSkill#petSkillCfg.iD,
 		skill_type = ?PetSkillTypeCommon,
 		skill_level = getPetSkillLevelByWeight(),
-		skill_is_unlock = ?PetSkillUnLock
+		skill_is_unlock = ?PetSkillLocked
 	},
 	playerState:setPetSkills(PetID, [Skill | PetSkills]),
 	NewSkillList = lists:keydelete(
@@ -2971,7 +3084,7 @@ getPetSkillUnlockCommon(CommonSkillList) ->
 	getPetSkillUnlockCommon(CommonSkillList, []).
 getPetSkillUnlockCommon([], SkillList) ->
 	SkillList;
-getPetSkillUnlockCommon([#recPetSkill{skill_is_unlock = ?PetSkillLock} = Skill | SkillList], List) ->
+getPetSkillUnlockCommon([#recPetSkill{skill_is_unlock = ?PetSkillUnLock} = Skill | SkillList], List) ->
 	getPetSkillUnlockCommon(SkillList, [Skill | List]);
 getPetSkillUnlockCommon([_ | SkillList], List) ->
 	getPetSkillUnlockCommon(SkillList, List).
@@ -3064,12 +3177,12 @@ getPetAddAttaRuleRes(AL, MAL, N, L) ->
 			{K, V1} ->
 				lists:keyreplace(K, 1, Acc, {K, V + V1})
 		end
-		  end,
+	      end,
 	NL = lists:foldl(Fun, L, RL),
 	getPetAddAttaRuleRes(AL, MAL, N - 1, NL).
 
 
-randAttrNumber()->
+randAttrNumber() ->
 	L = globalCfg:getPetAttaNum(),
 	doRandAttrNumber(rand:uniform(), L, 1).
 
@@ -3104,7 +3217,7 @@ calcSkillCastRule(PetQual, [ID | CastIDList], ExistSkillList, CastList) ->
 			true ->
 				Acc
 		end
-		  end,
+	      end,
 	WeightPool = lists:foldl(Fun, [], SkillPool),
 	Lv = getPetSkillLevelByWeight(),
 	SkillID = misc:calcOddsByWeightList(WeightPool),
@@ -3231,7 +3344,7 @@ savePetSkillCDToDB(PetID, Code) ->
 			_ ->
 				skip
 		end
-		  end,
+	      end,
 	lists:foreach(Fun, SkillList).
 
 %%构造宠物基本信息
@@ -3244,7 +3357,10 @@ makePetBaseInfo(#recPetInfo{
 	pet_status = PetStatus,
 	pet_raw = PetRaw,
 	pet_attas = PetAttas,
-	pet_force = PetForce
+	pet_force = PetForce,
+	upCount = UpCount,
+	pet_level = PetLevel,
+	pet_exp = Exp
 }) ->
 	Fun = fun(#recPetSkill{
 		skill_cd = CD,
@@ -3269,13 +3385,13 @@ makePetBaseInfo(#recPetInfo{
 			petSkillCd = NewCD,
 			petSkillIsUnlock = Unlock
 		}
-		  end,
+	      end,
 	Fun1 = fun({K, V}) ->
 		#pk_AddProp{
 			prop = K,
 			value = V
 		}
-		   end,
+	       end,
 	PetSkills = playerState:getPetSkills(PetID),
 	Attas = lists:map(Fun1, PetAttas),
 	Skills = lists:map(Fun, PetSkills),
@@ -3289,7 +3405,10 @@ makePetBaseInfo(#recPetInfo{
 		petProps = Attas,
 		status = PetStatus,
 		skillList = Skills,
-		petForce = PetForce
+		petForce = PetForce,
+		upCount = UpCount,
+		petLevel = PetLevel,
+		petExp = Exp
 	}.
 
 %%宠物消息处理 
@@ -3311,7 +3430,7 @@ sendPetInfoListToClient() ->
 %%	?DEBUG_OUT("=======sendPetInfoListToClient=====2=====~p~n",[Pets]),
 	Fun = fun(Pet) ->
 		makePetBaseInfo(Pet)
-		  end,
+	      end,
 	PetBaseInfoList = lists:map(Fun, Pets),
 	Msg = #pk_GS2U_PetInfoList{
 		petInfoList = PetBaseInfoList
@@ -3330,7 +3449,7 @@ sendPetEquipListToClient() ->
 			equipID = ID,
 			equipLv = Lv
 		}
-		  end,
+	      end,
 	EquipInfoList = lists:map(Fun, EquipList),
 	Msg = #pk_GS2U_PetEquipInfoList{
 		petEquipInfoList = EquipInfoList
@@ -3399,7 +3518,7 @@ sendPetSkillCastResult(PetID, CastPetSkills) ->
 			newSkillID = NewSkillID,
 			newSkillLevel = Level
 		}
-		  end,
+	      end,
 	Skills = lists:map(Fun, CastPetSkills),
 	Msg = #pk_GS2U_PetSkillCastResult{
 		petID = PetID,
@@ -3437,7 +3556,7 @@ sendPetOnMountResult(PetCode, PetID, OwnerCode, GuetsCode) ->
 	ok.
 
 %%发送下坐骑结果
-sendPetOffMountResult(PetCode) ->
+sendPetOffMountResult(PetCode, IsOffOther) ->
 	Code = playerState:getPlayerCode(),
 	{X, Y} = playerState:getPos(),
 	Msg = #pk_GS2U_OffMountPetAck{
@@ -3445,17 +3564,23 @@ sendPetOffMountResult(PetCode) ->
 		x = X,
 		y = Y
 	},
+	playerMsg:sendMsgToNearPlayer(Msg, true),
 	?DEBUG_OUT("=>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> [~ts],[~w]", [playerState:getName(), Msg]),
-	monsterInterface:setPetPos(PetCode, X, Y),
-	PetEts = playerState:getMapPetEts(),
-	case myEts:lookUpEts(PetEts, PetCode) of
-		[#recMapObject{} = Pet] ->
-			NewPet = Pet#recMapObject{x = X, y = Y},
-			syncPetObject(NewPet, false);
+	case IsOffOther of
+		false ->
+			monsterInterface:setPetPos(PetCode, X, Y),
+			PetEts = playerState:getMapPetEts(),
+			case myEts:lookUpEts(PetEts, PetCode) of
+				[#recMapObject{} = Pet] ->
+					NewPet = Pet#recMapObject{x = X, y = Y, actionStatus = monsterState:getActionStatus(PetCode) },
+					syncPetObject(NewPet, false);
+				_ ->
+					skip
+			end;
 		_ ->
 			skip
 	end,
-	playerMsg:sendMsgToNearPlayer(Msg, true).
+	ok.
 
 
 %%发送宠物提升属性结果
@@ -3467,7 +3592,7 @@ sendPetAddAttaResult(PetID, PropList) ->
 			value = Value
 		},
 		[M | Acc]
-		  end,
+	      end,
 	L = lists:foldl(Fun, [], PropList),
 	Msg = #pk_GS2U_PetAddAttaRes{
 		petID = PetID,
@@ -3484,7 +3609,7 @@ sendPetSaveAttaResult(PetID, PropList) ->
 			value = Value
 		},
 		[M | Acc]
-		  end,
+	      end,
 	L = lists:foldl(Fun, [], PropList),
 	Msg = #pk_GS2U_PetAttaSaveRes{
 		petID = PetID,
@@ -3497,12 +3622,15 @@ checkBattlePet() ->
 	case PetList of
 		[] -> skip;
 		_ ->
-			case lists:filter(fun(#recPetInfo{pet_status = Status}) ->
-				case Status >= ?PetState_Battle_Show of
-					true -> true;
-					_ -> false
-				end
-							  end, PetList) of
+			case
+				lists:filter(
+					fun(#recPetInfo{pet_status = Status}) ->
+						case Status >= ?PetState_Battle_Show of
+							true -> true;
+							_ -> false
+						end
+					end, PetList)
+			of
 				[] ->
 					case lists:keyfind(51001, #recPetInfo.pet_id, PetList) of
 						#recPetInfo{} = Pet ->
@@ -3606,7 +3734,7 @@ doCheckSkillType(_, #petSkillCfg{petSkillType = NewType}, PetID) ->
 			_ ->
 				false
 		end
-		end,
+	    end,
 	case lists:any(F, CommonSkillList) of
 		true ->
 			{false, ?ErrorCode_PetSkillTypeExist};
@@ -3619,7 +3747,7 @@ doCheckSkillType(_, #petSkillCfg{petSkillType = NewType}, PetID) ->
 checkCanCastSkill(PetID, OldSkillID) ->
 	CommonSkillList = getPetSkillByType(PetID, ?PetSkillTypeCommon),
 	case lists:keyfind(OldSkillID, #recPetSkill.skill_id, CommonSkillList) of
-		#recPetSkill{skill_is_unlock = UnLock} = Skill when UnLock =:= ?PetSkillLock ->
+		#recPetSkill{skill_is_unlock = UnLock} = Skill when UnLock =:= ?PetSkillUnLock ->
 			{ok, Skill};
 		#recPetSkill{} ->
 			{false, ?ErrorCode_PetSkillUnLock};

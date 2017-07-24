@@ -52,7 +52,8 @@
 ]).
 
 -export([
-	getSystemChatInfo/1
+	getSystemChatInfo/1,
+	isOpenWorldChannel/1
 ]).
 
 -spec initChatCd() -> ok.
@@ -207,45 +208,78 @@ onChannelSystemChatMsg(UnDefChannelType, Content) ->
 	ok.
 
 %% 优化方式发送世界聊天
-onSendWorldMsg(Msg, IsCheck) ->
-    SenderNetPid = playerState:getNetPid(),
-    case canSendChat() of
+onSendWorldMsg(#pk_GS2U_Chatinfo{channel = Channel} = Msg, IsCheck) ->
+	case canSendChat() of
         true ->
+			SenderNetPid = playerState:getNetPid(),
+			RoleID = playerState:getRoleID(),
             %% 允许聊天
-            Fun =
-                fun(#rec_OnlinePlayer{pid = PlayerPid}, _) ->
-                    psMgr:sendMsg2PS(PlayerPid, chatmsg, {Msg, SenderNetPid, IsCheck}),
-                    ok
-                end,
-            ets:foldl(Fun, [], ets_rec_OnlinePlayer),
-            ok;
+			case Channel of
+				?CHAT_CHANNEL_WORLD ->
+					psMgr:sendMsg2PS(?ChatOtp, sendWorldMsg,
+						{Msg, IsCheck, playerState:getRoleID(), self(), SenderNetPid});
+				_ ->
+					%% 系统消息和喇叭消息，强制发送
+					Fun =
+						fun(#rec_OnlinePlayer{roleID = TargetRoleID, pid = _PlayerPid, netPid = NetPid}, _) ->
+							case isOpenChannel(TargetRoleID, Channel) of
+								true ->
+									case friend2State:isBlack(TargetRoleID, RoleID) of
+										true ->
+											skip;
+										_ ->
+											playerMsg:sendNetMsg(NetPid, Msg)
+									end;
+								_ ->
+									skip
+							end
+						end,
+					ets:foldl(Fun, [], ets_rec_OnlinePlayer)
+			end;
         _ ->
             %% 只能发给自己
-            psMgr:sendMsg2PS(self(), chatmsg, {Msg, SenderNetPid, IsCheck}),
-            ok
+			playerMsg:sendNetMsg(Msg)
     end,
     ok.
 
 %% 频道开关判断,玩家是否开启了此频道
+-spec isOpenChannel(Channel::uint()) -> boolean().
 isOpenChannel(Channel) ->
+	isOpenChannel(playerState:getRoleID(), Channel).
+
+%% 频道开关判断,玩家是否开启了此频道
+-spec isOpenChannel(RoleID::uint64(), Channel::uint()) -> boolean().
+isOpenChannel(RoleID, Channel) ->
 	case core:isCross() of
-		true ->true;
+		true ->
+			true;
 		_ ->
 			case Channel of
 				?CHAT_CHANNEL_WORLD  ->
-					variant:getPlayerBitVariant(playerState:getRoleID(), ?Setting_PlayerBitVar_WorldChatMsg);
+					variant:getPlayerBitVariant(RoleID, ?Setting_PlayerBitVar_WorldChatMsg);
 				?CHAT_CHANNEL_PRIVATE  ->
-					variant:getPlayerBitVariant(playerState:getRoleID(), ?Setting_PlayerBitVar_PrivateChatMsg);
+					variant:getPlayerBitVariant(RoleID, ?Setting_PlayerBitVar_PrivateChatMsg);
 				?CHAT_CHANNEL_TEAM  ->
-					variant:getPlayerBitVariant(playerState:getRoleID(), ?Setting_PlayerBitVar_TeamChatMsg);
+					variant:getPlayerBitVariant(RoleID, ?Setting_PlayerBitVar_TeamChatMsg);
 				?CHAT_CHANNEL_GUILD  ->
-					variant:getPlayerBitVariant(playerState:getRoleID(), ?Setting_PlayerBitVar_GuildChatMsg);
+					variant:getPlayerBitVariant(RoleID, ?Setting_PlayerBitVar_GuildChatMsg);
 				?CHAT_CHANNEL_SYSTEM  ->
-					variant:getPlayerBitVariant(playerState:getRoleID(), ?Setting_PlayerBitVar_SystemMsg);
+					variant:getPlayerBitVariant(RoleID, ?Setting_PlayerBitVar_SystemMsg);
 				?CHAT_CHANNEL_HORN ->
 					true;
-				_ -> false
+				_ ->
+					false
 			end
+	end.
+
+%% 玩家是否打开了聊天频道
+-spec isOpenWorldChannel(RoleID::uint64()) -> boolean().
+isOpenWorldChannel(RoleID) ->
+	case core:isCross() of
+		true ->
+			true;
+		_ ->
+			variant:getPlayerBitVariant(RoleID, ?Setting_PlayerBitVar_WorldChatMsg)
 	end.
 
 %% (跟发送者的关系确认)发送消息
@@ -255,20 +289,20 @@ isOpenChannel(Channel) ->
 	SenderNetPid :: pid(),
 	SenderPid :: pid(),
 	IsCheck ::boolean().
-sendChatInfo(#pk_GS2U_Chatinfo{channel = Channel, senderID = SenderID} = ChatInfo, _SenderNetPid, _SenderPid, true) ->
-	%%?DEBUG_OUT("[DebugForChat] sendChatInfo RoleID(~p) SenderID(~p)", [playerState:getRoleID(), SenderID]),
+sendChatInfo(#pk_GS2U_Chatinfo{channel = Channel, senderID = SenderID} = ChatInfo, _SenderNetPid, _SenderPid, _IsCheck) ->
 	case isOpenChannel(Channel) of
 		true ->
-			playerFriend2:addTemp(SenderID),  %% 收到的对方的私聊消息，尝试添加对方为临时好友
+			case Channel of
+				?CHAT_CHANNEL_PRIVATE ->
+					%% 私聊频道才判断是否添加临时好友
+					playerFriend2:addTemp(SenderID),  %% 收到的对方的私聊消息，尝试添加对方为临时好友
+					ok;
+				_ -> skip
+			end,
+
 			playerMsg:sendNetMsg(ChatInfo);
-		_ -> skip %% 玩家设置了拒绝接受
-	end,
-	ok;
-sendChatInfo(#pk_GS2U_Chatinfo{channel = Channel} = ChatInfo, _SenderNetPid, _SenderPid, false) ->
-	case isOpenChannel(Channel) of
-		true ->
-			playerMsg:sendNetMsg(ChatInfo);
-		_ -> skip %%玩家设置了拒绝接受
+		_ ->
+			skip %% 玩家设置了拒绝接受
 	end,
 	ok.
 
@@ -514,7 +548,7 @@ checkChatTask(?CHAT_CHANNEL_WORLD) ->
                 true ->
                     ?Chat_Success;
                 false ->
-                    case getCfg:getCfgByKey(cfg_task_new, TaskID) of
+                    case getCfg:getCfgByKey(cfg_task, TaskID) of
                         #task_newCfg{task_name = TaskName} ->
                             playerMsg:sendErrorCodeMsg(?ErrorCode_ChatErrorTaskNosubmit,[TaskName]),
                             ?Chat_Failed;
@@ -578,7 +612,8 @@ checkWorldChatDailyCount(?Chat_Success) ->
 	case erlang:is_list(ChatList) andalso erlang:length(ChatList) =:= 2 of
 		true ->
 			[Level, Count] = ChatList,
-			case playerState:getLevel() >= Level orelse playerState:getVip() >= 1 of
+%%			orelse playerState:getVip() >= 1
+			case playerState:getLevel() >= Level of
 				true ->
 					?Chat_Success;
 				_ ->

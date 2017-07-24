@@ -113,6 +113,14 @@ getGoodsChangeStr(?ItemSourceGuildGodblessSchedule) ->"家族系统-女神祈福
 getGoodsChangeStr(?ItemSourcePetToChip) ->"骑宠转换成碎片";
 getGoodsChangeStr(?ItemSourceSevenDayAimReward) ->"七日目标领奖道具奖励";
 getGoodsChangeStr(?ItemSourceThirtyDayLoginGift) ->"30日登录送大礼道具奖励";
+getGoodsChangeStr(?ItemSourcePetRecycle) ->"骑宠成长返还";
+getGoodsChangeStr(?ItemSourceCharmRank) ->"魅力排行榜奖励";
+getGoodsChangeStr(?ItemSourceGuildSupplication) ->"家族系统-碎片祈愿-被赠";
+getGoodsChangeStr(?ItemSourceGuildSupplicationBack) ->"家族系统-碎片祈愿-赠送失败返还";
+getGoodsChangeStr(?ItemSourceHomePlantOPBack) ->"家园系统-种植区-操作失败返还";
+getGoodsChangeStr(?ItemSourceHomePlantHarvest) ->"家园系统-种植区-收获";
+getGoodsChangeStr(?ItemSourceHomeFarmingHarvest) ->"家园系统-饲养区-收获";
+getGoodsChangeStr(?ItemSourceCrossRace) ->"跨服活动-骑宠竞速-结算奖励";
 
 getGoodsChangeStr(?ItemUseReasonPlayer) ->"玩家使用消耗";
 getGoodsChangeStr(?ItemUseReasonMount) ->"坐骑使用消耗";
@@ -155,6 +163,14 @@ getGoodsChangeStr(?ItemDeleteReasonRuneCompound) ->"符文合成消耗";
 getGoodsChangeStr(?ItemDeleteReasonUseSkillBook) ->"使用宠物技能书";
 getGoodsChangeStr(?ItemDeleteReasonMarriageWantBuild) ->"姻缘系统消耗-求婚";
 getGoodsChangeStr(?ItemDeleteReasonMarriageRingTop) ->"姻缘系统消耗-突破婚戒";
+getGoodsChangeStr(?ItemDeleteReasonPetSkillLevelUp) ->"宠物技能升级";
+getGoodsChangeStr(?ItemDeleteReasonGiveGift) ->"赠礼消耗礼品";
+getGoodsChangeStr(?ItemDeleteReasonGuildSupplication) ->"家族系统-碎片祈愿-赠送";
+getGoodsChangeStr(?ItemDeleteReasonHome) ->"家园消耗";
+getGoodsChangeStr(?ItemDeleteReasonFashion) ->"时装消耗";
+getGoodsChangeStr(?ItemDeleteReasonHomePlantOP) ->"家园系统-种植区-操作消耗";
+getGoodsChangeStr(?ItemDeleteReasonPetLevelup) ->"宠物升级";
+getGoodsChangeStr(?ItemDeleteReasonHomeFarmingOP) ->"家园系统-饲养区-操作消耗";
 getGoodsChangeStr(Reason) ->
 	?ERROR_OUT("getGoodsChangeStr:unknow[~w] ~p",[Reason, misc:getStackTrace()]),
 	"未知".
@@ -200,6 +216,10 @@ getCoinChangeResonStr(?CoinSourceMoneyTree) ->"点金手";
 getCoinChangeResonStr(?CoinSourceResetSkill) ->"技能洗点";
 getCoinChangeResonStr(?CoinSourceSevenDayAimReward) ->"七日目标领奖货币奖励";
 getCoinChangeResonStr(?CoinSourceThirtyDayLoginGift) ->"30日登录送大礼货币奖励";
+getCoinChangeResonStr(?CoinSourceGuildFairgroundRideReward) ->"家族系统-游乐场-乘坐设备额外奖励";
+getCoinChangeResonStr(?CoinSourceGuildSupplicationReward) ->"家族系统-碎片祈愿-赠送碎片奖励";
+getCoinChangeResonStr(?CoinSourceHomePlantOPBack) ->"家园系统-种植区-操作失败返还";
+getCoinChangeResonStr(?CoinSourceMonsterBook) ->"怪物图鉴-货币奖励";
 
 getCoinChangeResonStr(?CoinUseEquipResolve) ->"装备分解消耗";
 getCoinChangeResonStr(?CoinUseEquipEnhance) ->"装备强化消耗";
@@ -270,6 +290,11 @@ getCoinChangeResonStr(?CoinBuyActionCount) ->"购买副本次数";
 getCoinChangeResonStr(?CoinUseGuildFairgroundRide) ->"家族系统-游乐场-乘坐设备消耗";
 getCoinChangeResonStr(?CoinUseMoneyTree) ->"点金手";
 getCoinChangeResonStr(?CoinUseWorldBossInspire) ->"首领入侵,鼓舞";
+getCoinChangeResonStr(?CoinUsePetSkillLevelUp) ->"宠物技能升级";
+getCoinChangeResonStr(?CoinUseStarMoonBox) ->"星月秘盒使用";
+getCoinChangeResonStr(?CoinUsePetRecycle) ->"骑宠成长返还";
+getCoinChangeResonStr(?CoinUseHome) ->"家园消耗";
+getCoinChangeResonStr(?CoinUseHomePlantOP) ->"家园系统-种植区-操作消耗";
 getCoinChangeResonStr(Reason) ->
 	?ERROR_OUT("getCoinChangeResonStr:unknow[~w] ~p",[Reason, misc:getStackTrace()]),
 	"未知".

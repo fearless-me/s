@@ -154,7 +154,7 @@
 %%地图子类型
 %普通
 -define(MapSubTypeNormal,0).
-%地宫（副本）
+%% 守护女神/守卫女神/魔神地宫
 -define(MapSubTypeDemonBattle,1).
 %时空裂痕
 -define(MapSubTypeRift,2).
@@ -186,10 +186,25 @@
 -define(MapSubTypeGuildExpedition, 19).
 %%经验地图活动
 -define(MapSubTypeExpMap, 22).
+%% 跨服骑宠竞速
+-define(MapSubTypeCrossRace, 23).
 %%约会地下城消消乐
 -define(MapSubTypeDate, 24).
 %%约会地下城推箱子
 -define(MapSubTypeDatebox, 25).
+
+%%约会地下城泳池派对
+-define(MapSubTypeDatePoolParty, 26).
+
+%%约会地下城寻找宝箱
+-define(MapSubTypeDateFindTreasure, 27).
+
+
+
+%%家园地图子类型
+-define(MapSubTypeHome, 31).	%% 家园小屋
+-define(MapSubTypeCourtyard, 30).	%% 家园庭院
+
 %%铸币(副本)
 -define(MapSubTypeMint, 1001).  %% 废弃
 %%新兵(副本)
@@ -202,19 +217,30 @@
 -define(MapSubTypeGuild, 1005).
 %%灵魂伙伴，情缘副本
 -define(MapSubTypeCompanion, 1006).	%% 废弃
-%%勇士试炼副本
+%% 勇士试炼副本/勇者荣耀/女神禁闭室
 -define(MapSubTypeWarrior, 1007).
 
-%%勇士试炼副本
+%% 材料副本/元素保卫战
 -define(MapSubTypeMaterial, 1008).
-%%金币副本（惊天喵盗团）
+%% 金币副本/惊天喵盗团
 -define(MapSubTypeMoneyDungeon, 1009).
-%%堆雪人
+%% 家族活动-堆雪人
 -define(MapSubTypeSnowman, 1010).
-%%灵界活动
+%% 原初灵界/混沌灵界/器灵材料副本
 -define(MapSubTypeSpiritArea, 1011).
-%%灵界活动
+%% 新版骑宠领地
 -define(MapSubTypePetTerritory, 1012).
+
+%% 深红熔渊1
+-define(MapSub_DarkPlace1, 501).
+%% 深红熔渊2
+-define(MapSub_DarkPlace2, 502).
+%% 深红熔渊3
+-define(MapSub_DarkPlace3, 503).
+%% 深红熔渊4
+-define(MapSub_DarkPlace4, 504).
+%% 深红熔渊5
+-define(MapSub_DarkPlace5, 505).
 
 
 %%玩法地图子类型
@@ -245,9 +271,9 @@
 							  }).
 
 %%%%%%%%采集物类型%%%%%%%%BEGIN%%%%%%%%%%%%%%%%%%%%%
-%%采集物类型定义:港口竞速采集物
--define(GatherType_NeedForSpeed,12).
+-define(GatherType_Race,12).
 -define(GatherType_GuildSnowman,13).
+-define(GatherType_CopyBuff,16).
 %%%%%%%%采集物类型%%%%%%%%END%%%%%%%%%%%%%%%%%%%%%
 %已经在运行的地图基础信息
 -record(recMapBaseInfo,

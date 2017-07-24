@@ -173,6 +173,9 @@ deleteDestoryTime() ->
 -spec setCopyMapExistTime(Time) -> ok when Time::uint().
 setCopyMapExistTime(MapID) ->
 	AddTime = case getCfg:getCfgPStack(cfg_mapsetting, MapID) of
+				  #mapsettingCfg{type = MapType, all_time = 0} when
+					  MapType =:= ?MapTypeCopyMap orelse MapType =:= ?MapTypeBitplane orelse MapType =:= ?MapTypeActivity ->
+					  24*3600*1000;
 				  #mapsettingCfg{type = MapType, all_time = AT} when
 					  MapType =:= ?MapTypeCopyMap orelse MapType =:= ?MapTypeBitplane orelse MapType =:= ?MapTypeActivity ->
 					  AT * 1000;
@@ -355,12 +358,16 @@ getGoddessCode() ->
 				undefined ->
 					0;
 				Tab ->
-					#globalsetupCfg{setpara =[ID,_X,_Y] } = getCfg:getCfgByArgs(cfg_globalsetup, goddess),
-					MatchSpec = ets:fun2ms(fun
-											   (Row) when Row#recMapObject.id =:= ID ->
-												   Row#recMapObject.code
-										   end
-					),
+					MapID = mapState:getMapId(),
+					#globalsetupCfg{setpara =GoddIDList } = getCfg:getCfgByArgs(cfg_globalsetup, goddess),
+
+					GoddID =
+					case  lists:keyfind(MapID, 1, GoddIDList) of
+						{MpID,GID }-> GID;
+						_->
+							0
+					end,
+					MatchSpec = ets:fun2ms(fun(Row) when Row#recMapObject.id =:= GoddID -> Row#recMapObject.code end),
 					case myEts:selectEts(Tab, MatchSpec) of
 						[MonsterCode |_] ->
 							setGoddessCode(MonsterCode),

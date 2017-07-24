@@ -122,8 +122,6 @@ isSameCopyMap(MapID, #rec_stat_hurt{mapID = OldMapID, mapPid = OldMapPid}) ->
 
 isStatHurt(?HDBattleMapID) ->
 	true;
-isStatHurt(?GuildBattleMapID) ->
-	true;
 isStatHurt(MapID) ->
 	#mapsettingCfg{
 		type = Type

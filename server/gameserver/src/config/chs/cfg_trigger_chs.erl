@@ -551,6 +551,20 @@ getRow(78)->
     method = "deductCoinWhenAttackerByBuff",
     argu = []
     };
+getRow(79)->
+    #triggerCfg {
+    id = 79,
+    module = "mapTrigger",
+    method = "transferCurrentRoleToMap",
+    argu = [509,[[194.0,186.0]]]
+    };
+getRow(80)->
+    #triggerCfg {
+    id = 80,
+    module = "mapTrigger",
+    method = "transferCurrentRoleToMap",
+    argu = [510,[[194.0,186.0]]]
+    };
 getRow(_)->[].
 
 getKeyList()->[
@@ -631,7 +645,9 @@ getKeyList()->[
     {75},
     {76},
     {77},
-    {78}
+    {78},
+    {79},
+    {80}
     ].
 
 get1KeyList()->[
@@ -712,6 +728,8 @@ get1KeyList()->[
     75,
     76,
     77,
-    78
+    78,
+    79,
+    80
     ].
 

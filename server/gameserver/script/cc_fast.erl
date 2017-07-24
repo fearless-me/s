@@ -1,4 +1,3 @@
-#!/usr/bin/env escript
 -module(cc_fast).
 -author(tiancheng).
 
@@ -173,7 +172,6 @@ searchFile(false, {Lang, _XH} = Param1, {_HrlFileList, ErlFileList, _Opts} = Par
 	end;
 	
 searchFile(_, {Lang, _XH} = Param1, {_HrlFileList, _ErlFileList, Opts} = Param2) ->
-	
 	io:format("[*] ===> compile all searched ~p file(s) ~n", [safe_length(getSearchFileData())]),
 	io:format("[0] ===> return to main menu~n", []),
 	
@@ -241,6 +239,15 @@ jump_package() ->
 	ok.
 
 compile(Lang, 1) ->
+	io:format("now path:~p~n", [file:get_cwd()]),
+	%% 先生成版本文件
+	os:cmd("svn update ../src/version/version.erl"),
+	waitATime(2000),
+	os:cmd("start version.ers"),
+	waitATime(1000),
+	os:cmd("svn commit -m \"auto generate version\" ../src/version/version.erl"),
+	waitATime(5000),
+
 	%% 用于Release编译打包
 	Target = getCompileServer(1),
 	FileName = io_lib:format("compile_~p_~p.txt", [Lang, Target]),
@@ -259,6 +266,7 @@ compile(Lang, 1) ->
 
 	menu2(Lang);
 compile(Lang, V) ->
+	io:format("now path:~p~n", [file:get_cwd()]),
 	Target = getCompileServer(V),
 	ets:delete_all_objects(?CompileEts),
 
@@ -286,6 +294,14 @@ checkCompileError(FileName)->
 			string:str(Content, "failed");
 		V ->
 			V
+	end.
+
+waitATime(Time) ->
+	receive
+		tttttttttttttttcccccccccccccccc ->
+			ok
+	after Time ->
+		ok
 	end.
 
 loop_wait(0) ->

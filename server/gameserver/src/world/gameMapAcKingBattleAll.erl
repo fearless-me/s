@@ -92,11 +92,22 @@ createKingMirroringToMap() ->
 	} | _] = edb:readAllRecord(rec_guard_mirror),
 	case acKingBattleAllLogic:getMirrorInfo(RoleID) of
 		{ok, {MonsterID, X1, Y1}} ->
+
+			Fightall_mirror_atk = configfightall_mirror_atk(),
+			Fightall_fightall_mirror_def =  configfightall_mirror_def(),
+			Fightall_mirror_crit  = configfightall_mirror_crit(),
+			Fightall_mirror_redef = configfightall_mirror_redef(),
+			Fightall_mirror_critdamage= configfightall_mirror_critdamage(),
+			Fightall_mirror_toughness= configfightall_mirror_toughness(),
+			Fightall_mirror_dodge = configfightall_mirror_dodge(),
+			Fightall_mirror_hit =   configfightall_mirror_hit(),
+			Fightall_mirror_armor = configfightall_mirror_armor(),
 			StrName = stringCfg:getString(cnTextKingBattleAllMonsterNamePostfix, [binToString(Name)]),
 			LocationInstance = #recMapObjData{id = MonsterID, name = StrName, mapX = erlang:float(X1), mapY = erlang:float(Y1)},
-			PropKvList = [{?Prop_MaxHP, Hp}, {?Prop_PhysicalAttack, FightForce * 0.18},
-				{?Prop_PhysicalDefence, FightForce * 0.045}, {?Prop_CriticalLevel, FightForce * 0.016}, {?Prop_CriticalResistLevel, FightForce * 0.004},
-				{?Prop_CriticalDamageLevel, FightForce * 0.011}, {?Prop_TenaciousLevel, FightForce * 0.007}, {?Prop_HitLevel, FightForce * 0.007}, {?Prop_DodgeLevel, FightForce * 0.004}, {?Prop_ArmorPenetrationLevel, FightForce * 0.007}],
+
+			PropKvList = [{?Prop_MaxHP, Hp}, {?Prop_PhysicalAttack, FightForce * Fightall_mirror_atk},
+				{?Prop_PhysicalDefence, FightForce * Fightall_fightall_mirror_def}, {?Prop_CriticalLevel, FightForce * Fightall_mirror_crit}, {?Prop_CriticalResistLevel, FightForce * Fightall_mirror_redef},
+				{?Prop_CriticalDamageLevel, FightForce * Fightall_mirror_critdamage}, {?Prop_TenaciousLevel, FightForce * Fightall_mirror_toughness}, {?Prop_HitLevel, FightForce *Fightall_mirror_hit}, {?Prop_DodgeLevel, FightForce *Fightall_mirror_dodge}, {?Prop_ArmorPenetrationLevel, FightForce * Fightall_mirror_armor}],
 			CallBack = copyMapDemonBattle:createPropCallback_Mirror(PropKvList),
 			mapBase:spawnAllMonster([LocationInstance], CallBack, Level),
 			#acKingBattleBuyBuffCfg{buffID = BuffID} = getCfg:getCfgByKey(cfg_acKingBattleBuyBuff, MirrorBiffCfgID),
@@ -140,3 +151,49 @@ binToString(BinStr) when erlang:is_list(BinStr) ->
 	BinStr;
 binToString(BinStr) ->
 	erlang:binary_to_list(BinStr).
+
+configfightall_mirror_atk() ->
+	#globalsetupCfg{setpara = [Value]} =
+		getCfg:getCfgPStack(cfg_globalsetup, fightall_mirror_atk),
+	Value.
+configfightall_mirror_def()->
+	#globalsetupCfg{setpara = [Value]} =
+		getCfg:getCfgPStack(cfg_globalsetup, fightall_mirror_def),
+	Value.
+
+configfightall_mirror_crit()->
+	#globalsetupCfg{setpara = [Value]} =
+		getCfg:getCfgPStack(cfg_globalsetup, fightall_mirror_crit),
+	Value.
+configfightall_mirror_redef()->
+	#globalsetupCfg{setpara = [Value]} =
+		getCfg:getCfgPStack(cfg_globalsetup, fightall_mirror_redef),
+	Value.
+
+configfightall_mirror_critdamage()->
+	#globalsetupCfg{setpara = [Value]} =
+		getCfg:getCfgPStack(cfg_globalsetup, fightall_mirror_critdamage),
+	Value.
+
+configfightall_mirror_toughness()->
+	#globalsetupCfg{setpara = [Value]} =
+		getCfg:getCfgPStack(cfg_globalsetup, fightall_mirror_toughness),
+	Value.
+
+configfightall_mirror_hit()->
+	#globalsetupCfg{setpara = [Value]} =
+		getCfg:getCfgPStack(cfg_globalsetup, fightall_mirror_hit),
+	Value.
+configfightall_mirror_dodge()->
+	#globalsetupCfg{setpara = [Value]} =
+		getCfg:getCfgPStack(cfg_globalsetup, fightall_mirror_dodge),
+	Value.
+configfightall_mirror_armor()->
+	#globalsetupCfg{setpara = [Value]} =
+		getCfg:getCfgPStack(cfg_globalsetup, fightall_mirror_armor),
+	Value.
+
+configfightall_mirror_HP()->
+	#globalsetupCfg{setpara = [Value]} =
+		getCfg:getCfgPStack(cfg_globalsetup, fightall_mirror_HP),
+	Value.

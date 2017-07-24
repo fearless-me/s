@@ -244,9 +244,9 @@ donate(FromPid, {RoleID, SubState, SnowmanID}) ->
 									_ ->
 										ListSZero = resZero(),
 										onStateFinish(SubState, SubStateNew, ListPlayerInfoNew0),
+										spawnMonsterOrCollect(SubStateNew, MapPid),
 										[R#recMapPlayerInfo{resource = ListSZero} || R <- ListPlayerInfoNew0]
 								end,
-							spawnMonsterOrCollect(SubStateNew, MapPid),
 							%% 6.保存新的数据
 							MapInfoNew =
 								MapInfoOld#recMapInfo{
@@ -344,16 +344,16 @@ doGiveResourceConvertReward(NR, RoleID)->
 
 getConversionCoin()->
 	case getCfg:getCfgByKey(cfg_globalsetup, guild_conversion_currency) of
-		#globalsetupCfg{setpara = [V]}->
-			V;
+		#globalsetupCfg{setpara = [CoinType, Number, CoinRate, CoinLimit]}->
+			{CoinType, Number, CoinRate, CoinLimit};
 		_ ->
 			{?CoinTypeGold, 0, 0, 0}
 	end.
 
 getConversionItem()->
-	case getCfg:getCfgByKey(cfg_globalsetup, guild_conversion_currency) of
-		#globalsetupCfg{setpara = [V]}->
-			V;
+	case getCfg:getCfgByKey(cfg_globalsetup, guild_conversion_item) of
+		#globalsetupCfg{setpara = [ItemID, ItemRate,  ItemLimit]}->
+			{ItemID, ItemRate,  ItemLimit};
 		_ ->
 			{0, 0, 0}
 	end.
@@ -373,12 +373,12 @@ gmNext(RoleID) ->
 	ok.
 
 %%----------------------------------------------------------------------------------------------
-%% GM命令获得携带材料
+%% GM命令获得携带材料（非GM地图可用，方便测试）
 -spec gmGetRes({RoleID::uint64(), ResID::uint32(), Count::uint32()}) -> ok.
 gmGetRes({RoleID, ResID, Count}) ->
 	?DEBUG_OUT("[DebugForSnowman] gmGetRes RoleID:~p ResID:~p Count:~p", [RoleID, ResID, Count]),
 	case acSnowmanState:getMapInfoByRoleID(RoleID) of
-		#recMapInfo{isGM = true, mapPid = MapPid} ->
+		#recMapInfo{mapPid = MapPid} ->
 			ListCount = lists:seq(1, Count),
 			case acSnowmanState:configSnowman(ResID) of
 				#guildsnowmanCfg{srcType = ?SrcType_Monster, srcID = MonsterID} ->
@@ -402,7 +402,7 @@ gmGetRes({RoleID, ResID, Count}) ->
 					?ERROR_OUT("gmGetRes invalid Cfg or invalid GM call~n~p", [{ResID, _InvalidCfg}])
 			end;
 		_E ->
-			%% 该地图非GM地图或者地图不存在……
+			%% 该地图不存在……
 			?ERROR_OUT("gmGetRes invalid call~n~p", [_E])
 	end,
 	ok.
@@ -585,7 +585,7 @@ activityMapMsg(?ACMapMsg_CreateMap, {_CreatorRoleID, _MapID, MapPid, PlayerEts, 
 			acSnowmanState:replaceMapInfo(MapInfoNew),
 
 			%% 刷新活动地图
-			updateStage(acSnowmanState:getStage()),
+			updateStage(acSnowmanState:getStage(), MapInfoNew),
 
 			enterTryNotice(MapPid, CreatorID);	%% 通知创建者进入
 		_E ->
@@ -888,6 +888,12 @@ donate([HPlayer|TPlayer], [HSnowman|TSnowman], [_HSnowmanMax|TSnowmanMax],
 %%----------------------------------------------------------------------------------------------
 %% 更新地图的活动阶段
 -spec updateStage(Stage::type_MapState()) -> ok.
+updateStage(?ActivityPhase_Close) ->
+	%% ?MapState_Complete不是真实存在的进度
+	%% ?ActivityPhase_Close时转换为?MapState_Complete
+	%% 表示结束活动，清理数据
+	updateStage(?MapState_Complete),
+	ok;
 updateStage(?MapState_Sleep) ->
 	%% 该阶段用于时间校正，忽略
 	ok;
@@ -979,44 +985,64 @@ spawnMonsterOrCollect(SubState, MapPid) ->
 	%% 先清理别的怪物或者采集物
 	psMgr:sendMsg2PS(MapPid, clearAllObject, [?CodeTypeMonster, ?CodeTypeCollect]),
 	%% 刷对应子状态的对象
-	Msg =
-		case getCfg:getCfgPStack(cfg_guildsnowman, SubState) of
-			#guildsnowmanCfg{srcType = ?SrcType_Monster, srcID = MonsterID, pos = ListPosM} ->
-				lists:foldl(
-					fun({X, Y}, RM) ->
-						Arg =
-							#recSpawnMonster{
-								id      = MonsterID,
-								mapID   = ?GuildSnowmanMapID,
-								mapPid  = MapPid,
-								x       = erlang:float(X),
-								y       = erlang:float(Y),
-								groupID = 0
-							},
-						[{Arg, 0, 0, 0} | RM]
-					end,
-					[],
-					ListPosM
-				);
-			#guildsnowmanCfg{srcType = ?SrcType_Collect, srcID = CollectID, pos = ListPosC} ->
-				lists:foldl(
-					fun({X, Y}, RC) ->
-						Arg =
-							#recSpawnCollect{
-								id      = CollectID,
-								x    	= erlang:float(X),
-								y    	= erlang:float(Y),
-								groupID = 0
-							},
-						[{Arg, 0, 0, 0} | RC]
-					end,
-					[],
-					ListPosC
-				)
-		end,
+	Cfg = getCfg:getCfgPStack(cfg_guildsnowman, SubState),
+	Msg = spawnMonsterOrCollectMsg(Cfg, MapPid),
 	?DEBUG_OUT("[DebugForSnowman] spawnMonsterOrCollect SubState:~w~n~p", [SubState, Msg]),
 	psMgr:sendMsg2PS(MapPid, spawnObject, Msg),
 	ok.
+
+%% 根据配置刷怪或者刷采集物
+spawnMonsterOrCollectMsg(#guildsnowmanCfg{srcType = ?SrcType_Monster, srcID = MonsterID, pos = ListPosM}, MapPid) ->
+	ListPos = spawnPostion1(ListPosM, []),
+	spawnMonster(ListPos, MonsterID, MapPid, []);
+spawnMonsterOrCollectMsg(#guildsnowmanCfg{srcType = ?SrcType_Collect, srcID = CollectID, pos = ListPosC}, _MapPid) ->
+	ListPos = spawnPostion1(ListPosC, []),
+	spawnObject(ListPos, CollectID, []).
+
+%% 刷怪
+spawnMonster([], _ID, _MapPid, Msg) ->
+	Msg;
+spawnMonster([{X, Y} | T], ID, MapPid, Msg) ->
+	Arg =
+		#recSpawnMonster{
+			id      = ID,
+			mapID   = ?GuildSnowmanMapID,
+			mapPid  = MapPid,
+			x       = erlang:float(X),
+			y       = erlang:float(Y),
+			groupID = 0
+		},
+	spawnMonster(T, ID, MapPid, [{Arg, 0, 0, 0} | Msg]).
+
+%% 刷采集物
+spawnObject([], _ID, Msg) ->
+	Msg;
+spawnObject([{X, Y} | T], ID, Msg) ->
+	Arg =
+		#recSpawnCollect{
+			id      = ID,
+			x    	= erlang:float(X),
+			y    	= erlang:float(Y),
+			groupID = 0
+		},
+	spawnObject(T, ID, [{Arg, 0, 0, 0} | Msg]).
+
+%% 刷新对象改为
+%% 中心点±10范围内
+spawnPostion1([], ListPos) ->
+	ListPos;
+spawnPostion1([H | T], ListPos) ->
+	ListNew = spawnPostion2(H, ListPos),
+	spawnPostion1(T, ListNew).
+spawnPostion2({_Pos, 0}, ListPos) ->
+	ListPos;
+spawnPostion2({{CX, CY}, Count}, ListPos) when Count > 0 ->
+	X = CX + misc:rand(-10, 10),
+	Y = CY + misc:rand(-10, 10),
+	spawnPostion2({{CX, CY}, Count - 1}, [{X, Y} | ListPos]);
+spawnPostion2(InvalidData, ListPos) ->
+	?ERROR_OUT("cfg_guildsnowman.pos is invalid with:~w", [InvalidData]),
+	ListPos.
 
 %% 角色相关结算奖励
 -spec settle(Cfg::#guildsnoman_settleCfg{}, ListPlayerInfo::[#recMapPlayerInfo{}, ...]) -> ok.

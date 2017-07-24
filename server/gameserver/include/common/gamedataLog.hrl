@@ -1088,7 +1088,8 @@
 	'PurpleEssence' = 0,				%%紫色精华 bigint(20) unsigned
 	'GoldenEssence' = 0,				%%金色精华 bigint(20) unsigned
 	onlineOrOffline = 0,				%%上线还是下线，（=0表示上线，=1表示下线） int(4) unsigned
-	time = 0				%%时间 int(4)
+	time = 0,				%%时间 int(4)
+	time2 = 0				%% int(10) unsigned
 
 }).
 
@@ -1241,7 +1242,7 @@
 	opSerial = 0,				%%gm操作序号 bigint(1) unsigned
 	opResult = 0,				%%操作结果0为成功 int(1)
 	arg1 = "",				%% varchar(255)
-	arg2 = "",				%% varchar(255)
+	arg2 = "",				%% varchar(512)
 	arg3 = "",				%% varchar(255)
 	arg4 = "",				%% varchar(255)
 	arg5 = "",				%% varchar(255)

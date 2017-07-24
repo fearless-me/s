@@ -13,7 +13,8 @@ getRow(1)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "小狗"
     };
 getRow(2)->
     #bubbleExpressionCfg {
@@ -23,7 +24,8 @@ getRow(2)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "OK"
     };
 getRow(3)->
     #bubbleExpressionCfg {
@@ -33,7 +35,8 @@ getRow(3)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "爱心眼"
     };
 getRow(4)->
     #bubbleExpressionCfg {
@@ -43,7 +46,8 @@ getRow(4)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "大哭"
     };
 getRow(5)->
     #bubbleExpressionCfg {
@@ -53,7 +57,8 @@ getRow(5)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "点头"
     };
 getRow(6)->
     #bubbleExpressionCfg {
@@ -63,7 +68,8 @@ getRow(6)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "点赞"
     };
 getRow(7)->
     #bubbleExpressionCfg {
@@ -73,7 +79,8 @@ getRow(7)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "赌气"
     };
 getRow(8)->
     #bubbleExpressionCfg {
@@ -83,7 +90,8 @@ getRow(8)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "大袋"
     };
 getRow(9)->
     #bubbleExpressionCfg {
@@ -93,7 +101,8 @@ getRow(9)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "犯晕"
     };
 getRow(10)->
     #bubbleExpressionCfg {
@@ -103,7 +112,8 @@ getRow(10)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "告白"
     };
 getRow(11)->
     #bubbleExpressionCfg {
@@ -113,7 +123,8 @@ getRow(11)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "害怕"
     };
 getRow(12)->
     #bubbleExpressionCfg {
@@ -123,7 +134,8 @@ getRow(12)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "害羞"
     };
 getRow(13)->
     #bubbleExpressionCfg {
@@ -133,7 +145,8 @@ getRow(13)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "流汗"
     };
 getRow(14)->
     #bubbleExpressionCfg {
@@ -143,7 +156,8 @@ getRow(14)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "哼哼"
     };
 getRow(15)->
     #bubbleExpressionCfg {
@@ -153,7 +167,8 @@ getRow(15)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "坏笑"
     };
 getRow(16)->
     #bubbleExpressionCfg {
@@ -163,7 +178,8 @@ getRow(16)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "挤眼笑"
     };
 getRow(17)->
     #bubbleExpressionCfg {
@@ -173,7 +189,8 @@ getRow(17)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "剪刀手"
     };
 getRow(18)->
     #bubbleExpressionCfg {
@@ -183,7 +200,8 @@ getRow(18)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "惊吓"
     };
 getRow(19)->
     #bubbleExpressionCfg {
@@ -193,7 +211,8 @@ getRow(19)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "开心"
     };
 getRow(20)->
     #bubbleExpressionCfg {
@@ -203,7 +222,8 @@ getRow(20)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "苦笑"
     };
 getRow(21)->
     #bubbleExpressionCfg {
@@ -213,7 +233,8 @@ getRow(21)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "开心"
     };
 getRow(22)->
     #bubbleExpressionCfg {
@@ -223,7 +244,8 @@ getRow(22)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "哭"
     };
 getRow(23)->
     #bubbleExpressionCfg {
@@ -233,7 +255,8 @@ getRow(23)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "卖萌"
     };
 getRow(24)->
     #bubbleExpressionCfg {
@@ -243,7 +266,8 @@ getRow(24)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "眯眼笑"
     };
 getRow(25)->
     #bubbleExpressionCfg {
@@ -253,7 +277,8 @@ getRow(25)->
     expressionlist = [1,2],
     continueTime = 2,
     lock = 0,
-    action_dance = 0
+    action_dance = 0,
+    display_name = "摸摸头"
     };
 getRow(26)->
     #bubbleExpressionCfg {
@@ -605,6 +630,39 @@ getRow(74)->
     lock = 0,
     action_dance = 1
     };
+getRow(75)->
+    #bubbleExpressionCfg {
+    id = 75,
+    type = 3,
+    name = "other\vfx_26_26",
+    icon = "",
+    continueTime = 1,
+    lock = 0,
+    action_dance = 0,
+    display_name = "特效待配"
+    };
+getRow(76)->
+    #bubbleExpressionCfg {
+    id = 76,
+    type = 3,
+    name = "other\vfx_26_27",
+    icon = "",
+    continueTime = 1,
+    lock = 0,
+    action_dance = 0,
+    display_name = "特效1"
+    };
+getRow(77)->
+    #bubbleExpressionCfg {
+    id = 77,
+    type = 3,
+    name = "other\vfx_26_28",
+    icon = "",
+    continueTime = 1,
+    lock = 0,
+    action_dance = 0,
+    display_name = "特效2"
+    };
 getRow(_)->[].
 
 getKeyList()->[
@@ -667,7 +725,10 @@ getKeyList()->[
     {71},
     {72},
     {73},
-    {74}
+    {74},
+    {75},
+    {76},
+    {77}
     ].
 
 get1KeyList()->[
@@ -730,6 +791,9 @@ get1KeyList()->[
     71,
     72,
     73,
-    74
+    74,
+    75,
+    76,
+    77
     ].
 

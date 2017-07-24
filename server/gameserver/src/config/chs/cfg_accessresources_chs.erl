@@ -204,8 +204,8 @@ getRow(17)->
     type = 2,
     type_id = 2601,
     description_1 = "[ff9900]【璀璨晶体】[-]可用于光暗双系[ff3300]器灵[-]升级",
-    description_2 = "[00ff00]主要途径：[-][ff9900]商城[-]",
-    relation_UI = [24,0],
+    description_2 = "[00ff00]主要途径：[-][ff9900]神秘商店[-]",
+    relation_UI = [33,0],
     number_display = 1,
     new_rule = 0
     };

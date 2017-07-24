@@ -8,599 +8,484 @@
 -include("acAnswerPlayPrivate.hrl").
 -include("../activityPhaseDefine.hrl").
 -include("common/db.hrl").
-
+-include("cfg_allplayerquestion.hrl").
 %% ====================================================================
 %% API functions
 %% ====================================================================
 -export([init/0,
 		 activityChangeCallBack/1,
-         playerAnswerInfo/2,
-         playerAnswerResult/6,
+         playerAnswerResult/7,
 		 sendAnswerReward/0,
-         sendQuestionToClient/0
+         sendQuestionToClient/0,
+	     onTimerTick/0,
+	     applyAnswer/1
          ]).
 
 -spec init() -> ok.
 init() ->
+	%%erlang:send_after(?TimeTick, self(), ?MsgTypeTimerTick),
 	ok.
-%%玩家请求答题信息
-playerAnswerInfo(RoleID, NetPid) ->
-    case getAnswerState() of
-        true ->
-			case getAnswerResult() of
-            [] ->
-				false;
-			Dict ->
-	            %%判断是否已经答过题 发送没答的题目和答案
-	            case dict:find(RoleID, Dict) of
-	                {ok,Value} ->
-						#recAnswerResult{answerNum = AnswerNum, trueNum = TrueNum, exp = TotalExp, coin = TotalCoin} = Value,
-						playerOnlineSendAnswerInfo(NetPid,AnswerNum, TrueNum, TotalExp, TotalCoin);
-	                _ ->
-						playerOnlineSendAnswerInfo(NetPid,0, 0, 0, 0)
-	            end
-			end;
-        _ ->
-            DBID = gsMainLogic:getDBID4GS(),
-			NameList = case memDBCache:getSundries(?Sundries_ID_AnswerRewardName, DBID) of
-							[] ->
-								[];
-							[Name] ->
-								Name#rec_sundries.value
-						end,
-    		Msg2 = #pk_GS2U_AnswerFirstAndLuckyPlayer{playerName = NameList},
-    		gsSendMsg:sendNetMsg(NetPid,Msg2),
-            false
-    end,
-    ok.
 
+%% 秒级心跳消息响应
+-spec onTimerTick() -> ok.
+onTimerTick() ->
+	%?DEBUG_OUT("[DebugForDate] onTimerTick"),
+	case getAnswerState() of
+		true->
+			acDanceState:setTimerRef(erlang:send_after(configAllplayerquestion_times()*1000, self(), answer_timerTick)),
+			initNextQuestion(),
+			sendQuestionToClient();
+		_->skip
+	end,
+
+	ok.
+
+applyAnswer({RoleID, Pid, NetPid}) ->
+	ECode =
+		case getCanApply() of
+			true ->
+				{NewApply, ErrorCode,Result} =
+					case getAnswerApplyObject(RoleID) of
+						false ->
+							{RoleName,Level,Career,Race,Sex,Head} =
+							case core:queryRoleKeyInfoByRoleID(RoleID) of
+								#?RoleKeyRec{roleName = Name,level = Ll,career = Cr,race = Re,sex = Sx,head = Hd} ->
+									{Name,Ll,Cr,Re,Sx,Hd};
+								_->
+									{"",0,0,0,0,0}
+							end,
+							Msg = playerMsg:getErrorCodeMsg(?ErrorCode_ApplyDanceSuccess),
+							gsSendMsg:sendNetMsg(NetPid, Msg),
+							{#recAnswerResult{roleID = RoleID, roleName = RoleName,pid = Pid, netPid = NetPid,level = Level,career = Career,race = Race,sex = Sex,head = Head}, ?ErrorCode_ApplyDanceSuccess,1};
+						#recAnswerResult{} = Apply ->
+							{Apply#recAnswerResult{pid = Pid, netPid = NetPid}, 0,3}
+					end,
+
+				PrepareTime =  getPrepareTime(),
+				EndTime =
+				case   PrepareTime >0 of
+					  true ->
+						  configAllplayerquestion_activitytotaltime()  - (time:getSyncUTCTimeFromDBS() - PrepareTime );
+						_->
+							0
+                end,
+				putAnswerApplyObject(NewApply),
+
+				Msg2 = #pk_GS2U_ApplyAnswerResult{result = Result,endTime = EndTime},
+				gsSendMsg:sendNetMsg(NetPid,Msg2),
+
+
+				case getAnswerState() of
+					true->
+						sendQuestionToClient();
+					_->
+						Sortlist = sortAnswerByScore(),
+						RankList =  createRankMsg([], 1, 50, Sortlist),
+
+						Sortlist1=  lists:reverse(Sortlist),
+						createExtData(RoleID,Sortlist1,NetPid),
+						Msg3 = #pk_GS2U_AnswerRank{ isover =  false,data = RankList},
+						Fun =
+							fun(_Key, #recAnswerResult{netPid = NetPid, roleID = RoleID}, _) ->
+								gsSendMsg:sendNetMsg(NetPid, Msg3)
+							end,
+						dict:fold(Fun, ok, getAnswerApply())
+				end,
+				?DEBUG_OUT("applyDance:~p", [RoleID]),
+
+				ErrorCode;
+			_ ->
+				?ErrorCode_DanceActivityNotStart
+		end,
+	ok.
 %% 主活动模块进程回调
 -spec activityChangeCallBack(Phase::uint()) -> ok.
 activityChangeCallBack(?ActivityPhase_AnswerPlay_1) ->
 	?LOG_OUT("~p ~p answer wait start", [?MODULE, self()]),
 	ok;
-%% 答题活动准备开始
+%% 答题活动准备开始倒计时5分钟
 activityChangeCallBack(?ActivityPhase_AnswerPlay_2) ->
 	?LOG_OUT("~p ~p answer wait start", [?MODULE, self()]),
-	setNowStartTime(time:getSyncTimeFromDBS()),
-	setAnswerState(true),
-    Content = stringCfg:getString(answerPlayWaitStart),
+	setCanApply(true),
+	setAnswerState(false),
+	setPrepareTime(time:getSyncUTCTimeFromDBS()),
+    Content = stringCfg:getString(allplayerquestion_serverstrings_1),
 	activityCommon:sendBroadcastNotice(Content),
-	sendQuestionToClient(),
+	%%sendQuestionToClient(),
+	ok;
+
+%% 答题活动准备开始倒计时3分钟
+activityChangeCallBack(?ActivityPhase_AnswerPlay_3) ->
+	?LOG_OUT("~p ~p answer wait start", [?MODULE, self()]),
+	setCanApply(true),
+	%%setAnswerState(true),
+	Content = stringCfg:getString(allplayerquestion_serverstrings_2),
+	activityCommon:sendBroadcastNotice(Content),
+	%%sendQuestionToClient(),
+	ok;
+
+%% 答题活动准备开始倒计时3分钟
+activityChangeCallBack(?ActivityPhase_AnswerPlay_4) ->
+	?LOG_OUT("~p ~p answer wait start", [?MODULE, self()]),
+	setCanApply(true),
+	%%setAnswerState(true),
+	Content = stringCfg:getString(allplayerquestion_serverstrings_3),
+	activityCommon:sendBroadcastNotice(Content),
+	%%sendQuestionToClient(),
 	ok;
 
 %% 答题活动开始
-activityChangeCallBack(?ActivityPhase_AnswerPlay_3) ->
+activityChangeCallBack(?ActivityPhase_AnswerPlay_5) ->
 	?LOG_OUT("~p ~p answer start", [?MODULE, self()]),
-	Content = stringCfg:getString(answerPlayStart),
+	Content = stringCfg:getString(allplayerquestion_serverstrings_4),
 	activityCommon:sendBroadcastNotice(Content),
+	setPrepareTime(0),
+	setCanApply(true),
+	setAnswerState(true),
+
+
+	case getTimerRef() of
+		undefined ->
+			setTimerRef(erlang:send_after(configAllplayerquestion_times()*1000, self(), answer_timerTick));
+		_ ->
+			skip
+	end,
+	initNextQuestion(),
+	sendQuestionToClient(),
     ok;
 
 %% 答题活动结束
 activityChangeCallBack(?ActivityPhase_Close) ->
 	case getAnswerState() of
 		true ->
-			Ntime = time:getSyncTimeFromDBS(),
-			Stime = getNowStartTime(),
-			PrePareTime = getglobValue(qa_prepare_time),
-		    AnserTime = getglobValue(qa_time),
-			Ctime = Stime + PrePareTime + AnserTime,
-			case Ctime =< Ntime of
-				true ->
-					setAnswerState(false),
-					setNowStartTime(0),
-					delAnswerTrue(),
-					sendAnswerReward(),
-					delRobitResult(),
-					?LOG_OUT("~p ~p answer closed", [?MODULE, self()]);
-				_ ->
-					erlang:send_after((Ctime - Ntime) * 1000, self(), answerClose)
-			end;
+
+			Content = stringCfg:getString(allplayerquestion_serverstrings_5),
+			activityCommon:sendBroadcastNotice(Content),
+			sendAnswerReward(),
+
+			setAnswerState(false),
+			setNowStartTime(0),
+			delAnswerTrue(),
+			delRobitResult(),
+
+			case getTimerRef() of
+				undefined ->
+					skip;
+				TimerRef ->
+					erlang:cancel_timer(TimerRef)
+			end,
+			setTimerRef(undefined),
+			%%delTimerRef(),
+			delAaswerFirstAndSecond(),
+			delCurrentQuision(),
+			delAnswerQuestion(),
+			%% 结束
+			setCanApply(false),
+			deAllAnswerApply(),
+			delNowStartTime(),
+			setPrepareTime(0);
 		 _ ->
 			skip
 	end,
 	ok.
+%%积分列表排序
+sortAnswerByScore() ->
+	AllAPPLY = getAnswerApply(),
+	ScoreList =  dict:to_list(AllAPPLY),
+	F = fun({_Key, Value}) ->
+			case Value of
+				#recAnswerResult{}  ->
+					Value
+			end
+	    end,
+	ScoreList2 = lists:map(F, ScoreList),
+	AscSortList = lists:keysort(#recAnswerResult.score, ScoreList2),
+	AscSortList.
 
+%%榜单扩展数据
+createExtData(RoleID, Data,NetPid) ->
+	case getAnswerRankIndex(RoleID, Data, 1) of
+		{ok, {Index, #recAnswerResult{score  = Score}}} ->
+			Msg = #pk_GS2U_MyAnswerRank{ranking  = Index, value =Score },
+			gsSendMsg:sendNetMsg(NetPid, Msg);
+		_->
+			?ERROR_OUT("NO (~p) this id in Apply",[RoleID]),
+			none
+	end.
+
+
+getAnswerRankIndex(_RoleID, [], _Index) ->
+	{error, none};
+getAnswerRankIndex(RoleID, [#recAnswerResult{roleID = RoleID} = AnswerInfo | _], Index) ->
+	{ok, {Index, AnswerInfo}};
+getAnswerRankIndex(RoleID, [_ | AnswerSortList], Index) ->
+	getAnswerRankIndex(RoleID, AnswerSortList, Index + 1).
+
+
+
+%%取前N名
+-spec createRankMsg(HasMsgList :: [#pk_ActivityAnswerRankData{}], CurrNum :: uint(), MaxNum :: uint(), List :: list()) -> [#pk_ActivityAnswerRankData{}].
+createRankMsg(HasMsgList, CurrNum, MaxNum, [#recAnswerResult{roleID = RoleID,roleName =RoleName, score = Score} | Tail]) when CurrNum =< MaxNum ->
+	%%RoleName = playerNameUID:getPlayerNameByUID(RoleID),
+	N = #pk_ActivityAnswerRankData{name  = RoleName, value = Score},
+	createRankMsg([N | HasMsgList], CurrNum + 1, MaxNum, Tail);
+createRankMsg(HasMsgList, _CurrNum, _MaxNum, []) ->
+	HasMsgList.
+
+
+-spec initNextQuestion() -> ok.
+initNextQuestion() ->
+
+
+	initAllAnswerApply(),
+	setAaswerFirstAndSecond(0),
+	setNowStartTime(time:getSyncUTCTimeFromDBS()),
+	QuistionList = getCfg:get1KeyList(cfg_allplayerquestion),
+	NewQuisiontList =
+		case getAnswerQuestion() of
+			[]->
+				setAnswerQuestion(QuistionList),
+				QuistionList;
+			KeyList ->
+				case misc:size(KeyList) =< 0 of
+					true ->
+						setAnswerQuestion(QuistionList),
+						QuistionList;
+					_->
+						KeyList
+				end
+		end,
+	Index = misc:rand(1, misc:size(NewQuisiontList)),
+	QustionID = lists:nth(Index, NewQuisiontList),
+	setCurrentQuision(QustionID),
+	NewKeyList = lists:delete(QustionID, NewQuisiontList),
+	setAnswerQuestion(NewKeyList),
+	ok.
 %% 发送题目给所有在线玩家
 -spec sendQuestionToClient() -> ok.
 sendQuestionToClient() ->
-    case getAnswerState() of
-        true ->
-            Problem = getProblem(),
-            saveAnswerResult(Problem),
-            Msg = #pk_GS2U_AnswerQuestion{startTime = getNowStartTime(), answerNum = 0,questionList = Problem},
-            playerMgrOtp:sendMsgToAllPlayer([Msg]);
-        _ ->
-            skip
-    end,
+
+
+	QustionID = getCurrentQuision(),
+	Question_times = configAllplayerquestion_times(),
+	EndTime =  Question_times- ( time:getSyncUTCTimeFromDBS() -  getNowStartTime()),
+
+	case  QustionID of
+		 [] ->  ?ERROR_OUT("NO  getCurrentQuision ");
+		_->
+			%%Msg = #pk_GS2U_AllAnswerQuestion{questionID = QustionID,startTime = getNowStartTime()},
+			Sortlist = sortAnswerByScore(),
+			RankList =   createRankMsg([], 1, 50, Sortlist),
+			Msg = #pk_GS2U_SendAnswerData{questionID = QustionID,endTime  =EndTime,data = RankList},
+			ReverseList =  lists:reverse(Sortlist),
+			Fun =
+				fun(#recAnswerResult{netPid = NetPid,score = Score, roleID = _RoleID}, Idx) ->
+					Msg1 = #pk_GS2U_MyAnswerRank{ranking  = Idx, value =Score },
+					gsSendMsg:sendNetMsg(NetPid, Msg1),
+					gsSendMsg:sendNetMsg(NetPid, Msg),
+					Idx+1
+				end,
+			lists:foldl(Fun, 1, ReverseList)
+	end,
 	ok.
 
 %% 获取玩家答题结果，设置玩家答题表的信息
--spec playerAnswerResult(RoleID, Name, Level ,QuestionID, Result, Pid) -> term() when
-	RoleID::uint(), Name :: term(), Level::uint(),QuestionID::uint(), Result :: uint(), Pid::pid().
-playerAnswerResult(RoleID, Name, Level,QuestionID, Result, Pid) ->
-	 case getAnswerState() of
+-spec playerAnswerResult(RoleID, Name, Level ,QuestionID, IsRight,Result, Pid) -> term() when
+	RoleID::uint(), Name :: term(), Level::uint(),QuestionID::uint(), IsRight::boolean(), Result ::string(), Pid::pid().
+playerAnswerResult(RoleID, Name, Level,QuestionID, IsRight, Result, Pid) ->
+	 case IsRight  andalso getCurrentQuision() =:= QuestionID  of
         true ->
-		    {TrueResult, TrueAnswer} = isTrueResult(QuestionID, Result),
-		    Dict = getAnswerResult(),
-		    {NewQexp, NewQmoney, TrueNum} = getAnswerRewardNum(Level, TrueResult),
-		    case dict:find(RoleID, Dict) of
-				{ok, #recAnswerResult{answerNum = AnswerNum, exp = Exp, coin = Coin, rusult = BeforeResult, trueNum = OldTrueNum}}->
-				            NewResult = #recAnswerResult{
-				                roleID = RoleID,
-				                roleName = Name,
-				                answerTime = time:getUTCNowMS(),
-				                trueNum = OldTrueNum + TrueNum,
-				                exp = NewQexp + Exp,
-				                coin = NewQmoney + Coin,
-				                answerNum = AnswerNum + 1,
-				                rusult = TrueResult band BeforeResult
-				            },
-				            List = dict:store(RoleID, NewResult, Dict),
-							setAnswerResult(List);
-		        _ ->
-		            addAnswerTable(RoleID, Name, Level,TrueResult)
-		    end,
-		    Value = getAnswerResult(),
-			QuestionNum = getglobValue(question_quantity),
-		    Ret =  case dict:find(RoleID, Value) of
-		        {ok, #recAnswerResult{answerNum = NewAnswerNum, exp = NewExp, coin = NewCoin, trueNum = NewTrueNum}} ->
-					case NewAnswerNum > QuestionNum of
+	        case getAnswerState() of
+		          true ->
+			          case getCfg:getCfgByArgs(cfg_allplayerquestion,QuestionID) of
+				          #allplayerquestionCfg{answer = Answer,reward_server = Reward} ->
+					          case string:str(Answer, Result) >= 0 of
+								  true ->
+									  case getAnswerApplyObject(RoleID) of
+										  #recAnswerResult{isRusult = true} = OldResult
+											  ->
+											 skip;
+										  false ->
+											  ?ERROR_OUT("No registration");
+										  #recAnswerResult{head = Head,level = Level,race = Race,career = Career,sex = Sex,score = OldScore,isRusult = false} = OldResult
+											  ->
+											  %%设置答题排位
+											  QuestionRewardList =  configAllplayerquestion_ratio(),
+											  QuestionScoreList = configAllplayerquestion_integral(),
+											  Num =
+												  case getAaswerFirstAndSecond() of
+													  [] ->
+														  setAaswerFirstAndSecond(1),
+														  1;
+
+													  V->
+														  Ranking = V+1,
+														  setAaswerFirstAndSecond(Ranking),
+														  Ranking
+												  end,
+
+											  %%发放答对奖励
+											  Fun =
+												  fun({RankStart,RankEnd,Term},{_,Rank}) ->
+													  case Rank>= RankStart andalso Rank < RankEnd of
+														  true ->
+															  {true,Term};
+														  _->
+															  {false,Term}
+													  end
+												  end,
+											  {_, Magnification} =   misc:foldlEx(Fun,{false,Num},QuestionRewardList),%% lists:foldl(Fun, 0, QuestionRewardList),
+
+
+											  Fun1 =
+												  fun({MoneyType,MoneyNum}) ->
+													  psMgr:sendMsg2PS(Pid, answer_isright_addmoney, {RoleID, MoneyType,MoneyNum * Magnification})
+												  end,
+
+											  lists:foreach(Fun1,Reward),
+
+											  %%积分奖励
+											  {_, Score} =   misc:foldlEx(Fun,{false,Num},QuestionScoreList),
+
+											  NewResult = OldResult#recAnswerResult{
+												  roleID = RoleID,
+												  roleName = Name,
+												  isRusult = true,
+												  score =OldScore + Score
+											  },
+											  putAnswerApplyObject(NewResult),
+
+											  %%转发 所有报名 玩家 同步聊天信息
+											  Msg1 = #pk_GS2U_PlayerAnswer{roleID = RoleID, questionID = QuestionID,isright = true,answers = Result
+												  ,isFirstAnser = Num,roleName = Name,level = Level,career = Career,sex = Sex,race = Race,head = Head},
+											  Fun2 =
+												  fun(_Key, #recAnswerResult{netPid = NetPid, roleID = _RoleID}, _) ->
+													  case RoleID =:= _RoleID of
+														  true ->
+															  Sortlist = sortAnswerByScore(),
+															  RankList =   createRankMsg([], 1, 50, Sortlist),
+
+															  ReverseList =  lists:reverse(Sortlist),
+															  createExtData(RoleID,ReverseList,NetPid),
+															  Msg = #pk_GS2U_AnswerRank{ isover =  false,data = RankList},
+															  gsSendMsg:sendNetMsg(NetPid, Msg);
+														  _->skip
+													  end,
+													  gsSendMsg:sendNetMsg(NetPid, Msg1)
+												  end,
+											  dict:fold(Fun2, ok, getAnswerApply())
+									  end;
+								  _ ->
+									  case getAnswerApplyObject(RoleID) of
+										  false ->
+											  ?ERROR_OUT("No registration");
+										  #recAnswerResult{head = Head,level = Level,race = Race,career = Career,sex = Sex}
+											  ->
+											  Msg1 = #pk_GS2U_PlayerAnswer{roleID = RoleID, questionID = QuestionID,isright = false,answers = Result
+												  ,isFirstAnser = 0,roleName = Name,level = Level,career = Career,sex = Sex,race = Race,head = Head},
+											  Fun =
+												  fun(_Key, #recAnswerResult{netPid = NetPid, roleID = RoleID}, _) ->
+													  gsSendMsg:sendNetMsg(NetPid, Msg1)
+												  end,
+											  dict:fold(Fun, ok, getAnswerApply())
+									  end
+					          end;
+					          _->
+						          case getAnswerApplyObject(RoleID) of
+							          false ->
+								          ?ERROR_OUT("No registration");
+							          #recAnswerResult{head = Head,level = Level,race = Race,career = Career,sex = Sex}
+								          ->
+								          Msg1 = #pk_GS2U_PlayerAnswer{roleID = RoleID, questionID = QuestionID,isright = false,answers = Result
+									          ,isFirstAnser = 0,roleName = Name,level = Level,career = Career,sex = Sex,race = Race,head = Head},
+								          Fun =
+									          fun(_Key, #recAnswerResult{netPid = NetPid, roleID = RoleID}, _) ->
+										          gsSendMsg:sendNetMsg(NetPid, Msg1)
+									          end,
+								          dict:fold(Fun, ok, getAnswerApply())
+						          end
+			          end;
+				_->
+					case getAnswerApplyObject(RoleID) of
 						false ->
-				            {TrueResult, TrueAnswer, Result,NewExp,NewCoin, NewTrueNum, NewAnswerNum};
-						_ ->
-							{0,0,0,0,0,0,0}
-					end;
-		        _ ->
-		            {TrueResult, TrueAnswer, Result,0,0,0,0}
-		    end,
-			psMgr:sendMsg2PS(Pid, answerResultAck, Ret);
-		 _ ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_CnTextAnswerPlayNoStart)
-	 end.
+							?ERROR_OUT("No registration");
+						#recAnswerResult{head = Head,level = Level,race = Race,career = Career,sex = Sex}
+							->
+							Msg1 = #pk_GS2U_PlayerAnswer{roleID = RoleID, questionID = QuestionID,isright = false,answers = Result
+								,isFirstAnser = 0,roleName = Name,level = Level,career = Career,sex = Sex,race = Race,head = Head},
+							Fun =
+								fun(_Key, #recAnswerResult{netPid = NetPid, roleID = RoleID}, _) ->
+									gsSendMsg:sendNetMsg(NetPid, Msg1)
+								end,
+							dict:fold(Fun, ok, getAnswerApply())
+					end
+	        end;
+	    _->
+			  case getAnswerApplyObject(RoleID) of
+				false ->
+					?ERROR_OUT("No registration");
+                #recAnswerResult{head = Head,level = Level,race = Race,career = Career,sex = Sex}
+					->
+
+					Msg1 = #pk_GS2U_PlayerAnswer{roleID = RoleID, questionID = QuestionID,isright = false,answers = Result
+					,isFirstAnser = 0,roleName = Name,level = Level,career = Career,sex = Sex,race = Race,head = Head},
+					Fun =
+						fun(_Key, #recAnswerResult{netPid = NetPid, roleID = RoleID}, _) ->
+							gsSendMsg:sendNetMsg(NetPid, Msg1)
+						end,
+			        dict:fold(Fun, ok, getAnswerApply())
+			end
+      end,
+	ok.
+
 
 %%活动结束发送玩家奖励
 -spec sendAnswerReward() -> ok.
 sendAnswerReward() ->
-    ResultDicts = getAnswerResult(),
-	QuestionNum = getglobValue(question_quantity),
-	Funs = fun(_Key, List,Acc) ->
-                case List of
-                    #recAnswerResult{} ->
-                        [List|Acc];
-                    _ ->
-                        Acc
-                end
-		   end,
-    ResultDict = dict:fold(Funs, [],ResultDicts),
-	Onlist = getOnlinePlayerlist(ResultDict),
-	case Onlist of
-		[] ->
-			deleteDictResult();
-		_ ->
-			%%幸运选择题答题人数
-			Size = misc:size(Onlist),
-			if
-				%%奖励玩家为1个抢答王10个幸运玩家
-				Size >= 11 ->
-					%%获取答题全对玩家
-					NewOnlist = lists:filter(fun(X) -> X#recAnswerResult.trueNum =:= QuestionNum end, Onlist),
-					case misc:size(NewOnlist) > 0 of
-						true ->
-						%%选取抢答王和幸运玩家，不在线不统计
-						    Fun = fun(A, B) ->
-						        case A#recAnswerResult.trueNum =:= QuestionNum andalso
-									 B#recAnswerResult.trueNum =:= QuestionNum  of
-									true ->
-					            		A#recAnswerResult.answerTime =< B#recAnswerResult.answerTime;
-									_ ->
-										false
-									end
-						    end,
-							%%获取抢答王(答题全对，答题时间最短)
-							[FirstPlayer|_] = lists:sort(Fun, NewOnlist),
-							LastPlayer = Onlist -- [FirstPlayer],
-						    LuckyPlayer = getLuckyPlayer(LastPlayer, [], 10),
-			 		    	sendFirstAndLuckyPlayerToClient([FirstPlayer | LuckyPlayer]);
-						_ ->
-							LuckyPlayer = getLuckyPlayer(Onlist, [], 11),
-			 		    	sendFirstAndLuckyPlayerToClient(LuckyPlayer)
-					end;
-				Size >= 2 andalso Size < 11 ->
-					%%获取答题全对玩家
-					NewOnlist = lists:filter(fun(X) -> X#recAnswerResult.trueNum =:= QuestionNum end, Onlist),
-					case misc:size(NewOnlist) > 0 of
-						true ->
-							Fun = fun(A, B) ->
-							        case A#recAnswerResult.trueNum =:= QuestionNum andalso
-										 B#recAnswerResult.trueNum =:= QuestionNum  of
-										true ->
-						            		A#recAnswerResult.answerTime =< B#recAnswerResult.answerTime;
-										_ ->
-											false
-									end
-						    end,
-							%%获取抢答王(答题全对，答题时间最短)
-							[FirstPlayer|_] = lists:sort(Fun, NewOnlist),
-							LastPlayer = Onlist -- [FirstPlayer],
-				 		 	sendFirstAndLuckyPlayerToClient([FirstPlayer|LastPlayer]);
-						_ ->
-							sendFirstAndLuckyPlayerToClient(Onlist)
-					end;
+
+	RewardList =  configAllplayerquestion_reward(),
+
+	AllPlayer = getAnswerApply(),
+
+	AscSortList = sortAnswerByScore(),%%lists:keysort(#recAnswerResult.score, ListScore),
+	F =
+		fun({RankStart,RankEnd,Term},{_,Rank}) ->
+			case Rank>= RankStart andalso Rank < RankEnd of
 				true ->
-		 			sendFirstAndLuckyPlayerToClient(Onlist)
+					{true,Term};
+				_->
+					{false,Term}
 			end
-	end,
-	ok.
+		end,
+	Fun1 =
+		fun(#recAnswerResult{roleID =  RoleID},Rank) ->
 
-%% 发送抢答王和幸运玩家给客户端
--spec sendFirstAndLuckyPlayerToClient(Players::[#recAnswerResult{},...]) -> ok.
-sendFirstAndLuckyPlayerToClient([]) ->
-	deleteDictResult(),
-	ok;
-sendFirstAndLuckyPlayerToClient(Players) ->
-	QuestionNum = getglobValue(question_quantity),
-    DBID = gsMainLogic:getDBID4GS(),
-	[First|Lucky] = Players,
-	Size = misc:size(Players),
-	if
-		Size >= 11 ->
-			case First /= [] andalso First#recAnswerResult.answerNum =:= QuestionNum andalso First#recAnswerResult.trueNum =:= QuestionNum of
-				true ->
-					%%给全服玩家发送 抢题王和幸运玩家
-				    Fun = fun(#recAnswerResult{roleName = Name}, Acc) ->
-				            [Name|Acc]
-				        end,
-				    NameList = lists:foldr(Fun, [], Players),
-				    Msg = #pk_GS2U_AnswerFirstAndLuckyPlayer{playerName = NameList},
-					playerMgrOtp:sendMsgToAllPlayer([Msg]),
-					%%设置全局答题玩家抢答王和幸运玩家
- 					memDBCache:saveSundries(?Sundries_ID_AnswerRewardName, DBID, NameList),
-					%%全服通告获得抢答王和幸运玩家名字
-					LuckyName = getLuckyPlayerName(Lucky),
-					SpaceNum = 10 - misc:size(Lucky),
-					SpaceNname = lists:duplicate(SpaceNum, []),
-				  	Append = lists:append([First#recAnswerResult.roleName], LuckyName),
-					Append1 = lists:append(Append, SpaceNname),
-			  		Content1 = stringCfg:getString(answerPlayFirstAndLucky,Append1),
- 				   	activityCommon:sendBroadcastNotice(Content1),
+			{_, RewardID} =   misc:foldlEx(F,{false,Rank},RewardList),
+			case playerMail:createMailGoods(RewardID, 1, true, 0, RoleID, ?ItemSourceLuckDraw) of
+				[#recMailItem{}|_] = MailItemList ->
 
-					%%通知抢答王幸运玩家领取奖励
-                    #rec_OnlinePlayer{pid = FirstPid} = playerMgrOtp:getOnlinePlayerInfoByID(First#recAnswerResult.roleID),
-                    psMgr:sendMsg2PS(FirstPid, addAnswerRewardFirst, {First#recAnswerResult.exp, First#recAnswerResult.coin}),
-                    Fun1 =
-                        fun(LuckyPlayer) ->
-                            #rec_OnlinePlayer{pid = LuckyPid} = playerMgrOtp:getOnlinePlayerInfoByID(LuckyPlayer#recAnswerResult.roleID),
-                            psMgr:sendMsg2PS(LuckyPid, addAnswerRewardLucky,{LuckyPlayer#recAnswerResult.exp,LuckyPlayer#recAnswerResult.coin})
-                        end,
-                    lists:foreach(Fun1, Lucky);
+					Content = stringCfg:getString(allplayerquestion_mail_2, [Rank]),
+					Title = stringCfg:getString(allplayerquestion_mail_1),
+					mail:sendSystemMail(RoleID, Title, Content, MailItemList, "");
 				_ ->
-				    Fun = fun(#recAnswerResult{roleName = Name}, Acc) ->
-				            [Name|Acc]
-				        end,
-				    NameList = lists:foldr(Fun, [], Lucky),
-				    Msg = #pk_GS2U_AnswerFirstAndLuckyPlayer{playerName = [[]|NameList]},
-					playerMgrOtp:sendMsgToAllPlayer([Msg]),
-					%%设置全局答题玩家抢答王和幸运玩家
- 					memDBCache:saveSundries(?Sundries_ID_AnswerRewardName, DBID, [[]|NameList]),
-					ContentNull = stringCfg:getString(answerReswardFirstNull),
-				   	activityCommon:sendBroadcastNotice(ContentNull),
+					?ERROR_OUT("settle_Reward RewardID(~p)", [RewardID])
+			end,
+			Rank+1
+		end,
+	lists:foldl(Fun1,1,AscSortList),
+	RankList =   createRankMsg([], 1, 50, AscSortList),
+	Msg = #pk_GS2U_AnswerRank{ isover =  true,data = RankList},
+	ReverseList =  lists:reverse(AscSortList),
+	Fun2 =
+		fun(#recAnswerResult{netPid = NetPid,score = Score, roleID = _RoleID}, Idx) ->
+					Msg1 = #pk_GS2U_MyAnswerRank{ranking  = Idx, value =Score },
+					gsSendMsg:sendNetMsg(NetPid, Msg1),
+					gsSendMsg:sendNetMsg(NetPid, Msg),
+					Idx+1
+		end,
+	lists:foldl(Fun2, 1, ReverseList),
 
-					%%跑马灯抢答王幸运玩家信息
-					LuckyName = getLuckyPlayerName(Lucky),
-					SpaceNum = 10 - misc:size(Lucky),
-					SpaceNname = lists:duplicate(SpaceNum, []),
-					Append1 = lists:append(LuckyName, SpaceNname),
-			  		Content1 = stringCfg:getString(answerPlayLuckyPlayers, Append1),
-			   		activityCommon:sendBroadcastNotice(Content1),
-					%%通知抢答王幸运玩家领取奖励
-                    Fun1 = fun(LuckyPlayer) ->
-                        #rec_OnlinePlayer{pid = LuckyPid} = playerMgrOtp:getOnlinePlayerInfoByID(LuckyPlayer#recAnswerResult.roleID),
-                        psMgr:sendMsg2PS(LuckyPid, addAnswerRewardLucky,{LuckyPlayer#recAnswerResult.exp,LuckyPlayer#recAnswerResult.coin})
-                    end,
-                    lists:foreach(Fun1, Lucky)
-			end;
-		Size >= 2 andalso Size < 11  ->
-			%%答题人数少于10个
-			%%给全服玩家发送 抢题王和幸运玩家
-			case First /= [] andalso First#recAnswerResult.answerNum =:= QuestionNum andalso First#recAnswerResult.trueNum =:= QuestionNum of
-				true ->
-				    Fun = fun(#recAnswerResult{roleName = Name}, Acc) ->
-				            [Name|Acc]
-				        end,
-				    NameList = lists:foldr(Fun, [], Players),
-				    Msg = #pk_GS2U_AnswerFirstAndLuckyPlayer{playerName = NameList},
-					playerMgrOtp:sendMsgToAllPlayer([Msg]),
-
-					%%跑马灯抢答王幸运玩家信息
-					LuckyName = getLuckyPlayerName(Lucky),
-					SpaceNum = 10 - misc:size(Lucky),
-					SpaceNname = lists:duplicate(SpaceNum, []),
-				  	Append = lists:append([First#recAnswerResult.roleName], LuckyName),
-					Append1 = lists:append(Append, SpaceNname),
-			  		Content1 = stringCfg:getString(answerPlayFirstAndLucky, Append1),
- 				   	activityCommon:sendBroadcastNotice(Content1),
-					%%设置全局答题玩家抢答王和幸运玩家
- 					memDBCache:saveSundries(?Sundries_ID_AnswerRewardName, DBID, NameList),
-					%%发送抢答王领奖
-                    #rec_OnlinePlayer{pid = FirstPid} = playerMgrOtp:getOnlinePlayerInfoByID(First#recAnswerResult.roleID),
-                    psMgr:sendMsg2PS(FirstPid, addAnswerRewardFirst, {First#recAnswerResult.exp, First#recAnswerResult.coin}),
-                    Fun1 = fun(LuckyPlayer) ->
-                        #rec_OnlinePlayer{pid = LuckyPid} = playerMgrOtp:getOnlinePlayerInfoByID(LuckyPlayer#recAnswerResult.roleID),
-                        psMgr:sendMsg2PS(LuckyPid, addAnswerRewardLucky,{LuckyPlayer#recAnswerResult.exp,LuckyPlayer#recAnswerResult.coin})
-                    end,
-                    lists:foreach(Fun1, Lucky);
-				_ ->
-					Fun = fun(#recAnswerResult{roleName = Name}, Acc) ->
-				            [Name|Acc]
-				        end,
-				    NameList = lists:foldr(Fun, [], Lucky),
-					ContentNull = stringCfg:getString(answerReswardFirstNull),
-				   	activityCommon:sendBroadcastNotice(ContentNull),
-
-					%%跑马灯抢答王幸运玩家信息
-					LuckyName = getLuckyPlayerName(Lucky),
-					SpaceNum = 10 - misc:size(Lucky),
-					SpaceNname = lists:duplicate(SpaceNum, []),
-					Append1 = lists:append(LuckyName, SpaceNname),
-			  		Content1 = stringCfg:getString(answerPlayLuckyPlayers, Append1),
-			   		activityCommon:sendBroadcastNotice(Content1),
-					%%设置全局答题玩家抢答王和幸运玩家
- 					memDBCache:saveSundries(?Sundries_ID_AnswerRewardName, DBID, [[]|NameList]),
-				    Msg = #pk_GS2U_AnswerFirstAndLuckyPlayer{playerName = [[]|NameList]},
-					playerMgrOtp:sendMsgToAllPlayer([Msg]),
-                    Fun1 = fun(LuckyPlayer) ->
-                        #rec_OnlinePlayer{pid = LuckyPid} = playerMgrOtp:getOnlinePlayerInfoByID(LuckyPlayer#recAnswerResult.roleID),
-                        psMgr:sendMsg2PS(LuckyPid, addAnswerRewardLucky,{LuckyPlayer#recAnswerResult.exp,LuckyPlayer#recAnswerResult.coin})
-                    end,
-                    lists:foreach(Fun1, Lucky)
-			end;
-		true ->
-				%%只有一个玩家答题(默认为抢答王)
-				%%跑马灯抢答王幸运玩家信息
-				LuckyName = getLuckyPlayerName(Lucky),
-				SpaceNum = 10 - misc:size(Lucky),
-				SpaceNname = lists:duplicate(SpaceNum, []),
-				Append = lists:append([First#recAnswerResult.roleName], LuckyName),
-				Append1 = lists:append(Append, SpaceNname),
-			  	Content1 = stringCfg:getString(answerPlayFirstAndLucky, Append1),
-			   	activityCommon:sendBroadcastNotice(Content1),
-				memDBCache:saveSundries(?Sundries_ID_AnswerRewardName, DBID, [First#recAnswerResult.roleName]),
-			    Msg = #pk_GS2U_AnswerFirstAndLuckyPlayer{playerName = [First#recAnswerResult.roleName]},
-				playerMgrOtp:sendMsgToAllPlayer([Msg]),
-                #rec_OnlinePlayer{pid = LuckyPid} = playerMgrOtp:getOnlinePlayerInfoByID(First#recAnswerResult.roleID),
-				psMgr:sendMsg2PS(LuckyPid, addAnswerRewardFirst, {First#recAnswerResult.exp, First#recAnswerResult.coin})
-
-	end,
-	deleteDictResult(),
 	ok.
-
-%% -spec robitAutoAnswer() -> ok.
-%% robitAutoAnswer() ->
-%%     {MinNum, MaxNum} = getglobValue(question_num),
-%%     NewNum = misc:rand(MinNum,MaxNum),
-%%     List = getRobitInfo([], NewNum),
-%% 	Fun = fun(#pk_RobitAnswer{startTime = StartTime, intervalTime = Time}) ->
-%% 			  #recRobitAnswer{startTime = StartTime,
-%% 							  prepareTime = Time}
-%% 	end,
-%% 	RobitList = lists:map(Fun, List),
-%% 	setRobitResult(RobitList),
-%%  Msg = #pk_GS2U_RobitAutoAnswer{answerList = List},
-%%  PlayersInfo = playerMgrOtp:getAllPlayerNetPidInfo(),
-%%  [gsSendMsg:sendNetMsg(NetPID, Msg) || NetPID <- PlayersInfo],
-%%  ok.
-
-%% ====================================================================
-%% Internal functions
-%% ====================================================================
-getOnlinePlayerlist(Player) ->
-	Fun = fun(A) ->
-		playerMgrOtp:getOnlinePlayerInfoByName(A#recAnswerResult.roleName) =/= undefined
-	end,
-	lists:filter(Fun, Player).
-
-%%%获取自动答题信息
-%getRobitInfo(Acc, 0) ->
-%    Acc;
-%getRobitInfo(Acc, Num) ->
-%    {MinTime, MaxTime} = getglobValue(question_time),
-%	PrePareTime = getglobValue(qa_prepare_time),
-%    AnserTime = getglobValue(qa_time),
-%    NewTime = misc:rand(MinTime, MaxTime),
-%    StartTotalTime = getNowStartTime() + PrePareTime + NewTime,
-%    NewStartTotalTime = misc:clamp(StartTotalTime, getNowStartTime(), getNowStartTime() + PrePareTime + AnserTime),
-%    NTime =
-%        case StartTotalTime - NewStartTotalTime of
-%            Time when Time > 0 ->
-%                Time;
-%            L when L =< 0 ->
-%                0
-%     end,
-%    Accs = #pk_RobitAnswer{startTime = NewStartTotalTime - NTime, intervalTime = NewTime},
-%    getRobitInfo([Accs|Acc], Num - 1).
-
-%%清空答题表
-deleteDictResult() ->
-	Dict = getAnswerResult(),
-	Fun = fun(_Key ,#recAnswerResult{roleID = RoleID}, DD) ->
-		dict:erase(RoleID, DD)
-	end,
-	NDict = dict:fold(Fun, Dict, Dict),
-	setAnswerResult(NDict),
-	ok.
-%%玩家上线同步答题信息
-playerOnlineSendAnswerInfo(NetPid,AnswerNum, TrueNum, TotalExp, TotalCoin) ->   
-	AnswerList1 = getTrueResult(),
-	ProblemList1 = changeAnswerStruct(AnswerList1),
-    Msg = #pk_GS2U_AnswerQuestion{startTime = getNowStartTime(), answerNum = AnswerNum, questionList = ProblemList1},
-    gsSendMsg:sendNetMsg(NetPid, Msg),
-    Msg1 = #pk_GS2U_PlayerAnswerInfo{trueNum = TrueNum, totalExp = erlang:round(TotalExp), totalCoin = erlang:round(TotalCoin)},
-    gsSendMsg:sendNetMsg(NetPid,Msg1),
-	ok.
-
-%%获取幸运玩家名字
-getLuckyPlayerName(Lucky) ->
-	getNme(Lucky, [], misc:size(Lucky)).
-  
-getNme(_, Acc, 0) ->
-	Acc;
-getNme([], Acc, _Num) ->
-	Acc;
-getNme([Lucky|LastLucky], Acc, Num) ->
-	Accs = [Lucky#recAnswerResult.roleName|Acc],
-	getNme(LastLucky,Accs, Num - 1).
-
-
-%% 获取玩家答题奖励数量
-getAnswerRewardNum(Level, Result) ->
-    #indexFunctionCfg{question_exp = Qexp, question_money = Qmoney} = getCfg:getCfgPStack(cfg_indexFunction, Level),
-    case Result =:= 1 of
-        true ->
-            NewQexp = Qexp,
-            NewQmoney = Qmoney,
-            {NewQexp, NewQmoney, 1};
-        _ ->
-            NewQexp = Qexp/2,
-            NewQmoney = Qmoney/2,
-            {NewQexp, NewQmoney, 0}
-    end.
-
-%% 保存随机题目的答案
-saveAnswerResult(Problem) ->
-    Fun = fun(#pk_Question{
-        questionID = QuestionID,
-        answers = [A,B,C,D]
-    }) ->
-        #recAnswerTrue{
-            questionID = QuestionID,
-            answer = [{1, A},{2, B},{3, C},{4,D}]
-        }
-    end,
-    ProblemList = lists:map(Fun, Problem),
-    setTrueResult(ProblemList).
-
-%% 获取协议结构
-changeAnswerStruct(QuestionList) ->
-    Fun = fun(#recAnswerTrue{
-        questionID = QuestionID,
-        answer = Answer
-    }) ->
-		[{_, A},{_, B},{_,C},{_,D}] = Answer,
-        #pk_Question{
-            questionID = QuestionID,
-            answers = [A,B,C,D]
-        }
-    end,
-    lists:map(Fun, QuestionList).
-
-%% 获取幸运玩家
--spec getLuckyPlayer(List::list(), Acc::list(), N ::uint()) -> [#recAnswerResult{},...].
-getLuckyPlayer(_, Acc, 0) ->
-    Acc;
-getLuckyPlayer([], Acc, _N) ->
-	Acc;
-getLuckyPlayer(LastPlayer, Accs, N) ->
-    Num = misc:rand(1, misc:size(LastPlayer)),
-    GoodPlayer = lists:nth(Num, LastPlayer),
-    NewList = lists:delete(GoodPlayer, LastPlayer),
-    Acc = [GoodPlayer | Accs],
-    getLuckyPlayer(NewList, Acc, N -1).
-
-%% 判断是否正确
-isTrueResult(ID, Result) ->
-    TrueList = getTrueResult(),
-        case lists:keyfind(ID, #recAnswerTrue.questionID, TrueList) of
-            #recAnswerTrue{answer = AnswerList} ->
-                {Result0, Result1} = lists:keyfind(Result, 1, AnswerList),
-                case Result1 =:= 1 of
-                    true ->
-                        {1, Result0};
-                    _ ->
-                        Predicate = fun({_,B}) ->
-                            B =:= 1
-                            end,  
-                        [{True, _}] = lists:filter(Predicate, AnswerList),
-                        {0, True}
-                end;
-            _ ->
-				?ERROR_OUT("error answer id:~p,Rusult:~p,ResultTable:~p", [ID, Result,TrueList]),
-                {1, Result}
-        end.
-
-%%从题库随机获取任务
-getProblem() ->
-    KeyList = getCfg:get1KeyList(cfg_question),
-	QuestionNum = getglobValue(question_quantity),
-    NumList = randAnswerNum(KeyList, [], QuestionNum),
-    Fun = fun(QuestionID, Acc) ->
-                Answers = setRandomAnswer([1, 2, 3, 4], [], 4),
-                Result =
-                    #pk_Question{
-                        questionID = QuestionID,
-                        answers = Answers
-                    },
-                [Result | Acc]
-        end,
-    lists:foldr(Fun, [],NumList).
-
-%% 随机生成3个题目
-randAnswerNum(_, Acc, 0) ->
-    Acc;
-randAnswerNum([], Acc, _Num) ->
-	Acc;
-randAnswerNum(KeyList, Acc, Num) ->
-    Num1 = misc:rand(1, misc:size(KeyList)),
-    NewNum = lists:nth(Num1, KeyList),
-    NewKeyList = lists:delete(NewNum, KeyList),
-    Accs = [NewNum | Acc],
-    randAnswerNum(NewKeyList, Accs, Num - 1).
-
-
-%% 打乱答题答案
-setRandomAnswer(_, Acc, 0) ->
-    Acc;
-setRandomAnswer([], Acc, _Num) ->
-	Acc;
-setRandomAnswer(KeyList, Acc, Num) ->
-    Num1 = misc:rand(1, misc:size(KeyList)),
-    NewNum = lists:nth(Num1, KeyList),
-    NewKeyList = lists:delete(NewNum, KeyList),
-    Accs = [NewNum | Acc],
-    setRandomAnswer(NewKeyList, Accs, Num -1).
-
-
-%%添加玩家答题表
-addAnswerTable(RoleID, Name, Level, TrueResult) ->
-    {NewQexp, NewQmoney, TrueNum} = getAnswerRewardNum(Level, TrueResult),
-	R = #recAnswerResult{
-			roleID = RoleID,
-            roleName = Name,
-            trueNum = TrueNum,
-            exp = NewQexp,
-            coin = NewQmoney,
-            answerNum = 1,
-			answerTime = time:getUTCNowMS(),
-			rusult = TrueResult
-			},
-	Dict = getAnswerResult(),
-	NDict = dict:store(RoleID, R, Dict),
-	setAnswerResult(NDict),
-	ok.
-
-%% 设置答题信息Dict
-setAnswerResult(Dict) ->
-    put('AnswerResult',Dict),
-    ok.
-
-%% 获取答题信息Dict
-getAnswerResult() ->
-	case get('AnswerResult') of
-		undefined ->
-			dict:new();
-		V ->
-			V
-	end.
 
 
 %% 答题活动开启状态
@@ -616,18 +501,112 @@ getAnswerState() ->
 			V
 	end.
 
-%% 当前正确答案
-setTrueResult(Result) ->
-	put('TrueResult', Result),
+
+%% 答题tick
+setTimerRef(TimerRef) ->
+	put('TimerRef', TimerRef).
+getTimerRef() ->
+	get('TimerRef').
+delTimerRef() ->
+	erlang:erase('TimerRef').
+
+getAnswerApplyObject(RoleID) ->
+	Dict = getAnswerApply(),
+	case dict:find(RoleID, Dict) of
+		{ok, #recAnswerResult{} = Apply} -> Apply;
+		_ -> false
+	end.
+putAnswerApplyObject(#recAnswerResult{roleID = RoleID} = Apply) ->
+	Dict = getAnswerApply(),
+	setAanswerApply(dict:store(RoleID, Apply, Dict)).
+%% 报名字典
+getAnswerApply() ->
+	case get('AnswerApply') of
+		undefined -> dict:new();
+		Dict -> Dict
+	end.
+setAanswerApply(Dict) ->
+	put('AnswerApply', Dict).
+
+%% 能否报名
+setCanApply(Apply) ->
+	put('CanApply', Apply).
+getCanApply() ->
+	get('CanApply').
+
+
+initAllAnswerApply()->
+	Fun2 =
+		fun(_Key, #recAnswerResult{} = Answer, _) ->
+			NewAnswer =  Answer#recAnswerResult{
+				isRusult = false
+			 },
+			putAnswerApplyObject(NewAnswer)
+		end,
+	dict:fold(Fun2, ok, getAnswerApply()),
+
 	ok.
 
-getTrueResult() ->
-	case get('TrueResult') of
+deAllAnswerApply() ->
+	Dict = getAnswerApply(),
+	lists:foreach(fun(RID) -> delAnswerApply(RID) end, dict:fetch_keys(Dict)),
+	%% 最后删掉DICT
+	erlang:erase('AnswerApply').
+delAnswerApply(RoleID) ->
+	D = getAnswerApply(),
+	NewD = dict:erase(RoleID, D),
+	setAanswerApply(NewD).
+%% 设置每题抢答前两位
+setAaswerFirstAndSecond(Num) ->
+	put('FirstAndSecond', Num),
+	ok.
+
+%% 设置每题抢答前两位
+getAaswerFirstAndSecond() ->
+	case get('FirstAndSecond') of
 		undefined ->
 			[];
 		V ->
 			V
 	end.
+
+
+delAaswerFirstAndSecond() ->
+	erlang:erase('FirstAndSecond').
+
+setCurrentQuision(Question) ->
+	put('CurrentQuision', Question),
+ok.
+
+%% 获取当前所有题目
+getCurrentQuision() ->
+	case get('CurrentQuision') of
+		undefined ->
+			[];
+		V ->
+			V
+	end.
+
+delCurrentQuision() ->
+	erlang:erase('CurrentQuision').
+
+
+%% 设置所有题目
+setAnswerQuestion(QuestionList) ->
+	put('AnswerQuestion', QuestionList),
+	ok.
+
+%% 获取当前所有题目
+getAnswerQuestion() ->
+	case get('AnswerQuestion') of
+		undefined ->
+			[];
+		V ->
+			V
+	end.
+
+delAnswerQuestion() ->
+	erlang:erase('AnswerQuestion').
 
 %%% 设置机器人答题结构
 %setRobitResult(Result) ->
@@ -649,6 +628,21 @@ delRobitResult() ->
 delAnswerTrue() ->
     erlang:erase('TrueResult').
 
+
+%%设置准备时间
+setPrepareTime(Time)->
+	put('PrepareTime', Time),
+ok.
+
+
+%%获取备时间
+getPrepareTime()->
+	case get('PrepareTime') of
+		undefined ->
+			0;
+		T ->
+			T
+	end.
 %%设置答题时间
 setNowStartTime(Time) ->
 	put('StartTime', Time),
@@ -661,6 +655,9 @@ getNowStartTime() ->
 		T ->
 			T
 	end.
+%%删除答题时间
+delNowStartTime() ->
+	erlang:erase('StartTime').
 
 getglobValue(Key) ->
     case getCfg:getCfgPStack(cfg_globalsetup, Key) of
@@ -669,4 +666,38 @@ getglobValue(Key) ->
         [] ->
             undefined
     end.
+
+%%每题的间隔时间
+configAllplayerquestion_times() ->
+	#globalsetupCfg{setpara = [List]} =
+		getCfg:getCfgPStack(cfg_globalsetup, allplayerquestion_time),
+	List.
+
+%%奖励倍数
+configAllplayerquestion_ratio() ->
+	#globalsetupCfg{setpara = List} =
+		getCfg:getCfgPStack(cfg_globalsetup, allplayerquestion_ratio),
+	List.
+
+%%积分奖励
+configAllplayerquestion_integral() ->
+	#globalsetupCfg{setpara = List} =
+		getCfg:getCfgPStack(cfg_globalsetup, allplayerquestion_integral),
+	List.
+
+
+%%活动结束后奖励
+configAllplayerquestion_reward() ->
+	#globalsetupCfg{setpara = List} =
+		getCfg:getCfgPStack(cfg_globalsetup, allplayerquestion_reward),
+	List.
+
+%%活动时间
+configAllplayerquestion_activitytotaltime() ->
+	#globalsetupCfg{setpara = [List]} =
+		getCfg:getCfgPStack(cfg_globalsetup, allplayerquestion_activitytotaltime),
+	List.
+
+
+
 

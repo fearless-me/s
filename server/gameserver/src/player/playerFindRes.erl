@@ -40,7 +40,7 @@
 %% 循环任务ID
 -define(PlayerXHRWID, 0).
 %% 保卫小羊副本ID
--define(PlayerBWXYMapID, 181).
+-define(PlayerBWXYMapID, [190,191,192,193,194,195]).
 %% 惊天喵盗团ID
 -define(MoneyCopyMapID, 520).
 %% 元素保卫战副本组ID
@@ -48,7 +48,7 @@
 %% 经验副本组ID
 -define(ExpCopyMapGroupID, 2).
 %% 军团单人本ID列表
--define(PlayerJTDRBMapList, [5006,5005,5004,5003,5002]).
+-define(PlayerJTDRBMapList, []).
 
 %% param1为今日剩余多少次，param2为今日还可以找回多少次
 
@@ -329,9 +329,6 @@ dailyReset2(?DailyType_LoopTaskNum, ?PlayerXHRWID, IsReset, Count, NowTime) ->
 dailyReset2(?DailyType_Everyday, ?PlayerEveryDay_Escort_Solo, IsReset, Count, NowTime) ->
 	freshFindRes(?PlayerFindRes4, IsReset, Count, NowTime),
 	ok;
-dailyReset2(?DailyType_EnterCopyMap, ?PlayerBWXYMapID, IsReset, Count, NowTime) ->
-	freshFindRes(?PlayerFindRes1, IsReset, Count, NowTime),
-	ok;
 dailyReset2(?DailyType_WarriorTrial, 1, IsReset, Count, NowTime) ->
 	freshFindRes(?PlayerFindRes5, IsReset, Count, NowTime),
 	ok;
@@ -365,6 +362,17 @@ dailyReset2(?DailyType_EnterCopyMap, MapID, IsReset, Count, NowTime) ->
 		_ ->
 			skip
 	end,
+	case lists:member(MapID, ?PlayerBWXYMapID) of
+		true ->
+			case getCopyMapFilter(?PlayerBWXYMapID) of
+				[MapID|_] ->
+					freshFindRes(?PlayerFindRes1, IsReset, Count, NowTime);
+				_ -> skip
+			end;
+
+		_ ->
+			skip
+	end,
 	ok;
 dailyReset2(_Type, _ID, _IsReset, _Count, _NowTime) ->
 	ok.
@@ -383,7 +391,7 @@ dailyReset2(_Type, _ID, _IsReset, _Count, _NowTime) ->
 
 getCompleteTimes(?PlayerFindRes1) ->
 	%% 181
-	playerDaily:getDailyCounter(?DailyType_EnterCopyMap, ?PlayerBWXYMapID);
+	getTimes(?PlayerBWXYMapID);
 getCompleteTimes(?PlayerFindRes2) ->
 	playerDaily:getDailyCounter(?DailyType_LoopTaskNum, ?PlayerXHRWID);
 getCompleteTimes(?PlayerFindRes3) ->

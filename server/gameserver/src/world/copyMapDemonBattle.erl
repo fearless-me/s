@@ -114,7 +114,7 @@ getMonsterRec(MonterLocationS,BossLocation,MonsterIDS,BossIDS) ->
 -spec createPropCallback(MapLevel::uint32(), ScheduleNum::uint32()) ->fun() .
 createPropCallback(_MapLevel, _ScheduleNum) ->
 	case mapState:getMapId() of
-		181 ->
+		190 ->
 			skip;
 		MapID ->
 			?WARN_OUT("createPropCallback will not use indexGrowth.index21~indexGrowth.index26 in MapID:~p", [MapID])
@@ -398,8 +398,13 @@ noticeGift() ->
 	Cnf = mapState:getCnfFromdic(),
 	MapLevel = Cnf#copyMapDemonBattleCnf.fableMapLevelCoefficient,
 	CurrSchedule = Cnf#copyMapDemonBattleCnf.fableCurrentSchedule,
-	Fun = fun(#recMapObject{pid=PlayerPid}) ->
-				  psMgr:sendMsg2PS(PlayerPid, demonBattleAward, {MapLevel,CurrSchedule})
+	Fun = fun(#recMapObject{id = RoleID, pid=PlayerPid}) ->
+		case core:isAssistCopyMapByCopyMapPID(RoleID, self()) of
+			true ->
+				skip;
+			_ ->
+				psMgr:sendMsg2PS(PlayerPid, demonBattleAward, {MapLevel,CurrSchedule})
+		end
 		  end,
 	gameMapLogic:doFun4AllPlayer(Fun).
 

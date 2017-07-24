@@ -30,7 +30,7 @@
 	getKeyList/1,
 	getKey/2,
 
-	getTranslateModule/1,
+	getEquipIDListByItemLevel/1,
 
 	getCfgPStackWithDefaultValue/3,
 	getCfgPStackWithDefaultValue/4,
@@ -44,16 +44,18 @@
 getTranslateModule(cfg_gamemapcfg) ->
 	cfg_gamemapcfg;
 getTranslateModule(Module) ->
-	NewMod =
-		if
-			erlang:is_list(?Cur_Lang) ->	%% @doc 忽略该行警告
-				erlang:atom_to_list(Module) ++ "_" ++ ?Cur_Lang;
-			erlang:is_atom(?Cur_Lang) ->
-				erlang:atom_to_list(Module) ++ "_" ++ erlang:atom_to_list(?Cur_Lang);
-			true ->							%% @doc 忽略该行警告
-				?ERROR_OUT("Error Type of CurLang:~p",[?Cur_Lang])
-		end,
-	erlang:list_to_atom(NewMod).
+	cfg:getModule(Module, ?Cur_Lang).
+%%getTranslateModule(Module) ->
+%%	NewMod =
+%%		if
+%%			erlang:is_list(?Cur_Lang) ->	%% @doc 忽略该行警告
+%%				erlang:atom_to_list(Module) ++ "_" ++ ?Cur_Lang;
+%%			erlang:is_atom(?Cur_Lang) ->
+%%				erlang:atom_to_list(Module) ++ "_" ++ erlang:atom_to_list(?Cur_Lang);
+%%			true ->							%% @doc 忽略该行警告
+%%				?ERROR_OUT("Error Type of CurLang:~p",[?Cur_Lang])
+%%		end,
+%%	erlang:list_to_atom(NewMod).
 
 getCfgByKey(Module,undefined)->
 	?ERROR_OUT("getCfgByKey:~p,~p", [Module, misc:getStackTrace()]),
@@ -207,3 +209,7 @@ getCfgPStackWithDefaultValue(Module,DefaultValue,Key1,Key2,Key3)->
 		Value ->
 			Value
 	end.
+
+getEquipIDListByItemLevel(ItemLevel)->
+	Mod = getTranslateModule(cfg_equipment),
+	Mod:getRowByItemLevel(ItemLevel).

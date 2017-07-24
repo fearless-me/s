@@ -1,20 +1,21 @@
 %% @author zhengzhichun
 %% @doc  playerBuy4System模块主要用来处理系统内程序本身用到的购买流程，这种流程与商城、npc商店相似，但又不能整合到这两个中，所以独立出了第三种程序内的系统购买
-
-
 -module(playerBuy4System).
 -include("playerPrivate.hrl").
 %% ====================================================================
 %% API functions
 %% ====================================================================
 -export([
-		 buy4System/2,
-		 buy/5
-		]).
+	buy4System/2,
+	buy/5
+]).
 
 %%系统内部购买
--spec buy4System(CostID::uint32(),Number::uint32()) ->ok.
-buy4System(CostID,Number) ->
+-spec buy4System(CostID::uint32(), Number::uint32()) ->ok.
+buy4System(_CostID, _Number) ->
+	playerMsg:sendErrorCodeMsg(?ErrorCode_SystemNotOpen),
+	ok;
+buy4System(CostID, Number) ->
 	?DEBUG_OUT("buy4System  CostID~p  ,Number~p",[CostID,Number]),
 	case getCfg:getCfgByArgs(cfg_cost,CostID) of
 		#costCfg{itemid=ItemID,diamond=Gold,bind_diamond=BindGold,coinUseCode=CoinUseCode,itemSourceCode=ItemSourceCode} when Gold>0 andalso BindGold<0->
@@ -36,7 +37,7 @@ buy4System(CostID,Number) ->
 
 -spec preShipments(UseCoinType::uint32(),CoinNum::uint32(),ItemID::uint32(),NumberOrQuality::uint32(),GoodsSource::uint32(),CoinUseCode::uint32()) ->ok.
 preShipments(UseCoinType,CoinNum,ItemID,NumberOrQuality,GoodsSource,CoinUseCode) ->
-	{RealNumber,RealEquip} = 
+	{RealNumber,RealEquip} =
 		case ItemID >= ?Item_Differentiate of
 			true ->
 				{1,NumberOrQuality};
@@ -64,7 +65,7 @@ preShipments(UseCoinType,CoinNum,ItemID,NumberOrQuality,GoodsSource,CoinUseCode)
 					true
 			end
 		end,
-	
+
 	case buy(UseCoinType,CoinNum,CoinUseCode,GoodsSource,SF) of
 		true ->
 			playerMsg:sendTipsErrorCodeMsg(?ErrorCode_BuyItemErrorNone);
@@ -79,7 +80,7 @@ preShipments(UseCoinType,CoinNum,ItemID,NumberOrQuality,GoodsSource,CoinUseCode)
 %%ShipmentsFun()->boolean()为发货函数,发货成功返回true,失败false
 %%DealState可为skip,false,true  分别表示扣款失败而未发货；发货失败；扣款成功，发货成功
 -spec buy(UseCoinType,CoinNum,Reason,LogParam,ShipmentsFun) ->DealState::boolean()|skip when
-  UseCoinType::uint32(),CoinNum::uint32(),Reason::uint32(),LogParam::integer()|string(),ShipmentsFun::fun().
+	UseCoinType::uint32(),CoinNum::uint32(),Reason::uint32(),LogParam::integer()|string(),ShipmentsFun::fun().
 buy(UseCoinType,CoinNum,Reason,LogParam,ShipmentsFun) when erlang:is_function(ShipmentsFun, 0) ->
 	case playerState:getCoin(UseCoinType) >= CoinNum of
 		true ->
@@ -108,7 +109,7 @@ buy(UseCoinType,CoinNum,Reason,LogParam,ShipmentsFun) when erlang:is_function(Sh
 
 -spec preShipments2(UseCoinType::uint32(),CoinNum::uint32(),ItemID::uint32(),NumberOrQuality::uint32(),GoodsSource::uint32(),CoinUseCode::uint32()) ->ok.
 preShipments2(UseCoinType,CoinNum,ItemID,NumberOrQuality,GoodsSource,CoinUseCode) ->
-	{RealNumber,RealEquip} = 
+	{RealNumber,RealEquip} =
 		case ItemID >= ?Item_Differentiate of
 			true ->
 				{1,NumberOrQuality};
@@ -136,7 +137,7 @@ preShipments2(UseCoinType,CoinNum,ItemID,NumberOrQuality,GoodsSource,CoinUseCode
 					true
 			end
 		end,
-	
+
 	case buy2(UseCoinType,CoinNum,CoinUseCode,GoodsSource,SF) of
 		true ->
 			playerMsg:sendTipsErrorCodeMsg(?ErrorCode_BuyItemErrorNone);
@@ -151,7 +152,7 @@ preShipments2(UseCoinType,CoinNum,ItemID,NumberOrQuality,GoodsSource,CoinUseCode
 %%ShipmentsFun()->boolean()为发货函数,发货成功返回true,失败false
 %%DealState可为skip,false,true  分别表示扣款失败而未发货；发货失败；扣款成功，发货成功
 -spec buy2(UseCoinType,CoinNum,Reason,LogParam,ShipmentsFun) ->DealState::boolean()|skip when
-  UseCoinType::uint32(),CoinNum::uint32(),Reason::uint32(),LogParam::integer()|string(),ShipmentsFun::fun().
+	UseCoinType::uint32(),CoinNum::uint32(),Reason::uint32(),LogParam::integer()|string(),ShipmentsFun::fun().
 buy2(UseCoinType,CoinNum,Reason,LogParam,ShipmentsFun) when erlang:is_function(ShipmentsFun, 0) ->
 	case playerState:getCoin(?CoinTypeDiamond) >= CoinNum orelse playerState:getCoin(?CoinTypeBindDiamond) >= CoinNum of
 		true ->

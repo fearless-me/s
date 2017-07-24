@@ -88,7 +88,9 @@ checkCAT_(?ClosenessAddType_RedEnvelope, RoleID, TargetRoleID) ->
 			#globalsetupCfg{setpara = [5]},
 			friendlinessFromRedEnvelopeLimit
 		),
-	daily2State:queryDaily2(RoleID, TargetRoleID, ?Daily2Type_S_RedEnvelope) < Limit.
+	daily2State:queryDaily2(RoleID, TargetRoleID, ?Daily2Type_S_RedEnvelope) < Limit;
+checkCAT_(?ClosenessAddType_GiveGift, _RoleID, _TargetRoleID) ->
+	true.	%% 罗成确认赠礼产生的友好度没有限制
 
 %% 增加计数
 -spec addCount(CAT::type_cat(), RoleID::uint64(), TargetRoleID::uint64()) -> term().
@@ -106,7 +108,10 @@ addCount(?ClosenessAddType_DateLink, _RoleID, _TargetRoleID) ->
 	true; %% 约会地下城产生的友好度由约会地下城相关配置（次数，每次获得）进行限制，这里无条件放开
 addCount(?ClosenessAddType_RedEnvelope, RoleID, TargetRoleID) ->
 	Old = daily2State:queryDaily2(RoleID, TargetRoleID, ?Daily2Type_S_RedEnvelope),
-	daily2Logic:saveDaily2({RoleID, TargetRoleID, ?Daily2Type_S_RedEnvelope, Old + 1}).
+	daily2Logic:saveDaily2({RoleID, TargetRoleID, ?Daily2Type_S_RedEnvelope, Old + 1});
+addCount(?ClosenessAddType_GiveGift, RoleID, TargetRoleID) ->
+	true.	%% 赠礼产生的计数不处理
+
 
 %% 玩家进程和公共进程都需要检测的一些限制
 %% 玩家进程检测是为了让公共进程减少不通过的几率
@@ -145,9 +150,10 @@ check({?RELATION_FORMAL, RoleID, TargetRoleID}) ->
 											#globalsetupCfg{setpara = [CountFormalMax]} =
 												getCfg:getCfgPStackWithDefaultValue(cfg_globalsetup, #globalsetupCfg{setpara = [0]}, friend2_formal_count),
 											RelationsFormalMine = friend2State:queryRelations(Friend2DataMine#recFriend2Data.relations, ?RELATION_FORMAL),
-											case erlang:length(RelationsFormalMine) >= CountFormalMax of
+											CountFormal = erlang:length(RelationsFormalMine),
+											case CountFormal >= CountFormalMax of
 												true ->
-													{?CONTINUE_NONE, {?ErrorCode_Friend2Add_MyCountMax, []}};
+													{?CONTINUE_NONE, {?ErrorCode_Friend2Add_MyCountMax, [CountFormal, CountFormalMax]}};
 												_ ->
 													%% 4.验证对方的好友数量是否已达上限
 													Friend2DataTarget = friend2State:queryFriend2Data(TargetRoleID),
@@ -343,15 +349,11 @@ check({?RELATION_TEMP, RoleID, TargetRoleID}) ->
 %% 初始化
 -spec init() -> ok.
 init() ->
-	%?DEBUG_OUT("[DebugForFriend2] init", []),
-	erlang:send_after(?Friend2HeartBeat, self(), tick),
 	ok.
 
 %% 心跳
 -spec tick() -> ok.
 tick() ->
-	%?DEBUG_OUT("[DebugForFriend2] tick", []),
-	erlang:send_after(?Friend2HeartBeat, self(), tick),
 	tick_delApply(),
 	tick_delOfflineMsgs(),
 	ok.
@@ -448,7 +450,7 @@ applyOneKey(Pid, {RoleID, IsAgreed}) ->
 					continue(?CONTINUE_SyncTempA, {RoleID, 0}),     %% 可能影响临时好友名单
 					continue(?CONTINUE_SyncApplyA, {RoleID, 0});    %% 可能影响临时申请者名单
 				_ ->
-					error_code(Pid, {?ErrorCode_Friend2Add_MyCountMax, []})
+					error_code(Pid, {?ErrorCode_Friend2Add_MyCountMax, [CountFormal, CountFormalMax]})
 			end;
 		_ ->
 			FunCancel =
@@ -581,11 +583,12 @@ formalOP({?EXOP_Like, RoleID, TargetRoleID}) ->
 	%?DEBUG_OUT("[DebugForFriend2] formalOP EXOP_Like ~p", [{RoleID, TargetRoleID}]),
 	closenessAdd({?ClosenessAddType_Like, RoleID, TargetRoleID, 1}),
 	%% 如果对方在线则发送给对方玩家进程增加赞值，否则执行特殊逻辑写入对应玩家属性
-	Like = modifyPlayerVariant(TargetRoleID, ?Setting_PlayerVarReadOnly_BeLike, 1),
+	LikeOld = playerIdentity:queryLike(TargetRoleID),
+	playerIdentity:addLike(RoleID, TargetRoleID, 1),
 	Name = playerNameUID:getPlayerNameByUID(TargetRoleID),
 	error_code(RoleID, {?ErrorCode_Friend2Formal_LikeSuccess, [Name]}),
 	#rec_OnlinePlayer{pid = Pid} = core:queryOnLineRoleByRoleID(RoleID),
-	psMgr:sendMsg2PS(Pid, friend2_like, {TargetRoleID, Name, Like}),
+	psMgr:sendMsg2PS(Pid, friend2_like, {TargetRoleID, Name, LikeOld + 1}),
 	ok;
 formalOP({?EXOP_GiveAP, RoleID, TargetRoleID}) ->
 	%?DEBUG_OUT("[DebugForFriend2] formalOP EXOP_GiveAP ~p", [{RoleID, TargetRoleID}]),

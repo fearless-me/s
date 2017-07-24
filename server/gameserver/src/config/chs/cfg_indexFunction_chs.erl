@@ -8,7 +8,7 @@
 getRow(1)->
     #indexFunctionCfg {
     level = 1,
-    exp = 1000,
+    exp = 2500,
     demonDamLv = 0.5,
     demonResLv = 1,
     demonHPLv = 0.5,
@@ -31,12 +31,16 @@ getRow(1)->
     question_exp = 60,
     question_money = 2500,
     coinAddition = 20000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22038,22040]
     };
 getRow(2)->
     #indexFunctionCfg {
     level = 2,
-    exp = 1040,
+    exp = 2500,
     demonDamLv = 0.609607188804495,
     demonResLv = 1,
     demonHPLv = 0.605029940119761,
@@ -59,12 +63,16 @@ getRow(2)->
     question_exp = 60,
     question_money = 2500,
     coinAddition = 20500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22038,22040]
     };
 getRow(3)->
     #indexFunctionCfg {
     level = 3,
-    exp = 1140,
+    exp = 2600,
     demonDamLv = 0.722416773877154,
     demonResLv = 1,
     demonHPLv = 0.711736526946108,
@@ -87,12 +95,16 @@ getRow(3)->
     question_exp = 60,
     question_money = 2500,
     coinAddition = 21000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22038,22040]
     };
 getRow(4)->
     #indexFunctionCfg {
     level = 4,
-    exp = 1290,
+    exp = 2900,
     demonDamLv = 0.838428755217979,
     demonResLv = 1,
     demonHPLv = 0.820119760479042,
@@ -115,12 +127,16 @@ getRow(4)->
     question_exp = 120,
     question_money = 2500,
     coinAddition = 21500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22038,22040]
     };
 getRow(5)->
     #indexFunctionCfg {
     level = 5,
-    exp = 1480,
+    exp = 3300,
     demonDamLv = 0.969958607707242,
     demonResLv = 1,
     demonHPLv = 0.968892340184471,
@@ -143,12 +159,16 @@ getRow(5)->
     question_exp = 120,
     question_money = 2500,
     coinAddition = 22000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22038,22040]
     };
 getRow(6)->
     #indexFunctionCfg {
     level = 6,
-    exp = 1720,
+    exp = 4000,
     demonDamLv = 1.09394968484198,
     demonResLv = 1,
     demonHPLv = 1.08527917595016,
@@ -171,12 +191,16 @@ getRow(6)->
     question_exp = 180,
     question_money = 2500,
     coinAddition = 22500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22038,22040]
     };
 getRow(7)->
     #indexFunctionCfg {
     level = 7,
-    exp = 2010,
+    exp = 4800,
     demonDamLv = 1.22118434167683,
     demonResLv = 1,
     demonHPLv = 1.203412437976,
@@ -199,12 +223,16 @@ getRow(7)->
     question_exp = 180,
     question_money = 2500,
     coinAddition = 23000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22038,22040]
     };
 getRow(8)->
     #indexFunctionCfg {
     level = 8,
-    exp = 2370,
+    exp = 5900,
     demonDamLv = 1.3516625782118,
     demonResLv = 1,
     demonHPLv = 1.32329212626199,
@@ -227,12 +255,16 @@ getRow(8)->
     question_exp = 240,
     question_money = 2500,
     coinAddition = 23500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22038,22040]
     };
 getRow(9)->
     #indexFunctionCfg {
     level = 9,
-    exp = 2790,
+    exp = 7300,
     demonDamLv = 1.50434556933795,
     demonResLv = 1,
     demonHPLv = 1.50655612842051,
@@ -255,12 +287,16 @@ getRow(9)->
     question_exp = 240,
     question_money = 2500,
     coinAddition = 24000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22038,22040]
     };
 getRow(10)->
     #indexFunctionCfg {
     level = 10,
-    exp = 3300,
+    exp = 8900,
     demonDamLv = 1.64305935096784,
     demonResLv = 1,
     demonHPLv = 1.63519154333961,
@@ -283,12 +319,16 @@ getRow(10)->
     question_exp = 300,
     question_money = 2500,
     coinAddition = 24500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22038,22040]
     };
 getRow(11)->
     #indexFunctionCfg {
     level = 11,
-    exp = 3910,
+    exp = 10900,
     demonDamLv = 1.78505811712356,
     demonResLv = 1,
     demonHPLv = 1.76564788425351,
@@ -311,12 +351,16 @@ getRow(11)->
     question_exp = 300,
     question_money = 2500,
     coinAddition = 25000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22200,22201]
     };
 getRow(12)->
     #indexFunctionCfg {
     level = 12,
-    exp = 4640,
+    exp = 13100,
     demonDamLv = 1.93034186780511,
     demonResLv = 1,
     demonHPLv = 1.89792515116223,
@@ -339,12 +383,16 @@ getRow(12)->
     question_exp = 360,
     question_money = 2500,
     coinAddition = 25500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22200,22201]
     };
 getRow(13)->
     #indexFunctionCfg {
     level = 13,
-    exp = 5510,
+    exp = 15700,
     demonDamLv = 2.10525499207092,
     demonResLv = 1,
     demonHPLv = 2.12068785901032,
@@ -367,12 +415,16 @@ getRow(13)->
     question_exp = 360,
     question_money = 2500,
     coinAddition = 26000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22204,22205]
     };
 getRow(14)->
     #indexFunctionCfg {
     level = 14,
-    exp = 6560,
+    exp = 18600,
     demonDamLv = 2.25903303383454,
     demonResLv = 1,
     demonHPLv = 2.26253761979031,
@@ -395,12 +447,16 @@ getRow(14)->
     question_exp = 420,
     question_money = 2500,
     coinAddition = 26500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒东城郊",
+    monster_id = [22204,22205]
     };
 getRow(15)->
     #indexFunctionCfg {
     level = 15,
-    exp = 7800,
+    exp = 21900,
     demonDamLv = 2.41613768813352,
     demonResLv = 1,
     demonHPLv = 2.40628776014056,
@@ -423,12 +479,16 @@ getRow(15)->
     question_exp = 420,
     question_money = 2500,
     coinAddition = 27000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒平原",
+    monster_id = [22010,22214]
     };
 getRow(16)->
     #indexFunctionCfg {
     level = 16,
-    exp = 9270,
+    exp = 25600,
     demonDamLv = 2.57656895496787,
     demonResLv = 1,
     demonHPLv = 2.55193828006106,
@@ -451,12 +511,16 @@ getRow(16)->
     question_exp = 480,
     question_money = 2500,
     coinAddition = 27500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒平原",
+    monster_id = [22048,22049,22050]
     };
 getRow(17)->
     #indexFunctionCfg {
     level = 17,
-    exp = 11000,
+    exp = 29600,
     demonDamLv = 2.77480361976404,
     demonResLv = 1,
     demonHPLv = 2.81972879264759,
@@ -479,12 +543,16 @@ getRow(17)->
     question_exp = 480,
     question_money = 2500,
     coinAddition = 28000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒平原",
+    monster_id = [22049,22050,22051]
     };
 getRow(18)->
     #indexFunctionCfg {
     level = 18,
-    exp = 13000,
+    exp = 34100,
     demonDamLv = 2.94399024638652,
     demonResLv = 1,
     demonHPLv = 2.97583687333875,
@@ -507,12 +575,16 @@ getRow(18)->
     question_exp = 540,
     question_money = 2500,
     coinAddition = 28500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒平原",
+    monster_id = [22051,22054,22055]
     };
 getRow(19)->
     #indexFunctionCfg {
     level = 19,
-    exp = 15000,
+    exp = 38900,
     demonDamLv = 3.11654533854713,
     demonResLv = 1,
     demonHPLv = 3.13392997957911,
@@ -535,12 +607,16 @@ getRow(19)->
     question_exp = 540,
     question_money = 2500,
     coinAddition = 29000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒平原",
+    monster_id = [22054,22055,22056]
     };
 getRow(20)->
     #indexFunctionCfg {
     level = 20,
-    exp = 18000,
+    exp = 44200,
     demonDamLv = 3.29246889624587,
     demonResLv = 1,
     demonHPLv = 3.29400811136868,
@@ -563,12 +639,16 @@ getRow(20)->
     question_exp = 600,
     question_money = 2500,
     coinAddition = 29500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒平原",
+    monster_id = [22054,22055,22056]
     };
 getRow(21)->
     #indexFunctionCfg {
     level = 21,
-    exp = 21000,
+    exp = 49900,
     demonDamLv = 3.65615269661668,
     demonResLv = 1,
     demonHPLv = 3.78440300501195,
@@ -591,12 +671,16 @@ getRow(21)->
     question_exp = 600,
     question_money = 2500,
     coinAddition = 30000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒平原",
+    monster_id = [22054,22055,22056]
     };
 getRow(22)->
     #indexFunctionCfg {
     level = 22,
-    exp = 25000,
+    exp = 56000,
     demonDamLv = 3.98559118215503,
     demonResLv = 1,
     demonHPLv = 4.13361393560134,
@@ -619,12 +703,16 @@ getRow(22)->
     question_exp = 660,
     question_money = 2500,
     coinAddition = 30500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "阿克勒平原",
+    monster_id = [22054,22055,22056]
     };
 getRow(23)->
     #indexFunctionCfg {
     level = 23,
-    exp = 29000,
+    exp = 62600,
     demonDamLv = 4.32191480632395,
     demonResLv = 1,
     demonHPLv = 4.49112529578028,
@@ -647,12 +735,16 @@ getRow(23)->
     question_exp = 660,
     question_money = 2500,
     coinAddition = 31000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "苍空之塔",
+    monster_id = [22056,22064]
     };
 getRow(24)->
     #indexFunctionCfg {
     level = 24,
-    exp = 34000,
+    exp = 204700,
     demonDamLv = 4.66512356912344,
     demonResLv = 1,
     demonHPLv = 4.85693708554879,
@@ -675,12 +767,16 @@ getRow(24)->
     question_exp = 720,
     question_money = 2500,
     coinAddition = 31500,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [],
+    field_exp_up = 12000,
+    map_name = "苍空之塔",
+    monster_id = [22064]
     };
 getRow(25)->
     #indexFunctionCfg {
     level = 25,
-    exp = 40000,
+    exp = 429700,
     demonDamLv = 5.07743224462936,
     demonResLv = 1,
     demonHPLv = 5.47246192729313,
@@ -703,12 +799,16 @@ getRow(25)->
     question_exp = 720,
     question_money = 2500,
     coinAddition = 32000,
-    coinHand_box = 0
+    coinHand_box = 1,
+    squaredance_exp = [100,36000],
+    field_exp_up = 12000,
+    map_name = "苍空之塔",
+    monster_id = [22064]
     };
 getRow(26)->
     #indexFunctionCfg {
     level = 26,
-    exp = 46000,
+    exp = 587800,
     demonDamLv = 5.43883968095746,
     demonResLv = 1,
     demonHPLv = 5.87252289783649,
@@ -722,21 +822,25 @@ getRow(26)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 94,
-    offLineExpFree = 62,
-    offLineExpFreeAll = 44640,
+    offLineExpFree = 347,
+    offLineExpFreeAll = 250000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00134408602150538,
+    offLineDiamondCost = 2.4,
     question_exp = 780,
     question_money = 2500,
     coinAddition = 32500,
-    coinHand_box = 1
+    coinHand_box = 1,
+    squaredance_exp = [101,36001],
+    field_exp_up = 12000,
+    map_name = "苍空之塔",
+    monster_id = [22064,22070,22071]
     };
 getRow(27)->
     #indexFunctionCfg {
     level = 27,
-    exp = 54000,
+    exp = 596300,
     demonDamLv = 5.80721766743556,
     demonResLv = 1,
     demonHPLv = 6.28126736231412,
@@ -750,21 +854,25 @@ getRow(27)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 99,
-    offLineExpFree = 62,
-    offLineExpFreeAll = 44640,
+    offLineExpFree = 347,
+    offLineExpFreeAll = 250000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.05,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00134408602150538,
+    offLineDiamondCost = 2.4,
     question_exp = 780,
     question_money = 2500,
     coinAddition = 33000,
-    coinHand_box = 1.05
+    coinHand_box = 1.05,
+    squaredance_exp = [102,36002],
+    field_exp_up = 12000,
+    map_name = "苍空之塔",
+    monster_id = [22064,22070,22071]
     };
 getRow(28)->
     #indexFunctionCfg {
     level = 28,
-    exp = 62000,
+    exp = 1130300,
     demonDamLv = 6.18256620406364,
     demonResLv = 1,
     demonHPLv = 6.69869532072603,
@@ -778,21 +886,25 @@ getRow(28)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 107,
-    offLineExpFree = 62,
-    offLineExpFreeAll = 44640,
+    offLineExpFree = 347,
+    offLineExpFreeAll = 250000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.1,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00134408602150538,
+    offLineDiamondCost = 2.4,
     question_exp = 840,
     question_money = 2500,
     coinAddition = 33500,
-    coinHand_box = 1.1
+    coinHand_box = 1.1,
+    squaredance_exp = [103,36003],
+    field_exp_up = 12000,
+    map_name = "苍空之塔",
+    monster_id = [22080,22072,22073]
     };
 getRow(29)->
     #indexFunctionCfg {
     level = 29,
-    exp = 93000,
+    exp = 665400,
     demonDamLv = 6.6457644435,
     demonResLv = 1,
     demonHPLv = 7.45859797499513,
@@ -806,21 +918,25 @@ getRow(29)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 113,
-    offLineExpFree = 53,
-    offLineExpFreeAll = 38160,
+    offLineExpFree = 347,
+    offLineExpFreeAll = 250000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.15,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00157232704402516,
+    offLineDiamondCost = 2.4,
     question_exp = 840,
     question_money = 2500,
     coinAddition = 34000,
-    coinHand_box = 1.15
+    coinHand_box = 1.15,
+    squaredance_exp = [100,36004],
+    field_exp_up = 12500,
+    map_name = "苍空之塔",
+    monster_id = [22072,22073,22080]
     };
 getRow(30)->
     #indexFunctionCfg {
     level = 30,
-    exp = 134000,
+    exp = 675400,
     demonDamLv = 7.0398501148717,
     demonResLv = 1,
     demonHPLv = 7.91376269863677,
@@ -834,21 +950,25 @@ getRow(30)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 144,
-    offLineExpFree = 53,
-    offLineExpFreeAll = 38160,
+    offLineExpFree = 347,
+    offLineExpFreeAll = 250000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.2,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00157232704402516,
+    offLineDiamondCost = 2.4,
     question_exp = 900,
     question_money = 2500,
     coinAddition = 34500,
-    coinHand_box = 1.2
+    coinHand_box = 1.2,
+    squaredance_exp = [100,36005],
+    field_exp_up = 13000,
+    map_name = "苍空之塔",
+    monster_id = [22080,22094,22094]
     };
 getRow(31)->
     #indexFunctionCfg {
     level = 31,
-    exp = 166000,
+    exp = 1230000,
     demonDamLv = 7.44099221332264,
     demonResLv = 1,
     demonHPLv = 8.37801773059651,
@@ -862,21 +982,25 @@ getRow(31)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 158,
-    offLineExpFree = 53,
-    offLineExpFreeAll = 38160,
+    offLineExpFree = 347,
+    offLineExpFreeAll = 250000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.25,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00157232704402516,
+    offLineDiamondCost = 2.4,
     question_exp = 900,
     question_money = 2500,
     coinAddition = 35000,
-    coinHand_box = 1.25
+    coinHand_box = 1.25,
+    squaredance_exp = [100,36006],
+    field_exp_up = 13500,
+    map_name = "海洋之心",
+    monster_id = [22118,22107,22108]
     };
 getRow(32)->
     #indexFunctionCfg {
     level = 32,
-    exp = 207000,
+    exp = 1766200,
     demonDamLv = 7.84919073885284,
     demonResLv = 1,
     demonHPLv = 8.85136307087434,
@@ -890,21 +1014,25 @@ getRow(32)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 170,
-    offLineExpFree = 53,
-    offLineExpFreeAll = 38160,
+    offLineExpFree = 347,
+    offLineExpFreeAll = 250000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.3,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00157232704402516,
+    offLineDiamondCost = 2.4,
     question_exp = 960,
     question_money = 2500,
     coinAddition = 35500,
-    coinHand_box = 1.3
+    coinHand_box = 1.3,
+    squaredance_exp = [100,36007],
+    field_exp_up = 14000,
+    map_name = "海洋之心",
+    monster_id = [22118,22107,22108]
     };
 getRow(33)->
     #indexFunctionCfg {
     level = 33,
-    exp = 253000,
+    exp = 1322566,
     demonDamLv = 8.36557379616907,
     demonResLv = 1,
     demonHPLv = 9.77695647881226,
@@ -918,21 +1046,25 @@ getRow(33)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 181,
-    offLineExpFree = 63,
-    offLineExpFreeAll = 45360,
+    offLineExpFree = 416,
+    offLineExpFreeAll = 300000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.35,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00132275132275132,
+    offLineDiamondCost = 2,
     question_exp = 960,
     question_money = 2500,
     coinAddition = 36000,
-    coinHand_box = 1.35
+    coinHand_box = 1.35,
+    squaredance_exp = [100,36008],
+    field_exp_up = 14500,
+    map_name = "海洋之心",
+    monster_id = [22118,22107,22108]
     };
 getRow(34)->
     #indexFunctionCfg {
     level = 34,
-    exp = 271000,
+    exp = 1394866,
     demonDamLv = 8.79305280004193,
     demonResLv = 1,
     demonHPLv = 10.2918195086878,
@@ -946,21 +1078,25 @@ getRow(34)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 194,
-    offLineExpFree = 63,
-    offLineExpFreeAll = 45360,
+    offLineExpFree = 416,
+    offLineExpFreeAll = 300000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.4,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00132275132275132,
+    offLineDiamondCost = 2,
     question_exp = 1020,
     question_money = 2500,
     coinAddition = 36500,
-    coinHand_box = 1.4
+    coinHand_box = 1.4,
+    squaredance_exp = [100,36009],
+    field_exp_up = 15000,
+    map_name = "海洋之心",
+    monster_id = [22118,22107,22108]
     };
 getRow(35)->
     #indexFunctionCfg {
     level = 35,
-    exp = 290000,
+    exp = 1977666,
     demonDamLv = 9.22767457714756,
     demonResLv = 1,
     demonHPLv = 10.8162044440036,
@@ -974,21 +1110,25 @@ getRow(35)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 209,
-    offLineExpFree = 63,
-    offLineExpFreeAll = 45360,
+    offLineExpFree = 416,
+    offLineExpFreeAll = 300000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.45,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00132275132275132,
+    offLineDiamondCost = 2,
     question_exp = 1020,
     question_money = 2500,
     coinAddition = 37000,
-    coinHand_box = 1.45
+    coinHand_box = 1.45,
+    squaredance_exp = [100,36010],
+    field_exp_up = 15500,
+    map_name = "海洋之心",
+    monster_id = [22109,22110,22113]
     };
 getRow(36)->
     #indexFunctionCfg {
     level = 36,
-    exp = 343000,
+    exp = 2397400,
     demonDamLv = 9.66943912748597,
     demonResLv = 1,
     demonHPLv = 11.3501112847596,
@@ -1002,21 +1142,25 @@ getRow(36)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 241,
-    offLineExpFree = 70,
-    offLineExpFreeAll = 50400,
+    offLineExpFree = 451,
+    offLineExpFreeAll = 325000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.5,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00119047619047619,
+    offLineDiamondCost = 1.84615384615385,
     question_exp = 1080,
     question_money = 2500,
     coinAddition = 37500,
-    coinHand_box = 1.5
+    coinHand_box = 1.5,
+    squaredance_exp = [100,36011],
+    field_exp_up = 16000,
+    map_name = "海洋之心",
+    monster_id = [22109,22110,22113]
     };
 getRow(37)->
     #indexFunctionCfg {
     level = 37,
-    exp = 470000,
+    exp = 3241400,
     demonDamLv = 10.241333288249,
     demonResLv = 1,
     demonHPLv = 12.4649054872305,
@@ -1030,21 +1174,25 @@ getRow(37)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 261,
-    offLineExpFree = 70,
-    offLineExpFreeAll = 50400,
+    offLineExpFree = 451,
+    offLineExpFreeAll = 325000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.55,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00119047619047619,
+    offLineDiamondCost = 1.84615384615385,
     question_exp = 1080,
     question_money = 2500,
     coinAddition = 38000,
-    coinHand_box = 1.55
+    coinHand_box = 1.55,
+    squaredance_exp = [100,36012],
+    field_exp_up = 16500,
+    map_name = "海洋之心",
+    monster_id = [22109,22110,22113]
     };
 getRow(38)->
     #indexFunctionCfg {
     level = 38,
-    exp = 610000,
+    exp = 5759000,
     demonDamLv = 10.7029265989841,
     demonResLv = 1,
     demonHPLv = 13.0444198785566,
@@ -1058,21 +1206,25 @@ getRow(38)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 287,
-    offLineExpFree = 79,
-    offLineExpFreeAll = 56880,
+    offLineExpFree = 451,
+    offLineExpFreeAll = 325000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.6,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.00105485232067511,
+    offLineDiamondCost = 1.84615384615385,
     question_exp = 1140,
     question_money = 2500,
     coinAddition = 38500,
-    coinHand_box = 1.6
+    coinHand_box = 1.6,
+    squaredance_exp = [100,36013],
+    field_exp_up = 17000,
+    map_name = "海洋之心",
+    monster_id = [22109,22110,22113]
     };
 getRow(39)->
     #indexFunctionCfg {
     level = 39,
-    exp = 801000,
+    exp = 6074200,
     demonDamLv = 11.171749502186,
     demonResLv = 1,
     demonHPLv = 13.6339136074946,
@@ -1086,21 +1238,25 @@ getRow(39)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 312,
-    offLineExpFree = 86,
-    offLineExpFreeAll = 61920,
+    offLineExpFree = 451,
+    offLineExpFreeAll = 325000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.65,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000968992248062015,
+    offLineDiamondCost = 1.84615384615385,
     question_exp = 1140,
     question_money = 2500,
     coinAddition = 39000,
-    coinHand_box = 1.65
+    coinHand_box = 1.65,
+    squaredance_exp = [100,36014],
+    field_exp_up = 17500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(40)->
     #indexFunctionCfg {
     level = 40,
-    exp = 85300000,
+    exp = 7186000,
     demonDamLv = 11.6478019978546,
     demonResLv = 1,
     demonHPLv = 14.2333866740447,
@@ -1114,21 +1270,25 @@ getRow(40)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 351,
-    offLineExpFree = 90,
-    offLineExpFreeAll = 64800,
+    offLineExpFree = 486,
+    offLineExpFreeAll = 350000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.65,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000925925925925926,
+    offLineDiamondCost = 1.71428571428571,
     question_exp = 1200,
     question_money = 2500,
     coinAddition = 39500,
-    coinHand_box = 1.7
+    coinHand_box = 1.7,
+    squaredance_exp = [100,36015],
+    field_exp_up = 18000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(41)->
     #indexFunctionCfg {
     level = 41,
-    exp = 906000,
+    exp = 7202500,
     demonDamLv = 12.4272933618583,
     demonResLv = 1,
     demonHPLv = 15.8217668693609,
@@ -1142,21 +1302,25 @@ getRow(41)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 387,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 486,
+    offLineExpFreeAll = 350000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.71428571428571,
     question_exp = 1200,
     question_money = 2500,
     coinAddition = 40000,
-    coinHand_box = 1.75
+    coinHand_box = 1.75,
+    squaredance_exp = [100,36016],
+    field_exp_up = 18500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(42)->
     #indexFunctionCfg {
     level = 42,
-    exp = 960000,
+    exp = 8260925,
     demonDamLv = 13.0764591905921,
     demonResLv = 1,
     demonHPLv = 16.7398498680046,
@@ -1170,21 +1334,25 @@ getRow(42)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 406,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 486,
+    offLineExpFreeAll = 350000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.71428571428571,
     question_exp = 1260,
     question_money = 2500,
     coinAddition = 40500,
-    coinHand_box = 1.8
+    coinHand_box = 1.8,
+    squaredance_exp = [100,36017],
+    field_exp_up = 19000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(43)->
     #indexFunctionCfg {
     level = 43,
-    exp = 1010000,
+    exp = 8727052,
     demonDamLv = 13.7359448953709,
     demonResLv = 1,
     demonHPLv = 17.6784416730917,
@@ -1198,21 +1366,25 @@ getRow(43)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 436,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 486,
+    offLineExpFreeAll = 350000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.71428571428571,
     question_exp = 1260,
     question_money = 2500,
     coinAddition = 41000,
-    coinHand_box = 1.85
+    coinHand_box = 1.85,
+    squaredance_exp = [100,36018],
+    field_exp_up = 19500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(44)->
     #indexFunctionCfg {
     level = 44,
-    exp = 1070000,
+    exp = 8923301,
     demonDamLv = 14.4057504761948,
     demonResLv = 1,
     demonHPLv = 18.6375422846221,
@@ -1226,21 +1398,25 @@ getRow(44)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 468,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 486,
+    offLineExpFreeAll = 350000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.71428571428571,
     question_exp = 1320,
     question_money = 2500,
     coinAddition = 41500,
-    coinHand_box = 1.9
+    coinHand_box = 1.9,
+    squaredance_exp = [100,36019],
+    field_exp_up = 20000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(45)->
     #indexFunctionCfg {
     level = 45,
-    exp = 1120000,
+    exp = 10060949,
     demonDamLv = 15.2668538061752,
     demonResLv = 1,
     demonHPLv = 20.5776750159768,
@@ -1254,21 +1430,25 @@ getRow(45)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 502,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 520,
+    offLineExpFreeAll = 375000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.6,
     question_exp = 1320,
     question_money = 2500,
     coinAddition = 42000,
-    coinHand_box = 1.95
+    coinHand_box = 1.95,
+    squaredance_exp = [100,36020],
+    field_exp_up = 20500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(46)->
     #indexFunctionCfg {
     level = 46,
-    exp = 1180000,
+    exp = 10179247,
     demonDamLv = 15.9655820739618,
     demonResLv = 1,
     demonHPLv = 21.6267624733006,
@@ -1282,21 +1462,25 @@ getRow(46)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 535,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 520,
+    offLineExpFreeAll = 375000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.6,
     question_exp = 1380,
     question_money = 2500,
     coinAddition = 42500,
-    coinHand_box = 2
+    coinHand_box = 2,
+    squaredance_exp = [100,36021],
+    field_exp_up = 21000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(47)->
     #indexFunctionCfg {
     level = 47,
-    exp = 1240000,
+    exp = 10279024,
     demonDamLv = 16.6747540202977,
     demonResLv = 1,
     demonHPLv = 22.6973629188684,
@@ -1310,21 +1494,25 @@ getRow(47)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 575,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 520,
+    offLineExpFreeAll = 375000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.6,
     question_exp = 1380,
     question_money = 2500,
     coinAddition = 43000,
-    coinHand_box = 2.05
+    coinHand_box = 2.05,
+    squaredance_exp = [100,36022],
+    field_exp_up = 21500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(48)->
     #indexFunctionCfg {
     level = 48,
-    exp = 1300000,
+    exp = 10366526,
     demonDamLv = 17.3943696451827,
     demonResLv = 1,
     demonHPLv = 23.7894763526801,
@@ -1338,21 +1526,25 @@ getRow(48)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 605,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 520,
+    offLineExpFreeAll = 375000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.6,
     question_exp = 1440,
     question_money = 2500,
     coinAddition = 43500,
-    coinHand_box = 2.1
+    coinHand_box = 2.1,
+    squaredance_exp = [100,36023],
+    field_exp_up = 22000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(49)->
     #indexFunctionCfg {
     level = 49,
-    exp = 1370000,
+    exp = 10445411,
     demonDamLv = 18.3404682820357,
     demonResLv = 1,
     demonHPLv = 26.131574011268,
@@ -1366,21 +1558,25 @@ getRow(49)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 645,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 520,
+    offLineExpFreeAll = 375000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.6,
     question_exp = 1440,
     question_money = 2500,
     coinAddition = 44000,
-    coinHand_box = 2.15
+    coinHand_box = 2.15,
+    squaredance_exp = [100,36024],
+    field_exp_up = 22500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(50)->
     #indexFunctionCfg {
     level = 50,
-    exp = 1430000,
+    exp = 12663749,
     demonDamLv = 19.0897979018721,
     demonResLv = 1,
     demonHPLv = 27.3227099023122,
@@ -1394,21 +1590,25 @@ getRow(50)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 555,
+    offLineExpFreeAll = 400000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.5,
     question_exp = 1500,
     question_money = 2500,
     coinAddition = 44500,
-    coinHand_box = 2.2
+    coinHand_box = 2.2,
+    squaredance_exp = [100,36025],
+    field_exp_up = 23000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(51)->
     #indexFunctionCfg {
     level = 51,
-    exp = 15010000,
+    exp = 12801996,
     demonDamLv = 19.849695686682,
     demonResLv = 1.4,
     demonHPLv = 28.5364200183269,
@@ -1422,21 +1622,25 @@ getRow(51)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 555,
+    offLineExpFreeAll = 400000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.5,
     question_exp = 1500,
     question_money = 2500,
     coinAddition = 45000,
-    coinHand_box = 2.25
+    coinHand_box = 2.25,
+    squaredance_exp = [100,36026],
+    field_exp_up = 23500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(52)->
     #indexFunctionCfg {
     level = 52,
-    exp = 3330000,
+    exp = 13343910,
     demonDamLv = 20.6201616364654,
     demonResLv = 1.8,
     demonHPLv = 29.772704359312,
@@ -1450,21 +1654,25 @@ getRow(52)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 555,
+    offLineExpFreeAll = 400000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.5,
     question_exp = 1560,
     question_money = 2500,
     coinAddition = 45500,
-    coinHand_box = 2.3
+    coinHand_box = 2.3,
+    squaredance_exp = [100,36027],
+    field_exp_up = 24000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(53)->
     #indexFunctionCfg {
     level = 53,
-    exp = 3480000,
+    exp = 13571556,
     demonDamLv = 21.6546850440987,
     demonResLv = 2.2,
     demonHPLv = 32.5718644302219,
@@ -1478,21 +1686,25 @@ getRow(53)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 555,
+    offLineExpFreeAll = 400000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.5,
     question_exp = 1560,
     question_money = 2500,
     coinAddition = 46000,
-    coinHand_box = 2.35
+    coinHand_box = 2.35,
+    squaredance_exp = [100,36028],
+    field_exp_up = 24500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(54)->
     #indexFunctionCfg {
     level = 54,
-    exp = 3630000,
+    exp = 13730454,
     demonDamLv = 22.455663561702,
     demonResLv = 2.6,
     demonHPLv = 33.9169031974604,
@@ -1506,21 +1718,25 @@ getRow(54)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 555,
+    offLineExpFreeAll = 400000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.5,
     question_exp = 1620,
     question_money = 2500,
     coinAddition = 46500,
-    coinHand_box = 2.4
+    coinHand_box = 2.4,
+    squaredance_exp = [100,36029],
+    field_exp_up = 25000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(55)->
     #indexFunctionCfg {
     level = 55,
-    exp = 3790000,
+    exp = 15025442,
     demonDamLv = 23.2673354203061,
     demonResLv = 3,
     demonHPLv = 35.2856366976109,
@@ -1534,21 +1750,25 @@ getRow(55)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 590,
+    offLineExpFreeAll = 425000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.41176470588235,
     question_exp = 1620,
     question_money = 2500,
     coinAddition = 47000,
-    coinHand_box = 2.45
+    coinHand_box = 2.45,
+    squaredance_exp = [100,36030],
+    field_exp_up = 25500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(56)->
     #indexFunctionCfg {
     level = 56,
-    exp = 3940000,
+    exp = 15139618,
     demonDamLv = 24.0897006199112,
     demonResLv = 3.4,
     demonHPLv = 36.6780649306734,
@@ -1562,21 +1782,25 @@ getRow(56)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 590,
+    offLineExpFreeAll = 425000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.41176470588235,
     question_exp = 1680,
     question_money = 2500,
     coinAddition = 47500,
-    coinHand_box = 2.5
+    coinHand_box = 2.5,
+    squaredance_exp = [100,36031],
+    field_exp_up = 26000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(57)->
     #indexFunctionCfg {
     level = 57,
-    exp = 4100000,
+    exp = 15240252,
     demonDamLv = 25.2161250977534,
     demonResLv = 3.8,
     demonHPLv = 39.9945520445811,
@@ -1590,21 +1814,25 @@ getRow(57)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 590,
+    offLineExpFreeAll = 425000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.41176470588235,
     question_exp = 1680,
     question_money = 2500,
     coinAddition = 48000,
-    coinHand_box = 2.55
+    coinHand_box = 2.55,
+    squaredance_exp = [100,36032],
+    field_exp_up = 26500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(58)->
     #indexFunctionCfg {
     level = 58,
-    exp = 4260000,
+    exp = 15331340,
     demonDamLv = 26.0698087874698,
     demonResLv = 4.2,
     demonHPLv = 41.5061963943453,
@@ -1618,21 +1846,25 @@ getRow(58)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 590,
+    offLineExpFreeAll = 425000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.41176470588235,
     question_exp = 1740,
     question_money = 2500,
     coinAddition = 48500,
-    coinHand_box = 2.6
+    coinHand_box = 2.6,
+    squaredance_exp = [100,36033],
+    field_exp_up = 27000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(59)->
     #indexFunctionCfg {
     level = 59,
-    exp = 4430000,
+    exp = 15415532,
     demonDamLv = 26.9343116895637,
     demonResLv = 4.6,
     demonHPLv = 43.0427175109066,
@@ -1646,21 +1878,25 @@ getRow(59)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 590,
+    offLineExpFreeAll = 425000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.41176470588235,
     question_exp = 1740,
     question_money = 2500,
     coinAddition = 49000,
-    coinHand_box = 2.65
+    coinHand_box = 2.65,
+    squaredance_exp = [100,36034],
+    field_exp_up = 27500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(60)->
     #indexFunctionCfg {
     level = 60,
-    exp = 4590000,
+    exp = 16689750,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1674,21 +1910,25 @@ getRow(60)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 625,
+    offLineExpFreeAll = 450000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.33333333333333,
     question_exp = 1800,
     question_money = 2500,
     coinAddition = 49500,
-    coinHand_box = 2.7
+    coinHand_box = 2.7,
+    squaredance_exp = [100,36035],
+    field_exp_up = 28000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(61)->
     #indexFunctionCfg {
     level = 61,
-    exp = 4760000,
+    exp = 16768239,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1702,21 +1942,25 @@ getRow(61)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 625,
+    offLineExpFreeAll = 450000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.33333333333333,
     question_exp = 1800,
     question_money = 2500,
     coinAddition = 50000,
-    coinHand_box = 2.75
+    coinHand_box = 2.75,
+    squaredance_exp = [100,36036],
+    field_exp_up = 28500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(62)->
     #indexFunctionCfg {
     level = 62,
-    exp = 4930000,
+    exp = 16843169,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1730,21 +1974,25 @@ getRow(62)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 625,
+    offLineExpFreeAll = 450000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.33333333333333,
     question_exp = 1860,
     question_money = 2500,
     coinAddition = 50500,
-    coinHand_box = 2.8
+    coinHand_box = 2.8,
+    squaredance_exp = [100,36037],
+    field_exp_up = 29000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(63)->
     #indexFunctionCfg {
     level = 63,
-    exp = 5100000,
+    exp = 16915443,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1758,21 +2006,25 @@ getRow(63)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 625,
+    offLineExpFreeAll = 450000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.33333333333333,
     question_exp = 1860,
     question_money = 2500,
     coinAddition = 51000,
-    coinHand_box = 2.85
+    coinHand_box = 2.85,
+    squaredance_exp = [100,36038],
+    field_exp_up = 29500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(64)->
     #indexFunctionCfg {
     level = 64,
-    exp = 5280000,
+    exp = 16985403,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1786,21 +2038,25 @@ getRow(64)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 625,
+    offLineExpFreeAll = 450000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.33333333333333,
     question_exp = 1920,
     question_money = 2500,
     coinAddition = 51500,
-    coinHand_box = 2.9
+    coinHand_box = 2.9,
+    squaredance_exp = [100,36039],
+    field_exp_up = 30000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(65)->
     #indexFunctionCfg {
     level = 65,
-    exp = 5450000,
+    exp = 20009500,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1814,21 +2070,25 @@ getRow(65)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 659,
+    offLineExpFreeAll = 475000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.26315789473684,
     question_exp = 1920,
     question_money = 2500,
     coinAddition = 52000,
-    coinHand_box = 2.95
+    coinHand_box = 2.95,
+    squaredance_exp = [100,36040],
+    field_exp_up = 30500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(66)->
     #indexFunctionCfg {
     level = 66,
-    exp = 5630000,
+    exp = 23800188,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1842,21 +2102,25 @@ getRow(66)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 659,
+    offLineExpFreeAll = 475000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.26315789473684,
     question_exp = 1980,
     question_money = 2500,
     coinAddition = 52500,
-    coinHand_box = 3
+    coinHand_box = 3,
+    squaredance_exp = [100,36041],
+    field_exp_up = 31000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(67)->
     #indexFunctionCfg {
     level = 67,
-    exp = 5810000,
+    exp = 24797459,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1870,21 +2134,25 @@ getRow(67)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 659,
+    offLineExpFreeAll = 475000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.26315789473684,
     question_exp = 1980,
     question_money = 2500,
     coinAddition = 53000,
-    coinHand_box = 3.04999999999999
+    coinHand_box = 3.04999999999999,
+    squaredance_exp = [100,36042],
+    field_exp_up = 31500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(68)->
     #indexFunctionCfg {
     level = 68,
-    exp = 5990000,
+    exp = 25210541,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1898,21 +2166,25 @@ getRow(68)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 659,
+    offLineExpFreeAll = 475000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.26315789473684,
     question_exp = 2040,
     question_money = 2500,
     coinAddition = 53500,
-    coinHand_box = 3.09999999999999
+    coinHand_box = 3.09999999999999,
+    squaredance_exp = [100,36043],
+    field_exp_up = 32000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(69)->
     #indexFunctionCfg {
     level = 69,
-    exp = 6180000,
+    exp = 25495481,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1926,21 +2198,25 @@ getRow(69)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 659,
+    offLineExpFreeAll = 475000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.26315789473684,
     question_exp = 2040,
     question_money = 2500,
     coinAddition = 54000,
-    coinHand_box = 3.14999999999999
+    coinHand_box = 3.14999999999999,
+    squaredance_exp = [100,36044],
+    field_exp_up = 32500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(70)->
     #indexFunctionCfg {
     level = 70,
-    exp = 6370000,
+    exp = 27360847,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1954,21 +2230,25 @@ getRow(70)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 659,
+    offLineExpFreeAll = 475000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.26315789473684,
     question_exp = 2100,
     question_money = 2500,
     coinAddition = 54500,
-    coinHand_box = 3.19999999999999
+    coinHand_box = 3.19999999999999,
+    squaredance_exp = [100,36045],
+    field_exp_up = 33000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(71)->
     #indexFunctionCfg {
     level = 71,
-    exp = 6550000,
+    exp = 27558647,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -1982,21 +2262,25 @@ getRow(71)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 659,
+    offLineExpFreeAll = 475000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.26315789473684,
     question_exp = 2100,
     question_money = 2500,
     coinAddition = 55000,
-    coinHand_box = 3.24999999999999
+    coinHand_box = 3.24999999999999,
+    squaredance_exp = [100,36046],
+    field_exp_up = 33500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(72)->
     #indexFunctionCfg {
     level = 72,
-    exp = 6750000,
+    exp = 27731144,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -2010,21 +2294,25 @@ getRow(72)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 659,
+    offLineExpFreeAll = 475000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.26315789473684,
     question_exp = 2100,
     question_money = 2500,
     coinAddition = 55500,
-    coinHand_box = 3.29999999999999
+    coinHand_box = 3.29999999999999,
+    squaredance_exp = [100,36047],
+    field_exp_up = 34000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(73)->
     #indexFunctionCfg {
     level = 73,
-    exp = 6940000,
+    exp = 27885792,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -2038,21 +2326,25 @@ getRow(73)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 659,
+    offLineExpFreeAll = 475000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.26315789473684,
     question_exp = 2100,
     question_money = 2500,
     coinAddition = 56000,
-    coinHand_box = 3.34999999999999
+    coinHand_box = 3.34999999999999,
+    squaredance_exp = [100,36048],
+    field_exp_up = 34500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(74)->
     #indexFunctionCfg {
     level = 74,
-    exp = 7130000,
+    exp = 28027334,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -2066,21 +2358,25 @@ getRow(74)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 659,
+    offLineExpFreeAll = 475000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.26315789473684,
     question_exp = 2100,
     question_money = 2500,
     coinAddition = 56500,
-    coinHand_box = 3.39999999999999
+    coinHand_box = 3.39999999999999,
+    squaredance_exp = [100,36049],
+    field_exp_up = 35000,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(75)->
     #indexFunctionCfg {
     level = 75,
-    exp = 7330000,
+    exp = 29408000,
     demonDamLv = 27.8096338040352,
     demonResLv = 5,
     demonHPLv = 44.604115394265,
@@ -2094,16 +2390,20 @@ getRow(75)->
     heroDgHPLv = 10.49,
     heroDgDropLv = 7.53,
     hPRecover = 685,
-    offLineExpFree = 102,
-    offLineExpFreeAll = 73440,
+    offLineExpFree = 659,
+    offLineExpFreeAll = 475000,
     offLineExpGold = 1.5,
-    offLineGoldCost = 1.7,
+    offLineGoldCost = 0.12,
     offLineExpDiamond = 2,
-    offLineDiamondCost = 0.000816993464052288,
+    offLineDiamondCost = 1.26315789473684,
     question_exp = 2100,
     question_money = 2500,
     coinAddition = 57000,
-    coinHand_box = 3.44999999999999
+    coinHand_box = 3.44999999999999,
+    squaredance_exp = [100,36050],
+    field_exp_up = 35500,
+    map_name = "海洋之心",
+    monster_id = [22111,22112,22116]
     };
 getRow(_)->[].
 

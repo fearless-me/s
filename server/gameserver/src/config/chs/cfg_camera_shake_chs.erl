@@ -458,7 +458,7 @@ getRow(57)->
     id = 57,
     shake_type = 1,
     shake_time = 0.5,
-    shake_power = 1.4,
+    shake_power = 0.3,
     use_wave = 2
     };
 getRow(58)->
@@ -466,39 +466,39 @@ getRow(58)->
     id = 58,
     shake_type = 1,
     shake_time = 1,
-    shake_power = 1.8,
+    shake_power = 0.4,
     use_wave = 2
     };
 getRow(59)->
     #camera_shakeCfg {
     id = 59,
-    shake_type = 1,
+    shake_type = 0,
     shake_time = 0.5,
-    shake_power = 1.4,
+    shake_power = 0.3,
     use_wave = 2
     };
 getRow(60)->
     #camera_shakeCfg {
     id = 60,
-    shake_type = 1,
+    shake_type = 0,
     shake_time = 1,
-    shake_power = 1.8,
+    shake_power = 0.4,
     use_wave = 2
     };
 getRow(61)->
     #camera_shakeCfg {
     id = 61,
     shake_type = 1,
-    shake_time = 0.8,
-    shake_power = 1.8,
+    shake_time = 0.5,
+    shake_power = 0.4,
     use_wave = 2
     };
 getRow(62)->
     #camera_shakeCfg {
     id = 62,
     shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 2.4,
+    shake_time = 1,
+    shake_power = 0.5,
     use_wave = 2
     };
 getRow(63)->
@@ -506,23 +506,23 @@ getRow(63)->
     id = 63,
     shake_type = 0,
     shake_time = 1,
-    shake_power = 2.4,
+    shake_power = 0.5,
     use_wave = 2
     };
 getRow(64)->
     #camera_shakeCfg {
     id = 64,
-    shake_type = 1,
-    shake_time = 1,
-    shake_power = 1,
+    shake_type = 0,
+    shake_time = 0.5,
+    shake_power = 0.4,
     use_wave = 2
     };
 getRow(65)->
     #camera_shakeCfg {
     id = 65,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 2,
+    shake_type = 2,
+    shake_time = 0.5,
+    shake_power = 0.3,
     use_wave = 2
     };
 getRow(66)->
@@ -530,15 +530,15 @@ getRow(66)->
     id = 66,
     shake_type = 2,
     shake_time = 1,
-    shake_power = 1,
+    shake_power = 0.4,
     use_wave = 2
     };
 getRow(67)->
     #camera_shakeCfg {
     id = 67,
     shake_type = 2,
-    shake_time = 1.2,
-    shake_power = 2,
+    shake_time = 0.5,
+    shake_power = 0.4,
     use_wave = 2
     };
 getRow(68)->
@@ -546,151 +546,7 @@ getRow(68)->
     id = 68,
     shake_type = 2,
     shake_time = 1,
-    shake_power = 1,
-    use_wave = 2
-    };
-getRow(69)->
-    #camera_shakeCfg {
-    id = 69,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 1.5,
-    use_wave = 2
-    };
-getRow(70)->
-    #camera_shakeCfg {
-    id = 70,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 1,
-    use_wave = 2
-    };
-getRow(71)->
-    #camera_shakeCfg {
-    id = 71,
-    shake_type = 2,
-    shake_time = 1.2,
-    shake_power = 2,
-    use_wave = 2
-    };
-getRow(72)->
-    #camera_shakeCfg {
-    id = 72,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 1,
-    use_wave = 2
-    };
-getRow(73)->
-    #camera_shakeCfg {
-    id = 73,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 2,
-    use_wave = 2
-    };
-getRow(74)->
-    #camera_shakeCfg {
-    id = 74,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 1,
-    use_wave = 2
-    };
-getRow(75)->
-    #camera_shakeCfg {
-    id = 75,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 2,
-    use_wave = 2
-    };
-getRow(76)->
-    #camera_shakeCfg {
-    id = 76,
-    shake_type = 0,
-    shake_time = 1.2,
-    shake_power = 1,
-    use_wave = 2
-    };
-getRow(77)->
-    #camera_shakeCfg {
-    id = 77,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 2,
-    use_wave = 2
-    };
-getRow(78)->
-    #camera_shakeCfg {
-    id = 78,
-    shake_type = 2,
-    shake_time = 1.2,
-    shake_power = 2,
-    use_wave = 2
-    };
-getRow(79)->
-    #camera_shakeCfg {
-    id = 79,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 1,
-    use_wave = 2
-    };
-getRow(80)->
-    #camera_shakeCfg {
-    id = 80,
-    shake_type = 2,
-    shake_time = 1.2,
-    shake_power = 2,
-    use_wave = 2
-    };
-getRow(81)->
-    #camera_shakeCfg {
-    id = 81,
-    shake_type = 2,
-    shake_time = 1.2,
-    shake_power = 1,
-    use_wave = 2
-    };
-getRow(82)->
-    #camera_shakeCfg {
-    id = 82,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 2,
-    use_wave = 2
-    };
-getRow(83)->
-    #camera_shakeCfg {
-    id = 83,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 2,
-    use_wave = 2
-    };
-getRow(84)->
-    #camera_shakeCfg {
-    id = 84,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 1,
-    use_wave = 2
-    };
-getRow(85)->
-    #camera_shakeCfg {
-    id = 85,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 2,
-    use_wave = 2
-    };
-getRow(86)->
-    #camera_shakeCfg {
-    id = 86,
-    shake_type = 1,
-    shake_time = 1.2,
-    shake_power = 1.5,
+    shake_power = 0.5,
     use_wave = 2
     };
 getRow(87)->
@@ -700,6 +556,38 @@ getRow(87)->
     shake_time = 0.5,
     shake_power = 1,
     use_wave = 0
+    };
+getRow(100)->
+    #camera_shakeCfg {
+    id = 100,
+    shake_type = 1,
+    shake_time = 0.5,
+    shake_power = 0.5,
+    use_wave = 2
+    };
+getRow(101)->
+    #camera_shakeCfg {
+    id = 101,
+    shake_type = 1,
+    shake_time = 1,
+    shake_power = 1.2,
+    use_wave = 2
+    };
+getRow(102)->
+    #camera_shakeCfg {
+    id = 102,
+    shake_type = 2,
+    shake_time = 0.5,
+    shake_power = 0.5,
+    use_wave = 2
+    };
+getRow(103)->
+    #camera_shakeCfg {
+    id = 103,
+    shake_type = 2,
+    shake_time = 1,
+    shake_power = 1.2,
+    use_wave = 2
     };
 getRow(360)->
     #camera_shakeCfg {
@@ -828,25 +716,11 @@ getKeyList()->[
     {66},
     {67},
     {68},
-    {69},
-    {70},
-    {71},
-    {72},
-    {73},
-    {74},
-    {75},
-    {76},
-    {77},
-    {78},
-    {79},
-    {80},
-    {81},
-    {82},
-    {83},
-    {84},
-    {85},
-    {86},
     {87},
+    {100},
+    {101},
+    {102},
+    {103},
     {360},
     {1000},
     {1001},
@@ -925,25 +799,11 @@ get1KeyList()->[
     66,
     67,
     68,
-    69,
-    70,
-    71,
-    72,
-    73,
-    74,
-    75,
-    76,
-    77,
-    78,
-    79,
-    80,
-    81,
-    82,
-    83,
-    84,
-    85,
-    86,
     87,
+    100,
+    101,
+    102,
+    103,
     360,
     1000,
     1001,

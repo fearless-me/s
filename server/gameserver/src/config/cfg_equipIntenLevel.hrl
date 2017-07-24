@@ -22,6 +22,8 @@
         %%: 填0为不转化
         materialTransform,
 
+        suitIs,
+
         %%: 全部位强化奖励，逐行累加
         allBonus,
 

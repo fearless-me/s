@@ -3,44 +3,43 @@
 
 -module(playerRPView).
 -include("playerPrivate.hrl").
-%%-define(RPBattlePropIDS, [
-%%	?Prop_PhysicalAttack,?Prop_MagicAttack,
-%%	?Prop_PhysicalDefence,?Prop_MagicDefence,
-%%	?Prop_CriticalLevel, ?Prop_CriticalResistLevel,
-%%	?Prop_CriticalDamageLevel,?Prop_TenaciousLevel,
-%%	?Prop_HitLevel,?Prop_DodgeLevel, ?Prop_ArmorPenetrationLevel,
-%%	?Prop_HPRecover,?Prop_MPRecover,?Prop_MaxHP
-%%]).           %%要查看的远程玩家战斗属性ID
 
-%%-define(RPBattlePowersecPropIDS, [?Prop_holypowersec,?Prop_magicpowersec,?Prop_shadowpowersec,?Prop_ragepowersec, ?Prop_mechanicpowersec]).       %%根据职业取
-%%-define(RPBattlePowerPropIDS, [?Prop_maxholypower,?Prop_maxmagicpower,?Prop_maxshadowpower,?Prop_maxragepower, ?Prop_maxmechanicpower]).          %%根据职业取
-%%-define(RPBattlePropIDS1, [?Prop_master,?Prop_survivemas,?Prop_regainmast]).
+-define(RPView_Min, 1).
+-define(RPView_Role, 1).		%% 角色
+-define(RPView_Fashion, 2).		%% 时装
+-define(RPView_Pet, 3).			%% 宠物
+-define(RPView_Marriage, 4).	%% 婚姻
+-define(RPView_Identity, 5).	%% 身份证
+-define(RPView_Max, 5).
 
+%% 缓存远程玩家信息的CD
+-define(CacheViewInfoCD, 60).
 
 -export([
-	queryRPInfo/1,
+	queryRPInfo/2,
 	getBattlePropList/0
 ]).
 
 -export([
-	queryRangeServerRPKeyInfo/1,
-	gm_QueryObjByRoleID/1
+	cacheViewInfo/2,
+	queryRPViewInfo/2
 ]).
 
 %%查看远程玩家的属性
--spec queryRPInfo(RoleID) -> ok when RoleID::uint().
-queryRPInfo(RoleID) ->
+queryRPInfo(RoleID,Type) ->
 	case variant:getGlobalBitVariant(?Setting_GlobalBitVarReadOnly_RPView) of
 		true ->
 			case playerState:getRoleID() of
-				RoleID -> skip;
+				RoleID ->
+					skip;
 				_ ->
+					%% 判断是不是跨服玩家
 					try
 						case playerMgrOtp:getOnlinePlayerInfoByID(RoleID) of
 							#rec_OnlinePlayer{} = PlayerInfo ->
-								queryLocalServerRPInfo(PlayerInfo);
+								queryLocalServerRPInfo(Type, PlayerInfo);
 							_ ->
-								queryRangeServerRPInfo(RoleID)
+								playerMsg:sendErrorCodeMsg(?ErrorCode_ChatErrorReceiverOffLine)
 						end
 					catch
 						_:Why  ->
@@ -55,118 +54,320 @@ queryRPInfo(RoleID) ->
 	ok.
 
 %% 查看本线玩家的属性
--spec queryLocalServerRPInfo(#rec_OnlinePlayer{}) -> ok.
-queryLocalServerRPInfo(#rec_OnlinePlayer{pid = PlayerPid,roleID = RoleID}) ->
+-spec queryLocalServerRPInfo(Type::uint(), #rec_OnlinePlayer{}) -> ok.
+queryLocalServerRPInfo(Type, #rec_OnlinePlayer{pid = PlayerPid,roleID = RoleID}) when Type >= ?RPView_Min andalso Type =< ?RPView_Max ->
 	case misc:is_process_alive(PlayerPid) of
 		true ->
-			querytRPPropMsg(PlayerPid, RoleID);
+			queryRPViewInfo(Type, PlayerPid, RoleID);
 		_ ->
 			playerMsg:sendErrorCodeMsg(?ErrorCode_ChatErrorReceiverOffLine)
 	end,
+	ok;
+queryLocalServerRPInfo(_Type, _Player)->
+	playerMsg:sendErrorCodeMsg(?ErrorCode_System_Error_Unknow),
 	ok.
 
-%% 查看跨线玩家的属性
--spec queryRangeServerRPInfo(RoleID) -> ok when
-	RoleID::uint().
-queryRangeServerRPInfo(RoleID) ->
-	%% 先获取该玩家的在线情况
-	Ret = case core:queryPlayerPidByRoleID(RoleID) of
-              offline ->
-			      false;
-              PlayerPid ->
-                  querytRPPropMsg(PlayerPid, RoleID),
-                  true
-	      end,
-	case Ret of
-		true -> skip;
-		_ -> playerMsg:sendErrorCodeMsg(?ErrorCode_ChatErrorReceiverOffLine)
+%% 发送请求查询rp玩家对象属性
+-spec queryRPViewInfo(ViewType::uint8(), TargetPid::pid(), RoleID::uint()) -> ok.
+queryRPViewInfo(ViewType, TargetPid, RoleID) ->
+	%% 附加参数
+	Param = if
+				ViewType =:= ?RPView_Identity ->
+					daily2State:queryDaily2(playerState:getRoleID(), RoleID, ?Daily2Type_S_Friend2Like) > 0;
+				true ->
+					undefined
+			end,
+	psMgr:sendMsg2PS(TargetPid, queryRPViewInfo, {ViewType, RoleID, playerState:getNetPid(), Param}),
+	ok.
+
+%% 查询远程玩家信息
+-spec queryRPViewInfo(PidFrom::pid(), {ViewType::uint8(), RoleID::uint64(), NetPid::pid(), Param::term()}) -> ok.
+queryRPViewInfo(PidFrom, {_ViewType, RoleID, NetPid, _Param} = Data) ->
+	case playerState:getRoleID() of
+		RoleID ->
+			case ets:lookup(recRPView, RoleID) of
+				[] ->
+					cacheViewInfo(RoleID, true);
+				_ ->
+					skip
+			end,
+
+			queryRPViewInfo2(PidFrom, Data);
+		_ ->
+			playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_System_Error_Unknow)
 	end,
 	ok.
 
-%% 查看跨线玩家的rolekeyrec
--spec queryRangeServerRPKeyInfo(RoleID::uint()) -> {} | #?RoleKeyRec{}.
-queryRangeServerRPKeyInfo(RoleID) ->
-	core:queryRoleKeyInfoByRoleID(RoleID).
-
-gm_QueryObjByRoleID(RoleID) ->
-	Str = case core:queryOnLineRoleByRoleID(RoleID) of
-			  #rec_OnlinePlayer{accountID = AID, code = Code, roleID = ID} ->
-                  io_lib:format("queryobj success:accountID=~p, playerCode=~p, playerName=~ts, playerId=~p",
-                      [AID, Code, playerNameUID:getPlayerNameByUID(ID), ID]);
-			  _ ->
-				  io_lib:format("queryobj failed:~p", [RoleID])
-		  end,
-	playerChat:onSystemChatMsg(Str),
+queryRPViewInfo2(_PidFrom, {?RPView_Role = RVType, RoleID, NetPid, _Param}) ->
+	Info =
+		case isCD(RVType) of
+			false ->
+				cache_pk_GS2U_LookRPInfo_Result(RoleID);
+			_ ->
+				[#recRPView{pk_GS2U_LookRPInfo_Result = M}] = ets:lookup(recRPView, RoleID),
+				M
+		end,
+	gsSendMsg:sendNetMsg(NetPid, Info),
+	ok;
+queryRPViewInfo2(_PidFrom, {?RPView_Fashion = RVType, RoleID, NetPid, _Param}) ->
+	Info =
+		case isCD(RVType) of
+			false ->
+				cache_pk_GS2U_LookRPInfo_Fashion(RoleID);
+			_ ->
+				[#recRPView{pk_GS2U_LookRPInfo_Fashion = M}] = ets:lookup(recRPView, RoleID),
+				M
+		end,
+	gsSendMsg:sendNetMsg(NetPid, Info),
+	ok;
+queryRPViewInfo2(_PidFrom, {?RPView_Pet, RoleID = RVType, NetPid, _Param}) ->
+	Info =
+		case isCD(RVType) of
+			false ->
+				cache_pk_GS2U_LookRPInfo_Pet(RoleID);
+			_ ->
+				[#recRPView{pk_GS2U_LookRPInfo_Pet = M}] = ets:lookup(recRPView, RoleID),
+				M
+		end,
+	gsSendMsg:sendNetMsg(NetPid, Info),
+	ok;
+queryRPViewInfo2(_PidFrom, {?RPView_Marriage = RVType, RoleID, NetPid, _Param}) ->
+	Info =
+		case isCD(RVType) of
+			false ->
+				cache_pk_GS2U_LookRPInfo_Marriage(RoleID);
+			_ ->
+				[#recRPView{pk_GS2U_LookRPInfo_Marriage = M}] = ets:lookup(recRPView, RoleID),
+				M
+		end,
+	gsSendMsg:sendNetMsg(NetPid, Info),
+	ok;
+queryRPViewInfo2(_PidFrom, {?RPView_Identity = RVType, RoleID, NetPid, Param}) ->
+	Info =
+		case isCD(RVType) of
+			false ->
+				cache_pk_GS2U_Identity_Ack(RoleID);
+			_ ->
+				[#recRPView{pk_GS2U_Identity_Ack = M}] = ets:lookup(recRPView, RoleID),
+				M
+		end,
+	Info2 = case Param of
+				undefined -> Info;
+				_ -> Info#pk_GS2U_Identity_Ack{isGiveLike = Param}
+			end,
+	gsSendMsg:sendNetMsg(NetPid, Info2),
+	ok;
+queryRPViewInfo2(_PidFrom, {_ViewType, _RoleID, NetPid, _Param}) ->
+	playerMsg:sendErrorCodeMsg(NetPid, ?ErrorCode_SystemNotOpen),
 	ok.
+
+isCD(RVType) ->
+	NowSec = time2:getTimestampSec(),
+	case get({cache_CacheViewInfoCD, RVType}) of
+		undefined ->
+			put({cache_CacheViewInfoCD, RVType}, NowSec),
+			false;
+		V ->
+			case NowSec - V >= ?CacheViewInfoCD of
+				true ->
+					put({cache_CacheViewInfoCD, RVType}, NowSec),
+					false;
+				_ ->
+					true
+			end
+	end.
+
+%% 下线缓存自己的数据
+-spec cacheViewInfo(RoleID::uint64(), IsCheckCD::boolean()) -> ok.
+cacheViewInfo(RoleID, false) ->
+	cache_pk_GS2U_LookRPInfo_Result(RoleID),
+	cache_pk_GS2U_Identity_Ack(RoleID),
+	cache_pk_GS2U_LookRPInfo_Pet(RoleID),
+	cache_pk_GS2U_LookRPInfo_Marriage(RoleID),
+	cache_pk_GS2U_LookRPInfo_Fashion(RoleID),
+	ok;
+cacheViewInfo(RoleID, true) ->
+	case isCD(?RPView_Role) of
+		false ->
+			cacheViewInfo(RoleID, false);
+		_ ->
+			skip
+	end,
+	ok.
+
+%% 角色身份证
+cache_pk_GS2U_Identity_Ack(RoleID) ->
+	Msg = playerIdentity:makeQueryIdentity(RoleID),
+	case ets:lookup(recRPView, RoleID) of
+		[] -> ets:insert(recRPView, #recRPView{roleID = RoleID, pk_GS2U_Identity_Ack = Msg});
+		_ -> ets:update_element(recRPView, RoleID, {#recRPView.pk_GS2U_Identity_Ack, Msg})
+	end,
+	Msg.
+
+%% 角色宠物
+cache_pk_GS2U_LookRPInfo_Pet(RoleID) ->
+	Pets = playerState:getPets(),
+	Fun =
+		fun(#recPetInfo{pet_status = Status} = Pet, Acc) ->
+			case Status >= ?PetState_Assist of
+				true ->
+					#pk_PetBaseInfo{} = MakePet = playerPet:makePetBaseInfo(Pet),
+					[#pk_RPView_PetBaseInfo{
+						%% UInt16宠物ID
+						petID = MakePet#pk_PetBaseInfo.petID,
+						%% Byte宠物星阶
+						petStar = MakePet#pk_PetBaseInfo.petStar,
+						%% Byte宠物是否出战 0:休息(非助战) 1:休息(助战)2:出战（非召唤）3:出战（召唤）
+						status = MakePet#pk_PetBaseInfo.status,
+						%% String宠物名字
+						petName = MakePet#pk_PetBaseInfo.petName,
+						%% Byte宠物转生
+						petRaw = MakePet#pk_PetBaseInfo.petRaw,
+						%% RPView_AddProp宠物属性
+						petProps = [ #pk_RPView_AddProp{prop = K, value = V} || {K, V} <- MakePet#pk_PetBaseInfo.petProps],
+						%% UInt64宠物战斗力
+						petForce = MakePet#pk_PetBaseInfo.petForce,
+						%% UInt32宠物提升次数
+						upCount = MakePet#pk_PetBaseInfo.upCount
+					} | Acc];
+				_ ->
+					Acc
+			end
+		end,
+	PetBaseInfoList = lists:foldl(Fun, [], Pets),
+
+	AssistList = playerPet:getPetAssistBattleInfo(),
+	AssistList2 = [#pk_RPView_AssistBattleInfo{slot = Slot, petID = PetID} || #recPetAssistInfo{slot = Slot, petID = PetID} <- AssistList],
+
+	Msg = #pk_GS2U_LookRPInfo_Pet{roleID = RoleID, petInfoList = PetBaseInfoList, infoList = AssistList2},
+
+	case ets:lookup(recRPView, RoleID) of
+		[] -> ets:insert(recRPView, #recRPView{roleID = RoleID, pk_GS2U_LookRPInfo_Pet = Msg});
+		_ -> ets:update_element(recRPView, RoleID, {#recRPView.pk_GS2U_LookRPInfo_Pet, Msg})
+	end,
+	Msg.
+
+%% 角色婚姻
+cache_pk_GS2U_LookRPInfo_Marriage(RoleID) ->
+	RoleID = playerState:getRoleID(),
+	#rec_marriage{
+		targetRoleID = TargetRoleID,
+		closeness = Closeness,
+		timeRelation = TimeRelation
+	} = marriageState:queryRelation(RoleID),
+	Msg =
+		case TargetRoleID > 0 of
+			true ->
+				case core:queryRoleKeyInfoByRoleID(TargetRoleID) of
+					#?RoleKeyRec{roleName = Name, sex = Sex} ->
+						#pk_GS2U_LookRPInfo_Marriage{
+							roleID = RoleID,
+							id = TargetRoleID,
+							name = Name,
+							sex = Sex,
+							weddingDay = TimeRelation,
+							closeness = Closeness
+						};
+					_ ->
+						?ERROR_OUT("syncBaseInfo can not find TargetRoleID(~p) from core:queryRoleKeyInfoByRoleID/1", [TargetRoleID]),
+						#pk_GS2U_LookRPInfo_Marriage{
+							roleID = RoleID,
+							id = TargetRoleID,
+							name = [],
+							sex = 0,
+							weddingDay = TimeRelation,
+							closeness = Closeness
+						}
+				end;
+			_ ->
+				%% 未婚
+				#pk_GS2U_LookRPInfo_Marriage{
+					roleID = RoleID,
+					id = TargetRoleID,
+					name = [],
+					sex = 0,
+					weddingDay = TimeRelation,
+					closeness = Closeness
+				}
+		end,
+	case ets:lookup(recRPView, RoleID) of
+		[] -> ets:insert(recRPView, #recRPView{roleID = RoleID, pk_GS2U_LookRPInfo_Marriage = Msg});
+		_ -> ets:update_element(recRPView, RoleID, {#recRPView.pk_GS2U_LookRPInfo_Marriage, Msg})
+	end,
+	Msg.
+
+%% 角色时装
+cache_pk_GS2U_LookRPInfo_Fashion(RoleID) ->
+	Now = time:getUTCNowSec(),
+	PlayerFashionList = playerState:getFashionList(),
+	L1 = lists:foldl(
+		fun(#recFashion{fashionID = FashionID, endTime = EndTime}, Acc) ->
+			if
+				EndTime =:= 0 ->
+					[#pk_RPView_FashionInfo{time = 0, fashionID = FashionID} | Acc];
+				EndTime - Now > 0 ->
+					[#pk_RPView_FashionInfo{time = EndTime - Now, fashionID = FashionID} | Acc];
+				true ->
+					Acc
+			end
+		end, [], PlayerFashionList),
+	L2 = playerState:getFashionSuitList(),
+	Msg = #pk_GS2U_LookRPInfo_Fashion{roleID = RoleID, datas = L1, activeFashionSuitList = L2},
+	case ets:lookup(recRPView, RoleID) of
+		[] -> ets:insert(recRPView, #recRPView{roleID = RoleID, pk_GS2U_LookRPInfo_Fashion = Msg});
+		_ -> ets:update_element(recRPView, RoleID, {#recRPView.pk_GS2U_LookRPInfo_Fashion, Msg})
+	end,
+	Msg.
+
+%% 角色属性
+cache_pk_GS2U_LookRPInfo_Result(RoleID) ->
+	Level = playerState:getLevel(),
+	Career = playerState:getCareer(),
+	EquipInfo = playerPackage:getBodyEquipInfo(),
+	PlayerForce = playerPropSync:getProp(?PriProp_PlayerForce),
+	%% 获取战斗属性
+	BattleProp = getBattlePropList(),
+	FashionList = playerFashion:getShowFashions(),
+	%% 获取装备精炼等级
+	RefineList = playerState:getEquipRefine(),
+	StartList = playerState:getEquipStarList(),
+	FunEquipRefines = fun({Type, RefineLevel}) -> #pk_EquipRefineLevel{type = Type, level = RefineLevel} end,
+	EquipRefines = lists:map(FunEquipRefines, RefineList),
+	FunEquipStar = fun(#recEquipStar{pos = Pos, star = Star}) -> #pk_EquipStarLevel{type = Pos, level = Star} end,
+	EquipStar = lists:map(FunEquipStar, StartList),
+	GuildName = playerState:getGuildName(),
+	Kv = playerPropSync:getProp(?PubProp_PlayerKillValue),
+	RPPropMsg = #pk_GS2U_LookRPInfo_Result{
+		playerKillValue = Kv,
+		fashionList = FashionList,
+		wingLevel = 0,
+		propValues = BattleProp,
+		guildName = GuildName,
+		roleForce = PlayerForce,
+		roleID = RoleID,
+		roleName = playerNameUID:getPlayerNameByUID(RoleID),
+		career = Career,
+		sex = playerState:getSex(),
+		race = playerState:getRace(),
+		head = playerState:getHead(),
+		level = Level,
+		equips = EquipInfo,
+		equipStar = EquipStar,
+		equipRefines = EquipRefines,
+		equipHonorLevel = 1
+	},
+	case ets:lookup(recRPView, RoleID) of
+		[] -> ets:insert(recRPView, #recRPView{roleID = RoleID, pk_GS2U_LookRPInfo_Result = RPPropMsg});
+		_ -> ets:update_element(recRPView, RoleID, {#recRPView.pk_GS2U_LookRPInfo_Result, RPPropMsg})
+	end,
+	RPPropMsg.
 
 %% 获取玩家的战斗属性
 -spec getBattlePropList() -> list().
 getBattlePropList() ->
 	L = lists:seq(?Prop_Min, ?PropMax),
-	Fun = fun(PropID, RPProps) ->
-				  RPProps ++ [playerState:getBattlePropTotal(PropID)]
-		  end,
+	Fun =
+		fun(PropID, RPProps) ->
+			RPProps ++ [playerState:getBattlePropTotal(PropID)]
+		end,
 	lists:foldl(Fun, [], L).
-%%	PowersecProp = playerState:getBattlePropTotal(lists:nth(Career, ?RPBattlePowersecPropIDS)),
-%%	PowerProp = playerState:getBattlePropTotal(lists:nth(Career, ?RPBattlePowerPropIDS)),
-%%	TotalDamage = calcDamageProp(),
-%%	TotalDefence = calcSurvival(),
-%%	TotalRecovery = calcRecovery(),
-%%	lists:foldl(Fun, [], ?RPBattlePropIDS) ++ [PowersecProp, PowerProp, TotalDamage, TotalDefence, TotalRecovery] ++
-%%	lists:foldl(Fun, [], ?RPBattlePropIDS1).
-
-%%%% 计算伤害属性
-%%-spec calcDamageProp() -> number().
-%%calcDamageProp() ->
-%%	HolyDamage = playerState:getBattlePropTotal(?Prop_holydamage),
-%%	PhysicalDamage = playerState:getBattlePropTotal(?Prop_physicaldamage),
-%%	ShadowDamage = playerState:getBattlePropTotal(?Prop_shadowdamage),
-%%	ElementDamage = playerState:getBattlePropTotal(?Prop_elementdamage),
-%%	Total = HolyDamage + PhysicalDamage + ShadowDamage + ElementDamage,
-%%
-%%
-%%	Master = playerState:getBattlePropTotal(?Prop_master),
-%%	Critical = playerState:getBattlePropTotal(?Prop_critical),
-%%	CoolSpeed = playerState:getBattlePropTotal(?Prop_coolspeed),
-%%	SaveEnergy = playerState:getBattlePropTotal(?Prop_saveenergy),
-%%	AttackSpeed = playerState:getBattlePropTotal(?Prop_attackspeed),
-%%	CriticalArg = playerState:getBattlePropTotal(?Prop_criticalfactor),
-%%	Total * (1 + AttackSpeed) * (1 + Critical * CriticalArg) * (1 + Master) * (1 + CoolSpeed) * (1 + SaveEnergy).
-
-%%%%计算生存属性
-%%-spec calcSurvival() -> number().
-%%calcSurvival() ->
-%%	Holyresist = playerState:getBattlePropTotal(?Prop_holyresist),
-%%	Physicalresist = playerState:getBattlePropTotal(?Prop_physicalresist),
-%%	Shadowresist = playerState:getBattlePropTotal(?Prop_shadowresist),
-%%	Elementresist = playerState:getBattlePropTotal(?Prop_elementresist),
-%%
-%%	%%HolyDef = playerState:getBattlePropTotal(?Prop_holydefence),
-%%	PhysicalDef = playerState:getBattlePropTotal(?Prop_physicaldefence),
-%%	%%ShadowDef = playerState:getBattlePropTotal(?Prop_shadowdefence),
-%%	ElementDef = playerState:getBattlePropTotal(?Prop_elementdefence),
-%%
-%%
-%%	Holyresist1 = 1 - (1 - Holyresist) / (1 + ElementDef / 1280),
-%%	Physicalresist1 = 1 - (1 - Physicalresist) / (1 + PhysicalDef / 1280),
-%%	Shadowresist1 = 1 - (1 - Shadowresist) / (1 + ElementDef / 1280),
-%%	Elementresist1 = 1 - (1 - Elementresist) / (1 + ElementDef / 1280),
-%%	AvgResist = (Holyresist1 + Physicalresist1 + Shadowresist1 + Elementresist1) / 4,
-%%	Dodge = playerState:getBattlePropTotal(?Prop_dodge),
-%%	Parry = playerState:getBattlePropTotal(?Prop_parry),
-%%	Block = playerState:getBattlePropTotal(?Prop_block),
-%%	Blockfactor	=  playerState:getBattlePropTotal(?Prop_blockfactor),
-%%	MaxHp = playerState:getBattlePropTotal(?Prop_MaxHP),
-%%	MaxHp / (1 - AvgResist) / (1 - Dodge * 0.5) /  (1 - Parry * 0.5) / (1 - Block * Blockfactor * 0.5).
-
-%%计算生命恢复
--spec calcRecovery() -> number().
-calcRecovery() ->
-	playerState:getBattlePropTotal(?Prop_HPRecover).
-	
-
-%% 发送请求查询rp玩家对象属性
--spec querytRPPropMsg(TargetPid::pid(), RoleID::uint()) -> ok.
-querytRPPropMsg(TargetPid, RoleID) ->
-	psMgr:sendMsg2PS(TargetPid, querytRPPropMsg, {RoleID, playerState:getNetPid()}),
-	ok.

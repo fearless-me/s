@@ -417,6 +417,11 @@ plunderAck(MapPid) ->
 			%	_ ->
 			%		playerPet:petHide()
 			%end,
+
+			%% 20170714 余淇星需求 成功发起掠夺则重置搜索次数
+			Count = playerDaily:getDailyCounter(?DailyType_PetTerritorySearch, 0),
+			playerDaily:reduceDailyCounter(?DailyType_PetTerritorySearch, 0, Count),
+
 			playerScene:onRequestEnterActivityMap(?PetTerritoryMapID, MapPid);
 		_ ->
 			?ERROR_OUT("can not find MapID(~p) from cfg_mapsetting", [MapID]),
@@ -836,7 +841,7 @@ exploit_Occupy(TerritoryID, ListPetID, CfgTime, CfgLevel, CfgReward, CfgForce, T
 			]
 		},
 	playerMsg:sendNetMsg(Msg),
-	playerTask:updateTask(?TaskSubType_System, ?TaskSubType_Active_Sub_QiChongLingDi),
+	playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_QiChongLingDi),
 	ok.
 
 %%% --------------------------------------------------------------------

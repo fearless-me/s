@@ -136,11 +136,25 @@ tickMap(NowTime) ->
 							prepareDestroy(10 * 1000, false);
 						_ -> skip
 					end;
+				?MapSubTypeDatePoolParty ->
+					%% 泳池派对无人时销毁
+					case mapState:getDestoryTime() =:= 0 andalso IsEmpty of
+						true ->
+							prepareDestroy(10 * 1000, false);
+						_ -> skip
+					end;
+				?MapSubTypeDateFindTreasure ->
+					%% 寻找宝箱
+					case mapState:getDestoryTime() =:= 0 andalso IsEmpty of
+						true ->
+							prepareDestroy(10 * 1000, false);
+						_ -> skip
+					end;
 				_ -> skip
 			end,
 			tickActivityMap(NowTime);
-		#mapsettingCfg{subtype = ?MapSubTypeDemonBattle} ->
-			noScheduleTick(NowTime);
+%%		#mapsettingCfg{subtype = ?MapSubTypeDemonBattle} ->
+%%			noScheduleTick(NowTime);
 		#mapsettingCfg{subtype = ?MapSubTypeMaterial} ->
 			gameMapMaterial:createMonster1By1(NowTime),
 			tickNotNormalMap(NowTime);%%包含普通副本的tick
@@ -342,64 +356,66 @@ tickCopyMap(NowTime) ->
 	ok.
 
 %%没有进度的副本类型tick
--spec noScheduleTick(NowTime) -> ok when NowTime::uint().
-noScheduleTick(NowTime) ->
-	tickCopyMap(NowTime),%%包含普通副本的tick
-	AliveMonster = mapState:getMapAliveMonsterNum(),
-	Cnf = mapState:getCnfFromdic(),
-	NeedDestory =
-		case Cnf of
-			#copyMapDemonBattleCnf{}->
-				mapState:getGoddessDead();
-			_ ->
-				false
-		end,
-	One = get({one,self()}) =:= undefined,
-	case NeedDestory andalso One of
-		true ->
-			put({one,self()},true),
-			copyMapDemonBattle:noticeScheduleStatus(1),%%挑战失败
-			copyMapGoddess:goddessSettlement(),
-			erlang:send_after(1000*60, self(), {mapOtpAfterDo,fun()-> sendDestroyToSelf("First Step Destory") end });
-		false when AliveMonster/= undefined andalso AliveMonster =< 0 ->
-
-			CurrScheduleNum = Cnf#copyMapDemonBattleCnf.fableCurrentSchedule,
-			PrepareTimeNum = Cnf#copyMapDemonBattleCnf.fablePreparetimeNum,
-			ChallengetimeNum = Cnf#copyMapDemonBattleCnf.fableChallengetimeNum,
-			AllScheduleNum = Cnf#copyMapDemonBattleCnf.fableAllSchedule,
-
-			case copyMapGoddess:initBoss() of
-				ok ->
-					ok;
-				Interval when erlang:is_integer(Interval) andalso CurrScheduleNum < AllScheduleNum->
-					mapState:clearMapAliveMonsterNum(),
-					mapState:setCnf2dic(Cnf#copyMapDemonBattleCnf{
-						fableCurrentSchedule = CurrScheduleNum+1,
-						fablePreparetimeEnd = time:getUTCNowSec()+PrepareTimeNum,
-						fableChallengetimeEnd = time:getUTCNowSec()+PrepareTimeNum+ChallengetimeNum
-					}),
-					copyMapDemonBattle:noticeGift(),%%通知玩家发本关宝箱
-					copyMapDemonBattle:noticeScheduleStatus(0),%%挑战成功
-					noticeMapPlayerUpdateSevenDayAim(CurrScheduleNum),
-					erlang:send_after(Interval, self(), {mapOtpAfterDo,fun()->copyMapGoddess:initSchedule() end });
-				_ ->
-					case One of
-						true ->
-							noticeMapPlayerUpdateSevenDayAim(CurrScheduleNum),
-							put({one,self()},true),
-							copyMapGoddess:goddessSettlement(),
-							%%完成了总进度，出副本
-							erlang:send_after(1000*60, self(), {mapOtpAfterDo,fun()-> sendDestroyToSelf("All Complete Destory") end });
-						_ ->
-							ok
-					end
-			end,
-
-			ok;
-		_ ->
-			skip
-	end,
-	ok.
+%%-spec noScheduleTick(NowTime) -> ok when NowTime::uint().
+%%noScheduleTick(NowTime) ->
+%%	tickCopyMap(NowTime),%%包含普通副本的tick
+%%	AliveMonster = mapState:getMapAliveMonsterNum(),
+%%	Cnf = mapState:getCnfFromdic(),
+%%	NeedDestory =
+%%		case Cnf of
+%%			#copyMapDemonBattleCnf{}->
+%%				mapState:getGoddessDead();
+%%			_ ->
+%%				false
+%%		end,
+%%	One = get({one,self()}) =:= undefined,
+%%	case NeedDestory andalso One of
+%%		true ->
+%%			put({one,self()},true),
+%%			copyMapDemonBattle:noticeScheduleStatus(1),%%挑战失败
+%%			copyMapGoddess:goddessSettlement(),
+%%
+%%			psMgr:sendMsg2PS(self(), clearAllObject, ?CodeTypeMonster),
+%%			erlang:send_after(1000*10, self(), {mapOtpAfterDo,fun()-> sendDestroyToSelf("First Step Destory") end });
+%%		false when AliveMonster/= undefined andalso AliveMonster =< 0 ->
+%%
+%%			CurrScheduleNum = Cnf#copyMapDemonBattleCnf.fableCurrentSchedule,
+%%			PrepareTimeNum = Cnf#copyMapDemonBattleCnf.fablePreparetimeNum,
+%%			ChallengetimeNum = Cnf#copyMapDemonBattleCnf.fableChallengetimeNum,
+%%			AllScheduleNum = Cnf#copyMapDemonBattleCnf.fableAllSchedule,
+%%
+%%			case copyMapGoddess:initBoss() of
+%%				ok ->
+%%					ok;
+%%				Interval when erlang:is_integer(Interval) andalso CurrScheduleNum < AllScheduleNum->
+%%					mapState:clearMapAliveMonsterNum(),
+%%					mapState:setCnf2dic(Cnf#copyMapDemonBattleCnf{
+%%						fableCurrentSchedule = CurrScheduleNum+1,
+%%						fablePreparetimeEnd = time:getUTCNowSec()+PrepareTimeNum,
+%%						fableChallengetimeEnd = time:getUTCNowSec()+PrepareTimeNum+ChallengetimeNum
+%%					}),
+%%					copyMapDemonBattle:noticeGift(),%%通知玩家发本关宝箱
+%%					copyMapDemonBattle:noticeScheduleStatus(0),%%挑战成功
+%%					noticeMapPlayerUpdateSevenDayAim(CurrScheduleNum),
+%%					erlang:send_after(Interval, self(), {mapOtpAfterDo,fun()->copyMapGoddess:initSchedule() end });
+%%				_ ->
+%%					case One of
+%%						true ->
+%%							noticeMapPlayerUpdateSevenDayAim(CurrScheduleNum),
+%%							put({one,self()},true),
+%%							copyMapGoddess:goddessSettlement(),
+%%							%%完成了总进度，出副本
+%%							erlang:send_after(1000*60, self(), {mapOtpAfterDo,fun()-> sendDestroyToSelf("All Complete Destory") end });
+%%						_ ->
+%%							ok
+%%					end
+%%			end,
+%%
+%%			ok;
+%%		_ ->
+%%			skip
+%%	end,
+%%	ok.
 
 noticeMapPlayerUpdateSevenDayAim(Schedule) ->
 	FunSend =
@@ -696,7 +712,7 @@ doFun4AllPlayer(Fun) when erlang:is_function(Fun)->
 initMapSchedule(CopyMapID, _OwnerID) ->
 	mapState:setCopyMapExistTime(CopyMapID),
 	initCopyMapSchedule(0),
-	copyMapGoddess:initCnf(CopyMapID),%%加载地宫参数
+%%	copyMapGoddess:initCnf(CopyMapID),%%加载地宫参数
 	ok.
 
 %%勇士试炼种boss

@@ -47,7 +47,7 @@ useBagItem(ItemUID, UseNum, UseReason, ParamValue) ->
 							failed;
 						{ErrorCode,_,_,_} ->
 							playerMsg:sendErrorCodeMsg(ErrorCode)
-					
+
 					end
 			end;
 		_ErrorCode_Str ->
@@ -75,32 +75,36 @@ useBagItem(#rec_item{itemUID = ItemUID,itemID = ItemID} = Item, UseNum,CDGroupID
 	ok.
 
 %%检查经验道具使用是否多余
--spec checkUseExc(UserType, UseNum, UseParam1) -> uint() when
+-spec checkUseExc(ErrorCode::boolean() | uint(), UserType, UseNum, UseParam1) -> uint() when
 	UserType::uint(),UseNum::uint(),UseParam1::uint().
-checkUseExc(UserType, UseNum, UseParam1) when UserType =:= ?Item_Use_GetEXP orelse UserType =:=?Item_Use_AddExpByLevel->
-			PlayerLev = playerState:getLevel(),
-			MaxLevel = case getCfg:getCfgPStack(cfg_globalsetup, player_maxlevel) of
-						#globalsetupCfg{setpara = [MaxLevel0]} ->
-							MaxLevel0;
-						_ ->
-							999999
-						end,
-			case PlayerLev =:= MaxLevel of
-				true ->
-					Career = playerState:getCareer(),
-					NowExp = playerState:getCurExp(),
-					MaxExp = playerBase:getCfgMaxExp(MaxLevel, Career),
-					case (NowExp + UseNum*UseParam1 > MaxExp) of
-						true ->
-							erlang:round((MaxExp - NowExp) div UseParam1);
-						_ ->
-							UseNum
-					end;
-				_ ->
-					UseNum
-			end;
-checkUseExc(_, UseNum, _) ->
-	UseNum.
+checkUseExc(true, UserType, UseNum, UseParam1) when UserType =:= ?Item_Use_GetEXP orelse UserType =:= ?Item_Use_AddExpByLevel->
+	PlayerLev = playerState:getLevel(),
+	MaxLevel =
+		case getCfg:getCfgPStack(cfg_globalsetup, player_maxlevel) of
+			#globalsetupCfg{setpara = [MaxLevel0]} ->
+				MaxLevel0;
+			_ ->
+				999999
+		end,
+	UseNum2 =
+		case PlayerLev =:= MaxLevel of
+			true ->
+				Career = playerState:getCareer(),
+				NowExp = playerState:getCurExp(),
+				MaxExp = playerBase:getCfgMaxExp(MaxLevel, Career),
+				case (NowExp + UseNum*UseParam1 > MaxExp) of
+					true ->
+						erlang:round((MaxExp - NowExp) div UseParam1);
+					_ ->
+						UseNum
+				end;
+			_ ->
+				UseNum
+		end,
+	{true, UseNum2};
+checkUseExc(ErrorCode, _, UseNum, _) ->
+	{ErrorCode, UseNum}.
+
 %%检查道具是否可以使用
 -spec canUseItem(ItemID,Now, UseNum) -> {true | uint(),CDGroupID,DailyCountGroupID} when
 	ItemID::itemId(),Now::uint(),UseNum::uint(),CDGroupID::uint16(),DailyCountGroupID::uint16().
@@ -126,9 +130,10 @@ canUseItem(ItemID,Now,UseNum) ->
 			Ret8 = checkDarknessItemUse(Ret7, UserType, UseParam1),
 			{Ret9, RealUseNumber2} = checkCanUseGuildContribute(Ret8, UserType, RealUseNumber, UseParam1),
 			%Ret10 = checkMarriageExpItem(Ret9, UserType),
-			Ret = checkItemIsAllowUse(Ret9, Operate),
-			Num	= checkUseExc(UserType, RealUseNumber2, UseParam1),
-			{Ret,CDGroupID,DailyCountGroupID, Num};
+			Ret10 = checkItemIsAllowUse(Ret9, Operate),
+			Ret11 = checkTransformation(Ret10, UserType, UseParam1),
+			{Ret12, Num} = checkUseExc(Ret11, UserType, RealUseNumber2, UseParam1),
+			{Ret12, CDGroupID, DailyCountGroupID, Num};
 		_ ->
 			{false,0,0,0}
 	end.
@@ -164,13 +169,13 @@ checkMaxLevelExpSpill(true, UserType) ->
 			Career = playerState:getCareer(),
 			NowExp = playerState:getCurExp(),
 			MaxLevel = case getCfg:getCfgPStack(cfg_globalsetup, player_maxlevel) of
-						#globalsetupCfg{setpara = [MaxLevel0]} ->
-							MaxLevel0;
-						_ ->
-							999999
-						end,
+						   #globalsetupCfg{setpara = [MaxLevel0]} ->
+							   MaxLevel0;
+						   _ ->
+							   999999
+					   end,
 			case Level =:= MaxLevel of
-				true ->	
+				true ->
 					MaxExp = playerBase:getCfgMaxExp(Level, Career),
 					case  NowExp =:= MaxExp  of
 						true ->
@@ -261,6 +266,23 @@ checkItemIsAllowUse(true, Operate) ->
 			true
 	end;
 checkItemIsAllowUse(ErrorCode, _Operate) ->
+	ErrorCode.
+
+checkTransformation(true, ?Item_Use_Buffer, BuffID) ->
+	case buff:isTransformationBuff(BuffID) of
+		true ->
+			case core:isTransformationMap(playerState:getMapID()) of
+				true ->
+					true;
+				_ ->
+					?ErrorCode_CurMapNotAllowTransformation
+			end;
+		_ ->
+			true
+	end;
+checkTransformation(true, _UserType, _UseParam1) ->
+	true;
+checkTransformation(ErrorCode, _UserType, _UseParam1) ->
 	ErrorCode.
 
 -spec checkLevel(CurLevel,LevelLimit) -> true | uint() when
@@ -376,11 +398,11 @@ setUseItemTips(true, ItemID, ItemNum) ->
 	case getCfg:getCfgPStack(cfg_item, ItemID) of
 		#itemCfg{txt = Txt} when Txt =/= undefined ->
 			playerMsg:sendNetMsg(
-			  #pk_GS2U_UseItemResult{
-									 itemID = ItemID, 
-									 itemNum = ItemNum,
-									 result = 0
-									});
+				#pk_GS2U_UseItemResult{
+					itemID = ItemID,
+					itemNum = ItemNum,
+					result = 0
+				});
 		_ ->
 			ok
 	end;

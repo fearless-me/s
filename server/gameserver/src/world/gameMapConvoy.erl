@@ -15,7 +15,7 @@
 -define(ConvoyTimeOut, 15*60*1000).
 -define(ConvoyTickIntervalTime, 3000).
 -define(ConvoyTickErrorTimes, 3).
--define(ConvoyDistance, 3).
+-define(ConvoyDistance, 10).
 
 %% API
 -export([
@@ -27,8 +27,8 @@
 ]).
 
 %% 初始化护送
-initMapConvoy({#recConvoyInfo{roleID = RoleID, roleCode = RoleCode} = Info, #monsterCfg{} = Cfg, {PX, PY}}) ->
-	convoyEnd(Info#recConvoyInfo.roleID),
+initMapConvoy({#recConvoyInfo{roleID = RoleID, roleCode = RoleCode, extData = ExData} = Info, #monsterCfg{} = Cfg, {PX, PY}}) ->
+	convoyEnd({Info#recConvoyInfo.roleID}),
 
 	MonsterEts = mapState:getMapMonsterEts(),
 	PlayerEts = mapState:getMapPlayerEts(),
@@ -54,6 +54,7 @@ initMapConvoy({#recConvoyInfo{roleID = RoleID, roleCode = RoleCode} = Info, #mon
 				monsterEts = MonsterEts,
 				petEts = PetEts,
 				groupID = GroupID,
+				params = ExData,
 				other = #recCallConvoy{roleID = RoleID, roleCode = RoleCode},
 				initBattlePropCallBack = undefined
 			},
@@ -90,13 +91,14 @@ tickConvoy(#recConvoyInfo{timeOut = TimeOut, errorTimes = ErrorTimes} = Info) ->
 				true ->
 					mapState:addConvoyInfoList(Info#recConvoyInfo{errorTimes = 0});
 				_ ->
-					playerMsg:sendErrorCodeMsg(Info#recConvoyInfo.playerNetPid, ?ErrorCode_SystemConvoyTargetDistince, []),
 					ErrorTimes2 = ErrorTimes + 1,
-					case ErrorTimes2 >= ?ConvoyTickErrorTimes of
+					case ErrorTimes2 >= getConvoyCfgTimes() of
 						true ->
+							playerMsg:sendErrorCodeMsg(Info#recConvoyInfo.playerNetPid, ?ErrorCode_SystemConvoyFailed),
 							convoyEnd(Info),
 							mapState:delConvoyInfoList(Info);
 						_ ->
+							playerMsg:sendErrorCodeMsg(Info#recConvoyInfo.playerNetPid, ?ErrorCode_SystemConvoyTargetDistince),
 							mapState:addConvoyInfoList(Info#recConvoyInfo{errorTimes = ErrorTimes2})
 					end
 			end;
@@ -110,6 +112,23 @@ tickConvoy([]) -> ok;
 tickConvoy([#recConvoyInfo{} = Info | List]) ->
 	tickConvoy(Info),
 	tickConvoy(List).
+
+
+getConvoyCfgTimes()->
+	case getCfg:getCfgByArgs(cfg_globalsetup, convoy_task_range_time) of
+		#globalsetupCfg{setpara = [_L,V]}->
+			V;
+		_ ->
+			{?ConvoyTickErrorTimes}
+	end.
+
+getConvoyCfgDistance()->
+	case getCfg:getCfgByArgs(cfg_globalsetup, convoy_task_range_time) of
+		#globalsetupCfg{setpara = [V,_N]}->
+			V;
+		_ ->
+			{?ConvoyDistance}
+	end.
 
 monsterDead(Code) ->
 	case monsterState:getIsConvoy(Code) of
@@ -204,8 +223,9 @@ checkDis(#recConvoyInfo{roleID = RoleID, roleCode = RoleCode, monsterID = Monste
 		[#recMapObject{id = RoleID, groupID = PGroupID} = PObj] ->
 			case ets:lookup(MEts, MonsterCode) of
 				[#recMapObject{groupID = PGroupID, id = MonsterID, ownId = RoleID, ownCode = RoleCode} = MObj] ->
+					MaxDistance = getConvoyCfgDistance(),
 					case mapView:getObjectDist(PObj, MObj) of
-						{ok, Dist, _, _} when Dist =< ?ConvoyDistance ->
+						{ok, Dist, _, _} when Dist =< MaxDistance ->
 %%							?DEBUG_OUT("checkDis:~p,~p,~p,~p,~p", [RoleID,RoleCode,MonsterID,MonsterCode,Dist]),
 							true;
 						_ ->

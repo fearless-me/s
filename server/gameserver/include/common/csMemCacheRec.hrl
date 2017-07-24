@@ -44,4 +44,11 @@
 	time = 0 % 创建时间
 }).
 
+%% 助战表
+-record(recAssistCopyMap, {
+	roleID = 0,
+	mapPID = undefined,
+	mapID = 0
+}).
+
 -endif.

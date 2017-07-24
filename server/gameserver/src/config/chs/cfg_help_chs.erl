@@ -15,11 +15,6 @@ getRow(baoshi)->
     id = baoshi,
     chinese = "纹章"
     };
-getRow(bestteam)->
-    #helpCfg {
-    id = bestteam,
-    chinese = "最强家族"
-    };
 getRow(buji)->
     #helpCfg {
     id = buji,
@@ -90,6 +85,11 @@ getRow(intensify)->
     id = intensify,
     chinese = "强化"
     };
+getRow(jiaoyihang)->
+    #helpCfg {
+    id = jiaoyihang,
+    chinese = "交易行"
+    };
 getRow(jiehunxitong)->
     #helpCfg {
     id = jiehunxitong,
@@ -105,15 +105,10 @@ getRow(juexing)->
     id = juexing,
     chinese = "觉醒"
     };
-getRow(juntuanfuli)->
-    #helpCfg {
-    id = juntuanfuli,
-    chinese = "家族福利"
-    };
 getRow(juntuanguanli)->
     #helpCfg {
     id = juntuanguanli,
-    chinese = "家族管理"
+    chinese = "家族"
     };
 getRow(lihun)->
     #helpCfg {
@@ -251,7 +246,6 @@ getRow(_)->[].
 getKeyList()->[
     {attributeandbag},
     {baoshi},
-    {bestteam},
     {buji},
     {cangku},
     {chengjiu},
@@ -266,10 +260,10 @@ getKeyList()->[
     {hongbaofasong},
     {huodong},
     {intensify},
+    {jiaoyihang},
     {jiehunxitong},
     {jihuoma},
     {juexing},
-    {juntuanfuli},
     {juntuanguanli},
     {lihun},
     {mail},
@@ -302,7 +296,6 @@ getKeyList()->[
 get1KeyList()->[
     attributeandbag,
     baoshi,
-    bestteam,
     buji,
     cangku,
     chengjiu,
@@ -317,10 +310,10 @@ get1KeyList()->[
     hongbaofasong,
     huodong,
     intensify,
+    jiaoyihang,
     jiehunxitong,
     jihuoma,
     juexing,
-    juntuanfuli,
     juntuanguanli,
     lihun,
     mail,

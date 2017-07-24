@@ -267,7 +267,13 @@ isShowLimitItem(RoleID, Mallbaseinfo) ->
 -spec makeMallList(LeftCount::uint(), Mallbaseinfo::#recSaveMall{}) -> #pk_MallInfo{}.
 makeMallList(LeftCount, Mallbaseinfo)->
 	LeftTime = getLeftTime(Mallbaseinfo#recSaveMall.endTime),
-	
+	LeftCountMax =
+		case Mallbaseinfo#recSaveMall.limitBuy > 0 of
+			true ->
+				Mallbaseinfo#recSaveMall.limitBuy;
+			_ ->
+				Mallbaseinfo#recSaveMall.limit_day
+		end,
 	#pk_MallInfo{db_id = Mallbaseinfo#recSaveMall.dbID,
 				 itemid = Mallbaseinfo#recSaveMall.itemID, 
 				 mainmenu = Mallbaseinfo#recSaveMall.type,
@@ -278,8 +284,9 @@ makeMallList(LeftCount, Mallbaseinfo)->
 				 use_integral = Mallbaseinfo#recSaveMall.useIntegral, 
 				 get_integral = Mallbaseinfo#recSaveMall.getIntegral, 
 				 lefttime = LeftTime,
-				 leftcount = LeftCount, 
-				 sortNumber = Mallbaseinfo#recSaveMall.sort, 
+				 leftcount = LeftCount,
+				 leftcountMax = LeftCountMax,
+				 sortNumber = Mallbaseinfo#recSaveMall.sort,
 				 rebate =  Mallbaseinfo#recSaveMall.rebate, 
 				 showtype =  Mallbaseinfo#recSaveMall.showType,
 				 limitType = Mallbaseinfo#recSaveMall.limitType

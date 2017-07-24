@@ -219,65 +219,72 @@ link(#recMapInfo{mapPID = MapPID,mapID = MapID,roleID_A = RoleID_A, roleID_B = R
 			_->
 				Distance= configNboxInstance(),
 				AddScore = configNboxscore(),
-				[#recMapObject{groupID = GroupID,id = ID,x = IX,y = IY}] = myEts:lookUpEts(NpcEts, Code),
-				DistanceX =  erlang:abs(X-IX),
-				DistanceY =  erlang:abs(Y-IY),
-				case DistanceX =< Distance andalso  DistanceY =< Distance of %%这里判断客服端发过来的移动的距离是否大于目标值，防止玩家作弊
-					 true ->
-						 case IsDelete of
-							 true ->
 
-								 %% 更新NPC坐标
-								 myEts:updateEts(NpcEts, Code, [{#recMapObject.x, X}, {#recMapObject.y, Y}]),
-								 %% 通知全图玩家，NPC移动了
-								 Msg = #pk_GS2U_NpcMomentMove{npcCode = Code, npcID = ID, tX = X, tY = Y},
-								 mapView:sendMsg2AllPlayer(MapInfoOld#recMapInfo.mapPID, PlayerEts, Msg, GroupID),
+				case  myEts:lookUpEts(NpcEts, Code) of
+					[#recMapObject{groupID = GroupID,id = ID,x = IX,y = IY}] ->
+						DistanceX =  erlang:abs(X-IX),
+						DistanceY =  erlang:abs(Y-IY),
+						case DistanceX =< Distance andalso  DistanceY =< Distance of %%这里判断客服端发过来的移动的距离是否大于目标值，防止玩家作弊
+							true ->
+								case IsDelete of
+									true ->
 
-								 NetMsgAddSocre =
-									 #pk_GS2U_DatePushBox_Succeed_Sync{
-										 isSucceed = true,
-										 score     =Score + AddScore,
-										 isDelete = true,
-										 code = Code,
-										 x = X,
-										 z = Y
-									 },
+										%% 更新NPC坐标
+										myEts:updateEts(NpcEts, Code, [{#recMapObject.x, X}, {#recMapObject.y, Y}]),
+										%% 通知全图玩家，NPC移动了
+										Msg = #pk_GS2U_NpcMomentMove{npcCode = Code, npcID = ID, tX = X, tY = Y},
+										mapView:sendMsg2AllPlayer(MapInfoOld#recMapInfo.mapPID, PlayerEts, Msg, GroupID),
 
-								 NewListBoxcode = linkGood_ClearBox(ListBoxCode,Code,MapPID),
-								 acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_A, PlayerEts, NetMsgAddSocre),
-								 acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_B, PlayerEts, NetMsgAddSocre),
-								 MapInfoOld#recMapInfo{
-									 paramEx = RecActive#recActiveBox{
-										 score = Score+AddScore,
-										 listBoxCode =NewListBoxcode
-									 }
-								 };
-							 _->
+										NetMsgAddSocre =
+											#pk_GS2U_DatePushBox_Succeed_Sync{
+												isSucceed = true,
+												score     =Score + AddScore,
+												isDelete = true,
+												code = Code,
+												x = X,
+												z = Y
+											},
 
-								 %% 更新NPC坐标
-								 myEts:updateEts(NpcEts, Code, [{#recMapObject.x, X}, {#recMapObject.y, Y}]),
-								 %% 通知全图玩家，NPC移动了
-								 Msg = #pk_GS2U_NpcMomentMove{npcCode = Code, npcID = ID, tX = X, tY = Y},
-								 mapView:sendMsg2AllPlayer(MapInfoOld#recMapInfo.mapPID, PlayerEts, Msg, GroupID),
+										NewListBoxcode = linkGood_ClearBox(ListBoxCode,Code,MapPID),
+										acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_A, PlayerEts, NetMsgAddSocre),
+										acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_B, PlayerEts, NetMsgAddSocre),
+										MapInfoOld#recMapInfo{
+											paramEx = RecActive#recActiveBox{
+												score = Score+AddScore,
+												listBoxCode =NewListBoxcode
+											}
+										};
+									_->
+
+										%% 更新NPC坐标
+										myEts:updateEts(NpcEts, Code, [{#recMapObject.x, X}, {#recMapObject.y, Y}]),
+										%% 通知全图玩家，NPC移动了
+										Msg = #pk_GS2U_NpcMomentMove{npcCode = Code, npcID = ID, tX = X, tY = Y},
+										mapView:sendMsg2AllPlayer(MapInfoOld#recMapInfo.mapPID, PlayerEts, Msg, GroupID),
 
 
-								 NetMsgAddSocre =
-									 #pk_GS2U_DatePushBox_Succeed_Sync{
-										 isSucceed = true,
-										 score = Score,
-										 isDelete = false,
-										 code = Code,
-										 x = X,
-										 z = Y
-									 },
-								 acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_A, PlayerEts, NetMsgAddSocre),
-								 acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_B, PlayerEts, NetMsgAddSocre),
-								 MapInfoOld
-						 end;
-						_->
-						MapInfoOld,
-						?ERROR_OUT("cross the border")
+										NetMsgAddSocre =
+											#pk_GS2U_DatePushBox_Succeed_Sync{
+												isSucceed = true,
+												score = Score,
+												isDelete = false,
+												code = Code,
+												x = X,
+												z = Y
+											},
+										acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_A, PlayerEts, NetMsgAddSocre),
+										acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_B, PlayerEts, NetMsgAddSocre),
+										MapInfoOld
+								end;
+							_->
+								?ERROR_OUT("cross the border"),
+								MapInfoOld
+						end;
+					_->
+						?ERROR_OUT("NPC  code is not find (~p)",[code]),
+						MapInfoOld
 				end
+
 	end	,
 	acDateState:replaceMapInfo(NewMapInfo),
 	%% 6.如果达到最大积分则进入结算
@@ -493,12 +500,14 @@ linkGood_ClearBox(ListBoxCode, NeedClearCode,MapPid) ->
 	%?DEBUG_OUT("[DebugForDate] link_afterCheck_ClearNpc ~p", [{PosA, PosB, ListMatrixCodeNewR}]),
 	acDateLogic:clearObject(MapPid, {?CodeTypeNPC, [NeedClearCode]}),
 	lists:reverse(NL).
+
+
 %% 进入结算流程
 -spec settle(MapInfoOld::#recMapInfo{}, Reason::type_sr(), RoleID::uint64()) -> MapInfoNew::#recMapInfo{}.
-settle(#recMapInfo{mapPID = MapPid,activeID = ActiveID, timerRefMain = TimerRefMain, roleID_A = RoleID_A, roleID_B = RoleID_B, playerEts = PlayerEts, paramEx = RecActive} = MapInfoOld, Reason, _RoleID) ->
+settle(#recMapInfo{mapPID = MapPid,activeID = ActiveID, timerRefMain = TimerRefMain, roleID_A = RoleID_A, roleID_B = RoleID_B, playerEts = PlayerEts, paramEx = RecActive,roleA_enterCount  = RoleA_EnterCount,roleB_enterCount = RoleB_EnterCount} = MapInfoOld, Reason, _RoleID) ->
 	%?DEBUG_OUT("[DebugForDate] settle Reason(~p) RoleID(~p)", [Reason, RoleID]),
 	%% 0.清除可能存在的怪物
-	acDateLogic:clearAllObject(MapPid, ?CodeTypeMonster),
+	acDateLogic:clearAllObject(MapPid, ?CodeTypeNPC),
 	%% 1.修改玩法状态
 	%% 取消可能存在的旧有主计时器
 	case erlang:is_reference(TimerRefMain) of
@@ -527,10 +536,20 @@ settle(#recMapInfo{mapPID = MapPid,activeID = ActiveID, timerRefMain = TimerRefM
 		}
 	},
 	acDateState:replaceMapInfo(MapInfoNew),
-	%% 2.根据得分发放玩家奖励
+
+	%% 2.判断进入次数来发放奖励
 	#recActiveBox{score = Score} = RecActive,
-	settle_Reward(Score, Reason, RoleID_A, RoleID_B, false),
-	settle_Reward(Score, Reason, RoleID_B, RoleID_A, true),
+	%% 2.根据得分发放玩家奖励
+	DaliyMaxCount =
+		case getCfg:getCfgByKey(cfg_appointment, ActiveID) of
+			#appointmentCfg{daily_count  = Max} ->
+				Max;
+			_ ->
+				?ERROR_OUT("checkLevelAndDailyCounter can not find DateActiveID(~p) from cfg_appointment", [ActiveID])
+		end,
+
+
+
 	%% 发送消息
 	NetMsg =
 		#pk_GS2U_DateLink_GameEnd_Sync{
@@ -539,8 +558,23 @@ settle(#recMapInfo{mapPID = MapPid,activeID = ActiveID, timerRefMain = TimerRefM
 			score   = Score,
 			id      = ActiveID
 		},
-	acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_A, PlayerEts, NetMsg),
-	acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_B, PlayerEts, NetMsg),
+	if
+		RoleA_EnterCount =< DaliyMaxCount andalso RoleB_EnterCount =< DaliyMaxCount->
+			settle_Reward(Score, Reason, RoleID_A, RoleID_B, false),
+			settle_Reward(Score, Reason, RoleID_B, RoleID_A, true),
+			acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_A, PlayerEts, NetMsg),
+			acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_B, PlayerEts, NetMsg);
+		RoleA_EnterCount =< DaliyMaxCount->
+			settle_Reward(Score, Reason, RoleID_A, RoleID_B, true),
+			acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_A, PlayerEts, NetMsg);
+		RoleB_EnterCount =< DaliyMaxCount->
+			settle_Reward(Score, Reason, RoleID_B, RoleID_A, true),
+			acDateLogic:sendNetMsg2PlayerFromThisMap(RoleID_B, PlayerEts, NetMsg);
+		true ->
+			skip
+	end,
+
+
 	MapInfoNew.
 
 
@@ -587,7 +621,14 @@ settle_Reward(Score, _Reason, RoleID, PartnerRoleID, IsAddSingle) ->
 										true ->
 											case playerMail:createMailGoods(RewardID, 1, true, 0, RoleID, ?ItemSourceACDate) of
 												[#recMailItem{}|_] = MailItemList ->
-													Content = configMailContent(PartnerName, Score, Friendness, Closeness),
+													LastCloseness =
+														case marriageState:queryRelation(RoleID) of
+															#rec_marriage{targetRoleID = RoleID_B} when RoleID_B  == PartnerRoleID  ->
+																Closeness;
+															_->
+																0
+														end,
+													Content = configMailContent(PartnerName, Score, Friendness, LastCloseness),
 													Title = configMailTitle(),
 													mail:sendSystemMail(RoleID, Title, Content, MailItemList, "");
 												_ ->
@@ -606,7 +647,15 @@ settle_Reward(Score, _Reason, RoleID, PartnerRoleID, IsAddSingle) ->
 										true ->
 											case playerMail:createMailGoods(RewardID, 1, true, 0, RoleID, ?ItemSourceACDate) of
 												[#recMailItem{}|_] = MailItemList ->
-													Content = configMailContent(PartnerName, Score, Friendness, Closeness),
+
+													LastCloseness =
+														case marriageState:queryRelation(RoleID) of
+															#rec_marriage{targetRoleID = RoleID_B} when RoleID_B  == PartnerRoleID  ->
+																Closeness;
+															_->
+																0
+														end,
+													Content = configMailContent(PartnerName, Score, Friendness, LastCloseness),
 													Title = configMailTitle(),
 													mail:sendSystemMail(RoleID, Title, Content, MailItemList, "");
 												_ ->
@@ -621,6 +670,8 @@ settle_Reward(Score, _Reason, RoleID, PartnerRoleID, IsAddSingle) ->
 					%% 一组人只加一次关系值奖励
 					case IsAddSingle of
 						true ->
+
+
 							%% 发放好友系统关系值奖励
 							playerFriend2:closenessAdd(?ClosenessAddType_DateLink, RoleID, PartnerRoleID, Friendness),
 							%% 发放姻缘系统关系值奖励

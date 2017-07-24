@@ -10,6 +10,7 @@
 -author("tiancheng").
 
 -include("playerPrivate.hrl").
+-include("../world/mapPrivate.hrl").
 
 %% API
 -export([
@@ -25,7 +26,7 @@
 	onRequestEnterActivityMap/2,%% 玩家进入活动地图
 	onRequestEnterActivityMap/4,%% 玩家进入活动地图指定坐标
 
-	rob_requestEnterMap/4,	%% 机器人直接进入地图，不走切场景流程
+	rob_requestEnterMap/4,    %% 机器人直接进入地图，不走切场景流程
 
 	onRequestEnterGuildFairground/1,  %% 玩家进入家族游乐场
 
@@ -40,11 +41,14 @@
 	canEnterMap/2,
 	sendGMEnterMapLine/4,
 
-	gm_requestEnterMap/4		%% gm进入目标地图目标位置
+	gm_requestEnterMap/4,        %% gm进入目标地图目标位置
+
+	ss_q/0,    %% 查询当前地图所有线路以及自己所在的线路（仅普通地图有效）
+	ss_t/1    %% 进入指定的线路（仅普通地图、非分组情况下、非战斗状态有效）
 ]).
 
 %% 进入一个指定的分组
--spec onEnterGroup(GroupID::uint()) -> uint().
+-spec onEnterGroup(GroupID :: uint()) -> uint().
 onEnterGroup(GroupID) ->
 	OldGroupID = playerState:getGroupID(),
 	case OldGroupID =:= GroupID of
@@ -54,18 +58,22 @@ onEnterGroup(GroupID) ->
 			skip
 	end,
 	MapID = playerState:getMapID(),
-	case getMapType(MapID) of
-		?MapTypeCopyMap ->
-			0;
-		?MapTypeBitplane ->
-			0;
-		_ ->
-			playerState:setGroupID(GroupID),
-			GroupID
-	end.
+	NewGroupID =
+		case getMapType(MapID) of
+			?MapTypeCopyMap ->
+				0;
+			?MapTypeBitplane ->
+				0;
+			_ ->
+				playerState:setGroupID(GroupID),
+				GroupID
+		end,
+	playerTask:taskTriggerEventOnEnterMap(playerState:getMapIDGroup()),
+	playerRace:cancel(),	%% 跨服骑宠竞速：进入位面时取消报名
+	NewGroupID.
 
 %% 进入一个位面分组
--spec onEnterBitGroup(BitMapID::uint()) -> uint().
+-spec onEnterBitGroup(BitMapID :: uint()) -> uint().
 onEnterBitGroup(BitMapID) ->
 	MapID = playerState:getMapID(),
 	case getCfg:getCfgPStack(cfg_mapsetting, MapID) of
@@ -103,7 +111,7 @@ onPlayerPetEnterGroup() ->
 	ok.
 
 %% 宠物进入分组
--spec onPetEnterGroup(PetCode::uint(), GroupID::uint()) -> boolean().
+-spec onPetEnterGroup(PetCode :: uint(), GroupID :: uint()) -> boolean().
 onPetEnterGroup(PetCode, GroupID) ->
 	PetEts = playerState:getMapPetEts(),
 	case myEts:lookUpEts(PetEts, PetCode) of
@@ -123,8 +131,8 @@ onPetEnterGroup(PetCode, GroupID) ->
 	end.
 
 %% 请求进入目标场景
--spec onRequestEnterMap(TargetMapID::uint()) -> boolean().
-onRequestEnterMap(TargetMapID) when erlang:is_integer(TargetMapID)->
+-spec onRequestEnterMap(TargetMapID :: uint()) -> boolean().
+onRequestEnterMap(TargetMapID) when erlang:is_integer(TargetMapID) ->
 	MapCfg = core:getMapCfg(TargetMapID),
 	Rec = #recPlayerEEMap{
 		targetMapID = TargetMapID,
@@ -136,7 +144,7 @@ onRequestEnterMap(TargetMapID) when erlang:is_integer(TargetMapID)->
 	requestEnterMap(Rec).
 
 %% 请求进入目标场景，指定的路点
--spec onRequestEnterMap(TargetMapID::uint(), WayPointName::string()) -> boolean().
+-spec onRequestEnterMap(TargetMapID :: uint(), WayPointName :: string()) -> boolean().
 onRequestEnterMap(TargetMapID, WayPointName) ->
 	case playerState:getCurHp() > 0 of
 		true ->
@@ -146,7 +154,7 @@ onRequestEnterMap(TargetMapID, WayPointName) ->
 					Key = string:to_lower(WayPointName),
 					Ret = lists:keyfind(Key, #recMapWayPt.name, WayPtList),
 					case Ret of
-						#recMapWayPt{x = InitX,y = InitY} ->
+						#recMapWayPt{x = InitX, y = InitY} ->
 							Rec = #recPlayerEEMap{
 								targetMapID = TargetMapID,
 								targetMapPID = undefined,
@@ -156,12 +164,12 @@ onRequestEnterMap(TargetMapID, WayPointName) ->
 							},
 							requestEnterMap(Rec);
 						_ ->
-							?ERROR_OUT("Error WayPt[~p] of MapId[~p] in WayPtList[~p],Key[~p]",[WayPointName,TargetMapID,WayPtList,Key]),
+							?ERROR_OUT("Error WayPt[~p] of MapId[~p] in WayPtList[~p],Key[~p]", [WayPointName, TargetMapID, WayPtList, Key]),
 							playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapNoWayPt),
 							false
 					end;
 				_ ->
-					?ERROR_OUT("Error changeToMap[~p],cannot find it",[TargetMapID]),
+					?ERROR_OUT("Error changeToMap[~p],cannot find it", [TargetMapID]),
 					playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapNoMap),
 					false
 			end;
@@ -170,7 +178,7 @@ onRequestEnterMap(TargetMapID, WayPointName) ->
 	end.
 
 %% 请求进入目标场景，指定的坐标
--spec onRequestEnterMap(TargetMapID::uint(), TargetX::float(), TargetY::float()) -> boolean().
+-spec onRequestEnterMap(TargetMapID :: uint(), TargetX :: float(), TargetY :: float()) -> boolean().
 onRequestEnterMap(TargetMapID, TargetX, TargetY) ->
 	Rec = #recPlayerEEMap{
 		targetMapID = TargetMapID,
@@ -182,7 +190,7 @@ onRequestEnterMap(TargetMapID, TargetX, TargetY) ->
 	requestEnterMap(Rec).
 
 %% 玩家进入家族游乐场
--spec onRequestEnterGuildFairground(GuildID::uint64()) -> boolean().
+-spec onRequestEnterGuildFairground(GuildID :: uint64()) -> boolean().
 onRequestEnterGuildFairground(GuildID) ->
 	ActStatus = playerState:getActionStatus(),
 	if
@@ -213,7 +221,7 @@ onRequestEnterGuildFairground(GuildID) ->
 	requestEnterMap(Rec).
 
 %% 请求进入目标活动场景
--spec onRequestEnterActivityMap(MapID::uint(), MapPID::pid() | undefined) -> boolean().
+-spec onRequestEnterActivityMap(MapID :: uint(), MapPID :: pid() | undefined) -> boolean().
 onRequestEnterActivityMap(MapID, MapPID) ->
 	ActStatus = playerState:getActionStatus(),
 	if
@@ -235,7 +243,7 @@ onRequestEnterActivityMap(MapID, MapPID) ->
 	requestEnterMap(Rec).
 
 %% 请求进入目标活动场景
--spec onRequestEnterActivityMap(MapID::uint(), MapPID::pid() | undefined, TX::float(), TY::float()) -> boolean().
+-spec onRequestEnterActivityMap(MapID :: uint(), MapPID :: pid() | undefined, TX :: float(), TY :: float()) -> boolean().
 onRequestEnterActivityMap(MapID, MapPID, TX, TY) ->
 	ActStatus = playerState:getActionStatus(),
 	if
@@ -297,22 +305,22 @@ requestEnterMap(#recPlayerEEMap{targetMapID = TargetMapID} = Rec) ->
 	end.
 
 %% gm 进入目标所在地图
--spec gm_requestEnterMap(TargetMapID::uint(),TargetMapPID::pid(),TargetX::float(),TargetY::float()) -> ok.
-gm_requestEnterMap(TargetMapID,TargetMapPID,TargetX,TargetY) ->
+-spec gm_requestEnterMap(TargetMapID :: uint(), TargetMapPID :: pid(), TargetX :: float(), TargetY :: float()) -> ok.
+gm_requestEnterMap(TargetMapID, TargetMapPID, TargetX, TargetY) ->
 	MapID = playerState:getMapID(),
 	MapPID = playerState:getMapPid(),
 	PetList = playerState:getCallPet(),
 	PetCodeList = playerPet:getPetCodeList(PetList),
 
 	%% gm自己先离开现在的地图
-	psMgr:sendMsg2PS(MapPID, gm_leaveMap, {playerState:getPlayerCode(),PetCodeList}),
+	psMgr:sendMsg2PS(MapPID, gm_leaveMap, {playerState:getPlayerCode(), PetCodeList}),
 
 	{X, Y} = case playerState:getPos() of
-				 undefined ->
-					 {0.0, 0.0};
-				 {X1, Y1} ->
-					 {X1, Y1}
-			 end,
+		         undefined ->
+			         {0.0, 0.0};
+		         {X1, Y1} ->
+			         {X1, Y1}
+	         end,
 	playerState:setOldMapPos(MapID, X, Y),
 
 	%% 设置切换场景状态
@@ -330,7 +338,7 @@ gm_requestEnterMap(TargetMapID,TargetMapPID,TargetX,TargetY) ->
 	requestEnterMapAck({true, RequestRec}),
 	ok.
 
-rob_requestEnterMap(TargetMapID,TargetMapPID,TargetX,TargetY) ->
+rob_requestEnterMap(TargetMapID, TargetMapPID, TargetX, TargetY) ->
 	%% 设置切换场景状态
 	playerState:setActionStatus(?CreatureActionStatusChangeMap),
 
@@ -350,7 +358,7 @@ sendEnterMap(#recPlayerEEMap{
 	targetMapID = TargetMapID,
 	targetMapPID = TargetMapPID,
 	targetX = TargetX,
-	targetY = TargetY } = Rec) ->
+	targetY = TargetY} = Rec) ->
 	IsFirst = playerState:isFirstEnterMap(),
 
 	%% 设置切换场景状态
@@ -358,11 +366,11 @@ sendEnterMap(#recPlayerEEMap{
 
 	MapID = playerState:getMapID(),
 	{X, Y} = case playerState:getPos() of
-				 undefined ->
-					 {0.0, 0.0};
-				 {X1, Y1} ->
-					 {X1, Y1}
-			 end,
+		         undefined ->
+			         {0.0, 0.0};
+		         {X1, Y1} ->
+			         {X1, Y1}
+	         end,
 
 	%% 保存原来的位置
 	case IsFirst of
@@ -377,7 +385,7 @@ sendEnterMap(#recPlayerEEMap{
 	RequestRec = getRecRequestEnterMap(Rec),
 
 	?LOG_OUT("requestEnterMap:nowpos={~p,~p},roleid=~p,nowmapid=~p,targetmapid=~p,tmappid=~p,tx=~p,ty=~p,first=~p,teamleaderid=~p,guildid=~p",
-		[X,Y,playerState:getRoleID(),MapID,TargetMapID,TargetMapPID,TargetX,TargetY,IsFirst,
+		[X, Y, playerState:getRoleID(), MapID, TargetMapID, TargetMapPID, TargetX, TargetY, IsFirst,
 			RequestRec#recRequsetEnterMap.teamLeaderRoleID, RequestRec#recRequsetEnterMap.guildID]),
 
 	%% 请求进入地图
@@ -385,18 +393,18 @@ sendEnterMap(#recPlayerEEMap{
 	core:sendMsgToMapMgr(MapID, requestEnterMap, RequestRec),
 	ok.
 
-sendGMEnterMapLine(TargetMapID,TargetX,TargetY, Line) ->
+sendGMEnterMapLine(TargetMapID, TargetX, TargetY, Line) ->
 	%% 设置切换场景状态
 	playerState:setActionStatus(?CreatureActionStatusChangeMap),
 	IsFirst = playerState:isFirstEnterMap(),
 
 	MapID = playerState:getMapID(),
 	{X, Y} = case playerState:getPos() of
-				 undefined ->
-					 {0.0, 0.0};
-				 {X1, Y1} ->
-					 {X1, Y1}
-			 end,
+		         undefined ->
+			         {0.0, 0.0};
+		         {X1, Y1} ->
+			         {X1, Y1}
+	         end,
 
 	%% 保存原来的位置
 	case IsFirst of
@@ -440,8 +448,8 @@ requestEnterMap_ByDirectAck({true, {_, #recPlayerEEMap{} = Rec}}) ->
 
 %% 请求进入地图的结果(允许进入地图放在第一行，确保优先匹配)
 requestEnterMapAck({true, #recRequsetEnterMap{oldMapID = OldMapID, targetMapID = TMapID, targetMapPID = TMapPID} = Request}) ->
-	?LOG_OUT("player:~p requestEnterMap[~p][~p] OK", [playerState:getRoleID(),TMapID,TMapPID]),
-	
+	?LOG_OUT("player:~p requestEnterMap[~p][~p] OK", [playerState:getRoleID(), TMapID, TMapPID]),
+
 	%%清理伤害统计
 	case lists:member(OldMapID, [?CrosArenaMapID1, ?CrosArenaMapID2, ?CrosArenaMapID3]) of
 		true ->
@@ -449,7 +457,7 @@ requestEnterMapAck({true, #recRequsetEnterMap{oldMapID = OldMapID, targetMapID =
 		_ ->
 			skip
 	end,
-	
+
 	%% 允许进入
 	case getCfg:getCfgByKey(cfg_mapsetting, TMapID) of
 		#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeMoneyDungeon} ->
@@ -475,7 +483,7 @@ requestEnterMapAck({true, #recRequsetEnterMap{oldMapID = OldMapID, targetMapID =
 	EnterMap = #recEnterMap{
 		pid = self(),
 		code = playerState:getPlayerCode(),
-		id  = playerState:getRoleID(),
+		id = playerState:getRoleID(),
 		mapId = TMapID,
 		camp = playerState:getCamp(),
 		x = TargetX,
@@ -486,17 +494,25 @@ requestEnterMapAck({true, #recRequsetEnterMap{oldMapID = OldMapID, targetMapID =
 	%% 检查是否在阻挡内
 	case mapView:isBlock(erlang:float(TargetX), erlang:float(TargetY), ColCellNum, RowCellNum, CellSize, BlockBinary) of
 		true ->
-			?WARN_OUT("player:~p requestEnter [~p] Map[~p](~p,~p) isBlock", [playerState:getRoleID(),TMapPID,TMapID,InitX,InitY]),
+			?WARN_OUT("player:~p requestEnter [~p] Map[~p](~p,~p) isBlock", [playerState:getRoleID(), TMapPID, TMapID, InitX, InitY]),
 			psMgr:sendMsg2PS(TMapPID, enterMap, EnterMap#recEnterMap{x = InitX, y = InitY});
 		_ ->
 			psMgr:sendMsg2PS(TMapPID, enterMap, EnterMap)
 	end,
-	
+
 	ok;
-requestEnterMapAck({_,#recRequsetEnterMap{oldMapID = OldMapID, targetMapID = TargetMapID, enterGuildFairgroundID = EGuildID}}) when OldMapID =:= TargetMapID->
+requestEnterMapAck({_, #recRequsetEnterMap{
+	oldMapID = OldMapID,
+	oldMapPID = OldMapPid,
+	targetMapID = TargetMapID,
+	targetMapPID = TargetMapPid,
+	enterGuildFairgroundID = EGuildID
+}})
+	when OldMapID =:= TargetMapID,
+	OldMapPid =:= TargetMapPid ->
 	%% 如果新地图与原来的地图相同则进入默认地图，这里在canEnterMap时就有判定是否是进入同一地图ID，所以理论上不会走到这里
 	%% 但为了保险起见，保留此情况处理
-	?LOG_OUT("player:~p requestEnterMap[~p] but Target is equal current mapID", [playerState:getRoleID(),TargetMapID]),
+	?LOG_OUT("player:~p requestEnterMap[~p] but Target is equal current mapID", [playerState:getRoleID(), TargetMapID]),
 	DefaultMapID = globalCfg:getStartMap(),
 	MapCfg = core:getMapCfg(DefaultMapID),
 	Rec = #recPlayerEEMap{
@@ -517,16 +533,16 @@ requestEnterMapAck({ErrorCode, #recRequsetEnterMap{targetMapID = TargetMapID} = 
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SystemErrorMapCfg);
 		?EnterMapErrorCode_FirstEnterCopyMapButNotSchedule ->
 			%% 上线就在副本，副本不存在，进入普通场景（还没有老地图，所以需要进入一个新的地图）
-			?ERROR_OUT("player:~p request Enter Map[~p] failed by FirstEnterCopyMapButNotSchedule", [playerState:getRoleID(),TargetMapID]),
+			?ERROR_OUT("player:~p request Enter Map[~p] failed by FirstEnterCopyMapButNotSchedule", [playerState:getRoleID(), TargetMapID]),
 			reEnterMap(false);
 		?EnterMapErrorCode_TeamMemberEnterWaitDestoryCopyMap ->
 			%% 队伍的副本地图进程已经无效，又离开了原来的普通地图进程，但苦于没有权限创建新的副本地图
 			%% 所以只好乖乖返回原来的地图呆到起
-			?ERROR_OUT("player:~p request Enter Map[~p] failed by TeamMemberEnterWaitDestoryCopyMap", [playerState:getRoleID(),TargetMapID]),
+			?ERROR_OUT("player:~p request Enter Map[~p] failed by TeamMemberEnterWaitDestoryCopyMap", [playerState:getRoleID(), TargetMapID]),
 			reEnterMap(false);
 		?EnterMapErrorCode_CRITIAL ->
 			%% 这种错误可能是策划没有配置相应的地图信息或者是启动地图子进程失败
-			?ERROR_OUT("player:~p request Enter Map[~p] Ack create map failed", [playerState:getRoleID(),TargetMapID]),
+			?ERROR_OUT("player:~p request Enter Map[~p] Ack create map failed", [playerState:getRoleID(), TargetMapID]),
 			%% 请求进入新地图但创建新的地图进程失败，需要重新进入原来的地图
 			reEnterMap(false),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed);
@@ -581,12 +597,12 @@ requestEnterMapAck({ErrorCode, #recRequsetEnterMap{targetMapID = TargetMapID} = 
 			playerMsg:sendErrorCodeMsg(?ErrorCode_TargetCopyMapIsInDestroy);
 		_ ->
 			%% 还没有离开原来的地图，所以出现此情况不需要进入新地图
-			?ERROR_OUT("player:~p request Enter Map[~p] Ack failed by:~p", [playerState:getRoleID(),TargetMapID,ErrorCode]),
+			?ERROR_OUT("player:~p request Enter Map[~p] Ack failed by:~p", [playerState:getRoleID(), TargetMapID, ErrorCode]),
 			playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
 	end,
 	ok.
 
--spec reEnterMap(IsRequireLeaveMap) -> ok when IsRequireLeaveMap::boolean().
+-spec reEnterMap(IsRequireLeaveMap) -> ok when IsRequireLeaveMap :: boolean().
 reEnterMap(IsRequireLeaveMap) ->
 	{OldMapID, OldX, OldY} = playerState:getOldMapPos(),
 	Rec =
@@ -611,12 +627,12 @@ reEnterMap(IsRequireLeaveMap) ->
 					isRequireLeaveMap = IsRequireLeaveMap
 				}
 		end,
-	?LOG_OUT("reEnterMap:~p,~p,OldMapID=~p,~p", [playerState:getRoleID(),IsRequireLeaveMap,OldMapID,Rec]),
+	?LOG_OUT("reEnterMap:~p,~p,OldMapID=~p,~p", [playerState:getRoleID(), IsRequireLeaveMap, OldMapID, Rec]),
 	sendEnterMap(Rec),
 	ok.
 
 %% 创建组队副本成功
--spec teamCopyMapCreateSuccess({MapID::uint(),MapPID::pid()}) -> ok.
+-spec teamCopyMapCreateSuccess({MapID :: uint(), MapPID :: pid()}) -> ok.
 teamCopyMapCreateSuccess({MapID, MapPID}) ->
 	TeamID = playerState:getTeamID(),
 	RoleID = playerState:getRoleID(),
@@ -633,12 +649,12 @@ teamCopyMapCreateSuccess({MapID, MapPID}) ->
 	ok.
 
 %% 能否进入地图
--spec canEnterMap(TargetMapID::uint(), Data::false | #recPlayerEEMap{}) -> true | uint().
+-spec canEnterMap(TargetMapID :: uint(), Data :: #recPlayerEEMap{}) -> true | uint().
 canEnterMap(TargetMapID, Data) ->
 	case playerState:getGroupID() > 0 of
 		true ->
 			%% 分组中不允许切换场景
-			?ERROR_OUT("canEnterMap.failed:~p,~p,~p group", [playerState:getRoleID(),playerState:getPlayerCode(),TargetMapID]),
+			?ERROR_OUT("canEnterMap.failed:~p,~p,~p group", [playerState:getRoleID(), playerState:getPlayerCode(), TargetMapID]),
 			?ErrorCode_SystemBitMapPlaneChangeSceneFailed;
 		false ->
 			case playerState:isFirstEnterMap() of
@@ -647,7 +663,7 @@ canEnterMap(TargetMapID, Data) ->
 					case PlayerStatus =:= ?CreatureActionStatusChangeMap of
 						true ->
 							?ERROR_OUT("canEnterMap.failed:~p,~p,~p status error,Changing Map",
-								[playerState:getRoleID(),playerState:getPlayerCode(),TargetMapID]),
+								[playerState:getRoleID(), playerState:getPlayerCode(), TargetMapID]),
 							?ErrorCode_SystemChangeMapFailed;
 						false ->
 							NowMapID = playerState:getMapID(),
@@ -704,25 +720,26 @@ canTransferMapAndSetNewTransferInfo() ->
 			true;
 		_ -> false
 	end.
-	
+
 %% 能否进入场景
--spec canEnterMap(map_type(), NowMapID::uint(), TargetMapID::uint(), Data::false | #recPlayerEEMap{}) -> true | uint().
-canEnterMap(?MapTypeNormal, NowMapID, TargetMapID, _Data) ->
+-spec canEnterMap(map_type(), NowMapID :: uint(), TargetMapID :: uint(), Data :: #recPlayerEEMap{}) -> true | uint().
+canEnterMap(?MapTypeNormal, NowMapID, TargetMapID, #recPlayerEEMap{targetMapPID = TargetMapPid}) ->
 	%% 进入普通场景
 	case getMapType(NowMapID) =:= ?MapTypeNormal of
 		false -> true;
 		true ->
 			CurHp = playerState:getCurHp(),
+			MapPid = playerState:getMapPid(),
 			if
-				NowMapID =:= TargetMapID ->
+				NowMapID =:= TargetMapID, MapPid =:= TargetMapPid ->
 					%% 源地图与目标地图相同
 					?ERROR_OUT("canEnterMap.failed:roleid=~p map[~p] to targetmapid=[~p] same",
-						[playerState:getRoleID(),NowMapID,TargetMapID]),
+						[playerState:getRoleID(), NowMapID, TargetMapID]),
 					?ErrorCode_SystemTheSameMapChangeSceneFailed;
 				CurHp =< 0 ->
 					%% 死亡状态不能切换地图
 					?ERROR_OUT("canEnterMap.failed:roleid=~p map[~p] to targetmapid=[~p] hp =< 0",
-						[playerState:getRoleID(),NowMapID,TargetMapID]),
+						[playerState:getRoleID(), NowMapID, TargetMapID]),
 					?ErrorCode_SystemDeadChangeSceneFailed;
 				true -> true
 			end
@@ -734,7 +751,7 @@ canEnterMap(?MapTypeActivity, NowMapID, TargetMapID, Data) ->
 		CurHp =< 0 ->
 			%% 死亡状态不能切换地图
 			?ERROR_OUT("canEnterMap.failed:roleid=~p map[~p] to targetmapid=[~p] activity hp =< 0",
-				[playerState:getRoleID(),NowMapID,TargetMapID]),
+				[playerState:getRoleID(), NowMapID, TargetMapID]),
 			?ErrorCode_SystemDeadChangeSceneFailed;
 		NowMapID =:= TargetMapID andalso TargetMapID =:= ?GuildFairgroundMapID ->
 			%% 源地图与目标地图相同（家族-游乐场）
@@ -751,13 +768,13 @@ canEnterMap(?MapTypeActivity, NowMapID, TargetMapID, Data) ->
 					true;
 				false ->
 					?ERROR_OUT("canEnterMap.failed to guildfairground:roleid=~p map[~p] to targetmapid=[~p] activity same or enterGuildFairgroundID is 0",
-						[playerState:getRoleID(),NowMapID,TargetMapID]),
+						[playerState:getRoleID(), NowMapID, TargetMapID]),
 					?ErrorCode_SystemTheSameMapChangeSceneFailed
 			end;
 		NowMapID =:= TargetMapID ->
 			%% 源地图与目标地图相同
 			?ERROR_OUT("canEnterMap.failed:roleid=~p map[~p] to targetmapid=[~p] activity same",
-				[playerState:getRoleID(),NowMapID,TargetMapID]),
+				[playerState:getRoleID(), NowMapID, TargetMapID]),
 			?ErrorCode_SystemTheSameMapChangeSceneFailed;
 		true -> true
 	end;
@@ -768,24 +785,24 @@ canEnterMap(?MapTypeCopyMap, NowMapID, TargetMapID, _Data) ->
 		CurHp =< 0 ->
 			%% 死亡状态不能切换地图
 			?ERROR_OUT("canEnterMap.failed:roleid=~p map[~p] to targetmapid=[~p] copymap hp =< 0",
-				[playerState:getRoleID(),NowMapID,TargetMapID]),
+				[playerState:getRoleID(), NowMapID, TargetMapID]),
 			?ErrorCode_SystemDeadChangeSceneFailed;
 		true -> playerCopyMap:canEnterCopyMap_NotJudgeTimes(TargetMapID)
 	end;
 canEnterMap(Other, NowMapID, TargetMapID, _Data) ->
 	?ERROR_OUT("canEnterMap.failed:roleid=~p map[~p] to targetmapid=[~p] unknowtype Other=~p",
-		[playerState:getRoleID(),NowMapID,TargetMapID,Other]),
+		[playerState:getRoleID(), NowMapID, TargetMapID, Other]),
 	?ErrorCode_SystemChangeMapFailed.
 
 %% 获取场景类型
--spec getMapType(MapID::uint()) -> map_type().
+-spec getMapType(MapID :: uint()) -> map_type().
 getMapType(MapID) ->
 	case getCfg:getCfgPStack(cfg_mapsetting, MapID) of
 		#mapsettingCfg{type = Type} -> Type;
 		_ -> 999
 	end.
 %% 获取场景类型
--spec getMapSubType(MapID::uint()) -> map_type().
+-spec getMapSubType(MapID :: uint()) -> map_type().
 getMapSubType(MapID) ->
 	case getCfg:getCfgPStack(cfg_mapsetting, MapID) of
 		#mapsettingCfg{subtype = SubType} -> SubType;
@@ -839,7 +856,7 @@ getRecRequestEnterMap(#recPlayerEEMap{targetMapID = TargetMapID} = Rec) ->
 		targetX = float(Rec#recPlayerEEMap.targetX),
 		targetY = float(Rec#recPlayerEEMap.targetY),
 		teamID = TeamID,
-		teamLeaderRoleID =  TeamLeaderID,
+		teamLeaderRoleID = TeamLeaderID,
 		petCodeList = PetCodeList,
 		guildID = GuildID,
 		enterGuildFairgroundID = Rec#recPlayerEEMap.enterGuildFairgroundID
@@ -851,9 +868,57 @@ revivePlayerEnterMap() ->
 		true ->
 			skip;
 		_ ->
-			?LOG_OUT("requestEnterMapAck:true, but player dead. onRevive!~ts,~p", [playerState:getName(),playerState:getRoleID()]),
+			?LOG_OUT("requestEnterMapAck:true, but player dead. onRevive!~ts,~p", [playerState:getName(), playerState:getRoleID()]),
 			playerRevive:requestRevive_Unconditional(),
 			%% 复活后sleep一段时间
 			timer:sleep(800)
 	end,
 	ok.
+
+%%%-------------------------------------------------------------------
+%% 查询当前地图所有线路以及自己所在的线路（仅普通地图有效）
+-spec ss_q() -> {MyLine :: uint(), ListLine :: [uint(), ...]}.
+ss_q() ->
+	MyMapID = playerState:getMapID(),
+	case getCfg:getCfgByKey(cfg_mapsetting, MyMapID) of
+		#mapsettingCfg{type = ?MapTypeNormal, subtype = ?MapSubTypeNormal} ->
+			MyLine = playerState:getMapLine(),
+			ListMapInfo = mapMgrState:getMapInfoByMapID(MyMapID),
+			ListLine = [Line || #recMapInfo{line = Line} <- ListMapInfo],
+			{MyLine, ListLine};
+		_ ->
+			{0, []}    %% 非普通地图
+	end.
+
+%%%-------------------------------------------------------------------
+%% 进入指定的线路（仅普通地图、非分组情况下、非战斗状态有效）
+-spec ss_t(Line :: uint()) -> ok | {skip, CodeLine :: uint()}.
+ss_t(Line) ->
+	case playerState:getGroupID() > 0 of
+		true ->
+			{skip, ?LINE};    %% 分组不为0
+		_ ->
+			case playerState:isPlayerBattleStatus() of
+				true ->
+					{skip, ?LINE};    %% 战斗状态
+				_ ->
+					MyMapID = playerState:getMapID(),
+					case getCfg:getCfgByKey(cfg_mapsetting, MyMapID) of
+						#mapsettingCfg{type = ?MapTypeNormal, subtype = ?MapSubTypeNormal} ->
+							case playerState:getMapLine() of
+								Line ->
+									{skip, ?LINE};    %% 目标线路与当前所在线路一致
+								_ ->
+									ListMapInfo = mapMgrState:getMapInfoByMapID(MyMapID),
+									case lists:keyfind(Line, #recMapInfo.line, ListMapInfo) of
+										#recMapInfo{pid = MapPid} ->
+											onRequestEnterActivityMap(MyMapID, MapPid);
+										_ ->
+											{skip, ?LINE}    %% 没找到指定线路
+									end
+							end;
+						_ ->
+							{skip, ?LINE}    %% 非普通地图
+					end
+			end
+	end.

@@ -9,8 +9,8 @@ getRow(1)->
     #acKingBattleBuyBuffCfg {
     id = 1,
     buffID = 50002,
-    coin = 100,
     coinType = 103,
+    coin = 100,
     nextCfgID = 12,
     oneKeyBuyCfgID = 16,
     oneKeyBuyCoin = 1200,
@@ -21,8 +21,8 @@ getRow(2)->
     #acKingBattleBuyBuffCfg {
     id = 2,
     buffID = 50001,
-    coin = 100,
     coinType = 103,
+    coin = 100,
     nextCfgID = 4,
     oneKeyBuyCfgID = 11,
     oneKeyBuyCoin = 2880,
@@ -33,8 +33,8 @@ getRow(3)->
     #acKingBattleBuyBuffCfg {
     id = 3,
     buffID = 50000,
-    coin = 100,
     coinType = 103,
+    coin = 100,
     nextCfgID = 4,
     oneKeyBuyCfgID = 11,
     oneKeyBuyCoin = 2880,
@@ -45,8 +45,8 @@ getRow(4)->
     #acKingBattleBuyBuffCfg {
     id = 4,
     buffID = 50003,
-    coin = 200,
     coinType = 103,
+    coin = 200,
     nextCfgID = 5,
     oneKeyBuyCfgID = 11,
     oneKeyBuyCoin = 2800,
@@ -57,8 +57,8 @@ getRow(5)->
     #acKingBattleBuyBuffCfg {
     id = 5,
     buffID = 50004,
-    coin = 300,
     coinType = 103,
+    coin = 300,
     nextCfgID = 6,
     oneKeyBuyCfgID = 11,
     oneKeyBuyCoin = 2640,
@@ -69,8 +69,8 @@ getRow(6)->
     #acKingBattleBuyBuffCfg {
     id = 6,
     buffID = 50005,
-    coin = 400,
     coinType = 103,
+    coin = 400,
     nextCfgID = 7,
     oneKeyBuyCfgID = 11,
     oneKeyBuyCoin = 2400,
@@ -81,8 +81,8 @@ getRow(7)->
     #acKingBattleBuyBuffCfg {
     id = 7,
     buffID = 50006,
-    coin = 500,
     coinType = 103,
+    coin = 500,
     nextCfgID = 8,
     oneKeyBuyCfgID = 11,
     oneKeyBuyCoin = 2080,
@@ -93,8 +93,8 @@ getRow(8)->
     #acKingBattleBuyBuffCfg {
     id = 8,
     buffID = 50007,
-    coin = 600,
     coinType = 105,
+    coin = 600,
     nextCfgID = 9,
     oneKeyBuyCfgID = 11,
     oneKeyBuyCoin = 1680,
@@ -105,8 +105,8 @@ getRow(9)->
     #acKingBattleBuyBuffCfg {
     id = 9,
     buffID = 50008,
-    coin = 700,
     coinType = 105,
+    coin = 700,
     nextCfgID = 10,
     oneKeyBuyCfgID = 11,
     oneKeyBuyCoin = 1200,
@@ -117,8 +117,8 @@ getRow(10)->
     #acKingBattleBuyBuffCfg {
     id = 10,
     buffID = 50009,
-    coin = 800,
     coinType = 105,
+    coin = 800,
     nextCfgID = 11,
     oneKeyBuyCfgID = 11,
     oneKeyBuyCoin = 640,
@@ -129,8 +129,8 @@ getRow(11)->
     #acKingBattleBuyBuffCfg {
     id = 11,
     buffID = 50010,
-    coin = 0,
     coinType = 105,
+    coin = 0,
     nextCfgID = -1,
     oneKeyBuyCfgID = -1,
     oneKeyBuyCoin = 0,
@@ -141,8 +141,8 @@ getRow(12)->
     #acKingBattleBuyBuffCfg {
     id = 12,
     buffID = 50003,
-    coin = 200,
     coinType = 103,
+    coin = 200,
     nextCfgID = 13,
     oneKeyBuyCfgID = 16,
     oneKeyBuyCoin = 1120,
@@ -153,8 +153,8 @@ getRow(13)->
     #acKingBattleBuyBuffCfg {
     id = 13,
     buffID = 50004,
-    coin = 300,
     coinType = 103,
+    coin = 300,
     nextCfgID = 14,
     oneKeyBuyCfgID = 16,
     oneKeyBuyCoin = 960,
@@ -165,8 +165,8 @@ getRow(14)->
     #acKingBattleBuyBuffCfg {
     id = 14,
     buffID = 50005,
-    coin = 400,
     coinType = 103,
+    coin = 400,
     nextCfgID = 15,
     oneKeyBuyCfgID = 16,
     oneKeyBuyCoin = 720,
@@ -177,8 +177,8 @@ getRow(15)->
     #acKingBattleBuyBuffCfg {
     id = 15,
     buffID = 50006,
-    coin = 500,
     coinType = 103,
+    coin = 500,
     nextCfgID = 16,
     oneKeyBuyCfgID = 16,
     oneKeyBuyCoin = 400,
@@ -189,8 +189,8 @@ getRow(16)->
     #acKingBattleBuyBuffCfg {
     id = 16,
     buffID = 50007,
-    coin = 0,
     coinType = 105,
+    coin = 0,
     nextCfgID = -1,
     oneKeyBuyCfgID = -1,
     oneKeyBuyCoin = 0,

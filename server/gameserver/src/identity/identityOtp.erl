@@ -120,6 +120,7 @@ handle_cast(_Request, State) ->
 %% 注1：包括标签，标签的特殊部分已由玩家进程处理
 %% 注2：相册除外，使用其它方式进行管理
 %% 注3：需要对编辑头像引起的照片数据引用计数变化而进行处理
+%% 注4：点赞值和魅力值除外，不受玩家编辑，而是其它功能调用
 handle_info({identity_edit, Pid, Msg}, State) ->
     %?DEBUG_OUT("[DebugForIdentity] identity_edit Msg(~p)", [Msg]),
     identityLogic:editIdentity(Pid, Msg),
@@ -161,8 +162,34 @@ handle_info({identity_picWantDown, _Pid, Msg}, State) ->
 handle_info({identity_picUnactive, _Pid, _Msg}, State) ->
     %?DEBUG_OUT("[DebugForIdentity] identity_picUnactive"),
     identityLogic:identity_picUnactive(),
+	ets:delete_all_objects(?EtsGiftHistory),	%% 每日凌晨4点清空赠礼历史记录
     {noreply, State};
 
+%% 跨服图片传输
+handle_info({friend2Cross_pic, _Pid, Msg}, State) ->
+    identityLogic:friend2Cross_pic(Msg),
+    {noreply, State};
+handle_info({friend2Cross_picAck, _Pid, Msg}, State) ->
+    identityLogic:friend2Cross_picAck(Msg),
+    {noreply, State};
+
+%% 点赞值和魅力值
+handle_info({identity_like, _Pid, Msg}, State) ->
+    identityLogic:addLike(Msg),
+    {noreply, State};
+handle_info({identity_charm, _Pid, Msg}, State) ->
+    identityLogic:addCharm(Msg),
+    {noreply, State};
+
+%% 赠礼
+handle_info({giveGift, _Pid, Msg}, State) ->
+	identityLogic:giveGift(Msg),
+	{noreply, State};
+
+%% 删除角色
+handle_info({deleteRole, _Pid, Msg}, State) ->
+	identityLogic:deleteRole(Msg),
+	{noreply, State};
 
 handle_info(Info, State) ->
     ?ERROR_OUT("~p ~p recv undefined msg:~p", [?MODULE, self(), Info]),

@@ -325,8 +325,8 @@ handle_info({broadcast,_Pid,Pk},State) ->
 	end,
 	{noreply,State};
 
-handle_info({synAllActivityState,_Pid,{}},State) ->
-	playerAcKingBattleAll:synAllActivityState(),
+handle_info({synAllActivityState,_Pid,Data},State) ->
+	playerAcKingBattleAll:synAllActivityState(Data),
 	{noreply,State};
 
 handle_info(addBossBattleBuff, State) ->
@@ -395,10 +395,10 @@ handle_info({teamKilledMonster,_Pid,MonsterID}, State) ->
 	end,
 	{noreply,State};
 
-handle_info({dropBykilledMonster,_Pid,{Code,MonsterID,MonsterLevel}}, State) ->
+handle_info({dropBykilledMonster,_Pid,{Code,MonsterID,MonsterLevel,MapPid}}, State) ->
 	case playerState:getIsPlayer() of
 		true ->
-			playerBattle:dropBykilledMonster(Code,MonsterID,MonsterLevel);
+			playerBattle:dropByKilledMonster(Code,MonsterID,MonsterLevel,MapPid);
 		_ ->
 			skip
 	end,
@@ -447,10 +447,10 @@ handle_info({teamMemberGainExpByKilledMonster,_Pid,{MonsterID,Exp}}, State) ->
 	end,
 	{noreply,State};
 
-handle_info({addKillValue, _Pid, {IsFirst, TargetCode,BossTargetCode}}, State) ->
+handle_info({addKillValue, _Pid, {IsFirst, TargetCode, TargetLevel, BossTargetCode}}, State) ->
 	case playerState:getIsPlayer() of
 		true ->
-			playerRedName:addKv(IsFirst, TargetCode,BossTargetCode);
+			playerRedName:addKv(IsFirst, TargetCode, TargetLevel, BossTargetCode);
 		_ ->
 			skip
 	end,
@@ -521,21 +521,13 @@ handle_info({assistTrigger, _Pid, {Code, SkillID}}, State) ->
 	end,
 	{noreply, State};
 
-handle_info({killedTarget,_Pid,{AttackerCode, TargetCode, Msg, X, Y, BossTargetCode}}, State) ->
+handle_info({killedTarget,_Pid,{AttackerCode, TargetCode, TargetLevel, Msg, X, Y, BossTargetCode}}, State) ->
 	case codeMgr:isCodeType(?CodeTypePet, AttackerCode) of
 		true ->
-			monsterInterface:killedTarget(AttackerCode, TargetCode, Msg, X, Y, BossTargetCode);
+			monsterInterface:killedTarget(AttackerCode, TargetCode, TargetLevel, Msg, X, Y, BossTargetCode);
 		_ ->
-			playerBattle:killedTarget(TargetCode, Msg, X, Y, BossTargetCode)
+			playerBattle:killedTarget(TargetCode,TargetLevel, Msg, X, Y, BossTargetCode)
 	end,
-	%TargetCodeType = codeMgr:getObjectTypeByCode(TargetCode),
-	%if
-	%	?ObjTypePlayer =:= TargetCodeType ->
-	%		%% 死亡对象是玩家
-	%		playerGuildHome:updateGuildTask(?GuildTaskType_KillPlayer, {AttackerCode, TargetCode});
-	%	true ->
-	%		skip
-	%end,
 	{noreply,State};
 
 %%技能效果返回结果
@@ -643,79 +635,8 @@ handle_info({loadRoleAck,_Pid,Result},State) ->
 	{noreply,State};
 
 % 发送请求查询rp玩家对象属性
-handle_info({querytRPPropMsg, PidFrom, {TargetRoleID, TargetNetPID}}, State) ->
-	Level = playerState:getLevel(),
-	Career = playerState:getCareer(),
-	GemIDList = playerPackage:getBodyGemIds(),
-	#pk_LookPetInfo{petID = PetID} = PlayPetInfo = playerPet:getPetBattleRPInfo(),
-	EquipInfo = playerPackage:getBodyEquipInfo(),
-	PlayerForce = playerPropSync:getProp(?PriProp_PlayerForce),
-	ArenaVal = playerPropSync:getProp(?PriProp_CrosArenaInte),
-	%% 获取战斗属性
-	BattleProp = playerRPView:getBattlePropList(),
-	FashionList = playerFashion:getShowFashions(),
-	PersonalityInfo = playerPersonalityInfo:getPersonalityInfo(),
-	%% 获取装备精炼等级
-	RefineList = playerState:getEquipRefine(),
-	StartList = playerState:getEquipStarList(),
-	Fun = fun({Type, RefineLevel}) ->
-		#pk_EquipRefineLevel{
-			type = Type,
-			level = RefineLevel
-		}
-		  end,
-	EquipRefines = lists:map(Fun, RefineList),
-	Fun1 = fun(#recEquipStar{pos = Pos, star = Star}) ->
-		#pk_EquipStarLevel{
-			type = Pos,
-			level = Star
-		}
-		   end,
-	EquipStar = lists:map(Fun1, StartList),
-	WakeInfos = playerGoddess:getRPWakeInfo(),
-	ActivePart = playerState:getMainMenuSta(),
-	TitleList = playerTitle:getTitleOwnSolt(),
-	GuildName = playerState:getGuildName(),
-	VipLevel = playerState:getVip(),
-	GuildSelfLev =  playerGuild:getGuildSelfLevel(),
-	WeaponInfo = playerGodWeapon:getWeaponToQuerytRPProp(),
-	Kv = playerPropSync:getProp(?PubProp_PlayerKillValue),
-	RPPropMsg = #pk_GS2U_LookRPInfo_Result{
-		playerKillValue = Kv,
-		fashionList = FashionList,
-		wingLevel =
-		case playerPropSync:getProp(?PubProp_WingLevel) of
-			undefined ->0;
-			Val ->Val
-		end,
-		arenaVal = ArenaVal,
-		propValues = BattleProp,
-		activePart = ActivePart,
-		titleList = TitleList,
-		guileLevel = GuildSelfLev,
-		guildName = GuildName,
-		roleForce = PlayerForce,
-		gemInfo = GemIDList,
-		vipLevel = VipLevel,
-		roleID = TargetRoleID,
-		career = Career,
-		sex = playerState:getSex(),
-		race = playerState:getRace(),
-		head = playerState:getHead(),
-		level = Level,
-		equips = EquipInfo,
-		wakeInfo = WakeInfos,
-		equipStar = EquipStar,
-		weaponInfo = WeaponInfo,
-		petInfo = PlayPetInfo,
-		equipRefines = EquipRefines,
-		equipHonorLevel = 1,
-		personalityInfo = PersonalityInfo
-	},
-	gsSendMsg:sendNetMsg(TargetNetPID, RPPropMsg),
-	playerPersonalityInfo:getPhotoData(PidFrom),
-	%% 发送符文信息
-	playerRune:sendRPRuneDataToClient(TargetNetPID, TargetRoleID, PetID),
+handle_info({queryRPViewInfo, PidFrom, Data}, State) ->
+	playerRPView:queryRPViewInfo(PidFrom, Data),
 	{noreply, State};
 
 %% 请求进入地图的结果
@@ -788,10 +709,10 @@ handle_info({teamCopyMapCreateSuccess_Delay, Result},State) ->
 	{noreply,State};
 
 %% 玩家第一次进入某个副本
-handle_info({playerEnterCopyMapFirst, _Pid, MapID},State) ->
+handle_info({playerEnterCopyMapFirst, _Pid, Data},State) ->
 	case playerState:getIsPlayer() of
 		true ->
-			playerCopyMap:playerEnterCopyMapFirst(MapID);
+			playerCopyMap:playerEnterCopyMapFirst(Data);
 		_ ->
 			skip
 	end,
@@ -802,7 +723,7 @@ handle_info({kickCopyMapPlayer, _Pid, {}}, State) ->
 	{noreply, State};
 
 handle_info({destoryMap_goonCopyMap_Ack, _Pid, Data}, State) ->
-	playerCopyMap:destoryMap_goonCopyMap_Ack(Data),
+	playerCopyMap:destroyMap_goonCopyMap_Ack(Data),
 	{noreply, State};
 
 handle_info({darkness_kickCopyMapPlayer, _Pid, {}}, State) ->
@@ -812,6 +733,17 @@ handle_info({darkness_kickCopyMapPlayer, _Pid, {}}, State) ->
 
 	playerCopyMap:kickCopyMapPlayer(),
 	{noreply, State};
+
+
+%% 通知玩家继续进入约会地下城
+handle_info({tryToOnlineEnterMap_date, _Pid, {Ret, DateActiveID,{NMapID, NX, NY}, {OMapID, OX, OY}}}, State) ->
+	case Ret of
+		false ->
+			playerScene:onRequestEnterMap(OMapID, OX, OY);
+		MapPid ->
+			playerScene:onRequestEnterActivityMap(NMapID, MapPid,NX, NY)
+	end,
+	{noreply,State};
 
 %% 通知玩家继续进入黑暗之地地图
 handle_info({tryToOnlineEnterMap_darknessAck, _Pid, {Ret, {NMapID, NX, NY}, {OMapID, OX, OY}}}, State) ->
@@ -1167,10 +1099,19 @@ handle_info({copyMapReward, _Pid, {Score, MapID}}, State) ->
 	end,
 	{noreply, State};
 
-handle_info({tickdelay_completeNormalCopyMap, {Score, CopyMapID, SubType}}, State) ->
+handle_info({tickdelay_completeNormalCopyMap, Data}, State) ->
 	case playerState:getIsPlayer() of
 		true ->
-			playerCopyMap:completeNormalCopyMap(Score, CopyMapID, SubType);
+			playerCopyMap:completeNormalCopyMap(Data);
+		_ ->
+			skip
+	end,
+	{noreply, State};
+
+handle_info({tickdelay_completeNormalCopyMap_not_award, Data}, State) ->
+	case playerState:getIsPlayer() of
+		true ->
+			playerCopyMap:completeNormalCopyMap_Not_Reward(Data);
 		_ ->
 			skip
 	end,
@@ -1182,48 +1123,6 @@ handle_info({completeMaterialCopyMap, _Pid, {Score, CopyState, CopyMapID, MC, FC
 
 handle_info({startMaterialChapter, _Pid, {_MapID, Chapter}}, State) ->
 	playerMaterialCopy:onChapterStart(Chapter),
-	{noreply, State};
-
-handle_info({tickdelay_completeNormalCopyMap_not_award, {Score, CopyMapID, _SubType}}, State) ->
-	playerSevenDays:onMissionEvent(?SevenDayMission_Event_5, 1, CopyMapID),
-	R = #pk_GS2U_CopyMapResult{
-		copyMapID = CopyMapID,
-		second = Score,
-		goldReward = 0,
-		expReward = 0,
-		dropItems = []
-	},
-	playerMsg:sendNetMsg(R),
-
-	playerStatistics:sendCopyMapHurtToClient(),
-	playerStatistics:clearCopyMapHurtStat(),
-
-	%% 记录副本日志
-	#mapsettingCfg{type = Type,subtype = Subtype,useVitality = UseVitality} = getCfg:getCfgPStack(cfg_mapsetting, CopyMapID),
-	case Type of
-		?MapTypeCopyMap ->
-			if Subtype =:= ?MapSubTypeNormal orelse Subtype =:= ?MapSubTypeHeroCopy orelse Subtype =:= ?MapSubTypeChanllengeCopy ->
-				EndTime = time:getLogTimeSec(),
-				LogCopy = #rec_log_copy{
-					accountID = playerState:getAccountID(),
-					roleID = playerState:getRoleID(),
-					copyMapType = Subtype,			%%副本类型（剧情、英雄、挑战）
-					copyMapID = CopyMapID,
-					startTime = EndTime-Score,
-					decrActionPoint = UseVitality,
-					isPass = 0,					%%是否通关 （0表示未通关  1表示通关）
-					endTime = EndTime,
-					goldReward = [],
-					expReward = 0,
-					dropItems = []
-				},
-				dbLog:sendSaveLogCopyInfo(LogCopy);
-				true->
-					ok
-			end;
-		_ ->
-			ok
-	end,
 	{noreply, State};
 
 %% 发送邮件结果
@@ -1260,10 +1159,15 @@ handle_info({resetPlayerDailyCounter, _Pid, _NowTime}, State) ->
 	playerHolidayTask:resetPlayerHolidayTask(),
 	playerDrop:resetDrop(),
 	%% 重置签到状态
-	playerDailySignIn:reset(),
+	%%playerDailySignIn:reset(), 不在每日凌晨4点重置，统一改为凌晨0点重置
 	playerOnlineReward:reset(),
 	%% 重置情缘任务
 	playerMarriageTask:resetTask(true),
+	{noreply, State};
+
+%% 凌晨0点重置
+handle_info({resetPlayerDailyCounter0, _Pid, _NowTime}, State) ->
+	playerDailySignIn:reset(),
 	{noreply, State};
 
 %%增加召唤载体信息
@@ -1289,9 +1193,36 @@ handle_info({delMonsterInfo, _Pid, {CasterCode, Code}}, State) ->
 handle_info({convoyFailedCallBack, _Pid, Data}, State) ->
 	playerConvoy:convoyFailedCallBack(Data),
 	{noreply, State};
+handle_info({convoSucess, _Pid, Data}, State) ->
+	playerConvoy:convoySuccess(Data),
+	{noreply, State};
 
 handle_info({player_guildRewardAck, _Pid, Data}, State) ->
 	%playerGuildHome:player_guildRewardAck(Data),
+	{noreply, State};
+
+handle_info({createHomeAck, _Pid, Data}, State) ->
+	playerHome:createHomeAck(Data),
+	{noreply, State};
+
+handle_info({enterHomeAck, _Pid, Data}, State) ->
+	playerHome:enterHomeAck(Data),
+	{noreply, State};
+
+handle_info({plantFailed, _Pid, Msg}, State) ->
+	homePlantLogic:plantFailed(Msg),
+	{noreply, State};
+
+handle_info({plantSuccess, _Pid, Msg}, State) ->
+	playerHomePlant:plantSuccess(Msg),
+	{noreply, State};
+
+handle_info({home_Farming_addExp, _Pid, Msg}, State) ->
+	playerHomeFarming:farming_tick_addExp(Msg),
+	{noreply, State};
+
+handle_info({zooFoodSuccess, _Pid, Msg}, State) ->
+	playerHomeFarming:zooFoodSuccess(Msg),
 	{noreply, State};
 
 %% 有人创建公会成功
@@ -1423,6 +1354,9 @@ handle_info({guild_join, _Pid, _GuildLevel}, State) ->
 	playerGuild:exchange_refresh_all(),
 	playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Guild),
 	{noreply, State};
+handle_info({guild_suppGiveAck, _Pid, Msg}, State) ->
+	playerGuild:suppGiveAck(Msg),
+	{noreply, State};
 handle_info({oneKeyRecruitAck, _Pid, _GuildLevel}, State) ->
 	playerGuild:oneKeyRecruitAck(),
 	{noreply, State};
@@ -1464,13 +1398,18 @@ handle_info({snowManConvertItem, _Pid, Data}, State) ->
 %% 家族系统-游乐场 begin
 
 %% 添加BUFF
-handle_info({guildFairground_rideBuff, _Pid, BuffID}, State) ->
-	playerGuildFairground:onReward(BuffID),
+handle_info({guildFairground_rideBuff, _Pid, Msg}, State) ->
+	playerGuildFairground:onReward(Msg),
 	{noreply, State};
 
 %% 乘坐行为失败的反馈，用于返还次数与货币
 handle_info({guildFairground_rideAck, _Pid, Msg}, State) ->
 	playerGuildFairground:useRideAck(Msg),
+	{noreply, State};
+
+%% 刷新设备状态
+handle_info({guildFairground_rideRefresh, _Pid, _Msg}, State) ->
+	playerGuildFairground:callbackEnter(),	%% 等同于进入游乐场时初始化设备状态
 	{noreply, State};
 
 %% 家族系统-游乐场 end
@@ -1510,6 +1449,8 @@ handle_info({netQuit,Pid,Reason},State) ->
 %%	playerTeam2:offLine(?PlayerTeamTypeNormal),
 	%% 姻缘系统：下线影响伴侣的夫妻技能状态
 	playerMarriage:resetSkill(false, true),
+	%% 跨服骑宠竞速：下线取消报名
+	playerRace:cancel(),
 
 	%% 退出
 	erlang:send_after(1000, self(), quit),
@@ -1573,17 +1514,26 @@ handle_info({getGameNoticeAck,_Pid,{Md5,NoticeList} },State) ->
 
 %% 在线玩家,验证是否有可领活动
 handle_info({onLineCheckLoginAward,_FromPid,{}},State) ->
-	RoleID = playerState:getRoleID(),
-	CurLevel = playerState:getLevel(),
-	TakenAwardKeyList = playerState:getAwardTakens(),
-	?LOG_OUT("onLineCheckLoginAward:~p ~p ~p",[RoleID, TakenAwardKeyList, CurLevel]),
-	playerLoginAward:checkAndGiveLoginAward(RoleID, TakenAwardKeyList, CurLevel),
-
+	case playerState:getIsPlayer() of
+		true ->
+			RoleID = playerState:getRoleID(),
+			CurLevel = playerState:getLevel(),
+			TakenAwardKeyList = playerState:getAwardTakens(),
+			?LOG_OUT("onLineCheckLoginAward:~p ~p ~p",[RoleID, TakenAwardKeyList, CurLevel]),
+			playerLoginAward:checkAndGiveLoginAward(RoleID, TakenAwardKeyList, CurLevel);
+		_ ->
+			skip
+	end,
 	{noreply,State};
 
 %% 玩家登录时，验证是否有可领活动
 handle_info({checkLoginAward,_FromPid,{ RoleID, TakenAwardKeyList, CurLevel }},State) ->
-	playerLoginAward:checkAndGiveLoginAward(RoleID, TakenAwardKeyList, CurLevel),
+	case playerState:getIsPlayer() of
+		true ->
+			playerLoginAward:checkAndGiveLoginAward(RoleID, TakenAwardKeyList, CurLevel);
+		_ ->
+			skip
+	end,
 	{noreply,State};
 
 %% 玩家登录时，验证是否有可领活动(cs异步ACK回来)
@@ -1621,17 +1571,25 @@ handle_info({equipDrop,_FromPid, #recKillMonsterDrop{
 	itemDropOdd = ItemDropOdd,
 	monsterID = MonsterID,
 	monsterLevel = UseLevel,
-	teamMemberNum = MurdererNum}},State) ->
-	IsAward =playerCopyMapReward:isRewardInCopyMap(),
-	if
-		IsAward ->
-			%%?WARN_OUT("~ts ~p equipDrop: ~w ItemDropID:~w",[playerState:getName(),self(),EquipDropList,ItemDropID]),
-			Fun = fun(DropID) ->
-				playerDrop:equipDrop(DropID, MonsterID, UseLevel, EquipDropType, MurdererNum, ?ItemSourceKillMonster)
-				  end,
-			lists:foreach(Fun,EquipDropList),
-			playerDrop:goodsDrop(ItemDropID, ItemDropOdd, MonsterID, ?ItemSourceKillMonster);
+	teamMemberNum = MurdererNum,
+	mapPid = MapPid}},State) ->
+	case playerBattle:canGainDropGoods() of
 		true ->
+			IsAward = playerCopyMapReward:isRewardInCopyMap(),
+			IsAssist = core:isAssistCopyMapByCopyMapPID(playerState:getRoleID(), MapPid),
+			case {IsAward, IsAssist} of
+				{true, false} ->
+					%%?WARN_OUT("~ts ~p equipDrop: ~w ItemDropID:~w",[playerState:getName(),self(),EquipDropList,ItemDropID]),
+					Fun =
+						fun(DropID) ->
+							playerDrop:equipDrop(DropID, MonsterID, UseLevel, EquipDropType, MurdererNum, ?ItemSourceKillMonster)
+						end,
+					lists:foreach(Fun,EquipDropList),
+					playerDrop:goodsDrop(ItemDropID, ItemDropOdd, MonsterID, ?ItemSourceKillMonster);
+				_ ->
+					ignore
+			end;
+		_ ->
 			ignore
 	end,
 	{noreply,State};
@@ -1658,8 +1616,8 @@ handle_info({rmbPetRevive, Code}, State) ->
 %%切磋
 
 %%请求切磋
-handle_info({toRequestBattleLearn, _FromPid, {TargetID, TargetCode, TargetName, TargetNetPid}}, State) ->
-	playerBattleLearn:toRequestBattleLearn(TargetID, TargetCode, TargetName, TargetNetPid),
+handle_info({toRequestBattleLearn, _FromPid, Data}, State) ->
+	playerBattleLearn:toRequestBattleLearn(Data),
 	{noreply, State};
 
 %%通知切磋者进入切磋位面
@@ -1813,7 +1771,7 @@ handle_info({enterKingBattleSenceSuccessAck, _FromPid, _}, State) ->
 
 %%战天下榜单数据
 handle_info({requestKingBattleDamageRankAck, _FromPid, {MsgData,MsgExt}=Data }, State) ->
-	?WARN_OUT("zzc=====RankAck ~p",[Data]),
+	?DEBUG_OUT("zzc=====RankAck ~p",[Data]),
 	playerMsg:sendNetMsg(MsgData),
 	playerMsg:sendNetMsg(MsgExt),
 	{noreply, State};
@@ -2265,39 +2223,6 @@ handle_info({requirePosAck,_Pid,{RequestType,MapID,X,Y}},State) ->
 handle_info(gmShowProp,State) ->
 	showProp(),
 	{noreply, State};
-%%获得好友印象
-handle_info({addImpression, FriendPid, ImpressionInfo}, State) ->
-	playerPersonalityInfo:gainImpression(FriendPid, ImpressionInfo),
-	{noreply, State};
-%%给其他人添加印象结果
-handle_info({addImpressionAck, _Pid, {Result,FriendID}}, State) ->
-	playerPersonalityInfo:addImpressionAck(Result, FriendID),
-	{noreply, State};
-
-%%给王者点赞
-handle_info({addPraiseApI, _, {}}, State) ->
-	?LOG_OUT("to: [~p] add praise api",[playerState:getRoleID()]),
-	playerPersonalityInfo:gainPraiseApi(),
-	{noreply, State};
-
-%%给其他玩家点赞
-handle_info({addPraise, FriendPid, {}}, State) ->
-	playerPersonalityInfo:gainPraise(FriendPid),
-	{noreply, State};
-
-%%给其他玩家点赞结果
-handle_info({addPraiseAck, _Pid, FriendID}, State) ->
-	playerPersonalityInfo:addPraiseAck(FriendID),
-	{noreply, State};
-
-%%被其他玩家举报
-handle_info({reportPlayer, FriendPid, {}}, State) ->
-	playerPersonalityInfo:gainReport(FriendPid),
-	{noreply, State};
-%%举报其他玩家结果
-handle_info({reportPlayerAck, _Pid, {Result,RoleID,ErrorCode}}, State) ->
-	playerPersonalityInfo:reportPlayerAck(Result,RoleID,ErrorCode),
-	{noreply, State};
 %%收到远程玩家的照片数据
 handle_info({sendPhotoData, _Pid, {RoleID, SectionNum, SectionIndex, Data, Type}}, State) ->
 	playerMsg:sendNetMsg(#pk_UpLoadingPhoto{type = Type, roleID = RoleID, sectionNum = SectionNum, sectionIndex = SectionIndex, data = Data}),
@@ -2308,7 +2233,7 @@ handle_info({warriorTrialEnterMap, Pid, {}}, State) ->
 handle_info({warriorTrialKillBoss, _Pid, {}}, State) ->
 	playerWarriorTrial:completeSchedule(),
 	{noreply, State};
-handle_info({warriorTrialBeKilled, MapID}, State) ->
+handle_info({warriorTrialBeKilled, _Pid, MapID}, State) ->
 	playerWarriorTrial:playerBeKilled(MapID),
 	{noreply, State};
 %%勇士试炼重置副本
@@ -2381,11 +2306,11 @@ handle_info({addExpressPet, _, {PetID}}, State) ->
 handle_info({quickTamEnterMap,MapID},State)->
 	?DEBUG_OUT("quickTamEnterMap ~p",[MapID]),
 	%检查是否是小羊副本，要热更出去，写死在这儿
-	RealMapID = case lists:member(MapID,[181,182,183,185]) of
+	RealMapID = case lists:member(MapID,[190,191,192,193,194,195]) of
 					true->
 %%						playerTask2:updateActiveTask(1),
 						playerTask:updateTask(?TaskSubType_Active, 1),
-						181;
+						190;
 					_ -> MapID
 				end,
 
@@ -2598,6 +2523,33 @@ handle_info({friend2_like, _Pid, {ID, Name, Like}}, State)->
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 跨服好友 begin
+
+%% 收到好友申请
+handle_info({friend2Cross_r_addAck, _Pid, Msg}, State)->
+	playerFriend2Cross:onAddAck(Msg),
+	{noreply, State};
+
+%% 拒绝申请者成功，或者添加失败
+handle_info({friend2Cross_r_add2Ack, _Pid, Msg}, State)->
+	playerFriend2Cross:onAdd2Ack(Msg),
+	{noreply, State};
+
+%% 跨服聊天消息
+handle_info({friend2Cross_chat, _Pid, Msg}, State)->
+	?DEBUG_OUT("[DebugForCross] friend2Cross_chat ~ts.~w", [playerState:getName(), playerState:getRoleID()]),
+	case erlang:is_list(Msg) of
+		true ->
+			[playerMsg:sendNetMsg(MsgCell) || MsgCell <- Msg];
+		_ ->
+			playerMsg:sendNetMsg(Msg)
+	end,
+	{noreply, State};
+
+%% 跨服好友 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 约会地下城 begin
 handle_info({date_enterTryAck, _Pid, Msg}, State)->
 	%?DEBUG_OUT("[DebugForDate] date_enterTryAck", []),
@@ -2693,7 +2645,7 @@ handle_info({marriage_acceptTaskAsk, Pid, _}, State)->
 		{TaskIDCache, _} when TaskIDCache > 0 ->
 			FunIsAccept =
 				fun(#rec_task{taskID = ID}, {_, _}) ->
-					case getCfg:getCfgByKey(cfg_task_new, ID) of
+					case getCfg:getCfgByKey(cfg_task, ID) of
 						#task_newCfg{tasktype = ?TaskMainType_Marriage} ->
 							{true, 0};
 						_ ->
@@ -2726,19 +2678,19 @@ handle_info({marriage_submitTask, _Pid, TaskID}, State)->
 	#rec_marriage{targetRoleID = PartnerRoleID} = marriageState:queryRelation(playerState:getRoleID()),
 	playerTask:submitTask(TaskID, 0, PartnerRoleID),
 	{noreply, State};
-handle_info({marriage_askTask, Pid, TaskID}, State)->
-	case playerMarriageTask:canSubmitTask() of
+handle_info({marriage_askTask, Pid, {TaskID, Code}}, State)->
+	case playerMarriageTask:canSubmitTask(Code) of
 		{true, TaskID} ->
-			psMgr:sendMsg2PS(Pid, marriage_ackTask, TaskID);
+			psMgr:sendMsg2PS(Pid, marriage_ackTask, {TaskID, Code});
 		{true, TaskID2} ->
 			?ERROR_OUT("RoleID(~p) TaskID(~p) TaskID2(~p)", [playerState:getRoleID(), TaskID, TaskID2]),
-			psMgr:sendMsg2PS(Pid, marriage_ackTask, TaskID2);
+			psMgr:sendMsg2PS(Pid, marriage_ackTask, {TaskID2, Code});
 		_E ->
-			psMgr:sendMsg2PS(Pid, marriage_ackTask, 0)
+			psMgr:sendMsg2PS(Pid, marriage_ackTask, {0, Code})
 	end,
 	{noreply, State};
-handle_info({marriage_ackTask, Pid, TaskID}, State)->
-	playerMarriageTask:submitTask({Pid, TaskID}),
+handle_info({marriage_ackTask, Pid, {TaskID, Code}}, State)->
+	playerMarriageTask:submitTask({Pid, TaskID, Code}),
 	{noreply, State};
 handle_info({marriage_completeTask, _Pid, _TaskID}, State)->
 	playerMsg:sendErrorCodeMsg(?ErrorCode_Marriage_CompleteTask),
@@ -2769,31 +2721,71 @@ handle_info({updateRankMin, _Pid, Msg}, State)->
 handle_info({updateProtectGod, _Pid, Msg}, State)->
 	playerSevenDayAim:updateCondition(?SevenDayAim_ProtectGod, [Msg]),
 	{noreply, State};
+handle_info({updateMaterial, _Pid, Msg}, State)->
+	playerSevenDayAim:updateCondition(?SevenDayAim_Material, [Msg]),
+	{noreply, State};
+handle_info({joinTeamOK, _Pid, _Msg}, State)->
+	playerMarriage:resetSkill(true, true),
+	{noreply, State};
+handle_info({leaveTeamOK, _Pid, _Msg}, State)->
+	playerMarriage:resetSkill(true, true),
+	{noreply, State};
 
-handle_info({transfer2NeedForSpeedMap, _FromPid, [MapID,MapPid,X,Y]}, State) ->
-	playerNeedForSpeed:transfer2NeedForSpeedMap(MapID,MapPid,X,Y),
+% 查询跨服活动报名情况，这里情况比较单一，可以参照采集物采集成功一样把函数列在这里调用
+handle_info({cac_queryAck, _FromPid, Msg}, State) ->
+	playerState2:setCrossApply(Msg),
+	playerRace:onQueryAck(Msg),
 	{noreply, State};
-handle_info({transfer2NeedForSpeedMapAck, _FromPid, _}, State) ->
-	playerNeedForSpeed:transfer2NeedForSpeedMapAck(),
+% 报名结果反馈，这里情况比较复杂，需要区分不同活动进行处理
+handle_info({cac_applyAck, _FromPid, {_ErrorCode, #recCrossApply{activityType = ?ActivityType_CrossRace}} = Msg}, State) ->
+	playerRace:onApplyAck(Msg),
 	{noreply, State};
-%%港口竞速使用道具确认
-handle_info({needForSPeedUseItemAct, _FromPid, {UseReturn,ItemID, TargetRoleIDList}}, State) ->
-	?DEBUG_OUT("useItem=needForSPeedUseItemAct====~p~n",[ {UseReturn,ItemID, TargetRoleIDList} ]),
-	playerNeedForSpeed:useItemAct(UseReturn,ItemID, TargetRoleIDList),
+% 取消结果反馈，这里情况比较较单一，可以参照采集物采集成功一样把函数列在这里调用
+handle_info({cac_cancelAck, _FromPid, Msg}, State) ->
+	playerState2:setCrossApply(0),
+	playerRace:onCancelAck(Msg),
 	{noreply, State};
-handle_info({needForSpeedExitFromSence, _FromPid, _}, State) ->
-	?DEBUG_OUT("exitFromSence=====xxxxxxxxxxxxx=======~p~n",[needForSpeedExitFromSence]),
-	playerNeedForSpeed:exitFromSence(),
+% 跨服骑宠竞速活动喊你进图啦
+handle_info({race_enter, _FromPid, Msg}, State) ->
+	playerRace:onNoticeEnter(Msg),
 	{noreply, State};
-handle_info({needForSpeedCompetitionOver, _FromPid, _}, State) ->
-	?DEBUG_OUT("needForSpeedCompetitionOver=====xxxxxxxxxxxxx=======~p~n",[playerState:getRoleID()]),
-	playerNeedForSpeed:competitionOver(),
+% 收到下一场活动的模式
+handle_info({race_mod, _FromPid, Msg}, State) ->
+	playerRace:onModAck(Msg),
+	{noreply, State};
+% 需要添加BUFF，但是不能直接添加所有没有直接调用playerBuff:addBuff/2
+handle_info({race_buff, _FromPid, Msg}, State) ->
+	playerRace:onBuff(Msg),
+	{noreply, State};
+% 角色入场后尝试骑乘
+handle_info({race_tryMount, _FromPid, Msg}, State) ->
+	playerRace:onTryMount(Msg),
+	{noreply, State};
+% 准备倒计时结束后被通知如果没有骑乘则需要放弃比赛
+handle_info({race_tryGiveUp, _FromPid, _Msg}, State) ->
+	playerRace:onTryGiveUp(),
+	{noreply, State};
+% 被通知需要回到普通服
+handle_info({backGS, _FromPid, _Msg}, State) ->
+	playerCrossLogic:backGS(),
 	{noreply, State};
 
 %% 平台gm取消黑名单
 handle_info({clearBan, _FromPid, {CallbackPid, CmdSerial}}, State) ->
 	playerVariant:setPlayerVariant(?Setting_PlayerVarReadOnly_BeBlackCount, 0),
 	psMgr:sendMsg2PS(CallbackPid, handleMsgAck, {CmdSerial, 0}),
+	{noreply, State};
+
+%%答对奖励
+handle_info({answer_isright_addmoney, _Pid, Data}, State) ->
+	playerAnswer:answer_right_addreward(Data),
+	{noreply, State};
+
+handle_info({addRingBuff, _Pid, Msg}, State) ->
+	playerBuff:addRingBuff(Msg),
+	{noreply, State};
+handle_info({clearRingBuffOfMe, _Pid, Msg}, State) ->
+	playerBuff:clearRingBuffFromOther(Msg),
 	{noreply, State};
 
 handle_info(Info,State) ->

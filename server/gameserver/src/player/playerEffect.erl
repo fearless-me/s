@@ -33,6 +33,9 @@ skillEffectRes(#skill_effectCfg{effectType = Type} = EffectCfg, #recSkillEffect{
 	P4 = EffectCfg#skill_effectCfg.param4,
 	P5 = EffectCfg#skill_effectCfg.param5,
 	P6 = EffectCfg#skill_effectCfg.param6,
+	P7 = EffectCfg#skill_effectCfg.param7,
+	P8 = EffectCfg#skill_effectCfg.param8,
+	P9 = EffectCfg#skill_effectCfg.param9,
 	case Type of
 		?ADDBUFF ->
 			%%创建buff
@@ -45,7 +48,7 @@ skillEffectRes(#skill_effectCfg{effectType = Type} = EffectCfg, #recSkillEffect{
 			playerBuff:delBuff(P1, P2);
 		?CALLMONSTER ->
 			%%召唤怪物
-			callMonster(RecEffect, P1, P2, P3, P4, P5, P6);
+			callMonster(RecEffect, P1, P2, P3, P4, P5, P6, P7);
 		?TELEPORTSPRINT ->
 			%%瞬移冲刺
 			skip;
@@ -81,7 +84,7 @@ skillEffectRes(#skill_effectCfg{effectType = Type} = EffectCfg, #recSkillEffect{
 			modifyMp(P1, P2);
 		?CARRIERSKILL ->
 			%%载体技能
-			createCarrier(RecEffect, P1, P2, P3, P4, P5, P6);
+			createCarrier(RecEffect, P1, P2, P3, P4, P5, P6, P7, P8, P9);
 		?BEATBACK ->
 			%%击退
 			Status = playerState:getStatus(),
@@ -123,7 +126,7 @@ filterEffect(EffectList) ->
 						true
 				end
 		end
-	      end,
+		  end,
 	lists:filter(Fun, EffectList).
 
 %%增加被动技能产生效果
@@ -138,7 +141,7 @@ addPassEffect(SkillID, Level) ->
 	addPassEffect(SkillID, Level, AEffectList).
 
 
-addSkillUseEffect(SkillID, Level) -> 
+addSkillUseEffect(SkillID, Level) ->
 	#skillCfg{skill_release_trigger = EL} = getCfg:getCfgPStack(cfg_skill, SkillID),
 	EffectList = effect:getEffList(EL),
 	addPassEffect(SkillID, Level, EffectList).
@@ -161,7 +164,7 @@ addPassEffect(SkillID, Level, [#skill_effectCfg{
 			_ ->
 				skip
 		end
-	      end,
+		  end,
 	lists:foreach(Fun, [P1, P2, P3, P4, P5, P6]),
 	addPassEffect(SkillID, Level, List);
 addPassEffect(_SkillID, _Level, _) ->
@@ -194,7 +197,7 @@ delPassEffect(SkillID, [#skill_effectCfg{
 			_ ->
 				skip
 		end
-	      end,
+		  end,
 	lists:foreach(Fun, [P1, P2, P3, P4, P5, P6]),
 	delPassEffect(SkillID, List);
 delPassEffect(_SkillID, _) ->
@@ -352,14 +355,14 @@ callPet1(PetID, MaxNum, CallNum, PetArg) ->
 		AllNum > MaxNum ->
 			Fun = fun(#recCallPet{pet_code = Code}) ->
 				playerPet:clearSpawnPet(Code)
-			      end,
+				  end,
 			lists:foreach(Fun, lists:sublist(SamePetList, AllNum - MaxNum));
 		true ->
 			skip
 	end,
 	Fun1 = fun(_Index) ->
 		playerPet:spawnPet(PetArg)
-	       end,
+		   end,
 	lists:foreach(Fun1, lists:seq(1, CallNum)).
 
 %%伤害回血
@@ -371,7 +374,7 @@ backBlood(Percent, RealDamageList) ->
 	MaxHp = playerState:getMaxHp(),
 	Fun = fun(Damage, Acc) ->
 		Acc + Damage
-	      end,
+		  end,
 	TotalDamage = lists:foldl(Fun, 0, RealDamageList),
 	GetHealtFactor = playerState:getBattlePropTotal(?Prop_GetHealthFactor),
 	NewDamage = TotalDamage * Percent * GetHealtFactor,
@@ -381,15 +384,16 @@ backBlood(Percent, RealDamageList) ->
 	ok.
 
 %%召唤怪物
--spec callMonster(SkillEffect, MonsterID, MaxNum, Time, DiffX, DiffY, Num) -> ok when
+-spec callMonster(SkillEffect, MonsterID, MaxNum, Time, DiffX, DiffY, Num, Radius) -> ok when
 	SkillEffect :: #recSkillEffect{},
 	MonsterID :: uint(),
 	MaxNum :: uint(),
 	Time :: uint(),
 	DiffX :: float(),
 	DiffY :: float(),
-	Num :: uint().
-callMonster(SkillEffect, MonsterID, MaxNum, Time, DiffX, DiffY, Num) ->
+	Num :: uint(),
+	Radius :: uint().
+callMonster(SkillEffect, MonsterID, MaxNum, Time, DiffX, DiffY, Num, Radius) ->
 	PetEts = playerState:getMapPetEts(),
 	PlayerEts = playerState:getMapPlayerEts(),
 	MonsterEts = playerState:getMapMonsterEts(),
@@ -420,31 +424,39 @@ callMonster(SkillEffect, MonsterID, MaxNum, Time, DiffX, DiffY, Num) ->
 		playerEts = PlayerEts,
 		monsterEts = MonsterEts
 	},
-	callMonster1(MonsterID, CallMonsterList, MaxNum, Num, Arg, CasterInfo).
+	callMonster1(MonsterID, CallMonsterList, MaxNum, Num, Arg, CasterInfo, Radius).
 
--spec callMonster1(MonsterID, CallMonsterList, MaxNum, CallNum, Arg, CasterInfo) -> ok when
+-spec callMonster1(MonsterID, CallMonsterList, MaxNum, CallNum, Arg, CasterInfo, Radius) -> ok when
 	MonsterID :: uint(),
 	CallMonsterList :: list(),
 	MaxNum :: uint(),
 	CallNum :: uint(),
 	Arg :: #recSpawnMonster{},
-	CasterInfo :: #recCasterInfo{}.
-callMonster1(MonsterID, CallMonsterList, MaxNum, CallNum, Arg, CasterInfo) ->
+	CasterInfo :: #recCasterInfo{},
+	Radius :: uint().
+callMonster1(MonsterID, CallMonsterList, MaxNum, CallNum, Arg, CasterInfo, Radius) ->
 	SameMonsterList = effect:getSameIDList(MonsterID, CallMonsterList, []),
 	AllNum = CallNum + length(SameMonsterList),
 	if
 		AllNum > MaxNum ->
-			Fun = fun({Code, _ID, _Pid}) ->
-				delCallInfo(?SpawnCallMonster, Code, CasterInfo),
-				playerPet:clearSpawn(Code)
-			      end,
+			Fun =
+				fun({Code, _ID, _Pid}) ->
+					delCallInfo(?SpawnCallMonster, Code, CasterInfo),
+					playerPet:clearSpawn(Code)
+				end,
 			lists:foreach(Fun, lists:sublist(SameMonsterList, AllNum - MaxNum));
 		true ->
 			skip
 	end,
-	Fun1 = fun(_Index) ->
-		playerPet:spawnMonster(Arg)
-	       end,
+	Fun1 =
+		fun(_Index) ->
+			{X, Y} = monsterInterface:getAddMonsterPos(
+				Arg#recSpawnMonster.x,
+				Arg#recSpawnMonster.y,
+				Radius
+			),
+			playerPet:spawnMonster(Arg#recSpawnMonster{x = X, y = Y})
+		end,
 	lists:foreach(Fun1, lists:seq(1, CallNum)).
 
 %%抓取目标(被攻击者进程)
@@ -582,15 +594,18 @@ isBlock(X, Y, DX, DY, L, Dist, X1, Y1, SDist) ->
 	end.
 
 %%载体技能
--spec createCarrier(SkillEffect, CarrierID, Pos, MaxNum, Time, IsRelease, Num) -> ok when
+-spec createCarrier(SkillEffect, CarrierID, Pos, MaxNum, Time, IsRelease, Num, Radius, DiffX, DiffY) -> ok when
 	SkillEffect :: #recSkillEffect{},
 	CarrierID :: uint(),
 	Pos :: uint(),
 	MaxNum :: uint(),
 	Time :: uint(),
 	IsRelease :: uint(),
-	Num :: uint().
-createCarrier(SkillEffect, CarrierID, Pos, MaxNum, Time, IsRelease, Num) ->
+	Num :: uint(),
+	Radius :: uint(),
+	DiffX :: uint(),
+	DiffY :: uint().
+createCarrier(SkillEffect, CarrierID, Pos, MaxNum, Time, IsRelease, Num, Radius, DiffX, DiffY) ->
 	PetEts = playerState:getMapPetEts(),
 	PlayerEts = playerState:getMapPlayerEts(),
 	MonsterEts = playerState:getMapMonsterEts(),
@@ -619,8 +634,8 @@ createCarrier(SkillEffect, CarrierID, Pos, MaxNum, Time, IsRelease, Num) ->
 		id = CarrierID,
 		mapPid = playerState:getMapPid(),
 		mapID = playerState:getMapID(),
-		x = X,
-		y = Y,
+		x = X + DiffX,
+		y = Y + DiffY,
 		petEts = PetEts,
 		camp = SkillEffect#recSkillEffect.attackerCamp,
 		teamID = SkillEffect#recSkillEffect.attackerTeamID,
@@ -630,32 +645,41 @@ createCarrier(SkillEffect, CarrierID, Pos, MaxNum, Time, IsRelease, Num) ->
 		monsterEts = MonsterEts,
 		other = RecCallCarrier
 	},
-	createCarrier1(CarrierID, CallCarrierList, MaxNum, Num, Arg, CasterInfo).
+	createCarrier1(CarrierID, CallCarrierList, MaxNum, Num, Arg, CasterInfo, Radius).
 
--spec createCarrier1(CarrierID, CallCarrierList, MaxNum, CallNum, Arg, CasterInfo) -> ok when
+-spec createCarrier1(CarrierID, CallCarrierList, MaxNum, CallNum, Arg, CasterInfo, Radius) -> ok when
 	CarrierID :: uint(),
 	CallCarrierList :: list(),
 	MaxNum :: uint(),
 	CallNum :: uint(),
 	Arg :: #recSpawnMonster{},
-	CasterInfo :: #recCasterInfo{}.
-createCarrier1(CarrierID, CallCarrierList, MaxNum, CallNum, Arg, CasterInfo) ->
+	CasterInfo :: #recCasterInfo{},
+	Radius :: uint().
+createCarrier1(CarrierID, CallCarrierList, MaxNum, CallNum, Arg, CasterInfo, Radius) ->
 	SameCarrierList = effect:getSameIDList(CarrierID, CallCarrierList, []),
 	AllNum = CallNum + length(SameCarrierList),
 	if
 		AllNum > MaxNum ->
-			Fun = fun({Code, _ID, _Pid}) ->
-				delCallInfo(?SpawnCarrier, Code, CasterInfo),
-				playerPet:clearSpawn(Code)
-			      end,
+			Fun =
+				fun({Code, _ID, _Pid}) ->
+					delCallInfo(?SpawnCarrier, Code, CasterInfo),
+					playerPet:clearSpawn(Code)
+				end,
 			lists:foreach(Fun, lists:sublist(SameCarrierList, AllNum - MaxNum));
 		true ->
 			skip
 	end,
-	Fun1 = fun(_Index) ->
-		playerPet:spawnCarrier(Arg)
-	       end,
+	Fun1 =
+		fun(_Index) ->
+			{X, Y} = monsterInterface:getAddMonsterPos(
+				Arg#recSpawnMonster.x,
+				Arg#recSpawnMonster.y,
+				Radius
+			),
+			playerPet:spawnCarrier(Arg#recSpawnMonster{x = X, y = Y})
+		end,
 	lists:foreach(Fun1, lists:seq(1, CallNum)).
+
 
 %%判断当前效果是否已经生效
 -spec isHasEffect(Id) -> boolean() when

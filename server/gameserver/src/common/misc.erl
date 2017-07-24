@@ -76,7 +76,8 @@
 	clear_os_cache/0,
 	monitor_nodes/0,
 	getListValue/2,
-	anti_sqlInjectionAttack/1
+	anti_sqlInjectionAttack/1,
+	checkChar/1
 ]).
 
 -compile({inline,
@@ -107,6 +108,22 @@ ceil(Number) ->
 			Int + 1;
 		_ ->
 			Int
+	end.
+
+-spec checkChar(String) -> boolean()
+	when String :: string().
+checkChar([]) ->
+	true;
+checkChar([H | T]) ->
+	if
+		H < 33 ->
+			false;
+		H =:= 39 -> %% "
+			false;
+		H =:= 34 ->    %% '
+			false;
+		true ->
+			checkChar(T)
 	end.
 
 %%限定X的范围

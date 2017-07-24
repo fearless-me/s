@@ -12,10 +12,10 @@ getRow(1,1)->
     skilllevel = 1,
     skillid = 13500,
     exp = 0,
-    intimacy = 1,
-    property = [{135,1400,0}],
-    name = "情比金坚（生命）",
-    level = 35
+    intimacy = 3,
+    property = [{135,2000,0}],
+    name = "比翼连理",
+    level = 0
     };
 getRow(1,2)->
     #spouseskillCfg {
@@ -23,11 +23,11 @@ getRow(1,2)->
     group = 1,
     skilllevel = 2,
     skillid = 13500,
-    exp = 10,
-    intimacy = 2,
-    property = [{135,1410,0}],
-    name = "情比金坚（生命）",
-    level = 36
+    exp = 30,
+    intimacy = 5,
+    property = [{135,2100,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,3)->
     #spouseskillCfg {
@@ -35,11 +35,11 @@ getRow(1,3)->
     group = 1,
     skilllevel = 3,
     skillid = 13500,
-    exp = 20,
-    intimacy = 3,
-    property = [{135,1420,0}],
-    name = "情比金坚（生命）",
-    level = 36
+    exp = 50,
+    intimacy = 7,
+    property = [{135,2200,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,4)->
     #spouseskillCfg {
@@ -47,11 +47,11 @@ getRow(1,4)->
     group = 1,
     skilllevel = 4,
     skillid = 13500,
-    exp = 30,
-    intimacy = 4,
-    property = [{135,1450,0}],
-    name = "情比金坚（生命）",
-    level = 37
+    exp = 70,
+    intimacy = 9,
+    property = [{135,2300,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,5)->
     #spouseskillCfg {
@@ -59,11 +59,11 @@ getRow(1,5)->
     group = 1,
     skilllevel = 5,
     skillid = 13500,
-    exp = 35,
-    intimacy = 5,
-    property = [{135,1480,0}],
-    name = "情比金坚（生命）",
-    level = 37
+    exp = 90,
+    intimacy = 11,
+    property = [{135,2400,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,6)->
     #spouseskillCfg {
@@ -71,11 +71,11 @@ getRow(1,6)->
     group = 1,
     skilllevel = 6,
     skillid = 13500,
-    exp = 45,
-    intimacy = 6,
-    property = [{135,1520,0}],
-    name = "情比金坚（生命）",
-    level = 38
+    exp = 110,
+    intimacy = 13,
+    property = [{135,2500,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,7)->
     #spouseskillCfg {
@@ -83,11 +83,11 @@ getRow(1,7)->
     group = 1,
     skilllevel = 7,
     skillid = 13500,
-    exp = 55,
-    intimacy = 7,
-    property = [{135,1560,0}],
-    name = "情比金坚（生命）",
-    level = 38
+    exp = 130,
+    intimacy = 15,
+    property = [{135,2600,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,8)->
     #spouseskillCfg {
@@ -95,11 +95,11 @@ getRow(1,8)->
     group = 1,
     skilllevel = 8,
     skillid = 13500,
-    exp = 65,
-    intimacy = 8,
-    property = [{135,1610,0}],
-    name = "情比金坚（生命）",
-    level = 39
+    exp = 150,
+    intimacy = 17,
+    property = [{135,2700,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,9)->
     #spouseskillCfg {
@@ -107,11 +107,11 @@ getRow(1,9)->
     group = 1,
     skilllevel = 9,
     skillid = 13500,
-    exp = 75,
-    intimacy = 9,
-    property = [{135,1660,0}],
-    name = "情比金坚（生命）",
-    level = 39
+    exp = 170,
+    intimacy = 19,
+    property = [{135,2800,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,10)->
     #spouseskillCfg {
@@ -119,11 +119,11 @@ getRow(1,10)->
     group = 1,
     skilllevel = 10,
     skillid = 13500,
-    exp = 85,
-    intimacy = 10,
-    property = [{135,1720,0}],
-    name = "情比金坚（生命）",
-    level = 40
+    exp = 190,
+    intimacy = 21,
+    property = [{135,2900,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,11)->
     #spouseskillCfg {
@@ -131,11 +131,11 @@ getRow(1,11)->
     group = 1,
     skilllevel = 11,
     skillid = 13500,
-    exp = 95,
-    intimacy = 11,
-    property = [{135,1780,0}],
-    name = "情比金坚（生命）",
-    level = 40
+    exp = 210,
+    intimacy = 23,
+    property = [{135,3000,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,12)->
     #spouseskillCfg {
@@ -143,11 +143,11 @@ getRow(1,12)->
     group = 1,
     skilllevel = 12,
     skillid = 13500,
-    exp = 105,
-    intimacy = 12,
-    property = [{135,1840,0}],
-    name = "情比金坚（生命）",
-    level = 41
+    exp = 230,
+    intimacy = 26,
+    property = [{135,3100,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,13)->
     #spouseskillCfg {
@@ -155,11 +155,11 @@ getRow(1,13)->
     group = 1,
     skilllevel = 13,
     skillid = 13500,
-    exp = 115,
-    intimacy = 13,
-    property = [{135,1910,0}],
-    name = "情比金坚（生命）",
-    level = 41
+    exp = 260,
+    intimacy = 29,
+    property = [{135,3200,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,14)->
     #spouseskillCfg {
@@ -167,11 +167,11 @@ getRow(1,14)->
     group = 1,
     skilllevel = 14,
     skillid = 13500,
-    exp = 125,
-    intimacy = 14,
-    property = [{135,1990,0}],
-    name = "情比金坚（生命）",
-    level = 42
+    exp = 290,
+    intimacy = 32,
+    property = [{135,3300,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,15)->
     #spouseskillCfg {
@@ -179,11 +179,11 @@ getRow(1,15)->
     group = 1,
     skilllevel = 15,
     skillid = 13500,
-    exp = 140,
-    intimacy = 15,
-    property = [{135,2070,0}],
-    name = "情比金坚（生命）",
-    level = 42
+    exp = 320,
+    intimacy = 35,
+    property = [{135,3400,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,16)->
     #spouseskillCfg {
@@ -191,11 +191,11 @@ getRow(1,16)->
     group = 1,
     skilllevel = 16,
     skillid = 13500,
-    exp = 150,
-    intimacy = 16,
-    property = [{135,2150,0}],
-    name = "情比金坚（生命）",
-    level = 43
+    exp = 350,
+    intimacy = 38,
+    property = [{135,3500,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,17)->
     #spouseskillCfg {
@@ -203,11 +203,11 @@ getRow(1,17)->
     group = 1,
     skilllevel = 17,
     skillid = 13500,
-    exp = 160,
-    intimacy = 17,
-    property = [{135,2240,0}],
-    name = "情比金坚（生命）",
-    level = 43
+    exp = 380,
+    intimacy = 41,
+    property = [{135,3600,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,18)->
     #spouseskillCfg {
@@ -215,11 +215,11 @@ getRow(1,18)->
     group = 1,
     skilllevel = 18,
     skillid = 13500,
-    exp = 170,
-    intimacy = 18,
-    property = [{135,2330,0}],
-    name = "情比金坚（生命）",
-    level = 44
+    exp = 410,
+    intimacy = 44,
+    property = [{135,3700,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,19)->
     #spouseskillCfg {
@@ -227,11 +227,11 @@ getRow(1,19)->
     group = 1,
     skilllevel = 19,
     skillid = 13500,
-    exp = 180,
-    intimacy = 19,
-    property = [{135,2420,0}],
-    name = "情比金坚（生命）",
-    level = 44
+    exp = 440,
+    intimacy = 47,
+    property = [{135,3800,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,20)->
     #spouseskillCfg {
@@ -239,11 +239,11 @@ getRow(1,20)->
     group = 1,
     skilllevel = 20,
     skillid = 13500,
-    exp = 190,
-    intimacy = 20,
-    property = [{135,2520,0}],
-    name = "情比金坚（生命）",
-    level = 45
+    exp = 470,
+    intimacy = 50,
+    property = [{135,3900,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,21)->
     #spouseskillCfg {
@@ -251,11 +251,11 @@ getRow(1,21)->
     group = 1,
     skilllevel = 21,
     skillid = 13500,
-    exp = 205,
-    intimacy = 21,
-    property = [{135,2630,0}],
-    name = "情比金坚（生命）",
-    level = 45
+    exp = 500,
+    intimacy = 53,
+    property = [{135,4000,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,22)->
     #spouseskillCfg {
@@ -263,11 +263,11 @@ getRow(1,22)->
     group = 1,
     skilllevel = 22,
     skillid = 13500,
-    exp = 215,
-    intimacy = 22,
-    property = [{135,2730,0}],
-    name = "情比金坚（生命）",
-    level = 46
+    exp = 530,
+    intimacy = 56,
+    property = [{135,4100,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,23)->
     #spouseskillCfg {
@@ -275,11 +275,11 @@ getRow(1,23)->
     group = 1,
     skilllevel = 23,
     skillid = 13500,
-    exp = 225,
-    intimacy = 23,
-    property = [{135,2840,0}],
-    name = "情比金坚（生命）",
-    level = 46
+    exp = 560,
+    intimacy = 59,
+    property = [{135,4200,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,24)->
     #spouseskillCfg {
@@ -287,11 +287,11 @@ getRow(1,24)->
     group = 1,
     skilllevel = 24,
     skillid = 13500,
-    exp = 235,
-    intimacy = 24,
-    property = [{135,2950,0}],
-    name = "情比金坚（生命）",
-    level = 47
+    exp = 590,
+    intimacy = 65,
+    property = [{135,4300,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,25)->
     #spouseskillCfg {
@@ -299,11 +299,11 @@ getRow(1,25)->
     group = 1,
     skilllevel = 25,
     skillid = 13500,
-    exp = 245,
-    intimacy = 25,
-    property = [{135,3070,0}],
-    name = "情比金坚（生命）",
-    level = 47
+    exp = 650,
+    intimacy = 71,
+    property = [{135,4400,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,26)->
     #spouseskillCfg {
@@ -311,11 +311,11 @@ getRow(1,26)->
     group = 1,
     skilllevel = 26,
     skillid = 13500,
-    exp = 260,
-    intimacy = 26,
-    property = [{135,3190,0}],
-    name = "情比金坚（生命）",
-    level = 48
+    exp = 710,
+    intimacy = 77,
+    property = [{135,4500,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,27)->
     #spouseskillCfg {
@@ -323,11 +323,11 @@ getRow(1,27)->
     group = 1,
     skilllevel = 27,
     skillid = 13500,
-    exp = 270,
-    intimacy = 27,
-    property = [{135,3310,0}],
-    name = "情比金坚（生命）",
-    level = 48
+    exp = 770,
+    intimacy = 83,
+    property = [{135,4600,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,28)->
     #spouseskillCfg {
@@ -335,11 +335,11 @@ getRow(1,28)->
     group = 1,
     skilllevel = 28,
     skillid = 13500,
-    exp = 280,
-    intimacy = 28,
-    property = [{135,3440,0}],
-    name = "情比金坚（生命）",
-    level = 49
+    exp = 830,
+    intimacy = 89,
+    property = [{135,4700,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,29)->
     #spouseskillCfg {
@@ -347,11 +347,11 @@ getRow(1,29)->
     group = 1,
     skilllevel = 29,
     skillid = 13500,
-    exp = 290,
-    intimacy = 29,
-    property = [{135,3570,0}],
-    name = "情比金坚（生命）",
-    level = 49
+    exp = 890,
+    intimacy = 95,
+    property = [{135,4800,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,30)->
     #spouseskillCfg {
@@ -359,11 +359,11 @@ getRow(1,30)->
     group = 1,
     skilllevel = 30,
     skillid = 13500,
-    exp = 305,
-    intimacy = 30,
-    property = [{135,3700,0}],
-    name = "情比金坚（生命）",
-    level = 50
+    exp = 950,
+    intimacy = 101,
+    property = [{135,4900,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,31)->
     #spouseskillCfg {
@@ -371,11 +371,11 @@ getRow(1,31)->
     group = 1,
     skilllevel = 31,
     skillid = 13500,
-    exp = 315,
-    intimacy = 31,
-    property = [{135,3840,0}],
-    name = "情比金坚（生命）",
-    level = 50
+    exp = 1010,
+    intimacy = 107,
+    property = [{135,5000,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,32)->
     #spouseskillCfg {
@@ -383,11 +383,11 @@ getRow(1,32)->
     group = 1,
     skilllevel = 32,
     skillid = 13500,
-    exp = 325,
-    intimacy = 32,
-    property = [{135,3980,0}],
-    name = "情比金坚（生命）",
-    level = 51
+    exp = 1070,
+    intimacy = 113,
+    property = [{135,5100,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,33)->
     #spouseskillCfg {
@@ -395,11 +395,11 @@ getRow(1,33)->
     group = 1,
     skilllevel = 33,
     skillid = 13500,
-    exp = 340,
-    intimacy = 33,
-    property = [{135,4120,0}],
-    name = "情比金坚（生命）",
-    level = 51
+    exp = 1130,
+    intimacy = 119,
+    property = [{135,5200,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,34)->
     #spouseskillCfg {
@@ -407,11 +407,11 @@ getRow(1,34)->
     group = 1,
     skilllevel = 34,
     skillid = 13500,
-    exp = 350,
-    intimacy = 34,
-    property = [{135,4270,0}],
-    name = "情比金坚（生命）",
-    level = 52
+    exp = 1190,
+    intimacy = 125,
+    property = [{135,5300,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,35)->
     #spouseskillCfg {
@@ -419,11 +419,11 @@ getRow(1,35)->
     group = 1,
     skilllevel = 35,
     skillid = 13500,
-    exp = 360,
-    intimacy = 35,
-    property = [{135,4420,0}],
-    name = "情比金坚（生命）",
-    level = 52
+    exp = 1250,
+    intimacy = 131,
+    property = [{135,5400,0}],
+    name = "比翼连理",
+    level = 34
     };
 getRow(1,36)->
     #spouseskillCfg {
@@ -431,11 +431,11 @@ getRow(1,36)->
     group = 1,
     skilllevel = 36,
     skillid = 13500,
-    exp = 375,
-    intimacy = 36,
-    property = [{135,4570,0}],
-    name = "情比金坚（生命）",
-    level = 53
+    exp = 1310,
+    intimacy = 139,
+    property = [{135,5500,0}],
+    name = "比翼连理",
+    level = 36
     };
 getRow(1,37)->
     #spouseskillCfg {
@@ -443,11 +443,11 @@ getRow(1,37)->
     group = 1,
     skilllevel = 37,
     skillid = 13500,
-    exp = 385,
-    intimacy = 37,
-    property = [{135,4730,0}],
-    name = "情比金坚（生命）",
-    level = 53
+    exp = 1390,
+    intimacy = 147,
+    property = [{135,5600,0}],
+    name = "比翼连理",
+    level = 37
     };
 getRow(1,38)->
     #spouseskillCfg {
@@ -455,11 +455,11 @@ getRow(1,38)->
     group = 1,
     skilllevel = 38,
     skillid = 13500,
-    exp = 395,
-    intimacy = 38,
-    property = [{135,4890,0}],
-    name = "情比金坚（生命）",
-    level = 54
+    exp = 1470,
+    intimacy = 155,
+    property = [{135,5700,0}],
+    name = "比翼连理",
+    level = 38
     };
 getRow(1,39)->
     #spouseskillCfg {
@@ -467,11 +467,11 @@ getRow(1,39)->
     group = 1,
     skilllevel = 39,
     skillid = 13500,
-    exp = 410,
-    intimacy = 39,
-    property = [{135,5050,0}],
-    name = "情比金坚（生命）",
-    level = 54
+    exp = 1550,
+    intimacy = 163,
+    property = [{135,5800,0}],
+    name = "比翼连理",
+    level = 39
     };
 getRow(1,40)->
     #spouseskillCfg {
@@ -479,11 +479,11 @@ getRow(1,40)->
     group = 1,
     skilllevel = 40,
     skillid = 13500,
-    exp = 420,
-    intimacy = 40,
-    property = [{135,5210,0}],
-    name = "情比金坚（生命）",
-    level = 55
+    exp = 1630,
+    intimacy = 171,
+    property = [{135,5900,0}],
+    name = "比翼连理",
+    level = 40
     };
 getRow(1,41)->
     #spouseskillCfg {
@@ -491,11 +491,11 @@ getRow(1,41)->
     group = 1,
     skilllevel = 41,
     skillid = 13500,
-    exp = 430,
-    intimacy = 41,
-    property = [{135,5380,0}],
-    name = "情比金坚（生命）",
-    level = 55
+    exp = 1710,
+    intimacy = 179,
+    property = [{135,6000,0}],
+    name = "比翼连理",
+    level = 41
     };
 getRow(1,42)->
     #spouseskillCfg {
@@ -503,11 +503,11 @@ getRow(1,42)->
     group = 1,
     skilllevel = 42,
     skillid = 13500,
-    exp = 445,
-    intimacy = 42,
-    property = [{135,5550,0}],
-    name = "情比金坚（生命）",
-    level = 56
+    exp = 1790,
+    intimacy = 187,
+    property = [{135,6100,0}],
+    name = "比翼连理",
+    level = 42
     };
 getRow(1,43)->
     #spouseskillCfg {
@@ -515,11 +515,11 @@ getRow(1,43)->
     group = 1,
     skilllevel = 43,
     skillid = 13500,
-    exp = 455,
-    intimacy = 43,
-    property = [{135,5730,0}],
-    name = "情比金坚（生命）",
-    level = 56
+    exp = 1870,
+    intimacy = 195,
+    property = [{135,6200,0}],
+    name = "比翼连理",
+    level = 43
     };
 getRow(1,44)->
     #spouseskillCfg {
@@ -527,11 +527,11 @@ getRow(1,44)->
     group = 1,
     skilllevel = 44,
     skillid = 13500,
-    exp = 465,
-    intimacy = 44,
-    property = [{135,5900,0}],
-    name = "情比金坚（生命）",
-    level = 57
+    exp = 1950,
+    intimacy = 203,
+    property = [{135,6300,0}],
+    name = "比翼连理",
+    level = 44
     };
 getRow(1,45)->
     #spouseskillCfg {
@@ -539,11 +539,11 @@ getRow(1,45)->
     group = 1,
     skilllevel = 45,
     skillid = 13500,
-    exp = 480,
-    intimacy = 45,
-    property = [{135,6080,0}],
-    name = "情比金坚（生命）",
-    level = 57
+    exp = 2030,
+    intimacy = 211,
+    property = [{135,6400,0}],
+    name = "比翼连理",
+    level = 45
     };
 getRow(1,46)->
     #spouseskillCfg {
@@ -551,11 +551,11 @@ getRow(1,46)->
     group = 1,
     skilllevel = 46,
     skillid = 13500,
-    exp = 490,
-    intimacy = 46,
-    property = [{135,6260,0}],
-    name = "情比金坚（生命）",
-    level = 58
+    exp = 2110,
+    intimacy = 219,
+    property = [{135,6500,0}],
+    name = "比翼连理",
+    level = 46
     };
 getRow(1,47)->
     #spouseskillCfg {
@@ -563,11 +563,11 @@ getRow(1,47)->
     group = 1,
     skilllevel = 47,
     skillid = 13500,
-    exp = 505,
-    intimacy = 47,
-    property = [{135,6450,0}],
-    name = "情比金坚（生命）",
-    level = 58
+    exp = 2190,
+    intimacy = 227,
+    property = [{135,6600,0}],
+    name = "比翼连理",
+    level = 47
     };
 getRow(1,48)->
     #spouseskillCfg {
@@ -575,11 +575,11 @@ getRow(1,48)->
     group = 1,
     skilllevel = 48,
     skillid = 13500,
-    exp = 515,
-    intimacy = 48,
-    property = [{135,6640,0}],
-    name = "情比金坚（生命）",
-    level = 59
+    exp = 2270,
+    intimacy = 237,
+    property = [{135,6700,0}],
+    name = "比翼连理",
+    level = 48
     };
 getRow(1,49)->
     #spouseskillCfg {
@@ -587,11 +587,11 @@ getRow(1,49)->
     group = 1,
     skilllevel = 49,
     skillid = 13500,
-    exp = 525,
-    intimacy = 49,
-    property = [{135,6830,0}],
-    name = "情比金坚（生命）",
-    level = 59
+    exp = 2370,
+    intimacy = 247,
+    property = [{135,6800,0}],
+    name = "比翼连理",
+    level = 49
     };
 getRow(1,50)->
     #spouseskillCfg {
@@ -599,11 +599,11 @@ getRow(1,50)->
     group = 1,
     skilllevel = 50,
     skillid = 13500,
-    exp = 540,
-    intimacy = 50,
-    property = [{135,7020,0}],
-    name = "情比金坚（生命）",
-    level = 60
+    exp = 2470,
+    intimacy = 257,
+    property = [{135,6900,0}],
+    name = "比翼连理",
+    level = 50
     };
 getRow(1,51)->
     #spouseskillCfg {
@@ -611,11 +611,11 @@ getRow(1,51)->
     group = 1,
     skilllevel = 51,
     skillid = 13500,
-    exp = 550,
-    intimacy = 51,
-    property = [{135,7220,0}],
-    name = "情比金坚（生命）",
-    level = 60
+    exp = 2570,
+    intimacy = 267,
+    property = [{135,7000,0}],
+    name = "比翼连理",
+    level = 51
     };
 getRow(1,52)->
     #spouseskillCfg {
@@ -623,11 +623,11 @@ getRow(1,52)->
     group = 1,
     skilllevel = 52,
     skillid = 13500,
-    exp = 565,
-    intimacy = 52,
-    property = [{135,7420,0}],
-    name = "情比金坚（生命）",
-    level = 61
+    exp = 2670,
+    intimacy = 277,
+    property = [{135,7100,0}],
+    name = "比翼连理",
+    level = 52
     };
 getRow(1,53)->
     #spouseskillCfg {
@@ -635,11 +635,11 @@ getRow(1,53)->
     group = 1,
     skilllevel = 53,
     skillid = 13500,
-    exp = 575,
-    intimacy = 53,
-    property = [{135,7620,0}],
-    name = "情比金坚（生命）",
-    level = 61
+    exp = 2770,
+    intimacy = 287,
+    property = [{135,7200,0}],
+    name = "比翼连理",
+    level = 53
     };
 getRow(1,54)->
     #spouseskillCfg {
@@ -647,11 +647,11 @@ getRow(1,54)->
     group = 1,
     skilllevel = 54,
     skillid = 13500,
-    exp = 590,
-    intimacy = 54,
-    property = [{135,7820,0}],
-    name = "情比金坚（生命）",
-    level = 62
+    exp = 2870,
+    intimacy = 297,
+    property = [{135,7300,0}],
+    name = "比翼连理",
+    level = 54
     };
 getRow(1,55)->
     #spouseskillCfg {
@@ -659,11 +659,11 @@ getRow(1,55)->
     group = 1,
     skilllevel = 55,
     skillid = 13500,
-    exp = 600,
-    intimacy = 55,
-    property = [{135,8030,0}],
-    name = "情比金坚（生命）",
-    level = 62
+    exp = 2970,
+    intimacy = 307,
+    property = [{135,7400,0}],
+    name = "比翼连理",
+    level = 55
     };
 getRow(1,56)->
     #spouseskillCfg {
@@ -671,11 +671,11 @@ getRow(1,56)->
     group = 1,
     skilllevel = 56,
     skillid = 13500,
-    exp = 610,
-    intimacy = 56,
-    property = [{135,8240,0}],
-    name = "情比金坚（生命）",
-    level = 63
+    exp = 3070,
+    intimacy = 317,
+    property = [{135,7500,0}],
+    name = "比翼连理",
+    level = 56
     };
 getRow(1,57)->
     #spouseskillCfg {
@@ -683,11 +683,11 @@ getRow(1,57)->
     group = 1,
     skilllevel = 57,
     skillid = 13500,
-    exp = 625,
-    intimacy = 57,
-    property = [{135,8450,0}],
-    name = "情比金坚（生命）",
-    level = 63
+    exp = 3170,
+    intimacy = 327,
+    property = [{135,7600,0}],
+    name = "比翼连理",
+    level = 57
     };
 getRow(1,58)->
     #spouseskillCfg {
@@ -695,11 +695,11 @@ getRow(1,58)->
     group = 1,
     skilllevel = 58,
     skillid = 13500,
-    exp = 635,
-    intimacy = 58,
-    property = [{135,8670,0}],
-    name = "情比金坚（生命）",
-    level = 64
+    exp = 3270,
+    intimacy = 337,
+    property = [{135,7700,0}],
+    name = "比翼连理",
+    level = 58
     };
 getRow(1,59)->
     #spouseskillCfg {
@@ -707,11 +707,11 @@ getRow(1,59)->
     group = 1,
     skilllevel = 59,
     skillid = 13500,
-    exp = 650,
-    intimacy = 59,
-    property = [{135,8890,0}],
-    name = "情比金坚（生命）",
-    level = 64
+    exp = 3370,
+    intimacy = 347,
+    property = [{135,7800,0}],
+    name = "比翼连理",
+    level = 59
     };
 getRow(1,60)->
     #spouseskillCfg {
@@ -719,11 +719,11 @@ getRow(1,60)->
     group = 1,
     skilllevel = 60,
     skillid = 13500,
-    exp = 660,
-    intimacy = 60,
-    property = [{135,9110,0}],
-    name = "情比金坚（生命）",
-    level = 65
+    exp = 3470,
+    intimacy = 357,
+    property = [{135,7900,0}],
+    name = "比翼连理",
+    level = 60
     };
 getRow(1,61)->
     #spouseskillCfg {
@@ -731,11 +731,11 @@ getRow(1,61)->
     group = 1,
     skilllevel = 61,
     skillid = 13500,
-    exp = 675,
-    intimacy = 61,
-    property = [{135,9330,0}],
-    name = "情比金坚（生命）",
-    level = 65
+    exp = 3570,
+    intimacy = 367,
+    property = [{135,8000,0}],
+    name = "比翼连理",
+    level = 61
     };
 getRow(1,62)->
     #spouseskillCfg {
@@ -743,11 +743,11 @@ getRow(1,62)->
     group = 1,
     skilllevel = 62,
     skillid = 13500,
-    exp = 685,
-    intimacy = 62,
-    property = [{135,9560,0}],
-    name = "情比金坚（生命）",
-    level = 66
+    exp = 3670,
+    intimacy = 377,
+    property = [{135,8100,0}],
+    name = "比翼连理",
+    level = 62
     };
 getRow(1,63)->
     #spouseskillCfg {
@@ -755,11 +755,11 @@ getRow(1,63)->
     group = 1,
     skilllevel = 63,
     skillid = 13500,
-    exp = 700,
-    intimacy = 63,
-    property = [{135,9790,0}],
-    name = "情比金坚（生命）",
-    level = 66
+    exp = 3770,
+    intimacy = 387,
+    property = [{135,8200,0}],
+    name = "比翼连理",
+    level = 63
     };
 getRow(1,64)->
     #spouseskillCfg {
@@ -767,11 +767,11 @@ getRow(1,64)->
     group = 1,
     skilllevel = 64,
     skillid = 13500,
-    exp = 710,
-    intimacy = 64,
-    property = [{135,10020,0}],
-    name = "情比金坚（生命）",
-    level = 67
+    exp = 3870,
+    intimacy = 397,
+    property = [{135,8300,0}],
+    name = "比翼连理",
+    level = 64
     };
 getRow(1,65)->
     #spouseskillCfg {
@@ -779,11 +779,11 @@ getRow(1,65)->
     group = 1,
     skilllevel = 65,
     skillid = 13500,
-    exp = 725,
-    intimacy = 65,
-    property = [{135,10250,0}],
-    name = "情比金坚（生命）",
-    level = 67
+    exp = 3970,
+    intimacy = 407,
+    property = [{135,8400,0}],
+    name = "比翼连理",
+    level = 65
     };
 getRow(1,66)->
     #spouseskillCfg {
@@ -791,11 +791,11 @@ getRow(1,66)->
     group = 1,
     skilllevel = 66,
     skillid = 13500,
-    exp = 735,
-    intimacy = 66,
-    property = [{135,10490,0}],
-    name = "情比金坚（生命）",
-    level = 68
+    exp = 4070,
+    intimacy = 417,
+    property = [{135,8500,0}],
+    name = "比翼连理",
+    level = 66
     };
 getRow(1,67)->
     #spouseskillCfg {
@@ -803,11 +803,11 @@ getRow(1,67)->
     group = 1,
     skilllevel = 67,
     skillid = 13500,
-    exp = 750,
-    intimacy = 67,
-    property = [{135,10730,0}],
-    name = "情比金坚（生命）",
-    level = 68
+    exp = 4170,
+    intimacy = 427,
+    property = [{135,8600,0}],
+    name = "比翼连理",
+    level = 67
     };
 getRow(1,68)->
     #spouseskillCfg {
@@ -815,11 +815,11 @@ getRow(1,68)->
     group = 1,
     skilllevel = 68,
     skillid = 13500,
-    exp = 760,
-    intimacy = 68,
-    property = [{135,10970,0}],
-    name = "情比金坚（生命）",
-    level = 69
+    exp = 4270,
+    intimacy = 437,
+    property = [{135,8700,0}],
+    name = "比翼连理",
+    level = 68
     };
 getRow(1,69)->
     #spouseskillCfg {
@@ -827,10 +827,10 @@ getRow(1,69)->
     group = 1,
     skilllevel = 69,
     skillid = 13500,
-    exp = 770,
-    intimacy = 69,
-    property = [{135,11210,0}],
-    name = "情比金坚（生命）",
+    exp = 4370,
+    intimacy = 447,
+    property = [{135,8800,0}],
+    name = "比翼连理",
     level = 69
     };
 getRow(1,70)->
@@ -839,10 +839,10 @@ getRow(1,70)->
     group = 1,
     skilllevel = 70,
     skillid = 13500,
-    exp = 785,
-    intimacy = 70,
-    property = [{135,11460,0}],
-    name = "情比金坚（生命）",
+    exp = 4470,
+    intimacy = 477,
+    property = [{135,8900,0}],
+    name = "比翼连理",
     level = 70
     };
 getRow(1,71)->
@@ -851,11 +851,11 @@ getRow(1,71)->
     group = 1,
     skilllevel = 71,
     skillid = 13500,
-    exp = 795,
-    intimacy = 71,
-    property = [{135,11710,0}],
-    name = "情比金坚（生命）",
-    level = 70
+    exp = 4770,
+    intimacy = 507,
+    property = [{135,9000,0}],
+    name = "比翼连理",
+    level = 71
     };
 getRow(1,72)->
     #spouseskillCfg {
@@ -863,11 +863,11 @@ getRow(1,72)->
     group = 1,
     skilllevel = 72,
     skillid = 13500,
-    exp = 810,
-    intimacy = 72,
-    property = [{135,11960,0}],
-    name = "情比金坚（生命）",
-    level = 71
+    exp = 5070,
+    intimacy = 537,
+    property = [{135,9100,0}],
+    name = "比翼连理",
+    level = 72
     };
 getRow(1,73)->
     #spouseskillCfg {
@@ -875,11 +875,11 @@ getRow(1,73)->
     group = 1,
     skilllevel = 73,
     skillid = 13500,
-    exp = 820,
-    intimacy = 73,
-    property = [{135,12210,0}],
-    name = "情比金坚（生命）",
-    level = 71
+    exp = 5370,
+    intimacy = 567,
+    property = [{135,9200,0}],
+    name = "比翼连理",
+    level = 73
     };
 getRow(1,74)->
     #spouseskillCfg {
@@ -887,11 +887,11 @@ getRow(1,74)->
     group = 1,
     skilllevel = 74,
     skillid = 13500,
-    exp = 835,
-    intimacy = 74,
-    property = [{135,12470,0}],
-    name = "情比金坚（生命）",
-    level = 72
+    exp = 5670,
+    intimacy = 597,
+    property = [{135,9300,0}],
+    name = "比翼连理",
+    level = 74
     };
 getRow(1,75)->
     #spouseskillCfg {
@@ -899,11 +899,11 @@ getRow(1,75)->
     group = 1,
     skilllevel = 75,
     skillid = 13500,
-    exp = 845,
-    intimacy = 75,
-    property = [{135,12730,0}],
-    name = "情比金坚（生命）",
-    level = 72
+    exp = 5970,
+    intimacy = 627,
+    property = [{135,9400,0}],
+    name = "比翼连理",
+    level = 75
     };
 getRow(1,76)->
     #spouseskillCfg {
@@ -911,11 +911,11 @@ getRow(1,76)->
     group = 1,
     skilllevel = 76,
     skillid = 13500,
-    exp = 860,
-    intimacy = 76,
-    property = [{135,12990,0}],
-    name = "情比金坚（生命）",
-    level = 73
+    exp = 6270,
+    intimacy = 657,
+    property = [{135,9500,0}],
+    name = "比翼连理",
+    level = 76
     };
 getRow(1,77)->
     #spouseskillCfg {
@@ -923,11 +923,11 @@ getRow(1,77)->
     group = 1,
     skilllevel = 77,
     skillid = 13500,
-    exp = 875,
-    intimacy = 77,
-    property = [{135,13260,0}],
-    name = "情比金坚（生命）",
-    level = 73
+    exp = 6570,
+    intimacy = 687,
+    property = [{135,9600,0}],
+    name = "比翼连理",
+    level = 77
     };
 getRow(1,78)->
     #spouseskillCfg {
@@ -935,11 +935,11 @@ getRow(1,78)->
     group = 1,
     skilllevel = 78,
     skillid = 13500,
-    exp = 885,
-    intimacy = 78,
-    property = [{135,13520,0}],
-    name = "情比金坚（生命）",
-    level = 74
+    exp = 6870,
+    intimacy = 717,
+    property = [{135,9700,0}],
+    name = "比翼连理",
+    level = 78
     };
 getRow(1,79)->
     #spouseskillCfg {
@@ -947,11 +947,11 @@ getRow(1,79)->
     group = 1,
     skilllevel = 79,
     skillid = 13500,
-    exp = 900,
-    intimacy = 79,
-    property = [{135,13790,0}],
-    name = "情比金坚（生命）",
-    level = 74
+    exp = 7170,
+    intimacy = 747,
+    property = [{135,9800,0}],
+    name = "比翼连理",
+    level = 79
     };
 getRow(1,80)->
     #spouseskillCfg {
@@ -959,11 +959,11 @@ getRow(1,80)->
     group = 1,
     skilllevel = 80,
     skillid = 13500,
-    exp = 910,
-    intimacy = 80,
-    property = [{135,14060,0}],
-    name = "情比金坚（生命）",
-    level = 75
+    exp = 7470,
+    intimacy = 827,
+    property = [{135,9900,0}],
+    name = "比翼连理",
+    level = 80
     };
 getRow(1,81)->
     #spouseskillCfg {
@@ -971,11 +971,11 @@ getRow(1,81)->
     group = 1,
     skilllevel = 81,
     skillid = 13500,
-    exp = 910,
-    intimacy = 81,
-    property = [{135,170000,0}],
-    name = "情比金坚（生命）",
-    level = 75
+    exp = 8270,
+    intimacy = 907,
+    property = [{135,10000,0}],
+    name = "比翼连理",
+    level = 81
     };
 getRow(1,82)->
     #spouseskillCfg {
@@ -983,11 +983,11 @@ getRow(1,82)->
     group = 1,
     skilllevel = 82,
     skillid = 13500,
-    exp = 33725,
-    intimacy = 82,
-    property = [{135,172000,0}],
-    name = "情比金坚（生命）",
-    level = 76
+    exp = 9070,
+    intimacy = 987,
+    property = [{135,10100,0}],
+    name = "比翼连理",
+    level = 82
     };
 getRow(1,83)->
     #spouseskillCfg {
@@ -995,11 +995,11 @@ getRow(1,83)->
     group = 1,
     skilllevel = 83,
     skillid = 13500,
-    exp = 33725,
-    intimacy = 83,
-    property = [{135,174000,0}],
-    name = "情比金坚（生命）",
-    level = 76
+    exp = 9870,
+    intimacy = 1067,
+    property = [{135,10200,0}],
+    name = "比翼连理",
+    level = 83
     };
 getRow(1,84)->
     #spouseskillCfg {
@@ -1007,11 +1007,11 @@ getRow(1,84)->
     group = 1,
     skilllevel = 84,
     skillid = 13500,
-    exp = 33725,
-    intimacy = 84,
-    property = [{135,176000,0}],
-    name = "情比金坚（生命）",
-    level = 77
+    exp = 10670,
+    intimacy = 1147,
+    property = [{135,10300,0}],
+    name = "比翼连理",
+    level = 84
     };
 getRow(1,85)->
     #spouseskillCfg {
@@ -1019,11 +1019,11 @@ getRow(1,85)->
     group = 1,
     skilllevel = 85,
     skillid = 13500,
-    exp = 33725,
-    intimacy = 85,
-    property = [{135,178000,0}],
-    name = "情比金坚（生命）",
-    level = 77
+    exp = 11470,
+    intimacy = 1227,
+    property = [{135,10400,0}],
+    name = "比翼连理",
+    level = 85
     };
 getRow(1,86)->
     #spouseskillCfg {
@@ -1031,11 +1031,11 @@ getRow(1,86)->
     group = 1,
     skilllevel = 86,
     skillid = 13500,
-    exp = 33725,
-    intimacy = 86,
-    property = [{135,180000,0}],
-    name = "情比金坚（生命）",
-    level = 78
+    exp = 12270,
+    intimacy = 1307,
+    property = [{135,10500,0}],
+    name = "比翼连理",
+    level = 86
     };
 getRow(1,87)->
     #spouseskillCfg {
@@ -1043,11 +1043,11 @@ getRow(1,87)->
     group = 1,
     skilllevel = 87,
     skillid = 13500,
-    exp = 33725,
-    intimacy = 87,
-    property = [{135,182000,0}],
-    name = "情比金坚（生命）",
-    level = 78
+    exp = 13070,
+    intimacy = 1387,
+    property = [{135,10600,0}],
+    name = "比翼连理",
+    level = 87
     };
 getRow(1,88)->
     #spouseskillCfg {
@@ -1055,11 +1055,11 @@ getRow(1,88)->
     group = 1,
     skilllevel = 88,
     skillid = 13500,
-    exp = 33725,
-    intimacy = 88,
-    property = [{135,184000,0}],
-    name = "情比金坚（生命）",
-    level = 79
+    exp = 13870,
+    intimacy = 1467,
+    property = [{135,10700,0}],
+    name = "比翼连理",
+    level = 88
     };
 getRow(1,89)->
     #spouseskillCfg {
@@ -1067,11 +1067,11 @@ getRow(1,89)->
     group = 1,
     skilllevel = 89,
     skillid = 13500,
-    exp = 33725,
-    intimacy = 89,
-    property = [{135,186000,0}],
-    name = "情比金坚（生命）",
-    level = 79
+    exp = 14670,
+    intimacy = 1547,
+    property = [{135,10800,0}],
+    name = "比翼连理",
+    level = 89
     };
 getRow(1,90)->
     #spouseskillCfg {
@@ -1079,11 +1079,11 @@ getRow(1,90)->
     group = 1,
     skilllevel = 90,
     skillid = 13500,
-    exp = 33725,
-    intimacy = 90,
-    property = [{135,188000,0}],
-    name = "情比金坚（生命）",
-    level = 80
+    exp = 15470,
+    intimacy = 1627,
+    property = [{135,10900,0}],
+    name = "比翼连理",
+    level = 90
     };
 getRow(2,1)->
     #spouseskillCfg {
@@ -1092,10 +1092,10 @@ getRow(2,1)->
     skilllevel = 1,
     skillid = 13501,
     exp = 0,
-    intimacy = 1,
-    property = [{136,140,0}],
-    name = "情比金坚（物攻）",
-    level = 35
+    intimacy = 3,
+    property = [{136,150,0}],
+    name = "心心相印",
+    level = 0
     };
 getRow(2,2)->
     #spouseskillCfg {
@@ -1103,11 +1103,11 @@ getRow(2,2)->
     group = 2,
     skilllevel = 2,
     skillid = 13501,
-    exp = 10,
-    intimacy = 2,
-    property = [{136,141,0}],
-    name = "情比金坚（物攻）",
-    level = 36
+    exp = 30,
+    intimacy = 5,
+    property = [{136,170,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,3)->
     #spouseskillCfg {
@@ -1115,11 +1115,11 @@ getRow(2,3)->
     group = 2,
     skilllevel = 3,
     skillid = 13501,
-    exp = 20,
-    intimacy = 3,
-    property = [{136,142,0}],
-    name = "情比金坚（物攻）",
-    level = 36
+    exp = 50,
+    intimacy = 7,
+    property = [{136,190,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,4)->
     #spouseskillCfg {
@@ -1127,11 +1127,11 @@ getRow(2,4)->
     group = 2,
     skilllevel = 4,
     skillid = 13501,
-    exp = 30,
-    intimacy = 4,
-    property = [{136,145,0}],
-    name = "情比金坚（物攻）",
-    level = 37
+    exp = 70,
+    intimacy = 9,
+    property = [{136,210,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,5)->
     #spouseskillCfg {
@@ -1139,11 +1139,11 @@ getRow(2,5)->
     group = 2,
     skilllevel = 5,
     skillid = 13501,
-    exp = 35,
-    intimacy = 5,
-    property = [{136,148,0}],
-    name = "情比金坚（物攻）",
-    level = 37
+    exp = 90,
+    intimacy = 11,
+    property = [{136,230,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,6)->
     #spouseskillCfg {
@@ -1151,11 +1151,11 @@ getRow(2,6)->
     group = 2,
     skilllevel = 6,
     skillid = 13501,
-    exp = 45,
-    intimacy = 6,
-    property = [{136,152,0}],
-    name = "情比金坚（物攻）",
-    level = 38
+    exp = 110,
+    intimacy = 13,
+    property = [{136,250,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,7)->
     #spouseskillCfg {
@@ -1163,11 +1163,11 @@ getRow(2,7)->
     group = 2,
     skilllevel = 7,
     skillid = 13501,
-    exp = 55,
-    intimacy = 7,
-    property = [{136,156,0}],
-    name = "情比金坚（物攻）",
-    level = 38
+    exp = 130,
+    intimacy = 15,
+    property = [{136,270,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,8)->
     #spouseskillCfg {
@@ -1175,11 +1175,11 @@ getRow(2,8)->
     group = 2,
     skilllevel = 8,
     skillid = 13501,
-    exp = 65,
-    intimacy = 8,
-    property = [{136,161,0}],
-    name = "情比金坚（物攻）",
-    level = 39
+    exp = 150,
+    intimacy = 17,
+    property = [{136,290,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,9)->
     #spouseskillCfg {
@@ -1187,11 +1187,11 @@ getRow(2,9)->
     group = 2,
     skilllevel = 9,
     skillid = 13501,
-    exp = 75,
-    intimacy = 9,
-    property = [{136,166,0}],
-    name = "情比金坚（物攻）",
-    level = 39
+    exp = 170,
+    intimacy = 19,
+    property = [{136,310,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,10)->
     #spouseskillCfg {
@@ -1199,11 +1199,11 @@ getRow(2,10)->
     group = 2,
     skilllevel = 10,
     skillid = 13501,
-    exp = 85,
-    intimacy = 10,
-    property = [{136,172,0}],
-    name = "情比金坚（物攻）",
-    level = 40
+    exp = 190,
+    intimacy = 21,
+    property = [{136,330,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,11)->
     #spouseskillCfg {
@@ -1211,11 +1211,11 @@ getRow(2,11)->
     group = 2,
     skilllevel = 11,
     skillid = 13501,
-    exp = 95,
-    intimacy = 11,
-    property = [{136,178,0}],
-    name = "情比金坚（物攻）",
-    level = 40
+    exp = 210,
+    intimacy = 23,
+    property = [{136,350,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,12)->
     #spouseskillCfg {
@@ -1223,11 +1223,11 @@ getRow(2,12)->
     group = 2,
     skilllevel = 12,
     skillid = 13501,
-    exp = 105,
-    intimacy = 12,
-    property = [{136,184,0}],
-    name = "情比金坚（物攻）",
-    level = 41
+    exp = 230,
+    intimacy = 26,
+    property = [{136,370,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,13)->
     #spouseskillCfg {
@@ -1235,11 +1235,11 @@ getRow(2,13)->
     group = 2,
     skilllevel = 13,
     skillid = 13501,
-    exp = 115,
-    intimacy = 13,
-    property = [{136,191,0}],
-    name = "情比金坚（物攻）",
-    level = 41
+    exp = 260,
+    intimacy = 29,
+    property = [{136,390,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,14)->
     #spouseskillCfg {
@@ -1247,11 +1247,11 @@ getRow(2,14)->
     group = 2,
     skilllevel = 14,
     skillid = 13501,
-    exp = 125,
-    intimacy = 14,
-    property = [{136,199,0}],
-    name = "情比金坚（物攻）",
-    level = 42
+    exp = 290,
+    intimacy = 32,
+    property = [{136,410,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,15)->
     #spouseskillCfg {
@@ -1259,11 +1259,11 @@ getRow(2,15)->
     group = 2,
     skilllevel = 15,
     skillid = 13501,
-    exp = 140,
-    intimacy = 15,
-    property = [{136,207,0}],
-    name = "情比金坚（物攻）",
-    level = 42
+    exp = 320,
+    intimacy = 35,
+    property = [{136,430,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,16)->
     #spouseskillCfg {
@@ -1271,11 +1271,11 @@ getRow(2,16)->
     group = 2,
     skilllevel = 16,
     skillid = 13501,
-    exp = 150,
-    intimacy = 16,
-    property = [{136,215,0}],
-    name = "情比金坚（物攻）",
-    level = 43
+    exp = 350,
+    intimacy = 38,
+    property = [{136,450,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,17)->
     #spouseskillCfg {
@@ -1283,11 +1283,11 @@ getRow(2,17)->
     group = 2,
     skilllevel = 17,
     skillid = 13501,
-    exp = 160,
-    intimacy = 17,
-    property = [{136,224,0}],
-    name = "情比金坚（物攻）",
-    level = 43
+    exp = 380,
+    intimacy = 41,
+    property = [{136,470,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,18)->
     #spouseskillCfg {
@@ -1295,11 +1295,11 @@ getRow(2,18)->
     group = 2,
     skilllevel = 18,
     skillid = 13501,
-    exp = 170,
-    intimacy = 18,
-    property = [{136,233,0}],
-    name = "情比金坚（物攻）",
-    level = 44
+    exp = 410,
+    intimacy = 44,
+    property = [{136,490,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,19)->
     #spouseskillCfg {
@@ -1307,11 +1307,11 @@ getRow(2,19)->
     group = 2,
     skilllevel = 19,
     skillid = 13501,
-    exp = 180,
-    intimacy = 19,
-    property = [{136,242,0}],
-    name = "情比金坚（物攻）",
-    level = 44
+    exp = 440,
+    intimacy = 47,
+    property = [{136,510,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,20)->
     #spouseskillCfg {
@@ -1319,11 +1319,11 @@ getRow(2,20)->
     group = 2,
     skilllevel = 20,
     skillid = 13501,
-    exp = 190,
-    intimacy = 20,
-    property = [{136,252,0}],
-    name = "情比金坚（物攻）",
-    level = 45
+    exp = 470,
+    intimacy = 50,
+    property = [{136,530,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,21)->
     #spouseskillCfg {
@@ -1331,11 +1331,11 @@ getRow(2,21)->
     group = 2,
     skilllevel = 21,
     skillid = 13501,
-    exp = 205,
-    intimacy = 21,
-    property = [{136,263,0}],
-    name = "情比金坚（物攻）",
-    level = 45
+    exp = 500,
+    intimacy = 53,
+    property = [{136,550,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,22)->
     #spouseskillCfg {
@@ -1343,11 +1343,11 @@ getRow(2,22)->
     group = 2,
     skilllevel = 22,
     skillid = 13501,
-    exp = 215,
-    intimacy = 22,
-    property = [{136,273,0}],
-    name = "情比金坚（物攻）",
-    level = 46
+    exp = 530,
+    intimacy = 56,
+    property = [{136,570,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,23)->
     #spouseskillCfg {
@@ -1355,11 +1355,11 @@ getRow(2,23)->
     group = 2,
     skilllevel = 23,
     skillid = 13501,
-    exp = 225,
-    intimacy = 23,
-    property = [{136,284,0}],
-    name = "情比金坚（物攻）",
-    level = 46
+    exp = 560,
+    intimacy = 59,
+    property = [{136,590,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,24)->
     #spouseskillCfg {
@@ -1367,11 +1367,11 @@ getRow(2,24)->
     group = 2,
     skilllevel = 24,
     skillid = 13501,
-    exp = 235,
-    intimacy = 24,
-    property = [{136,295,0}],
-    name = "情比金坚（物攻）",
-    level = 47
+    exp = 590,
+    intimacy = 65,
+    property = [{136,610,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,25)->
     #spouseskillCfg {
@@ -1379,11 +1379,11 @@ getRow(2,25)->
     group = 2,
     skilllevel = 25,
     skillid = 13501,
-    exp = 245,
-    intimacy = 25,
-    property = [{136,307,0}],
-    name = "情比金坚（物攻）",
-    level = 47
+    exp = 650,
+    intimacy = 71,
+    property = [{136,630,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,26)->
     #spouseskillCfg {
@@ -1391,11 +1391,11 @@ getRow(2,26)->
     group = 2,
     skilllevel = 26,
     skillid = 13501,
-    exp = 260,
-    intimacy = 26,
-    property = [{136,319,0}],
-    name = "情比金坚（物攻）",
-    level = 48
+    exp = 710,
+    intimacy = 77,
+    property = [{136,650,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,27)->
     #spouseskillCfg {
@@ -1403,11 +1403,11 @@ getRow(2,27)->
     group = 2,
     skilllevel = 27,
     skillid = 13501,
-    exp = 270,
-    intimacy = 27,
-    property = [{136,331,0}],
-    name = "情比金坚（物攻）",
-    level = 48
+    exp = 770,
+    intimacy = 83,
+    property = [{136,670,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,28)->
     #spouseskillCfg {
@@ -1415,11 +1415,11 @@ getRow(2,28)->
     group = 2,
     skilllevel = 28,
     skillid = 13501,
-    exp = 280,
-    intimacy = 28,
-    property = [{136,344,0}],
-    name = "情比金坚（物攻）",
-    level = 49
+    exp = 830,
+    intimacy = 89,
+    property = [{136,690,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,29)->
     #spouseskillCfg {
@@ -1427,11 +1427,11 @@ getRow(2,29)->
     group = 2,
     skilllevel = 29,
     skillid = 13501,
-    exp = 290,
-    intimacy = 29,
-    property = [{136,357,0}],
-    name = "情比金坚（物攻）",
-    level = 49
+    exp = 890,
+    intimacy = 95,
+    property = [{136,710,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,30)->
     #spouseskillCfg {
@@ -1439,11 +1439,11 @@ getRow(2,30)->
     group = 2,
     skilllevel = 30,
     skillid = 13501,
-    exp = 305,
-    intimacy = 30,
-    property = [{136,370,0}],
-    name = "情比金坚（物攻）",
-    level = 50
+    exp = 950,
+    intimacy = 101,
+    property = [{136,730,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,31)->
     #spouseskillCfg {
@@ -1451,11 +1451,11 @@ getRow(2,31)->
     group = 2,
     skilllevel = 31,
     skillid = 13501,
-    exp = 315,
-    intimacy = 31,
-    property = [{136,384,0}],
-    name = "情比金坚（物攻）",
-    level = 50
+    exp = 1010,
+    intimacy = 107,
+    property = [{136,750,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,32)->
     #spouseskillCfg {
@@ -1463,11 +1463,11 @@ getRow(2,32)->
     group = 2,
     skilllevel = 32,
     skillid = 13501,
-    exp = 325,
-    intimacy = 32,
-    property = [{136,398,0}],
-    name = "情比金坚（物攻）",
-    level = 51
+    exp = 1070,
+    intimacy = 113,
+    property = [{136,770,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,33)->
     #spouseskillCfg {
@@ -1475,11 +1475,11 @@ getRow(2,33)->
     group = 2,
     skilllevel = 33,
     skillid = 13501,
-    exp = 340,
-    intimacy = 33,
-    property = [{136,412,0}],
-    name = "情比金坚（物攻）",
-    level = 51
+    exp = 1130,
+    intimacy = 119,
+    property = [{136,790,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,34)->
     #spouseskillCfg {
@@ -1487,11 +1487,11 @@ getRow(2,34)->
     group = 2,
     skilllevel = 34,
     skillid = 13501,
-    exp = 350,
-    intimacy = 34,
-    property = [{136,427,0}],
-    name = "情比金坚（物攻）",
-    level = 52
+    exp = 1190,
+    intimacy = 125,
+    property = [{136,810,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,35)->
     #spouseskillCfg {
@@ -1499,11 +1499,11 @@ getRow(2,35)->
     group = 2,
     skilllevel = 35,
     skillid = 13501,
-    exp = 360,
-    intimacy = 35,
-    property = [{136,442,0}],
-    name = "情比金坚（物攻）",
-    level = 52
+    exp = 1250,
+    intimacy = 131,
+    property = [{136,830,0}],
+    name = "心心相印",
+    level = 34
     };
 getRow(2,36)->
     #spouseskillCfg {
@@ -1511,11 +1511,11 @@ getRow(2,36)->
     group = 2,
     skilllevel = 36,
     skillid = 13501,
-    exp = 375,
-    intimacy = 36,
-    property = [{136,457,0}],
-    name = "情比金坚（物攻）",
-    level = 53
+    exp = 1310,
+    intimacy = 139,
+    property = [{136,850,0}],
+    name = "心心相印",
+    level = 36
     };
 getRow(2,37)->
     #spouseskillCfg {
@@ -1523,11 +1523,11 @@ getRow(2,37)->
     group = 2,
     skilllevel = 37,
     skillid = 13501,
-    exp = 385,
-    intimacy = 37,
-    property = [{136,473,0}],
-    name = "情比金坚（物攻）",
-    level = 53
+    exp = 1390,
+    intimacy = 147,
+    property = [{136,870,0}],
+    name = "心心相印",
+    level = 37
     };
 getRow(2,38)->
     #spouseskillCfg {
@@ -1535,11 +1535,11 @@ getRow(2,38)->
     group = 2,
     skilllevel = 38,
     skillid = 13501,
-    exp = 395,
-    intimacy = 38,
-    property = [{136,489,0}],
-    name = "情比金坚（物攻）",
-    level = 54
+    exp = 1470,
+    intimacy = 155,
+    property = [{136,890,0}],
+    name = "心心相印",
+    level = 38
     };
 getRow(2,39)->
     #spouseskillCfg {
@@ -1547,11 +1547,11 @@ getRow(2,39)->
     group = 2,
     skilllevel = 39,
     skillid = 13501,
-    exp = 410,
-    intimacy = 39,
-    property = [{136,505,0}],
-    name = "情比金坚（物攻）",
-    level = 54
+    exp = 1550,
+    intimacy = 163,
+    property = [{136,910,0}],
+    name = "心心相印",
+    level = 39
     };
 getRow(2,40)->
     #spouseskillCfg {
@@ -1559,11 +1559,11 @@ getRow(2,40)->
     group = 2,
     skilllevel = 40,
     skillid = 13501,
-    exp = 420,
-    intimacy = 40,
-    property = [{136,521,0}],
-    name = "情比金坚（物攻）",
-    level = 55
+    exp = 1630,
+    intimacy = 171,
+    property = [{136,930,0}],
+    name = "心心相印",
+    level = 40
     };
 getRow(2,41)->
     #spouseskillCfg {
@@ -1571,11 +1571,11 @@ getRow(2,41)->
     group = 2,
     skilllevel = 41,
     skillid = 13501,
-    exp = 430,
-    intimacy = 41,
-    property = [{136,538,0}],
-    name = "情比金坚（物攻）",
-    level = 55
+    exp = 1710,
+    intimacy = 179,
+    property = [{136,950,0}],
+    name = "心心相印",
+    level = 41
     };
 getRow(2,42)->
     #spouseskillCfg {
@@ -1583,11 +1583,11 @@ getRow(2,42)->
     group = 2,
     skilllevel = 42,
     skillid = 13501,
-    exp = 445,
-    intimacy = 42,
-    property = [{136,555,0}],
-    name = "情比金坚（物攻）",
-    level = 56
+    exp = 1790,
+    intimacy = 187,
+    property = [{136,970,0}],
+    name = "心心相印",
+    level = 42
     };
 getRow(2,43)->
     #spouseskillCfg {
@@ -1595,11 +1595,11 @@ getRow(2,43)->
     group = 2,
     skilllevel = 43,
     skillid = 13501,
-    exp = 455,
-    intimacy = 43,
-    property = [{136,573,0}],
-    name = "情比金坚（物攻）",
-    level = 56
+    exp = 1870,
+    intimacy = 195,
+    property = [{136,990,0}],
+    name = "心心相印",
+    level = 43
     };
 getRow(2,44)->
     #spouseskillCfg {
@@ -1607,11 +1607,11 @@ getRow(2,44)->
     group = 2,
     skilllevel = 44,
     skillid = 13501,
-    exp = 465,
-    intimacy = 44,
-    property = [{136,590,0}],
-    name = "情比金坚（物攻）",
-    level = 57
+    exp = 1950,
+    intimacy = 203,
+    property = [{136,1010,0}],
+    name = "心心相印",
+    level = 44
     };
 getRow(2,45)->
     #spouseskillCfg {
@@ -1619,11 +1619,11 @@ getRow(2,45)->
     group = 2,
     skilllevel = 45,
     skillid = 13501,
-    exp = 480,
-    intimacy = 45,
-    property = [{136,608,0}],
-    name = "情比金坚（物攻）",
-    level = 57
+    exp = 2030,
+    intimacy = 211,
+    property = [{136,1030,0}],
+    name = "心心相印",
+    level = 45
     };
 getRow(2,46)->
     #spouseskillCfg {
@@ -1631,11 +1631,11 @@ getRow(2,46)->
     group = 2,
     skilllevel = 46,
     skillid = 13501,
-    exp = 490,
-    intimacy = 46,
-    property = [{136,626,0}],
-    name = "情比金坚（物攻）",
-    level = 58
+    exp = 2110,
+    intimacy = 219,
+    property = [{136,1050,0}],
+    name = "心心相印",
+    level = 46
     };
 getRow(2,47)->
     #spouseskillCfg {
@@ -1643,11 +1643,11 @@ getRow(2,47)->
     group = 2,
     skilllevel = 47,
     skillid = 13501,
-    exp = 505,
-    intimacy = 47,
-    property = [{136,645,0}],
-    name = "情比金坚（物攻）",
-    level = 58
+    exp = 2190,
+    intimacy = 227,
+    property = [{136,1070,0}],
+    name = "心心相印",
+    level = 47
     };
 getRow(2,48)->
     #spouseskillCfg {
@@ -1655,11 +1655,11 @@ getRow(2,48)->
     group = 2,
     skilllevel = 48,
     skillid = 13501,
-    exp = 515,
-    intimacy = 48,
-    property = [{136,664,0}],
-    name = "情比金坚（物攻）",
-    level = 59
+    exp = 2270,
+    intimacy = 237,
+    property = [{136,1090,0}],
+    name = "心心相印",
+    level = 48
     };
 getRow(2,49)->
     #spouseskillCfg {
@@ -1667,11 +1667,11 @@ getRow(2,49)->
     group = 2,
     skilllevel = 49,
     skillid = 13501,
-    exp = 525,
-    intimacy = 49,
-    property = [{136,683,0}],
-    name = "情比金坚（物攻）",
-    level = 59
+    exp = 2370,
+    intimacy = 247,
+    property = [{136,1110,0}],
+    name = "心心相印",
+    level = 49
     };
 getRow(2,50)->
     #spouseskillCfg {
@@ -1679,11 +1679,11 @@ getRow(2,50)->
     group = 2,
     skilllevel = 50,
     skillid = 13501,
-    exp = 540,
-    intimacy = 50,
-    property = [{136,702,0}],
-    name = "情比金坚（物攻）",
-    level = 60
+    exp = 2470,
+    intimacy = 257,
+    property = [{136,1130,0}],
+    name = "心心相印",
+    level = 50
     };
 getRow(2,51)->
     #spouseskillCfg {
@@ -1691,11 +1691,11 @@ getRow(2,51)->
     group = 2,
     skilllevel = 51,
     skillid = 13501,
-    exp = 550,
-    intimacy = 51,
-    property = [{136,722,0}],
-    name = "情比金坚（物攻）",
-    level = 60
+    exp = 2570,
+    intimacy = 267,
+    property = [{136,1150,0}],
+    name = "心心相印",
+    level = 51
     };
 getRow(2,52)->
     #spouseskillCfg {
@@ -1703,11 +1703,11 @@ getRow(2,52)->
     group = 2,
     skilllevel = 52,
     skillid = 13501,
-    exp = 565,
-    intimacy = 52,
-    property = [{136,742,0}],
-    name = "情比金坚（物攻）",
-    level = 61
+    exp = 2670,
+    intimacy = 277,
+    property = [{136,1170,0}],
+    name = "心心相印",
+    level = 52
     };
 getRow(2,53)->
     #spouseskillCfg {
@@ -1715,11 +1715,11 @@ getRow(2,53)->
     group = 2,
     skilllevel = 53,
     skillid = 13501,
-    exp = 575,
-    intimacy = 53,
-    property = [{136,762,0}],
-    name = "情比金坚（物攻）",
-    level = 61
+    exp = 2770,
+    intimacy = 287,
+    property = [{136,1190,0}],
+    name = "心心相印",
+    level = 53
     };
 getRow(2,54)->
     #spouseskillCfg {
@@ -1727,11 +1727,11 @@ getRow(2,54)->
     group = 2,
     skilllevel = 54,
     skillid = 13501,
-    exp = 590,
-    intimacy = 54,
-    property = [{136,782,0}],
-    name = "情比金坚（物攻）",
-    level = 62
+    exp = 2870,
+    intimacy = 297,
+    property = [{136,1210,0}],
+    name = "心心相印",
+    level = 54
     };
 getRow(2,55)->
     #spouseskillCfg {
@@ -1739,11 +1739,11 @@ getRow(2,55)->
     group = 2,
     skilllevel = 55,
     skillid = 13501,
-    exp = 600,
-    intimacy = 55,
-    property = [{136,803,0}],
-    name = "情比金坚（物攻）",
-    level = 62
+    exp = 2970,
+    intimacy = 307,
+    property = [{136,1230,0}],
+    name = "心心相印",
+    level = 55
     };
 getRow(2,56)->
     #spouseskillCfg {
@@ -1751,11 +1751,11 @@ getRow(2,56)->
     group = 2,
     skilllevel = 56,
     skillid = 13501,
-    exp = 610,
-    intimacy = 56,
-    property = [{136,824,0}],
-    name = "情比金坚（物攻）",
-    level = 63
+    exp = 3070,
+    intimacy = 317,
+    property = [{136,1250,0}],
+    name = "心心相印",
+    level = 56
     };
 getRow(2,57)->
     #spouseskillCfg {
@@ -1763,11 +1763,11 @@ getRow(2,57)->
     group = 2,
     skilllevel = 57,
     skillid = 13501,
-    exp = 625,
-    intimacy = 57,
-    property = [{136,845,0}],
-    name = "情比金坚（物攻）",
-    level = 63
+    exp = 3170,
+    intimacy = 327,
+    property = [{136,1270,0}],
+    name = "心心相印",
+    level = 57
     };
 getRow(2,58)->
     #spouseskillCfg {
@@ -1775,11 +1775,11 @@ getRow(2,58)->
     group = 2,
     skilllevel = 58,
     skillid = 13501,
-    exp = 635,
-    intimacy = 58,
-    property = [{136,867,0}],
-    name = "情比金坚（物攻）",
-    level = 64
+    exp = 3270,
+    intimacy = 337,
+    property = [{136,1290,0}],
+    name = "心心相印",
+    level = 58
     };
 getRow(2,59)->
     #spouseskillCfg {
@@ -1787,11 +1787,11 @@ getRow(2,59)->
     group = 2,
     skilllevel = 59,
     skillid = 13501,
-    exp = 650,
-    intimacy = 59,
-    property = [{136,889,0}],
-    name = "情比金坚（物攻）",
-    level = 64
+    exp = 3370,
+    intimacy = 347,
+    property = [{136,1310,0}],
+    name = "心心相印",
+    level = 59
     };
 getRow(2,60)->
     #spouseskillCfg {
@@ -1799,11 +1799,11 @@ getRow(2,60)->
     group = 2,
     skilllevel = 60,
     skillid = 13501,
-    exp = 660,
-    intimacy = 60,
-    property = [{136,911,0}],
-    name = "情比金坚（物攻）",
-    level = 65
+    exp = 3470,
+    intimacy = 357,
+    property = [{136,1330,0}],
+    name = "心心相印",
+    level = 60
     };
 getRow(2,61)->
     #spouseskillCfg {
@@ -1811,11 +1811,11 @@ getRow(2,61)->
     group = 2,
     skilllevel = 61,
     skillid = 13501,
-    exp = 675,
-    intimacy = 61,
-    property = [{136,933,0}],
-    name = "情比金坚（物攻）",
-    level = 65
+    exp = 3570,
+    intimacy = 367,
+    property = [{136,1350,0}],
+    name = "心心相印",
+    level = 61
     };
 getRow(2,62)->
     #spouseskillCfg {
@@ -1823,11 +1823,11 @@ getRow(2,62)->
     group = 2,
     skilllevel = 62,
     skillid = 13501,
-    exp = 685,
-    intimacy = 62,
-    property = [{136,956,0}],
-    name = "情比金坚（物攻）",
-    level = 66
+    exp = 3670,
+    intimacy = 377,
+    property = [{136,1370,0}],
+    name = "心心相印",
+    level = 62
     };
 getRow(2,63)->
     #spouseskillCfg {
@@ -1835,11 +1835,11 @@ getRow(2,63)->
     group = 2,
     skilllevel = 63,
     skillid = 13501,
-    exp = 700,
-    intimacy = 63,
-    property = [{136,979,0}],
-    name = "情比金坚（物攻）",
-    level = 66
+    exp = 3770,
+    intimacy = 387,
+    property = [{136,1390,0}],
+    name = "心心相印",
+    level = 63
     };
 getRow(2,64)->
     #spouseskillCfg {
@@ -1847,11 +1847,11 @@ getRow(2,64)->
     group = 2,
     skilllevel = 64,
     skillid = 13501,
-    exp = 710,
-    intimacy = 64,
-    property = [{136,1002,0}],
-    name = "情比金坚（物攻）",
-    level = 67
+    exp = 3870,
+    intimacy = 397,
+    property = [{136,1410,0}],
+    name = "心心相印",
+    level = 64
     };
 getRow(2,65)->
     #spouseskillCfg {
@@ -1859,11 +1859,11 @@ getRow(2,65)->
     group = 2,
     skilllevel = 65,
     skillid = 13501,
-    exp = 725,
-    intimacy = 65,
-    property = [{136,1025,0}],
-    name = "情比金坚（物攻）",
-    level = 67
+    exp = 3970,
+    intimacy = 407,
+    property = [{136,1430,0}],
+    name = "心心相印",
+    level = 65
     };
 getRow(2,66)->
     #spouseskillCfg {
@@ -1871,11 +1871,11 @@ getRow(2,66)->
     group = 2,
     skilllevel = 66,
     skillid = 13501,
-    exp = 735,
-    intimacy = 66,
-    property = [{136,1049,0}],
-    name = "情比金坚（物攻）",
-    level = 68
+    exp = 4070,
+    intimacy = 417,
+    property = [{136,1450,0}],
+    name = "心心相印",
+    level = 66
     };
 getRow(2,67)->
     #spouseskillCfg {
@@ -1883,11 +1883,11 @@ getRow(2,67)->
     group = 2,
     skilllevel = 67,
     skillid = 13501,
-    exp = 750,
-    intimacy = 67,
-    property = [{136,1073,0}],
-    name = "情比金坚（物攻）",
-    level = 68
+    exp = 4170,
+    intimacy = 427,
+    property = [{136,1470,0}],
+    name = "心心相印",
+    level = 67
     };
 getRow(2,68)->
     #spouseskillCfg {
@@ -1895,11 +1895,11 @@ getRow(2,68)->
     group = 2,
     skilllevel = 68,
     skillid = 13501,
-    exp = 760,
-    intimacy = 68,
-    property = [{136,1097,0}],
-    name = "情比金坚（物攻）",
-    level = 69
+    exp = 4270,
+    intimacy = 437,
+    property = [{136,1490,0}],
+    name = "心心相印",
+    level = 68
     };
 getRow(2,69)->
     #spouseskillCfg {
@@ -1907,10 +1907,10 @@ getRow(2,69)->
     group = 2,
     skilllevel = 69,
     skillid = 13501,
-    exp = 770,
-    intimacy = 69,
-    property = [{136,1121,0}],
-    name = "情比金坚（物攻）",
+    exp = 4370,
+    intimacy = 447,
+    property = [{136,1510,0}],
+    name = "心心相印",
     level = 69
     };
 getRow(2,70)->
@@ -1919,10 +1919,10 @@ getRow(2,70)->
     group = 2,
     skilllevel = 70,
     skillid = 13501,
-    exp = 785,
-    intimacy = 70,
-    property = [{136,1146,0}],
-    name = "情比金坚（物攻）",
+    exp = 4470,
+    intimacy = 477,
+    property = [{136,1530,0}],
+    name = "心心相印",
     level = 70
     };
 getRow(2,71)->
@@ -1931,11 +1931,11 @@ getRow(2,71)->
     group = 2,
     skilllevel = 71,
     skillid = 13501,
-    exp = 795,
-    intimacy = 71,
-    property = [{136,1171,0}],
-    name = "情比金坚（物攻）",
-    level = 70
+    exp = 4770,
+    intimacy = 507,
+    property = [{136,1550,0}],
+    name = "心心相印",
+    level = 71
     };
 getRow(2,72)->
     #spouseskillCfg {
@@ -1943,11 +1943,11 @@ getRow(2,72)->
     group = 2,
     skilllevel = 72,
     skillid = 13501,
-    exp = 810,
-    intimacy = 72,
-    property = [{136,1196,0}],
-    name = "情比金坚（物攻）",
-    level = 71
+    exp = 5070,
+    intimacy = 537,
+    property = [{136,1570,0}],
+    name = "心心相印",
+    level = 72
     };
 getRow(2,73)->
     #spouseskillCfg {
@@ -1955,11 +1955,11 @@ getRow(2,73)->
     group = 2,
     skilllevel = 73,
     skillid = 13501,
-    exp = 820,
-    intimacy = 73,
-    property = [{136,1221,0}],
-    name = "情比金坚（物攻）",
-    level = 71
+    exp = 5370,
+    intimacy = 567,
+    property = [{136,1590,0}],
+    name = "心心相印",
+    level = 73
     };
 getRow(2,74)->
     #spouseskillCfg {
@@ -1967,11 +1967,11 @@ getRow(2,74)->
     group = 2,
     skilllevel = 74,
     skillid = 13501,
-    exp = 835,
-    intimacy = 74,
-    property = [{136,1247,0}],
-    name = "情比金坚（物攻）",
-    level = 72
+    exp = 5670,
+    intimacy = 597,
+    property = [{136,1610,0}],
+    name = "心心相印",
+    level = 74
     };
 getRow(2,75)->
     #spouseskillCfg {
@@ -1979,11 +1979,11 @@ getRow(2,75)->
     group = 2,
     skilllevel = 75,
     skillid = 13501,
-    exp = 845,
-    intimacy = 75,
-    property = [{136,1273,0}],
-    name = "情比金坚（物攻）",
-    level = 72
+    exp = 5970,
+    intimacy = 627,
+    property = [{136,1630,0}],
+    name = "心心相印",
+    level = 75
     };
 getRow(2,76)->
     #spouseskillCfg {
@@ -1991,11 +1991,11 @@ getRow(2,76)->
     group = 2,
     skilllevel = 76,
     skillid = 13501,
-    exp = 860,
-    intimacy = 76,
-    property = [{136,1299,0}],
-    name = "情比金坚（物攻）",
-    level = 73
+    exp = 6270,
+    intimacy = 657,
+    property = [{136,1650,0}],
+    name = "心心相印",
+    level = 76
     };
 getRow(2,77)->
     #spouseskillCfg {
@@ -2003,11 +2003,11 @@ getRow(2,77)->
     group = 2,
     skilllevel = 77,
     skillid = 13501,
-    exp = 875,
-    intimacy = 77,
-    property = [{136,1326,0}],
-    name = "情比金坚（物攻）",
-    level = 73
+    exp = 6570,
+    intimacy = 687,
+    property = [{136,1670,0}],
+    name = "心心相印",
+    level = 77
     };
 getRow(2,78)->
     #spouseskillCfg {
@@ -2015,11 +2015,11 @@ getRow(2,78)->
     group = 2,
     skilllevel = 78,
     skillid = 13501,
-    exp = 885,
-    intimacy = 78,
-    property = [{136,1352,0}],
-    name = "情比金坚（物攻）",
-    level = 74
+    exp = 6870,
+    intimacy = 717,
+    property = [{136,1690,0}],
+    name = "心心相印",
+    level = 78
     };
 getRow(2,79)->
     #spouseskillCfg {
@@ -2027,11 +2027,11 @@ getRow(2,79)->
     group = 2,
     skilllevel = 79,
     skillid = 13501,
-    exp = 900,
-    intimacy = 79,
-    property = [{136,1379,0}],
-    name = "情比金坚（物攻）",
-    level = 74
+    exp = 7170,
+    intimacy = 747,
+    property = [{136,1710,0}],
+    name = "心心相印",
+    level = 79
     };
 getRow(2,80)->
     #spouseskillCfg {
@@ -2039,11 +2039,11 @@ getRow(2,80)->
     group = 2,
     skilllevel = 80,
     skillid = 13501,
-    exp = 910,
-    intimacy = 80,
-    property = [{136,1406,0}],
-    name = "情比金坚（物攻）",
-    level = 75
+    exp = 7470,
+    intimacy = 827,
+    property = [{136,1730,0}],
+    name = "心心相印",
+    level = 80
     };
 getRow(2,81)->
     #spouseskillCfg {
@@ -2051,11 +2051,11 @@ getRow(2,81)->
     group = 2,
     skilllevel = 81,
     skillid = 13501,
-    exp = 910,
-    intimacy = 81,
-    property = [{136,17000,0}],
-    name = "情比金坚（物攻）",
-    level = 75
+    exp = 8270,
+    intimacy = 907,
+    property = [{136,1750,0}],
+    name = "心心相印",
+    level = 81
     };
 getRow(2,82)->
     #spouseskillCfg {
@@ -2063,11 +2063,11 @@ getRow(2,82)->
     group = 2,
     skilllevel = 82,
     skillid = 13501,
-    exp = 33725,
-    intimacy = 82,
-    property = [{136,17200,0}],
-    name = "情比金坚（物攻）",
-    level = 76
+    exp = 9070,
+    intimacy = 987,
+    property = [{136,1770,0}],
+    name = "心心相印",
+    level = 82
     };
 getRow(2,83)->
     #spouseskillCfg {
@@ -2075,11 +2075,11 @@ getRow(2,83)->
     group = 2,
     skilllevel = 83,
     skillid = 13501,
-    exp = 33725,
-    intimacy = 83,
-    property = [{136,17400,0}],
-    name = "情比金坚（物攻）",
-    level = 76
+    exp = 9870,
+    intimacy = 1067,
+    property = [{136,1790,0}],
+    name = "心心相印",
+    level = 83
     };
 getRow(2,84)->
     #spouseskillCfg {
@@ -2087,11 +2087,11 @@ getRow(2,84)->
     group = 2,
     skilllevel = 84,
     skillid = 13501,
-    exp = 33725,
-    intimacy = 84,
-    property = [{136,17600,0}],
-    name = "情比金坚（物攻）",
-    level = 77
+    exp = 10670,
+    intimacy = 1147,
+    property = [{136,1810,0}],
+    name = "心心相印",
+    level = 84
     };
 getRow(2,85)->
     #spouseskillCfg {
@@ -2099,11 +2099,11 @@ getRow(2,85)->
     group = 2,
     skilllevel = 85,
     skillid = 13501,
-    exp = 33725,
-    intimacy = 85,
-    property = [{136,17800,0}],
-    name = "情比金坚（物攻）",
-    level = 77
+    exp = 11470,
+    intimacy = 1227,
+    property = [{136,1830,0}],
+    name = "心心相印",
+    level = 85
     };
 getRow(2,86)->
     #spouseskillCfg {
@@ -2111,11 +2111,11 @@ getRow(2,86)->
     group = 2,
     skilllevel = 86,
     skillid = 13501,
-    exp = 33725,
-    intimacy = 86,
-    property = [{136,18000,0}],
-    name = "情比金坚（物攻）",
-    level = 78
+    exp = 12270,
+    intimacy = 1307,
+    property = [{136,1850,0}],
+    name = "心心相印",
+    level = 86
     };
 getRow(2,87)->
     #spouseskillCfg {
@@ -2123,11 +2123,11 @@ getRow(2,87)->
     group = 2,
     skilllevel = 87,
     skillid = 13501,
-    exp = 33725,
-    intimacy = 87,
-    property = [{136,18200,0}],
-    name = "情比金坚（物攻）",
-    level = 78
+    exp = 13070,
+    intimacy = 1387,
+    property = [{136,1870,0}],
+    name = "心心相印",
+    level = 87
     };
 getRow(2,88)->
     #spouseskillCfg {
@@ -2135,11 +2135,11 @@ getRow(2,88)->
     group = 2,
     skilllevel = 88,
     skillid = 13501,
-    exp = 33725,
-    intimacy = 88,
-    property = [{136,18400,0}],
-    name = "情比金坚（物攻）",
-    level = 79
+    exp = 13870,
+    intimacy = 1467,
+    property = [{136,1890,0}],
+    name = "心心相印",
+    level = 88
     };
 getRow(2,89)->
     #spouseskillCfg {
@@ -2147,11 +2147,11 @@ getRow(2,89)->
     group = 2,
     skilllevel = 89,
     skillid = 13501,
-    exp = 33725,
-    intimacy = 89,
-    property = [{136,18600,0}],
-    name = "情比金坚（物攻）",
-    level = 79
+    exp = 14670,
+    intimacy = 1547,
+    property = [{136,1910,0}],
+    name = "心心相印",
+    level = 89
     };
 getRow(2,90)->
     #spouseskillCfg {
@@ -2159,11 +2159,11 @@ getRow(2,90)->
     group = 2,
     skilllevel = 90,
     skillid = 13501,
-    exp = 33725,
-    intimacy = 90,
-    property = [{136,18800,0}],
-    name = "情比金坚（物攻）",
-    level = 80
+    exp = 15470,
+    intimacy = 1627,
+    property = [{136,1930,0}],
+    name = "心心相印",
+    level = 90
     };
 getRow(3,1)->
     #spouseskillCfg {
@@ -2172,10 +2172,10 @@ getRow(3,1)->
     skilllevel = 1,
     skillid = 13502,
     exp = 0,
-    intimacy = 1,
-    property = [{137,140,0}],
-    name = "情比金坚（法攻）",
-    level = 35
+    intimacy = 3,
+    property = [{137,150,0}],
+    name = "心有灵犀",
+    level = 0
     };
 getRow(3,2)->
     #spouseskillCfg {
@@ -2183,11 +2183,11 @@ getRow(3,2)->
     group = 3,
     skilllevel = 2,
     skillid = 13502,
-    exp = 10,
-    intimacy = 2,
-    property = [{137,141,0}],
-    name = "情比金坚（法攻）",
-    level = 36
+    exp = 30,
+    intimacy = 5,
+    property = [{137,170,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,3)->
     #spouseskillCfg {
@@ -2195,11 +2195,11 @@ getRow(3,3)->
     group = 3,
     skilllevel = 3,
     skillid = 13502,
-    exp = 20,
-    intimacy = 3,
-    property = [{137,142,0}],
-    name = "情比金坚（法攻）",
-    level = 36
+    exp = 50,
+    intimacy = 7,
+    property = [{137,190,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,4)->
     #spouseskillCfg {
@@ -2207,11 +2207,11 @@ getRow(3,4)->
     group = 3,
     skilllevel = 4,
     skillid = 13502,
-    exp = 30,
-    intimacy = 4,
-    property = [{137,145,0}],
-    name = "情比金坚（法攻）",
-    level = 37
+    exp = 70,
+    intimacy = 9,
+    property = [{137,210,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,5)->
     #spouseskillCfg {
@@ -2219,11 +2219,11 @@ getRow(3,5)->
     group = 3,
     skilllevel = 5,
     skillid = 13502,
-    exp = 35,
-    intimacy = 5,
-    property = [{137,148,0}],
-    name = "情比金坚（法攻）",
-    level = 37
+    exp = 90,
+    intimacy = 11,
+    property = [{137,230,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,6)->
     #spouseskillCfg {
@@ -2231,11 +2231,11 @@ getRow(3,6)->
     group = 3,
     skilllevel = 6,
     skillid = 13502,
-    exp = 45,
-    intimacy = 6,
-    property = [{137,152,0}],
-    name = "情比金坚（法攻）",
-    level = 38
+    exp = 110,
+    intimacy = 13,
+    property = [{137,250,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,7)->
     #spouseskillCfg {
@@ -2243,11 +2243,11 @@ getRow(3,7)->
     group = 3,
     skilllevel = 7,
     skillid = 13502,
-    exp = 55,
-    intimacy = 7,
-    property = [{137,156,0}],
-    name = "情比金坚（法攻）",
-    level = 38
+    exp = 130,
+    intimacy = 15,
+    property = [{137,270,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,8)->
     #spouseskillCfg {
@@ -2255,11 +2255,11 @@ getRow(3,8)->
     group = 3,
     skilllevel = 8,
     skillid = 13502,
-    exp = 65,
-    intimacy = 8,
-    property = [{137,161,0}],
-    name = "情比金坚（法攻）",
-    level = 39
+    exp = 150,
+    intimacy = 17,
+    property = [{137,290,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,9)->
     #spouseskillCfg {
@@ -2267,11 +2267,11 @@ getRow(3,9)->
     group = 3,
     skilllevel = 9,
     skillid = 13502,
-    exp = 75,
-    intimacy = 9,
-    property = [{137,166,0}],
-    name = "情比金坚（法攻）",
-    level = 39
+    exp = 170,
+    intimacy = 19,
+    property = [{137,310,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,10)->
     #spouseskillCfg {
@@ -2279,11 +2279,11 @@ getRow(3,10)->
     group = 3,
     skilllevel = 10,
     skillid = 13502,
-    exp = 85,
-    intimacy = 10,
-    property = [{137,172,0}],
-    name = "情比金坚（法攻）",
-    level = 40
+    exp = 190,
+    intimacy = 21,
+    property = [{137,330,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,11)->
     #spouseskillCfg {
@@ -2291,11 +2291,11 @@ getRow(3,11)->
     group = 3,
     skilllevel = 11,
     skillid = 13502,
-    exp = 95,
-    intimacy = 11,
-    property = [{137,178,0}],
-    name = "情比金坚（法攻）",
-    level = 40
+    exp = 210,
+    intimacy = 23,
+    property = [{137,350,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,12)->
     #spouseskillCfg {
@@ -2303,11 +2303,11 @@ getRow(3,12)->
     group = 3,
     skilllevel = 12,
     skillid = 13502,
-    exp = 105,
-    intimacy = 12,
-    property = [{137,184,0}],
-    name = "情比金坚（法攻）",
-    level = 41
+    exp = 230,
+    intimacy = 26,
+    property = [{137,370,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,13)->
     #spouseskillCfg {
@@ -2315,11 +2315,11 @@ getRow(3,13)->
     group = 3,
     skilllevel = 13,
     skillid = 13502,
-    exp = 115,
-    intimacy = 13,
-    property = [{137,191,0}],
-    name = "情比金坚（法攻）",
-    level = 41
+    exp = 260,
+    intimacy = 29,
+    property = [{137,390,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,14)->
     #spouseskillCfg {
@@ -2327,11 +2327,11 @@ getRow(3,14)->
     group = 3,
     skilllevel = 14,
     skillid = 13502,
-    exp = 125,
-    intimacy = 14,
-    property = [{137,199,0}],
-    name = "情比金坚（法攻）",
-    level = 42
+    exp = 290,
+    intimacy = 32,
+    property = [{137,410,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,15)->
     #spouseskillCfg {
@@ -2339,11 +2339,11 @@ getRow(3,15)->
     group = 3,
     skilllevel = 15,
     skillid = 13502,
-    exp = 140,
-    intimacy = 15,
-    property = [{137,207,0}],
-    name = "情比金坚（法攻）",
-    level = 42
+    exp = 320,
+    intimacy = 35,
+    property = [{137,430,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,16)->
     #spouseskillCfg {
@@ -2351,11 +2351,11 @@ getRow(3,16)->
     group = 3,
     skilllevel = 16,
     skillid = 13502,
-    exp = 150,
-    intimacy = 16,
-    property = [{137,215,0}],
-    name = "情比金坚（法攻）",
-    level = 43
+    exp = 350,
+    intimacy = 38,
+    property = [{137,450,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,17)->
     #spouseskillCfg {
@@ -2363,11 +2363,11 @@ getRow(3,17)->
     group = 3,
     skilllevel = 17,
     skillid = 13502,
-    exp = 160,
-    intimacy = 17,
-    property = [{137,224,0}],
-    name = "情比金坚（法攻）",
-    level = 43
+    exp = 380,
+    intimacy = 41,
+    property = [{137,470,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,18)->
     #spouseskillCfg {
@@ -2375,11 +2375,11 @@ getRow(3,18)->
     group = 3,
     skilllevel = 18,
     skillid = 13502,
-    exp = 170,
-    intimacy = 18,
-    property = [{137,233,0}],
-    name = "情比金坚（法攻）",
-    level = 44
+    exp = 410,
+    intimacy = 44,
+    property = [{137,490,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,19)->
     #spouseskillCfg {
@@ -2387,11 +2387,11 @@ getRow(3,19)->
     group = 3,
     skilllevel = 19,
     skillid = 13502,
-    exp = 180,
-    intimacy = 19,
-    property = [{137,242,0}],
-    name = "情比金坚（法攻）",
-    level = 44
+    exp = 440,
+    intimacy = 47,
+    property = [{137,510,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,20)->
     #spouseskillCfg {
@@ -2399,11 +2399,11 @@ getRow(3,20)->
     group = 3,
     skilllevel = 20,
     skillid = 13502,
-    exp = 190,
-    intimacy = 20,
-    property = [{137,252,0}],
-    name = "情比金坚（法攻）",
-    level = 45
+    exp = 470,
+    intimacy = 50,
+    property = [{137,530,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,21)->
     #spouseskillCfg {
@@ -2411,11 +2411,11 @@ getRow(3,21)->
     group = 3,
     skilllevel = 21,
     skillid = 13502,
-    exp = 205,
-    intimacy = 21,
-    property = [{137,263,0}],
-    name = "情比金坚（法攻）",
-    level = 45
+    exp = 500,
+    intimacy = 53,
+    property = [{137,550,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,22)->
     #spouseskillCfg {
@@ -2423,11 +2423,11 @@ getRow(3,22)->
     group = 3,
     skilllevel = 22,
     skillid = 13502,
-    exp = 215,
-    intimacy = 22,
-    property = [{137,273,0}],
-    name = "情比金坚（法攻）",
-    level = 46
+    exp = 530,
+    intimacy = 56,
+    property = [{137,570,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,23)->
     #spouseskillCfg {
@@ -2435,11 +2435,11 @@ getRow(3,23)->
     group = 3,
     skilllevel = 23,
     skillid = 13502,
-    exp = 225,
-    intimacy = 23,
-    property = [{137,284,0}],
-    name = "情比金坚（法攻）",
-    level = 46
+    exp = 560,
+    intimacy = 59,
+    property = [{137,590,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,24)->
     #spouseskillCfg {
@@ -2447,11 +2447,11 @@ getRow(3,24)->
     group = 3,
     skilllevel = 24,
     skillid = 13502,
-    exp = 235,
-    intimacy = 24,
-    property = [{137,295,0}],
-    name = "情比金坚（法攻）",
-    level = 47
+    exp = 590,
+    intimacy = 65,
+    property = [{137,610,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,25)->
     #spouseskillCfg {
@@ -2459,11 +2459,11 @@ getRow(3,25)->
     group = 3,
     skilllevel = 25,
     skillid = 13502,
-    exp = 245,
-    intimacy = 25,
-    property = [{137,307,0}],
-    name = "情比金坚（法攻）",
-    level = 47
+    exp = 650,
+    intimacy = 71,
+    property = [{137,630,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,26)->
     #spouseskillCfg {
@@ -2471,11 +2471,11 @@ getRow(3,26)->
     group = 3,
     skilllevel = 26,
     skillid = 13502,
-    exp = 260,
-    intimacy = 26,
-    property = [{137,319,0}],
-    name = "情比金坚（法攻）",
-    level = 48
+    exp = 710,
+    intimacy = 77,
+    property = [{137,650,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,27)->
     #spouseskillCfg {
@@ -2483,11 +2483,11 @@ getRow(3,27)->
     group = 3,
     skilllevel = 27,
     skillid = 13502,
-    exp = 270,
-    intimacy = 27,
-    property = [{137,331,0}],
-    name = "情比金坚（法攻）",
-    level = 48
+    exp = 770,
+    intimacy = 83,
+    property = [{137,670,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,28)->
     #spouseskillCfg {
@@ -2495,11 +2495,11 @@ getRow(3,28)->
     group = 3,
     skilllevel = 28,
     skillid = 13502,
-    exp = 280,
-    intimacy = 28,
-    property = [{137,344,0}],
-    name = "情比金坚（法攻）",
-    level = 49
+    exp = 830,
+    intimacy = 89,
+    property = [{137,690,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,29)->
     #spouseskillCfg {
@@ -2507,11 +2507,11 @@ getRow(3,29)->
     group = 3,
     skilllevel = 29,
     skillid = 13502,
-    exp = 290,
-    intimacy = 29,
-    property = [{137,357,0}],
-    name = "情比金坚（法攻）",
-    level = 49
+    exp = 890,
+    intimacy = 95,
+    property = [{137,710,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,30)->
     #spouseskillCfg {
@@ -2519,11 +2519,11 @@ getRow(3,30)->
     group = 3,
     skilllevel = 30,
     skillid = 13502,
-    exp = 305,
-    intimacy = 30,
-    property = [{137,370,0}],
-    name = "情比金坚（法攻）",
-    level = 50
+    exp = 950,
+    intimacy = 101,
+    property = [{137,730,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,31)->
     #spouseskillCfg {
@@ -2531,11 +2531,11 @@ getRow(3,31)->
     group = 3,
     skilllevel = 31,
     skillid = 13502,
-    exp = 315,
-    intimacy = 31,
-    property = [{137,384,0}],
-    name = "情比金坚（法攻）",
-    level = 50
+    exp = 1010,
+    intimacy = 107,
+    property = [{137,750,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,32)->
     #spouseskillCfg {
@@ -2543,11 +2543,11 @@ getRow(3,32)->
     group = 3,
     skilllevel = 32,
     skillid = 13502,
-    exp = 325,
-    intimacy = 32,
-    property = [{137,398,0}],
-    name = "情比金坚（法攻）",
-    level = 51
+    exp = 1070,
+    intimacy = 113,
+    property = [{137,770,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,33)->
     #spouseskillCfg {
@@ -2555,11 +2555,11 @@ getRow(3,33)->
     group = 3,
     skilllevel = 33,
     skillid = 13502,
-    exp = 340,
-    intimacy = 33,
-    property = [{137,412,0}],
-    name = "情比金坚（法攻）",
-    level = 51
+    exp = 1130,
+    intimacy = 119,
+    property = [{137,790,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,34)->
     #spouseskillCfg {
@@ -2567,11 +2567,11 @@ getRow(3,34)->
     group = 3,
     skilllevel = 34,
     skillid = 13502,
-    exp = 350,
-    intimacy = 34,
-    property = [{137,427,0}],
-    name = "情比金坚（法攻）",
-    level = 52
+    exp = 1190,
+    intimacy = 125,
+    property = [{137,810,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,35)->
     #spouseskillCfg {
@@ -2579,11 +2579,11 @@ getRow(3,35)->
     group = 3,
     skilllevel = 35,
     skillid = 13502,
-    exp = 360,
-    intimacy = 35,
-    property = [{137,442,0}],
-    name = "情比金坚（法攻）",
-    level = 52
+    exp = 1250,
+    intimacy = 131,
+    property = [{137,830,0}],
+    name = "心有灵犀",
+    level = 34
     };
 getRow(3,36)->
     #spouseskillCfg {
@@ -2591,11 +2591,11 @@ getRow(3,36)->
     group = 3,
     skilllevel = 36,
     skillid = 13502,
-    exp = 375,
-    intimacy = 36,
-    property = [{137,457,0}],
-    name = "情比金坚（法攻）",
-    level = 53
+    exp = 1310,
+    intimacy = 139,
+    property = [{137,850,0}],
+    name = "心有灵犀",
+    level = 36
     };
 getRow(3,37)->
     #spouseskillCfg {
@@ -2603,11 +2603,11 @@ getRow(3,37)->
     group = 3,
     skilllevel = 37,
     skillid = 13502,
-    exp = 385,
-    intimacy = 37,
-    property = [{137,473,0}],
-    name = "情比金坚（法攻）",
-    level = 53
+    exp = 1390,
+    intimacy = 147,
+    property = [{137,870,0}],
+    name = "心有灵犀",
+    level = 37
     };
 getRow(3,38)->
     #spouseskillCfg {
@@ -2615,11 +2615,11 @@ getRow(3,38)->
     group = 3,
     skilllevel = 38,
     skillid = 13502,
-    exp = 395,
-    intimacy = 38,
-    property = [{137,489,0}],
-    name = "情比金坚（法攻）",
-    level = 54
+    exp = 1470,
+    intimacy = 155,
+    property = [{137,890,0}],
+    name = "心有灵犀",
+    level = 38
     };
 getRow(3,39)->
     #spouseskillCfg {
@@ -2627,11 +2627,11 @@ getRow(3,39)->
     group = 3,
     skilllevel = 39,
     skillid = 13502,
-    exp = 410,
-    intimacy = 39,
-    property = [{137,505,0}],
-    name = "情比金坚（法攻）",
-    level = 54
+    exp = 1550,
+    intimacy = 163,
+    property = [{137,910,0}],
+    name = "心有灵犀",
+    level = 39
     };
 getRow(3,40)->
     #spouseskillCfg {
@@ -2639,11 +2639,11 @@ getRow(3,40)->
     group = 3,
     skilllevel = 40,
     skillid = 13502,
-    exp = 420,
-    intimacy = 40,
-    property = [{137,521,0}],
-    name = "情比金坚（法攻）",
-    level = 55
+    exp = 1630,
+    intimacy = 171,
+    property = [{137,930,0}],
+    name = "心有灵犀",
+    level = 40
     };
 getRow(3,41)->
     #spouseskillCfg {
@@ -2651,11 +2651,11 @@ getRow(3,41)->
     group = 3,
     skilllevel = 41,
     skillid = 13502,
-    exp = 430,
-    intimacy = 41,
-    property = [{137,538,0}],
-    name = "情比金坚（法攻）",
-    level = 55
+    exp = 1710,
+    intimacy = 179,
+    property = [{137,950,0}],
+    name = "心有灵犀",
+    level = 41
     };
 getRow(3,42)->
     #spouseskillCfg {
@@ -2663,11 +2663,11 @@ getRow(3,42)->
     group = 3,
     skilllevel = 42,
     skillid = 13502,
-    exp = 445,
-    intimacy = 42,
-    property = [{137,555,0}],
-    name = "情比金坚（法攻）",
-    level = 56
+    exp = 1790,
+    intimacy = 187,
+    property = [{137,970,0}],
+    name = "心有灵犀",
+    level = 42
     };
 getRow(3,43)->
     #spouseskillCfg {
@@ -2675,11 +2675,11 @@ getRow(3,43)->
     group = 3,
     skilllevel = 43,
     skillid = 13502,
-    exp = 455,
-    intimacy = 43,
-    property = [{137,573,0}],
-    name = "情比金坚（法攻）",
-    level = 56
+    exp = 1870,
+    intimacy = 195,
+    property = [{137,990,0}],
+    name = "心有灵犀",
+    level = 43
     };
 getRow(3,44)->
     #spouseskillCfg {
@@ -2687,11 +2687,11 @@ getRow(3,44)->
     group = 3,
     skilllevel = 44,
     skillid = 13502,
-    exp = 465,
-    intimacy = 44,
-    property = [{137,590,0}],
-    name = "情比金坚（法攻）",
-    level = 57
+    exp = 1950,
+    intimacy = 203,
+    property = [{137,1010,0}],
+    name = "心有灵犀",
+    level = 44
     };
 getRow(3,45)->
     #spouseskillCfg {
@@ -2699,11 +2699,11 @@ getRow(3,45)->
     group = 3,
     skilllevel = 45,
     skillid = 13502,
-    exp = 480,
-    intimacy = 45,
-    property = [{137,608,0}],
-    name = "情比金坚（法攻）",
-    level = 57
+    exp = 2030,
+    intimacy = 211,
+    property = [{137,1030,0}],
+    name = "心有灵犀",
+    level = 45
     };
 getRow(3,46)->
     #spouseskillCfg {
@@ -2711,11 +2711,11 @@ getRow(3,46)->
     group = 3,
     skilllevel = 46,
     skillid = 13502,
-    exp = 490,
-    intimacy = 46,
-    property = [{137,626,0}],
-    name = "情比金坚（法攻）",
-    level = 58
+    exp = 2110,
+    intimacy = 219,
+    property = [{137,1050,0}],
+    name = "心有灵犀",
+    level = 46
     };
 getRow(3,47)->
     #spouseskillCfg {
@@ -2723,11 +2723,11 @@ getRow(3,47)->
     group = 3,
     skilllevel = 47,
     skillid = 13502,
-    exp = 505,
-    intimacy = 47,
-    property = [{137,645,0}],
-    name = "情比金坚（法攻）",
-    level = 58
+    exp = 2190,
+    intimacy = 227,
+    property = [{137,1070,0}],
+    name = "心有灵犀",
+    level = 47
     };
 getRow(3,48)->
     #spouseskillCfg {
@@ -2735,11 +2735,11 @@ getRow(3,48)->
     group = 3,
     skilllevel = 48,
     skillid = 13502,
-    exp = 515,
-    intimacy = 48,
-    property = [{137,664,0}],
-    name = "情比金坚（法攻）",
-    level = 59
+    exp = 2270,
+    intimacy = 237,
+    property = [{137,1090,0}],
+    name = "心有灵犀",
+    level = 48
     };
 getRow(3,49)->
     #spouseskillCfg {
@@ -2747,11 +2747,11 @@ getRow(3,49)->
     group = 3,
     skilllevel = 49,
     skillid = 13502,
-    exp = 525,
-    intimacy = 49,
-    property = [{137,683,0}],
-    name = "情比金坚（法攻）",
-    level = 59
+    exp = 2370,
+    intimacy = 247,
+    property = [{137,1110,0}],
+    name = "心有灵犀",
+    level = 49
     };
 getRow(3,50)->
     #spouseskillCfg {
@@ -2759,11 +2759,11 @@ getRow(3,50)->
     group = 3,
     skilllevel = 50,
     skillid = 13502,
-    exp = 540,
-    intimacy = 50,
-    property = [{137,702,0}],
-    name = "情比金坚（法攻）",
-    level = 60
+    exp = 2470,
+    intimacy = 257,
+    property = [{137,1130,0}],
+    name = "心有灵犀",
+    level = 50
     };
 getRow(3,51)->
     #spouseskillCfg {
@@ -2771,11 +2771,11 @@ getRow(3,51)->
     group = 3,
     skilllevel = 51,
     skillid = 13502,
-    exp = 550,
-    intimacy = 51,
-    property = [{137,722,0}],
-    name = "情比金坚（法攻）",
-    level = 60
+    exp = 2570,
+    intimacy = 267,
+    property = [{137,1150,0}],
+    name = "心有灵犀",
+    level = 51
     };
 getRow(3,52)->
     #spouseskillCfg {
@@ -2783,11 +2783,11 @@ getRow(3,52)->
     group = 3,
     skilllevel = 52,
     skillid = 13502,
-    exp = 565,
-    intimacy = 52,
-    property = [{137,742,0}],
-    name = "情比金坚（法攻）",
-    level = 61
+    exp = 2670,
+    intimacy = 277,
+    property = [{137,1170,0}],
+    name = "心有灵犀",
+    level = 52
     };
 getRow(3,53)->
     #spouseskillCfg {
@@ -2795,11 +2795,11 @@ getRow(3,53)->
     group = 3,
     skilllevel = 53,
     skillid = 13502,
-    exp = 575,
-    intimacy = 53,
-    property = [{137,762,0}],
-    name = "情比金坚（法攻）",
-    level = 61
+    exp = 2770,
+    intimacy = 287,
+    property = [{137,1190,0}],
+    name = "心有灵犀",
+    level = 53
     };
 getRow(3,54)->
     #spouseskillCfg {
@@ -2807,11 +2807,11 @@ getRow(3,54)->
     group = 3,
     skilllevel = 54,
     skillid = 13502,
-    exp = 590,
-    intimacy = 54,
-    property = [{137,782,0}],
-    name = "情比金坚（法攻）",
-    level = 62
+    exp = 2870,
+    intimacy = 297,
+    property = [{137,1210,0}],
+    name = "心有灵犀",
+    level = 54
     };
 getRow(3,55)->
     #spouseskillCfg {
@@ -2819,11 +2819,11 @@ getRow(3,55)->
     group = 3,
     skilllevel = 55,
     skillid = 13502,
-    exp = 600,
-    intimacy = 55,
-    property = [{137,803,0}],
-    name = "情比金坚（法攻）",
-    level = 62
+    exp = 2970,
+    intimacy = 307,
+    property = [{137,1230,0}],
+    name = "心有灵犀",
+    level = 55
     };
 getRow(3,56)->
     #spouseskillCfg {
@@ -2831,11 +2831,11 @@ getRow(3,56)->
     group = 3,
     skilllevel = 56,
     skillid = 13502,
-    exp = 610,
-    intimacy = 56,
-    property = [{137,824,0}],
-    name = "情比金坚（法攻）",
-    level = 63
+    exp = 3070,
+    intimacy = 317,
+    property = [{137,1250,0}],
+    name = "心有灵犀",
+    level = 56
     };
 getRow(3,57)->
     #spouseskillCfg {
@@ -2843,11 +2843,11 @@ getRow(3,57)->
     group = 3,
     skilllevel = 57,
     skillid = 13502,
-    exp = 625,
-    intimacy = 57,
-    property = [{137,845,0}],
-    name = "情比金坚（法攻）",
-    level = 63
+    exp = 3170,
+    intimacy = 327,
+    property = [{137,1270,0}],
+    name = "心有灵犀",
+    level = 57
     };
 getRow(3,58)->
     #spouseskillCfg {
@@ -2855,11 +2855,11 @@ getRow(3,58)->
     group = 3,
     skilllevel = 58,
     skillid = 13502,
-    exp = 635,
-    intimacy = 58,
-    property = [{137,867,0}],
-    name = "情比金坚（法攻）",
-    level = 64
+    exp = 3270,
+    intimacy = 337,
+    property = [{137,1290,0}],
+    name = "心有灵犀",
+    level = 58
     };
 getRow(3,59)->
     #spouseskillCfg {
@@ -2867,11 +2867,11 @@ getRow(3,59)->
     group = 3,
     skilllevel = 59,
     skillid = 13502,
-    exp = 650,
-    intimacy = 59,
-    property = [{137,889,0}],
-    name = "情比金坚（法攻）",
-    level = 64
+    exp = 3370,
+    intimacy = 347,
+    property = [{137,1310,0}],
+    name = "心有灵犀",
+    level = 59
     };
 getRow(3,60)->
     #spouseskillCfg {
@@ -2879,11 +2879,11 @@ getRow(3,60)->
     group = 3,
     skilllevel = 60,
     skillid = 13502,
-    exp = 660,
-    intimacy = 60,
-    property = [{137,911,0}],
-    name = "情比金坚（法攻）",
-    level = 65
+    exp = 3470,
+    intimacy = 357,
+    property = [{137,1330,0}],
+    name = "心有灵犀",
+    level = 60
     };
 getRow(3,61)->
     #spouseskillCfg {
@@ -2891,11 +2891,11 @@ getRow(3,61)->
     group = 3,
     skilllevel = 61,
     skillid = 13502,
-    exp = 675,
-    intimacy = 61,
-    property = [{137,933,0}],
-    name = "情比金坚（法攻）",
-    level = 65
+    exp = 3570,
+    intimacy = 367,
+    property = [{137,1350,0}],
+    name = "心有灵犀",
+    level = 61
     };
 getRow(3,62)->
     #spouseskillCfg {
@@ -2903,11 +2903,11 @@ getRow(3,62)->
     group = 3,
     skilllevel = 62,
     skillid = 13502,
-    exp = 685,
-    intimacy = 62,
-    property = [{137,956,0}],
-    name = "情比金坚（法攻）",
-    level = 66
+    exp = 3670,
+    intimacy = 377,
+    property = [{137,1370,0}],
+    name = "心有灵犀",
+    level = 62
     };
 getRow(3,63)->
     #spouseskillCfg {
@@ -2915,11 +2915,11 @@ getRow(3,63)->
     group = 3,
     skilllevel = 63,
     skillid = 13502,
-    exp = 700,
-    intimacy = 63,
-    property = [{137,979,0}],
-    name = "情比金坚（法攻）",
-    level = 66
+    exp = 3770,
+    intimacy = 387,
+    property = [{137,1390,0}],
+    name = "心有灵犀",
+    level = 63
     };
 getRow(3,64)->
     #spouseskillCfg {
@@ -2927,11 +2927,11 @@ getRow(3,64)->
     group = 3,
     skilllevel = 64,
     skillid = 13502,
-    exp = 710,
-    intimacy = 64,
-    property = [{137,1002,0}],
-    name = "情比金坚（法攻）",
-    level = 67
+    exp = 3870,
+    intimacy = 397,
+    property = [{137,1410,0}],
+    name = "心有灵犀",
+    level = 64
     };
 getRow(3,65)->
     #spouseskillCfg {
@@ -2939,11 +2939,11 @@ getRow(3,65)->
     group = 3,
     skilllevel = 65,
     skillid = 13502,
-    exp = 725,
-    intimacy = 65,
-    property = [{137,1025,0}],
-    name = "情比金坚（法攻）",
-    level = 67
+    exp = 3970,
+    intimacy = 407,
+    property = [{137,1430,0}],
+    name = "心有灵犀",
+    level = 65
     };
 getRow(3,66)->
     #spouseskillCfg {
@@ -2951,11 +2951,11 @@ getRow(3,66)->
     group = 3,
     skilllevel = 66,
     skillid = 13502,
-    exp = 735,
-    intimacy = 66,
-    property = [{137,1049,0}],
-    name = "情比金坚（法攻）",
-    level = 68
+    exp = 4070,
+    intimacy = 417,
+    property = [{137,1450,0}],
+    name = "心有灵犀",
+    level = 66
     };
 getRow(3,67)->
     #spouseskillCfg {
@@ -2963,11 +2963,11 @@ getRow(3,67)->
     group = 3,
     skilllevel = 67,
     skillid = 13502,
-    exp = 750,
-    intimacy = 67,
-    property = [{137,1073,0}],
-    name = "情比金坚（法攻）",
-    level = 68
+    exp = 4170,
+    intimacy = 427,
+    property = [{137,1470,0}],
+    name = "心有灵犀",
+    level = 67
     };
 getRow(3,68)->
     #spouseskillCfg {
@@ -2975,11 +2975,11 @@ getRow(3,68)->
     group = 3,
     skilllevel = 68,
     skillid = 13502,
-    exp = 760,
-    intimacy = 68,
-    property = [{137,1097,0}],
-    name = "情比金坚（法攻）",
-    level = 69
+    exp = 4270,
+    intimacy = 437,
+    property = [{137,1490,0}],
+    name = "心有灵犀",
+    level = 68
     };
 getRow(3,69)->
     #spouseskillCfg {
@@ -2987,10 +2987,10 @@ getRow(3,69)->
     group = 3,
     skilllevel = 69,
     skillid = 13502,
-    exp = 770,
-    intimacy = 69,
-    property = [{137,1121,0}],
-    name = "情比金坚（法攻）",
+    exp = 4370,
+    intimacy = 447,
+    property = [{137,1510,0}],
+    name = "心有灵犀",
     level = 69
     };
 getRow(3,70)->
@@ -2999,10 +2999,10 @@ getRow(3,70)->
     group = 3,
     skilllevel = 70,
     skillid = 13502,
-    exp = 785,
-    intimacy = 70,
-    property = [{137,1146,0}],
-    name = "情比金坚（法攻）",
+    exp = 4470,
+    intimacy = 477,
+    property = [{137,1530,0}],
+    name = "心有灵犀",
     level = 70
     };
 getRow(3,71)->
@@ -3011,11 +3011,11 @@ getRow(3,71)->
     group = 3,
     skilllevel = 71,
     skillid = 13502,
-    exp = 795,
-    intimacy = 71,
-    property = [{137,1171,0}],
-    name = "情比金坚（法攻）",
-    level = 70
+    exp = 4770,
+    intimacy = 507,
+    property = [{137,1550,0}],
+    name = "心有灵犀",
+    level = 71
     };
 getRow(3,72)->
     #spouseskillCfg {
@@ -3023,11 +3023,11 @@ getRow(3,72)->
     group = 3,
     skilllevel = 72,
     skillid = 13502,
-    exp = 810,
-    intimacy = 72,
-    property = [{137,1196,0}],
-    name = "情比金坚（法攻）",
-    level = 71
+    exp = 5070,
+    intimacy = 537,
+    property = [{137,1570,0}],
+    name = "心有灵犀",
+    level = 72
     };
 getRow(3,73)->
     #spouseskillCfg {
@@ -3035,11 +3035,11 @@ getRow(3,73)->
     group = 3,
     skilllevel = 73,
     skillid = 13502,
-    exp = 820,
-    intimacy = 73,
-    property = [{137,1221,0}],
-    name = "情比金坚（法攻）",
-    level = 71
+    exp = 5370,
+    intimacy = 567,
+    property = [{137,1590,0}],
+    name = "心有灵犀",
+    level = 73
     };
 getRow(3,74)->
     #spouseskillCfg {
@@ -3047,11 +3047,11 @@ getRow(3,74)->
     group = 3,
     skilllevel = 74,
     skillid = 13502,
-    exp = 835,
-    intimacy = 74,
-    property = [{137,1247,0}],
-    name = "情比金坚（法攻）",
-    level = 72
+    exp = 5670,
+    intimacy = 597,
+    property = [{137,1610,0}],
+    name = "心有灵犀",
+    level = 74
     };
 getRow(3,75)->
     #spouseskillCfg {
@@ -3059,11 +3059,11 @@ getRow(3,75)->
     group = 3,
     skilllevel = 75,
     skillid = 13502,
-    exp = 845,
-    intimacy = 75,
-    property = [{137,1273,0}],
-    name = "情比金坚（法攻）",
-    level = 72
+    exp = 5970,
+    intimacy = 627,
+    property = [{137,1630,0}],
+    name = "心有灵犀",
+    level = 75
     };
 getRow(3,76)->
     #spouseskillCfg {
@@ -3071,11 +3071,11 @@ getRow(3,76)->
     group = 3,
     skilllevel = 76,
     skillid = 13502,
-    exp = 860,
-    intimacy = 76,
-    property = [{137,1299,0}],
-    name = "情比金坚（法攻）",
-    level = 73
+    exp = 6270,
+    intimacy = 657,
+    property = [{137,1650,0}],
+    name = "心有灵犀",
+    level = 76
     };
 getRow(3,77)->
     #spouseskillCfg {
@@ -3083,11 +3083,11 @@ getRow(3,77)->
     group = 3,
     skilllevel = 77,
     skillid = 13502,
-    exp = 875,
-    intimacy = 77,
-    property = [{137,1326,0}],
-    name = "情比金坚（法攻）",
-    level = 73
+    exp = 6570,
+    intimacy = 687,
+    property = [{137,1670,0}],
+    name = "心有灵犀",
+    level = 77
     };
 getRow(3,78)->
     #spouseskillCfg {
@@ -3095,11 +3095,11 @@ getRow(3,78)->
     group = 3,
     skilllevel = 78,
     skillid = 13502,
-    exp = 885,
-    intimacy = 78,
-    property = [{137,1352,0}],
-    name = "情比金坚（法攻）",
-    level = 74
+    exp = 6870,
+    intimacy = 717,
+    property = [{137,1690,0}],
+    name = "心有灵犀",
+    level = 78
     };
 getRow(3,79)->
     #spouseskillCfg {
@@ -3107,11 +3107,11 @@ getRow(3,79)->
     group = 3,
     skilllevel = 79,
     skillid = 13502,
-    exp = 900,
-    intimacy = 79,
-    property = [{137,1379,0}],
-    name = "情比金坚（法攻）",
-    level = 74
+    exp = 7170,
+    intimacy = 747,
+    property = [{137,1710,0}],
+    name = "心有灵犀",
+    level = 79
     };
 getRow(3,80)->
     #spouseskillCfg {
@@ -3119,11 +3119,11 @@ getRow(3,80)->
     group = 3,
     skilllevel = 80,
     skillid = 13502,
-    exp = 910,
-    intimacy = 80,
-    property = [{137,1406,0}],
-    name = "情比金坚（法攻）",
-    level = 75
+    exp = 7470,
+    intimacy = 827,
+    property = [{137,1730,0}],
+    name = "心有灵犀",
+    level = 80
     };
 getRow(3,81)->
     #spouseskillCfg {
@@ -3131,11 +3131,11 @@ getRow(3,81)->
     group = 3,
     skilllevel = 81,
     skillid = 13502,
-    exp = 910,
-    intimacy = 81,
-    property = [{137,17000,0}],
-    name = "情比金坚（法攻）",
-    level = 75
+    exp = 8270,
+    intimacy = 907,
+    property = [{137,1750,0}],
+    name = "心有灵犀",
+    level = 81
     };
 getRow(3,82)->
     #spouseskillCfg {
@@ -3143,11 +3143,11 @@ getRow(3,82)->
     group = 3,
     skilllevel = 82,
     skillid = 13502,
-    exp = 33725,
-    intimacy = 82,
-    property = [{137,17200,0}],
-    name = "情比金坚（法攻）",
-    level = 76
+    exp = 9070,
+    intimacy = 987,
+    property = [{137,1770,0}],
+    name = "心有灵犀",
+    level = 82
     };
 getRow(3,83)->
     #spouseskillCfg {
@@ -3155,11 +3155,11 @@ getRow(3,83)->
     group = 3,
     skilllevel = 83,
     skillid = 13502,
-    exp = 33725,
-    intimacy = 83,
-    property = [{137,17400,0}],
-    name = "情比金坚（法攻）",
-    level = 76
+    exp = 9870,
+    intimacy = 1067,
+    property = [{137,1790,0}],
+    name = "心有灵犀",
+    level = 83
     };
 getRow(3,84)->
     #spouseskillCfg {
@@ -3167,11 +3167,11 @@ getRow(3,84)->
     group = 3,
     skilllevel = 84,
     skillid = 13502,
-    exp = 33725,
-    intimacy = 84,
-    property = [{137,17600,0}],
-    name = "情比金坚（法攻）",
-    level = 77
+    exp = 10670,
+    intimacy = 1147,
+    property = [{137,1810,0}],
+    name = "心有灵犀",
+    level = 84
     };
 getRow(3,85)->
     #spouseskillCfg {
@@ -3179,11 +3179,11 @@ getRow(3,85)->
     group = 3,
     skilllevel = 85,
     skillid = 13502,
-    exp = 33725,
-    intimacy = 85,
-    property = [{137,17800,0}],
-    name = "情比金坚（法攻）",
-    level = 77
+    exp = 11470,
+    intimacy = 1227,
+    property = [{137,1830,0}],
+    name = "心有灵犀",
+    level = 85
     };
 getRow(3,86)->
     #spouseskillCfg {
@@ -3191,11 +3191,11 @@ getRow(3,86)->
     group = 3,
     skilllevel = 86,
     skillid = 13502,
-    exp = 33725,
-    intimacy = 86,
-    property = [{137,18000,0}],
-    name = "情比金坚（法攻）",
-    level = 78
+    exp = 12270,
+    intimacy = 1307,
+    property = [{137,1850,0}],
+    name = "心有灵犀",
+    level = 86
     };
 getRow(3,87)->
     #spouseskillCfg {
@@ -3203,11 +3203,11 @@ getRow(3,87)->
     group = 3,
     skilllevel = 87,
     skillid = 13502,
-    exp = 33725,
-    intimacy = 87,
-    property = [{137,18200,0}],
-    name = "情比金坚（法攻）",
-    level = 78
+    exp = 13070,
+    intimacy = 1387,
+    property = [{137,1870,0}],
+    name = "心有灵犀",
+    level = 87
     };
 getRow(3,88)->
     #spouseskillCfg {
@@ -3215,11 +3215,11 @@ getRow(3,88)->
     group = 3,
     skilllevel = 88,
     skillid = 13502,
-    exp = 33725,
-    intimacy = 88,
-    property = [{137,18400,0}],
-    name = "情比金坚（法攻）",
-    level = 79
+    exp = 13870,
+    intimacy = 1467,
+    property = [{137,1890,0}],
+    name = "心有灵犀",
+    level = 88
     };
 getRow(3,89)->
     #spouseskillCfg {
@@ -3227,11 +3227,11 @@ getRow(3,89)->
     group = 3,
     skilllevel = 89,
     skillid = 13502,
-    exp = 33725,
-    intimacy = 89,
-    property = [{137,18600,0}],
-    name = "情比金坚（法攻）",
-    level = 79
+    exp = 14670,
+    intimacy = 1547,
+    property = [{137,1910,0}],
+    name = "心有灵犀",
+    level = 89
     };
 getRow(3,90)->
     #spouseskillCfg {
@@ -3239,11 +3239,11 @@ getRow(3,90)->
     group = 3,
     skilllevel = 90,
     skillid = 13502,
-    exp = 33725,
-    intimacy = 90,
-    property = [{137,18800,0}],
-    name = "情比金坚（法攻）",
-    level = 80
+    exp = 15470,
+    intimacy = 1627,
+    property = [{137,1930,0}],
+    name = "心有灵犀",
+    level = 90
     };
 getRow(4,1)->
     #spouseskillCfg {
@@ -3252,10 +3252,10 @@ getRow(4,1)->
     skilllevel = 1,
     skillid = 13503,
     exp = 0,
-    intimacy = 1,
-    property = [{139,140,0}],
-    name = "情比金坚（物防）",
-    level = 35
+    intimacy = 3,
+    property = [{138,160,0}],
+    name = "情比金坚",
+    level = 0
     };
 getRow(4,2)->
     #spouseskillCfg {
@@ -3263,11 +3263,11 @@ getRow(4,2)->
     group = 4,
     skilllevel = 2,
     skillid = 13503,
-    exp = 10,
-    intimacy = 2,
-    property = [{139,141,0}],
-    name = "情比金坚（物防）",
-    level = 36
+    exp = 30,
+    intimacy = 5,
+    property = [{138,185,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,3)->
     #spouseskillCfg {
@@ -3275,11 +3275,11 @@ getRow(4,3)->
     group = 4,
     skilllevel = 3,
     skillid = 13503,
-    exp = 20,
-    intimacy = 3,
-    property = [{139,142,0}],
-    name = "情比金坚（物防）",
-    level = 36
+    exp = 50,
+    intimacy = 7,
+    property = [{138,210,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,4)->
     #spouseskillCfg {
@@ -3287,11 +3287,11 @@ getRow(4,4)->
     group = 4,
     skilllevel = 4,
     skillid = 13503,
-    exp = 30,
-    intimacy = 4,
-    property = [{139,145,0}],
-    name = "情比金坚（物防）",
-    level = 37
+    exp = 70,
+    intimacy = 9,
+    property = [{138,235,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,5)->
     #spouseskillCfg {
@@ -3299,11 +3299,11 @@ getRow(4,5)->
     group = 4,
     skilllevel = 5,
     skillid = 13503,
-    exp = 35,
-    intimacy = 5,
-    property = [{139,148,0}],
-    name = "情比金坚（物防）",
-    level = 37
+    exp = 90,
+    intimacy = 11,
+    property = [{138,260,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,6)->
     #spouseskillCfg {
@@ -3311,11 +3311,11 @@ getRow(4,6)->
     group = 4,
     skilllevel = 6,
     skillid = 13503,
-    exp = 45,
-    intimacy = 6,
-    property = [{139,152,0}],
-    name = "情比金坚（物防）",
-    level = 38
+    exp = 110,
+    intimacy = 13,
+    property = [{138,285,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,7)->
     #spouseskillCfg {
@@ -3323,11 +3323,11 @@ getRow(4,7)->
     group = 4,
     skilllevel = 7,
     skillid = 13503,
-    exp = 55,
-    intimacy = 7,
-    property = [{139,156,0}],
-    name = "情比金坚（物防）",
-    level = 38
+    exp = 130,
+    intimacy = 15,
+    property = [{138,310,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,8)->
     #spouseskillCfg {
@@ -3335,11 +3335,11 @@ getRow(4,8)->
     group = 4,
     skilllevel = 8,
     skillid = 13503,
-    exp = 65,
-    intimacy = 8,
-    property = [{139,161,0}],
-    name = "情比金坚（物防）",
-    level = 39
+    exp = 150,
+    intimacy = 17,
+    property = [{138,335,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,9)->
     #spouseskillCfg {
@@ -3347,11 +3347,11 @@ getRow(4,9)->
     group = 4,
     skilllevel = 9,
     skillid = 13503,
-    exp = 75,
-    intimacy = 9,
-    property = [{139,166,0}],
-    name = "情比金坚（物防）",
-    level = 39
+    exp = 170,
+    intimacy = 19,
+    property = [{138,360,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,10)->
     #spouseskillCfg {
@@ -3359,11 +3359,11 @@ getRow(4,10)->
     group = 4,
     skilllevel = 10,
     skillid = 13503,
-    exp = 85,
-    intimacy = 10,
-    property = [{139,172,0}],
-    name = "情比金坚（物防）",
-    level = 40
+    exp = 190,
+    intimacy = 21,
+    property = [{138,385,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,11)->
     #spouseskillCfg {
@@ -3371,11 +3371,11 @@ getRow(4,11)->
     group = 4,
     skilllevel = 11,
     skillid = 13503,
-    exp = 95,
-    intimacy = 11,
-    property = [{139,178,0}],
-    name = "情比金坚（物防）",
-    level = 40
+    exp = 210,
+    intimacy = 23,
+    property = [{138,410,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,12)->
     #spouseskillCfg {
@@ -3383,11 +3383,11 @@ getRow(4,12)->
     group = 4,
     skilllevel = 12,
     skillid = 13503,
-    exp = 105,
-    intimacy = 12,
-    property = [{139,184,0}],
-    name = "情比金坚（物防）",
-    level = 41
+    exp = 230,
+    intimacy = 26,
+    property = [{138,435,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,13)->
     #spouseskillCfg {
@@ -3395,11 +3395,11 @@ getRow(4,13)->
     group = 4,
     skilllevel = 13,
     skillid = 13503,
-    exp = 115,
-    intimacy = 13,
-    property = [{139,191,0}],
-    name = "情比金坚（物防）",
-    level = 41
+    exp = 260,
+    intimacy = 29,
+    property = [{138,460,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,14)->
     #spouseskillCfg {
@@ -3407,11 +3407,11 @@ getRow(4,14)->
     group = 4,
     skilllevel = 14,
     skillid = 13503,
-    exp = 125,
-    intimacy = 14,
-    property = [{139,199,0}],
-    name = "情比金坚（物防）",
-    level = 42
+    exp = 290,
+    intimacy = 32,
+    property = [{138,485,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,15)->
     #spouseskillCfg {
@@ -3419,11 +3419,11 @@ getRow(4,15)->
     group = 4,
     skilllevel = 15,
     skillid = 13503,
-    exp = 140,
-    intimacy = 15,
-    property = [{139,207,0}],
-    name = "情比金坚（物防）",
-    level = 42
+    exp = 320,
+    intimacy = 35,
+    property = [{138,510,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,16)->
     #spouseskillCfg {
@@ -3431,11 +3431,11 @@ getRow(4,16)->
     group = 4,
     skilllevel = 16,
     skillid = 13503,
-    exp = 150,
-    intimacy = 16,
-    property = [{139,215,0}],
-    name = "情比金坚（物防）",
-    level = 43
+    exp = 350,
+    intimacy = 38,
+    property = [{138,535,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,17)->
     #spouseskillCfg {
@@ -3443,11 +3443,11 @@ getRow(4,17)->
     group = 4,
     skilllevel = 17,
     skillid = 13503,
-    exp = 160,
-    intimacy = 17,
-    property = [{139,224,0}],
-    name = "情比金坚（物防）",
-    level = 43
+    exp = 380,
+    intimacy = 41,
+    property = [{138,560,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,18)->
     #spouseskillCfg {
@@ -3455,11 +3455,11 @@ getRow(4,18)->
     group = 4,
     skilllevel = 18,
     skillid = 13503,
-    exp = 170,
-    intimacy = 18,
-    property = [{139,233,0}],
-    name = "情比金坚（物防）",
-    level = 44
+    exp = 410,
+    intimacy = 44,
+    property = [{138,585,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,19)->
     #spouseskillCfg {
@@ -3467,11 +3467,11 @@ getRow(4,19)->
     group = 4,
     skilllevel = 19,
     skillid = 13503,
-    exp = 180,
-    intimacy = 19,
-    property = [{139,242,0}],
-    name = "情比金坚（物防）",
-    level = 44
+    exp = 440,
+    intimacy = 47,
+    property = [{138,610,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,20)->
     #spouseskillCfg {
@@ -3479,11 +3479,11 @@ getRow(4,20)->
     group = 4,
     skilllevel = 20,
     skillid = 13503,
-    exp = 190,
-    intimacy = 20,
-    property = [{139,252,0}],
-    name = "情比金坚（物防）",
-    level = 45
+    exp = 470,
+    intimacy = 50,
+    property = [{138,635,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,21)->
     #spouseskillCfg {
@@ -3491,11 +3491,11 @@ getRow(4,21)->
     group = 4,
     skilllevel = 21,
     skillid = 13503,
-    exp = 205,
-    intimacy = 21,
-    property = [{139,263,0}],
-    name = "情比金坚（物防）",
-    level = 45
+    exp = 500,
+    intimacy = 53,
+    property = [{138,660,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,22)->
     #spouseskillCfg {
@@ -3503,11 +3503,11 @@ getRow(4,22)->
     group = 4,
     skilllevel = 22,
     skillid = 13503,
-    exp = 215,
-    intimacy = 22,
-    property = [{139,273,0}],
-    name = "情比金坚（物防）",
-    level = 46
+    exp = 530,
+    intimacy = 56,
+    property = [{138,685,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,23)->
     #spouseskillCfg {
@@ -3515,11 +3515,11 @@ getRow(4,23)->
     group = 4,
     skilllevel = 23,
     skillid = 13503,
-    exp = 225,
-    intimacy = 23,
-    property = [{139,284,0}],
-    name = "情比金坚（物防）",
-    level = 46
+    exp = 560,
+    intimacy = 59,
+    property = [{138,710,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,24)->
     #spouseskillCfg {
@@ -3527,11 +3527,11 @@ getRow(4,24)->
     group = 4,
     skilllevel = 24,
     skillid = 13503,
-    exp = 235,
-    intimacy = 24,
-    property = [{139,295,0}],
-    name = "情比金坚（物防）",
-    level = 47
+    exp = 590,
+    intimacy = 65,
+    property = [{138,735,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,25)->
     #spouseskillCfg {
@@ -3539,11 +3539,11 @@ getRow(4,25)->
     group = 4,
     skilllevel = 25,
     skillid = 13503,
-    exp = 245,
-    intimacy = 25,
-    property = [{139,307,0}],
-    name = "情比金坚（物防）",
-    level = 47
+    exp = 650,
+    intimacy = 71,
+    property = [{138,760,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,26)->
     #spouseskillCfg {
@@ -3551,11 +3551,11 @@ getRow(4,26)->
     group = 4,
     skilllevel = 26,
     skillid = 13503,
-    exp = 260,
-    intimacy = 26,
-    property = [{139,319,0}],
-    name = "情比金坚（物防）",
-    level = 48
+    exp = 710,
+    intimacy = 77,
+    property = [{138,785,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,27)->
     #spouseskillCfg {
@@ -3563,11 +3563,11 @@ getRow(4,27)->
     group = 4,
     skilllevel = 27,
     skillid = 13503,
-    exp = 270,
-    intimacy = 27,
-    property = [{139,331,0}],
-    name = "情比金坚（物防）",
-    level = 48
+    exp = 770,
+    intimacy = 83,
+    property = [{138,810,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,28)->
     #spouseskillCfg {
@@ -3575,11 +3575,11 @@ getRow(4,28)->
     group = 4,
     skilllevel = 28,
     skillid = 13503,
-    exp = 280,
-    intimacy = 28,
-    property = [{139,344,0}],
-    name = "情比金坚（物防）",
-    level = 49
+    exp = 830,
+    intimacy = 89,
+    property = [{138,835,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,29)->
     #spouseskillCfg {
@@ -3587,11 +3587,11 @@ getRow(4,29)->
     group = 4,
     skilllevel = 29,
     skillid = 13503,
-    exp = 290,
-    intimacy = 29,
-    property = [{139,357,0}],
-    name = "情比金坚（物防）",
-    level = 49
+    exp = 890,
+    intimacy = 95,
+    property = [{138,860,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,30)->
     #spouseskillCfg {
@@ -3599,11 +3599,11 @@ getRow(4,30)->
     group = 4,
     skilllevel = 30,
     skillid = 13503,
-    exp = 305,
-    intimacy = 30,
-    property = [{139,370,0}],
-    name = "情比金坚（物防）",
-    level = 50
+    exp = 950,
+    intimacy = 101,
+    property = [{138,885,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,31)->
     #spouseskillCfg {
@@ -3611,11 +3611,11 @@ getRow(4,31)->
     group = 4,
     skilllevel = 31,
     skillid = 13503,
-    exp = 315,
-    intimacy = 31,
-    property = [{139,384,0}],
-    name = "情比金坚（物防）",
-    level = 50
+    exp = 1010,
+    intimacy = 107,
+    property = [{138,910,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,32)->
     #spouseskillCfg {
@@ -3623,11 +3623,11 @@ getRow(4,32)->
     group = 4,
     skilllevel = 32,
     skillid = 13503,
-    exp = 325,
-    intimacy = 32,
-    property = [{139,398,0}],
-    name = "情比金坚（物防）",
-    level = 51
+    exp = 1070,
+    intimacy = 113,
+    property = [{138,935,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,33)->
     #spouseskillCfg {
@@ -3635,11 +3635,11 @@ getRow(4,33)->
     group = 4,
     skilllevel = 33,
     skillid = 13503,
-    exp = 340,
-    intimacy = 33,
-    property = [{139,412,0}],
-    name = "情比金坚（物防）",
-    level = 51
+    exp = 1130,
+    intimacy = 119,
+    property = [{138,960,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,34)->
     #spouseskillCfg {
@@ -3647,11 +3647,11 @@ getRow(4,34)->
     group = 4,
     skilllevel = 34,
     skillid = 13503,
-    exp = 350,
-    intimacy = 34,
-    property = [{139,427,0}],
-    name = "情比金坚（物防）",
-    level = 52
+    exp = 1190,
+    intimacy = 125,
+    property = [{138,985,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,35)->
     #spouseskillCfg {
@@ -3659,11 +3659,11 @@ getRow(4,35)->
     group = 4,
     skilllevel = 35,
     skillid = 13503,
-    exp = 360,
-    intimacy = 35,
-    property = [{139,442,0}],
-    name = "情比金坚（物防）",
-    level = 52
+    exp = 1250,
+    intimacy = 131,
+    property = [{138,1010,0}],
+    name = "情比金坚",
+    level = 34
     };
 getRow(4,36)->
     #spouseskillCfg {
@@ -3671,11 +3671,11 @@ getRow(4,36)->
     group = 4,
     skilllevel = 36,
     skillid = 13503,
-    exp = 375,
-    intimacy = 36,
-    property = [{139,457,0}],
-    name = "情比金坚（物防）",
-    level = 53
+    exp = 1310,
+    intimacy = 139,
+    property = [{138,1035,0}],
+    name = "情比金坚",
+    level = 36
     };
 getRow(4,37)->
     #spouseskillCfg {
@@ -3683,11 +3683,11 @@ getRow(4,37)->
     group = 4,
     skilllevel = 37,
     skillid = 13503,
-    exp = 385,
-    intimacy = 37,
-    property = [{139,473,0}],
-    name = "情比金坚（物防）",
-    level = 53
+    exp = 1390,
+    intimacy = 147,
+    property = [{138,1060,0}],
+    name = "情比金坚",
+    level = 37
     };
 getRow(4,38)->
     #spouseskillCfg {
@@ -3695,11 +3695,11 @@ getRow(4,38)->
     group = 4,
     skilllevel = 38,
     skillid = 13503,
-    exp = 395,
-    intimacy = 38,
-    property = [{139,489,0}],
-    name = "情比金坚（物防）",
-    level = 54
+    exp = 1470,
+    intimacy = 155,
+    property = [{138,1085,0}],
+    name = "情比金坚",
+    level = 38
     };
 getRow(4,39)->
     #spouseskillCfg {
@@ -3707,11 +3707,11 @@ getRow(4,39)->
     group = 4,
     skilllevel = 39,
     skillid = 13503,
-    exp = 410,
-    intimacy = 39,
-    property = [{139,505,0}],
-    name = "情比金坚（物防）",
-    level = 54
+    exp = 1550,
+    intimacy = 163,
+    property = [{138,1110,0}],
+    name = "情比金坚",
+    level = 39
     };
 getRow(4,40)->
     #spouseskillCfg {
@@ -3719,11 +3719,11 @@ getRow(4,40)->
     group = 4,
     skilllevel = 40,
     skillid = 13503,
-    exp = 420,
-    intimacy = 40,
-    property = [{139,521,0}],
-    name = "情比金坚（物防）",
-    level = 55
+    exp = 1630,
+    intimacy = 171,
+    property = [{138,1135,0}],
+    name = "情比金坚",
+    level = 40
     };
 getRow(4,41)->
     #spouseskillCfg {
@@ -3731,11 +3731,11 @@ getRow(4,41)->
     group = 4,
     skilllevel = 41,
     skillid = 13503,
-    exp = 430,
-    intimacy = 41,
-    property = [{139,538,0}],
-    name = "情比金坚（物防）",
-    level = 55
+    exp = 1710,
+    intimacy = 179,
+    property = [{138,1160,0}],
+    name = "情比金坚",
+    level = 41
     };
 getRow(4,42)->
     #spouseskillCfg {
@@ -3743,11 +3743,11 @@ getRow(4,42)->
     group = 4,
     skilllevel = 42,
     skillid = 13503,
-    exp = 445,
-    intimacy = 42,
-    property = [{139,555,0}],
-    name = "情比金坚（物防）",
-    level = 56
+    exp = 1790,
+    intimacy = 187,
+    property = [{138,1185,0}],
+    name = "情比金坚",
+    level = 42
     };
 getRow(4,43)->
     #spouseskillCfg {
@@ -3755,11 +3755,11 @@ getRow(4,43)->
     group = 4,
     skilllevel = 43,
     skillid = 13503,
-    exp = 455,
-    intimacy = 43,
-    property = [{139,573,0}],
-    name = "情比金坚（物防）",
-    level = 56
+    exp = 1870,
+    intimacy = 195,
+    property = [{138,1210,0}],
+    name = "情比金坚",
+    level = 43
     };
 getRow(4,44)->
     #spouseskillCfg {
@@ -3767,11 +3767,11 @@ getRow(4,44)->
     group = 4,
     skilllevel = 44,
     skillid = 13503,
-    exp = 465,
-    intimacy = 44,
-    property = [{139,590,0}],
-    name = "情比金坚（物防）",
-    level = 57
+    exp = 1950,
+    intimacy = 203,
+    property = [{138,1235,0}],
+    name = "情比金坚",
+    level = 44
     };
 getRow(4,45)->
     #spouseskillCfg {
@@ -3779,11 +3779,11 @@ getRow(4,45)->
     group = 4,
     skilllevel = 45,
     skillid = 13503,
-    exp = 480,
-    intimacy = 45,
-    property = [{139,608,0}],
-    name = "情比金坚（物防）",
-    level = 57
+    exp = 2030,
+    intimacy = 211,
+    property = [{138,1260,0}],
+    name = "情比金坚",
+    level = 45
     };
 getRow(4,46)->
     #spouseskillCfg {
@@ -3791,11 +3791,11 @@ getRow(4,46)->
     group = 4,
     skilllevel = 46,
     skillid = 13503,
-    exp = 490,
-    intimacy = 46,
-    property = [{139,626,0}],
-    name = "情比金坚（物防）",
-    level = 58
+    exp = 2110,
+    intimacy = 219,
+    property = [{138,1285,0}],
+    name = "情比金坚",
+    level = 46
     };
 getRow(4,47)->
     #spouseskillCfg {
@@ -3803,11 +3803,11 @@ getRow(4,47)->
     group = 4,
     skilllevel = 47,
     skillid = 13503,
-    exp = 505,
-    intimacy = 47,
-    property = [{139,645,0}],
-    name = "情比金坚（物防）",
-    level = 58
+    exp = 2190,
+    intimacy = 227,
+    property = [{138,1310,0}],
+    name = "情比金坚",
+    level = 47
     };
 getRow(4,48)->
     #spouseskillCfg {
@@ -3815,11 +3815,11 @@ getRow(4,48)->
     group = 4,
     skilllevel = 48,
     skillid = 13503,
-    exp = 515,
-    intimacy = 48,
-    property = [{139,664,0}],
-    name = "情比金坚（物防）",
-    level = 59
+    exp = 2270,
+    intimacy = 237,
+    property = [{138,1335,0}],
+    name = "情比金坚",
+    level = 48
     };
 getRow(4,49)->
     #spouseskillCfg {
@@ -3827,11 +3827,11 @@ getRow(4,49)->
     group = 4,
     skilllevel = 49,
     skillid = 13503,
-    exp = 525,
-    intimacy = 49,
-    property = [{139,683,0}],
-    name = "情比金坚（物防）",
-    level = 59
+    exp = 2370,
+    intimacy = 247,
+    property = [{138,1360,0}],
+    name = "情比金坚",
+    level = 49
     };
 getRow(4,50)->
     #spouseskillCfg {
@@ -3839,11 +3839,11 @@ getRow(4,50)->
     group = 4,
     skilllevel = 50,
     skillid = 13503,
-    exp = 540,
-    intimacy = 50,
-    property = [{139,702,0}],
-    name = "情比金坚（物防）",
-    level = 60
+    exp = 2470,
+    intimacy = 257,
+    property = [{138,1385,0}],
+    name = "情比金坚",
+    level = 50
     };
 getRow(4,51)->
     #spouseskillCfg {
@@ -3851,11 +3851,11 @@ getRow(4,51)->
     group = 4,
     skilllevel = 51,
     skillid = 13503,
-    exp = 550,
-    intimacy = 51,
-    property = [{139,722,0}],
-    name = "情比金坚（物防）",
-    level = 60
+    exp = 2570,
+    intimacy = 267,
+    property = [{138,1410,0}],
+    name = "情比金坚",
+    level = 51
     };
 getRow(4,52)->
     #spouseskillCfg {
@@ -3863,11 +3863,11 @@ getRow(4,52)->
     group = 4,
     skilllevel = 52,
     skillid = 13503,
-    exp = 565,
-    intimacy = 52,
-    property = [{139,742,0}],
-    name = "情比金坚（物防）",
-    level = 61
+    exp = 2670,
+    intimacy = 277,
+    property = [{138,1435,0}],
+    name = "情比金坚",
+    level = 52
     };
 getRow(4,53)->
     #spouseskillCfg {
@@ -3875,11 +3875,11 @@ getRow(4,53)->
     group = 4,
     skilllevel = 53,
     skillid = 13503,
-    exp = 575,
-    intimacy = 53,
-    property = [{139,762,0}],
-    name = "情比金坚（物防）",
-    level = 61
+    exp = 2770,
+    intimacy = 287,
+    property = [{138,1460,0}],
+    name = "情比金坚",
+    level = 53
     };
 getRow(4,54)->
     #spouseskillCfg {
@@ -3887,11 +3887,11 @@ getRow(4,54)->
     group = 4,
     skilllevel = 54,
     skillid = 13503,
-    exp = 590,
-    intimacy = 54,
-    property = [{139,782,0}],
-    name = "情比金坚（物防）",
-    level = 62
+    exp = 2870,
+    intimacy = 297,
+    property = [{138,1485,0}],
+    name = "情比金坚",
+    level = 54
     };
 getRow(4,55)->
     #spouseskillCfg {
@@ -3899,11 +3899,11 @@ getRow(4,55)->
     group = 4,
     skilllevel = 55,
     skillid = 13503,
-    exp = 600,
-    intimacy = 55,
-    property = [{139,803,0}],
-    name = "情比金坚（物防）",
-    level = 62
+    exp = 2970,
+    intimacy = 307,
+    property = [{138,1510,0}],
+    name = "情比金坚",
+    level = 55
     };
 getRow(4,56)->
     #spouseskillCfg {
@@ -3911,11 +3911,11 @@ getRow(4,56)->
     group = 4,
     skilllevel = 56,
     skillid = 13503,
-    exp = 610,
-    intimacy = 56,
-    property = [{139,824,0}],
-    name = "情比金坚（物防）",
-    level = 63
+    exp = 3070,
+    intimacy = 317,
+    property = [{138,1535,0}],
+    name = "情比金坚",
+    level = 56
     };
 getRow(4,57)->
     #spouseskillCfg {
@@ -3923,11 +3923,11 @@ getRow(4,57)->
     group = 4,
     skilllevel = 57,
     skillid = 13503,
-    exp = 625,
-    intimacy = 57,
-    property = [{139,845,0}],
-    name = "情比金坚（物防）",
-    level = 63
+    exp = 3170,
+    intimacy = 327,
+    property = [{138,1560,0}],
+    name = "情比金坚",
+    level = 57
     };
 getRow(4,58)->
     #spouseskillCfg {
@@ -3935,11 +3935,11 @@ getRow(4,58)->
     group = 4,
     skilllevel = 58,
     skillid = 13503,
-    exp = 635,
-    intimacy = 58,
-    property = [{139,867,0}],
-    name = "情比金坚（物防）",
-    level = 64
+    exp = 3270,
+    intimacy = 337,
+    property = [{138,1585,0}],
+    name = "情比金坚",
+    level = 58
     };
 getRow(4,59)->
     #spouseskillCfg {
@@ -3947,11 +3947,11 @@ getRow(4,59)->
     group = 4,
     skilllevel = 59,
     skillid = 13503,
-    exp = 650,
-    intimacy = 59,
-    property = [{139,889,0}],
-    name = "情比金坚（物防）",
-    level = 64
+    exp = 3370,
+    intimacy = 347,
+    property = [{138,1610,0}],
+    name = "情比金坚",
+    level = 59
     };
 getRow(4,60)->
     #spouseskillCfg {
@@ -3959,11 +3959,11 @@ getRow(4,60)->
     group = 4,
     skilllevel = 60,
     skillid = 13503,
-    exp = 660,
-    intimacy = 60,
-    property = [{139,911,0}],
-    name = "情比金坚（物防）",
-    level = 65
+    exp = 3470,
+    intimacy = 357,
+    property = [{138,1635,0}],
+    name = "情比金坚",
+    level = 60
     };
 getRow(4,61)->
     #spouseskillCfg {
@@ -3971,11 +3971,11 @@ getRow(4,61)->
     group = 4,
     skilllevel = 61,
     skillid = 13503,
-    exp = 675,
-    intimacy = 61,
-    property = [{139,933,0}],
-    name = "情比金坚（物防）",
-    level = 65
+    exp = 3570,
+    intimacy = 367,
+    property = [{138,1660,0}],
+    name = "情比金坚",
+    level = 61
     };
 getRow(4,62)->
     #spouseskillCfg {
@@ -3983,11 +3983,11 @@ getRow(4,62)->
     group = 4,
     skilllevel = 62,
     skillid = 13503,
-    exp = 685,
-    intimacy = 62,
-    property = [{139,956,0}],
-    name = "情比金坚（物防）",
-    level = 66
+    exp = 3670,
+    intimacy = 377,
+    property = [{138,1685,0}],
+    name = "情比金坚",
+    level = 62
     };
 getRow(4,63)->
     #spouseskillCfg {
@@ -3995,11 +3995,11 @@ getRow(4,63)->
     group = 4,
     skilllevel = 63,
     skillid = 13503,
-    exp = 700,
-    intimacy = 63,
-    property = [{139,979,0}],
-    name = "情比金坚（物防）",
-    level = 66
+    exp = 3770,
+    intimacy = 387,
+    property = [{138,1710,0}],
+    name = "情比金坚",
+    level = 63
     };
 getRow(4,64)->
     #spouseskillCfg {
@@ -4007,11 +4007,11 @@ getRow(4,64)->
     group = 4,
     skilllevel = 64,
     skillid = 13503,
-    exp = 710,
-    intimacy = 64,
-    property = [{139,1002,0}],
-    name = "情比金坚（物防）",
-    level = 67
+    exp = 3870,
+    intimacy = 397,
+    property = [{138,1735,0}],
+    name = "情比金坚",
+    level = 64
     };
 getRow(4,65)->
     #spouseskillCfg {
@@ -4019,11 +4019,11 @@ getRow(4,65)->
     group = 4,
     skilllevel = 65,
     skillid = 13503,
-    exp = 725,
-    intimacy = 65,
-    property = [{139,1025,0}],
-    name = "情比金坚（物防）",
-    level = 67
+    exp = 3970,
+    intimacy = 407,
+    property = [{138,1760,0}],
+    name = "情比金坚",
+    level = 65
     };
 getRow(4,66)->
     #spouseskillCfg {
@@ -4031,11 +4031,11 @@ getRow(4,66)->
     group = 4,
     skilllevel = 66,
     skillid = 13503,
-    exp = 735,
-    intimacy = 66,
-    property = [{139,1049,0}],
-    name = "情比金坚（物防）",
-    level = 68
+    exp = 4070,
+    intimacy = 417,
+    property = [{138,1785,0}],
+    name = "情比金坚",
+    level = 66
     };
 getRow(4,67)->
     #spouseskillCfg {
@@ -4043,11 +4043,11 @@ getRow(4,67)->
     group = 4,
     skilllevel = 67,
     skillid = 13503,
-    exp = 750,
-    intimacy = 67,
-    property = [{139,1073,0}],
-    name = "情比金坚（物防）",
-    level = 68
+    exp = 4170,
+    intimacy = 427,
+    property = [{138,1810,0}],
+    name = "情比金坚",
+    level = 67
     };
 getRow(4,68)->
     #spouseskillCfg {
@@ -4055,11 +4055,11 @@ getRow(4,68)->
     group = 4,
     skilllevel = 68,
     skillid = 13503,
-    exp = 760,
-    intimacy = 68,
-    property = [{139,1097,0}],
-    name = "情比金坚（物防）",
-    level = 69
+    exp = 4270,
+    intimacy = 437,
+    property = [{138,1835,0}],
+    name = "情比金坚",
+    level = 68
     };
 getRow(4,69)->
     #spouseskillCfg {
@@ -4067,10 +4067,10 @@ getRow(4,69)->
     group = 4,
     skilllevel = 69,
     skillid = 13503,
-    exp = 770,
-    intimacy = 69,
-    property = [{139,1121,0}],
-    name = "情比金坚（物防）",
+    exp = 4370,
+    intimacy = 447,
+    property = [{138,1860,0}],
+    name = "情比金坚",
     level = 69
     };
 getRow(4,70)->
@@ -4079,10 +4079,10 @@ getRow(4,70)->
     group = 4,
     skilllevel = 70,
     skillid = 13503,
-    exp = 785,
-    intimacy = 70,
-    property = [{139,1146,0}],
-    name = "情比金坚（物防）",
+    exp = 4470,
+    intimacy = 477,
+    property = [{138,1885,0}],
+    name = "情比金坚",
     level = 70
     };
 getRow(4,71)->
@@ -4091,11 +4091,11 @@ getRow(4,71)->
     group = 4,
     skilllevel = 71,
     skillid = 13503,
-    exp = 795,
-    intimacy = 71,
-    property = [{139,1171,0}],
-    name = "情比金坚（物防）",
-    level = 70
+    exp = 4770,
+    intimacy = 507,
+    property = [{138,1910,0}],
+    name = "情比金坚",
+    level = 71
     };
 getRow(4,72)->
     #spouseskillCfg {
@@ -4103,11 +4103,11 @@ getRow(4,72)->
     group = 4,
     skilllevel = 72,
     skillid = 13503,
-    exp = 810,
-    intimacy = 72,
-    property = [{139,1196,0}],
-    name = "情比金坚（物防）",
-    level = 71
+    exp = 5070,
+    intimacy = 537,
+    property = [{138,1935,0}],
+    name = "情比金坚",
+    level = 72
     };
 getRow(4,73)->
     #spouseskillCfg {
@@ -4115,11 +4115,11 @@ getRow(4,73)->
     group = 4,
     skilllevel = 73,
     skillid = 13503,
-    exp = 820,
-    intimacy = 73,
-    property = [{139,1221,0}],
-    name = "情比金坚（物防）",
-    level = 71
+    exp = 5370,
+    intimacy = 567,
+    property = [{138,1960,0}],
+    name = "情比金坚",
+    level = 73
     };
 getRow(4,74)->
     #spouseskillCfg {
@@ -4127,11 +4127,11 @@ getRow(4,74)->
     group = 4,
     skilllevel = 74,
     skillid = 13503,
-    exp = 835,
-    intimacy = 74,
-    property = [{139,1247,0}],
-    name = "情比金坚（物防）",
-    level = 72
+    exp = 5670,
+    intimacy = 597,
+    property = [{138,1985,0}],
+    name = "情比金坚",
+    level = 74
     };
 getRow(4,75)->
     #spouseskillCfg {
@@ -4139,11 +4139,11 @@ getRow(4,75)->
     group = 4,
     skilllevel = 75,
     skillid = 13503,
-    exp = 845,
-    intimacy = 75,
-    property = [{139,1273,0}],
-    name = "情比金坚（物防）",
-    level = 72
+    exp = 5970,
+    intimacy = 627,
+    property = [{138,2010,0}],
+    name = "情比金坚",
+    level = 75
     };
 getRow(4,76)->
     #spouseskillCfg {
@@ -4151,11 +4151,11 @@ getRow(4,76)->
     group = 4,
     skilllevel = 76,
     skillid = 13503,
-    exp = 860,
-    intimacy = 76,
-    property = [{139,1299,0}],
-    name = "情比金坚（物防）",
-    level = 73
+    exp = 6270,
+    intimacy = 657,
+    property = [{138,2035,0}],
+    name = "情比金坚",
+    level = 76
     };
 getRow(4,77)->
     #spouseskillCfg {
@@ -4163,11 +4163,11 @@ getRow(4,77)->
     group = 4,
     skilllevel = 77,
     skillid = 13503,
-    exp = 875,
-    intimacy = 77,
-    property = [{139,1326,0}],
-    name = "情比金坚（物防）",
-    level = 73
+    exp = 6570,
+    intimacy = 687,
+    property = [{138,2060,0}],
+    name = "情比金坚",
+    level = 77
     };
 getRow(4,78)->
     #spouseskillCfg {
@@ -4175,11 +4175,11 @@ getRow(4,78)->
     group = 4,
     skilllevel = 78,
     skillid = 13503,
-    exp = 885,
-    intimacy = 78,
-    property = [{139,1352,0}],
-    name = "情比金坚（物防）",
-    level = 74
+    exp = 6870,
+    intimacy = 717,
+    property = [{138,2085,0}],
+    name = "情比金坚",
+    level = 78
     };
 getRow(4,79)->
     #spouseskillCfg {
@@ -4187,11 +4187,11 @@ getRow(4,79)->
     group = 4,
     skilllevel = 79,
     skillid = 13503,
-    exp = 900,
-    intimacy = 79,
-    property = [{139,1379,0}],
-    name = "情比金坚（物防）",
-    level = 74
+    exp = 7170,
+    intimacy = 747,
+    property = [{138,2110,0}],
+    name = "情比金坚",
+    level = 79
     };
 getRow(4,80)->
     #spouseskillCfg {
@@ -4199,11 +4199,11 @@ getRow(4,80)->
     group = 4,
     skilllevel = 80,
     skillid = 13503,
-    exp = 910,
-    intimacy = 80,
-    property = [{139,1406,0}],
-    name = "情比金坚（物防）",
-    level = 75
+    exp = 7470,
+    intimacy = 827,
+    property = [{138,2135,0}],
+    name = "情比金坚",
+    level = 80
     };
 getRow(4,81)->
     #spouseskillCfg {
@@ -4211,11 +4211,11 @@ getRow(4,81)->
     group = 4,
     skilllevel = 81,
     skillid = 13503,
-    exp = 910,
-    intimacy = 81,
-    property = [{138,17000,0}],
-    name = "情比金坚（物防）",
-    level = 75
+    exp = 8270,
+    intimacy = 907,
+    property = [{138,2160,0}],
+    name = "情比金坚",
+    level = 81
     };
 getRow(4,82)->
     #spouseskillCfg {
@@ -4223,11 +4223,11 @@ getRow(4,82)->
     group = 4,
     skilllevel = 82,
     skillid = 13503,
-    exp = 33725,
-    intimacy = 82,
-    property = [{138,17200,0}],
-    name = "情比金坚（物防）",
-    level = 76
+    exp = 9070,
+    intimacy = 987,
+    property = [{138,2185,0}],
+    name = "情比金坚",
+    level = 82
     };
 getRow(4,83)->
     #spouseskillCfg {
@@ -4235,11 +4235,11 @@ getRow(4,83)->
     group = 4,
     skilllevel = 83,
     skillid = 13503,
-    exp = 33725,
-    intimacy = 83,
-    property = [{138,17400,0}],
-    name = "情比金坚（物防）",
-    level = 76
+    exp = 9870,
+    intimacy = 1067,
+    property = [{138,2210,0}],
+    name = "情比金坚",
+    level = 83
     };
 getRow(4,84)->
     #spouseskillCfg {
@@ -4247,11 +4247,11 @@ getRow(4,84)->
     group = 4,
     skilllevel = 84,
     skillid = 13503,
-    exp = 33725,
-    intimacy = 84,
-    property = [{138,17600,0}],
-    name = "情比金坚（物防）",
-    level = 77
+    exp = 10670,
+    intimacy = 1147,
+    property = [{138,2235,0}],
+    name = "情比金坚",
+    level = 84
     };
 getRow(4,85)->
     #spouseskillCfg {
@@ -4259,11 +4259,11 @@ getRow(4,85)->
     group = 4,
     skilllevel = 85,
     skillid = 13503,
-    exp = 33725,
-    intimacy = 85,
-    property = [{138,17800,0}],
-    name = "情比金坚（物防）",
-    level = 77
+    exp = 11470,
+    intimacy = 1227,
+    property = [{138,2260,0}],
+    name = "情比金坚",
+    level = 85
     };
 getRow(4,86)->
     #spouseskillCfg {
@@ -4271,11 +4271,11 @@ getRow(4,86)->
     group = 4,
     skilllevel = 86,
     skillid = 13503,
-    exp = 33725,
-    intimacy = 86,
-    property = [{138,18000,0}],
-    name = "情比金坚（物防）",
-    level = 78
+    exp = 12270,
+    intimacy = 1307,
+    property = [{138,2285,0}],
+    name = "情比金坚",
+    level = 86
     };
 getRow(4,87)->
     #spouseskillCfg {
@@ -4283,11 +4283,11 @@ getRow(4,87)->
     group = 4,
     skilllevel = 87,
     skillid = 13503,
-    exp = 33725,
-    intimacy = 87,
-    property = [{138,18200,0}],
-    name = "情比金坚（物防）",
-    level = 78
+    exp = 13070,
+    intimacy = 1387,
+    property = [{138,2310,0}],
+    name = "情比金坚",
+    level = 87
     };
 getRow(4,88)->
     #spouseskillCfg {
@@ -4295,11 +4295,11 @@ getRow(4,88)->
     group = 4,
     skilllevel = 88,
     skillid = 13503,
-    exp = 33725,
-    intimacy = 88,
-    property = [{138,18400,0}],
-    name = "情比金坚（物防）",
-    level = 79
+    exp = 13870,
+    intimacy = 1467,
+    property = [{138,2335,0}],
+    name = "情比金坚",
+    level = 88
     };
 getRow(4,89)->
     #spouseskillCfg {
@@ -4307,11 +4307,11 @@ getRow(4,89)->
     group = 4,
     skilllevel = 89,
     skillid = 13503,
-    exp = 33725,
-    intimacy = 89,
-    property = [{138,18600,0}],
-    name = "情比金坚（物防）",
-    level = 79
+    exp = 14670,
+    intimacy = 1547,
+    property = [{138,2360,0}],
+    name = "情比金坚",
+    level = 89
     };
 getRow(4,90)->
     #spouseskillCfg {
@@ -4319,11 +4319,11 @@ getRow(4,90)->
     group = 4,
     skilllevel = 90,
     skillid = 13503,
-    exp = 33725,
-    intimacy = 90,
-    property = [{138,18800,0}],
-    name = "情比金坚（物防）",
-    level = 80
+    exp = 15470,
+    intimacy = 1627,
+    property = [{138,2385,0}],
+    name = "情比金坚",
+    level = 90
     };
 getRow(_,_)->[].
 

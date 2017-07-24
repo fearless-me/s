@@ -118,10 +118,10 @@ initPetBattle([{#recPetInfo{pet_id = ID, pet_star = Star, pet_raw = Raw}, Pos} |
 		pos = Pos,
 		skills = TalentSkill2
 	},
-	{Add, Multi} = playerPet:makePetEquipProp(EquipList, [], []),
+	{Add, Multi} = playerPet:makePetProp_equip(EquipList, [], []),
 	Bpl0 = battleProp:initBattleProp(false),
 %%	Bpl1 = battleProp:initRmbPetBaseProp(ID, Level, Star, Raw),
-	Bpl1 =playerPet:makePetBaseProp(ID, Level, Star, Raw),
+	Bpl1 =playerPet:makePetProp_self(ID, Level, Raw),
 	Bpl2 = battleProp:setBattlePropBaseValue(Bpl0, Bpl1),
 	Bpl3 = battleProp:addBattlePropAddValue(Bpl2, initPetEquipProp(Add)),
 	Bpl4 = battleProp:addBattlePropRateValue(Bpl3, initPetEquipProp(Multi)),

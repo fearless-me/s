@@ -251,11 +251,13 @@ init_EnterFamilyMapOrOnline(MapId) when MapId =:= ?GuildFairgroundMapID ->
 	GuildID = playerState:getGuildID(),
 	?DEBUG_OUT("[DebugForSnowman] init_EnterFamilyMapOrOnline RoleID:~p GuildID:~p", [RoleID, GuildID]),
 	Count = acSnowmanState:getSnowmanNormal(GuildID),
-	ListMark = acSnowmanState:getSnowmanGift(RoleID),
+	%% 20170223 废弃客户端主动请求领奖，改为活动结算时主动发奖
+	%% 20170713 确认listMark始终为空数组
+	%% ListMark = acSnowmanState:getSnowmanGift(RoleID),
 	playerMsg:sendNetMsg(
 		#pk_GS2U_Guild_SnowmanCompleteCount_Sync{
 			count = Count,
-			listMark = ListMark
+			listMark = []
 		}
 	),
 	ok;

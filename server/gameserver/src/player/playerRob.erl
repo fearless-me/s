@@ -98,9 +98,6 @@ loadRobRoleDataAck(true) ->
 
 	%% 置零
 	playerState:setRoleID(0),
-	MaxHp = playerState:getMaxHp(),
-	?DEBUG_OUT("robot[~p] change hp ~p -> ~p",[RoleID, playerState:getCurHp(), MaxHp]),
-	playerState:setCurHp(MaxHp),
 
 	%% 机器人加载完毕
 	LoadData = #rec_LoadRobData{
@@ -151,6 +148,20 @@ rob_tick() ->
 
 %% 进入切场景流程(包含机器人)
 enterMapIng(MapID) ->
+	case playerState:getIsPlayer() of
+		true ->
+			MaxHp = playerState:getMaxHp(),
+			CurHp = playerState:getCurHp(),
+			case CurHp < MaxHp of
+				false ->
+					skip;
+				_ ->
+					?DEBUG_OUT("robot[~p] change hp ~p -> ~p", [playerState:getRoleID(), CurHp, MaxHp]),
+					playerState:setCurHp(MaxHp)
+			end;
+		_ ->
+			skip
+	end,
 	playerLadder1v1:onEnterLadder1v1Map(MapID),
 	ok.
 

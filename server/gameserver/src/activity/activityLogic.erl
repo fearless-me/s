@@ -216,7 +216,6 @@ activityChangeCallBack(#rec_activity{starttime = STime, phasetime = PTime} = Act
 		true ->
 			%% 第一次心跳完了再同步给GS
 			%% 广播给所有GS，活动阶段改变
-%%			csSendMsg:sendMsg2AllGSServer(activityChangeMsg, Activity),
 			psMgr:sendMsg2PS(?PsNameActivityMgr, activityChangeMsg, Activity),
 			NowTime = time:getSyncTime1970FromDBS(),
 			?LOG_OUT("activityChangeCallBack:~p,nowtime=~ts,stime=~ts,ptime=~ts",

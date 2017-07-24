@@ -5,227 +5,253 @@
 -include("cfg_gembox_info.hrl").
 -include("logger.hrl").
 
-getRow(1)->
+getRow(0,1)->
     #gembox_infoCfg {
+    type = 0,
     id = 1,
-    gem_type = 1,
-    gem_show = 30,
-    gem_black = "gem_red"
+    quality = 0,
+    color = 3
     };
-getRow(2)->
+getRow(0,2)->
     #gembox_infoCfg {
+    type = 0,
     id = 2,
-    gem_type = 1,
-    gem_show = 30,
-    gem_black = "gem_red"
+    quality = 0,
+    color = 2
     };
-getRow(3)->
+getRow(0,3)->
     #gembox_infoCfg {
+    type = 0,
     id = 3,
-    gem_type = 1,
-    gem_show = 30,
-    gem_black = "gem_red"
+    quality = 3,
+    color = 2
     };
-getRow(4)->
+getRow(1,1)->
     #gembox_infoCfg {
-    id = 4,
-    gem_type = 1,
-    gem_show = 32,
-    gem_black = "gem_red"
+    type = 1,
+    id = 1,
+    quality = 0,
+    color = 3
     };
-getRow(5)->
+getRow(1,2)->
     #gembox_infoCfg {
-    id = 5,
-    gem_type = 1,
-    gem_show = 34,
-    gem_black = "gem_red"
+    type = 1,
+    id = 2,
+    quality = 0,
+    color = 1
     };
-getRow(6)->
+getRow(1,3)->
     #gembox_infoCfg {
-    id = 6,
-    gem_type = 1,
-    gem_show = 36,
-    gem_black = "gem_red"
+    type = 1,
+    id = 3,
+    quality = 3,
+    color = 2
     };
-getRow(7)->
+getRow(2,1)->
     #gembox_infoCfg {
-    id = 7,
-    gem_type = 1,
-    gem_show = 38,
-    gem_black = "gem_red"
+    type = 2,
+    id = 1,
+    quality = 0,
+    color = 3
     };
-getRow(8)->
+getRow(2,2)->
     #gembox_infoCfg {
-    id = 8,
-    gem_type = 1,
-    gem_show = 40,
-    gem_black = "gem_red"
+    type = 2,
+    id = 2,
+    quality = 0,
+    color = 2
     };
-getRow(9)->
+getRow(2,3)->
     #gembox_infoCfg {
-    id = 9,
-    gem_type = 2,
-    gem_show = 30,
-    gem_black = "gem_blue"
+    type = 2,
+    id = 3,
+    quality = 3,
+    color = 2
     };
-getRow(10)->
+getRow(3,1)->
     #gembox_infoCfg {
-    id = 10,
-    gem_type = 2,
-    gem_show = 30,
-    gem_black = "gem_blue"
+    type = 3,
+    id = 1,
+    quality = 0,
+    color = 3
     };
-getRow(11)->
+getRow(3,2)->
     #gembox_infoCfg {
-    id = 11,
-    gem_type = 2,
-    gem_show = 30,
-    gem_black = "gem_blue"
+    type = 3,
+    id = 2,
+    quality = 0,
+    color = 2
     };
-getRow(12)->
+getRow(3,3)->
     #gembox_infoCfg {
-    id = 12,
-    gem_type = 2,
-    gem_show = 32,
-    gem_black = "gem_blue"
+    type = 3,
+    id = 3,
+    quality = 3,
+    color = 2
     };
-getRow(13)->
+getRow(4,1)->
     #gembox_infoCfg {
-    id = 13,
-    gem_type = 2,
-    gem_show = 34,
-    gem_black = "gem_blue"
+    type = 4,
+    id = 1,
+    quality = 0,
+    color = 1
     };
-getRow(14)->
+getRow(4,2)->
     #gembox_infoCfg {
-    id = 14,
-    gem_type = 2,
-    gem_show = 36,
-    gem_black = "gem_blue"
+    type = 4,
+    id = 2,
+    quality = 0,
+    color = 2
     };
-getRow(15)->
+getRow(4,3)->
     #gembox_infoCfg {
-    id = 15,
-    gem_type = 2,
-    gem_show = 38,
-    gem_black = "gem_blue"
+    type = 4,
+    id = 3,
+    quality = 3,
+    color = 2
     };
-getRow(16)->
+getRow(5,1)->
     #gembox_infoCfg {
-    id = 16,
-    gem_type = 2,
-    gem_show = 40,
-    gem_black = "gem_blue"
+    type = 5,
+    id = 1,
+    quality = 0,
+    color = 3
     };
-getRow(17)->
+getRow(5,2)->
     #gembox_infoCfg {
-    id = 17,
-    gem_type = 3,
-    gem_show = 30,
-    gem_black = "gem_green"
+    type = 5,
+    id = 2,
+    quality = 0,
+    color = 2
     };
-getRow(18)->
+getRow(5,3)->
     #gembox_infoCfg {
-    id = 18,
-    gem_type = 3,
-    gem_show = 30,
-    gem_black = "gem_green"
+    type = 5,
+    id = 3,
+    quality = 3,
+    color = 1
     };
-getRow(19)->
+getRow(6,1)->
     #gembox_infoCfg {
-    id = 19,
-    gem_type = 3,
-    gem_show = 30,
-    gem_black = "gem_green"
+    type = 6,
+    id = 1,
+    quality = 0,
+    color = 3
     };
-getRow(20)->
+getRow(6,2)->
     #gembox_infoCfg {
-    id = 20,
-    gem_type = 3,
-    gem_show = 32,
-    gem_black = "gem_green"
+    type = 6,
+    id = 2,
+    quality = 0,
+    color = 2
     };
-getRow(21)->
+getRow(6,3)->
     #gembox_infoCfg {
-    id = 21,
-    gem_type = 3,
-    gem_show = 34,
-    gem_black = "gem_green"
+    type = 6,
+    id = 3,
+    quality = 3,
+    color = 2
     };
-getRow(22)->
+getRow(7,1)->
     #gembox_infoCfg {
-    id = 22,
-    gem_type = 3,
-    gem_show = 36,
-    gem_black = "gem_green"
+    type = 7,
+    id = 1,
+    quality = 0,
+    color = 1
     };
-getRow(23)->
+getRow(7,2)->
     #gembox_infoCfg {
-    id = 23,
-    gem_type = 3,
-    gem_show = 38,
-    gem_black = "gem_green"
+    type = 7,
+    id = 2,
+    quality = 0,
+    color = 2
     };
-getRow(24)->
+getRow(7,3)->
     #gembox_infoCfg {
-    id = 24,
-    gem_type = 3,
-    gem_show = 40,
-    gem_black = "gem_green"
+    type = 7,
+    id = 3,
+    quality = 3,
+    color = 2
     };
-getRow(_)->[].
+getRow(_,_)->[].
 
 getKeyList()->[
-    {1},
-    {2},
-    {3},
-    {4},
-    {5},
-    {6},
-    {7},
-    {8},
-    {9},
-    {10},
-    {11},
-    {12},
-    {13},
-    {14},
-    {15},
-    {16},
-    {17},
-    {18},
-    {19},
-    {20},
-    {21},
-    {22},
-    {23},
-    {24}
+    {0,1},
+    {0,2},
+    {0,3},
+    {1,1},
+    {1,2},
+    {1,3},
+    {2,1},
+    {2,2},
+    {2,3},
+    {3,1},
+    {3,2},
+    {3,3},
+    {4,1},
+    {4,2},
+    {4,3},
+    {5,1},
+    {5,2},
+    {5,3},
+    {6,1},
+    {6,2},
+    {6,3},
+    {7,1},
+    {7,2},
+    {7,3}
     ].
 
 get1KeyList()->[
+    0,
     1,
     2,
     3,
     4,
     5,
     6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24
+    7
     ].
+
+get2KeyList(0)->[
+    1,
+    2,
+    3
+    ];
+get2KeyList(1)->[
+    1,
+    2,
+    3
+    ];
+get2KeyList(2)->[
+    1,
+    2,
+    3
+    ];
+get2KeyList(3)->[
+    1,
+    2,
+    3
+    ];
+get2KeyList(4)->[
+    1,
+    2,
+    3
+    ];
+get2KeyList(5)->[
+    1,
+    2,
+    3
+    ];
+get2KeyList(6)->[
+    1,
+    2,
+    3
+    ];
+get2KeyList(7)->[
+    1,
+    2,
+    3
+    ];
+get2KeyList(_)->[].
 

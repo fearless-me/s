@@ -9,8 +9,20 @@
 -module(playerActivity).
 -author("liuyan").
 -include("playerPrivate.hrl").
+
 %% API
--export([buyActionCount/1,inspire/1]).
+-export([
+	init/0,
+	buyActionCount/1,
+	inspire/1
+]).
+
+%%%-------------------------------------------------------------------
+% 上线初始化
+-spec init() -> no_return().
+init() ->
+	%% 向跨服查询自己的报名情况
+	core:sendMsgToActivityMgrCross(cac_query, playerState:getRoleID()).
 
 %%购买进入副本次数(普通副本和活动副本)
 buyActionCount(CopyMapID) ->

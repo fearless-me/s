@@ -29,20 +29,22 @@ saveLog_cache(MsgID, Msg) ->
 			Number = addLogNumber(MsgID),
 
 			case Number < ?LogWriteNumber of
-				true -> skip;
-				_ -> saveLog_cache(MsgID)
+				true ->
+					skip;
+				_ ->
+					saveLog_cache2(MsgID, true)
 			end;
 		_ ->
 			%% 直接存储
-			libLogDB:saveLog_Real(MsgID, Msg)
+			libLogDB:saveLog_Real(MsgID, [{MsgID, Msg}])
 	end,
 	ok.
 
 saveLog_Tick() ->
-	lists:foreach(fun(MsgID) -> saveLog_cache(MsgID) end, ?CacheLogTypeList),
+	lists:foreach(fun(MsgID) -> saveLog_cache2(MsgID, false) end, ?CacheLogTypeList),
 	ok.
 
-saveLog_cache(MsgID) ->
+saveLog_cache2(MsgID, IsSpawn) ->
 	Ets = getCacheEts(),
 
 	case ets:lookup(Ets, MsgID) of
@@ -51,12 +53,12 @@ saveLog_cache(MsgID) ->
 		List ->
 			ets:delete(Ets, MsgID),
 
-			NewList = lists:map(fun({_, Msg}) -> Msg end, List),
-
 			%% 判断是否要开启子进程
-			case erlang:length(NewList) > ?LogWriteSpawn of
-				true -> erlang:spawn(fun() -> spawnSaveLog(MsgID, NewList) end);
-				_ -> libLogDB:saveLog_Real(MsgID, NewList)
+			case IsSpawn of
+				true ->
+					erlang:spawn(fun() -> spawnSaveLog(MsgID, List) end);
+				_ ->
+					spawnSaveLog(MsgID, List)
 			end,
 			ok
 	end,

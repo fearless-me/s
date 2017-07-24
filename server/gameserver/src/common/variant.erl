@@ -39,7 +39,7 @@
 ]).
 
 -export([
-	variantFirstInit/0
+	variantFirstInit/1
 ]).
 
 %%变量的Ets
@@ -171,43 +171,44 @@ initVariantFromDB(List) ->
 	ok.
 
 %% 开关首次初始化
--spec variantFirstInit() -> ok.
-variantFirstInit() ->
-%%	globalBitReadOnlyVariantFirstInit(?GlobalBitVarReadOnly_DefaultOpenList, []),
-	ok.
+-spec variantFirstInit(list()) -> ok.
+variantFirstInit([]) ->
+	?LOG_OUT("variantFirstInit..."),
+	Fun =
+		fun({Index,Value}) ->
+			case Value > 0 of
+				true ->
+					Is1 = isValidGlobalBitIndex(Index),
+					Is2 = isValidGlobalIndex(Index),
+					Is3 = isValidWorldBitIndex(Index),
+					Is4 = isValidWorldIndex(Index),
+					if
+						Is1 ->
+							?DEBUG_OUT("saveGlobalBitVariant:~p,~p", [Index, Value]),
+							core:saveGlobalBitVariant(Index);
+						Is2 ->
+							?DEBUG_OUT("saveGlobalVariant:~p,~p", [Index, Value]),
+							core:saveGlobalVariant(Index,Value);
+						Is3 ->
+							?DEBUG_OUT("saveWorldBitVariant:~p,~p", [Index, Value]),
+							core:saveWorldBitVariant(Index);
+						Is4 ->
+							?DEBUG_OUT("saveWorldVariant:~p,~p", [Index, Value]),
+							core:saveWorldVariant(Index,Value);
+						true ->
+							?DEBUG_OUT("skip skip save variant:~p,~p", [Index, Value]),
+							skip
+					end;
+				_ ->
+					skip
+			end
+		end,
+	lists:foreach(Fun, ?Setting_Default_Values),
 
-%% 客户端只读全局开关类变量，默认开启的如下，仅开关首次使用时生效
-%%globalBitReadOnlyVariantFirstInit([], TempList) -> TempList;
-%%globalBitReadOnlyVariantFirstInit([GlobalBit | List], TempList) ->
-%%	TempList2 = globalBitReadOnlyVariantFirstInit(GlobalBit, TempList),
-%%	globalBitReadOnlyVariantFirstInit(List, TempList2);
-%%globalBitReadOnlyVariantFirstInit(GlobalBit, TempList) ->
-%%	case isValidGlobalBitIndex(GlobalBit) of
-%%		true ->
-%%			Key = getBitIndex(?GlobalVariantID, GlobalBit),
-%%			case lists:keyfind(Key, 1, TempList) of
-%%				{_, true} ->
-%%					?DEBUG_OUT("already init variant:~p", [GlobalBit]),
-%%					TempList;
-%%				{_, false} ->
-%%					?LOG_OUT("open globalbit variant:~p", [GlobalBit]),
-%%					true = core:setGlobalBitVariant(GlobalBit, true),
-%%					TempList;
-%%				false ->
-%%					case ets:lookup(?VariantGlobalEts, Key) of
-%%						[] ->
-%%							?LOG_OUT("open globalbit variant:~p", [GlobalBit]),
-%%							true = core:setGlobalBitVariant(GlobalBit, true),
-%%							[{Key, false} | TempList];
-%%						Data ->
-%%							?DEBUG_OUT("already have variant:~p", [Data]),
-%%							[{Key, true} | TempList]
-%%					end
-%%			end;
-%%		_ ->
-%%			?ERROR_OUT("globalBitVariantFirstInit:~p", [GlobalBit]),
-%%			TempList
-%%	end.
+	%% 默认打开写日志开关
+	core:setGlobalBitVariant(?Setting_GlobalBitVar_WriteLog, 1),
+	ok;
+variantFirstInit(_) -> ok.
 
 -spec getVariantListByID(ID,InMin,InMax) -> [#rec_variant0{},...] | [] when
 	ID::uint(),InMin::uint(),InMax::uint().

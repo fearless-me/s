@@ -3,6 +3,7 @@
 -module(dbSendMsg).
 
 -include("dbsInc.hrl").
+-include("gsDef.hrl").
 
 %% ====================================================================
 %% API functions

@@ -7,12 +7,15 @@
 -author(luowei).
 
 -include("gsInc.hrl").
+-include("bst.hrl").
 
 
 %% ====================================================================
 %% API functions
 %% ====================================================================
 -export([
+	clearRingBuffFromOther/1,
+	addRingBuff/1,
 	addBuff/3,
 	tickBuff/2,
 	delBuff/1,
@@ -58,20 +61,29 @@ addBuff(MonsterCode, BuffID, #recBuffInfo{} = BuffData) ->
 addBuff(MonsterCode, BuffID, Level) ->
 	case checkBuff(MonsterCode, BuffID) of
 		true ->
-			Now = time:getUTCNowMS(),
-			#buffCfg{
-				buffDuration = [Dura, AddLv],
-				durationFactor = Factor
-			} = getCfg:getCfgPStack(cfg_buff, BuffID),
-			NewDura = trunc(Dura + AddLv * (Level - 1)),
-			if
-				Dura =:= 0 ->
-					EndTime = 0;
-				true ->
-					EndTime = (Now + NewDura * (1 + monsterState:getBattlePropTotal(MonsterCode, Factor)))
-			end,
+			BuffCfg = getCfg:getCfgPStack(cfg_buff, BuffID),
+			Factor = monsterState:getBattlePropTotal(MonsterCode, BuffCfg#buffCfg.durationFactor),
+			EndTime = buff:calcBuffEndTime(Level, Factor, BuffCfg),
 			BuffData = initBuffData(MonsterCode, BuffID, Level, 0, trunc(EndTime)),
 			addBuff(MonsterCode, BuffID, BuffData);
+		_ ->
+			skip
+	end.
+
+
+addBuffWithCasterCode(MonsterCode, BuffID, Level, {CasterCode, CasterPid, CasterName}) ->
+	case checkBuff(MonsterCode, BuffID) of
+		true ->
+			BuffCfg = getCfg:getCfgPStack(cfg_buff, BuffID),
+			Factor = monsterState:getBattlePropTotal(MonsterCode, BuffCfg#buffCfg.durationFactor),
+			EndTime = buff:calcBuffEndTime(Level, Factor, BuffCfg),
+			BuffData = initBuffData(MonsterCode, BuffID, Level, 0, trunc(EndTime)),
+			NewBuffData = BuffData#recBuffInfo{
+				attackerCode = CasterCode,
+				attackerPid = CasterPid,
+				attackerName = CasterName
+			},
+			addBuff(MonsterCode, BuffID, NewBuffData);
 		_ ->
 			skip
 	end.
@@ -99,7 +111,8 @@ tickBuff(MonsterCode, Now) ->
 		fun(Buff) ->
 			tickOneBuff(MonsterCode, Now, Buff)
 		end,
-	lists:foreach(Fun, BuffList).
+	lists:foreach(Fun, BuffList),
+	tickCheckRingBuff(MonsterCode, monsterState:getRingBuffIDList(MonsterCode)).
 
 %%根据buff特定状态删除(并且为可移buff)
 -spec delBuffByState(MonsterCode, State) -> ok when
@@ -677,7 +690,7 @@ deleteOneBuff(MonsterCode, Buff, BuffList) ->
 -spec initBuff(MonsterCode, BuffData) -> #recBuff{} when
 	MonsterCode :: uint(),
 	BuffData :: #recBuffInfo{}.
-initBuff(MonsterCode, #recBuffInfo{buffID = BuffID, level = Level} = BuffData) ->
+initBuff(MonsterCode, #recBuffInfo{buffID = BuffID} = BuffData) ->
 	Now = time:getUTCNowMS(),
 	Cfg = getCfg:getCfgPStack(cfg_buff, BuffID),
 	BuffDamage = buffHurt(MonsterCode, BuffData),
@@ -946,10 +959,11 @@ buffHurt(
 	MonsterCode,
 	#recBuffInfo{damageMultiply = DamageMultiply, damagePlus = DamagePlus} = BuffData
 ) ->
-	case buff:isCalcHurt(DamagePlus, DamageMultiply) of
+	Status = monsterState:getStatus(MonsterCode),
+	case buff:isCalcHurt(DamagePlus, DamageMultiply, Status) of
 		true ->
 			AbsorbValue = monsterState:getAbsorbShield(MonsterCode),
-			{RealDamage,NewAbsorbValue} = buff:calcBuffDamageToMe(
+			{RealDamage, NewAbsorbValue} = buff:calcBuffDamageToMe(
 				BuffData
 				, MonsterCode
 				, AbsorbValue
@@ -965,13 +979,8 @@ buffHurt(
 	MonsterCode,
 	#recBuff{damageMultiply = DamageMultiply, damagePlus = DamagePlus} = Buff
 ) ->
-	case buff:isCalcHurt(DamagePlus, DamageMultiply) of
-		true ->
-			BuffData = buff:makeBuffInfoFromBuff(Buff),
-			buffHurt(MonsterCode, BuffData);
-		_ ->
-			0
-	end.
+	BuffData = buff:makeBuffInfoFromBuff(Buff),
+	buffHurt(MonsterCode, BuffData).
 
 
 %%判断死亡buff是否删除
@@ -1003,7 +1012,7 @@ doTriggerBuff(MonsterCode, Buff, Cfg, false) ->
 		damage = buffHurt(MonsterCode, Buff)
 	},
 	addEffect(MonsterCode, NewBuff, Cfg);
-doTriggerBuff(MonsterCode,Buff, Cfg, true) ->
+doTriggerBuff(MonsterCode, Buff, Cfg, true) ->
 	Hp = monsterState:getCurHp(MonsterCode),
 	case Hp > 0 of
 		true ->
@@ -1030,16 +1039,18 @@ doTriggerBuff(MonsterCode,Buff, Cfg, true) ->
 							addEffect(MonsterCode, Buff, Cfg);
 						_ ->
 
-							broadcastBuffDamage(
-								MonsterCode,
-								Buff#recBuff.buffID,
-								Buff#recBuff.counter,
-								-(BuffDamage)
-							),
-							addEffect(MonsterCode, Buff, Cfg),
 							case monsterWorldBoss:isDirectDecHP(MonsterCode) of
 								true ->
 									monsterState:setCurHp(MonsterCode, 0),
+
+									broadcastBuffDamage(
+										MonsterCode,
+										Buff#recBuff.buffID,
+										Buff#recBuff.counter,
+										-(BuffDamage)
+									),
+									addEffect(MonsterCode, Buff, Cfg),
+
 									case isDeathDelete(Cfg#buffCfg.buffDeathdel) of
 										true ->
 											removeBuff(MonsterCode, Buff);
@@ -1054,7 +1065,13 @@ doTriggerBuff(MonsterCode,Buff, Cfg, true) ->
 										Buff#recBuff.skillID
 									);
 								_ ->
-									skip
+									broadcastBuffDamage(
+										MonsterCode,
+										Buff#recBuff.buffID,
+										Buff#recBuff.counter,
+										-(BuffDamage)
+									),
+									addEffect(MonsterCode, Buff, Cfg)
 							end
 					end;
 				_ ->
@@ -1120,6 +1137,10 @@ addEffect(_MonsterCode, #recBuff{effect = ?SLOWDOWN}, #buffCfg{}) ->
 addEffect(MonsterCode, #recBuff{effect = ?PKPROTECT}, #buffCfg{}) ->
 	monsterState:addStatus(MonsterCode, ?CreatureSpeStautsPkProtect);
 
+%%和平使者
+addEffect(MonsterCode, #recBuff{effect = ?PeaceEnvoy}, #buffCfg{}) ->
+	monsterState:addStatus(MonsterCode, ?CreatureSpecStautsPeaceEnvoy);
+
 %%获取触发技能效果
 addEffect(MonsterCode, #recBuff{effect = ?GETTRISKILL, level = Level}, #buffCfg{} = Cfg) ->
 	B1 = Cfg#buffCfg.buffParam1,
@@ -1182,12 +1203,8 @@ addEffect(MonsterCode, #recBuff{effect = ?MODIFYHP}, #buffCfg{buffParam1 = B1, b
 	monsterState:setCurHp(MonsterCode, NewHp);
 
 %%修改魔法值效果
-addEffect(MonsterCode, #recBuff{effect = ?MODIFYMP}, #buffCfg{buffParam1 = B1, buffParam2 = B2}) ->
+addEffect(_MonsterCode, #recBuff{effect = ?MODIFYMP}, #buffCfg{}) ->
 	ok;
-%%	Mp = monsterState:getCurMp(MonsterCode),
-%%	MaxMp = monsterState:getBattlePropTotal(MonsterCode, ?Prop_mana),
-%%	NewMp = Mp - B1 - MaxMp * B2,
-%%	monsterState:setCurMp(MonsterCode, NewMp);
 
 %%虚无效果
 addEffect(MonsterCode, #recBuff{effect = ?BLUR}, #buffCfg{}) ->
@@ -1201,25 +1218,7 @@ addEffect(MonsterCode, #recBuff{effect = ?HURTABSORB}, #buffCfg{} = Cfg) ->
 	AbsorbValue = (B1 + B2 * B3) * monsterState:getBattleProp(MonsterCode, ?Prop_AbsorbShield),
 	monsterState:setAbsorbShield(MonsterCode, AbsorbValue),
 	ok;
-%%	B1 = Cfg#buffCfg.buffParam1,
-%%	B2 = Cfg#buffCfg.buffParam2,
-%%	B3 = Cfg#buffCfg.buffParam3,
-%%	delOldAbsor(MonsterCode),
-%%	BattlePropList = monsterState:getBattleProp(MonsterCode),
-%%	PropValue = battleProp:getBattlePropTotalValue(BattlePropList, B2),
-%%	Value = (B1 + PropValue * B3) * Layer,
-%%	put({oldAbsor, MonsterCode}, Value),
-%%	%%计算最大值
-%%	NewBattleProp = battleProp:addBattlePropAddValue(BattlePropList, [{?Prop_Absorbshield, Value}]),
-%%	NewBattleProp1 = battleProp:calcCharBattleProp(NewBattleProp),
-%%	monsterState:setBattleProp(MonsterCode, NewBattleProp1),
-%%	%%计算当前值
-%%	BattlePropList1 = monsterState:getBattleProp(MonsterCode),
-%%	OldAbsor = monsterState:getAbsorbShield(MonsterCode),
-%%	MaxAbsor = battleProp:getBattlePropTotalValue(BattlePropList1, ?Prop_Absorbshield),
-%%	CurAbsor = misc:clamp(OldAbsor + Value, 0, MaxAbsor),
-%%	monsterState:setAbsorbShield(MonsterCode, CurAbsor),
-%%	monsterBattle:noticeBattleList(MonsterCode, NewBattleProp1);
+
 
 %%变身效果
 addEffect(MonsterCode, #recBuff{effect = ?SHAPESHIFTE}, #buffCfg{}) ->
@@ -1263,7 +1262,247 @@ addEffect(MonsterCode, #recBuff{effect = ?FIXEDBODY}, #buffCfg{}) ->
 addEffect(MonsterCode, #recBuff{effect = ?RIDICULE}, #buffCfg{}) ->
 	monsterState:addStatus(MonsterCode, ?CreatureSpecStautsRidicule);
 
+addEffect(MonsterCode, #recBuff{effect = ?Polymorph}, #buffCfg{buffParam1 = TargetType, buffParam2 = TargetID}) ->
+	onPolymorph(true, TargetType, MonsterCode, TargetID),
+	ok;
+
+addEffect(
+	MonsterCode,
+	#recBuff{effect = ?Ring},
+	#buffCfg{buffId = BuffID, buffParam1 = P1}
+) ->
+	MapPid = monsterState:getMapPid(MonsterCode),
+	Level = monsterState:getLevel(MonsterCode),
+	MonsterEts = monsterState:getMapMonsterEts(MonsterCode),
+	PlayerEts = monsterState:getMapPlayerEts(MonsterCode),
+	KillList = monsterSkill:getKillList(MonsterCode),
+	BuffTargetList =
+		case myEts:readRecord(MonsterEts, MonsterCode) of
+			#recMapObject{} = Target ->
+				buff:getRingBuffTarget(BuffID, Target, MapPid, PlayerEts, MonsterEts, KillList, P1);
+			_ ->
+				[]
+		end,
+	Msg = #recRingBuff{
+		srcCode = MonsterCode
+		, srcLevel = Level
+		, srcPid = self()
+		, srcMapPid = MapPid
+		, targetCode = 0
+		, ringBuffID = BuffID
+	},
+	[psMgr:sendMsg2PS(TargetPid, addRingBuff, Msg#recRingBuff{targetCode = TargetCode})
+		|| #recMapObject{pid = TargetPid, code = TargetCode} <- BuffTargetList
+		, TargetCode =/= MonsterCode
+	],
+	ok;
+addEffect(MonsterCode, #recBuff{effect = ?AntiInjury}, #buffCfg{buffParam1 = Type, buffParam2 = Percent}) ->
+	case Type of
+		?SkillDamageTypePhys ->
+			monsterState:setPhysicalAntiInjury(MonsterCode, Percent);
+		?SkillDamageTypeMagic ->
+			monsterState:setMagicAntiInjury(MonsterCode, Percent);
+		_ ->
+			monsterState:setPhysicalAntiInjury(MonsterCode, Percent),
+			monsterState:setMagicAntiInjury(MonsterCode, Percent),
+			skip
+	end,
+	ok;
 addEffect(_, _, _) ->
+	ok.
+
+%% 别人给我加的
+addRingBuff(#recRingBuff{ringBuffID = RingBuffID, targetCode = TargetCode} = Msg) ->
+	case canAddRingBuff(TargetCode, RingBuffID) of
+		true ->
+			doAddRingBuff(Msg);
+		_ ->
+			skip
+	end,
+	ok.
+
+doAddRingBuff(#recRingBuff{
+	srcCode = SrcCode
+	, srcLevel = SrcLevel
+	, srcPid = SrcPid
+	, srcMapPid = SrcMapPid
+	, ringBuffID = RingBuffID
+	, targetCode = TargetCode
+} = Msg) ->
+	MapPid = monsterState:getMapPid(TargetCode),
+	PlayerEts = monsterState:getMapPlayerEts(TargetCode),
+	MonsterEts = monsterState:getMapPlayerEts(TargetCode),
+	#buffCfg{
+		buffEffect = ?Ring
+		, buffParam1 = P1
+		, buffParam2 = P2
+		, buffParam3 = P3
+		, buffParam4 = P4
+	} = getCfg:getCfgByArgs(cfg_buff, RingBuffID),
+	if
+		MapPid =/= SrcMapPid ->
+			skip;
+		true ->
+			case checkRingBuffDistance([PlayerEts, MonsterEts], SrcCode, TargetCode, P1) of
+				true ->
+					saveNewRingBuff(Msg),
+					[addBuffWithCasterCode(TargetCode, BuffID, SrcLevel, {SrcCode, SrcPid, ""})
+						|| BuffID <- [P2, P3, P4], BuffID > 0
+					];
+				_ ->
+					skip
+			end
+	end,
+	ok.
+
+canAddRingBuff(TargetCode, BuffID) ->
+	L = monsterState:getRingBuffIDList(TargetCode),
+	case lists:keyfind(BuffID, #recRingBuff.ringBuffID, L) of
+		false ->
+			true;
+		_ ->
+			false
+	end.
+
+%% 保存别人给我加的光环
+saveNewRingBuff(#recRingBuff{targetCode = MonsterCode} = Msg) ->
+	L0 = monsterState:getRingBuffIDList(MonsterCode),
+	L1 = lists:keystore(
+		Msg#recRingBuff.ringBuffID
+		, #recRingBuff.ringBuffID
+		, L0
+		, Msg
+	),
+	monsterState:setRingBuffIDList(MonsterCode, L1).
+
+%% 删除别人给我加的光环
+removeRingBuff(MonsterCode, RingBuffID) ->
+	L0 = monsterState:getRingBuffIDList(MonsterCode),
+	L1 = lists:keydelete(RingBuffID, #recRingBuff.ringBuffID, L0),
+	monsterState:setRingBuffIDList(MonsterCode, L1).
+
+%% 删除光环技能加的buff
+removeBuffFromRing(MonsterCode, RingBuffID) ->
+	#buffCfg{
+		buffParam2 = P2
+		, buffParam3 = P3
+		, buffParam4 = P4
+	} = getCfg:getCfgByArgs(cfg_buff, RingBuffID),
+	[delBuff(MonsterCode, BuffID) || BuffID <- [P2, P3, P4], BuffID > 0].
+
+checkRingBuffDistance(_EtsList, SrcCode, SrcCode, _MaxDist) ->
+	false;
+checkRingBuffDistance(EtsList, SrcCode, TargetCode, MaxDist) ->
+	case mapView:getObjectDist(EtsList, SrcCode, TargetCode) of
+		{ok, Dist, _SrcObj, _TargetObj} ->
+			MaxDist >= Dist;
+		_ ->
+			false
+	end.
+
+%% 周期检查别人给我加的buff
+tickCheckRingBuff(_MonsterCode, []) ->
+	skip;
+tickCheckRingBuff(MonsterCode, [Msg | L]) ->
+	tickCheckRingBuff1(MonsterCode, Msg),
+	tickCheckRingBuff(MonsterCode, L).
+
+
+tickCheckRingBuff1(MonsterCode, #recRingBuff{
+	srcPid = SrcPid,
+	srcCode = SrcCode,
+	srcLevel = SrcLevel,
+	ringBuffID = RingBuffID
+}) ->
+	#buffCfg{
+		buffEffect = ?Ring
+		, buffParam1 = MaxDist
+		, buffParam2 = P2
+		, buffParam3 = P3
+		, buffParam4 = P4
+	} = getCfg:getCfgByArgs(cfg_buff, RingBuffID),
+	IsSrcAlive = is_process_alive(SrcPid),
+	PlayerEts = monsterState:getMapPlayerEts(MonsterCode),
+	MonsterEts = monsterState:getMapPlayerEts(MonsterCode),
+	NeedRemove =
+		if
+			IsSrcAlive =:= false ->
+				true;
+			true ->
+				case
+					checkRingBuffDistance(
+						[PlayerEts, MonsterEts], SrcCode, MonsterCode, MaxDist)
+				of
+					false ->
+						true;
+					_ ->
+						false
+				end
+		end,
+	case NeedRemove of
+		true ->
+			removeBuffFromRing(MonsterCode, RingBuffID),
+			removeRingBuff(MonsterCode, RingBuffID),
+			[removeBuff(MonsterCode, BuffID) || BuffID <- [P2, P3, P4], BuffID > 0];
+		_ ->
+			[addBuffWithCasterCode(MonsterCode, BuffID, SrcLevel, {SrcCode, SrcPid, ""})
+				|| BuffID <- [P2, P3, P4], BuffID > 0
+			]
+	end,
+	ok.
+
+%% 删除所有别人给我加的buff
+clearRingBuffFromOther({SrcCode, MonsterCode}) ->
+	L0 = monsterState:getRingBuffIDList(MonsterCode),
+	L1 =
+		lists:foldl(
+			fun(#recRingBuff{ringBuffID = RingBuffID, srcCode = CurCode} = Rec, Acc) ->
+				case SrcCode =:= 0 orelse SrcCode =:= CurCode of
+					true ->
+						removeBuffFromRing(MonsterCode, RingBuffID),
+						Acc;
+					_ ->
+						[Rec | Acc]
+				end
+			end, [], L0),
+	monsterState:setRingBuffIDList(MonsterCode, L1),
+	ok.
+
+%% 通知别人删除我给TA加的buff
+clearRingBuffOfMe(MonsterCode) ->
+	PlayerEts = monsterState:getMapPlayerEts(MonsterCode),
+	MonsterEts = monsterState:getMapPlayerEts(MonsterCode),
+	Fun =
+		fun(#recMapObject{pid = TargetPid, code = TargetCode}) ->
+			psMgr:sendMsg2PS(TargetPid, clearRingBuffOfMe, {MonsterCode, TargetCode})
+		end,
+	myEts:etsFor(PlayerEts, Fun),
+	myEts:etsFor(MonsterEts, Fun),
+	ok.
+
+%% 1 monster,2 NPC
+onPolymorph(true, 1, MonsterCode, TargetID) ->
+	monsterState:addStatus(MonsterCode, ?CreatureSpeStatusPolymorph),
+	Level = monsterState:getLevel(MonsterCode),
+	#monsterCfg{monsterSkill = Skills} = getCfg:getCfgByArgs(cfg_monster, TargetID),
+	[monsterSkill:addTempSkill(MonsterCode, SkillID, Level) || SkillID <- Skills],
+	ok;
+onPolymorph(false, 1, MonsterCode, TargetID) ->
+	monsterState:clearStatus(MonsterCode, ?CreatureSpeStatusPolymorph),
+	#monsterCfg{monsterSkill = Skills} = getCfg:getCfgByArgs(cfg_monster, TargetID),
+	[monsterSkill:delTempSkill(MonsterCode, SkillID) || SkillID <- Skills],
+	ok;
+onPolymorph(true, 2, MonsterCode, _TargetID) ->
+	monsterAI:setAIEvent(MonsterCode, ?BSTCondVar_IsAttackCD, 1),
+	monsterState:addStatus(MonsterCode, ?CreatureSpeStatusPolymorph),
+	monsterState:addStatus(MonsterCode, ?CreatureSpeStautsDisarm),
+	ok;
+onPolymorph(false, 2, MonsterCode, _TargetID) ->
+	monsterAI:setAIEvent(MonsterCode, ?BSTCondVar_IsAttackCD, 0),
+	monsterState:clearStatus(MonsterCode, ?CreatureSpeStatusPolymorph),
+	monsterState:clearStatus(MonsterCode, ?CreatureSpeStautsDisarm),
+	ok;
+onPolymorph(_Flag, _Type, _MonsterCode, _TargetID) ->
 	ok.
 
 %%还原buff效果属性
@@ -1355,6 +1594,16 @@ delEffect(MonsterCode, #recBuff{effect = ?PKPROTECT}, #buffCfg{}, BuffList) ->
 	end,
 	ok;
 
+%%移除和平使者
+delEffect(MonsterCode, #recBuff{effect = ?PeaceEnvoy}, #buffCfg{}, BuffList) ->
+	case isRemoveEff(MonsterCode, ?PeaceEnvoy, BuffList) of
+		true ->
+			monsterState:clearStatus(MonsterCode, ?CreatureSpecStautsPeaceEnvoy);
+		_ ->
+			skip
+	end,
+	ok;
+
 %%移除免疫
 delEffect(MonsterCode, #recBuff{effect = ?IMMUNE}, #buffCfg{}, BuffList) ->
 	case isRemoveEff(MonsterCode, ?IMMUNE, BuffList) of
@@ -1428,6 +1677,24 @@ delEffect(MonsterCode, #recBuff{effect = ?CALLSKILL}, #buffCfg{buffParam1 = B1},
 delEffect(MonsterCode, #recBuff{effect = ?HURTABSORB}, #buffCfg{}, _BuffList) ->
 	delOldAbsor(MonsterCode);
 
+delEffect(MonsterCode, #recBuff{effect = ?Polymorph}, #buffCfg{buffParam1 = TargetType, buffParam2 = TargetID}, _BuffList) ->
+	onPolymorph(false, TargetType, MonsterCode, TargetID),
+	ok;
+delEffect(MonsterCode, #recBuff{effect = ?Ring}, #buffCfg{}, _BuffList) ->
+	clearRingBuffOfMe(MonsterCode),
+	ok;
+delEffect(MonsterCode, #recBuff{effect = ?AntiInjury}, #buffCfg{buffParam1 = Type}, _BuffList) ->
+	case Type of
+		?SkillDamageTypePhys ->
+			monsterState:setPhysicalAntiInjury(MonsterCode, Type, 0);
+		?SkillDamageTypeMagic ->
+			monsterState:setMagicAntiInjury(MonsterCode, Type, 0);
+		_ ->
+			monsterState:setPhysicalAntiInjury(MonsterCode, Type, 0),
+			monsterState:setMagicAntiInjury(MonsterCode, Type, 0),
+			ok
+	end,
+	ok;
 delEffect(_, _, _, _) ->
 	ok.
 

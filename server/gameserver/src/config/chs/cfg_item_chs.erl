@@ -9,7 +9,7 @@ getRow(1)->
     #itemCfg {
     id = 1,
     name = "经验",
-    desc = "大量经验值。",
+    desc = "大量经验值",
     product = "0",
     iconPath = 125,
     maxAmount = 9999,
@@ -30,7 +30,7 @@ getRow(1)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -38,13 +38,14 @@ getRow(1)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2)->
     #itemCfg {
     id = 2,
     name = "钻石",
-    desc = "蓝色大陆流通的特殊货币，能在商城中购买增值道具。",
+    desc = "蓝色大陆流通的特殊货币，能发挥出非凡的价值",
     product = "0",
     iconPath = 6,
     maxAmount = 9999,
@@ -65,7 +66,7 @@ getRow(2)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -73,13 +74,14 @@ getRow(2)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3)->
     #itemCfg {
     id = 3,
     name = "绑定钻石",
-    desc = "蓝色大陆流通的特殊货币，能在商城中购买增值道具。",
+    desc = "蓝色大陆流通的特殊货币，能发挥出非凡的价值",
     product = "0",
     iconPath = 5,
     maxAmount = 9999,
@@ -100,7 +102,7 @@ getRow(3)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -108,13 +110,14 @@ getRow(3)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [{29,0}]
+    relation_UI = [{29,0}],
+    check_box = 0
     };
 getRow(4)->
     #itemCfg {
     id = 4,
     name = "金币",
-    desc = "蓝色大陆流通的货币，能在商人处购买道具。",
+    desc = "蓝色大陆流通的货币，珍贵无比",
     product = "0",
     iconPath = 3,
     maxAmount = 9999,
@@ -135,7 +138,7 @@ getRow(4)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -143,13 +146,14 @@ getRow(4)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [{22,4},{24,0}]
+    relation_UI = [{22,4},{24,0}],
+    check_box = 0
     };
 getRow(5)->
     #itemCfg {
     id = 5,
     name = "绑定金币",
-    desc = "蓝色大陆流通的货币，能在商人处购买道具。",
+    desc = "蓝色大陆流通的货币，珍贵无比",
     product = "0",
     iconPath = 4,
     maxAmount = 9999,
@@ -170,7 +174,7 @@ getRow(5)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -178,7 +182,8 @@ getRow(5)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [{22,4},{24,0}]
+    relation_UI = [{22,4},{24,0}],
+    check_box = 0
     };
 getRow(11)->
     #itemCfg {
@@ -205,7 +210,7 @@ getRow(11)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -213,13 +218,14 @@ getRow(11)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(12)->
     #itemCfg {
     id = 12,
     name = "家族经验",
-    desc = "大量家族经验值。",
+    desc = "大量家族经验值",
     product = "0",
     iconPath = 26,
     maxAmount = 9999,
@@ -240,7 +246,7 @@ getRow(12)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -248,13 +254,14 @@ getRow(12)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(13)->
     #itemCfg {
     id = 13,
     name = "家族贡献",
-    desc = "大量家族贡献值。",
+    desc = "大量家族贡献值",
     product = "0",
     iconPath = 140,
     maxAmount = 9999,
@@ -275,7 +282,7 @@ getRow(13)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -283,13 +290,14 @@ getRow(13)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(14)->
     #itemCfg {
     id = 14,
     name = "家族声望",
-    desc = "大量家族声望值。",
+    desc = "大量家族声望值",
     product = "0",
     iconPath = 184,
     maxAmount = 9999,
@@ -310,7 +318,7 @@ getRow(14)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -318,7 +326,44 @@ getRow(14)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(15)->
+    #itemCfg {
+    id = 15,
+    name = "家族活跃",
+    desc = "大量的家族活跃",
+    product = "0",
+    iconPath = 145,
+    maxAmount = 9999,
+    quality = 1,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
     };
 getRow(19)->
     #itemCfg {
@@ -345,7 +390,7 @@ getRow(19)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -354,7 +399,8 @@ getRow(19)->
     txt = "成功激活成长礼包",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(20)->
     #itemCfg {
@@ -381,7 +427,7 @@ getRow(20)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -389,7 +435,8 @@ getRow(20)->
     useJumpPage = 18,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [{22,1},{33,0},{24,0}]
+    relation_UI = [{22,1},{33,0},{24,0}],
+    check_box = 0
     };
 getRow(31)->
     #itemCfg {
@@ -416,7 +463,7 @@ getRow(31)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -424,7 +471,8 @@ getRow(31)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(32)->
     #itemCfg {
@@ -433,6 +481,42 @@ getRow(32)->
     desc = "象征伴侣间的亲密值，可以强化婚戒，提升伴侣技能。\n[00ff00]获取途径：约会地下城，情缘任务，伴侣组队杀怪[-]",
     product = "游戏中获得",
     iconPath = 4001,
+    maxAmount = 9999,
+    quality = 4,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(33)->
+    #itemCfg {
+    id = 33,
+    name = "女神好感度",
+    desc = "用于提升女神等级。\n[00ff00]获取途径：主线任务、日常任务[-]",
+    product = "游戏中获得",
+    iconPath = 4015,
     maxAmount = 9999,
     quality = 1,
     itemType = 1,
@@ -451,7 +535,7 @@ getRow(32)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -459,7 +543,8 @@ getRow(32)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [{22,4}],
+    check_box = 0
     };
 getRow(49)->
     #itemCfg {
@@ -486,7 +571,7 @@ getRow(49)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -494,17 +579,18 @@ getRow(49)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(52)->
     #itemCfg {
     id = 52,
     name = "装备",
-    desc = "各类神器，神装。",
+    desc = "随机白色，绿色和蓝色装备",
     product = "0",
     iconPath = 149,
     maxAmount = 9999,
-    quality = 1,
+    quality = 2,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
@@ -521,7 +607,7 @@ getRow(52)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -529,7 +615,8 @@ getRow(52)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(55)->
     #itemCfg {
@@ -556,7 +643,7 @@ getRow(55)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -564,7 +651,8 @@ getRow(55)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(57)->
     #itemCfg {
@@ -591,7 +679,7 @@ getRow(57)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -599,7 +687,8 @@ getRow(57)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(58)->
     #itemCfg {
@@ -626,7 +715,7 @@ getRow(58)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -634,7 +723,8 @@ getRow(58)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(62)->
     #itemCfg {
@@ -661,7 +751,7 @@ getRow(62)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -669,7 +759,8 @@ getRow(62)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(63)->
     #itemCfg {
@@ -696,7 +787,7 @@ getRow(63)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -704,7 +795,8 @@ getRow(63)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{2,0}]
+    relation_UI = [{2,0}],
+    check_box = 0
     };
 getRow(64)->
     #itemCfg {
@@ -731,7 +823,7 @@ getRow(64)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -739,7 +831,8 @@ getRow(64)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(71)->
     #itemCfg {
@@ -766,7 +859,7 @@ getRow(71)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -774,7 +867,8 @@ getRow(71)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(72)->
     #itemCfg {
@@ -801,7 +895,7 @@ getRow(72)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -809,7 +903,8 @@ getRow(72)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(73)->
     #itemCfg {
@@ -836,7 +931,7 @@ getRow(73)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -844,7 +939,8 @@ getRow(73)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,16}]
+    relation_UI = [{22,16}],
+    check_box = 0
     };
 getRow(81)->
     #itemCfg {
@@ -871,7 +967,7 @@ getRow(81)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -879,7 +975,8 @@ getRow(81)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [{22,21}]
+    relation_UI = [{22,21}],
+    check_box = 0
     };
 getRow(82)->
     #itemCfg {
@@ -906,7 +1003,7 @@ getRow(82)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -914,7 +1011,8 @@ getRow(82)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [{22,21}]
+    relation_UI = [{22,21}],
+    check_box = 0
     };
 getRow(83)->
     #itemCfg {
@@ -941,7 +1039,7 @@ getRow(83)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -949,7 +1047,8 @@ getRow(83)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(84)->
     #itemCfg {
@@ -976,7 +1075,7 @@ getRow(84)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -984,13 +1083,50 @@ getRow(84)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(85)->
+    #itemCfg {
+    id = 85,
+    name = "体力",
+    desc = "可开启副本。",
+    product = "0",
+    iconPath = 613,
+    maxAmount = 9999,
+    quality = 1,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 5,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
     };
 getRow(101)->
     #itemCfg {
     id = 101,
     name = "1级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复800点生命值",
+    desc = "极为有效的治疗药水，能够恢复800点生命值\n[00ff00]获取途径：背包补给商店[-]",
     product = "商店购买获得",
     iconPath = 17,
     maxAmount = 999,
@@ -1011,7 +1147,7 @@ getRow(101)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1019,13 +1155,14 @@ getRow(101)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(102)->
     #itemCfg {
     id = 102,
     name = "10级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复1500点生命值",
+    desc = "极为有效的治疗药水，能够恢复1500点生命值\n[00ff00]获取途径：背包补给商店[-]",
     product = "商店购买获得",
     iconPath = 18,
     maxAmount = 999,
@@ -1046,7 +1183,7 @@ getRow(102)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1054,13 +1191,14 @@ getRow(102)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(103)->
     #itemCfg {
     id = 103,
     name = "20级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复5400点生命值",
+    desc = "极为有效的治疗药水，能够恢复5400点生命值\n[00ff00]获取途径：背包补给商店[-]",
     product = "商店购买获得",
     iconPath = 19,
     maxAmount = 999,
@@ -1081,7 +1219,7 @@ getRow(103)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1089,13 +1227,14 @@ getRow(103)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(104)->
     #itemCfg {
     id = 104,
     name = "30级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复19200点生命值",
+    desc = "极为有效的治疗药水，能够恢复19200点生命值\n[00ff00]获取途径：背包补给商店[-]",
     product = "商店购买获得",
     iconPath = 20,
     maxAmount = 999,
@@ -1116,7 +1255,7 @@ getRow(104)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1124,13 +1263,14 @@ getRow(104)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(105)->
     #itemCfg {
     id = 105,
     name = "40级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复42800点生命值",
+    desc = "极为有效的治疗药水，能够恢复42800点生命值\n[00ff00]获取途径：背包补给商店[-]",
     product = "商店购买获得",
     iconPath = 153,
     maxAmount = 999,
@@ -1151,7 +1291,7 @@ getRow(105)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1159,15 +1299,16 @@ getRow(105)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(106)->
     #itemCfg {
     id = 106,
     name = "45级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复57000点生命值",
+    desc = "极为有效的治疗药水，能够恢复57000点生命值\n[00ff00]获取途径：背包补给商店[-]",
     product = "商店购买获得",
-    iconPath = 154,
+    iconPath = 155,
     maxAmount = 999,
     quality = 2,
     itemType = 2,
@@ -1186,7 +1327,7 @@ getRow(106)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1194,15 +1335,16 @@ getRow(106)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(107)->
     #itemCfg {
     id = 107,
     name = "50级恢复药水",
-    desc = "极为有效的治疗药水，能够恢复72600点生命值",
+    desc = "极为有效的治疗药水，能够恢复72600点生命值\n[00ff00]获取途径：背包补给商店[-]",
     product = "商店购买获得",
-    iconPath = 155,
+    iconPath = 156,
     maxAmount = 999,
     quality = 3,
     itemType = 2,
@@ -1221,7 +1363,7 @@ getRow(107)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1229,7 +1371,8 @@ getRow(107)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(108)->
     #itemCfg {
@@ -1256,7 +1399,7 @@ getRow(108)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1264,7 +1407,8 @@ getRow(108)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(109)->
     #itemCfg {
@@ -1291,7 +1435,7 @@ getRow(109)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1299,7 +1443,8 @@ getRow(109)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(110)->
     #itemCfg {
@@ -1326,7 +1471,7 @@ getRow(110)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1334,7 +1479,8 @@ getRow(110)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(111)->
     #itemCfg {
@@ -1361,7 +1507,7 @@ getRow(111)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1369,7 +1515,8 @@ getRow(111)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(112)->
     #itemCfg {
@@ -1396,7 +1543,7 @@ getRow(112)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1404,7 +1551,8 @@ getRow(112)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(113)->
     #itemCfg {
@@ -1431,7 +1579,7 @@ getRow(113)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1439,7 +1587,8 @@ getRow(113)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(114)->
     #itemCfg {
@@ -1466,7 +1615,7 @@ getRow(114)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1474,7 +1623,8 @@ getRow(114)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(115)->
     #itemCfg {
@@ -1501,7 +1651,7 @@ getRow(115)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1509,7 +1659,8 @@ getRow(115)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(116)->
     #itemCfg {
@@ -1536,7 +1687,7 @@ getRow(116)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1544,7 +1695,8 @@ getRow(116)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(129)->
     #itemCfg {
@@ -1571,7 +1723,7 @@ getRow(129)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1579,7 +1731,8 @@ getRow(129)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [15,0]
+    relation_UI = [15,0],
+    check_box = 0
     };
 getRow(130)->
     #itemCfg {
@@ -1606,7 +1759,7 @@ getRow(130)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1614,7 +1767,8 @@ getRow(130)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(131)->
     #itemCfg {
@@ -1641,7 +1795,7 @@ getRow(131)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1649,7 +1803,8 @@ getRow(131)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(201)->
     #itemCfg {
@@ -1676,7 +1831,7 @@ getRow(201)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1684,13 +1839,122 @@ getRow(201)->
     useJumpPage = 1,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,36}]
+    relation_UI = [{24,0},{22,36}],
+    check_box = 0
+    };
+getRow(202)->
+    #itemCfg {
+    id = 202,
+    name = "骑宠经验丹1",
+    desc = "骑宠经验增加100",
+    product = "商店购买获得",
+    iconPath = 86,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 35,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 35,
+    useParam1 = 100,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 2,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(203)->
+    #itemCfg {
+    id = 203,
+    name = "骑宠经验丹2",
+    desc = "骑宠经验增加200",
+    product = "商店购买获得",
+    iconPath = 86,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 35,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 35,
+    useParam1 = 200,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 2,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(204)->
+    #itemCfg {
+    id = 204,
+    name = "骑宠经验丹3",
+    desc = "骑宠经验增加500",
+    product = "商店购买获得",
+    iconPath = 86,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 35,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 35,
+    useParam1 = 500,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 2,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
     };
 getRow(222)->
     #itemCfg {
     id = 222,
     name = "精炼石I",
-    desc = "装备精炼1-30必备材料\n[00ff00]获取途径：副本产出、商城成长类[-]",
+    desc = "装备精炼1-20级所需材料。\n[00ff00]获取途径：副本产出、商城成长类[-]",
     product = "游戏中获得",
     iconPath = 88,
     maxAmount = 9999,
@@ -1711,7 +1975,7 @@ getRow(222)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1719,7 +1983,8 @@ getRow(222)->
     useJumpPage = 4,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,19},{20,101}]
+    relation_UI = [{24,0},{22,19},{20,101}],
+    check_box = 0
     };
 getRow(223)->
     #itemCfg {
@@ -1746,7 +2011,7 @@ getRow(223)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1754,13 +2019,14 @@ getRow(223)->
     useJumpPage = 9,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,5},{20,301}]
+    relation_UI = [{24,0},{22,5},{20,301}],
+    check_box = 0
     };
 getRow(224)->
     #itemCfg {
     id = 224,
     name = "精炼石II",
-    desc = "装备精炼31-60必备材料\n[00ff00]获取途径：资源兑换、商城成长类[-]",
+    desc = "装备精炼21-40级所需材料。3个精炼石I在装备精炼中，将自动转化为1个精炼石II。\n[00ff00]获取途径：资源兑换、商城成长类[-]",
     product = "游戏中获得",
     iconPath = 335,
     maxAmount = 9999,
@@ -1781,7 +2047,7 @@ getRow(224)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1789,13 +2055,14 @@ getRow(224)->
     useJumpPage = 4,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0}]
+    relation_UI = [{24,0},{12,0}],
+    check_box = 0
     };
 getRow(225)->
     #itemCfg {
     id = 225,
     name = "升星石I",
-    desc = "装备冲星1-15级材料\n[00ff00]获取途径：野外首领、商城成长类[-]",
+    desc = "装备升星1-15级材料\n[00ff00]获取途径：野外首领、商城成长类[-]",
     product = "游戏中获得",
     iconPath = 468,
     maxAmount = 9999,
@@ -1816,7 +2083,7 @@ getRow(225)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1824,13 +2091,14 @@ getRow(225)->
     useJumpPage = 8,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,19},{20,202}]
+    relation_UI = [{24,0},{22,19},{20,202}],
+    check_box = 0
     };
 getRow(226)->
     #itemCfg {
     id = 226,
     name = "升星石II",
-    desc = "装备冲星16-25级材料\n[00ff00]获取途径：野外首领、商城成长类[-]",
+    desc = "装备升星16-25级材料\n[00ff00]获取途径：野外首领、商城成长类[-]",
     product = "游戏中获得",
     iconPath = 540,
     maxAmount = 9999,
@@ -1851,7 +2119,7 @@ getRow(226)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1859,13 +2127,14 @@ getRow(226)->
     useJumpPage = 8,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,19},{20,202}]
+    relation_UI = [{24,0},{22,19},{20,202}],
+    check_box = 0
     };
 getRow(227)->
     #itemCfg {
     id = 227,
     name = "升星石III",
-    desc = "装备冲星26-30级材料\n[00ff00]获取途径：野外首领、商城成长类[-]",
+    desc = "装备升星26-30级材料\n[00ff00]获取途径：野外首领、商城成长类[-]",
     product = "游戏中获得",
     iconPath = 541,
     maxAmount = 9999,
@@ -1886,7 +2155,7 @@ getRow(227)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1894,13 +2163,14 @@ getRow(227)->
     useJumpPage = 8,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,19},{20,202}]
+    relation_UI = [{24,0},{22,19},{20,202}],
+    check_box = 0
     };
 getRow(229)->
     #itemCfg {
     id = 229,
     name = "精炼石III",
-    desc = "装备精炼60-75级必备材料\n[00ff00]获取途径：资源兑换、商城成长类[-]",
+    desc = "装备精炼41-70级必备材料。3个精炼石II在装备精炼中，将自动转化为1个精炼石III。\n[00ff00]获取途径：资源兑换、商城成长类[-]",
     product = "游戏中获得",
     iconPath = 87,
     maxAmount = 9999,
@@ -1921,7 +2191,7 @@ getRow(229)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1929,13 +2199,14 @@ getRow(229)->
     useJumpPage = 4,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0}]
+    relation_UI = [{24,0},{12,0}],
+    check_box = 0
     };
 getRow(240)->
     #itemCfg {
     id = 240,
-    name = "小块蓝晶原石",
-    desc = "使用后获得1个兽灵精华I。有普通概率获得1个兽灵精华II或1个兽灵精华III。",
+    name = "蓝晶原石",
+    desc = "使用后获得1个兽灵精华I，1~2个骑宠提升石。",
     product = "游戏中获得",
     iconPath = 91,
     maxAmount = 99,
@@ -1956,7 +2227,7 @@ getRow(240)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -1964,182 +2235,8 @@ getRow(240)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
-    };
-getRow(241)->
-    #itemCfg {
-    id = 241,
-    name = "大块蓝晶原石",
-    desc = "使用后获得1个兽灵精华I。有较高概率获得1个兽灵精华II或1个兽灵精华III。",
-    product = "游戏中获得",
-    iconPath = 91,
-    maxAmount = 99,
-    quality = 3,
-    itemType = 8,
-    detailedType = 0,
-    isQuestItem = 0,
-    useType = 8,
-    useParam1 = 330001,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 99,
-    level = 5,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 0,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 1,
-    operate = 0,
-    needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = []
-    };
-getRow(242)->
-    #itemCfg {
-    id = 242,
-    name = "蓝晶原石",
-    desc = "使用后获得1-2个兽灵精华I。有较高概率获得1个兽灵精华II或1个兽灵精华III。",
-    product = "游戏中获得",
-    iconPath = 91,
-    maxAmount = 99,
-    quality = 2,
-    itemType = 8,
-    detailedType = 0,
-    isQuestItem = 0,
-    useType = 8,
-    useParam1 = 330001,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 99,
-    level = 5,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 0,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 1,
-    operate = 0,
-    needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 0,
-    relation_UI = []
-    };
-getRow(250)->
-    #itemCfg {
-    id = 250,
-    name = "小块红晶原石",
-    desc = "使用后获得1个骑宠提升石，有普通概率获得绿色、蓝色和红色骑宠碎片。",
-    product = "游戏中获得",
-    iconPath = 92,
-    maxAmount = 99,
-    quality = 2,
-    itemType = 8,
-    detailedType = 0,
-    isQuestItem = 0,
-    useType = 8,
-    useParam1 = 331000,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 99,
-    level = 5,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 0,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 1,
-    operate = 0,
-    needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 0,
-    relation_UI = []
-    };
-getRow(251)->
-    #itemCfg {
-    id = 251,
-    name = "大块红晶原石",
-    desc = "使用后获得1个骑宠提升石，有较高概率获得绿色、蓝色和红色骑宠碎片。",
-    product = "游戏中获得",
-    iconPath = 92,
-    maxAmount = 99,
-    quality = 3,
-    itemType = 8,
-    detailedType = 0,
-    isQuestItem = 0,
-    useType = 8,
-    useParam1 = 332000,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 99,
-    level = 5,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 0,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 1,
-    operate = 0,
-    needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = []
-    };
-getRow(252)->
-    #itemCfg {
-    id = 252,
-    name = "红晶原石",
-    desc = "使用后获得1-2个骑宠提升石，有较高概率获得绿色、蓝色和红色骑宠碎片。",
-    product = "游戏中获得",
-    iconPath = 92,
-    maxAmount = 99,
-    quality = 2,
-    itemType = 8,
-    detailedType = 0,
-    isQuestItem = 0,
-    useType = 8,
-    useParam1 = 332000,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 99,
-    level = 5,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 0,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 1,
-    operate = 0,
-    needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(270)->
     #itemCfg {
@@ -2166,7 +2263,7 @@ getRow(270)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2174,7 +2271,8 @@ getRow(270)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(271)->
     #itemCfg {
@@ -2201,7 +2299,7 @@ getRow(271)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2209,7 +2307,8 @@ getRow(271)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(272)->
     #itemCfg {
@@ -2236,7 +2335,7 @@ getRow(272)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2244,7 +2343,8 @@ getRow(272)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(273)->
     #itemCfg {
@@ -2271,7 +2371,7 @@ getRow(273)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2279,7 +2379,8 @@ getRow(273)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(274)->
     #itemCfg {
@@ -2306,7 +2407,7 @@ getRow(274)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2314,7 +2415,8 @@ getRow(274)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(275)->
     #itemCfg {
@@ -2341,7 +2443,7 @@ getRow(275)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2349,7 +2451,8 @@ getRow(275)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(276)->
     #itemCfg {
@@ -2376,7 +2479,7 @@ getRow(276)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2384,7 +2487,8 @@ getRow(276)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(277)->
     #itemCfg {
@@ -2411,7 +2515,7 @@ getRow(277)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2419,7 +2523,8 @@ getRow(277)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(278)->
     #itemCfg {
@@ -2446,7 +2551,7 @@ getRow(278)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -2454,7 +2559,8 @@ getRow(278)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(279)->
     #itemCfg {
@@ -2481,7 +2587,7 @@ getRow(279)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -2489,7 +2595,8 @@ getRow(279)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(306)->
     #itemCfg {
@@ -2516,7 +2623,7 @@ getRow(306)->
     dailyCountGroup = 1098,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2524,7 +2631,8 @@ getRow(306)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(310)->
     #itemCfg {
@@ -2551,7 +2659,7 @@ getRow(310)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2559,7 +2667,8 @@ getRow(310)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(311)->
     #itemCfg {
@@ -2586,7 +2695,7 @@ getRow(311)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2594,7 +2703,8 @@ getRow(311)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(312)->
     #itemCfg {
@@ -2621,7 +2731,7 @@ getRow(312)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2629,7 +2739,8 @@ getRow(312)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(313)->
     #itemCfg {
@@ -2656,7 +2767,7 @@ getRow(313)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -2664,7 +2775,8 @@ getRow(313)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(400)->
     #itemCfg {
@@ -2691,7 +2803,7 @@ getRow(400)->
     dailyCountGroup = 1099,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -2699,7 +2811,8 @@ getRow(400)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(401)->
     #itemCfg {
@@ -2726,7 +2839,7 @@ getRow(401)->
     dailyCountGroup = 1099,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -2734,7 +2847,8 @@ getRow(401)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(402)->
     #itemCfg {
@@ -2761,7 +2875,7 @@ getRow(402)->
     dailyCountGroup = 1099,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -2769,7 +2883,8 @@ getRow(402)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(601)->
     #itemCfg {
@@ -2796,7 +2911,7 @@ getRow(601)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -2804,7 +2919,8 @@ getRow(601)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(602)->
     #itemCfg {
@@ -2831,7 +2947,7 @@ getRow(602)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -2839,12 +2955,13 @@ getRow(602)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(603)->
     #itemCfg {
     id = 603,
-    name = "小金钱箱",
+    name = "小金钱囊",
     desc = "一小箱子金钱，打开后可以立即获得5000金币。",
     product = "游戏内获得",
     iconPath = 31,
@@ -2866,7 +2983,7 @@ getRow(603)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -2874,12 +2991,13 @@ getRow(603)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(604)->
     #itemCfg {
     id = 604,
-    name = "大金钱箱",
+    name = "大金钱囊",
     desc = "一大箱子金钱，打开后可以立即获得20000金币。",
     product = "游戏内获得",
     iconPath = 31,
@@ -2901,7 +3019,7 @@ getRow(604)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -2909,7 +3027,8 @@ getRow(604)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(605)->
     #itemCfg {
@@ -2936,7 +3055,7 @@ getRow(605)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -2944,7 +3063,8 @@ getRow(605)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(606)->
     #itemCfg {
@@ -2971,7 +3091,7 @@ getRow(606)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -2979,7 +3099,8 @@ getRow(606)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(607)->
     #itemCfg {
@@ -3006,7 +3127,7 @@ getRow(607)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 32,
@@ -3014,7 +3135,8 @@ getRow(607)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(608)->
     #itemCfg {
@@ -3041,7 +3163,7 @@ getRow(608)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 32,
@@ -3049,7 +3171,8 @@ getRow(608)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(611)->
     #itemCfg {
@@ -3076,7 +3199,7 @@ getRow(611)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -3084,7 +3207,8 @@ getRow(611)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(612)->
     #itemCfg {
@@ -3111,7 +3235,7 @@ getRow(612)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -3119,12 +3243,13 @@ getRow(612)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(613)->
     #itemCfg {
     id = 613,
-    name = "小金钱箱",
+    name = "小金钱囊",
     desc = "一小箱子金钱，打开后可以立即获得5000金币。",
     product = "游戏内获得",
     iconPath = 31,
@@ -3146,7 +3271,7 @@ getRow(613)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -3154,12 +3279,13 @@ getRow(613)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(614)->
     #itemCfg {
     id = 614,
-    name = "大金钱箱",
+    name = "大金钱囊",
     desc = "一大箱子金钱，打开后可以立即获得20000金币。",
     product = "游戏内获得",
     iconPath = 31,
@@ -3181,7 +3307,7 @@ getRow(614)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -3189,7 +3315,8 @@ getRow(614)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(615)->
     #itemCfg {
@@ -3216,7 +3343,7 @@ getRow(615)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -3224,7 +3351,8 @@ getRow(615)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(616)->
     #itemCfg {
@@ -3251,7 +3379,7 @@ getRow(616)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -3259,7 +3387,8 @@ getRow(616)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(617)->
     #itemCfg {
@@ -3286,7 +3415,7 @@ getRow(617)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 32,
@@ -3294,7 +3423,8 @@ getRow(617)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(618)->
     #itemCfg {
@@ -3321,7 +3451,7 @@ getRow(618)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 32,
@@ -3329,7 +3459,8 @@ getRow(618)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(700)->
     #itemCfg {
@@ -3356,7 +3487,7 @@ getRow(700)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -3365,7 +3496,8 @@ getRow(700)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(701)->
     #itemCfg {
@@ -3392,7 +3524,7 @@ getRow(701)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -3401,7 +3533,8 @@ getRow(701)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(702)->
     #itemCfg {
@@ -3428,7 +3561,7 @@ getRow(702)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 32,
@@ -3437,7 +3570,45 @@ getRow(702)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(703)->
+    #itemCfg {
+    id = 703,
+    name = "超大金币",
+    desc = "喵盗们偷取的超大金币，使用后可以获得5000金币。",
+    product = "游戏内获得",
+    iconPath = 3,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 6,
+    useParam1 = 1,
+    useParam2 = 5000,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 32,
+    baozhunumber = 1,
+    baozhusound = "item_baozhu_1",
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
     };
 getRow(800)->
     #itemCfg {
@@ -3464,7 +3635,7 @@ getRow(800)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3472,7 +3643,8 @@ getRow(800)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(801)->
     #itemCfg {
@@ -3499,7 +3671,7 @@ getRow(801)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3507,7 +3679,8 @@ getRow(801)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(802)->
     #itemCfg {
@@ -3534,7 +3707,7 @@ getRow(802)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3542,7 +3715,8 @@ getRow(802)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(803)->
     #itemCfg {
@@ -3569,7 +3743,7 @@ getRow(803)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3577,7 +3751,8 @@ getRow(803)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(804)->
     #itemCfg {
@@ -3604,7 +3779,7 @@ getRow(804)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3612,7 +3787,8 @@ getRow(804)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(900)->
     #itemCfg {
@@ -3620,9 +3796,9 @@ getRow(900)->
     name = "1钻石卡",
     desc = "使用后获得1绑定钻石。",
     product = "活动获得",
-    iconPath = 58,
+    iconPath = 313,
     maxAmount = 999,
-    quality = 1,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -3639,7 +3815,7 @@ getRow(900)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3648,7 +3824,8 @@ getRow(900)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(901)->
     #itemCfg {
@@ -3656,9 +3833,9 @@ getRow(901)->
     name = "5钻石卡",
     desc = "使用后获得5绑定钻石。",
     product = "活动获得",
-    iconPath = 59,
+    iconPath = 314,
     maxAmount = 999,
-    quality = 1,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -3675,7 +3852,7 @@ getRow(901)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3684,7 +3861,8 @@ getRow(901)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(902)->
     #itemCfg {
@@ -3692,9 +3870,9 @@ getRow(902)->
     name = "10钻石卡",
     desc = "使用后获得10绑定钻石。",
     product = "活动获得",
-    iconPath = 60,
+    iconPath = 315,
     maxAmount = 999,
-    quality = 1,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -3711,7 +3889,7 @@ getRow(902)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3720,7 +3898,8 @@ getRow(902)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(903)->
     #itemCfg {
@@ -3728,9 +3907,9 @@ getRow(903)->
     name = "50钻石卡",
     desc = "使用后获得50绑定钻石。",
     product = "活动获得",
-    iconPath = 61,
+    iconPath = 316,
     maxAmount = 999,
-    quality = 1,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -3747,7 +3926,7 @@ getRow(903)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3756,7 +3935,8 @@ getRow(903)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(904)->
     #itemCfg {
@@ -3764,9 +3944,9 @@ getRow(904)->
     name = "100钻石卡",
     desc = "使用后获得100绑定钻石。",
     product = "活动获得",
-    iconPath = 62,
+    iconPath = 317,
     maxAmount = 999,
-    quality = 2,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -3783,7 +3963,7 @@ getRow(904)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3792,7 +3972,8 @@ getRow(904)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(905)->
     #itemCfg {
@@ -3800,9 +3981,9 @@ getRow(905)->
     name = "200钻石卡",
     desc = "使用后获得200绑定钻石。",
     product = "活动获得",
-    iconPath = 63,
+    iconPath = 318,
     maxAmount = 999,
-    quality = 2,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -3819,7 +4000,7 @@ getRow(905)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3828,7 +4009,8 @@ getRow(905)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(906)->
     #itemCfg {
@@ -3836,9 +4018,9 @@ getRow(906)->
     name = "500钻石卡",
     desc = "使用后获得500绑定钻石。",
     product = "活动获得",
-    iconPath = 64,
+    iconPath = 319,
     maxAmount = 999,
-    quality = 3,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -3855,7 +4037,7 @@ getRow(906)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3864,7 +4046,8 @@ getRow(906)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(907)->
     #itemCfg {
@@ -3872,7 +4055,7 @@ getRow(907)->
     name = "1000钻石卡",
     desc = "使用后获得1000绑定钻石。",
     product = "活动获得",
-    iconPath = 65,
+    iconPath = 320,
     maxAmount = 999,
     quality = 4,
     itemType = 12,
@@ -3891,7 +4074,7 @@ getRow(907)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -3900,7 +4083,45 @@ getRow(907)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(908)->
+    #itemCfg {
+    id = 908,
+    name = "300钻石卡",
+    desc = "使用后获得300绑定钻石。",
+    product = "活动获得",
+    iconPath = 318,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 12,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 6,
+    useParam1 = 6,
+    useParam2 = 300,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    usesound = "ui_diput",
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
     };
 getRow(950)->
     #itemCfg {
@@ -3908,9 +4129,9 @@ getRow(950)->
     name = "1非绑钻石卡",
     desc = "使用后获得1非绑定钻石。",
     product = "活动获得",
-    iconPath = 58,
+    iconPath = 313,
     maxAmount = 999,
-    quality = 1,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -3927,7 +4148,7 @@ getRow(950)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3936,7 +4157,8 @@ getRow(950)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(951)->
     #itemCfg {
@@ -3944,9 +4166,9 @@ getRow(951)->
     name = "5非绑钻石卡",
     desc = "使用后获得5非绑定钻石。",
     product = "活动获得",
-    iconPath = 59,
+    iconPath = 314,
     maxAmount = 999,
-    quality = 1,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -3963,7 +4185,7 @@ getRow(951)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -3972,7 +4194,8 @@ getRow(951)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(952)->
     #itemCfg {
@@ -3980,9 +4203,9 @@ getRow(952)->
     name = "10非绑钻石卡",
     desc = "使用后获得10非绑定钻石。",
     product = "活动获得",
-    iconPath = 60,
+    iconPath = 315,
     maxAmount = 999,
-    quality = 1,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -3999,7 +4222,7 @@ getRow(952)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4008,7 +4231,8 @@ getRow(952)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(953)->
     #itemCfg {
@@ -4016,9 +4240,9 @@ getRow(953)->
     name = "50非绑钻石卡",
     desc = "使用后获得50非绑定钻石。",
     product = "活动获得",
-    iconPath = 61,
+    iconPath = 316,
     maxAmount = 999,
-    quality = 1,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -4035,7 +4259,7 @@ getRow(953)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4044,7 +4268,8 @@ getRow(953)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(954)->
     #itemCfg {
@@ -4052,9 +4277,9 @@ getRow(954)->
     name = "100非绑钻石卡",
     desc = "使用后获得100非绑定钻石。",
     product = "活动获得",
-    iconPath = 62,
+    iconPath = 317,
     maxAmount = 999,
-    quality = 2,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -4071,7 +4296,7 @@ getRow(954)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4080,7 +4305,8 @@ getRow(954)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(955)->
     #itemCfg {
@@ -4088,9 +4314,9 @@ getRow(955)->
     name = "200非绑钻石卡",
     desc = "使用后获得200非绑定钻石。",
     product = "活动获得",
-    iconPath = 63,
+    iconPath = 318,
     maxAmount = 999,
-    quality = 2,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -4107,7 +4333,7 @@ getRow(955)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4116,7 +4342,8 @@ getRow(955)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(956)->
     #itemCfg {
@@ -4124,9 +4351,9 @@ getRow(956)->
     name = "500非绑钻石卡",
     desc = "使用后获得500非绑定钻石。",
     product = "活动获得",
-    iconPath = 64,
+    iconPath = 319,
     maxAmount = 999,
-    quality = 3,
+    quality = 4,
     itemType = 12,
     detailedType = 0,
     isQuestItem = 0,
@@ -4143,7 +4370,7 @@ getRow(956)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4152,7 +4379,8 @@ getRow(956)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(957)->
     #itemCfg {
@@ -4160,7 +4388,7 @@ getRow(957)->
     name = "1000非绑钻石卡",
     desc = "使用后获得1000非绑定钻石。",
     product = "活动获得",
-    iconPath = 65,
+    iconPath = 320,
     maxAmount = 999,
     quality = 4,
     itemType = 12,
@@ -4179,7 +4407,7 @@ getRow(957)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -4188,13 +4416,14 @@ getRow(957)->
     usesound = "ui_diput",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1111)->
     #itemCfg {
     id = 1111,
     name = "紫色精华小瓶",
-    desc = "使用后立即获得50单位紫色精华，可在【资源兑换】中购买道具。",
+    desc = "使用后立即获得50单位紫色精华。\n[00ff00]可在【资源兑换】中购买道具。[-]",
     product = "游戏中获得",
     iconPath = 146,
     maxAmount = 999,
@@ -4215,7 +4444,7 @@ getRow(1111)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4223,17 +4452,54 @@ getRow(1111)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1113)->
     #itemCfg {
     id = 1113,
     name = "紫色精华中瓶",
-    desc = "使用后立即获得500单位紫色精华，可在【资源兑换】中购买道具。",
+    desc = "使用后立即获得200单位紫色精华。\n[00ff00]可在【资源兑换】中购买道具。[-]",
     product = "游戏中获得",
     iconPath = 147,
     maxAmount = 999,
     quality = 3,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 6,
+    useParam1 = 7,
+    useParam2 = 200,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(1115)->
+    #itemCfg {
+    id = 1115,
+    name = "紫色精华大瓶",
+    desc = "使用后立即获得500单位紫色精华。\n[00ff00]可在【资源兑换】中购买道具。[-]",
+    product = "游戏中获得",
+    iconPath = 148,
+    maxAmount = 999,
+    quality = 4,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
@@ -4250,7 +4516,7 @@ getRow(1113)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4258,42 +4524,8 @@ getRow(1113)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
-    };
-getRow(1115)->
-    #itemCfg {
-    id = 1115,
-    name = "紫色精华大瓶",
-    desc = "使用后立即获得1000单位紫色精华，可在【资源兑换】中购买道具。",
-    product = "游戏中获得",
-    iconPath = 148,
-    maxAmount = 999,
-    quality = 4,
-    itemType = 1,
-    detailedType = 0,
-    isQuestItem = 0,
-    useType = 6,
-    useParam1 = 7,
-    useParam2 = 1000,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 999,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 0,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 1,
-    operate = 0,
-    needBrodcast = 0,
-    needwar = 1,
-    baozhu = 26,
-    baozhunumber = 0,
-    useJumpPage = 0,
-    useStraightway = 0,
-    selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1121)->
     #itemCfg {
@@ -4320,7 +4552,7 @@ getRow(1121)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4328,7 +4560,8 @@ getRow(1121)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1122)->
     #itemCfg {
@@ -4355,7 +4588,7 @@ getRow(1122)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4363,7 +4596,8 @@ getRow(1122)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1123)->
     #itemCfg {
@@ -4390,7 +4624,7 @@ getRow(1123)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4398,7 +4632,8 @@ getRow(1123)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1124)->
     #itemCfg {
@@ -4425,7 +4660,7 @@ getRow(1124)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4433,7 +4668,8 @@ getRow(1124)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1125)->
     #itemCfg {
@@ -4460,7 +4696,7 @@ getRow(1125)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4468,7 +4704,8 @@ getRow(1125)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1126)->
     #itemCfg {
@@ -4495,7 +4732,7 @@ getRow(1126)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4503,7 +4740,8 @@ getRow(1126)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1127)->
     #itemCfg {
@@ -4530,7 +4768,7 @@ getRow(1127)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4538,7 +4776,8 @@ getRow(1127)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1159)->
     #itemCfg {
@@ -4565,7 +4804,7 @@ getRow(1159)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4573,7 +4812,8 @@ getRow(1159)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1160)->
     #itemCfg {
@@ -4600,7 +4840,7 @@ getRow(1160)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4608,7 +4848,8 @@ getRow(1160)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1161)->
     #itemCfg {
@@ -4635,7 +4876,7 @@ getRow(1161)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4643,7 +4884,8 @@ getRow(1161)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1162)->
     #itemCfg {
@@ -4670,7 +4912,7 @@ getRow(1162)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4678,7 +4920,8 @@ getRow(1162)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1163)->
     #itemCfg {
@@ -4705,7 +4948,7 @@ getRow(1163)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -4713,7 +4956,8 @@ getRow(1163)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1164)->
     #itemCfg {
@@ -4740,7 +4984,7 @@ getRow(1164)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -4748,7 +4992,8 @@ getRow(1164)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1165)->
     #itemCfg {
@@ -4775,7 +5020,7 @@ getRow(1165)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -4783,7 +5028,8 @@ getRow(1165)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1166)->
     #itemCfg {
@@ -4810,7 +5056,7 @@ getRow(1166)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -4818,7 +5064,8 @@ getRow(1166)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1167)->
     #itemCfg {
@@ -4845,7 +5092,7 @@ getRow(1167)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -4853,7 +5100,8 @@ getRow(1167)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1168)->
     #itemCfg {
@@ -4880,7 +5128,7 @@ getRow(1168)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -4888,7 +5136,8 @@ getRow(1168)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1169)->
     #itemCfg {
@@ -4915,7 +5164,7 @@ getRow(1169)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -4923,7 +5172,8 @@ getRow(1169)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1170)->
     #itemCfg {
@@ -4950,7 +5200,7 @@ getRow(1170)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -4958,7 +5208,8 @@ getRow(1170)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1171)->
     #itemCfg {
@@ -4985,7 +5236,7 @@ getRow(1171)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -4993,7 +5244,8 @@ getRow(1171)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1172)->
     #itemCfg {
@@ -5020,7 +5272,7 @@ getRow(1172)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -5028,7 +5280,8 @@ getRow(1172)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1185)->
     #itemCfg {
@@ -5055,7 +5308,7 @@ getRow(1185)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5063,7 +5316,8 @@ getRow(1185)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1186)->
     #itemCfg {
@@ -5090,7 +5344,7 @@ getRow(1186)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5098,7 +5352,8 @@ getRow(1186)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1187)->
     #itemCfg {
@@ -5125,7 +5380,7 @@ getRow(1187)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5133,7 +5388,8 @@ getRow(1187)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1188)->
     #itemCfg {
@@ -5160,7 +5416,7 @@ getRow(1188)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5168,7 +5424,8 @@ getRow(1188)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1189)->
     #itemCfg {
@@ -5195,7 +5452,7 @@ getRow(1189)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5203,7 +5460,8 @@ getRow(1189)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1191)->
     #itemCfg {
@@ -5230,7 +5488,7 @@ getRow(1191)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 8,
+    operate = 17,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5238,7 +5496,8 @@ getRow(1191)->
     useJumpPage = 17,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1200)->
     #itemCfg {
@@ -5265,7 +5524,7 @@ getRow(1200)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5273,7 +5532,8 @@ getRow(1200)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1201)->
     #itemCfg {
@@ -5300,7 +5560,7 @@ getRow(1201)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5308,7 +5568,8 @@ getRow(1201)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1202)->
     #itemCfg {
@@ -5335,7 +5596,7 @@ getRow(1202)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5343,13 +5604,14 @@ getRow(1202)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1203)->
     #itemCfg {
     id = 1203,
     name = "80活跃度奖励",
-    desc = "领取后自动开启，获得高级宠物碎片箱*15。",
+    desc = "领取后自动开启，获得高级宠物碎片箱*10。",
     product = "活跃度获得",
     iconPath = 4027,
     maxAmount = 999,
@@ -5370,7 +5632,7 @@ getRow(1203)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5378,13 +5640,14 @@ getRow(1203)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1204)->
     #itemCfg {
     id = 1204,
     name = "100活跃度奖励",
-    desc = "领取后自动开启，获得绑定钻石*500。",
+    desc = "领取后自动开启，获得500绑定钻石。",
     product = "活跃度获得",
     iconPath = 4026,
     maxAmount = 999,
@@ -5405,7 +5668,7 @@ getRow(1204)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5413,7 +5676,8 @@ getRow(1204)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1208)->
     #itemCfg {
@@ -5440,7 +5704,7 @@ getRow(1208)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5448,7 +5712,8 @@ getRow(1208)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1209)->
     #itemCfg {
@@ -5475,7 +5740,7 @@ getRow(1209)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5483,7 +5748,8 @@ getRow(1209)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1210)->
     #itemCfg {
@@ -5510,7 +5776,7 @@ getRow(1210)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5518,7 +5784,8 @@ getRow(1210)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1211)->
     #itemCfg {
@@ -5545,7 +5812,7 @@ getRow(1211)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5553,7 +5820,8 @@ getRow(1211)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1212)->
     #itemCfg {
@@ -5580,7 +5848,7 @@ getRow(1212)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5588,7 +5856,8 @@ getRow(1212)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1213)->
     #itemCfg {
@@ -5615,7 +5884,7 @@ getRow(1213)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5623,7 +5892,8 @@ getRow(1213)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1217)->
     #itemCfg {
@@ -5650,7 +5920,7 @@ getRow(1217)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5658,7 +5928,8 @@ getRow(1217)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1218)->
     #itemCfg {
@@ -5685,7 +5956,7 @@ getRow(1218)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5693,7 +5964,8 @@ getRow(1218)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1219)->
     #itemCfg {
@@ -5720,7 +5992,7 @@ getRow(1219)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5728,7 +6000,8 @@ getRow(1219)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1220)->
     #itemCfg {
@@ -5755,7 +6028,7 @@ getRow(1220)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5763,7 +6036,8 @@ getRow(1220)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1400)->
     #itemCfg {
@@ -5790,7 +6064,7 @@ getRow(1400)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5798,7 +6072,8 @@ getRow(1400)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1401)->
     #itemCfg {
@@ -5825,7 +6100,7 @@ getRow(1401)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5833,7 +6108,8 @@ getRow(1401)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1402)->
     #itemCfg {
@@ -5860,7 +6136,7 @@ getRow(1402)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5868,7 +6144,8 @@ getRow(1402)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1403)->
     #itemCfg {
@@ -5895,7 +6172,7 @@ getRow(1403)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5903,7 +6180,8 @@ getRow(1403)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1404)->
     #itemCfg {
@@ -5930,7 +6208,7 @@ getRow(1404)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5938,7 +6216,8 @@ getRow(1404)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1405)->
     #itemCfg {
@@ -5965,7 +6244,7 @@ getRow(1405)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -5973,7 +6252,8 @@ getRow(1405)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1406)->
     #itemCfg {
@@ -6000,7 +6280,7 @@ getRow(1406)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6008,7 +6288,8 @@ getRow(1406)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1407)->
     #itemCfg {
@@ -6035,7 +6316,7 @@ getRow(1407)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6043,7 +6324,8 @@ getRow(1407)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1408)->
     #itemCfg {
@@ -6070,7 +6352,7 @@ getRow(1408)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6078,7 +6360,8 @@ getRow(1408)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1409)->
     #itemCfg {
@@ -6105,7 +6388,7 @@ getRow(1409)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6113,7 +6396,8 @@ getRow(1409)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1410)->
     #itemCfg {
@@ -6140,7 +6424,7 @@ getRow(1410)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6148,13 +6432,14 @@ getRow(1410)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1500)->
     #itemCfg {
     id = 1500,
-    name = "35级首领击杀宝箱",
-    desc = "击杀35级首领获得的稀有宝箱，打开可获得大量精炼石I，1级纹章袋，升星石，勇气碎片。",
+    name = "30级首领击杀宝箱",
+    desc = "击杀30级首领获得的稀有宝箱，打开可获得大量精炼石I，升星石，勇气碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6175,7 +6460,7 @@ getRow(1500)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6183,13 +6468,14 @@ getRow(1500)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1501)->
     #itemCfg {
     id = 1501,
     name = "首领幸运宝箱",
-    desc = "击杀35级野外首领获得的幸运宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
+    desc = "击杀30级野外首领获得的幸运宝箱，打开可获得大量勇气碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6210,7 +6496,7 @@ getRow(1501)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6218,13 +6504,14 @@ getRow(1501)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1502)->
     #itemCfg {
     id = 1502,
     name = "首领普通宝箱",
-    desc = "击杀35级野外首领获得的普通宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
+    desc = "击杀30级野外首领获得的普通宝箱，打开可获得金币，精炼石I，2级纹章袋。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6245,7 +6532,7 @@ getRow(1502)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6253,13 +6540,14 @@ getRow(1502)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1503)->
     #itemCfg {
     id = 1503,
-    name = "40级首领击杀宝箱",
-    desc = "击杀40级首领获得的稀有宝箱，打开可获得大量精炼石I，2级纹章袋，升星石，勇气碎片。",
+    name = "35级首领击杀宝箱",
+    desc = "击杀35级首领获得的稀有宝箱，打开可获得大量精炼石I，升星石，勇气碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6280,7 +6568,7 @@ getRow(1503)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6288,13 +6576,14 @@ getRow(1503)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1504)->
     #itemCfg {
     id = 1504,
     name = "首领幸运宝箱",
-    desc = "击杀40级首领获得的稀有宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
+    desc = "击杀35级野外首领获得的幸运宝箱，打开可获得大量勇气碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6315,7 +6604,7 @@ getRow(1504)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6323,13 +6612,14 @@ getRow(1504)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1505)->
     #itemCfg {
     id = 1505,
     name = "首领普通宝箱",
-    desc = "击杀40级首领获得的稀有宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
+    desc = "击杀35级野外首领获得的普通宝箱，打开可获得金币，精炼石I，2级纹章袋。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6350,7 +6640,7 @@ getRow(1505)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6358,13 +6648,14 @@ getRow(1505)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1506)->
     #itemCfg {
     id = 1506,
-    name = "45级首领击杀宝箱",
-    desc = "击杀45级首领获得的稀有宝箱，打开可获得大量精炼石I，2级纹章袋，升星石，虔诚碎片。",
+    name = "40级首领击杀宝箱",
+    desc = "击杀40级首领获得的稀有宝箱，打开可获得大量精炼石I，升星石，虔诚碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6385,7 +6676,7 @@ getRow(1506)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6393,13 +6684,14 @@ getRow(1506)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1507)->
     #itemCfg {
     id = 1507,
     name = "首领幸运宝箱",
-    desc = "击杀45级首领获得的稀有宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
+    desc = "击杀40级野外首领获得的幸运宝箱，打开可获得大量虔诚碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6420,7 +6712,7 @@ getRow(1507)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6428,13 +6720,14 @@ getRow(1507)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1508)->
     #itemCfg {
     id = 1508,
     name = "首领普通宝箱",
-    desc = "击杀45级首领获得的稀有宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
+    desc = "击杀40级野外首领获得的普通宝箱，打开可获得金币，精炼石I，2级纹章袋。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6455,7 +6748,7 @@ getRow(1508)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6463,13 +6756,14 @@ getRow(1508)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1509)->
     #itemCfg {
     id = 1509,
-    name = "50级首领击杀宝箱",
-    desc = "击杀50级首领获得的稀有宝箱，打开可获得大量精炼石和金币！",
+    name = "45级首领击杀宝箱",
+    desc = "击杀45级首领获得的稀有宝箱，打开可获得大量精炼石I，升星石，勇气碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6490,7 +6784,7 @@ getRow(1509)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6498,13 +6792,14 @@ getRow(1509)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1510)->
     #itemCfg {
     id = 1510,
     name = "首领幸运宝箱",
-    desc = "击杀35级首领获得的稀有宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
+    desc = "击杀45级野外首领获得的幸运宝箱，打开可获得大量勇气碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6525,7 +6820,7 @@ getRow(1510)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6533,13 +6828,14 @@ getRow(1510)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1511)->
     #itemCfg {
     id = 1511,
     name = "首领普通宝箱",
-    desc = "击杀35级首领获得的稀有宝箱，打开可获得精炼石I，1级纹章袋，升星石，勇气碎片。",
+    desc = "击杀45级野外首领获得的普通宝箱，打开可获得金币，精炼石I，1级纹章袋。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6560,7 +6856,7 @@ getRow(1511)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6568,13 +6864,14 @@ getRow(1511)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1512)->
     #itemCfg {
     id = 1512,
     name = "55级首领击杀宝箱",
-    desc = "击杀55级首领获得的稀有宝箱，打开可获得大量精炼石和金币！",
+    desc = "击杀35级首领获得的稀有宝箱，打开可获得大量精炼石I，升星石，勇气碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6595,7 +6892,7 @@ getRow(1512)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6603,13 +6900,14 @@ getRow(1512)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1513)->
     #itemCfg {
     id = 1513,
     name = "首领幸运宝箱",
-    desc = "参与击杀55级首领获得的幸运宝箱，打开可获得一定精炼石和金币！",
+    desc = "击杀35级野外首领获得的幸运宝箱，打开可获得大量勇气碎片。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6630,7 +6928,7 @@ getRow(1513)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6638,13 +6936,14 @@ getRow(1513)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1514)->
     #itemCfg {
     id = 1514,
     name = "首领普通宝箱",
-    desc = "参与击杀55级首领获得的普通宝箱，打开可获得一定精炼石和金币！",
+    desc = "击杀35级野外首领获得的普通宝箱，打开可获得金币，精炼石I，1级纹章袋。",
     product = "野外boss获得",
     iconPath = 21,
     maxAmount = 999,
@@ -6665,7 +6964,7 @@ getRow(1514)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6673,7 +6972,8 @@ getRow(1514)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1701)->
     #itemCfg {
@@ -6700,7 +7000,7 @@ getRow(1701)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6708,7 +7008,8 @@ getRow(1701)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1702)->
     #itemCfg {
@@ -6735,7 +7036,7 @@ getRow(1702)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6743,7 +7044,8 @@ getRow(1702)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1703)->
     #itemCfg {
@@ -6770,7 +7072,7 @@ getRow(1703)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6778,7 +7080,8 @@ getRow(1703)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1704)->
     #itemCfg {
@@ -6805,7 +7108,7 @@ getRow(1704)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6813,7 +7116,8 @@ getRow(1704)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1705)->
     #itemCfg {
@@ -6840,7 +7144,7 @@ getRow(1705)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6848,7 +7152,8 @@ getRow(1705)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1750)->
     #itemCfg {
@@ -6875,7 +7180,7 @@ getRow(1750)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6883,7 +7188,8 @@ getRow(1750)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1751)->
     #itemCfg {
@@ -6910,7 +7216,7 @@ getRow(1751)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6918,7 +7224,8 @@ getRow(1751)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1752)->
     #itemCfg {
@@ -6945,7 +7252,7 @@ getRow(1752)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6953,7 +7260,8 @@ getRow(1752)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1753)->
     #itemCfg {
@@ -6980,7 +7288,7 @@ getRow(1753)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -6988,7 +7296,8 @@ getRow(1753)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1754)->
     #itemCfg {
@@ -7015,7 +7324,7 @@ getRow(1754)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -7023,7 +7332,8 @@ getRow(1754)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1755)->
     #itemCfg {
@@ -7050,7 +7360,7 @@ getRow(1755)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -7058,7 +7368,8 @@ getRow(1755)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(1800)->
     #itemCfg {
@@ -7085,14 +7396,15 @@ getRow(1800)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 1
+    selljudge = 1,
+    check_box = 0
     };
 getRow(1801)->
     #itemCfg {
@@ -7119,22 +7431,23 @@ getRow(1801)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(1802)->
     #itemCfg {
     id = 1802,
-    name = "蓝色骑宠箱",
+    name = "蓝色骑宠蛋",
     desc = "开启后随即获得一个蓝色品质宠物",
     product = "在线奖励获得",
-    iconPath = 15,
+    iconPath = 604,
     maxAmount = 999,
     quality = 2,
     itemType = 8,
@@ -7153,14 +7466,15 @@ getRow(1802)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(1811)->
     #itemCfg {
@@ -7180,14 +7494,14 @@ getRow(1811)->
     useParam3 = 20,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -7195,7 +7509,8 @@ getRow(1811)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1812)->
     #itemCfg {
@@ -7215,14 +7530,14 @@ getRow(1812)->
     useParam3 = 20,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7230,7 +7545,8 @@ getRow(1812)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1813)->
     #itemCfg {
@@ -7250,14 +7566,14 @@ getRow(1813)->
     useParam3 = 20,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7265,7 +7581,8 @@ getRow(1813)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1821)->
     #itemCfg {
@@ -7285,14 +7602,14 @@ getRow(1821)->
     useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7300,7 +7617,8 @@ getRow(1821)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1822)->
     #itemCfg {
@@ -7320,14 +7638,14 @@ getRow(1822)->
     useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7335,7 +7653,8 @@ getRow(1822)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1823)->
     #itemCfg {
@@ -7355,14 +7674,14 @@ getRow(1823)->
     useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7370,7 +7689,8 @@ getRow(1823)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1824)->
     #itemCfg {
@@ -7390,14 +7710,14 @@ getRow(1824)->
     useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7405,7 +7725,8 @@ getRow(1824)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1825)->
     #itemCfg {
@@ -7425,14 +7746,14 @@ getRow(1825)->
     useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7440,7 +7761,8 @@ getRow(1825)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1826)->
     #itemCfg {
@@ -7460,14 +7782,14 @@ getRow(1826)->
     useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7475,7 +7797,8 @@ getRow(1826)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1827)->
     #itemCfg {
@@ -7495,14 +7818,14 @@ getRow(1827)->
     useParam3 = 30,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7510,7 +7833,44 @@ getRow(1827)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
+    };
+getRow(1828)->
+    #itemCfg {
+    id = 1828,
+    name = "飞行萝卜（双人）任务获得",
+    desc = "飞行萝卜（双人）骑宠——可由20个飞行萝卜（双人）碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
+    product = "碎片兑换获得",
+    iconPath = 1005,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 7,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 14,
+    useParam1 = 52007,
+    useParam2 = 1927,
+    useParam3 = 30,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 8,
+    usePlayerClass = 0,
+    price = 0,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 1,
+    selljudge = 1,
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1831)->
     #itemCfg {
@@ -7530,14 +7890,14 @@ getRow(1831)->
     useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7545,7 +7905,8 @@ getRow(1831)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1832)->
     #itemCfg {
@@ -7565,14 +7926,14 @@ getRow(1832)->
     useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7580,7 +7941,8 @@ getRow(1832)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1833)->
     #itemCfg {
@@ -7600,14 +7962,14 @@ getRow(1833)->
     useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7615,7 +7977,8 @@ getRow(1833)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1834)->
     #itemCfg {
@@ -7635,14 +7998,14 @@ getRow(1834)->
     useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7650,7 +8013,8 @@ getRow(1834)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1835)->
     #itemCfg {
@@ -7670,14 +8034,14 @@ getRow(1835)->
     useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7685,7 +8049,8 @@ getRow(1835)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1836)->
     #itemCfg {
@@ -7705,14 +8070,14 @@ getRow(1836)->
     useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7720,7 +8085,8 @@ getRow(1836)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1837)->
     #itemCfg {
@@ -7740,14 +8106,14 @@ getRow(1837)->
     useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7755,7 +8121,8 @@ getRow(1837)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1838)->
     #itemCfg {
@@ -7775,14 +8142,14 @@ getRow(1838)->
     useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7790,7 +8157,8 @@ getRow(1838)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1841)->
     #itemCfg {
@@ -7810,14 +8178,14 @@ getRow(1841)->
     useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7825,7 +8193,8 @@ getRow(1841)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1842)->
     #itemCfg {
@@ -7845,14 +8214,14 @@ getRow(1842)->
     useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7860,7 +8229,8 @@ getRow(1842)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1843)->
     #itemCfg {
@@ -7880,14 +8250,14 @@ getRow(1843)->
     useParam3 = 40,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7895,7 +8265,8 @@ getRow(1843)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1844)->
     #itemCfg {
@@ -7915,14 +8286,14 @@ getRow(1844)->
     useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7930,7 +8301,8 @@ getRow(1844)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1845)->
     #itemCfg {
@@ -7950,14 +8322,14 @@ getRow(1845)->
     useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -7965,7 +8337,8 @@ getRow(1845)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1846)->
     #itemCfg {
@@ -7985,14 +8358,14 @@ getRow(1846)->
     useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8000,7 +8373,8 @@ getRow(1846)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1847)->
     #itemCfg {
@@ -8020,14 +8394,14 @@ getRow(1847)->
     useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8035,7 +8409,8 @@ getRow(1847)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1848)->
     #itemCfg {
@@ -8055,14 +8430,14 @@ getRow(1848)->
     useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8070,7 +8445,8 @@ getRow(1848)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1851)->
     #itemCfg {
@@ -8090,14 +8466,14 @@ getRow(1851)->
     useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8105,7 +8481,8 @@ getRow(1851)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1852)->
     #itemCfg {
@@ -8125,14 +8502,14 @@ getRow(1852)->
     useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8140,7 +8517,8 @@ getRow(1852)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1853)->
     #itemCfg {
@@ -8160,14 +8538,14 @@ getRow(1853)->
     useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8175,7 +8553,8 @@ getRow(1853)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1854)->
     #itemCfg {
@@ -8195,14 +8574,14 @@ getRow(1854)->
     useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8210,7 +8589,8 @@ getRow(1854)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1855)->
     #itemCfg {
@@ -8230,14 +8610,14 @@ getRow(1855)->
     useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8245,7 +8625,8 @@ getRow(1855)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1856)->
     #itemCfg {
@@ -8265,14 +8646,14 @@ getRow(1856)->
     useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8280,7 +8661,8 @@ getRow(1856)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1857)->
     #itemCfg {
@@ -8300,14 +8682,14 @@ getRow(1857)->
     useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8315,7 +8697,8 @@ getRow(1857)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1858)->
     #itemCfg {
@@ -8335,14 +8718,14 @@ getRow(1858)->
     useParam3 = 50,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8350,7 +8733,8 @@ getRow(1858)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1859)->
     #itemCfg {
@@ -8370,14 +8754,14 @@ getRow(1859)->
     useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8385,7 +8769,8 @@ getRow(1859)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1860)->
     #itemCfg {
@@ -8405,14 +8790,14 @@ getRow(1860)->
     useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8420,7 +8805,8 @@ getRow(1860)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1861)->
     #itemCfg {
@@ -8440,14 +8826,14 @@ getRow(1861)->
     useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8455,7 +8841,8 @@ getRow(1861)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1862)->
     #itemCfg {
@@ -8475,14 +8862,14 @@ getRow(1862)->
     useParam3 = 60,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 12,
+    level = 8,
     usePlayerClass = 0,
     price = 0,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8490,13 +8877,50 @@ getRow(1862)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = [{12,0},{53,0}]
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
+    };
+getRow(1863)->
+    #itemCfg {
+    id = 1863,
+    name = "飞空艇（双人）",
+    desc = "飞空艇（双人）骑宠——可由50个飞空艇（双人）碎片激活\n[00ff00]获取途径：副本、扭蛋[-]",
+    product = "碎片兑换获得",
+    iconPath = 1030,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 7,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 14,
+    useParam1 = 55013,
+    useParam2 = 1963,
+    useParam3 = 60,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 8,
+    usePlayerClass = 0,
+    price = 0,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 1,
+    selljudge = 1,
+    relation_UI = [{12,0},{53,0}],
+    check_box = 0
     };
 getRow(1911)->
     #itemCfg {
     id = 1911,
     name = "动感猪猪碎片",
-    desc = "动感猪猪的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "动感猪猪的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1006,
     maxAmount = 999,
@@ -8517,7 +8941,7 @@ getRow(1911)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 24,
@@ -8525,13 +8949,14 @@ getRow(1911)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1912)->
     #itemCfg {
     id = 1912,
     name = "爱心羊驼碎片",
-    desc = "爱心羊驼的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "爱心羊驼的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1001,
     maxAmount = 999,
@@ -8552,7 +8977,7 @@ getRow(1912)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 24,
@@ -8560,13 +8985,14 @@ getRow(1912)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1913)->
     #itemCfg {
     id = 1913,
     name = "独角兽碎片",
-    desc = "独角兽的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "独角兽的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1000,
     maxAmount = 999,
@@ -8587,7 +9013,7 @@ getRow(1913)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 24,
@@ -8595,13 +9021,14 @@ getRow(1913)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1921)->
     #itemCfg {
     id = 1921,
     name = "绒绒兔碎片",
-    desc = "绒绒兔的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "绒绒兔的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1016,
     maxAmount = 999,
@@ -8622,7 +9049,7 @@ getRow(1921)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 27,
@@ -8630,13 +9057,14 @@ getRow(1921)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1922)->
     #itemCfg {
     id = 1922,
     name = "斗鱼碎片",
-    desc = "斗鱼的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "斗鱼的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1020,
     maxAmount = 999,
@@ -8657,7 +9085,7 @@ getRow(1922)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 27,
@@ -8665,13 +9093,14 @@ getRow(1922)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1923)->
     #itemCfg {
     id = 1923,
     name = "大尾巴狐碎片",
-    desc = "大尾巴狐的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "大尾巴狐的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1010,
     maxAmount = 999,
@@ -8692,7 +9121,7 @@ getRow(1923)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 27,
@@ -8700,13 +9129,14 @@ getRow(1923)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1924)->
     #itemCfg {
     id = 1924,
     name = "机车狐碎片",
-    desc = "机车狐的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "机车狐的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1009,
     maxAmount = 999,
@@ -8727,7 +9157,7 @@ getRow(1924)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 27,
@@ -8735,13 +9165,14 @@ getRow(1924)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1925)->
     #itemCfg {
     id = 1925,
     name = "迷幻鸵鸟碎片",
-    desc = "迷幻鸵鸟的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "迷幻鸵鸟的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1014,
     maxAmount = 999,
@@ -8762,7 +9193,7 @@ getRow(1925)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 27,
@@ -8770,13 +9201,14 @@ getRow(1925)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1926)->
     #itemCfg {
     id = 1926,
     name = "沙滩鸵鸟碎片",
-    desc = "沙滩鸵鸟的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "沙滩鸵鸟的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1015,
     maxAmount = 999,
@@ -8797,7 +9229,7 @@ getRow(1926)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 27,
@@ -8805,13 +9237,14 @@ getRow(1926)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1927)->
     #itemCfg {
     id = 1927,
     name = "飞行萝卜碎片",
-    desc = "飞行萝卜的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "飞行萝卜的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1005,
     maxAmount = 999,
@@ -8832,7 +9265,7 @@ getRow(1927)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 27,
@@ -8840,13 +9273,14 @@ getRow(1927)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1931)->
     #itemCfg {
     id = 1931,
     name = "黄晶海马碎片",
-    desc = "黄晶海马的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "黄晶海马的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1022,
     maxAmount = 999,
@@ -8867,7 +9301,7 @@ getRow(1931)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8875,13 +9309,14 @@ getRow(1931)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1932)->
     #itemCfg {
     id = 1932,
     name = "海马绅士碎片",
-    desc = "海马绅士的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "海马绅士的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1002,
     maxAmount = 999,
@@ -8902,7 +9337,7 @@ getRow(1932)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8910,13 +9345,14 @@ getRow(1932)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1933)->
     #itemCfg {
     id = 1933,
     name = "小海龟碎片",
-    desc = "小海龟的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "小海龟的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1008,
     maxAmount = 999,
@@ -8937,7 +9373,7 @@ getRow(1933)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8945,13 +9381,14 @@ getRow(1933)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1934)->
     #itemCfg {
     id = 1934,
     name = "绵羊国王碎片",
-    desc = "绵羊国王的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "绵羊国王的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1025,
     maxAmount = 999,
@@ -8972,7 +9409,7 @@ getRow(1934)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -8980,13 +9417,14 @@ getRow(1934)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1935)->
     #itemCfg {
     id = 1935,
     name = "童话碎片",
-    desc = "童话的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "童话的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1007,
     maxAmount = 999,
@@ -9007,7 +9445,7 @@ getRow(1935)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -9015,13 +9453,14 @@ getRow(1935)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1936)->
     #itemCfg {
     id = 1936,
     name = "粉红独角兽碎片",
-    desc = "粉红独角兽的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "粉红独角兽的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1003,
     maxAmount = 999,
@@ -9042,7 +9481,7 @@ getRow(1936)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -9050,13 +9489,14 @@ getRow(1936)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1937)->
     #itemCfg {
     id = 1937,
     name = "男款机车碎片",
-    desc = "男款机车的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "男款机车的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1033,
     maxAmount = 999,
@@ -9077,7 +9517,7 @@ getRow(1937)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -9085,13 +9525,14 @@ getRow(1937)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1938)->
     #itemCfg {
     id = 1938,
     name = "女款机车碎片",
-    desc = "女款机车的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "女款机车的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1004,
     maxAmount = 999,
@@ -9112,7 +9553,7 @@ getRow(1938)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -9120,13 +9561,14 @@ getRow(1938)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1941)->
     #itemCfg {
     id = 1941,
     name = "杂技大师碎片",
-    desc = "杂技大师的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "杂技大师的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1021,
     maxAmount = 999,
@@ -9155,13 +9597,14 @@ getRow(1941)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1942)->
     #itemCfg {
     id = 1942,
     name = "气球熊猫碎片",
-    desc = "气球熊猫的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "气球熊猫的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1012,
     maxAmount = 999,
@@ -9182,7 +9625,7 @@ getRow(1942)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -9190,13 +9633,14 @@ getRow(1942)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1943)->
     #itemCfg {
     id = 1943,
     name = "剑齿虎碎片",
-    desc = "剑齿虎的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "剑齿虎的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1017,
     maxAmount = 999,
@@ -9217,7 +9661,7 @@ getRow(1943)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 8,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -9225,13 +9669,14 @@ getRow(1943)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1944)->
     #itemCfg {
     id = 1944,
     name = "贾斯丁.比象碎片",
-    desc = "贾斯丁.比象的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "贾斯丁.比象的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1028,
     maxAmount = 999,
@@ -9260,13 +9705,14 @@ getRow(1944)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1945)->
     #itemCfg {
     id = 1945,
     name = "杀象特碎片",
-    desc = "杀象特的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "杀象特的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1027,
     maxAmount = 999,
@@ -9295,13 +9741,14 @@ getRow(1945)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1946)->
     #itemCfg {
     id = 1946,
     name = "机械鸟碎片",
-    desc = "机械鸟的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "机械鸟的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1023,
     maxAmount = 999,
@@ -9330,13 +9777,14 @@ getRow(1946)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1947)->
     #itemCfg {
     id = 1947,
     name = "西瓜鲨碎片",
-    desc = "西瓜鲨的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "西瓜鲨的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1034,
     maxAmount = 999,
@@ -9365,13 +9813,14 @@ getRow(1947)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1948)->
     #itemCfg {
     id = 1948,
     name = "钢铁狼碎片",
-    desc = "钢铁狼的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "钢铁狼的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1036,
     maxAmount = 999,
@@ -9400,13 +9849,14 @@ getRow(1948)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1951)->
     #itemCfg {
     id = 1951,
     name = "天外飞碟碎片",
-    desc = "天外飞碟的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "天外飞碟的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1024,
     maxAmount = 999,
@@ -9435,13 +9885,14 @@ getRow(1951)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1952)->
     #itemCfg {
     id = 1952,
     name = "机甲乔巴碎片",
-    desc = "机甲乔巴的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "机甲乔巴的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1032,
     maxAmount = 999,
@@ -9470,13 +9921,14 @@ getRow(1952)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1953)->
     #itemCfg {
     id = 1953,
     name = "翼狮碎片",
-    desc = "翼狮的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "翼狮的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1011,
     maxAmount = 999,
@@ -9505,13 +9957,14 @@ getRow(1953)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1954)->
     #itemCfg {
     id = 1954,
     name = "风伯碎片",
-    desc = "风伯的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "风伯的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1026,
     maxAmount = 999,
@@ -9540,13 +9993,14 @@ getRow(1954)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1955)->
     #itemCfg {
     id = 1955,
     name = "寒冰踏焰碎片",
-    desc = "寒冰踏焰的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "寒冰踏焰的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1029,
     maxAmount = 999,
@@ -9575,13 +10029,14 @@ getRow(1955)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1956)->
     #itemCfg {
     id = 1956,
     name = "鲸梦碎片",
-    desc = "鲸梦的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "鲸梦的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1018,
     maxAmount = 999,
@@ -9610,13 +10065,14 @@ getRow(1956)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1957)->
     #itemCfg {
     id = 1957,
     name = "雪橇车碎片",
-    desc = "雪橇车的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "雪橇车的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1013,
     maxAmount = 999,
@@ -9645,13 +10101,14 @@ getRow(1957)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1958)->
     #itemCfg {
     id = 1958,
     name = "贝斯碎片",
-    desc = "贝斯的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "贝斯的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1019,
     maxAmount = 999,
@@ -9680,13 +10137,14 @@ getRow(1958)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1959)->
     #itemCfg {
     id = 1959,
     name = "机械游龙碎片",
-    desc = "机械游龙的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "机械游龙的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1035,
     maxAmount = 999,
@@ -9715,13 +10173,14 @@ getRow(1959)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1960)->
     #itemCfg {
     id = 1960,
     name = "大钻风碎片",
-    desc = "大钻风的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "大钻风的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1031,
     maxAmount = 999,
@@ -9750,13 +10209,14 @@ getRow(1960)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1961)->
     #itemCfg {
     id = 1961,
     name = "蓝凰碎片",
-    desc = "蓝凰的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "蓝凰的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1026,
     maxAmount = 999,
@@ -9785,13 +10245,14 @@ getRow(1961)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(1962)->
     #itemCfg {
     id = 1962,
     name = "大黄蜂碎片",
-    desc = "大黄蜂的骑宠碎片\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    desc = "大黄蜂的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
     product = "骑宠碎片",
     iconPath = 1030,
     maxAmount = 999,
@@ -9820,13 +10281,50 @@ getRow(1962)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
+    };
+getRow(1963)->
+    #itemCfg {
+    id = 1963,
+    name = "飞空艇碎片",
+    desc = "飞空艇的骑宠碎片，可用于激活或转生该骑宠\n[00ff00]获取途径：骑宠领地，硬币兑换，扭蛋[-]",
+    product = "骑宠碎片",
+    iconPath = 1030,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 28,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 0,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(2002)->
     #itemCfg {
     id = 2002,
     name = "兽灵硬币",
-    desc = "分解多余骑宠获得的稀有硬币，能在资源兑换商店中兑换各类稀有坐骑。",
+    desc = "骑宠专属硬币，能在资源兑换商店中兑换骑宠或材料。\n[00ff00]获取途径：骑宠领地、骑宠分解[-]",
     product = "游戏中获得",
     iconPath = 325,
     maxAmount = 9999,
@@ -9847,7 +10345,7 @@ getRow(2002)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -9855,17 +10353,18 @@ getRow(2002)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(2022)->
     #itemCfg {
     id = 2022,
-    name = "挑战硬币",
-    desc = "副本产出的特殊兑换币，能在资源兑换页面兑换各类稀有道具、稀有坐骑。",
+    name = "万能硬币",
+    desc = "万能的许愿硬币，可以兑换任意红色或紫色骑宠碎片！",
     product = "活动获得",
     iconPath = 324,
     maxAmount = 9999,
-    quality = 2,
+    quality = 4,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
@@ -9882,7 +10381,7 @@ getRow(2022)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -9890,7 +10389,8 @@ getRow(2022)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(2023)->
     #itemCfg {
@@ -9917,7 +10417,7 @@ getRow(2023)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -9925,7 +10425,8 @@ getRow(2023)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(2024)->
     #itemCfg {
@@ -9952,7 +10453,7 @@ getRow(2024)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -9960,7 +10461,8 @@ getRow(2024)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [{53,0},{20,101}]
+    relation_UI = [{53,0},{20,101}],
+    check_box = 0
     };
 getRow(2041)->
     #itemCfg {
@@ -9987,7 +10489,7 @@ getRow(2041)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -9995,7 +10497,8 @@ getRow(2041)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2042)->
     #itemCfg {
@@ -10022,7 +10525,7 @@ getRow(2042)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10030,7 +10533,8 @@ getRow(2042)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2043)->
     #itemCfg {
@@ -10057,7 +10561,7 @@ getRow(2043)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10065,7 +10569,8 @@ getRow(2043)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2044)->
     #itemCfg {
@@ -10092,7 +10597,7 @@ getRow(2044)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10100,7 +10605,8 @@ getRow(2044)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2045)->
     #itemCfg {
@@ -10127,7 +10633,7 @@ getRow(2045)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10135,7 +10641,8 @@ getRow(2045)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2060)->
     #itemCfg {
@@ -10162,7 +10669,7 @@ getRow(2060)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10170,7 +10677,8 @@ getRow(2060)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2061)->
     #itemCfg {
@@ -10197,7 +10705,7 @@ getRow(2061)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10205,7 +10713,8 @@ getRow(2061)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2062)->
     #itemCfg {
@@ -10232,7 +10741,7 @@ getRow(2062)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10240,7 +10749,8 @@ getRow(2062)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2063)->
     #itemCfg {
@@ -10267,7 +10777,7 @@ getRow(2063)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10275,7 +10785,8 @@ getRow(2063)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2064)->
     #itemCfg {
@@ -10302,7 +10813,7 @@ getRow(2064)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10310,7 +10821,8 @@ getRow(2064)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2065)->
     #itemCfg {
@@ -10337,7 +10849,7 @@ getRow(2065)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10345,7 +10857,8 @@ getRow(2065)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2066)->
     #itemCfg {
@@ -10372,7 +10885,7 @@ getRow(2066)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10380,7 +10893,8 @@ getRow(2066)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2067)->
     #itemCfg {
@@ -10407,7 +10921,7 @@ getRow(2067)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10415,7 +10929,8 @@ getRow(2067)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2068)->
     #itemCfg {
@@ -10442,7 +10957,7 @@ getRow(2068)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10450,7 +10965,8 @@ getRow(2068)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2069)->
     #itemCfg {
@@ -10477,7 +10993,7 @@ getRow(2069)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10485,7 +11001,8 @@ getRow(2069)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2070)->
     #itemCfg {
@@ -10512,7 +11029,7 @@ getRow(2070)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10520,7 +11037,8 @@ getRow(2070)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2071)->
     #itemCfg {
@@ -10547,7 +11065,7 @@ getRow(2071)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10555,7 +11073,8 @@ getRow(2071)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2072)->
     #itemCfg {
@@ -10582,7 +11101,7 @@ getRow(2072)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10590,7 +11109,8 @@ getRow(2072)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2073)->
     #itemCfg {
@@ -10617,7 +11137,7 @@ getRow(2073)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10625,7 +11145,8 @@ getRow(2073)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2074)->
     #itemCfg {
@@ -10652,7 +11173,7 @@ getRow(2074)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10660,7 +11181,8 @@ getRow(2074)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2075)->
     #itemCfg {
@@ -10687,7 +11209,7 @@ getRow(2075)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10695,7 +11217,8 @@ getRow(2075)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2076)->
     #itemCfg {
@@ -10722,7 +11245,7 @@ getRow(2076)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10730,7 +11253,8 @@ getRow(2076)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2077)->
     #itemCfg {
@@ -10757,7 +11281,7 @@ getRow(2077)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10765,7 +11289,8 @@ getRow(2077)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2078)->
     #itemCfg {
@@ -10792,7 +11317,7 @@ getRow(2078)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10800,7 +11325,8 @@ getRow(2078)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2079)->
     #itemCfg {
@@ -10827,7 +11353,7 @@ getRow(2079)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10835,7 +11361,8 @@ getRow(2079)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2080)->
     #itemCfg {
@@ -10862,7 +11389,7 @@ getRow(2080)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10870,7 +11397,8 @@ getRow(2080)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2081)->
     #itemCfg {
@@ -10897,7 +11425,7 @@ getRow(2081)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10905,7 +11433,8 @@ getRow(2081)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2082)->
     #itemCfg {
@@ -10932,7 +11461,7 @@ getRow(2082)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10940,7 +11469,8 @@ getRow(2082)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2083)->
     #itemCfg {
@@ -10967,7 +11497,7 @@ getRow(2083)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -10975,7 +11505,8 @@ getRow(2083)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2084)->
     #itemCfg {
@@ -11002,7 +11533,7 @@ getRow(2084)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11010,7 +11541,8 @@ getRow(2084)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2085)->
     #itemCfg {
@@ -11037,7 +11569,7 @@ getRow(2085)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11045,7 +11577,8 @@ getRow(2085)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2086)->
     #itemCfg {
@@ -11072,7 +11605,7 @@ getRow(2086)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11080,7 +11613,8 @@ getRow(2086)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2087)->
     #itemCfg {
@@ -11107,7 +11641,7 @@ getRow(2087)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11115,7 +11649,8 @@ getRow(2087)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2088)->
     #itemCfg {
@@ -11142,7 +11677,7 @@ getRow(2088)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11150,7 +11685,8 @@ getRow(2088)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2089)->
     #itemCfg {
@@ -11177,7 +11713,7 @@ getRow(2089)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11185,7 +11721,8 @@ getRow(2089)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2090)->
     #itemCfg {
@@ -11212,7 +11749,7 @@ getRow(2090)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11220,7 +11757,8 @@ getRow(2090)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2091)->
     #itemCfg {
@@ -11247,7 +11785,7 @@ getRow(2091)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11255,7 +11793,8 @@ getRow(2091)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2092)->
     #itemCfg {
@@ -11282,7 +11821,7 @@ getRow(2092)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11290,13 +11829,14 @@ getRow(2092)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2160)->
     #itemCfg {
     id = 2160,
     name = "兽灵精华I",
-    desc = "提升灰色、绿色和蓝色品质骑宠星级和骑宠装备等级\n[00ff00]获取途径：商城成长类[-]",
+    desc = "可用于1~15级宠物升星\n[00ff00]获取途径：骑宠领地、商城、兑换商店[-]",
     product = "商城获得",
     iconPath = 246,
     maxAmount = 999,
@@ -11317,7 +11857,7 @@ getRow(2160)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -11325,13 +11865,14 @@ getRow(2160)->
     useJumpPage = 1,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{53,0}]
+    relation_UI = [{24,0},{53,0}],
+    check_box = 0
     };
 getRow(2161)->
     #itemCfg {
     id = 2161,
     name = "兽灵精华II",
-    desc = "提升红色品质骑宠星级和骑宠装备等级\n[00ff00]获取途径：商城成长类[-]",
+    desc = "可用于16~25级宠物升星\n[00ff00]获取途径：骑宠领地、商城、兑换商店[-]",
     product = "商城获得",
     iconPath = 247,
     maxAmount = 999,
@@ -11352,7 +11893,7 @@ getRow(2161)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11360,13 +11901,14 @@ getRow(2161)->
     useJumpPage = 1,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{53,0}]
+    relation_UI = [{24,0},{53,0}],
+    check_box = 0
     };
 getRow(2162)->
     #itemCfg {
     id = 2162,
     name = "兽灵精华III",
-    desc = "提升紫色品质及以上骑宠星级和骑宠装备等级\n[00ff00]获取途径：商城成长类[-]",
+    desc = "可用于26~40级宠物升星\n[00ff00]获取途径：骑宠领地、商城、兑换商店[-]",
     product = "商城获得",
     iconPath = 244,
     maxAmount = 999,
@@ -11387,7 +11929,7 @@ getRow(2162)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11395,7 +11937,8 @@ getRow(2162)->
     useJumpPage = 1,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{53,0}]
+    relation_UI = [{24,0},{53,0}],
+    check_box = 0
     };
 getRow(2164)->
     #itemCfg {
@@ -11422,7 +11965,7 @@ getRow(2164)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -11430,7 +11973,8 @@ getRow(2164)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2166)->
     #itemCfg {
@@ -11457,7 +12001,7 @@ getRow(2166)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -11466,12 +12010,13 @@ getRow(2166)->
     txt = "使用成功！请返回角色界面改名",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2170)->
     #itemCfg {
     id = 2170,
-    name = "战阶排名1~3",
+    name = "战阶排名1",
     desc = "周二、四、六，深红势力活动战阶排行榜奖励",
     product = "深红熔渊",
     iconPath = 98,
@@ -11493,7 +12038,7 @@ getRow(2170)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11501,17 +12046,18 @@ getRow(2170)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2171)->
     #itemCfg {
     id = 2171,
-    name = "战阶排名4~10",
+    name = "战阶排名2",
     desc = "周二、四、六，深红势力活动战阶排行榜奖励",
     product = "深红熔渊",
     iconPath = 97,
     maxAmount = 999,
-    quality = 3,
+    quality = 4,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -11528,7 +12074,7 @@ getRow(2171)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11536,17 +12082,18 @@ getRow(2171)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2172)->
     #itemCfg {
     id = 2172,
-    name = "战阶排名11~20",
+    name = "战阶排名3~5",
     desc = "周二、四、六，深红势力活动战阶排行榜奖励",
     product = "深红熔渊",
     iconPath = 96,
     maxAmount = 999,
-    quality = 3,
+    quality = 4,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -11563,7 +12110,7 @@ getRow(2172)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11571,17 +12118,18 @@ getRow(2172)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2173)->
     #itemCfg {
     id = 2173,
-    name = "战阶排名21~30",
+    name = "战阶排名6~10",
     desc = "周二、四、六，深红势力活动战阶排行榜奖励",
     product = "深红熔渊",
     iconPath = 95,
     maxAmount = 999,
-    quality = 2,
+    quality = 4,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -11598,7 +12146,7 @@ getRow(2173)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11606,17 +12154,18 @@ getRow(2173)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2174)->
     #itemCfg {
     id = 2174,
-    name = "战阶基础奖励I",
-    desc = "周二、四、六，深红势力活动未进入排行榜的战阶保底奖励",
+    name = "战阶排名11~20",
+    desc = "周二、四、六，深红势力活动战阶排行榜奖励",
     product = "深红熔渊",
     iconPath = 312,
     maxAmount = 999,
-    quality = 1,
+    quality = 3,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -11633,7 +12182,7 @@ getRow(2174)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11641,17 +12190,18 @@ getRow(2174)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2175)->
     #itemCfg {
     id = 2175,
-    name = "战阶基础奖励II",
-    desc = "周二、四、六，深红势力活动未进入排行榜的战阶保底奖励",
+    name = "战阶排名21~30",
+    desc = "周二、四、六，深红势力活动战阶排行榜奖励",
     product = "深红熔渊",
     iconPath = 312,
     maxAmount = 999,
-    quality = 1,
+    quality = 3,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -11668,7 +12218,7 @@ getRow(2175)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11676,17 +12226,18 @@ getRow(2175)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2176)->
     #itemCfg {
     id = 2176,
-    name = "战阶基础奖励III",
-    desc = "周二、四、六，深红势力活动未进入排行榜的战阶保底奖励",
+    name = "战阶排名31~40",
+    desc = "周二、四、六，深红势力活动战阶排行榜奖励",
     product = "深红熔渊",
     iconPath = 312,
     maxAmount = 999,
-    quality = 1,
+    quality = 3,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -11703,7 +12254,7 @@ getRow(2176)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11711,17 +12262,18 @@ getRow(2176)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2177)->
     #itemCfg {
     id = 2177,
-    name = "战阶基础奖励IV",
-    desc = "周二、四、六，深红势力活动未进入排行榜的战阶保底奖励",
+    name = "战阶排名41~60",
+    desc = "周二、四、六，深红势力活动战阶排行榜奖励",
     product = "深红熔渊",
     iconPath = 312,
     maxAmount = 999,
-    quality = 1,
+    quality = 2,
     itemType = 8,
     detailedType = 0,
     isQuestItem = 0,
@@ -11738,7 +12290,7 @@ getRow(2177)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11746,7 +12298,116 @@ getRow(2177)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(2178)->
+    #itemCfg {
+    id = 2178,
+    name = "战阶排名61~100",
+    desc = "周二、四、六，深红势力活动战阶排行榜奖励",
+    product = "深红熔渊",
+    iconPath = 312,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 1932,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 30,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(2179)->
+    #itemCfg {
+    id = 2179,
+    name = "战阶排名101~200",
+    desc = "周二、四、六，深红势力活动战阶排行榜奖励",
+    product = "深红熔渊",
+    iconPath = 312,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 1933,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 30,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(2180)->
+    #itemCfg {
+    id = 2180,
+    name = "战阶排名保底",
+    desc = "周二、四、六，深红势力活动未进入排行榜的战阶保底奖励",
+    product = "深红熔渊",
+    iconPath = 312,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 1934,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 30,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2500)->
     #itemCfg {
@@ -11773,7 +12434,7 @@ getRow(2500)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11781,7 +12442,8 @@ getRow(2500)->
     useJumpPage = 6,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2501)->
     #itemCfg {
@@ -11808,7 +12470,7 @@ getRow(2501)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11816,7 +12478,8 @@ getRow(2501)->
     useJumpPage = 6,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2502)->
     #itemCfg {
@@ -11843,7 +12506,7 @@ getRow(2502)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11851,7 +12514,8 @@ getRow(2502)->
     useJumpPage = 6,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2503)->
     #itemCfg {
@@ -11878,7 +12542,7 @@ getRow(2503)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11886,14 +12550,15 @@ getRow(2503)->
     useJumpPage = 6,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2504)->
     #itemCfg {
     id = 2504,
     name = "光灵之心",
-    desc = "解封光器灵的唯一圣物\n[00ff00]获取途径：开启vip2礼包[-]",
-    product = "vip2礼包获得",
+    desc = "解封光器灵的唯一圣物\n[00ff00]获取途径：暂未开启[-]",
+    product = "充值礼包获得",
     iconPath = 3003,
     maxAmount = 999,
     quality = 4,
@@ -11913,7 +12578,7 @@ getRow(2504)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11921,13 +12586,14 @@ getRow(2504)->
     useJumpPage = 6,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2505)->
     #itemCfg {
     id = 2505,
     name = "暗灵之心",
-    desc = "解封暗器灵的唯一圣物\n[00ff00]获取途径：家族商店内购买[-]",
+    desc = "解封暗器灵的唯一圣物\n[00ff00]获取途径：暂未开启[-]",
     product = "家族商店获得",
     iconPath = 3004,
     maxAmount = 999,
@@ -11948,7 +12614,7 @@ getRow(2505)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11956,7 +12622,8 @@ getRow(2505)->
     useJumpPage = 6,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(2600)->
     #itemCfg {
@@ -11983,7 +12650,7 @@ getRow(2600)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -11991,7 +12658,8 @@ getRow(2600)->
     useJumpPage = 6,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = [{22,34},{33,0}]
+    relation_UI = [{22,34},{33,0}],
+    check_box = 0
     };
 getRow(2601)->
     #itemCfg {
@@ -12018,7 +12686,7 @@ getRow(2601)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 1,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12026,7 +12694,8 @@ getRow(2601)->
     useJumpPage = 6,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{33,0}]
+    relation_UI = [{33,0}],
+    check_box = 0
     };
 getRow(2700)->
     #itemCfg {
@@ -12053,7 +12722,7 @@ getRow(2700)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12061,7 +12730,8 @@ getRow(2700)->
     useJumpPage = 7,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3100)->
     #itemCfg {
@@ -12088,7 +12758,7 @@ getRow(3100)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12096,12 +12766,13 @@ getRow(3100)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3101)->
     #itemCfg {
     id = 3101,
-    name = "40级元素宝箱",
+    name = "35级元素宝箱",
     desc = "击杀元素保卫战boss获得",
     product = "活动获得",
     iconPath = 98,
@@ -12123,7 +12794,7 @@ getRow(3101)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12131,12 +12802,13 @@ getRow(3101)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3102)->
     #itemCfg {
     id = 3102,
-    name = "50级元素宝箱",
+    name = "40级元素宝箱",
     desc = "击杀元素保卫战boss获得",
     product = "活动获得",
     iconPath = 98,
@@ -12158,7 +12830,7 @@ getRow(3102)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12166,12 +12838,13 @@ getRow(3102)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3103)->
     #itemCfg {
     id = 3103,
-    name = "60级元素宝箱",
+    name = "45级元素宝箱",
     desc = "击杀元素保卫战boss获得",
     product = "活动获得",
     iconPath = 98,
@@ -12193,7 +12866,7 @@ getRow(3103)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12201,7 +12874,8 @@ getRow(3103)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3200)->
     #itemCfg {
@@ -12228,7 +12902,7 @@ getRow(3200)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12236,7 +12910,8 @@ getRow(3200)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3201)->
     #itemCfg {
@@ -12263,7 +12938,7 @@ getRow(3201)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12271,7 +12946,8 @@ getRow(3201)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3202)->
     #itemCfg {
@@ -12298,7 +12974,7 @@ getRow(3202)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12306,7 +12982,8 @@ getRow(3202)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3220)->
     #itemCfg {
@@ -12333,7 +13010,7 @@ getRow(3220)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12341,7 +13018,8 @@ getRow(3220)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3221)->
     #itemCfg {
@@ -12368,7 +13046,7 @@ getRow(3221)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12376,7 +13054,8 @@ getRow(3221)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3222)->
     #itemCfg {
@@ -12403,7 +13082,7 @@ getRow(3222)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12411,7 +13090,8 @@ getRow(3222)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3223)->
     #itemCfg {
@@ -12438,7 +13118,7 @@ getRow(3223)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12446,7 +13126,8 @@ getRow(3223)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3224)->
     #itemCfg {
@@ -12473,7 +13154,7 @@ getRow(3224)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12481,7 +13162,8 @@ getRow(3224)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3225)->
     #itemCfg {
@@ -12508,7 +13190,7 @@ getRow(3225)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12516,7 +13198,8 @@ getRow(3225)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3226)->
     #itemCfg {
@@ -12543,7 +13226,7 @@ getRow(3226)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12551,7 +13234,8 @@ getRow(3226)->
     useJumpPage = 13,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3300)->
     #itemCfg {
@@ -12578,7 +13262,7 @@ getRow(3300)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12586,7 +13270,8 @@ getRow(3300)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3301)->
     #itemCfg {
@@ -12613,7 +13298,7 @@ getRow(3301)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12621,7 +13306,8 @@ getRow(3301)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3302)->
     #itemCfg {
@@ -12648,7 +13334,7 @@ getRow(3302)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12656,7 +13342,8 @@ getRow(3302)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3303)->
     #itemCfg {
@@ -12683,7 +13370,7 @@ getRow(3303)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12691,7 +13378,8 @@ getRow(3303)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(3400)->
     #itemCfg {
@@ -12718,7 +13406,7 @@ getRow(3400)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12726,7 +13414,8 @@ getRow(3400)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3401)->
     #itemCfg {
@@ -12753,7 +13442,7 @@ getRow(3401)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12761,7 +13450,8 @@ getRow(3401)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3402)->
     #itemCfg {
@@ -12788,7 +13478,7 @@ getRow(3402)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12796,7 +13486,8 @@ getRow(3402)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3403)->
     #itemCfg {
@@ -12823,7 +13514,7 @@ getRow(3403)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12831,7 +13522,8 @@ getRow(3403)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3404)->
     #itemCfg {
@@ -12858,7 +13550,7 @@ getRow(3404)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12866,7 +13558,8 @@ getRow(3404)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3405)->
     #itemCfg {
@@ -12893,7 +13586,7 @@ getRow(3405)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12901,7 +13594,8 @@ getRow(3405)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3410)->
     #itemCfg {
@@ -12928,7 +13622,7 @@ getRow(3410)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12936,7 +13630,8 @@ getRow(3410)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3411)->
     #itemCfg {
@@ -12963,7 +13658,7 @@ getRow(3411)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -12971,7 +13666,8 @@ getRow(3411)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3412)->
     #itemCfg {
@@ -12998,7 +13694,7 @@ getRow(3412)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13006,7 +13702,8 @@ getRow(3412)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3413)->
     #itemCfg {
@@ -13033,7 +13730,7 @@ getRow(3413)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13041,7 +13738,8 @@ getRow(3413)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3414)->
     #itemCfg {
@@ -13068,7 +13766,7 @@ getRow(3414)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13076,7 +13774,8 @@ getRow(3414)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3500)->
     #itemCfg {
@@ -13103,7 +13802,7 @@ getRow(3500)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13111,7 +13810,8 @@ getRow(3500)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3501)->
     #itemCfg {
@@ -13138,7 +13838,7 @@ getRow(3501)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13146,7 +13846,8 @@ getRow(3501)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3502)->
     #itemCfg {
@@ -13173,7 +13874,7 @@ getRow(3502)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13181,7 +13882,8 @@ getRow(3502)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3510)->
     #itemCfg {
@@ -13208,7 +13910,7 @@ getRow(3510)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13216,7 +13918,8 @@ getRow(3510)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3511)->
     #itemCfg {
@@ -13243,7 +13946,7 @@ getRow(3511)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13251,7 +13954,8 @@ getRow(3511)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
     };
 getRow(3512)->
     #itemCfg {
@@ -13278,7 +13982,7 @@ getRow(3512)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13286,7 +13990,82 @@ getRow(3512)->
     useJumpPage = 12,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{12,0},{20,2999}]
+    relation_UI = [{24,0},{12,0},{20,2999}],
+    check_box = 0
+    };
+getRow(4100)->
+    #itemCfg {
+    id = 4100,
+    name = "变大药水",
+    desc = "使用后自身和骑宠体型变大，持续10分钟。可叠加3次。\n\n仅在普通地图中生效。切换到特殊地图中会清除该效果。",
+    product = "游戏中获得",
+    iconPath = 130,
+    maxAmount = 99,
+    quality = 4,
+    itemType = 13,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 2,
+    useParam1 = 60009,
+    useParam2 = 1,
+    useParam3 = 0,
+    useParam4 = 5000,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 100,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    txt = "你吃下一瓶奇怪的药水！Emmm….世界突然变小了！",
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(4101)->
+    #itemCfg {
+    id = 4101,
+    name = "变小药水",
+    desc = "使用后自身和骑宠体型变小，持续10分钟。可叠加3次。\n\n仅在普通地图中生效。切换到特殊地图中会清除该效果。",
+    product = "游戏中获得",
+    iconPath = 130,
+    maxAmount = 99,
+    quality = 4,
+    itemType = 13,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 2,
+    useParam1 = 60010,
+    useParam2 = 1,
+    useParam3 = 0,
+    useParam4 = 5001,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 100,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    txt = "你吃下一瓶奇怪的药水！Emmm….世界突然变大了！",
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
     };
 getRow(4200)->
     #itemCfg {
@@ -13313,7 +14092,7 @@ getRow(4200)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13322,7 +14101,8 @@ getRow(4200)->
     txt = "使用成功！击败怪物后获得1.5倍经验",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(4203)->
     #itemCfg {
@@ -13349,7 +14129,7 @@ getRow(4203)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -13358,7 +14138,8 @@ getRow(4203)->
     txt = "使用成功！击败怪物后获得2倍经验",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(4206)->
     #itemCfg {
@@ -13385,7 +14166,7 @@ getRow(4206)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -13394,7 +14175,8 @@ getRow(4206)->
     txt = "使用成功！击败怪物后获得3倍经验",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(4209)->
     #itemCfg {
@@ -13421,7 +14203,7 @@ getRow(4209)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -13430,7 +14212,8 @@ getRow(4209)->
     txt = "使用成功！击败怪物后获得5倍经验",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(4300)->
     #itemCfg {
@@ -13457,7 +14240,7 @@ getRow(4300)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13466,7 +14249,8 @@ getRow(4300)->
     txt = "成功激活月卡服务",
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(4301)->
     #itemCfg {
@@ -13493,7 +14277,7 @@ getRow(4301)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -13502,7 +14286,8 @@ getRow(4301)->
     txt = "成功激活月卡服务",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(4302)->
     #itemCfg {
@@ -13529,7 +14314,7 @@ getRow(4302)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 0,
     baozhu = 26,
@@ -13538,7 +14323,8 @@ getRow(4302)->
     txt = "狂怒值减少{0}点",
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(4303)->
     #itemCfg {
@@ -13565,7 +14351,7 @@ getRow(4303)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -13573,7 +14359,8 @@ getRow(4303)->
     useJumpPage = 10,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,13}]
+    relation_UI = [{24,0},{22,13}],
+    check_box = 0
     };
 getRow(4304)->
     #itemCfg {
@@ -13600,7 +14387,7 @@ getRow(4304)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 23,
@@ -13608,13 +14395,14 @@ getRow(4304)->
     useJumpPage = 10,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,13}]
+    relation_UI = [{24,0},{22,13}],
+    check_box = 0
     };
 getRow(4305)->
     #itemCfg {
     id = 4305,
     name = "太阳石",
-    desc = "高级翅膀升级材料，可增加35~45点随机翅膀经验\n[00ff00]获取途径：运营活动[-]",
+    desc = "高级翅膀升级材料，可增加35~45点随机翅膀经验\n[00ff00]获取途径：神秘商店[-]",
     product = "运营活动获得",
     iconPath = 554,
     maxAmount = 999,
@@ -13635,7 +14423,7 @@ getRow(4305)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 25,
@@ -13643,7 +14431,8 @@ getRow(4305)->
     useJumpPage = 10,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5000)->
     #itemCfg {
@@ -13670,7 +14459,7 @@ getRow(5000)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -13678,7 +14467,8 @@ getRow(5000)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5001)->
     #itemCfg {
@@ -13705,7 +14495,7 @@ getRow(5001)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -13713,7 +14503,8 @@ getRow(5001)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5002)->
     #itemCfg {
@@ -13740,7 +14531,7 @@ getRow(5002)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -13748,7 +14539,8 @@ getRow(5002)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5003)->
     #itemCfg {
@@ -13775,7 +14567,7 @@ getRow(5003)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -13783,7 +14575,8 @@ getRow(5003)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5004)->
     #itemCfg {
@@ -13810,7 +14603,7 @@ getRow(5004)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -13818,7 +14611,8 @@ getRow(5004)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5005)->
     #itemCfg {
@@ -13845,7 +14639,7 @@ getRow(5005)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -13853,7 +14647,8 @@ getRow(5005)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5006)->
     #itemCfg {
@@ -13880,7 +14675,7 @@ getRow(5006)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -13888,7 +14683,8 @@ getRow(5006)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5007)->
     #itemCfg {
@@ -13915,7 +14711,7 @@ getRow(5007)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -13923,7 +14719,8 @@ getRow(5007)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5008)->
     #itemCfg {
@@ -13950,7 +14747,7 @@ getRow(5008)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -13958,7 +14755,8 @@ getRow(5008)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5009)->
     #itemCfg {
@@ -13985,7 +14783,7 @@ getRow(5009)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -13993,7 +14791,8 @@ getRow(5009)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5010)->
     #itemCfg {
@@ -14020,7 +14819,7 @@ getRow(5010)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14028,7 +14827,8 @@ getRow(5010)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5011)->
     #itemCfg {
@@ -14055,7 +14855,7 @@ getRow(5011)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14063,7 +14863,8 @@ getRow(5011)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5012)->
     #itemCfg {
@@ -14090,7 +14891,7 @@ getRow(5012)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14098,7 +14899,8 @@ getRow(5012)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5013)->
     #itemCfg {
@@ -14125,7 +14927,7 @@ getRow(5013)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14133,7 +14935,8 @@ getRow(5013)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5014)->
     #itemCfg {
@@ -14160,7 +14963,7 @@ getRow(5014)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14168,7 +14971,8 @@ getRow(5014)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5015)->
     #itemCfg {
@@ -14195,7 +14999,7 @@ getRow(5015)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14203,7 +15007,8 @@ getRow(5015)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5016)->
     #itemCfg {
@@ -14230,7 +15035,7 @@ getRow(5016)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14238,7 +15043,8 @@ getRow(5016)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5017)->
     #itemCfg {
@@ -14265,7 +15071,7 @@ getRow(5017)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14273,7 +15079,8 @@ getRow(5017)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5018)->
     #itemCfg {
@@ -14300,7 +15107,7 @@ getRow(5018)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14308,7 +15115,8 @@ getRow(5018)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5019)->
     #itemCfg {
@@ -14335,7 +15143,7 @@ getRow(5019)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14343,7 +15151,8 @@ getRow(5019)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5020)->
     #itemCfg {
@@ -14370,7 +15179,7 @@ getRow(5020)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14378,7 +15187,8 @@ getRow(5020)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5021)->
     #itemCfg {
@@ -14405,7 +15215,7 @@ getRow(5021)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14413,7 +15223,8 @@ getRow(5021)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5022)->
     #itemCfg {
@@ -14440,7 +15251,7 @@ getRow(5022)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14448,7 +15259,8 @@ getRow(5022)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5023)->
     #itemCfg {
@@ -14475,7 +15287,7 @@ getRow(5023)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14483,7 +15295,8 @@ getRow(5023)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5024)->
     #itemCfg {
@@ -14510,7 +15323,7 @@ getRow(5024)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14518,7 +15331,8 @@ getRow(5024)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5025)->
     #itemCfg {
@@ -14545,7 +15359,7 @@ getRow(5025)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14553,7 +15367,8 @@ getRow(5025)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5026)->
     #itemCfg {
@@ -14580,7 +15395,7 @@ getRow(5026)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14588,7 +15403,8 @@ getRow(5026)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5027)->
     #itemCfg {
@@ -14615,7 +15431,7 @@ getRow(5027)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14623,7 +15439,8 @@ getRow(5027)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5028)->
     #itemCfg {
@@ -14650,7 +15467,7 @@ getRow(5028)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14658,7 +15475,8 @@ getRow(5028)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5029)->
     #itemCfg {
@@ -14685,7 +15503,7 @@ getRow(5029)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14693,7 +15511,8 @@ getRow(5029)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5030)->
     #itemCfg {
@@ -14720,7 +15539,7 @@ getRow(5030)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14728,7 +15547,8 @@ getRow(5030)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5031)->
     #itemCfg {
@@ -14755,7 +15575,7 @@ getRow(5031)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14763,7 +15583,8 @@ getRow(5031)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5032)->
     #itemCfg {
@@ -14790,7 +15611,7 @@ getRow(5032)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14798,7 +15619,8 @@ getRow(5032)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5033)->
     #itemCfg {
@@ -14825,7 +15647,7 @@ getRow(5033)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14833,7 +15655,8 @@ getRow(5033)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5034)->
     #itemCfg {
@@ -14860,7 +15683,7 @@ getRow(5034)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14868,7 +15691,8 @@ getRow(5034)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5035)->
     #itemCfg {
@@ -14895,7 +15719,7 @@ getRow(5035)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14903,7 +15727,8 @@ getRow(5035)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5036)->
     #itemCfg {
@@ -14930,7 +15755,7 @@ getRow(5036)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14938,7 +15763,8 @@ getRow(5036)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5037)->
     #itemCfg {
@@ -14965,7 +15791,7 @@ getRow(5037)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -14973,7 +15799,8 @@ getRow(5037)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5038)->
     #itemCfg {
@@ -15000,7 +15827,7 @@ getRow(5038)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15008,7 +15835,8 @@ getRow(5038)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5039)->
     #itemCfg {
@@ -15035,7 +15863,7 @@ getRow(5039)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15043,7 +15871,8 @@ getRow(5039)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5040)->
     #itemCfg {
@@ -15070,7 +15899,7 @@ getRow(5040)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15078,7 +15907,8 @@ getRow(5040)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5041)->
     #itemCfg {
@@ -15105,7 +15935,7 @@ getRow(5041)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15113,7 +15943,8 @@ getRow(5041)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5042)->
     #itemCfg {
@@ -15140,7 +15971,7 @@ getRow(5042)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15148,7 +15979,8 @@ getRow(5042)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5043)->
     #itemCfg {
@@ -15175,7 +16007,7 @@ getRow(5043)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15183,7 +16015,8 @@ getRow(5043)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5044)->
     #itemCfg {
@@ -15210,7 +16043,7 @@ getRow(5044)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15218,7 +16051,8 @@ getRow(5044)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5045)->
     #itemCfg {
@@ -15245,7 +16079,7 @@ getRow(5045)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15253,7 +16087,8 @@ getRow(5045)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5046)->
     #itemCfg {
@@ -15280,7 +16115,7 @@ getRow(5046)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15288,7 +16123,8 @@ getRow(5046)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5047)->
     #itemCfg {
@@ -15315,7 +16151,7 @@ getRow(5047)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15323,7 +16159,8 @@ getRow(5047)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5048)->
     #itemCfg {
@@ -15350,7 +16187,7 @@ getRow(5048)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15358,7 +16195,8 @@ getRow(5048)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5049)->
     #itemCfg {
@@ -15385,7 +16223,7 @@ getRow(5049)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15393,7 +16231,8 @@ getRow(5049)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5050)->
     #itemCfg {
@@ -15420,7 +16259,7 @@ getRow(5050)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15428,7 +16267,8 @@ getRow(5050)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5051)->
     #itemCfg {
@@ -15455,7 +16295,7 @@ getRow(5051)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15463,7 +16303,8 @@ getRow(5051)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5052)->
     #itemCfg {
@@ -15490,7 +16331,7 @@ getRow(5052)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15498,7 +16339,8 @@ getRow(5052)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5053)->
     #itemCfg {
@@ -15525,7 +16367,7 @@ getRow(5053)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15533,7 +16375,8 @@ getRow(5053)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5054)->
     #itemCfg {
@@ -15560,7 +16403,7 @@ getRow(5054)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15568,7 +16411,8 @@ getRow(5054)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5055)->
     #itemCfg {
@@ -15595,7 +16439,7 @@ getRow(5055)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15603,7 +16447,8 @@ getRow(5055)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5056)->
     #itemCfg {
@@ -15630,7 +16475,7 @@ getRow(5056)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15638,7 +16483,8 @@ getRow(5056)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5057)->
     #itemCfg {
@@ -15665,7 +16511,7 @@ getRow(5057)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15673,7 +16519,8 @@ getRow(5057)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5058)->
     #itemCfg {
@@ -15700,7 +16547,7 @@ getRow(5058)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -15708,7 +16555,8 @@ getRow(5058)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(5999)->
     #itemCfg {
@@ -15728,14 +16576,14 @@ getRow(5999)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 561600,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -15743,7 +16591,8 @@ getRow(5999)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6000)->
     #itemCfg {
@@ -15762,23 +16611,24 @@ getRow(6000)->
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
-    useMaxCount = 1,
-    level = 10,
+    useMaxCount = 999,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0,
-    relation_UI = []
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6010)->
     #itemCfg {
@@ -15793,19 +16643,19 @@ getRow(6010)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1029,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -15813,7 +16663,8 @@ getRow(6010)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6011)->
     #itemCfg {
@@ -15828,19 +16679,19 @@ getRow(6011)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1030,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -15848,7 +16699,8 @@ getRow(6011)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6012)->
     #itemCfg {
@@ -15863,19 +16715,19 @@ getRow(6012)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1031,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -15883,7 +16735,8 @@ getRow(6012)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6013)->
     #itemCfg {
@@ -15898,19 +16751,19 @@ getRow(6013)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1032,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -15918,7 +16771,8 @@ getRow(6013)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6014)->
     #itemCfg {
@@ -15933,19 +16787,19 @@ getRow(6014)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1033,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -15953,7 +16807,8 @@ getRow(6014)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6015)->
     #itemCfg {
@@ -15968,19 +16823,19 @@ getRow(6015)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1034,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -15988,7 +16843,8 @@ getRow(6015)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6016)->
     #itemCfg {
@@ -16003,19 +16859,19 @@ getRow(6016)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1035,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16023,7 +16879,8 @@ getRow(6016)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6017)->
     #itemCfg {
@@ -16038,19 +16895,19 @@ getRow(6017)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1036,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16058,7 +16915,8 @@ getRow(6017)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6018)->
     #itemCfg {
@@ -16073,19 +16931,19 @@ getRow(6018)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1037,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16093,7 +16951,8 @@ getRow(6018)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6019)->
     #itemCfg {
@@ -16108,19 +16967,19 @@ getRow(6019)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1038,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16128,7 +16987,8 @@ getRow(6019)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6020)->
     #itemCfg {
@@ -16143,19 +17003,19 @@ getRow(6020)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1039,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16163,7 +17023,8 @@ getRow(6020)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6021)->
     #itemCfg {
@@ -16178,19 +17039,19 @@ getRow(6021)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1040,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16198,7 +17059,8 @@ getRow(6021)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6022)->
     #itemCfg {
@@ -16213,19 +17075,19 @@ getRow(6022)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1041,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16233,7 +17095,8 @@ getRow(6022)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6023)->
     #itemCfg {
@@ -16248,19 +17111,19 @@ getRow(6023)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1042,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16268,7 +17131,8 @@ getRow(6023)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6100)->
     #itemCfg {
@@ -16283,19 +17147,19 @@ getRow(6100)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1000,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16303,7 +17167,8 @@ getRow(6100)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6101)->
     #itemCfg {
@@ -16318,19 +17183,19 @@ getRow(6101)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1001,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16338,7 +17203,8 @@ getRow(6101)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6102)->
     #itemCfg {
@@ -16353,19 +17219,19 @@ getRow(6102)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1002,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16373,7 +17239,8 @@ getRow(6102)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6103)->
     #itemCfg {
@@ -16388,19 +17255,19 @@ getRow(6103)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1003,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16408,7 +17275,8 @@ getRow(6103)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6104)->
     #itemCfg {
@@ -16423,19 +17291,19 @@ getRow(6104)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1004,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16443,7 +17311,8 @@ getRow(6104)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6105)->
     #itemCfg {
@@ -16458,19 +17327,19 @@ getRow(6105)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1005,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16478,7 +17347,8 @@ getRow(6105)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6106)->
     #itemCfg {
@@ -16493,19 +17363,19 @@ getRow(6106)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1006,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16513,7 +17383,8 @@ getRow(6106)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6107)->
     #itemCfg {
@@ -16528,19 +17399,19 @@ getRow(6107)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1007,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16548,7 +17419,8 @@ getRow(6107)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6108)->
     #itemCfg {
@@ -16563,19 +17435,19 @@ getRow(6108)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1008,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16583,7 +17455,8 @@ getRow(6108)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6109)->
     #itemCfg {
@@ -16598,19 +17471,19 @@ getRow(6109)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1009,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16618,7 +17491,8 @@ getRow(6109)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6110)->
     #itemCfg {
@@ -16633,19 +17507,19 @@ getRow(6110)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1010,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16653,7 +17527,8 @@ getRow(6110)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6111)->
     #itemCfg {
@@ -16668,19 +17543,19 @@ getRow(6111)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1011,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16688,7 +17563,8 @@ getRow(6111)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6112)->
     #itemCfg {
@@ -16703,19 +17579,19 @@ getRow(6112)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1012,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16723,7 +17599,8 @@ getRow(6112)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6113)->
     #itemCfg {
@@ -16738,19 +17615,19 @@ getRow(6113)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1013,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16758,7 +17635,8 @@ getRow(6113)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6114)->
     #itemCfg {
@@ -16773,19 +17651,19 @@ getRow(6114)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1014,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16793,7 +17671,8 @@ getRow(6114)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6115)->
     #itemCfg {
@@ -16808,19 +17687,19 @@ getRow(6115)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1015,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16828,7 +17707,8 @@ getRow(6115)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6116)->
     #itemCfg {
@@ -16843,19 +17723,19 @@ getRow(6116)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1016,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16863,7 +17743,8 @@ getRow(6116)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6117)->
     #itemCfg {
@@ -16878,19 +17759,19 @@ getRow(6117)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1017,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16898,7 +17779,8 @@ getRow(6117)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6118)->
     #itemCfg {
@@ -16913,19 +17795,19 @@ getRow(6118)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1018,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16933,7 +17815,8 @@ getRow(6118)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6119)->
     #itemCfg {
@@ -16948,19 +17831,19 @@ getRow(6119)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1019,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -16968,7 +17851,8 @@ getRow(6119)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6120)->
     #itemCfg {
@@ -16983,19 +17867,19 @@ getRow(6120)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1020,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17003,7 +17887,8 @@ getRow(6120)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6121)->
     #itemCfg {
@@ -17018,19 +17903,19 @@ getRow(6121)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1021,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17038,7 +17923,8 @@ getRow(6121)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6122)->
     #itemCfg {
@@ -17053,19 +17939,19 @@ getRow(6122)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1022,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17073,7 +17959,8 @@ getRow(6122)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6123)->
     #itemCfg {
@@ -17088,19 +17975,19 @@ getRow(6123)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1023,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17108,7 +17995,8 @@ getRow(6123)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6124)->
     #itemCfg {
@@ -17123,19 +18011,19 @@ getRow(6124)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1024,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17143,7 +18031,8 @@ getRow(6124)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6125)->
     #itemCfg {
@@ -17158,19 +18047,19 @@ getRow(6125)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1025,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17178,7 +18067,8 @@ getRow(6125)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6126)->
     #itemCfg {
@@ -17193,19 +18083,19 @@ getRow(6126)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1026,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17213,7 +18103,8 @@ getRow(6126)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6127)->
     #itemCfg {
@@ -17228,19 +18119,19 @@ getRow(6127)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1027,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17248,7 +18139,8 @@ getRow(6127)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6128)->
     #itemCfg {
@@ -17263,19 +18155,19 @@ getRow(6128)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1028,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17283,7 +18175,8 @@ getRow(6128)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6129)->
     #itemCfg {
@@ -17298,19 +18191,19 @@ getRow(6129)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1029,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17318,7 +18211,8 @@ getRow(6129)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6130)->
     #itemCfg {
@@ -17333,19 +18227,19 @@ getRow(6130)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1030,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17353,7 +18247,8 @@ getRow(6130)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6131)->
     #itemCfg {
@@ -17368,19 +18263,19 @@ getRow(6131)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1031,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17388,7 +18283,8 @@ getRow(6131)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6132)->
     #itemCfg {
@@ -17403,19 +18299,19 @@ getRow(6132)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1032,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17423,7 +18319,8 @@ getRow(6132)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6133)->
     #itemCfg {
@@ -17438,19 +18335,19 @@ getRow(6133)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1033,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17458,7 +18355,8 @@ getRow(6133)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6134)->
     #itemCfg {
@@ -17473,19 +18371,19 @@ getRow(6134)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1034,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17493,7 +18391,8 @@ getRow(6134)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6135)->
     #itemCfg {
@@ -17508,19 +18407,19 @@ getRow(6135)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1035,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17528,7 +18427,8 @@ getRow(6135)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6136)->
     #itemCfg {
@@ -17543,19 +18443,19 @@ getRow(6136)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1036,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17563,7 +18463,8 @@ getRow(6136)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6137)->
     #itemCfg {
@@ -17578,19 +18479,19 @@ getRow(6137)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1037,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17598,7 +18499,8 @@ getRow(6137)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6138)->
     #itemCfg {
@@ -17613,19 +18515,19 @@ getRow(6138)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1038,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17633,7 +18535,8 @@ getRow(6138)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6139)->
     #itemCfg {
@@ -17648,19 +18551,19 @@ getRow(6139)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1039,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17668,7 +18571,8 @@ getRow(6139)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6140)->
     #itemCfg {
@@ -17683,19 +18587,19 @@ getRow(6140)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1040,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17703,7 +18607,8 @@ getRow(6140)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6141)->
     #itemCfg {
@@ -17718,19 +18623,19 @@ getRow(6141)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1041,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17738,7 +18643,8 @@ getRow(6141)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(6142)->
     #itemCfg {
@@ -17753,19 +18659,19 @@ getRow(6142)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 22,
-    useParam1 = 1042,
+    useParam1 = 1,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 1,
-    level = 10,
+    level = 1,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -17773,7 +18679,8 @@ getRow(6142)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7000)->
     #itemCfg {
@@ -17784,7 +18691,7 @@ getRow(7000)->
     iconPath = 41,
     maxAmount = 999,
     quality = 3,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -17800,7 +18707,7 @@ getRow(7000)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -17808,7 +18715,8 @@ getRow(7000)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(7001)->
     #itemCfg {
@@ -17819,7 +18727,7 @@ getRow(7001)->
     iconPath = 40,
     maxAmount = 999,
     quality = 3,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -17835,7 +18743,7 @@ getRow(7001)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -17843,7 +18751,8 @@ getRow(7001)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(7002)->
     #itemCfg {
@@ -17854,7 +18763,7 @@ getRow(7002)->
     iconPath = 42,
     maxAmount = 999,
     quality = 3,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -17870,7 +18779,7 @@ getRow(7002)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -17878,7 +18787,8 @@ getRow(7002)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(7003)->
     #itemCfg {
@@ -17889,7 +18799,7 @@ getRow(7003)->
     iconPath = 93,
     maxAmount = 999,
     quality = 3,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -17905,7 +18815,7 @@ getRow(7003)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -17913,7 +18823,8 @@ getRow(7003)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(7004)->
     #itemCfg {
@@ -17924,7 +18835,7 @@ getRow(7004)->
     iconPath = 361,
     maxAmount = 999,
     quality = 3,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -17940,7 +18851,7 @@ getRow(7004)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -17948,7 +18859,8 @@ getRow(7004)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(7005)->
     #itemCfg {
@@ -17959,7 +18871,7 @@ getRow(7005)->
     iconPath = 41,
     maxAmount = 999,
     quality = 3,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -17975,7 +18887,7 @@ getRow(7005)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -17983,7 +18895,8 @@ getRow(7005)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(7006)->
     #itemCfg {
@@ -17994,7 +18907,7 @@ getRow(7006)->
     iconPath = 41,
     maxAmount = 999,
     quality = 3,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18010,7 +18923,7 @@ getRow(7006)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18018,7 +18931,8 @@ getRow(7006)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(7007)->
     #itemCfg {
@@ -18029,7 +18943,7 @@ getRow(7007)->
     iconPath = 41,
     maxAmount = 999,
     quality = 3,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18045,7 +18959,7 @@ getRow(7007)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18053,7 +18967,8 @@ getRow(7007)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(7008)->
     #itemCfg {
@@ -18064,7 +18979,7 @@ getRow(7008)->
     iconPath = 41,
     maxAmount = 999,
     quality = 3,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18080,7 +18995,7 @@ getRow(7008)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18088,7 +19003,8 @@ getRow(7008)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(7009)->
     #itemCfg {
@@ -18099,7 +19015,7 @@ getRow(7009)->
     iconPath = 41,
     maxAmount = 999,
     quality = 3,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18115,7 +19031,7 @@ getRow(7009)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18123,18 +19039,19 @@ getRow(7009)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
-getRow(7021)->
+getRow(7020)->
     #itemCfg {
-    id = 7021,
+    id = 7020,
     name = "火焰晶石",
     desc = "50级低级紫色装备合成材料\n[00ff00]获取途径：日常-元素保卫战,深红熔渊[-]",
     product = "元素保卫战",
     iconPath = 228,
     maxAmount = 999,
     quality = 4,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18150,7 +19067,7 @@ getRow(7021)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18158,18 +19075,19 @@ getRow(7021)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
-getRow(7022)->
+getRow(7021)->
     #itemCfg {
-    id = 7022,
+    id = 7021,
     name = "冰霜晶石",
     desc = "60级低级紫色装备合成材料\n[00ff00]获取途径：日常-元素保卫战,深红熔渊[-]",
     product = "元素保卫战",
     iconPath = 229,
     maxAmount = 999,
     quality = 4,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18185,7 +19103,7 @@ getRow(7022)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18193,18 +19111,19 @@ getRow(7022)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
-getRow(7023)->
+getRow(7022)->
     #itemCfg {
-    id = 7023,
+    id = 7022,
     name = "雷电晶石",
     desc = "70级低级紫色装备合成材料\n[00ff00]获取途径：日常-元素保卫战,深红熔渊[-]",
     product = "元素保卫战",
     iconPath = 230,
     maxAmount = 999,
     quality = 4,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18220,7 +19139,7 @@ getRow(7023)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18228,18 +19147,19 @@ getRow(7023)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
-getRow(7024)->
+getRow(7023)->
     #itemCfg {
-    id = 7024,
+    id = 7023,
     name = "风暴晶石",
     desc = "预留（80）",
     product = "元素保卫战",
     iconPath = 231,
     maxAmount = 999,
     quality = 4,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18255,7 +19175,7 @@ getRow(7024)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18263,18 +19183,19 @@ getRow(7024)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
-getRow(7025)->
+getRow(7024)->
     #itemCfg {
-    id = 7025,
+    id = 7024,
     name = "90晶石",
     desc = "预留（90）",
     product = "元素保卫战",
     iconPath = 231,
     maxAmount = 999,
     quality = 4,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18290,7 +19211,7 @@ getRow(7025)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18298,18 +19219,19 @@ getRow(7025)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
-getRow(7026)->
+getRow(7025)->
     #itemCfg {
-    id = 7026,
+    id = 7025,
     name = "100晶石",
     desc = "预留（100）",
     product = "元素保卫战",
     iconPath = 231,
     maxAmount = 999,
     quality = 4,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18325,7 +19247,7 @@ getRow(7026)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18333,18 +19255,19 @@ getRow(7026)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
-getRow(7027)->
+getRow(7026)->
     #itemCfg {
-    id = 7027,
+    id = 7026,
     name = "110晶石",
     desc = "预留（110）",
     product = "元素保卫战",
     iconPath = 231,
     maxAmount = 999,
     quality = 4,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18360,7 +19283,7 @@ getRow(7027)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18368,18 +19291,19 @@ getRow(7027)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
-getRow(7028)->
+getRow(7027)->
     #itemCfg {
-    id = 7028,
+    id = 7027,
     name = "120晶石",
     desc = "预留（120）",
     product = "元素保卫战",
     iconPath = 231,
     maxAmount = 999,
     quality = 4,
-    itemType = 1,
+    itemType = 3,
     detailedType = 0,
     isQuestItem = 0,
     useType = 1,
@@ -18395,7 +19319,7 @@ getRow(7028)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 1,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -18403,7 +19327,80 @@ getRow(7028)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7050)->
+    #itemCfg {
+    id = 7050,
+    name = "元素水晶",
+    desc = "能量充盈的极品水晶，用于合成40级紫色装备\n[00ff00]获取途径：[-]",
+    product = "0",
+    iconPath = 228,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 100,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7051)->
+    #itemCfg {
+    id = 7051,
+    name = "辉煌水晶",
+    desc = "能量充盈的极品水晶，用于合成50级紫色装备\n[00ff00]获取途径：[-]",
+    product = "0",
+    iconPath = 228,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 100,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(7100)->
     #itemCfg {
@@ -18430,7 +19427,7 @@ getRow(7100)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18438,7 +19435,8 @@ getRow(7100)->
     useJumpPage = 14,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7101)->
     #itemCfg {
@@ -18465,7 +19463,7 @@ getRow(7101)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18473,7 +19471,8 @@ getRow(7101)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7102)->
     #itemCfg {
@@ -18500,7 +19499,7 @@ getRow(7102)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -18508,7 +19507,8 @@ getRow(7102)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7103)->
     #itemCfg {
@@ -18535,7 +19535,7 @@ getRow(7103)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -18543,7 +19543,8 @@ getRow(7103)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7104)->
     #itemCfg {
@@ -18570,7 +19571,7 @@ getRow(7104)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -18578,7 +19579,8 @@ getRow(7104)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7105)->
     #itemCfg {
@@ -18605,7 +19607,7 @@ getRow(7105)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -18613,7 +19615,8 @@ getRow(7105)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7106)->
     #itemCfg {
@@ -18640,7 +19643,7 @@ getRow(7106)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -18648,7 +19651,8 @@ getRow(7106)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7200)->
     #itemCfg {
@@ -18660,7 +19664,7 @@ getRow(7200)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7200,
@@ -18675,7 +19679,7 @@ getRow(7200)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18683,7 +19687,8 @@ getRow(7200)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7201)->
     #itemCfg {
@@ -18695,7 +19700,7 @@ getRow(7201)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7201,
@@ -18710,7 +19715,7 @@ getRow(7201)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18718,7 +19723,8 @@ getRow(7201)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7202)->
     #itemCfg {
@@ -18730,7 +19736,7 @@ getRow(7202)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7202,
@@ -18745,7 +19751,7 @@ getRow(7202)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18753,7 +19759,8 @@ getRow(7202)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7203)->
     #itemCfg {
@@ -18765,7 +19772,7 @@ getRow(7203)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7203,
@@ -18780,7 +19787,7 @@ getRow(7203)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18788,7 +19795,8 @@ getRow(7203)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7204)->
     #itemCfg {
@@ -18800,7 +19808,7 @@ getRow(7204)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7204,
@@ -18815,7 +19823,7 @@ getRow(7204)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18823,7 +19831,8 @@ getRow(7204)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7205)->
     #itemCfg {
@@ -18835,7 +19844,7 @@ getRow(7205)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7205,
@@ -18850,7 +19859,7 @@ getRow(7205)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18858,7 +19867,8 @@ getRow(7205)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7206)->
     #itemCfg {
@@ -18870,7 +19880,7 @@ getRow(7206)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7206,
@@ -18885,7 +19895,7 @@ getRow(7206)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18893,7 +19903,8 @@ getRow(7206)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7207)->
     #itemCfg {
@@ -18905,7 +19916,7 @@ getRow(7207)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7207,
@@ -18920,7 +19931,7 @@ getRow(7207)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18928,7 +19939,8 @@ getRow(7207)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7208)->
     #itemCfg {
@@ -18940,7 +19952,7 @@ getRow(7208)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7208,
@@ -18955,7 +19967,7 @@ getRow(7208)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18963,7 +19975,8 @@ getRow(7208)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7209)->
     #itemCfg {
@@ -18975,7 +19988,7 @@ getRow(7209)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7209,
@@ -18990,7 +20003,7 @@ getRow(7209)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -18998,7 +20011,8 @@ getRow(7209)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7210)->
     #itemCfg {
@@ -19010,7 +20024,7 @@ getRow(7210)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7210,
@@ -19025,7 +20039,7 @@ getRow(7210)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -19033,7 +20047,8 @@ getRow(7210)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7211)->
     #itemCfg {
@@ -19045,7 +20060,7 @@ getRow(7211)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7211,
@@ -19060,7 +20075,7 @@ getRow(7211)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -19068,7 +20083,8 @@ getRow(7211)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7212)->
     #itemCfg {
@@ -19080,7 +20096,7 @@ getRow(7212)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7212,
@@ -19095,7 +20111,7 @@ getRow(7212)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -19103,7 +20119,8 @@ getRow(7212)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7213)->
     #itemCfg {
@@ -19115,7 +20132,7 @@ getRow(7213)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7213,
@@ -19130,7 +20147,7 @@ getRow(7213)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -19138,7 +20155,8 @@ getRow(7213)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(7214)->
     #itemCfg {
@@ -19150,7 +20168,7 @@ getRow(7214)->
     maxAmount = 999,
     quality = 3,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 7214,
@@ -19165,7 +20183,7 @@ getRow(7214)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
@@ -19173,7 +20191,1088 @@ getRow(7214)->
     useJumpPage = 0,
     useStraightway = 1,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(7500)->
+    #itemCfg {
+    id = 7500,
+    name = "30级武器红色核心",
+    desc = "装备合成的核心材料，用于合成30级红色武器\n[00ff00]获取途径：30级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7501)->
+    #itemCfg {
+    id = 7501,
+    name = "30级软皮红色核心",
+    desc = "装备合成的核心材料，用于合成30级红色头盔和靴子\n[00ff00]获取途径：30级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7502)->
+    #itemCfg {
+    id = 7502,
+    name = "30级护甲红色核心",
+    desc = "装备合成的核心材料，用于合成30级红色盔甲和裤子\n[00ff00]获取途径：30级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7503)->
+    #itemCfg {
+    id = 7503,
+    name = "30级耳环红色核心",
+    desc = "装备合成的核心材料，用于合成30级红色耳环\n[00ff00]获取途径：30级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7504)->
+    #itemCfg {
+    id = 7504,
+    name = "30级项链红色核心",
+    desc = "装备合成的核心材料，用于合成30级红色项链\n[00ff00]获取途径：30级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7505)->
+    #itemCfg {
+    id = 7505,
+    name = "30级戒指红色核心",
+    desc = "装备合成的核心材料，用于合成30级红色戒指\n[00ff00]获取途径：30级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7510)->
+    #itemCfg {
+    id = 7510,
+    name = "40级武器红色核心",
+    desc = "装备合成的核心材料，用于合成40级红色武器\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7511)->
+    #itemCfg {
+    id = 7511,
+    name = "40级软皮红色核心",
+    desc = "装备合成的核心材料，用于合成40级红色头盔和靴子\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7512)->
+    #itemCfg {
+    id = 7512,
+    name = "40级护甲红色核心",
+    desc = "装备合成的核心材料，用于合成40级红色盔甲和裤子\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7513)->
+    #itemCfg {
+    id = 7513,
+    name = "40级耳环红色核心",
+    desc = "装备合成的核心材料，用于合成40级红色耳环\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7514)->
+    #itemCfg {
+    id = 7514,
+    name = "40级项链红色核心",
+    desc = "装备合成的核心材料，用于合成40级红色项链\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7515)->
+    #itemCfg {
+    id = 7515,
+    name = "40级戒指红色核心",
+    desc = "装备合成的核心材料，用于合成40级红色戒指\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7516)->
+    #itemCfg {
+    id = 7516,
+    name = "40级武器紫色核心",
+    desc = "装备合成的核心材料，用于合成40级紫色武器\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7517)->
+    #itemCfg {
+    id = 7517,
+    name = "40级软皮紫色核心",
+    desc = "装备合成的核心材料，用于合成40级紫色头盔和靴子\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7518)->
+    #itemCfg {
+    id = 7518,
+    name = "40级护甲紫色核心",
+    desc = "装备合成的核心材料，用于合成40级紫色盔甲和裤子\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7519)->
+    #itemCfg {
+    id = 7519,
+    name = "40级耳环紫色核心",
+    desc = "装备合成的核心材料，用于合成40级紫色耳环\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7520)->
+    #itemCfg {
+    id = 7520,
+    name = "40级项链紫色核心",
+    desc = "装备合成的核心材料，用于合成40级紫色项链\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7521)->
+    #itemCfg {
+    id = 7521,
+    name = "40级戒指紫色核心",
+    desc = "装备合成的核心材料，用于合成40级紫色戒指\n[00ff00]获取途径：40级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7530)->
+    #itemCfg {
+    id = 7530,
+    name = "50级武器红色核心",
+    desc = "装备合成的核心材料，用于合成50级红色武器\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7531)->
+    #itemCfg {
+    id = 7531,
+    name = "50级软皮红色核心",
+    desc = "装备合成的核心材料，用于合成50级红色头盔和靴子\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7532)->
+    #itemCfg {
+    id = 7532,
+    name = "50级护甲红色核心",
+    desc = "装备合成的核心材料，用于合成50级红色盔甲和裤子\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7533)->
+    #itemCfg {
+    id = 7533,
+    name = "50级耳环红色核心",
+    desc = "装备合成的核心材料，用于合成50级红色耳环\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7534)->
+    #itemCfg {
+    id = 7534,
+    name = "50级项链红色核心",
+    desc = "装备合成的核心材料，用于合成50级红色项链\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7535)->
+    #itemCfg {
+    id = 7535,
+    name = "50级戒指红色核心",
+    desc = "装备合成的核心材料，用于合成50级红色戒指\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7536)->
+    #itemCfg {
+    id = 7536,
+    name = "50级武器紫色核心",
+    desc = "装备合成的核心材料，用于合成50级紫色武器\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7537)->
+    #itemCfg {
+    id = 7537,
+    name = "50级软皮紫色核心",
+    desc = "装备合成的核心材料，用于合成50级紫色头盔和靴子\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7538)->
+    #itemCfg {
+    id = 7538,
+    name = "50级护甲紫色核心",
+    desc = "装备合成的核心材料，用于合成50级紫色盔甲和裤子\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7539)->
+    #itemCfg {
+    id = 7539,
+    name = "50级耳环紫色核心",
+    desc = "装备合成的核心材料，用于合成50级紫色耳环\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7540)->
+    #itemCfg {
+    id = 7540,
+    name = "50级项链紫色核心",
+    desc = "装备合成的核心材料，用于合成50级紫色项链\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
+    };
+getRow(7541)->
+    #itemCfg {
+    id = 7541,
+    name = "50级戒指紫色核心",
+    desc = "装备合成的核心材料，用于合成50级紫色戒指\n[00ff00]获取途径：50级挑战副本[-]",
+    product = "挑战副本",
+    iconPath = 41,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 3,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(8001)->
     #itemCfg {
@@ -19185,7 +21284,7 @@ getRow(8001)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1001,
@@ -19200,7 +21299,7 @@ getRow(8001)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19208,7 +21307,8 @@ getRow(8001)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8002)->
     #itemCfg {
@@ -19220,7 +21320,7 @@ getRow(8002)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1002,
@@ -19235,7 +21335,7 @@ getRow(8002)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19243,7 +21343,8 @@ getRow(8002)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8003)->
     #itemCfg {
@@ -19255,7 +21356,7 @@ getRow(8003)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1003,
@@ -19270,7 +21371,7 @@ getRow(8003)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19278,7 +21379,8 @@ getRow(8003)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8004)->
     #itemCfg {
@@ -19290,7 +21392,7 @@ getRow(8004)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1004,
@@ -19305,7 +21407,7 @@ getRow(8004)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19313,7 +21415,8 @@ getRow(8004)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8005)->
     #itemCfg {
@@ -19325,7 +21428,7 @@ getRow(8005)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1005,
@@ -19340,7 +21443,7 @@ getRow(8005)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19348,7 +21451,8 @@ getRow(8005)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8006)->
     #itemCfg {
@@ -19360,7 +21464,7 @@ getRow(8006)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1006,
@@ -19375,7 +21479,7 @@ getRow(8006)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19383,7 +21487,8 @@ getRow(8006)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8007)->
     #itemCfg {
@@ -19395,7 +21500,7 @@ getRow(8007)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1007,
@@ -19410,7 +21515,7 @@ getRow(8007)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19418,7 +21523,8 @@ getRow(8007)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8008)->
     #itemCfg {
@@ -19430,7 +21536,7 @@ getRow(8008)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1008,
@@ -19445,7 +21551,7 @@ getRow(8008)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19453,7 +21559,8 @@ getRow(8008)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8009)->
     #itemCfg {
@@ -19465,7 +21572,7 @@ getRow(8009)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1009,
@@ -19480,7 +21587,7 @@ getRow(8009)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19488,7 +21595,8 @@ getRow(8009)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8010)->
     #itemCfg {
@@ -19500,7 +21608,7 @@ getRow(8010)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1010,
@@ -19515,7 +21623,7 @@ getRow(8010)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19523,7 +21631,8 @@ getRow(8010)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8011)->
     #itemCfg {
@@ -19535,7 +21644,7 @@ getRow(8011)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1011,
@@ -19550,7 +21659,7 @@ getRow(8011)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19558,7 +21667,8 @@ getRow(8011)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8012)->
     #itemCfg {
@@ -19570,7 +21680,7 @@ getRow(8012)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1012,
@@ -19585,7 +21695,7 @@ getRow(8012)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19593,7 +21703,8 @@ getRow(8012)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8013)->
     #itemCfg {
@@ -19605,7 +21716,7 @@ getRow(8013)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1013,
@@ -19620,7 +21731,7 @@ getRow(8013)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19628,7 +21739,8 @@ getRow(8013)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8014)->
     #itemCfg {
@@ -19640,7 +21752,7 @@ getRow(8014)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1014,
@@ -19655,7 +21767,7 @@ getRow(8014)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19663,7 +21775,8 @@ getRow(8014)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8015)->
     #itemCfg {
@@ -19675,7 +21788,7 @@ getRow(8015)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1015,
@@ -19690,7 +21803,7 @@ getRow(8015)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19698,7 +21811,8 @@ getRow(8015)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8016)->
     #itemCfg {
@@ -19710,7 +21824,7 @@ getRow(8016)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1016,
@@ -19725,7 +21839,7 @@ getRow(8016)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19733,7 +21847,8 @@ getRow(8016)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8017)->
     #itemCfg {
@@ -19745,7 +21860,7 @@ getRow(8017)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1017,
@@ -19760,7 +21875,7 @@ getRow(8017)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19768,7 +21883,8 @@ getRow(8017)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8018)->
     #itemCfg {
@@ -19780,7 +21896,7 @@ getRow(8018)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1018,
@@ -19795,7 +21911,7 @@ getRow(8018)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19803,7 +21919,8 @@ getRow(8018)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8019)->
     #itemCfg {
@@ -19815,7 +21932,7 @@ getRow(8019)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1019,
@@ -19830,7 +21947,7 @@ getRow(8019)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19838,7 +21955,8 @@ getRow(8019)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8020)->
     #itemCfg {
@@ -19850,7 +21968,7 @@ getRow(8020)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1020,
@@ -19865,7 +21983,7 @@ getRow(8020)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19873,7 +21991,8 @@ getRow(8020)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8021)->
     #itemCfg {
@@ -19885,7 +22004,7 @@ getRow(8021)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1021,
@@ -19900,7 +22019,7 @@ getRow(8021)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19908,7 +22027,8 @@ getRow(8021)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8022)->
     #itemCfg {
@@ -19920,7 +22040,7 @@ getRow(8022)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1022,
@@ -19935,7 +22055,7 @@ getRow(8022)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19943,7 +22063,8 @@ getRow(8022)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8023)->
     #itemCfg {
@@ -19955,7 +22076,7 @@ getRow(8023)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1023,
@@ -19970,7 +22091,7 @@ getRow(8023)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -19978,7 +22099,8 @@ getRow(8023)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8024)->
     #itemCfg {
@@ -19990,7 +22112,7 @@ getRow(8024)->
     maxAmount = 1,
     quality = 4,
     itemType = 8,
-    detailedType = 0,
+    detailedType = 7,
     isQuestItem = 0,
     useType = 7,
     useParam1 = 1024,
@@ -20005,7 +22127,7 @@ getRow(8024)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 1,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20013,7 +22135,8 @@ getRow(8024)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8512)->
     #itemCfg {
@@ -20040,7 +22163,7 @@ getRow(8512)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20048,7 +22171,8 @@ getRow(8512)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8513)->
     #itemCfg {
@@ -20075,7 +22199,7 @@ getRow(8513)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20083,7 +22207,8 @@ getRow(8513)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8514)->
     #itemCfg {
@@ -20110,7 +22235,7 @@ getRow(8514)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20118,7 +22243,8 @@ getRow(8514)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8516)->
     #itemCfg {
@@ -20145,7 +22271,7 @@ getRow(8516)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20153,7 +22279,8 @@ getRow(8516)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8517)->
     #itemCfg {
@@ -20180,7 +22307,7 @@ getRow(8517)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20188,7 +22315,8 @@ getRow(8517)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8518)->
     #itemCfg {
@@ -20215,7 +22343,7 @@ getRow(8518)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20223,7 +22351,8 @@ getRow(8518)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8520)->
     #itemCfg {
@@ -20250,7 +22379,7 @@ getRow(8520)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20258,7 +22387,8 @@ getRow(8520)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8521)->
     #itemCfg {
@@ -20285,7 +22415,7 @@ getRow(8521)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20293,7 +22423,8 @@ getRow(8521)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(8522)->
     #itemCfg {
@@ -20320,7 +22451,7 @@ getRow(8522)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20328,7 +22459,8 @@ getRow(8522)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(9002)->
     #itemCfg {
@@ -20355,7 +22487,7 @@ getRow(9002)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -20363,7 +22495,8 @@ getRow(9002)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(9003)->
     #itemCfg {
@@ -20390,7 +22523,7 @@ getRow(9003)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -20398,7 +22531,8 @@ getRow(9003)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(9004)->
     #itemCfg {
@@ -20425,7 +22559,7 @@ getRow(9004)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -20433,7 +22567,8 @@ getRow(9004)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(9006)->
     #itemCfg {
@@ -20460,7 +22595,7 @@ getRow(9006)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -20468,7 +22603,8 @@ getRow(9006)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(9007)->
     #itemCfg {
@@ -20495,7 +22631,7 @@ getRow(9007)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -20503,7 +22639,8 @@ getRow(9007)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(9008)->
     #itemCfg {
@@ -20530,7 +22667,7 @@ getRow(9008)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -20538,7 +22675,8 @@ getRow(9008)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(9009)->
     #itemCfg {
@@ -20565,7 +22703,7 @@ getRow(9009)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -20573,7 +22711,8 @@ getRow(9009)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(9010)->
     #itemCfg {
@@ -20600,7 +22739,7 @@ getRow(9010)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -20608,7 +22747,8 @@ getRow(9010)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(9011)->
     #itemCfg {
@@ -20635,7 +22775,7 @@ getRow(9011)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -20643,7 +22783,8 @@ getRow(9011)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(9012)->
     #itemCfg {
@@ -20670,7 +22811,7 @@ getRow(9012)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -20678,22 +22819,23 @@ getRow(9012)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{22,31}]
+    relation_UI = [{22,31}],
+    check_box = 0
     };
 getRow(9100)->
     #itemCfg {
     id = 9100,
-    name = "10级装备",
-    desc = "白色，绿色或蓝色的10级装备",
-    product = "副本获得",
-    iconPath = 150,
+    name = "10级蓝色装备",
+    desc = "随机1件10级白色、绿色或蓝色装备。",
+    product = "副本展示用",
+    iconPath = 96,
     maxAmount = 999,
     quality = 2,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
-    useType = 1,
-    useParam1 = 0,
+    useType = 8,
+    useParam1 = 250000,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -20705,7 +22847,7 @@ getRow(9100)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20713,22 +22855,23 @@ getRow(9100)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(9101)->
     #itemCfg {
     id = 9101,
-    name = "20级装备",
-    desc = "白色，绿色或蓝色的20级装备",
-    product = "副本获得",
-    iconPath = 151,
+    name = "20级蓝色装备",
+    desc = "随机1件20级白色、绿色或蓝色装备。",
+    product = "副本展示用",
+    iconPath = 96,
     maxAmount = 999,
     quality = 2,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
-    useType = 1,
-    useParam1 = 0,
+    useType = 8,
+    useParam1 = 251000,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -20740,7 +22883,7 @@ getRow(9101)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20748,22 +22891,23 @@ getRow(9101)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(9102)->
     #itemCfg {
     id = 9102,
-    name = "30级装备",
-    desc = "白色，绿色或蓝色的30级装备",
-    product = "副本获得",
-    iconPath = 149,
+    name = "30级蓝色装备",
+    desc = "随机1件30级白色、绿色或蓝色装备。",
+    product = "副本展示用",
+    iconPath = 96,
     maxAmount = 999,
     quality = 2,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
-    useType = 1,
-    useParam1 = 0,
+    useType = 8,
+    useParam1 = 252000,
     useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
@@ -20775,7 +22919,7 @@ getRow(9102)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20783,34 +22927,35 @@ getRow(9102)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
-getRow(9103)->
+getRow(9150)->
     #itemCfg {
-    id = 9103,
-    name = "40级随机装备箱",
-    desc = "使用后随机获得一件40级白色，绿色或蓝色装备\n[00ff00]获取途径：副本[-]",
-    product = "副本获得",
-    iconPath = 98,
+    id = 9150,
+    name = "30级红色装备箱",
+    desc = "随机获得1件30级红色本职业装备。",
+    product = "副本展示用",
+    iconPath = 96,
     maxAmount = 999,
-    quality = 2,
-    itemType = 8,
+    quality = 3,
+    itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
     useType = 8,
-    useParam1 = 312003,
-    useParam2 = 70,
+    useParam1 = 260000,
+    useParam2 = 0,
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 999,
-    level = 40,
+    level = 30,
     usePlayerClass = 0,
     price = 300,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20818,14 +22963,15 @@ getRow(9103)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
-getRow(9104)->
+getRow(9151)->
     #itemCfg {
-    id = 9104,
+    id = 9151,
     name = "50级随机装备箱",
     desc = "使用后随机获得一件50级白色，绿色或蓝色装备\n[00ff00]获取途径：副本[-]",
-    product = "副本获得",
+    product = "副本展示用",
     iconPath = 98,
     maxAmount = 999,
     quality = 2,
@@ -20845,7 +22991,7 @@ getRow(9104)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20853,14 +22999,15 @@ getRow(9104)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(9200)->
     #itemCfg {
     id = 9200,
-    name = "普通骑宠碎片",
-    desc = "10个白色或绿色的骑宠碎片\n[00ff00]获取途径：英雄副本[-]",
-    product = "英雄副本获得",
+    name = "骑宠碎片",
+    desc = "10个白色，绿色或蓝色的骑宠碎片\n[00ff00]获取途径：英雄副本[-]",
+    product = "副本展示用",
     iconPath = 111,
     maxAmount = 999,
     quality = 2,
@@ -20880,7 +23027,7 @@ getRow(9200)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20888,14 +23035,15 @@ getRow(9200)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(9201)->
     #itemCfg {
     id = 9201,
     name = "稀有骑宠碎片",
     desc = "10个白色，绿色或蓝色的骑宠碎片\n[00ff00]获取途径：挑战副本[-]",
-    product = "挑战副本获得",
+    product = "副本展示用",
     iconPath = 111,
     maxAmount = 999,
     quality = 2,
@@ -20915,7 +23063,7 @@ getRow(9201)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -20923,7 +23071,8 @@ getRow(9201)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(9999)->
     #itemCfg {
@@ -20950,25 +23099,26 @@ getRow(9999)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10000)->
     #itemCfg {
     id = 10000,
-    name = "港口居民",
-    desc = "给予",
+    name = "执行跳舞",
+    desc = "跳舞",
     product = "任务获得",
-    iconPath = 4021,
+    iconPath = 539,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -20987,25 +23137,26 @@ getRow(10000)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10001)->
     #itemCfg {
     id = 10001,
-    name = "帮助猫绅士",
-    desc = "给予",
+    name = "制作冰淇淋",
+    desc = "制作",
     product = "任务获得",
-    iconPath = 4021,
+    iconPath = 530,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21024,25 +23175,26 @@ getRow(10001)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10002)->
     #itemCfg {
     id = 10002,
-    name = "摧毁的货船",
-    desc = "调查",
+    name = "变身小葵花",
+    desc = "变身",
     product = "任务获得",
-    iconPath = 4021,
+    iconPath = 627,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21061,25 +23213,26 @@ getRow(10002)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10003)->
     #itemCfg {
     id = 10003,
-    name = "安慰苏珊",
-    desc = "摸头",
+    name = "试装",
+    desc = "试装",
     product = "任务获得",
-    iconPath = 4021,
+    iconPath = 515,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21098,25 +23251,26 @@ getRow(10003)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10004)->
     #itemCfg {
     id = 10004,
-    name = "约克的木屋",
-    desc = "调查",
+    name = "寻找",
+    desc = "寻找",
     product = "任务获得",
-    iconPath = 4021,
+    iconPath = 4020,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21135,25 +23289,26 @@ getRow(10004)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10005)->
     #itemCfg {
     id = 10005,
-    name = "居民的宝物(上)",
-    desc = "调查",
+    name = "给予",
+    desc = "给予",
     product = "任务获得",
-    iconPath = 4021,
+    iconPath = 472,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21172,23 +23327,24 @@ getRow(10005)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10006)->
     #itemCfg {
     id = 10006,
-    name = "居民的宝物(下)",
-    desc = "调查",
+    name = "5日之约已到",
+    desc = "检查",
     product = "任务获得",
     iconPath = 4021,
     maxAmount = 999,
@@ -21209,25 +23365,26 @@ getRow(10006)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10007)->
     #itemCfg {
     id = 10007,
-    name = "交还矿石",
+    name = "给予技能书",
     desc = "给予",
     product = "任务获得",
-    iconPath = 4021,
+    iconPath = 448,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21246,25 +23403,26 @@ getRow(10007)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10008)->
     #itemCfg {
     id = 10008,
-    name = "戴安娜的礼物",
-    desc = "给予",
+    name = "逗笑苏珊",
+    desc = "逗笑",
     product = "任务获得",
-    iconPath = 4021,
+    iconPath = 1021,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21283,23 +23441,24 @@ getRow(10008)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10009)->
     #itemCfg {
     id = 10009,
-    name = "搬动食物",
-    desc = "调查",
+    name = "选取武器",
+    desc = "选取",
     product = "任务获得",
     iconPath = 4021,
     maxAmount = 999,
@@ -21320,17 +23479,94 @@ getRow(10009)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(10010)->
+    #itemCfg {
+    id = 10010,
+    name = "探查树林",
+    desc = "探查",
+    product = "任务获得",
+    iconPath = 631,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 26,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(10011)->
+    #itemCfg {
+    id = 10011,
+    name = "抽取目标",
+    desc = "抽取",
+    product = "任务获得",
+    iconPath = 561,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 26,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10022)->
     #itemCfg {
@@ -21338,7 +23574,7 @@ getRow(10022)->
     name = "东成郊告示栏",
     desc = "阅读",
     product = "任务获得",
-    iconPath = 4021,
+    iconPath = 558,
     maxAmount = 999,
     quality = 1,
     itemType = 5,
@@ -21357,23 +23593,24 @@ getRow(10022)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10023)->
     #itemCfg {
     id = 10023,
-    name = "摇动的花丛",
-    desc = "调查",
+    name = "收信操作",
+    desc = "收信",
     product = "任务获得",
     iconPath = 4021,
     maxAmount = 999,
@@ -21394,22 +23631,99 @@ getRow(10023)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10024)->
     #itemCfg {
     id = 10024,
-    name = "出示通行证",
+    name = "送信操作",
+    desc = "送信",
+    product = "任务获得",
+    iconPath = 4021,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 26,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(10025)->
+    #itemCfg {
+    id = 10025,
+    name = "喂食宠物",
+    desc = "喂食",
+    product = "任务获得",
+    iconPath = 4021,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 26,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(10026)->
+    #itemCfg {
+    id = 10026,
+    name = "出示证件",
     desc = "出示",
     product = "任务获得",
     iconPath = 4021,
@@ -21431,97 +23745,24 @@ getRow(10024)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
-    };
-getRow(10025)->
-    #itemCfg {
-    id = 10025,
-    name = "合成药剂",
-    desc = "使用",
-    product = "任务获得",
-    iconPath = 4021,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 0,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    baozhusound = "0",
-    useJumpPage = 0,
-    txt = "0",
-    useStraightway = 1,
-    selljudge = 0,
-    relation_UI = []
-    };
-getRow(10026)->
-    #itemCfg {
-    id = 10026,
-    name = "净化草丛（上）",
-    desc = "净化",
-    product = "任务获得",
-    iconPath = 4021,
-    maxAmount = 999,
-    quality = 1,
-    itemType = 5,
-    detailedType = 0,
-    isQuestItem = 1,
-    useType = 1,
-    useParam1 = 1,
-    useParam2 = 0,
-    useParam3 = 0,
-    useParam4 = 0,
-    useMaxCount = 1,
-    level = 1,
-    usePlayerClass = 0,
-    price = 1,
-    cdGroup = 1,
-    dailyCountGroup = 0,
-    usefulLife = 0,
-    needSaveLog = 0,
-    operate = 2,
-    needBrodcast = 0,
-    needwar = 0,
-    baozhu = 26,
-    baozhunumber = 0,
-    baozhusound = "0",
-    useJumpPage = 0,
-    txt = "0",
-    useStraightway = 1,
-    selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10027)->
     #itemCfg {
     id = 10027,
-    name = "净化草丛（中）",
-    desc = "净化",
+    name = "跟随操作",
+    desc = "跟随",
     product = "任务获得",
     iconPath = 4021,
     maxAmount = 999,
@@ -21542,23 +23783,24 @@ getRow(10027)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10028)->
     #itemCfg {
     id = 10028,
-    name = "净化草丛（下）",
-    desc = "净化",
+    name = "解毒",
+    desc = "解毒",
     product = "任务获得",
     iconPath = 4021,
     maxAmount = 999,
@@ -21579,17 +23821,18 @@ getRow(10028)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10029)->
     #itemCfg {
@@ -21616,17 +23859,18 @@ getRow(10029)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10030)->
     #itemCfg {
@@ -21653,23 +23897,24 @@ getRow(10030)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10031)->
     #itemCfg {
     id = 10031,
     name = "同伴的下落",
-    desc = "调查",
+    desc = "检查",
     product = "任务获得",
     iconPath = 4021,
     maxAmount = 999,
@@ -21690,17 +23935,18 @@ getRow(10031)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10032)->
     #itemCfg {
@@ -21727,17 +23973,18 @@ getRow(10032)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10033)->
     #itemCfg {
@@ -21764,17 +24011,18 @@ getRow(10033)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10034)->
     #itemCfg {
@@ -21801,17 +24049,18 @@ getRow(10034)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10035)->
     #itemCfg {
@@ -21838,17 +24087,18 @@ getRow(10035)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10036)->
     #itemCfg {
@@ -21875,17 +24125,18 @@ getRow(10036)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10037)->
     #itemCfg {
@@ -21912,17 +24163,18 @@ getRow(10037)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10038)->
     #itemCfg {
@@ -21949,17 +24201,18 @@ getRow(10038)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10039)->
     #itemCfg {
@@ -21986,17 +24239,18 @@ getRow(10039)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10040)->
     #itemCfg {
@@ -22023,17 +24277,18 @@ getRow(10040)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10041)->
     #itemCfg {
@@ -22060,17 +24315,18 @@ getRow(10041)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10042)->
     #itemCfg {
@@ -22097,17 +24353,18 @@ getRow(10042)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10043)->
     #itemCfg {
@@ -22134,17 +24391,18 @@ getRow(10043)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(10044)->
     #itemCfg {
@@ -22171,16 +24429,17 @@ getRow(10044)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10045)->
     #itemCfg {
@@ -22207,16 +24466,17 @@ getRow(10045)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10046)->
     #itemCfg {
@@ -22243,16 +24503,17 @@ getRow(10046)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10047)->
     #itemCfg {
@@ -22279,16 +24540,17 @@ getRow(10047)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10048)->
     #itemCfg {
@@ -22315,16 +24577,17 @@ getRow(10048)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10049)->
     #itemCfg {
@@ -22351,16 +24614,17 @@ getRow(10049)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10050)->
     #itemCfg {
@@ -22387,16 +24651,17 @@ getRow(10050)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10051)->
     #itemCfg {
@@ -22423,16 +24688,17 @@ getRow(10051)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10052)->
     #itemCfg {
@@ -22459,16 +24725,17 @@ getRow(10052)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10053)->
     #itemCfg {
@@ -22495,16 +24762,17 @@ getRow(10053)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10054)->
     #itemCfg {
@@ -22531,16 +24799,17 @@ getRow(10054)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10055)->
     #itemCfg {
@@ -22567,16 +24836,17 @@ getRow(10055)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10056)->
     #itemCfg {
@@ -22603,16 +24873,17 @@ getRow(10056)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10057)->
     #itemCfg {
@@ -22639,16 +24910,17 @@ getRow(10057)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10058)->
     #itemCfg {
@@ -22675,16 +24947,17 @@ getRow(10058)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10059)->
     #itemCfg {
@@ -22711,16 +24984,17 @@ getRow(10059)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10060)->
     #itemCfg {
@@ -22747,16 +25021,17 @@ getRow(10060)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10061)->
     #itemCfg {
@@ -22783,16 +25058,17 @@ getRow(10061)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10062)->
     #itemCfg {
@@ -22819,16 +25095,17 @@ getRow(10062)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10063)->
     #itemCfg {
@@ -22855,16 +25132,17 @@ getRow(10063)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10064)->
     #itemCfg {
@@ -22891,16 +25169,17 @@ getRow(10064)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(10065)->
     #itemCfg {
@@ -22927,16 +25206,55 @@ getRow(10065)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 0,
-    operate = 2,
+    operate = 10,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
-    baozhusound = "0",
+    baozhusound = "",
     useJumpPage = 0,
     txt = "0",
     useStraightway = 1,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(10066)->
+    #itemCfg {
+    id = 10066,
+    name = "光之号角",
+    desc = "冲锋号",
+    product = "任务获得",
+    iconPath = 4021,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 19,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 2,
+    useParam1 = 1,
+    useParam2 = 20003,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 26,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
     };
 getRow(11000)->
     #itemCfg {
@@ -22963,7 +25281,7 @@ getRow(11000)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -22971,7 +25289,8 @@ getRow(11000)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(11001)->
     #itemCfg {
@@ -22998,7 +25317,7 @@ getRow(11001)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23006,7 +25325,8 @@ getRow(11001)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(11002)->
     #itemCfg {
@@ -23033,7 +25353,7 @@ getRow(11002)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23041,7 +25361,8 @@ getRow(11002)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(11003)->
     #itemCfg {
@@ -23068,7 +25389,7 @@ getRow(11003)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -23076,7 +25397,8 @@ getRow(11003)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(11004)->
     #itemCfg {
@@ -23103,7 +25425,7 @@ getRow(11004)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23111,7 +25433,8 @@ getRow(11004)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(11005)->
     #itemCfg {
@@ -23138,7 +25461,7 @@ getRow(11005)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23146,7 +25469,8 @@ getRow(11005)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(11010)->
     #itemCfg {
@@ -23173,7 +25497,7 @@ getRow(11010)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -23181,7 +25505,8 @@ getRow(11010)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(11011)->
     #itemCfg {
@@ -23208,7 +25533,7 @@ getRow(11011)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23216,7 +25541,8 @@ getRow(11011)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(11012)->
     #itemCfg {
@@ -23243,7 +25569,7 @@ getRow(11012)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23251,13 +25577,14 @@ getRow(11012)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(12000)->
     #itemCfg {
     id = 12000,
     name = "绿色兽灵石",
-    desc = "可替代任意绿色品质骑宠进行转生",
+    desc = "可替代任意绿色品质骑宠碎片进行转生",
     product = "商城获得",
     iconPath = 554,
     maxAmount = 999,
@@ -23278,7 +25605,7 @@ getRow(12000)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -23286,13 +25613,14 @@ getRow(12000)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(12001)->
     #itemCfg {
     id = 12001,
     name = "蓝色兽灵石",
-    desc = "可替代任意蓝色品质骑宠进行转生",
+    desc = "可替代任意蓝色品质骑宠碎片进行转生",
     product = "商城获得",
     iconPath = 554,
     maxAmount = 999,
@@ -23313,7 +25641,7 @@ getRow(12001)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -23321,13 +25649,14 @@ getRow(12001)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(12002)->
     #itemCfg {
     id = 12002,
     name = "红色兽灵石",
-    desc = "可替代任意红色品质骑宠进行转生",
+    desc = "可替代任意红色品质骑宠碎片进行转生",
     product = "商城获得",
     iconPath = 554,
     maxAmount = 999,
@@ -23348,7 +25677,7 @@ getRow(12002)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -23356,13 +25685,14 @@ getRow(12002)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(12003)->
     #itemCfg {
     id = 12003,
     name = "紫色兽灵石",
-    desc = "可替代任意紫色品质骑宠进行转生",
+    desc = "可替代任意紫色品质骑宠碎片进行转生",
     product = "商城获得",
     iconPath = 554,
     maxAmount = 999,
@@ -23383,7 +25713,7 @@ getRow(12003)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -23391,7 +25721,8 @@ getRow(12003)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(18000)->
     #itemCfg {
@@ -23418,7 +25749,7 @@ getRow(18000)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23426,7 +25757,8 @@ getRow(18000)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(18001)->
     #itemCfg {
@@ -23453,7 +25785,7 @@ getRow(18001)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 2,
+    operate = 11,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23461,7 +25793,8 @@ getRow(18001)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(21000)->
     #itemCfg {
@@ -23488,7 +25821,7 @@ getRow(21000)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23496,7 +25829,8 @@ getRow(21000)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21001)->
     #itemCfg {
@@ -23523,7 +25857,7 @@ getRow(21001)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23531,7 +25865,8 @@ getRow(21001)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21002)->
     #itemCfg {
@@ -23558,7 +25893,7 @@ getRow(21002)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23566,7 +25901,8 @@ getRow(21002)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21003)->
     #itemCfg {
@@ -23593,7 +25929,7 @@ getRow(21003)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23601,7 +25937,8 @@ getRow(21003)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21004)->
     #itemCfg {
@@ -23628,7 +25965,7 @@ getRow(21004)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23636,7 +25973,8 @@ getRow(21004)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21005)->
     #itemCfg {
@@ -23663,7 +26001,7 @@ getRow(21005)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23671,7 +26009,8 @@ getRow(21005)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21006)->
     #itemCfg {
@@ -23698,7 +26037,7 @@ getRow(21006)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23706,7 +26045,8 @@ getRow(21006)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21007)->
     #itemCfg {
@@ -23733,7 +26073,7 @@ getRow(21007)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -23741,7 +26081,8 @@ getRow(21007)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21008)->
     #itemCfg {
@@ -23768,7 +26109,7 @@ getRow(21008)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -23776,7 +26117,8 @@ getRow(21008)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21009)->
     #itemCfg {
@@ -23803,7 +26145,7 @@ getRow(21009)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -23811,7 +26153,8 @@ getRow(21009)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21050)->
     #itemCfg {
@@ -23838,7 +26181,7 @@ getRow(21050)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23846,7 +26189,8 @@ getRow(21050)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21051)->
     #itemCfg {
@@ -23873,7 +26217,7 @@ getRow(21051)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23881,7 +26225,8 @@ getRow(21051)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21052)->
     #itemCfg {
@@ -23908,7 +26253,7 @@ getRow(21052)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23916,7 +26261,8 @@ getRow(21052)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21053)->
     #itemCfg {
@@ -23943,7 +26289,7 @@ getRow(21053)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23951,7 +26297,8 @@ getRow(21053)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21054)->
     #itemCfg {
@@ -23978,7 +26325,7 @@ getRow(21054)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -23986,7 +26333,8 @@ getRow(21054)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21055)->
     #itemCfg {
@@ -24013,7 +26361,7 @@ getRow(21055)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24021,7 +26369,8 @@ getRow(21055)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21056)->
     #itemCfg {
@@ -24048,7 +26397,7 @@ getRow(21056)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24056,7 +26405,8 @@ getRow(21056)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21057)->
     #itemCfg {
@@ -24083,7 +26433,7 @@ getRow(21057)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -24091,7 +26441,8 @@ getRow(21057)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21058)->
     #itemCfg {
@@ -24118,7 +26469,7 @@ getRow(21058)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -24126,7 +26477,8 @@ getRow(21058)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21059)->
     #itemCfg {
@@ -24153,7 +26505,7 @@ getRow(21059)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -24161,7 +26513,8 @@ getRow(21059)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21100)->
     #itemCfg {
@@ -24188,7 +26541,7 @@ getRow(21100)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24196,7 +26549,8 @@ getRow(21100)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21101)->
     #itemCfg {
@@ -24223,7 +26577,7 @@ getRow(21101)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24231,7 +26585,8 @@ getRow(21101)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21102)->
     #itemCfg {
@@ -24258,7 +26613,7 @@ getRow(21102)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24266,7 +26621,8 @@ getRow(21102)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 0,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21103)->
     #itemCfg {
@@ -24293,7 +26649,7 @@ getRow(21103)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24301,7 +26657,8 @@ getRow(21103)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21104)->
     #itemCfg {
@@ -24328,7 +26685,7 @@ getRow(21104)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24336,7 +26693,8 @@ getRow(21104)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21105)->
     #itemCfg {
@@ -24363,7 +26721,7 @@ getRow(21105)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24371,7 +26729,8 @@ getRow(21105)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21106)->
     #itemCfg {
@@ -24398,7 +26757,7 @@ getRow(21106)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24406,7 +26765,8 @@ getRow(21106)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21107)->
     #itemCfg {
@@ -24433,7 +26793,7 @@ getRow(21107)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -24441,7 +26801,8 @@ getRow(21107)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21108)->
     #itemCfg {
@@ -24468,7 +26829,7 @@ getRow(21108)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -24476,7 +26837,8 @@ getRow(21108)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(21109)->
     #itemCfg {
@@ -24503,7 +26865,7 @@ getRow(21109)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -24511,7 +26873,8 @@ getRow(21109)->
     useJumpPage = 2,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(22000)->
     #itemCfg {
@@ -24531,14 +26894,14 @@ getRow(22000)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 999,
-    level = 20,
+    level = 0,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24546,7 +26909,8 @@ getRow(22000)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(22001)->
     #itemCfg {
@@ -24566,21 +26930,22 @@ getRow(22001)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 999,
-    level = 20,
+    level = 0,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(22002)->
     #itemCfg {
@@ -24600,21 +26965,22 @@ getRow(22002)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 999,
-    level = 20,
+    level = 0,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(22003)->
     #itemCfg {
@@ -24634,14 +27000,14 @@ getRow(22003)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 999,
-    level = 20,
+    level = 0,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24649,7 +27015,8 @@ getRow(22003)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(22004)->
     #itemCfg {
@@ -24669,14 +27036,14 @@ getRow(22004)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 999,
-    level = 20,
+    level = 0,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24684,7 +27051,8 @@ getRow(22004)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(22005)->
     #itemCfg {
@@ -24704,21 +27072,22 @@ getRow(22005)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 999,
-    level = 20,
+    level = 0,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
-    selljudge = 0
+    selljudge = 0,
+    check_box = 0
     };
 getRow(22006)->
     #itemCfg {
@@ -24738,14 +27107,14 @@ getRow(22006)->
     useParam3 = 0,
     useParam4 = 0,
     useMaxCount = 999,
-    level = 20,
+    level = 0,
     usePlayerClass = 0,
     price = 1,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24753,15 +27122,16 @@ getRow(22006)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(22007)->
     #itemCfg {
     id = 22007,
     name = "35级钻石礼包",
-    desc = "开启后获得100绑定钻石和40级钻石礼包。",
+    desc = "开启后获得2000绑定钻石和40级钻石礼包。",
     product = "在线奖励获得",
-    iconPath = 313,
+    iconPath = 109,
     maxAmount = 999,
     quality = 4,
     itemType = 8,
@@ -24780,7 +27150,7 @@ getRow(22007)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24788,15 +27158,16 @@ getRow(22007)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(22008)->
     #itemCfg {
     id = 22008,
     name = "40级钻石礼包",
-    desc = "开启后获得150绑定钻石和45级钻石礼包。",
+    desc = "开启后获得2500绑定钻石和45级钻石礼包。",
     product = "在线奖励获得",
-    iconPath = 314,
+    iconPath = 109,
     maxAmount = 999,
     quality = 4,
     itemType = 8,
@@ -24815,7 +27186,7 @@ getRow(22008)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24823,15 +27194,16 @@ getRow(22008)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(22009)->
     #itemCfg {
     id = 22009,
     name = "45级钻石礼包",
-    desc = "开启后获得200绑定钻石和50级钻石礼包。",
+    desc = "开启后获得2800绑定钻石和50级钻石礼包。",
     product = "在线奖励获得",
-    iconPath = 315,
+    iconPath = 109,
     maxAmount = 999,
     quality = 4,
     itemType = 8,
@@ -24850,7 +27222,7 @@ getRow(22009)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24858,15 +27230,16 @@ getRow(22009)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(22010)->
     #itemCfg {
     id = 22010,
     name = "50级钻石礼包",
-    desc = "开启后获得300绑定钻石。",
+    desc = "开启后获得3000绑定钻石。",
     product = "在线奖励获得",
-    iconPath = 316,
+    iconPath = 109,
     maxAmount = 999,
     quality = 4,
     itemType = 8,
@@ -24885,7 +27258,7 @@ getRow(22010)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 1,
     baozhu = 26,
@@ -24893,13 +27266,3307 @@ getRow(22010)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(23000)->
+    #itemCfg {
+    id = 23000,
+    name = "星月秘盒",
+    desc = "蕴藏星月之力的秘盒，开启后有几率获得华丽时装，强化道具，骑宠培养道具等。\n[00ff00]需要星月钥匙进行开启[-]",
+    product = "在线奖励获得",
+    iconPath = 4026,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 8,
+    detailedType = 34,
+    isQuestItem = 0,
+    useType = 34,
+    useParam1 = 410000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 10,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 19,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{24,0}],
+    check_box = 0
+    };
+getRow(23001)->
+    #itemCfg {
+    id = 23001,
+    name = "星月钥匙",
+    desc = "用于开启星月秘盒。\n星月秘盒开启后有几率获得华丽时装，强化道具，骑宠培养道具等。",
+    product = "在线奖励获得",
+    iconPath = 210,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 8,
+    detailedType = 34,
+    isQuestItem = 0,
+    useType = 34,
+    useParam1 = 410000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 10,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 1,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 19,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{24,0}],
+    check_box = 0
+    };
+getRow(24000)->
+    #itemCfg {
+    id = 24000,
+    name = "马铃薯种子",
+    desc = "收获可产出马铃薯",
+    product = "家园种植用",
+    iconPath = 3500,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24001)->
+    #itemCfg {
+    id = 24001,
+    name = "小麦种子",
+    desc = "收获可产出小麦",
+    product = "家园种植用",
+    iconPath = 3501,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 2,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24002)->
+    #itemCfg {
+    id = 24002,
+    name = "银杏种子",
+    desc = "成熟后可长成银杏树",
+    product = "家园种植用",
+    iconPath = 3502,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 3,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24003)->
+    #itemCfg {
+    id = 24003,
+    name = "大白菜种子",
+    desc = "收获可产出大白菜",
+    product = "家园种植用",
+    iconPath = 3503,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 4,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24004)->
+    #itemCfg {
+    id = 24004,
+    name = "番茄种子",
+    desc = "收获可产出生番茄",
+    product = "家园种植用",
+    iconPath = 3504,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 5,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24005)->
+    #itemCfg {
+    id = 24005,
+    name = "楠木种子",
+    desc = "成熟后可长成楠木",
+    product = "家园种植用",
+    iconPath = 3505,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 6,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24006)->
+    #itemCfg {
+    id = 24006,
+    name = "洋葱种子",
+    desc = "收获可产出洋葱",
+    product = "家园种植用",
+    iconPath = 3506,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 7,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24007)->
+    #itemCfg {
+    id = 24007,
+    name = "辣椒种子",
+    desc = "收获可产出辣椒",
+    product = "家园种植用",
+    iconPath = 3507,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 8,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24008)->
+    #itemCfg {
+    id = 24008,
+    name = "杉树种子",
+    desc = "成熟后可长成杉树",
+    product = "家园种植用",
+    iconPath = 3508,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 9,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24009)->
+    #itemCfg {
+    id = 24009,
+    name = "甘蔗种子",
+    desc = "收获可产出糖",
+    product = "家园种植用",
+    iconPath = 3509,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 10,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24010)->
+    #itemCfg {
+    id = 24010,
+    name = "豆芽种子",
+    desc = "收获可产出豆芽",
+    product = "家园种植用",
+    iconPath = 3510,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 11,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24011)->
+    #itemCfg {
+    id = 24011,
+    name = "柏木种子",
+    desc = "成熟后可长成杉树",
+    product = "家园种植用",
+    iconPath = 3511,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 12,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24012)->
+    #itemCfg {
+    id = 24012,
+    name = "萝卜种子",
+    desc = "收获可产出萝卜",
+    product = "家园种植用",
+    iconPath = 3512,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 13,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24013)->
+    #itemCfg {
+    id = 24013,
+    name = "玉米种子",
+    desc = "收获可产出玉米",
+    product = "家园种植用",
+    iconPath = 3513,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 14,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24014)->
+    #itemCfg {
+    id = 24014,
+    name = "青松种子",
+    desc = "成熟后可长青松，用来制作家具",
+    product = "家园种植用",
+    iconPath = 3514,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 30,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 15,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24048)->
+    #itemCfg {
+    id = 24048,
+    name = "普通化肥",
+    desc = "略微增加植物的健康度",
+    product = "培养种子用",
+    iconPath = 4009,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 32,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 5,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24049)->
+    #itemCfg {
+    id = 24049,
+    name = "高级化肥",
+    desc = "大幅度增加植物的健康度",
+    product = "培养种子用",
+    iconPath = 4010,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 32,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 15,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24050)->
+    #itemCfg {
+    id = 24050,
+    name = "马铃薯",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "料理烹饪用",
+    iconPath = 3500,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 500,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24051)->
+    #itemCfg {
+    id = 24051,
+    name = "小麦",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "料理烹饪用",
+    iconPath = 3501,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 2,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 500,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24052)->
+    #itemCfg {
+    id = 24052,
+    name = "银杏",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "家具合成用",
+    iconPath = 3502,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 3,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 500,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24053)->
+    #itemCfg {
+    id = 24053,
+    name = "大白菜",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "料理烹饪用",
+    iconPath = 3503,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 4,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 800,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24054)->
+    #itemCfg {
+    id = 24054,
+    name = "番茄",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "料理烹饪用",
+    iconPath = 3504,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 5,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 800,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24055)->
+    #itemCfg {
+    id = 24055,
+    name = "楠木",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "家具合成用",
+    iconPath = 3505,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 6,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 800,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24056)->
+    #itemCfg {
+    id = 24056,
+    name = "洋葱",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "料理烹饪用",
+    iconPath = 3506,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 7,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24057)->
+    #itemCfg {
+    id = 24057,
+    name = "辣椒",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "料理烹饪用",
+    iconPath = 3507,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 8,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24058)->
+    #itemCfg {
+    id = 24058,
+    name = "杉树",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "家具合成用",
+    iconPath = 3508,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 9,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24059)->
+    #itemCfg {
+    id = 24059,
+    name = "甘蔗",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "料理烹饪用",
+    iconPath = 3509,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 10,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1500,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24060)->
+    #itemCfg {
+    id = 24060,
+    name = "豆芽",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "料理烹饪用",
+    iconPath = 3510,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 11,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1500,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24061)->
+    #itemCfg {
+    id = 24061,
+    name = "柏木",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "家具合成用",
+    iconPath = 3511,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 12,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1500,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24062)->
+    #itemCfg {
+    id = 24062,
+    name = "萝卜",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "料理烹饪用",
+    iconPath = 3512,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 13,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1800,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24063)->
+    #itemCfg {
+    id = 24063,
+    name = "奶油",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "料理烹饪用",
+    iconPath = 3515,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 2,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 2000,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24064)->
+    #itemCfg {
+    id = 24064,
+    name = "香料",
+    desc = "可以进行烹饪或者售卖换钱",
+    product = "家具合成用",
+    iconPath = 3516,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 31,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 3,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 2000,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24100)->
+    #itemCfg {
+    id = 24100,
+    name = "宠物果实",
+    desc = "宠物爱吃的果实，喂给他会得到什么呢?",
+    iconPath = 299,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 33,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 5,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(24101)->
+    #itemCfg {
+    id = 24101,
+    name = "宠物冰淇淋",
+    desc = "宠物爱吃的冰淇淋，喂给他会得到什么呢?",
+    iconPath = 322,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 33,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 15,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 8,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25001)->
+    #itemCfg {
+    id = 25001,
+    name = "蟹肉",
+    desc = "阿克勒东城郊香辣蟹的肉",
+    product = "怪物掉落",
+    iconPath = 1,
+    maxAmount = 1,
+    quality = 0,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25002)->
+    #itemCfg {
+    id = 25002,
+    name = "魔族军服",
+    desc = "阿克勒东城郊魔族的军服",
+    product = "怪物掉落",
+    iconPath = 1,
+    maxAmount = 1,
+    quality = 0,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25003)->
+    #itemCfg {
+    id = 25003,
+    name = "穿戴军服",
+    desc = "穿戴",
+    product = "任务获得",
+    iconPath = 2019,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25004)->
+    #itemCfg {
+    id = 25004,
+    name = "调查晶钟",
+    desc = "调查",
+    product = "任务获得",
+    iconPath = 4021,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25005)->
+    #itemCfg {
+    id = 25005,
+    name = "蟹肉刺身",
+    desc = "烹饪",
+    product = "任务获得",
+    iconPath = 538,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25006)->
+    #itemCfg {
+    id = 25006,
+    name = "发送信号",
+    desc = "开启",
+    product = "任务获得",
+    iconPath = 620,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25007)->
+    #itemCfg {
+    id = 25007,
+    name = "光之号角",
+    desc = "冲锋号",
+    product = "任务获得",
+    iconPath = 454,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25008)->
+    #itemCfg {
+    id = 25008,
+    name = "参拜国王",
+    desc = "参拜",
+    product = "任务获得",
+    iconPath = 232,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25009)->
+    #itemCfg {
+    id = 25009,
+    name = "打赏小乞丐",
+    desc = "打赏",
+    product = "任务获得",
+    iconPath = 4021,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25010)->
+    #itemCfg {
+    id = 25010,
+    name = "调查现场",
+    desc = "调查",
+    product = "任务获得",
+    iconPath = 631,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25011)->
+    #itemCfg {
+    id = 25011,
+    name = "展示匕首",
+    desc = "展示",
+    product = "任务获得",
+    iconPath = 532,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25012)->
+    #itemCfg {
+    id = 25012,
+    name = "调查浮岛",
+    desc = "调查",
+    product = "任务获得",
+    iconPath = 631,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25013)->
+    #itemCfg {
+    id = 25013,
+    name = "出示通行证",
+    desc = "证件",
+    product = "任务获得",
+    iconPath = 558,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25014)->
+    #itemCfg {
+    id = 25014,
+    name = "登陆沙滩",
+    desc = "喘口气",
+    product = "执行操作",
+    iconPath = 4021,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 10,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    baozhusound = "",
+    useJumpPage = 0,
+    txt = "0",
+    useStraightway = 1,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(25015)->
+    #itemCfg {
+    id = 25015,
+    name = "特质的奶酪",
+    desc = "骑宠升级-特质奶酪",
+    product = "收集物",
+    iconPath = 4021,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25016)->
+    #itemCfg {
+    id = 25016,
+    name = "治疗伤员",
+    desc = "救治",
+    product = "执行操作",
+    iconPath = 4021,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25017)->
+    #itemCfg {
+    id = 25017,
+    name = "整装待发",
+    desc = "出征",
+    product = "执行操作",
+    iconPath = 567,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25018)->
+    #itemCfg {
+    id = 25018,
+    name = "红晶能量",
+    desc = "红晶能量碎屑",
+    product = "收集物",
+    iconPath = 90,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25019)->
+    #itemCfg {
+    id = 25019,
+    name = "红晶能量碎屑",
+    desc = "有发现",
+    product = "执行操作",
+    iconPath = 90,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25020)->
+    #itemCfg {
+    id = 25020,
+    name = "能量源",
+    desc = "取回",
+    product = "执行操作",
+    iconPath = 4021,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25021)->
+    #itemCfg {
+    id = 25021,
+    name = "挠痒痒1",
+    desc = "挠痒痒",
+    product = "执行操作",
+    iconPath = 515,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25022)->
+    #itemCfg {
+    id = 25022,
+    name = "挠痒痒2",
+    desc = "挠痒痒",
+    product = "执行操作",
+    iconPath = 515,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25023)->
+    #itemCfg {
+    id = 25023,
+    name = "挠痒痒3",
+    desc = "挠痒痒",
+    product = "执行操作",
+    iconPath = 515,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25024)->
+    #itemCfg {
+    id = 25024,
+    name = "登上飞空艇",
+    desc = "站稳",
+    product = "执行操作",
+    iconPath = 179,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25025)->
+    #itemCfg {
+    id = 25025,
+    name = "飞向阿克勒平原",
+    desc = "观望",
+    product = "执行操作",
+    iconPath = 631,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25026)->
+    #itemCfg {
+    id = 25026,
+    name = "事态紧急",
+    desc = "旁听",
+    product = "执行操作",
+    iconPath = 4020,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25027)->
+    #itemCfg {
+    id = 25027,
+    name = "匕首的疑点",
+    desc = "展示",
+    product = "执行操作",
+    iconPath = 532,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25028)->
+    #itemCfg {
+    id = 25028,
+    name = "潜入农场",
+    desc = "潜伏",
+    product = "执行操作",
+    iconPath = 235,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25029)->
+    #itemCfg {
+    id = 25029,
+    name = "保护色",
+    desc = "抹泥",
+    product = "执行操作",
+    iconPath = 4017,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25030)->
+    #itemCfg {
+    id = 25030,
+    name = "接货",
+    desc = "接货",
+    product = "执行操作",
+    iconPath = 4030,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25031)->
+    #itemCfg {
+    id = 25031,
+    name = "小心火烛",
+    desc = "销毁",
+    product = "执行操作",
+    iconPath = 560,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25032)->
+    #itemCfg {
+    id = 25032,
+    name = "调查仪式",
+    desc = "打探",
+    product = "执行操作",
+    iconPath = 631,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25033)->
+    #itemCfg {
+    id = 25033,
+    name = "净化巨石祭坛",
+    desc = "净化",
+    product = "执行操作",
+    iconPath = 472,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25034)->
+    #itemCfg {
+    id = 25034,
+    name = "魔族情报",
+    desc = "魔族情报",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25035)->
+    #itemCfg {
+    id = 25035,
+    name = "魔族黑科技",
+    desc = "探测",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25036)->
+    #itemCfg {
+    id = 25036,
+    name = "苍空外围",
+    desc = "谈话",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25037)->
+    #itemCfg {
+    id = 25037,
+    name = "力量考核",
+    desc = "扳手腕",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25038)->
+    #itemCfg {
+    id = 25038,
+    name = "开往前线",
+    desc = "侦查",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25039)->
+    #itemCfg {
+    id = 25039,
+    name = "救治伤员",
+    desc = "救治",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25040)->
+    #itemCfg {
+    id = 25040,
+    name = "御寒之物",
+    desc = "白熊毛皮",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25041)->
+    #itemCfg {
+    id = 25041,
+    name = "可疑的魔族",
+    desc = "侦查",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25042)->
+    #itemCfg {
+    id = 25042,
+    name = "清理现场",
+    desc = "掩盖",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25043)->
+    #itemCfg {
+    id = 25043,
+    name = "寻找结界",
+    desc = "寻找",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25044)->
+    #itemCfg {
+    id = 25044,
+    name = "魔族渐盛",
+    desc = "调查",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25045)->
+    #itemCfg {
+    id = 25045,
+    name = "双黄弹1",
+    desc = "布置",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25046)->
+    #itemCfg {
+    id = 25046,
+    name = "双黄弹2",
+    desc = "布置",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25047)->
+    #itemCfg {
+    id = 25047,
+    name = "佯装",
+    desc = "佯装",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25048)->
+    #itemCfg {
+    id = 25048,
+    name = "秘密会议",
+    desc = "商议",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25049)->
+    #itemCfg {
+    id = 25049,
+    name = "暗助俘虏",
+    desc = "交谈",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25050)->
+    #itemCfg {
+    id = 25050,
+    name = "泼洒硫磺1",
+    desc = "泼洒",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25051)->
+    #itemCfg {
+    id = 25051,
+    name = "泼洒硫磺2",
+    desc = "泼洒",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25052)->
+    #itemCfg {
+    id = 25052,
+    name = "易燃易爆炸",
+    desc = "点燃",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25053)->
+    #itemCfg {
+    id = 25053,
+    name = "解救俘虏",
+    desc = "解锁",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25054)->
+    #itemCfg {
+    id = 25054,
+    name = "奔向结界",
+    desc = "喘口气",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25055)->
+    #itemCfg {
+    id = 25055,
+    name = "观察魔族动向",
+    desc = "观察",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25056)->
+    #itemCfg {
+    id = 25056,
+    name = "关闭魔能结界",
+    desc = "关闭",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
+    };
+getRow(25057)->
+    #itemCfg {
+    id = 25057,
+    name = "苍空之塔",
+    desc = "调查",
+    product = "执行操作",
+    iconPath = 445,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 1,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 0,
+    operate = 0,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 0,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    check_box = 0
     };
 getRow(26000)->
     #itemCfg {
     id = 26000,
     name = "白银婚戒",
-    desc = "外表亮丽的白银婚戒，使用求婚后增加600点亲密度。\n[00ff00]获取途径：兑换[-]",
+    desc = "外表亮丽的白银婚戒，使用求婚后增加600点亲密度\n[00ff00]获取途径：兑换[-]",
     product = "兑换-普通兑换中获得",
     iconPath = 615,
     maxAmount = 1,
@@ -24920,7 +30587,7 @@ getRow(26000)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 26,
@@ -24928,13 +30595,14 @@ getRow(26000)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{12,0}]
+    relation_UI = [{12,0}],
+    check_box = 0
     };
 getRow(26001)->
     #itemCfg {
     id = 26001,
     name = "黄金婚戒",
-    desc = "金光闪烁的黄金婚戒，使用求婚后增加1200点亲密度。\n[00ff00]获取途径：商城[-]",
+    desc = "金光闪烁的黄金婚戒，使用求婚后增加1200点亲密度\n[00ff00]获取途径：商城[-]",
     product = "商城-【成长】中获得",
     iconPath = 617,
     maxAmount = 1,
@@ -24955,7 +30623,7 @@ getRow(26001)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 23,
@@ -24963,13 +30631,14 @@ getRow(26001)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(26002)->
     #itemCfg {
     id = 26002,
     name = "钻石婚戒",
-    desc = "闪耀璀璨的钻石婚戒，使用求婚后增加2400点亲密度。\n[00ff00]获取途径：商城[-]",
+    desc = "闪耀璀璨的钻石婚戒，使用求婚后增加2400点亲密度\n[00ff00]获取途径：商城[-]",
     product = "商城-【成长】中获得",
     iconPath = 619,
     maxAmount = 1,
@@ -24990,7 +30659,7 @@ getRow(26002)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
     needwar = 1,
     baozhu = 25,
@@ -24998,17 +30667,18 @@ getRow(26002)->
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0}]
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(26003)->
     #itemCfg {
     id = 26003,
-    name = "赤铜1",
-    desc = "低级婚戒的突破材料。\n[00ff00]获取途径：情缘任务[-]",
-    product = "游戏中获得",
-    iconPath = 140,
+    name = "绿龙的鳞片",
+    desc = "婚戒“心心相印”的突破材料\n[00ff00]获取途径：情缘任务[-]",
+    product = "情缘任务获得",
+    iconPath = 296,
     maxAmount = 999,
-    quality = 1,
+    quality = 2,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
@@ -25020,28 +30690,29 @@ getRow(26003)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
-    needwar = 0,
+    needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,32}]
+    relation_UI = [{22,32}],
+    check_box = 0
     };
 getRow(26004)->
     #itemCfg {
     id = 26004,
-    name = "赤铜2",
-    desc = "低级婚戒的突破材料。\n[00ff00]获取途径：情缘任务[-]",
-    product = "游戏中获得",
-    iconPath = 140,
+    name = "幸运硬币",
+    desc = "婚戒“心心相印”的突破材料\n[00ff00]获取途径：情缘任务[-]",
+    product = "情缘任务获得",
+    iconPath = 322,
     maxAmount = 999,
     quality = 2,
     itemType = 1,
@@ -25055,30 +30726,31 @@ getRow(26004)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
-    needwar = 0,
+    needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,32}]
+    relation_UI = [{22,32}],
+    check_box = 0
     };
 getRow(26005)->
     #itemCfg {
     id = 26005,
-    name = "赤铜3",
-    desc = "低级婚戒的突破材料。\n[00ff00]获取途径：情缘任务[-]",
-    product = "游戏中获得",
-    iconPath = 140,
+    name = "心心相印突破劵",
+    desc = "婚戒“心心相印”的突破材料\n[00ff00]获取途径：情缘任务[-]",
+    product = "情缘任务获得",
+    iconPath = 131,
     maxAmount = 999,
-    quality = 3,
+    quality = 2,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
@@ -25090,30 +30762,31 @@ getRow(26005)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 20,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
-    needwar = 0,
+    needwar = 1,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,32}]
+    relation_UI = [{22,32}],
+    check_box = 0
     };
 getRow(26006)->
     #itemCfg {
     id = 26006,
-    name = "秘银1",
-    desc = "中级婚戒的突破材料。\n[00ff00]获取途径：情缘任务[-]",
-    product = "游戏中获得",
-    iconPath = 140,
+    name = "土龙的鳞片",
+    desc = "婚戒“金玉良缘”的突破材料\n[00ff00]获取途径：情缘任务[-]",
+    product = "情缘任务获得",
+    iconPath = 299,
     maxAmount = 999,
-    quality = 1,
+    quality = 3,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
@@ -25125,30 +30798,31 @@ getRow(26006)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
-    needwar = 0,
-    baozhu = 26,
+    needwar = 1,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,32}]
+    relation_UI = [{22,32}],
+    check_box = 0
     };
 getRow(26007)->
     #itemCfg {
     id = 26007,
-    name = "秘银2",
-    desc = "中级婚戒的突破材料。\n[00ff00]获取途径：情缘任务[-]",
-    product = "游戏中获得",
-    iconPath = 140,
+    name = "忠贞硬币",
+    desc = "婚戒“金玉良缘”的突破材料\n[00ff00]获取途径：情缘任务[-]",
+    product = "情缘任务获得",
+    iconPath = 323,
     maxAmount = 999,
-    quality = 2,
+    quality = 3,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
@@ -25160,28 +30834,29 @@ getRow(26007)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
-    needwar = 0,
-    baozhu = 26,
+    needwar = 1,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,32}]
+    relation_UI = [{22,32}],
+    check_box = 0
     };
 getRow(26008)->
     #itemCfg {
     id = 26008,
-    name = "秘银3",
-    desc = "中级婚戒的突破材料。\n[00ff00]获取途径：情缘任务[-]",
-    product = "游戏中获得",
-    iconPath = 140,
+    name = "金玉良缘突破劵",
+    desc = "婚戒“金玉良缘”的突破材料\n[00ff00]获取途径：情缘任务[-]",
+    product = "情缘任务获得",
+    iconPath = 132,
     maxAmount = 999,
     quality = 3,
     itemType = 1,
@@ -25195,30 +30870,31 @@ getRow(26008)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 50,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
-    needwar = 0,
-    baozhu = 26,
+    needwar = 1,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,32}]
+    relation_UI = [{22,32}],
+    check_box = 0
     };
 getRow(26009)->
     #itemCfg {
     id = 26009,
-    name = "精金1",
-    desc = "高级婚戒的突破材料。\n[00ff00]获取途径：情缘任务[-]",
-    product = "游戏中获得",
-    iconPath = 140,
+    name = "蓝龙的鳞片",
+    desc = "婚戒“海誓山盟”的突破材料\n[00ff00]获取途径：情缘任务[-]",
+    product = "情缘任务获得",
+    iconPath = 297,
     maxAmount = 999,
-    quality = 1,
+    quality = 4,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
@@ -25230,30 +30906,31 @@ getRow(26009)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
-    needwar = 0,
-    baozhu = 26,
+    needwar = 1,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,32}]
+    relation_UI = [{22,32}],
+    check_box = 0
     };
 getRow(26010)->
     #itemCfg {
     id = 26010,
-    name = "精金2",
-    desc = "高级婚戒的突破材料。\n[00ff00]获取途径：情缘任务[-]",
-    product = "游戏中获得",
-    iconPath = 140,
+    name = "月光硬币",
+    desc = "婚戒“海誓山盟”的突破材料\n[00ff00]获取途径：情缘任务[-]",
+    product = "情缘任务获得",
+    iconPath = 329,
     maxAmount = 999,
-    quality = 2,
+    quality = 4,
     itemType = 1,
     detailedType = 0,
     isQuestItem = 0,
@@ -25265,28 +30942,173 @@ getRow(26010)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 1,
-    needwar = 0,
-    baozhu = 26,
+    needwar = 1,
+    baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,32}]
+    relation_UI = [{22,32}],
+    check_box = 0
     };
 getRow(26011)->
     #itemCfg {
     id = 26011,
-    name = "精金3",
-    desc = "高级婚戒的突破材料。\n[00ff00]获取途径：情缘任务[-]",
-    product = "游戏中获得",
-    iconPath = 140,
+    name = "海誓山盟突破劵",
+    desc = "婚戒“海誓山盟”的突破材料\n[00ff00]获取途径：情缘任务[-]",
+    product = "情缘任务获得",
+    iconPath = 133,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{22,32}],
+    check_box = 0
+    };
+getRow(26100)->
+    #itemCfg {
+    id = 26100,
+    name = "干瘪的蟹钳",
+    desc = "干瘪蟹钳中只剩下微量蟹肉，可以出售给商店换取少量金币",
+    product = "完成“海盗王的宝藏”可能获得",
+    iconPath = 265,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 8,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 24,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26101)->
+    #itemCfg {
+    id = 26101,
+    name = "鱼的遗骸",
+    desc = "\"天知道它生前经历了什么\"\n从螃蟹身上掉落的残留物，可以出售给商店换取少量金币",
+    product = "完成“海盗王的宝藏”可能获得",
+    iconPath = 274,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 8,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 24,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26102)->
+    #itemCfg {
+    id = 26102,
+    name = "不明的骨头",
+    desc = "\"天知道它生前经历了什么\"\n从螃蟹身上掉落的残留物，可以出售给商店换取大量金币",
+    product = "完成“海盗王的宝藏”可能获得",
+    iconPath = 211,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 2000,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 8,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26103)->
+    #itemCfg {
+    id = 26103,
+    name = "海螺的遗骸",
+    desc = "\"天知道它生前经历了什么\"\n从螃蟹身上掉落的残留物，可以出售给商店换取中量金币",
+    product = "完成“海盗王的宝藏”可能获得",
+    iconPath = 266,
     maxAmount = 999,
     quality = 3,
     itemType = 1,
@@ -25300,20 +31122,777 @@ getRow(26011)->
     useMaxCount = 1,
     level = 1,
     usePlayerClass = 0,
-    price = 1,
+    price = 500,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 8,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 23,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26104)->
+    #itemCfg {
+    id = 26104,
+    name = "海马的遗骸",
+    desc = "\"天知道它生前经历了什么\"\n从螃蟹身上掉落的残留物，可以出售给商店换取中量金币",
+    product = "完成“海盗王的宝藏”可能获得",
+    iconPath = 269,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 500,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 8,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 23,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26105)->
+    #itemCfg {
+    id = 26105,
+    name = "饱满的蟹钳",
+    desc = "\"从这饱满的形状中可以推断，这只螃蟹生前十分健壮\"",
+    product = "“海盗王的宝藏”任务道具",
+    iconPath = 265,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 5,
+    detailedType = 0,
+    isQuestItem = 1,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 8,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26106)->
+    #itemCfg {
+    id = 26106,
+    name = "宾克斯的朗姆酒",
+    desc = "\"甜润馥郁中，有一点莫名味道\"\n夏洛特喝剩的宾客斯朗姆酒，饮用后获得临时属性加成",
+    product = "完成“海盗王的宝藏”可能获得",
+    iconPath = 552,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 13,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 2,
+    useParam1 = 15000,
+    useParam2 = 1,
+    useParam3 = 0,
+    useParam4 = 15001,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
     cdGroup = 0,
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
     operate = 0,
     needBrodcast = 1,
-    needwar = 0,
-    baozhu = 26,
+    needwar = 1,
+    baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
     useStraightway = 0,
     selljudge = 1,
-    relation_UI = [{24,0},{22,32}]
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26107)->
+    #itemCfg {
+    id = 26107,
+    name = "波特卡斯的蟹钳料理",
+    desc = "\"黑黑，脆脆，就是你\"\n波特卡斯每年制作一次的蟹钳料理，极其“稀有”!!食用后获得临时属性加成",
+    product = "完成“海盗王的宝藏”可能获得",
+    iconPath = 265,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 13,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 2,
+    useParam1 = 15002,
+    useParam2 = 1,
+    useParam3 = 0,
+    useParam4 = 15003,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 0,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 23,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26108)->
+    #itemCfg {
+    id = 26108,
+    name = "Mr.王的赠礼宝箱",
+    desc = "来自Mr.王的神秘赠礼，使用后可随机获得稀有礼品",
+    product = "最终情缘任务“海盗王的宝藏”获得",
+    iconPath = 16,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 369000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26109)->
+    #itemCfg {
+    id = 26109,
+    name = "Mr.王的赠礼宝箱",
+    desc = "来自Mr.王的神秘赠礼，使用后可随机获得稀有礼品",
+    product = "最终情缘任务“人鬼情未了”获得",
+    iconPath = 16,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 369001,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26110)->
+    #itemCfg {
+    id = 26110,
+    name = "Mr.王的赠礼宝箱",
+    desc = "来自Mr.王的神秘赠礼，使用后可随机获得稀有礼品",
+    product = "预留",
+    iconPath = 16,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 369000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26111)->
+    #itemCfg {
+    id = 26111,
+    name = "Mr.王的赠礼宝箱",
+    desc = "来自Mr.王的神秘赠礼，使用后可随机获得稀有礼品",
+    product = "预留",
+    iconPath = 16,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 369000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26112)->
+    #itemCfg {
+    id = 26112,
+    name = "Mr.王的赠礼宝箱",
+    desc = "来自Mr.王的神秘赠礼，使用后可随机获得稀有礼品",
+    product = "预留",
+    iconPath = 16,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 369000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26113)->
+    #itemCfg {
+    id = 26113,
+    name = "Mr.王的赠礼宝箱",
+    desc = "来自Mr.王的神秘赠礼，使用后可随机获得稀有礼品",
+    product = "预留",
+    iconPath = 16,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 369000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26114)->
+    #itemCfg {
+    id = 26114,
+    name = "Mr.王的赠礼宝箱",
+    desc = "来自Mr.王的神秘赠礼，使用后可随机获得稀有礼品",
+    product = "预留",
+    iconPath = 16,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 369000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26115)->
+    #itemCfg {
+    id = 26115,
+    name = "Mr.王的赠礼宝箱",
+    desc = "来自Mr.王的神秘赠礼，使用后可随机获得稀有礼品",
+    product = "预留",
+    iconPath = 16,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 369000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26116)->
+    #itemCfg {
+    id = 26116,
+    name = "Mr.王的赠礼宝箱",
+    desc = "来自Mr.王的神秘赠礼，使用后可随机获得稀有礼品",
+    product = "预留",
+    iconPath = 16,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 369000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26117)->
+    #itemCfg {
+    id = 26117,
+    name = "Mr.王的赠礼宝箱",
+    desc = "来自Mr.王的神秘赠礼，使用后可随机获得稀有礼品",
+    product = "预留",
+    iconPath = 16,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 369000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26121)->
+    #itemCfg {
+    id = 26121,
+    name = "鬼魂新娘的眼泪",
+    desc = "\"在别人看不到的世界里，流泪\"\n婚礼现场，变为鬼魂的“美丽”留下的眼泪，使用后获得临时属性加成",
+    product = "完成“人鬼情未了”可能获得",
+    iconPath = 206,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 13,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 2,
+    useParam1 = 15004,
+    useParam2 = 1,
+    useParam3 = 0,
+    useParam4 = 15005,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 23,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26122)->
+    #itemCfg {
+    id = 26122,
+    name = "“傻姆”的手纸巾",
+    desc = "\"我的纸巾就是为了拭去你眼角的泪痕\"\n“傻姆”的手纸巾，似乎有着某种特殊的魔力，在纸的角落里写着一行小字“等着我，美丽，无论你在哪”，使用后获得临时属性加成",
+    product = "完成“人鬼情未了”可能获得",
+    iconPath = 203,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 13,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 2,
+    useParam1 = 15006,
+    useParam2 = 1,
+    useParam3 = 0,
+    useParam4 = 15007,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 200,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 23,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26123)->
+    #itemCfg {
+    id = 26123,
+    name = "影子魔鬼的手纸巾",
+    desc = "从影子魔鬼身上掉落的手纸巾，似乎已经失去了应有的魔力，可以出售给商店换取少量金币",
+    product = "完成“人鬼情未了”可能获得",
+    iconPath = 303,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 8,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 24,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26124)->
+    #itemCfg {
+    id = 26124,
+    name = "影子魔鬼的箭",
+    desc = "\"这似乎是一根箭\"\n从影子魔鬼身上掉落的箭，由于年代久远，已经看不出本来面貌，可以出售给商店换取少量金币",
+    product = "完成“人鬼情未了”可能获得",
+    iconPath = 172,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 10,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 8,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 24,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26125)->
+    #itemCfg {
+    id = 26125,
+    name = "龙套鬼魂的手纸巾",
+    desc = "从龙套鬼魂身上掉落的手纸巾，似乎已经失去了应有的魔力，可以出售给商店换取中量金币",
+    product = "完成“人鬼情未了”可能获得",
+    iconPath = 302,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 500,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 8,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 23,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26126)->
+    #itemCfg {
+    id = 26126,
+    name = "美丽的骨头",
+    desc = "\"这应该不是‘美丽’的骨头，只是美丽的骨头\"，可以出售给商店换取中量金币",
+    product = "完成“人鬼情未了”可能获得",
+    iconPath = 211,
+    maxAmount = 999,
+    quality = 3,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 500,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 8,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 23,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(26127)->
+    #itemCfg {
+    id = 26127,
+    name = "龙套鬼魂的茶壶",
+    desc = "“它真的只是个茶壶”\n从龙套鬼魂身上掉落的茶壶，里面还盛放着少量透明的“茶汤”，可以出售给商店换取大量金币",
+    product = "完成“人鬼情未了”可能获得",
+    iconPath = 202,
+    maxAmount = 999,
+    quality = 4,
+    itemType = 1,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 0,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 2000,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 8,
+    needBrodcast = 1,
+    needwar = 1,
+    baozhu = 25,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 0,
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27000)->
     #itemCfg {
@@ -25328,7 +31907,7 @@ getRow(27000)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 1,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25340,15 +31919,16 @@ getRow(27000)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27001)->
     #itemCfg {
@@ -25363,7 +31943,7 @@ getRow(27001)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 2,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25375,15 +31955,16 @@ getRow(27001)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27002)->
     #itemCfg {
@@ -25398,7 +31979,7 @@ getRow(27002)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 6,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25410,15 +31991,16 @@ getRow(27002)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27003)->
     #itemCfg {
@@ -25433,7 +32015,7 @@ getRow(27003)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 7,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25445,15 +32027,16 @@ getRow(27003)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27004)->
     #itemCfg {
@@ -25468,7 +32051,7 @@ getRow(27004)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 11,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25480,15 +32063,16 @@ getRow(27004)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27005)->
     #itemCfg {
@@ -25503,7 +32087,7 @@ getRow(27005)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 11,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25515,15 +32099,16 @@ getRow(27005)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27006)->
     #itemCfg {
@@ -25538,7 +32123,7 @@ getRow(27006)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 12,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25550,15 +32135,16 @@ getRow(27006)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27007)->
     #itemCfg {
@@ -25573,7 +32159,7 @@ getRow(27007)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 12,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25585,15 +32171,16 @@ getRow(27007)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27008)->
     #itemCfg {
@@ -25608,7 +32195,7 @@ getRow(27008)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 16,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25620,15 +32207,16 @@ getRow(27008)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27009)->
     #itemCfg {
@@ -25643,7 +32231,7 @@ getRow(27009)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 17,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25655,15 +32243,16 @@ getRow(27009)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27010)->
     #itemCfg {
@@ -25678,7 +32267,7 @@ getRow(27010)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 18,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25690,15 +32279,16 @@ getRow(27010)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27011)->
     #itemCfg {
@@ -25713,7 +32303,7 @@ getRow(27011)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 19,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25725,15 +32315,16 @@ getRow(27011)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27012)->
     #itemCfg {
@@ -25748,7 +32339,7 @@ getRow(27012)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 23,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25760,15 +32351,16 @@ getRow(27012)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27013)->
     #itemCfg {
@@ -25783,7 +32375,7 @@ getRow(27013)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 24,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25795,15 +32387,16 @@ getRow(27013)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27014)->
     #itemCfg {
@@ -25818,7 +32411,7 @@ getRow(27014)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 25,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25830,15 +32423,16 @@ getRow(27014)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27015)->
     #itemCfg {
@@ -25853,7 +32447,7 @@ getRow(27015)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 26,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25865,15 +32459,16 @@ getRow(27015)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27016)->
     #itemCfg {
@@ -25888,7 +32483,7 @@ getRow(27016)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 30,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25900,15 +32495,16 @@ getRow(27016)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27017)->
     #itemCfg {
@@ -25923,7 +32519,7 @@ getRow(27017)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 31,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25935,15 +32531,16 @@ getRow(27017)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27018)->
     #itemCfg {
@@ -25958,7 +32555,7 @@ getRow(27018)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 32,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -25970,15 +32567,16 @@ getRow(27018)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27019)->
     #itemCfg {
@@ -25993,7 +32591,7 @@ getRow(27019)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 33,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26005,15 +32603,16 @@ getRow(27019)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27020)->
     #itemCfg {
@@ -26028,7 +32627,7 @@ getRow(27020)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 37,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26040,15 +32639,16 @@ getRow(27020)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27021)->
     #itemCfg {
@@ -26063,7 +32663,7 @@ getRow(27021)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 38,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26075,15 +32675,16 @@ getRow(27021)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27022)->
     #itemCfg {
@@ -26098,7 +32699,7 @@ getRow(27022)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 39,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26110,15 +32711,16 @@ getRow(27022)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27023)->
     #itemCfg {
@@ -26133,7 +32735,7 @@ getRow(27023)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 40,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26145,15 +32747,16 @@ getRow(27023)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27024)->
     #itemCfg {
@@ -26168,7 +32771,7 @@ getRow(27024)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 44,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26180,15 +32783,16 @@ getRow(27024)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27025)->
     #itemCfg {
@@ -26203,7 +32807,7 @@ getRow(27025)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 45,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26215,15 +32819,16 @@ getRow(27025)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27026)->
     #itemCfg {
@@ -26238,7 +32843,7 @@ getRow(27026)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 46,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26250,15 +32855,16 @@ getRow(27026)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27027)->
     #itemCfg {
@@ -26273,7 +32879,7 @@ getRow(27027)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 47,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26285,15 +32891,16 @@ getRow(27027)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27028)->
     #itemCfg {
@@ -26308,7 +32915,7 @@ getRow(27028)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 51,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26320,15 +32927,16 @@ getRow(27028)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27029)->
     #itemCfg {
@@ -26343,7 +32951,7 @@ getRow(27029)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 52,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26355,15 +32963,16 @@ getRow(27029)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27030)->
     #itemCfg {
@@ -26378,7 +32987,7 @@ getRow(27030)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 53,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26390,15 +32999,16 @@ getRow(27030)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27031)->
     #itemCfg {
@@ -26413,7 +33023,7 @@ getRow(27031)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 54,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26425,15 +33035,16 @@ getRow(27031)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27036)->
     #itemCfg {
@@ -26448,7 +33059,7 @@ getRow(27036)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 58,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26460,15 +33071,16 @@ getRow(27036)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27037)->
     #itemCfg {
@@ -26483,7 +33095,7 @@ getRow(27037)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 59,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26495,15 +33107,16 @@ getRow(27037)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27038)->
     #itemCfg {
@@ -26518,7 +33131,7 @@ getRow(27038)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 60,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26530,15 +33143,16 @@ getRow(27038)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27039)->
     #itemCfg {
@@ -26553,7 +33167,7 @@ getRow(27039)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 61,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26565,15 +33179,16 @@ getRow(27039)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27040)->
     #itemCfg {
@@ -26588,7 +33203,7 @@ getRow(27040)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 65,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26600,15 +33215,16 @@ getRow(27040)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27041)->
     #itemCfg {
@@ -26623,7 +33239,7 @@ getRow(27041)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 66,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26635,15 +33251,16 @@ getRow(27041)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27042)->
     #itemCfg {
@@ -26658,7 +33275,7 @@ getRow(27042)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 67,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26670,15 +33287,16 @@ getRow(27042)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27043)->
     #itemCfg {
@@ -26693,7 +33311,7 @@ getRow(27043)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 68,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26705,15 +33323,16 @@ getRow(27043)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27044)->
     #itemCfg {
@@ -26728,7 +33347,7 @@ getRow(27044)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 72,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26740,15 +33359,16 @@ getRow(27044)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27045)->
     #itemCfg {
@@ -26763,7 +33383,7 @@ getRow(27045)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 73,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26775,15 +33395,16 @@ getRow(27045)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27046)->
     #itemCfg {
@@ -26798,7 +33419,7 @@ getRow(27046)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 74,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26810,15 +33431,16 @@ getRow(27046)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27047)->
     #itemCfg {
@@ -26833,7 +33455,7 @@ getRow(27047)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 75,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26845,15 +33467,16 @@ getRow(27047)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27048)->
     #itemCfg {
@@ -26868,7 +33491,7 @@ getRow(27048)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 79,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26880,15 +33503,16 @@ getRow(27048)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27049)->
     #itemCfg {
@@ -26903,7 +33527,7 @@ getRow(27049)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 80,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26915,15 +33539,16 @@ getRow(27049)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27050)->
     #itemCfg {
@@ -26938,7 +33563,7 @@ getRow(27050)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 81,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26950,15 +33575,16 @@ getRow(27050)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27051)->
     #itemCfg {
@@ -26973,7 +33599,7 @@ getRow(27051)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 82,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -26985,15 +33611,16 @@ getRow(27051)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27052)->
     #itemCfg {
@@ -27008,7 +33635,7 @@ getRow(27052)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 86,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27020,15 +33647,16 @@ getRow(27052)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27053)->
     #itemCfg {
@@ -27043,7 +33671,7 @@ getRow(27053)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 87,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27055,15 +33683,16 @@ getRow(27053)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27054)->
     #itemCfg {
@@ -27078,7 +33707,7 @@ getRow(27054)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 88,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27090,15 +33719,16 @@ getRow(27054)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27055)->
     #itemCfg {
@@ -27113,7 +33743,7 @@ getRow(27055)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 89,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27125,15 +33755,16 @@ getRow(27055)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27056)->
     #itemCfg {
@@ -27148,7 +33779,7 @@ getRow(27056)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 93,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27160,15 +33791,16 @@ getRow(27056)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27057)->
     #itemCfg {
@@ -27183,7 +33815,7 @@ getRow(27057)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 94,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27195,15 +33827,16 @@ getRow(27057)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27058)->
     #itemCfg {
@@ -27218,7 +33851,7 @@ getRow(27058)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 95,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27230,15 +33863,16 @@ getRow(27058)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27059)->
     #itemCfg {
@@ -27253,7 +33887,7 @@ getRow(27059)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 96,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27265,15 +33899,16 @@ getRow(27059)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27060)->
     #itemCfg {
@@ -27288,7 +33923,7 @@ getRow(27060)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 100,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27300,15 +33935,16 @@ getRow(27060)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27061)->
     #itemCfg {
@@ -27323,7 +33959,7 @@ getRow(27061)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 101,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27335,15 +33971,16 @@ getRow(27061)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27062)->
     #itemCfg {
@@ -27358,7 +33995,7 @@ getRow(27062)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 102,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27370,15 +34007,16 @@ getRow(27062)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27063)->
     #itemCfg {
@@ -27393,7 +34031,7 @@ getRow(27063)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 103,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27405,15 +34043,16 @@ getRow(27063)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27064)->
     #itemCfg {
@@ -27428,7 +34067,7 @@ getRow(27064)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 107,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27440,15 +34079,16 @@ getRow(27064)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27065)->
     #itemCfg {
@@ -27463,7 +34103,7 @@ getRow(27065)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 108,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27475,15 +34115,16 @@ getRow(27065)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27066)->
     #itemCfg {
@@ -27498,7 +34139,7 @@ getRow(27066)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 109,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27510,15 +34151,16 @@ getRow(27066)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27067)->
     #itemCfg {
@@ -27533,7 +34175,7 @@ getRow(27067)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 110,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27545,15 +34187,16 @@ getRow(27067)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27068)->
     #itemCfg {
@@ -27568,7 +34211,7 @@ getRow(27068)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 114,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27580,15 +34223,16 @@ getRow(27068)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27069)->
     #itemCfg {
@@ -27603,7 +34247,7 @@ getRow(27069)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 115,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27615,15 +34259,16 @@ getRow(27069)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27070)->
     #itemCfg {
@@ -27638,7 +34283,7 @@ getRow(27070)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 116,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27650,15 +34295,16 @@ getRow(27070)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27071)->
     #itemCfg {
@@ -27673,7 +34319,7 @@ getRow(27071)->
     detailedType = 0,
     isQuestItem = 0,
     useType = 17,
-    useParam1 = 117,
+    useParam1 = 0,
     useParam2 = 51840000,
     useParam3 = 0,
     useParam4 = 0,
@@ -27685,15 +34331,16 @@ getRow(27071)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27072)->
     #itemCfg {
@@ -27720,15 +34367,16 @@ getRow(27072)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27073)->
     #itemCfg {
@@ -27755,15 +34403,16 @@ getRow(27073)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27074)->
     #itemCfg {
@@ -27790,15 +34439,16 @@ getRow(27074)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27075)->
     #itemCfg {
@@ -27825,15 +34475,16 @@ getRow(27075)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27076)->
     #itemCfg {
@@ -27860,15 +34511,16 @@ getRow(27076)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27077)->
     #itemCfg {
@@ -27895,15 +34547,16 @@ getRow(27077)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27078)->
     #itemCfg {
@@ -27930,15 +34583,16 @@ getRow(27078)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27079)->
     #itemCfg {
@@ -27965,15 +34619,16 @@ getRow(27079)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27080)->
     #itemCfg {
@@ -28000,15 +34655,16 @@ getRow(27080)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27081)->
     #itemCfg {
@@ -28035,15 +34691,16 @@ getRow(27081)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27082)->
     #itemCfg {
@@ -28070,15 +34727,16 @@ getRow(27082)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27083)->
     #itemCfg {
@@ -28105,15 +34763,16 @@ getRow(27083)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27084)->
     #itemCfg {
@@ -28140,15 +34799,16 @@ getRow(27084)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27085)->
     #itemCfg {
@@ -28175,15 +34835,16 @@ getRow(27085)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27086)->
     #itemCfg {
@@ -28210,15 +34871,16 @@ getRow(27086)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27087)->
     #itemCfg {
@@ -28245,15 +34907,16 @@ getRow(27087)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27088)->
     #itemCfg {
@@ -28280,15 +34943,16 @@ getRow(27088)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27089)->
     #itemCfg {
@@ -28315,15 +34979,16 @@ getRow(27089)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27090)->
     #itemCfg {
@@ -28350,15 +35015,16 @@ getRow(27090)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27091)->
     #itemCfg {
@@ -28385,15 +35051,16 @@ getRow(27091)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27092)->
     #itemCfg {
@@ -28420,15 +35087,16 @@ getRow(27092)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27093)->
     #itemCfg {
@@ -28455,15 +35123,16 @@ getRow(27093)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27094)->
     #itemCfg {
@@ -28490,15 +35159,16 @@ getRow(27094)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27095)->
     #itemCfg {
@@ -28525,15 +35195,16 @@ getRow(27095)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27096)->
     #itemCfg {
@@ -28560,15 +35231,16 @@ getRow(27096)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27097)->
     #itemCfg {
@@ -28595,15 +35267,16 @@ getRow(27097)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27098)->
     #itemCfg {
@@ -28630,15 +35303,16 @@ getRow(27098)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27099)->
     #itemCfg {
@@ -28665,15 +35339,16 @@ getRow(27099)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27100)->
     #itemCfg {
@@ -28700,15 +35375,16 @@ getRow(27100)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27101)->
     #itemCfg {
@@ -28735,15 +35411,16 @@ getRow(27101)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27102)->
     #itemCfg {
@@ -28770,15 +35447,16 @@ getRow(27102)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27103)->
     #itemCfg {
@@ -28805,15 +35483,16 @@ getRow(27103)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27104)->
     #itemCfg {
@@ -28840,15 +35519,16 @@ getRow(27104)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27105)->
     #itemCfg {
@@ -28875,15 +35555,16 @@ getRow(27105)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27106)->
     #itemCfg {
@@ -28910,15 +35591,16 @@ getRow(27106)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27107)->
     #itemCfg {
@@ -28945,15 +35627,16 @@ getRow(27107)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27108)->
     #itemCfg {
@@ -28980,15 +35663,16 @@ getRow(27108)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27109)->
     #itemCfg {
@@ -29015,15 +35699,16 @@ getRow(27109)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27110)->
     #itemCfg {
@@ -29050,15 +35735,16 @@ getRow(27110)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27111)->
     #itemCfg {
@@ -29068,7 +35754,7 @@ getRow(27111)->
     product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 2,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29085,15 +35771,16 @@ getRow(27111)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27112)->
     #itemCfg {
@@ -29103,7 +35790,7 @@ getRow(27112)->
     product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 2,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29120,15 +35807,16 @@ getRow(27112)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27113)->
     #itemCfg {
@@ -29138,7 +35826,7 @@ getRow(27113)->
     product = "时装激活道具",
     iconPath = 140,
     maxAmount = 1,
-    quality = 2,
+    quality = 3,
     itemType = 6,
     detailedType = 0,
     isQuestItem = 0,
@@ -29155,15 +35843,16 @@ getRow(27113)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27114)->
     #itemCfg {
@@ -29190,15 +35879,16 @@ getRow(27114)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27115)->
     #itemCfg {
@@ -29225,15 +35915,16 @@ getRow(27115)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27116)->
     #itemCfg {
@@ -29260,15 +35951,16 @@ getRow(27116)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27117)->
     #itemCfg {
@@ -29295,15 +35987,16 @@ getRow(27117)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27118)->
     #itemCfg {
@@ -29330,15 +36023,16 @@ getRow(27118)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27119)->
     #itemCfg {
@@ -29365,15 +36059,16 @@ getRow(27119)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27120)->
     #itemCfg {
@@ -29400,15 +36095,16 @@ getRow(27120)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27121)->
     #itemCfg {
@@ -29435,15 +36131,16 @@ getRow(27121)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27122)->
     #itemCfg {
@@ -29470,15 +36167,16 @@ getRow(27122)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27123)->
     #itemCfg {
@@ -29505,15 +36203,16 @@ getRow(27123)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27124)->
     #itemCfg {
@@ -29540,15 +36239,16 @@ getRow(27124)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27125)->
     #itemCfg {
@@ -29575,15 +36275,16 @@ getRow(27125)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27500)->
     #itemCfg {
@@ -29610,15 +36311,16 @@ getRow(27500)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27501)->
     #itemCfg {
@@ -29645,15 +36347,16 @@ getRow(27501)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27502)->
     #itemCfg {
@@ -29680,15 +36383,16 @@ getRow(27502)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27503)->
     #itemCfg {
@@ -29715,15 +36419,16 @@ getRow(27503)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27504)->
     #itemCfg {
@@ -29750,15 +36455,16 @@ getRow(27504)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27505)->
     #itemCfg {
@@ -29785,15 +36491,16 @@ getRow(27505)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27506)->
     #itemCfg {
@@ -29820,15 +36527,16 @@ getRow(27506)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27507)->
     #itemCfg {
@@ -29855,15 +36563,16 @@ getRow(27507)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27508)->
     #itemCfg {
@@ -29890,15 +36599,16 @@ getRow(27508)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27509)->
     #itemCfg {
@@ -29925,15 +36635,16 @@ getRow(27509)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27510)->
     #itemCfg {
@@ -29960,15 +36671,16 @@ getRow(27510)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 23,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27511)->
     #itemCfg {
@@ -29995,15 +36707,16 @@ getRow(27511)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27512)->
     #itemCfg {
@@ -30030,15 +36743,16 @@ getRow(27512)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 25,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27513)->
     #itemCfg {
@@ -30065,15 +36779,16 @@ getRow(27513)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27514)->
     #itemCfg {
@@ -30100,15 +36815,16 @@ getRow(27514)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27515)->
     #itemCfg {
@@ -30135,15 +36851,16 @@ getRow(27515)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 26,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27516)->
     #itemCfg {
@@ -30170,15 +36887,16 @@ getRow(27516)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 27,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
     };
 getRow(27517)->
     #itemCfg {
@@ -30205,15 +36923,526 @@ getRow(27517)->
     dailyCountGroup = 0,
     usefulLife = 0,
     needSaveLog = 1,
-    operate = 0,
+    operate = 9,
     needBrodcast = 0,
     needwar = 0,
     baozhu = 22,
     baozhunumber = 0,
     useJumpPage = 0,
-    useStraightway = 1,
+    useStraightway = 0,
     selljudge = 1,
-    relation_UI = []
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(28000)->
+    #itemCfg {
+    id = 28000,
+    name = "妖灵狐头饰（男/女）",
+    desc = "打开后获得自身性别的“妖灵狐头饰”时装外观。",
+    product = "时装盒子",
+    iconPath = 2045,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 400000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 1,
+    check_box_text = "开启后，时装将无法交易，是否确认开启？"
+    };
+getRow(28001)->
+    #itemCfg {
+    id = 28001,
+    name = "妖灵狐服饰（男/女）",
+    desc = "打开后获得自身性别的“妖灵狐服饰”时装外观。",
+    product = "时装盒子",
+    iconPath = 2047,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 400001,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 1,
+    check_box_text = "开启后，时装将无法交易，是否确认开启？"
+    };
+getRow(28010)->
+    #itemCfg {
+    id = 28010,
+    name = "叛逆乐队头饰（男/女）",
+    desc = "打开后获得自身性别的“叛逆乐队头饰”时装外观。",
+    product = "时装盒子",
+    iconPath = 2017,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 400002,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 1,
+    check_box_text = "开启后，时装将无法交易，是否确认开启？"
+    };
+getRow(28011)->
+    #itemCfg {
+    id = 28011,
+    name = "叛逆乐队服饰（男/女）",
+    desc = "打开后获得自身性别的“叛逆乐队服饰”时装外观。",
+    product = "时装盒子",
+    iconPath = 2019,
+    maxAmount = 1,
+    quality = 4,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 400003,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 1,
+    check_box_text = "开启后，时装将无法交易，是否确认开启？"
+    };
+getRow(28020)->
+    #itemCfg {
+    id = 28020,
+    name = "纯白花语头饰（男/女）",
+    desc = "打开后获得自身性别的“纯白话语头饰”时装外观。",
+    product = "时装盒子",
+    iconPath = 2029,
+    maxAmount = 1,
+    quality = 5,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 400004,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 1,
+    check_box_text = "开启后，时装将无法交易，是否确认开启？"
+    };
+getRow(28021)->
+    #itemCfg {
+    id = 28021,
+    name = "纯白花语服饰（男/女）",
+    desc = "打开后获得自身性别的“纯白话语服饰”时装外观。",
+    product = "时装盒子",
+    iconPath = 2031,
+    maxAmount = 1,
+    quality = 5,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 400005,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 1,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 1,
+    check_box_text = "开启后，时装将无法交易，是否确认开启？"
+    };
+getRow(29000)->
+    #itemCfg {
+    id = 29000,
+    name = "隔壁老王对你的爱",
+    desc = "\"当然是选择原谅她啦\"\n使用后可获得300钻石卡*1，本系30级紫色武器，“黑色执事”时装1套",
+    product = "CB1注册礼包",
+    iconPath = 603,
+    maxAmount = 1,
+    quality = 1,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 500000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 10,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(29001)->
+    #itemCfg {
+    id = 29001,
+    name = "女神的青睐",
+    desc = "全民答题奖励1",
+    product = "开启后可获得绑定钻石、金币，且有极大几率获得珍惜宠物碎片等奖励。",
+    iconPath = 603,
+    maxAmount = 1,
+    quality = 1,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 500000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 10,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(29002)->
+    #itemCfg {
+    id = 29002,
+    name = "女神的嘉奖",
+    desc = "全民答题奖励2",
+    product = "开启后可获得绑定钻石、金币、且有较高几率获得珍惜宠物碎片等奖励。",
+    iconPath = 603,
+    maxAmount = 1,
+    quality = 1,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 500000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 10,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(29003)->
+    #itemCfg {
+    id = 29003,
+    name = "女神的馈赠",
+    desc = "全民答题奖励3",
+    product = "开启后可获得绑定钻石、金币、有一定几率获得宠物碎片奖励。",
+    iconPath = 603,
+    maxAmount = 1,
+    quality = 1,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 500000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 10,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(29004)->
+    #itemCfg {
+    id = 29004,
+    name = "女神的鼓励",
+    desc = "全民答题奖励4",
+    product = "开启后可获得绑定钻石、金币、较小几率获得宠物碎片奖励。",
+    iconPath = 603,
+    maxAmount = 1,
+    quality = 1,
+    itemType = 8,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 8,
+    useParam1 = 500000,
+    useParam2 = 0,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 1,
+    level = 10,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 9,
+    needBrodcast = 0,
+    needwar = 0,
+    baozhu = 27,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [],
+    check_box = 0
+    };
+getRow(29005)->
+    #itemCfg {
+    id = 29005,
+    name = "红玫瑰",
+    desc = "赠予他人可增加对方魅力值1点，若为好友关系则可增加友好度1点。\n[00ff00]可在【商城】中购买道具。[-]",
+    product = "游戏中获得",
+    iconPath = 625,
+    maxAmount = 999,
+    quality = 0,
+    itemType = 29,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 1,
+    useParam2 = 1,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 25,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 3,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{24,0}],
+    check_box = 0
+    };
+getRow(29006)->
+    #itemCfg {
+    id = 29006,
+    name = "蓝玫瑰",
+    desc = "比较稀有，赠予他人可增加对方魅力值2点，若为好友关系则可增加友好度2点。\n[00ff00]可在【商城】中购买道具。[-]",
+    product = "游戏中获得",
+    iconPath = 625,
+    maxAmount = 999,
+    quality = 1,
+    itemType = 29,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 2,
+    useParam2 = 2,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 25,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 3,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{24,0}],
+    check_box = 0
+    };
+getRow(29007)->
+    #itemCfg {
+    id = 29007,
+    name = "白玫瑰",
+    desc = "特别稀有，赠予他人可增加对方魅力值3点，若为好友关系则可增加友好度3点。\n[00ff00]可在【商城】中购买道具。[-]",
+    product = "游戏中获得",
+    iconPath = 625,
+    maxAmount = 999,
+    quality = 2,
+    itemType = 29,
+    detailedType = 0,
+    isQuestItem = 0,
+    useType = 1,
+    useParam1 = 3,
+    useParam2 = 3,
+    useParam3 = 0,
+    useParam4 = 0,
+    useMaxCount = 999,
+    level = 25,
+    usePlayerClass = 0,
+    price = 1,
+    cdGroup = 0,
+    dailyCountGroup = 0,
+    usefulLife = 0,
+    needSaveLog = 1,
+    operate = 3,
+    needBrodcast = 0,
+    needwar = 1,
+    baozhu = 26,
+    baozhunumber = 0,
+    useJumpPage = 0,
+    useStraightway = 0,
+    selljudge = 1,
+    relation_UI = [{24,0}],
+    check_box = 0
     };
 getRow(_)->[].
 
@@ -30227,10 +37456,12 @@ getKeyList()->[
     {12},
     {13},
     {14},
+    {15},
     {19},
     {20},
     {31},
     {32},
+    {33},
     {49},
     {52},
     {55},
@@ -30246,6 +37477,7 @@ getKeyList()->[
     {82},
     {83},
     {84},
+    {85},
     {101},
     {102},
     {103},
@@ -30266,6 +37498,9 @@ getKeyList()->[
     {130},
     {131},
     {201},
+    {202},
+    {203},
+    {204},
     {222},
     {223},
     {224},
@@ -30274,11 +37509,6 @@ getKeyList()->[
     {227},
     {229},
     {240},
-    {241},
-    {242},
-    {250},
-    {251},
-    {252},
     {270},
     {271},
     {272},
@@ -30316,6 +37546,7 @@ getKeyList()->[
     {700},
     {701},
     {702},
+    {703},
     {800},
     {801},
     {802},
@@ -30329,6 +37560,7 @@ getKeyList()->[
     {905},
     {906},
     {907},
+    {908},
     {950},
     {951},
     {952},
@@ -30432,6 +37664,7 @@ getKeyList()->[
     {1825},
     {1826},
     {1827},
+    {1828},
     {1831},
     {1832},
     {1833},
@@ -30460,6 +37693,7 @@ getKeyList()->[
     {1860},
     {1861},
     {1862},
+    {1863},
     {1911},
     {1912},
     {1913},
@@ -30498,6 +37732,7 @@ getKeyList()->[
     {1960},
     {1961},
     {1962},
+    {1963},
     {2002},
     {2022},
     {2023},
@@ -30553,6 +37788,9 @@ getKeyList()->[
     {2175},
     {2176},
     {2177},
+    {2178},
+    {2179},
+    {2180},
     {2500},
     {2501},
     {2502},
@@ -30597,6 +37835,8 @@ getKeyList()->[
     {3510},
     {3511},
     {3512},
+    {4100},
+    {4101},
     {4200},
     {4203},
     {4206},
@@ -30735,6 +37975,7 @@ getKeyList()->[
     {7007},
     {7008},
     {7009},
+    {7020},
     {7021},
     {7022},
     {7023},
@@ -30742,7 +37983,8 @@ getKeyList()->[
     {7025},
     {7026},
     {7027},
-    {7028},
+    {7050},
+    {7051},
     {7100},
     {7101},
     {7102},
@@ -30765,6 +38007,36 @@ getKeyList()->[
     {7212},
     {7213},
     {7214},
+    {7500},
+    {7501},
+    {7502},
+    {7503},
+    {7504},
+    {7505},
+    {7510},
+    {7511},
+    {7512},
+    {7513},
+    {7514},
+    {7515},
+    {7516},
+    {7517},
+    {7518},
+    {7519},
+    {7520},
+    {7521},
+    {7530},
+    {7531},
+    {7532},
+    {7533},
+    {7534},
+    {7535},
+    {7536},
+    {7537},
+    {7538},
+    {7539},
+    {7540},
+    {7541},
     {8001},
     {8002},
     {8003},
@@ -30811,8 +38083,8 @@ getKeyList()->[
     {9100},
     {9101},
     {9102},
-    {9103},
-    {9104},
+    {9150},
+    {9151},
     {9200},
     {9201},
     {9999},
@@ -30826,6 +38098,8 @@ getKeyList()->[
     {10007},
     {10008},
     {10009},
+    {10010},
+    {10011},
     {10022},
     {10023},
     {10024},
@@ -30870,6 +38144,7 @@ getKeyList()->[
     {10063},
     {10064},
     {10065},
+    {10066},
     {11000},
     {11001},
     {11002},
@@ -30926,6 +38201,99 @@ getKeyList()->[
     {22008},
     {22009},
     {22010},
+    {23000},
+    {23001},
+    {24000},
+    {24001},
+    {24002},
+    {24003},
+    {24004},
+    {24005},
+    {24006},
+    {24007},
+    {24008},
+    {24009},
+    {24010},
+    {24011},
+    {24012},
+    {24013},
+    {24014},
+    {24048},
+    {24049},
+    {24050},
+    {24051},
+    {24052},
+    {24053},
+    {24054},
+    {24055},
+    {24056},
+    {24057},
+    {24058},
+    {24059},
+    {24060},
+    {24061},
+    {24062},
+    {24063},
+    {24064},
+    {24100},
+    {24101},
+    {25001},
+    {25002},
+    {25003},
+    {25004},
+    {25005},
+    {25006},
+    {25007},
+    {25008},
+    {25009},
+    {25010},
+    {25011},
+    {25012},
+    {25013},
+    {25014},
+    {25015},
+    {25016},
+    {25017},
+    {25018},
+    {25019},
+    {25020},
+    {25021},
+    {25022},
+    {25023},
+    {25024},
+    {25025},
+    {25026},
+    {25027},
+    {25028},
+    {25029},
+    {25030},
+    {25031},
+    {25032},
+    {25033},
+    {25034},
+    {25035},
+    {25036},
+    {25037},
+    {25038},
+    {25039},
+    {25040},
+    {25041},
+    {25042},
+    {25043},
+    {25044},
+    {25045},
+    {25046},
+    {25047},
+    {25048},
+    {25049},
+    {25050},
+    {25051},
+    {25052},
+    {25053},
+    {25054},
+    {25055},
+    {25056},
+    {25057},
     {26000},
     {26001},
     {26002},
@@ -30938,6 +38306,31 @@ getKeyList()->[
     {26009},
     {26010},
     {26011},
+    {26100},
+    {26101},
+    {26102},
+    {26103},
+    {26104},
+    {26105},
+    {26106},
+    {26107},
+    {26108},
+    {26109},
+    {26110},
+    {26111},
+    {26112},
+    {26113},
+    {26114},
+    {26115},
+    {26116},
+    {26117},
+    {26121},
+    {26122},
+    {26123},
+    {26124},
+    {26125},
+    {26126},
+    {26127},
     {27000},
     {27001},
     {27002},
@@ -31077,7 +38470,21 @@ getKeyList()->[
     {27514},
     {27515},
     {27516},
-    {27517}
+    {27517},
+    {28000},
+    {28001},
+    {28010},
+    {28011},
+    {28020},
+    {28021},
+    {29000},
+    {29001},
+    {29002},
+    {29003},
+    {29004},
+    {29005},
+    {29006},
+    {29007}
     ].
 
 get1KeyList()->[
@@ -31090,10 +38497,12 @@ get1KeyList()->[
     12,
     13,
     14,
+    15,
     19,
     20,
     31,
     32,
+    33,
     49,
     52,
     55,
@@ -31109,6 +38518,7 @@ get1KeyList()->[
     82,
     83,
     84,
+    85,
     101,
     102,
     103,
@@ -31129,6 +38539,9 @@ get1KeyList()->[
     130,
     131,
     201,
+    202,
+    203,
+    204,
     222,
     223,
     224,
@@ -31137,11 +38550,6 @@ get1KeyList()->[
     227,
     229,
     240,
-    241,
-    242,
-    250,
-    251,
-    252,
     270,
     271,
     272,
@@ -31179,6 +38587,7 @@ get1KeyList()->[
     700,
     701,
     702,
+    703,
     800,
     801,
     802,
@@ -31192,6 +38601,7 @@ get1KeyList()->[
     905,
     906,
     907,
+    908,
     950,
     951,
     952,
@@ -31295,6 +38705,7 @@ get1KeyList()->[
     1825,
     1826,
     1827,
+    1828,
     1831,
     1832,
     1833,
@@ -31323,6 +38734,7 @@ get1KeyList()->[
     1860,
     1861,
     1862,
+    1863,
     1911,
     1912,
     1913,
@@ -31361,6 +38773,7 @@ get1KeyList()->[
     1960,
     1961,
     1962,
+    1963,
     2002,
     2022,
     2023,
@@ -31416,6 +38829,9 @@ get1KeyList()->[
     2175,
     2176,
     2177,
+    2178,
+    2179,
+    2180,
     2500,
     2501,
     2502,
@@ -31460,6 +38876,8 @@ get1KeyList()->[
     3510,
     3511,
     3512,
+    4100,
+    4101,
     4200,
     4203,
     4206,
@@ -31598,6 +39016,7 @@ get1KeyList()->[
     7007,
     7008,
     7009,
+    7020,
     7021,
     7022,
     7023,
@@ -31605,7 +39024,8 @@ get1KeyList()->[
     7025,
     7026,
     7027,
-    7028,
+    7050,
+    7051,
     7100,
     7101,
     7102,
@@ -31628,6 +39048,36 @@ get1KeyList()->[
     7212,
     7213,
     7214,
+    7500,
+    7501,
+    7502,
+    7503,
+    7504,
+    7505,
+    7510,
+    7511,
+    7512,
+    7513,
+    7514,
+    7515,
+    7516,
+    7517,
+    7518,
+    7519,
+    7520,
+    7521,
+    7530,
+    7531,
+    7532,
+    7533,
+    7534,
+    7535,
+    7536,
+    7537,
+    7538,
+    7539,
+    7540,
+    7541,
     8001,
     8002,
     8003,
@@ -31674,8 +39124,8 @@ get1KeyList()->[
     9100,
     9101,
     9102,
-    9103,
-    9104,
+    9150,
+    9151,
     9200,
     9201,
     9999,
@@ -31689,6 +39139,8 @@ get1KeyList()->[
     10007,
     10008,
     10009,
+    10010,
+    10011,
     10022,
     10023,
     10024,
@@ -31733,6 +39185,7 @@ get1KeyList()->[
     10063,
     10064,
     10065,
+    10066,
     11000,
     11001,
     11002,
@@ -31789,6 +39242,99 @@ get1KeyList()->[
     22008,
     22009,
     22010,
+    23000,
+    23001,
+    24000,
+    24001,
+    24002,
+    24003,
+    24004,
+    24005,
+    24006,
+    24007,
+    24008,
+    24009,
+    24010,
+    24011,
+    24012,
+    24013,
+    24014,
+    24048,
+    24049,
+    24050,
+    24051,
+    24052,
+    24053,
+    24054,
+    24055,
+    24056,
+    24057,
+    24058,
+    24059,
+    24060,
+    24061,
+    24062,
+    24063,
+    24064,
+    24100,
+    24101,
+    25001,
+    25002,
+    25003,
+    25004,
+    25005,
+    25006,
+    25007,
+    25008,
+    25009,
+    25010,
+    25011,
+    25012,
+    25013,
+    25014,
+    25015,
+    25016,
+    25017,
+    25018,
+    25019,
+    25020,
+    25021,
+    25022,
+    25023,
+    25024,
+    25025,
+    25026,
+    25027,
+    25028,
+    25029,
+    25030,
+    25031,
+    25032,
+    25033,
+    25034,
+    25035,
+    25036,
+    25037,
+    25038,
+    25039,
+    25040,
+    25041,
+    25042,
+    25043,
+    25044,
+    25045,
+    25046,
+    25047,
+    25048,
+    25049,
+    25050,
+    25051,
+    25052,
+    25053,
+    25054,
+    25055,
+    25056,
+    25057,
     26000,
     26001,
     26002,
@@ -31801,6 +39347,31 @@ get1KeyList()->[
     26009,
     26010,
     26011,
+    26100,
+    26101,
+    26102,
+    26103,
+    26104,
+    26105,
+    26106,
+    26107,
+    26108,
+    26109,
+    26110,
+    26111,
+    26112,
+    26113,
+    26114,
+    26115,
+    26116,
+    26117,
+    26121,
+    26122,
+    26123,
+    26124,
+    26125,
+    26126,
+    26127,
     27000,
     27001,
     27002,
@@ -31940,6 +39511,20 @@ get1KeyList()->[
     27514,
     27515,
     27516,
-    27517
+    27517,
+    28000,
+    28001,
+    28010,
+    28011,
+    28020,
+    28021,
+    29000,
+    29001,
+    29002,
+    29003,
+    29004,
+    29005,
+    29006,
+    29007
     ].
 

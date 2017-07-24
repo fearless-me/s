@@ -15,7 +15,8 @@ getRow(1)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(2)->
     #rankCfg {
@@ -27,7 +28,8 @@ getRow(2)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(3)->
     #rankCfg {
@@ -39,7 +41,8 @@ getRow(3)->
     fresh_cycle = 0,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(4)->
     #rankCfg {
@@ -51,7 +54,8 @@ getRow(4)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(5)->
     #rankCfg {
@@ -63,7 +67,8 @@ getRow(5)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(6)->
     #rankCfg {
@@ -75,7 +80,8 @@ getRow(6)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(7)->
     #rankCfg {
@@ -87,7 +93,8 @@ getRow(7)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(8)->
     #rankCfg {
@@ -99,7 +106,8 @@ getRow(8)->
     fresh_cycle = 1,
     fresh_time = [400],
     player_number = 30,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(9)->
     #rankCfg {
@@ -111,7 +119,8 @@ getRow(9)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(10)->
     #rankCfg {
@@ -123,7 +132,8 @@ getRow(10)->
     fresh_cycle = 1,
     fresh_time = [357],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(11)->
     #rankCfg {
@@ -135,7 +145,8 @@ getRow(11)->
     fresh_cycle = 1,
     fresh_time = [1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(12)->
     #rankCfg {
@@ -147,7 +158,8 @@ getRow(12)->
     fresh_cycle = 1,
     fresh_time = [400,1600],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(13)->
     #rankCfg {
@@ -159,7 +171,60 @@ getRow(13)->
     fresh_cycle = 2,
     fresh_time = [{3,400},{3,1000},{3,1400},{3,1900}],
     player_number = 100,
-    rank_reward = []
+    rank_reward = [],
+    rewardType = 1
+    };
+getRow(14)->
+    #rankCfg {
+    id = 14,
+    show_name = "魅力榜",
+    dec = "魅力值",
+    show_id = 14,
+    show_client = 1,
+    fresh_cycle = 1,
+    fresh_time = [400],
+    player_number = 100,
+    rank_reward = [{1,1,270,1},{2,2,270,2},{3,3,270,3},{4,4,270,4},{5,5,270,5},{6,6,270,6},{7,7,270,7},{8,8,270,8},{9,9,270,9},{10,-1,270,10}],
+    rewardType = 2
+    };
+getRow(15)->
+    #rankCfg {
+    id = 15,
+    show_name = "消除榜",
+    dec = "通关时间",
+    show_id = 15,
+    show_client = 1,
+    fresh_cycle = 1,
+    fresh_time = [400,1600],
+    player_number = 100,
+    rank_reward = [],
+    rewardType = 1
+    };
+getRow(16)->
+    #rankCfg {
+    id = 16,
+    show_name = "游园榜",
+    dec = "通关时间",
+    show_id = 16,
+    show_client = 1,
+    fresh_cycle = 1,
+    fresh_time = [400,1600],
+    player_number = 100,
+    rank_reward = [],
+    rewardType = 1
+    };
+getRow(17)->
+    #rankCfg {
+    id = 17,
+    show_name = "泳池榜",
+    dec = "通关时间",
+    show_id = 17,
+    show_client = 1,
+    fresh_cycle = 1,
+    fresh_time = [400,1600],
+    player_number = 100,
+    rank_reward = [],
+    rewardType = 1
     };
 getRow(_)->[].
 
@@ -176,7 +241,11 @@ getKeyList()->[
     {10},
     {11},
     {12},
-    {13}
+    {13},
+    {14},
+    {15},
+    {16},
+    {17}
     ].
 
 get1KeyList()->[
@@ -192,6 +261,10 @@ get1KeyList()->[
     10,
     11,
     12,
-    13
+    13,
+    14,
+    15,
+    16,
+    17
     ].
 

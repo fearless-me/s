@@ -675,7 +675,7 @@ getPetManorBattleMaxHp([#recPetInfo{pet_id = ID, pet_star = Star, pet_raw = Raw}
 	{Add, Multi} = playerPet:makePetEquipProp(),
 	Bpl0 = battleProp:initBattleProp(false),
 %%	Bpl1 = battleProp:initRmbPetBaseProp(ID, Lv, Star, Raw),
-	Bpl1 = playerPet:makePetBaseProp(ID, Lv, Star, Raw),
+	Bpl1 = playerPet:makePetProp_self(ID, Lv, Raw),
 	Bpl2 = battleProp:setBattlePropBaseValue(Bpl0, Bpl1),
 	Bpl3 = battleProp:addBattlePropAddValue(Bpl2, getEquipProp(Add)),
 	Bpl4 = battleProp:addBattlePropRateValue(Bpl3, getEquipProp(Multi)),

@@ -179,4 +179,12 @@
 -include("cfg_pet_star.hrl").
 -include("cfg_pet_rebirth.hrl").
 -include("cfg_task_other.hrl").
+-include("cfg_pet_skills_upgrading.hrl").
+-include("cfg_equipment_randomprop.hrl").
+-include("cfg_home.hrl").
+-include("cfg_home_area.hrl").
+-include("cfg_home_level.hrl").
+-include("cfg_fashionCollectionLevel.hrl").
+-include("cfg_home_zoo.hrl").
+-include("cfg_home_zoofood.hrl").
 -endif.

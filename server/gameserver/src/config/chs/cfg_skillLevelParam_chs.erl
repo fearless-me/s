@@ -8,8 +8,8 @@
 getRow(1)->
     #skillLevelParamCfg {
     level = 1,
-    critParam1 = 50,
-    critParam2 = 550,
+    critParam1 = 55,
+    critParam2 = 385,
     dodgeParam1 = 0,
     dodgeParam2 = 450,
     breakParam1 = 0,
@@ -20,590 +20,590 @@ getRow(1)->
 getRow(2)->
     #skillLevelParamCfg {
     level = 2,
-    critParam1 = 56.5,
-    critParam2 = 621.5,
+    critParam1 = 60,
+    critParam2 = 436,
     dodgeParam1 = 0,
-    dodgeParam2 = 508.5,
+    dodgeParam2 = 510,
     breakParam1 = 0,
-    breakParam2 = 67.8,
+    breakParam2 = 68,
     critdamage1 = 0,
-    critdamage2 = 112
+    critdamage2 = 113
     };
 getRow(3)->
     #skillLevelParamCfg {
     level = 3,
-    critParam1 = 63.5,
-    critParam2 = 698.5,
+    critParam1 = 64,
+    critParam2 = 488,
     dodgeParam1 = 0,
-    dodgeParam2 = 562.5,
+    dodgeParam2 = 570,
     breakParam1 = 0,
-    breakParam2 = 75,
+    breakParam2 = 76,
     critdamage1 = 0,
-    critdamage2 = 124
+    critdamage2 = 127
     };
 getRow(4)->
     #skillLevelParamCfg {
     level = 4,
-    critParam1 = 70,
-    critParam2 = 770,
+    critParam1 = 69,
+    critParam2 = 539,
     dodgeParam1 = 0,
-    dodgeParam2 = 621,
+    dodgeParam2 = 630,
     breakParam1 = 0,
-    breakParam2 = 82.8,
+    breakParam2 = 84,
     critdamage1 = 0,
-    critdamage2 = 136
+    critdamage2 = 140
     };
 getRow(5)->
     #skillLevelParamCfg {
     level = 5,
-    critParam1 = 76.5,
-    critParam2 = 841.5,
+    critParam1 = 74,
+    critParam2 = 590,
     dodgeParam1 = 0,
-    dodgeParam2 = 675,
+    dodgeParam2 = 690,
     breakParam1 = 0,
-    breakParam2 = 90,
+    breakParam2 = 92,
     critdamage1 = 0,
-    critdamage2 = 148
+    critdamage2 = 153
     };
 getRow(6)->
     #skillLevelParamCfg {
     level = 6,
-    critParam1 = 83.5,
-    critParam2 = 918.5,
+    critParam1 = 78,
+    critParam2 = 642,
     dodgeParam1 = 0,
-    dodgeParam2 = 733.5,
+    dodgeParam2 = 750,
     breakParam1 = 0,
-    breakParam2 = 97.8,
+    breakParam2 = 100,
     critdamage1 = 0,
-    critdamage2 = 160
+    critdamage2 = 167
     };
 getRow(7)->
     #skillLevelParamCfg {
     level = 7,
-    critParam1 = 90,
-    critParam2 = 990,
+    critParam1 = 83,
+    critParam2 = 693,
     dodgeParam1 = 0,
-    dodgeParam2 = 787.5,
+    dodgeParam2 = 810,
     breakParam1 = 0,
-    breakParam2 = 105,
+    breakParam2 = 108,
     critdamage1 = 0,
-    critdamage2 = 172
+    critdamage2 = 180
     };
 getRow(8)->
     #skillLevelParamCfg {
     level = 8,
-    critParam1 = 96.5,
-    critParam2 = 1061.5,
+    critParam1 = 88,
+    critParam2 = 744,
     dodgeParam1 = 0,
-    dodgeParam2 = 846,
+    dodgeParam2 = 870,
     breakParam1 = 0,
-    breakParam2 = 112.8,
+    breakParam2 = 116,
     critdamage1 = 0,
-    critdamage2 = 184
+    critdamage2 = 193
     };
 getRow(9)->
     #skillLevelParamCfg {
     level = 9,
-    critParam1 = 103.5,
-    critParam2 = 1138.5,
+    critParam1 = 92,
+    critParam2 = 796,
     dodgeParam1 = 0,
-    dodgeParam2 = 900,
+    dodgeParam2 = 930,
     breakParam1 = 0,
-    breakParam2 = 120,
+    breakParam2 = 124,
     critdamage1 = 0,
-    critdamage2 = 196
+    critdamage2 = 207
     };
 getRow(10)->
     #skillLevelParamCfg {
     level = 10,
-    critParam1 = 110,
-    critParam2 = 1210,
+    critParam1 = 97,
+    critParam2 = 847,
     dodgeParam1 = 0,
-    dodgeParam2 = 958.5,
+    dodgeParam2 = 990,
     breakParam1 = 0,
-    breakParam2 = 127.8,
+    breakParam2 = 132,
     critdamage1 = 0,
-    critdamage2 = 208
+    critdamage2 = 220
     };
 getRow(11)->
     #skillLevelParamCfg {
     level = 11,
-    critParam1 = 116.5,
-    critParam2 = 1281.5,
+    critParam1 = 102,
+    critParam2 = 898,
     dodgeParam1 = 0,
-    dodgeParam2 = 1012.5,
+    dodgeParam2 = 1050,
     breakParam1 = 0,
-    breakParam2 = 135,
+    breakParam2 = 140,
     critdamage1 = 0,
-    critdamage2 = 220
+    critdamage2 = 233
     };
 getRow(12)->
     #skillLevelParamCfg {
     level = 12,
-    critParam1 = 123.5,
-    critParam2 = 1358.5,
+    critParam1 = 106,
+    critParam2 = 950,
     dodgeParam1 = 0,
-    dodgeParam2 = 1071,
+    dodgeParam2 = 1110,
     breakParam1 = 0,
-    breakParam2 = 142.8,
+    breakParam2 = 148,
     critdamage1 = 0,
-    critdamage2 = 232
+    critdamage2 = 247
     };
 getRow(13)->
     #skillLevelParamCfg {
     level = 13,
-    critParam1 = 130,
-    critParam2 = 1430,
+    critParam1 = 111,
+    critParam2 = 1001,
     dodgeParam1 = 0,
-    dodgeParam2 = 1125,
+    dodgeParam2 = 1170,
     breakParam1 = 0,
-    breakParam2 = 150,
+    breakParam2 = 156,
     critdamage1 = 0,
-    critdamage2 = 244
+    critdamage2 = 260
     };
 getRow(14)->
     #skillLevelParamCfg {
     level = 14,
-    critParam1 = 136.5,
-    critParam2 = 1501.5,
+    critParam1 = 116,
+    critParam2 = 1052,
     dodgeParam1 = 0,
-    dodgeParam2 = 1183.5,
+    dodgeParam2 = 1230,
     breakParam1 = 0,
-    breakParam2 = 157.8,
+    breakParam2 = 164,
     critdamage1 = 0,
-    critdamage2 = 256
+    critdamage2 = 273
     };
 getRow(15)->
     #skillLevelParamCfg {
     level = 15,
-    critParam1 = 143.5,
-    critParam2 = 1578.5,
+    critParam1 = 120,
+    critParam2 = 1104,
     dodgeParam1 = 0,
-    dodgeParam2 = 1237.5,
+    dodgeParam2 = 1290,
     breakParam1 = 0,
-    breakParam2 = 165,
+    breakParam2 = 172,
     critdamage1 = 0,
-    critdamage2 = 268
+    critdamage2 = 287
     };
 getRow(16)->
     #skillLevelParamCfg {
     level = 16,
-    critParam1 = 150,
-    critParam2 = 1650,
-    dodgeParam1 = 0,
-    dodgeParam2 = 1296,
-    breakParam1 = 0,
-    breakParam2 = 172.8,
-    critdamage1 = 0,
-    critdamage2 = 280
-    };
-getRow(17)->
-    #skillLevelParamCfg {
-    level = 17,
-    critParam1 = 156.5,
-    critParam2 = 1721.5,
+    critParam1 = 125,
+    critParam2 = 1155,
     dodgeParam1 = 0,
     dodgeParam2 = 1350,
     breakParam1 = 0,
     breakParam2 = 180,
     critdamage1 = 0,
-    critdamage2 = 292
+    critdamage2 = 300
+    };
+getRow(17)->
+    #skillLevelParamCfg {
+    level = 17,
+    critParam1 = 130,
+    critParam2 = 1206,
+    dodgeParam1 = 0,
+    dodgeParam2 = 1410,
+    breakParam1 = 0,
+    breakParam2 = 188,
+    critdamage1 = 0,
+    critdamage2 = 313
     };
 getRow(18)->
     #skillLevelParamCfg {
     level = 18,
-    critParam1 = 163.5,
-    critParam2 = 1798.5,
+    critParam1 = 152,
+    critParam2 = 1456,
     dodgeParam1 = 0,
-    dodgeParam2 = 1408.5,
+    dodgeParam2 = 1702,
     breakParam1 = 0,
-    breakParam2 = 187.8,
+    breakParam2 = 227,
     critdamage1 = 0,
-    critdamage2 = 304
+    critdamage2 = 378
     };
 getRow(19)->
     #skillLevelParamCfg {
     level = 19,
-    critParam1 = 170,
-    critParam2 = 1870,
+    critParam1 = 184,
+    critParam2 = 1807,
     dodgeParam1 = 0,
-    dodgeParam2 = 1462.5,
+    dodgeParam2 = 2112,
     breakParam1 = 0,
-    breakParam2 = 195,
+    breakParam2 = 282,
     critdamage1 = 0,
-    critdamage2 = 316
+    critdamage2 = 469
     };
 getRow(20)->
     #skillLevelParamCfg {
     level = 20,
-    critParam1 = 176.5,
-    critParam2 = 1941.5,
+    critParam1 = 222,
+    critParam2 = 2221,
     dodgeParam1 = 0,
-    dodgeParam2 = 1521,
+    dodgeParam2 = 2596,
     breakParam1 = 0,
-    breakParam2 = 202.8,
+    breakParam2 = 346,
     critdamage1 = 0,
-    critdamage2 = 328
+    critdamage2 = 577
     };
 getRow(21)->
     #skillLevelParamCfg {
     level = 21,
-    critParam1 = 183.5,
-    critParam2 = 2018.5,
+    critParam1 = 312,
+    critParam2 = 3209,
     dodgeParam1 = 0,
-    dodgeParam2 = 1575,
+    dodgeParam2 = 3751,
     breakParam1 = 0,
-    breakParam2 = 210,
+    breakParam2 = 500,
     critdamage1 = 0,
-    critdamage2 = 340
+    critdamage2 = 834
     };
 getRow(22)->
     #skillLevelParamCfg {
     level = 22,
-    critParam1 = 190,
-    critParam2 = 2090,
+    critParam1 = 364,
+    critParam2 = 3782,
     dodgeParam1 = 0,
-    dodgeParam2 = 1633.5,
+    dodgeParam2 = 4421,
     breakParam1 = 0,
-    breakParam2 = 217.8,
+    breakParam2 = 589,
     critdamage1 = 0,
-    critdamage2 = 352
+    critdamage2 = 982
     };
 getRow(23)->
     #skillLevelParamCfg {
     level = 23,
-    critParam1 = 196.5,
-    critParam2 = 2161.5,
+    critParam1 = 436,
+    critParam2 = 4578,
     dodgeParam1 = 0,
-    dodgeParam2 = 1687.5,
+    dodgeParam2 = 5351,
     breakParam1 = 0,
-    breakParam2 = 225,
+    breakParam2 = 714,
     critdamage1 = 0,
-    critdamage2 = 364
+    critdamage2 = 1189
     };
 getRow(24)->
     #skillLevelParamCfg {
     level = 24,
-    critParam1 = 203.5,
-    critParam2 = 2238.5,
+    critParam1 = 506,
+    critParam2 = 5345,
     dodgeParam1 = 0,
-    dodgeParam2 = 1746,
+    dodgeParam2 = 6247,
     breakParam1 = 0,
-    breakParam2 = 232.8,
+    breakParam2 = 833,
     critdamage1 = 0,
-    critdamage2 = 376
+    critdamage2 = 1388
     };
 getRow(25)->
     #skillLevelParamCfg {
     level = 25,
-    critParam1 = 210,
-    critParam2 = 2310,
+    critParam1 = 582,
+    critParam2 = 6178,
     dodgeParam1 = 0,
-    dodgeParam2 = 1800,
+    dodgeParam2 = 7221,
     breakParam1 = 0,
-    breakParam2 = 240,
+    breakParam2 = 963,
     critdamage1 = 0,
-    critdamage2 = 388
+    critdamage2 = 1605
     };
 getRow(26)->
     #skillLevelParamCfg {
     level = 26,
-    critParam1 = 216.5,
-    critParam2 = 2381.5,
+    critParam1 = 662,
+    critParam2 = 7062,
     dodgeParam1 = 0,
-    dodgeParam2 = 1858.5,
+    dodgeParam2 = 8254,
     breakParam1 = 0,
-    breakParam2 = 247.8,
+    breakParam2 = 1100,
     critdamage1 = 0,
-    critdamage2 = 400
+    critdamage2 = 1834
     };
 getRow(27)->
     #skillLevelParamCfg {
     level = 27,
-    critParam1 = 223.5,
-    critParam2 = 2458.5,
+    critParam1 = 746,
+    critParam2 = 7989,
     dodgeParam1 = 0,
-    dodgeParam2 = 1912.5,
+    dodgeParam2 = 9337,
     breakParam1 = 0,
-    breakParam2 = 255,
+    breakParam2 = 1245,
     critdamage1 = 0,
-    critdamage2 = 412
+    critdamage2 = 2075
     };
 getRow(28)->
     #skillLevelParamCfg {
     level = 28,
-    critParam1 = 230,
-    critParam2 = 2530,
+    critParam1 = 834,
+    critParam2 = 8956,
     dodgeParam1 = 0,
-    dodgeParam2 = 1971,
+    dodgeParam2 = 10468,
     breakParam1 = 0,
-    breakParam2 = 262.8,
+    breakParam2 = 1396,
     critdamage1 = 0,
-    critdamage2 = 424
+    critdamage2 = 2326
     };
 getRow(29)->
     #skillLevelParamCfg {
     level = 29,
-    critParam1 = 236.5,
-    critParam2 = 2601.5,
+    critParam1 = 925,
+    critParam2 = 9960,
     dodgeParam1 = 0,
-    dodgeParam2 = 2025,
+    dodgeParam2 = 11642,
     breakParam1 = 0,
-    breakParam2 = 270,
+    breakParam2 = 1552,
     critdamage1 = 0,
-    critdamage2 = 436
+    critdamage2 = 2587
     };
 getRow(30)->
     #skillLevelParamCfg {
     level = 30,
-    critParam1 = 243.5,
-    critParam2 = 2678.5,
+    critParam1 = 1020,
+    critParam2 = 11000,
     dodgeParam1 = 0,
-    dodgeParam2 = 2083.5,
+    dodgeParam2 = 12857,
     breakParam1 = 0,
-    breakParam2 = 277.8,
+    breakParam2 = 1714,
     critdamage1 = 0,
-    critdamage2 = 448
+    critdamage2 = 2857
     };
 getRow(31)->
     #skillLevelParamCfg {
     level = 31,
-    critParam1 = 250,
-    critParam2 = 2750,
+    critParam1 = 1117,
+    critParam2 = 12072,
     dodgeParam1 = 0,
-    dodgeParam2 = 2137.5,
+    dodgeParam2 = 14111,
     breakParam1 = 0,
-    breakParam2 = 285,
+    breakParam2 = 1881,
     critdamage1 = 0,
-    critdamage2 = 460
+    critdamage2 = 3136
     };
 getRow(32)->
     #skillLevelParamCfg {
     level = 32,
-    critParam1 = 256.5,
-    critParam2 = 2821.5,
+    critParam1 = 1218,
+    critParam2 = 13177,
     dodgeParam1 = 0,
-    dodgeParam2 = 2196,
+    dodgeParam2 = 15401,
     breakParam1 = 0,
-    breakParam2 = 292.8,
+    breakParam2 = 2053,
     critdamage1 = 0,
-    critdamage2 = 472
+    critdamage2 = 3422
     };
 getRow(33)->
     #skillLevelParamCfg {
     level = 33,
-    critParam1 = 263.5,
-    critParam2 = 2898.5,
+    critParam1 = 1321,
+    critParam2 = 14311,
     dodgeParam1 = 0,
-    dodgeParam2 = 2250,
+    dodgeParam2 = 16727,
     breakParam1 = 0,
-    breakParam2 = 300,
+    breakParam2 = 2230,
     critdamage1 = 0,
-    critdamage2 = 484
+    critdamage2 = 3717
     };
 getRow(34)->
     #skillLevelParamCfg {
     level = 34,
-    critParam1 = 270,
-    critParam2 = 2970,
+    critParam1 = 1427,
+    critParam2 = 15475,
     dodgeParam1 = 0,
-    dodgeParam2 = 2308.5,
+    dodgeParam2 = 18088,
     breakParam1 = 0,
-    breakParam2 = 307.8,
+    breakParam2 = 2412,
     critdamage1 = 0,
-    critdamage2 = 496
+    critdamage2 = 4019
     };
 getRow(35)->
     #skillLevelParamCfg {
     level = 35,
-    critParam1 = 276.5,
-    critParam2 = 3041.5,
+    critParam1 = 1535,
+    critParam2 = 16667,
     dodgeParam1 = 0,
-    dodgeParam2 = 2362.5,
+    dodgeParam2 = 19481,
     breakParam1 = 0,
-    breakParam2 = 315,
+    breakParam2 = 2597,
     critdamage1 = 0,
-    critdamage2 = 508
+    critdamage2 = 4329
     };
 getRow(36)->
     #skillLevelParamCfg {
     level = 36,
-    critParam1 = 283.5,
-    critParam2 = 3118.5,
+    critParam1 = 1646,
+    critParam2 = 17886,
     dodgeParam1 = 0,
-    dodgeParam2 = 2421,
+    dodgeParam2 = 20906,
     breakParam1 = 0,
-    breakParam2 = 322.8,
+    breakParam2 = 2787,
     critdamage1 = 0,
-    critdamage2 = 520
+    critdamage2 = 4646
     };
 getRow(37)->
     #skillLevelParamCfg {
     level = 37,
-    critParam1 = 290,
-    critParam2 = 3190,
+    critParam1 = 1759,
+    critParam2 = 19132,
     dodgeParam1 = 0,
-    dodgeParam2 = 2475,
+    dodgeParam2 = 22362,
     breakParam1 = 0,
-    breakParam2 = 330,
+    breakParam2 = 2982,
     critdamage1 = 0,
-    critdamage2 = 532
+    critdamage2 = 4969
     };
 getRow(38)->
     #skillLevelParamCfg {
     level = 38,
-    critParam1 = 296.5,
-    critParam2 = 3261.5,
+    critParam1 = 1875,
+    critParam2 = 20404,
     dodgeParam1 = 0,
-    dodgeParam2 = 2533.5,
+    dodgeParam2 = 23848,
     breakParam1 = 0,
-    breakParam2 = 337.8,
+    breakParam2 = 3180,
     critdamage1 = 0,
-    critdamage2 = 544
+    critdamage2 = 5300
     };
 getRow(39)->
     #skillLevelParamCfg {
     level = 39,
-    critParam1 = 303.5,
-    critParam2 = 3338.5,
+    critParam1 = 1993,
+    critParam2 = 21700,
     dodgeParam1 = 0,
-    dodgeParam2 = 2587.5,
+    dodgeParam2 = 25364,
     breakParam1 = 0,
-    breakParam2 = 345,
+    breakParam2 = 3382,
     critdamage1 = 0,
-    critdamage2 = 556
+    critdamage2 = 5636
     };
 getRow(40)->
     #skillLevelParamCfg {
     level = 40,
-    critParam1 = 310,
-    critParam2 = 3410,
+    critParam1 = 2113,
+    critParam2 = 23021,
     dodgeParam1 = 0,
-    dodgeParam2 = 2646,
+    dodgeParam2 = 26907,
     breakParam1 = 0,
-    breakParam2 = 352.8,
+    breakParam2 = 3588,
     critdamage1 = 0,
-    critdamage2 = 568
+    critdamage2 = 5979
     };
 getRow(41)->
     #skillLevelParamCfg {
     level = 41,
-    critParam1 = 316.5,
-    critParam2 = 3481.5,
+    critParam1 = 2235,
+    critParam2 = 24365,
     dodgeParam1 = 0,
-    dodgeParam2 = 2700,
+    dodgeParam2 = 28479,
     breakParam1 = 0,
-    breakParam2 = 360,
+    breakParam2 = 3797,
     critdamage1 = 0,
-    critdamage2 = 580
+    critdamage2 = 6329
     };
 getRow(42)->
     #skillLevelParamCfg {
     level = 42,
-    critParam1 = 323.5,
-    critParam2 = 3558.5,
+    critParam1 = 2359,
+    critParam2 = 25733,
     dodgeParam1 = 0,
-    dodgeParam2 = 2758.5,
+    dodgeParam2 = 30078,
     breakParam1 = 0,
-    breakParam2 = 367.8,
+    breakParam2 = 4010,
     critdamage1 = 0,
-    critdamage2 = 592
+    critdamage2 = 6684
     };
 getRow(43)->
     #skillLevelParamCfg {
     level = 43,
-    critParam1 = 330,
-    critParam2 = 3630,
+    critParam1 = 2486,
+    critParam2 = 27124,
     dodgeParam1 = 0,
-    dodgeParam2 = 2812.5,
+    dodgeParam2 = 31703,
     breakParam1 = 0,
-    breakParam2 = 375,
+    breakParam2 = 4227,
     critdamage1 = 0,
-    critdamage2 = 604
+    critdamage2 = 7045
     };
 getRow(44)->
     #skillLevelParamCfg {
     level = 44,
-    critParam1 = 336.5,
-    critParam2 = 3701.5,
+    critParam1 = 2614,
+    critParam2 = 28537,
     dodgeParam1 = 0,
-    dodgeParam2 = 2871,
+    dodgeParam2 = 33354,
     breakParam1 = 0,
-    breakParam2 = 382.8,
+    breakParam2 = 4447,
     critdamage1 = 0,
-    critdamage2 = 616
+    critdamage2 = 7412
     };
 getRow(45)->
     #skillLevelParamCfg {
     level = 45,
-    critParam1 = 343.5,
-    critParam2 = 3778.5,
+    critParam1 = 2745,
+    critParam2 = 29971,
     dodgeParam1 = 0,
-    dodgeParam2 = 2925,
+    dodgeParam2 = 35031,
     breakParam1 = 0,
-    breakParam2 = 390,
+    breakParam2 = 4671,
     critdamage1 = 0,
-    critdamage2 = 628
+    critdamage2 = 7785
     };
 getRow(46)->
     #skillLevelParamCfg {
     level = 46,
-    critParam1 = 350,
-    critParam2 = 3850,
+    critParam1 = 2877,
+    critParam2 = 31427,
     dodgeParam1 = 0,
-    dodgeParam2 = 2983.5,
+    dodgeParam2 = 36733,
     breakParam1 = 0,
-    breakParam2 = 397.8,
+    breakParam2 = 4898,
     critdamage1 = 0,
-    critdamage2 = 640
+    critdamage2 = 8163
     };
 getRow(47)->
     #skillLevelParamCfg {
     level = 47,
-    critParam1 = 356.5,
-    critParam2 = 3921.5,
+    critParam1 = 3011,
+    critParam2 = 32904,
     dodgeParam1 = 0,
-    dodgeParam2 = 3037.5,
+    dodgeParam2 = 38459,
     breakParam1 = 0,
-    breakParam2 = 405,
+    breakParam2 = 5128,
     critdamage1 = 0,
-    critdamage2 = 652
+    critdamage2 = 8547
     };
 getRow(48)->
     #skillLevelParamCfg {
     level = 48,
-    critParam1 = 363.5,
-    critParam2 = 3998.5,
+    critParam1 = 3147,
+    critParam2 = 34402,
     dodgeParam1 = 0,
-    dodgeParam2 = 3096,
+    dodgeParam2 = 40210,
     breakParam1 = 0,
-    breakParam2 = 412.8,
+    breakParam2 = 5361,
     critdamage1 = 0,
-    critdamage2 = 664
+    critdamage2 = 8935
     };
 getRow(49)->
     #skillLevelParamCfg {
     level = 49,
-    critParam1 = 370,
-    critParam2 = 4070,
+    critParam1 = 3285,
+    critParam2 = 35919,
     dodgeParam1 = 0,
-    dodgeParam2 = 3150,
+    dodgeParam2 = 41984,
     breakParam1 = 0,
-    breakParam2 = 420,
+    breakParam2 = 5598,
     critdamage1 = 0,
-    critdamage2 = 676
+    critdamage2 = 9330
     };
 getRow(50)->
     #skillLevelParamCfg {
     level = 50,
-    critParam1 = 376.5,
-    critParam2 = 4141.5,
+    critParam1 = 3425,
+    critParam2 = 37457,
     dodgeParam1 = 0,
-    dodgeParam2 = 3208.5,
+    dodgeParam2 = 43781,
     breakParam1 = 0,
-    breakParam2 = 427.8,
+    breakParam2 = 5837,
     critdamage1 = 0,
-    critdamage2 = 688
+    critdamage2 = 9729
     };
 getRow(_)->[].
 

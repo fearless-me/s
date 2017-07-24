@@ -19,6 +19,13 @@
 -define(Condition1, -1). %%杀怪成就
 -define(Condition2, -2). %%宝石镶嵌成就
 
+%% 黑暗之地/深红熔渊1~5层地图ID，用于成就统计
+-define(MapID_Darkness_1, 501).
+-define(MapID_Darkness_2, 502).
+-define(MapID_Darkness_3, 503).
+-define(MapID_Darkness_4, 504).
+-define(MapID_Darkness_5, 505).
+
 -export([
 	achieveEvent/1
 ]).
@@ -45,23 +52,28 @@ initAchieve() ->
 %%领取成就值
 -spec receiveAchieve(AchieveID::uint()) -> ok.
 receiveAchieve(AchieveID) ->
-	AchieveList = playerState:getPlayerAchieveList(),
-	case canGetAchieve(AchieveID, AchieveList) of
-		#recAchieve{
-			aScheduleGetLevel = GetLevel
-		} = Achieve ->
-			NewAchieve = Achieve#recAchieve{ aScheduleGetLevel = GetLevel + 1 },
-			NewAchieveList = lists:keyreplace(
-				AchieveID, 
-				#recAchieve.aID, 
-				AchieveList, 
-				NewAchieve
-			),
-			playerState:setPlayerAchieveList(NewAchieveList),
-			addAchieveReward(AchieveID, GetLevel + 1),
-			sendScheduleToClient(NewAchieve);
-		Error ->
-			playerMsg:sendErrorCodeMsg(Error)
+
+	case playerMainMenu:isOpen(?ModeType_Achievement) of
+		true ->
+			AchieveList = playerState:getPlayerAchieveList(),
+			case canGetAchieve(AchieveID, AchieveList) of
+				#recAchieve{
+					aScheduleGetLevel = GetLevel
+				} = Achieve ->
+					NewAchieve = Achieve#recAchieve{ aScheduleGetLevel = GetLevel + 1 },
+					NewAchieveList = lists:keyreplace(
+						AchieveID,
+						#recAchieve.aID,
+						AchieveList,
+						NewAchieve
+					),
+					playerState:setPlayerAchieveList(NewAchieveList),
+					addAchieveReward(AchieveID, GetLevel + 1),
+					sendScheduleToClient(NewAchieve);
+				Error ->
+					playerMsg:sendErrorCodeMsg(Error)
+			end;
+		_->skip
 	end.
 
 %% 更新成就进度
@@ -84,11 +96,20 @@ achieveEvent(MapID) ->
 		%#mapsettingCfg{type = ?MapTypeActivity, subtype = ?MapSubTypeChaos} -> 废弃
 		%	achieveEvent(?Achieve_ChaosBattlefield, [1]);
 		#mapsettingCfg{type = ?MapTypeActivity, subtype = ?MapSubTypeDarkness} ->
-			achieveEvent(?Achieve_DarkPlace1, [MapID, 1]),
-			achieveEvent(?Achieve_DarkPlace2, [MapID, 1]),
-			achieveEvent(?Achieve_DarkPlace3, [MapID, 1]),
-			achieveEvent(?Achieve_DarkPlace4, [MapID, 1]),
-			achieveEvent(?Achieve_DarkPlace5, [MapID, 1]);
+			case MapID of
+				?MapID_Darkness_1 ->
+					achieveEvent(?Achieve_DarkPlace1, [1]);
+				?MapID_Darkness_2 ->
+					achieveEvent(?Achieve_DarkPlace2, [1]);
+				?MapID_Darkness_3 ->
+					achieveEvent(?Achieve_DarkPlace3, [1]);
+				?MapID_Darkness_4 ->
+					achieveEvent(?Achieve_DarkPlace4, [1]);
+				?MapID_Darkness_5 ->
+					achieveEvent(?Achieve_DarkPlace5, [1]);
+				_ ->
+					skip
+			end;
 		_ ->
 			skip
 	end,
@@ -199,12 +220,25 @@ isExistAchieve(AchieveID, AchieveList) ->
 
 -spec isCanGetAchieve(Achieve::#recAchieve{}) -> true | uint().
 isCanGetAchieve(#recAchieve{
+	aID = AID,
 	aScheduleLevel = Level, 
 	aScheduleGetLevel = GetLevel
 	}) ->
-	case Level > GetLevel of
+	case Level >= GetLevel of
 		true ->
-			true;
+			case getCfg:getCfgByKey(cfg_achievement, AID) of
+				#achievementCfg{reward = Rewards} ->
+					case GetLevel < erlang:length(Rewards) of
+						true ->
+							true;
+						_ ->
+							?ERROR_OUT("can get achieve1:~p,~p", [playerState:getRoleID(), AID]),
+							?ErrorCode_AchieveErrorNotComplete
+					end;
+				_ ->
+					?ERROR_OUT("can get achieve2:~p,~p", [playerState:getRoleID(), AID]),
+					?ErrorCode_AchieveErrorNotComplete
+			end;
 		_ ->
 			?ErrorCode_AchieveErrorNotComplete
 	end.

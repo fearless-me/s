@@ -10,6 +10,7 @@
 -author("tiancheng").
 
 -include("copyMapScheduleDefine.hrl").
+-include("cfg_show2.hrl").
 
 %% API
 -export([
@@ -19,7 +20,8 @@
 	checkCompleteCopyMap/2,
 	getCopyMapScheduleConf/2,
 	animationOver/2,
-	characterOver/2
+	characterOver/2,
+	show2/1
 ]).
 
 %%玩家在副本中杀死了一个怪物
@@ -195,7 +197,7 @@ updateCompleteParallel(#recPSConf{} = PS, {GroupID, Type, ID, Number, AccList}) 
 		true ->
 			%% 又完成一个并行进度，初始化
 			?DEBUG_OUT("updateCompleteParallel.initParallelScheduleConf:~p,~p,~p",[self(), mapState:getMapId(GroupID), NPS]),
-			copyMapScheduleInit:initParallelScheduleConf(GroupID, NPS#recPSConf.completeDo),
+			copyMapScheduleInit:initParallelScheduleConf(GroupID, NPS#recPSConf.myConfigID, NPS#recPSConf.completeDo),
 			{GroupID, Type, ID, Number, AccList};
 		_ ->
 			%% 还没完成，继续放入下一轮并行进度
@@ -308,7 +310,7 @@ checkCompleteCopyMap(GroupID, MonsterCode) ->
 		{_InitConf, SettleConf} when SettleConf > 0 ->
 			case getCfg:getCfgPStack(cfg_copymapScheduleSettle, SettleConf) of
 				#copymapScheduleSettleCfg{iskillall = IsKillAll, killmonster = K,
-					collect = C, countdown = _CD, task = _T, defeatmonster = DefeatMonsters} ->
+										  collect = C, countdown = _CD, task = _T, defeatmonster = DefeatMonsters} ->
 					case IsKillAll > 0 of
 						true ->
 							checkIsKillAllMonster(GroupID, MonsterCode, DefeatMonsters) andalso checkAnimationOver(GroupID);
@@ -325,7 +327,7 @@ checkCompleteCopyMap(GroupID, MonsterCode) ->
 %%检查动画播放完了没
 checkAnimationOver(GroupID)->
 	copyMapScheduleState:getMapScheduleAnimationID(GroupID) =:= undefined andalso
-		copyMapScheduleState:getMapScheduleCharacterID(GroupID) =:= undefined.
+	copyMapScheduleState:getMapScheduleCharacterID(GroupID) =:= undefined.
 
 %% 检查是否击杀所有的怪物
 checkIsKillAllMonster(GroupID, MonsterCode, DefeatMonsters) ->
@@ -334,7 +336,7 @@ checkIsKillAllMonster(GroupID, MonsterCode, DefeatMonsters) ->
 	MatchSpec = ets:fun2ms(
 		fun(Object) when
 			erlang:is_pid(Object#recMapObject.pid) andalso
-				Object#recMapObject.mapPid =:= MapPid andalso
+			Object#recMapObject.mapPid =:= MapPid andalso
 				Object#recMapObject.groupID =:= GroupID andalso
 				Object#recMapObject.type =:= ?ObjTypeMonster andalso
 				Object#recMapObject.code /= MonsterCode ->
@@ -607,9 +609,9 @@ getCopyMapProcessRec(GroupID) ->
 	Cur = copyMapScheduleState:getMapSchedule(GroupID),
 	Max = copyMapScheduleState:getMapScheduleMax(GroupID),
 	case erlang:is_integer(Cur)
-		andalso erlang:is_integer(Max)
-		andalso Cur >= 0 andalso Cur =< 256
-		andalso Max >= 0 andalso Cur =< 256 of
+		 andalso erlang:is_integer(Max)
+		 andalso Cur >= 0 andalso Cur =< 256
+		 andalso Max >= 0 andalso Cur =< 256 of
 		true ->
 			#pk_GS2U_CopyMapProcess{
 				curSchedule = Cur,
@@ -666,8 +668,8 @@ completeCopyMapFailed(GroupID) ->
 	ok.
 
 %% 完成副本
--spec completeCopyMap(GroupID::uint()) -> ok.
-completeCopyMap(GroupID) ->
+-spec completeCopyMap(uint()|#copyMapScheduleComplete{}) -> ok.
+completeCopyMap(#copyMapScheduleComplete{groupID = GroupID}) ->
 	%% 当前进度+1
 	CurPlan = copyMapScheduleState:getMapSchedule(GroupID),	%% +1前保存已完成的进度索引，用于触发正确的触发事件
 	Plan = copyMapScheduleState:getMapSchedule(GroupID) + 1,
@@ -762,6 +764,74 @@ completeCopyMap(GroupID) ->
 	end,
 
 	sendProcessToPlayer(GroupID),
+	ok;
+
+%% 完成副本
+completeCopyMap(GroupID) ->
+	CurPlan = copyMapScheduleState:getMapSchedule(GroupID),
+	MaxPlan = copyMapScheduleState:getMapScheduleMax(GroupID),
+	CompletePlan = erlang:min(CurPlan, MaxPlan),
+	case getCopyMapScheduleConf(gameMapLogic:getMapID(GroupID), CompletePlan) of
+		{_InitConf, SettleConf} when SettleConf > 0 ->
+			Args = #copyMapScheduleComplete{
+				groupID = GroupID,
+				scheduleID = CompletePlan,
+				configID = SettleConf
+			},
+			case getCfg:getCfgPStack(cfg_copymapScheduleSettle, SettleConf) of
+				#copymapScheduleSettleCfg{play_show2 = Show2ID, cd_show2 = CD} ->
+					case copyMapScheduleInit:findShow2ByGroupID(Show2ID) of
+						true ->
+							?DEBUG_OUT("[DebugForShow2] completeCopyMap/1 GroupID:~w SettleConf:~w Show2ID:~w CD:~w", [GroupID, SettleConf, Show2ID, CD]),
+							TimerRef = erlang:send_after(CD * 1000, self(), {show2, self(), {GroupID, SettleConf, Show2ID, false}}),
+							mapState:setShow2Data(GroupID, {TimerRef, Args#copyMapScheduleComplete{show2ID = Show2ID}});
+						_ ->
+							?DEBUG_OUT("[DebugForShow2] completeCopyMap/1"),
+							completeCopyMap(Args)
+					end;
+				_ ->
+					?DEBUG_OUT("[DebugForShow2] completeCopyMap/1"),
+					completeCopyMap(#copyMapScheduleComplete{groupID = GroupID})
+			end;
+		_ ->
+			?DEBUG_OUT("[DebugForShow2] completeCopyMap/1"),
+			completeCopyMap(#copyMapScheduleComplete{groupID = GroupID})
+	end.
+
+%% 处理show2完成事件
+-spec show2({GroupID::uint(), ConfigID::uint(), Show2ID::uint(), false}) -> ok.
+show2({GroupID, ConfigID, Show2ID, false}) ->
+	case mapState:getShow2Data(GroupID) of
+		{TimerRef, #copyMapScheduleComplete{groupID = GroupID, configID = ConfigID, show2ID = Show2ID} = Rec} ->
+			?DEBUG_OUT("[DebugForShow2] show2/1 false hit GroupID:~w ConfigID:~w Show2ID:~w", [GroupID, ConfigID, Show2ID]),
+
+			%% 清除暂存数据
+			case erlang:is_reference(TimerRef) of
+				true ->
+					erlang:cancel_timer(TimerRef);
+				_ ->
+					skip
+			end,
+			mapState:delShow2Data(GroupID),
+
+			%% 通知客户端完成show2
+			MapID = gameMapLogic:getMapID(GroupID),
+			Msg = #pk_U2GS2U_CopyMapScheduleShow2{
+				mapID = MapID,
+				show2ID = Show2ID,
+				groupID = GroupID,
+				scheduleID = ConfigID,
+				isInit = false
+			},
+			List = mapView:getGroupObject(mapState:getMapPlayerEts(), GroupID),
+			[mapView:sendNetMsgToNetPid(NetPid, Msg) || #recMapObject{netPid = NetPid} <- List],
+
+			%% 正式结算进度
+			completeCopyMap(Rec);
+		_ ->
+			?DEBUG_OUT("[DebugForShow2] show2/1 false skip GroupID:~w ConfigID:~w Show2ID:~w", [GroupID, ConfigID, Show2ID]),
+			skip
+	end,
 	ok.
 
 %% 计算副本
@@ -789,16 +859,17 @@ onCopyMapAward(GroupID, Score) when erlang:is_integer(Score) ->
 	PlayerEts = mapState:getMapPlayerEts(),
 	MapID = gameMapLogic:getMapID(GroupID),
 	MapPid = self(),
-	RewardFun = fun(#recMapObject{pid = PlayerPid, mapPid = MPid, groupID = GID}) when erlang:is_pid(PlayerPid) ->
-		case MPid =:= MapPid andalso GID =:= GroupID andalso misc:is_process_alive(PlayerPid) of
-			true ->
-				psMgr:sendMsg2PS(PlayerPid, copyMapReward, {Score, MapID});
-			false ->
+	RewardFun =
+		fun(#recMapObject{pid = PlayerPid, mapPid = MPid, groupID = GID}) when erlang:is_pid(PlayerPid) ->
+			case MPid =:= MapPid andalso GID =:= GroupID andalso misc:is_process_alive(PlayerPid) of
+				true ->
+					psMgr:sendMsg2PS(PlayerPid, copyMapReward, {Score, MapID});
+				false ->
+					skip
+			end;
+			(_NotPid) ->
 				skip
-		end;
-		(_NotPid) ->
-			skip
-				end,
+		end,
 	myEts:etsFor(PlayerEts, RewardFun),
 	%% 新版好友系统需求，每日第一次好友组队完成副本可增加亲密度 begin
 	%% 队友两两调用该函数，内部已做判断处理，所有进程可调用

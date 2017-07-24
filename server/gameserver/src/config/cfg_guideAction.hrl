@@ -88,8 +88,11 @@
 
         %%: 功能模块开启后才会触发
         %%: 0，无效
+        %%: -1，引导任务，点击后不停止玩家移动
         %%: id，mainMenu里功能模块id
-        module
+        module,
+
+        closemsgpanle
 
  }).
 

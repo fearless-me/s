@@ -168,7 +168,7 @@ refreshRank(RankType, FreshTime) ->
 	?LOG_OUT("refreshRank:~p,~p", [RankType, FreshTime]),
 
 	%% 取排行榜需要的人数
-	#rankCfg{player_number = Number} = getCfg:getCfgPStack(cfg_rank, RankType),
+	#rankCfg{player_number = Number} = Cfg = getCfg:getCfgPStack(cfg_rank, RankType),
 	RealNumber = erlang:min(Number, 100),
 	RankList = rankFresh:refreshRank(RankType, RealNumber, FreshTime),
 
@@ -198,8 +198,10 @@ refreshRank(RankType, FreshTime) ->
 	RL = queryRankData(RankType),
 %%	csSendMsg:sendMsg2AllGSServer(newPlayerRank, {RankType, RL}),
 	rankFresh:refreshRank2Ets(RankType, RL),
-
-	dealWarriorTrialRank(FreshTime, RankType, RankList),
+%%	====> 女神禁闭室不做特殊处理
+%%	http://192.168.2.32:8080/browse/LUNA-3190
+%%	dealWarriorTrialRank(FreshTime, RankType, RankList),
+%%	<====
 	%处理世界等级相关
 	dealWorldLevel(RankType, RankList),
 
@@ -215,6 +217,10 @@ refreshRank(RankType, FreshTime) ->
 
 	%% 记录日志
 	saveRankLog(RankType, RankSqlList),
+
+	%% 对邮件发奖类型排行榜进行发奖
+	rewardMail(RankList, Cfg),
+
 	ok.
 
 
@@ -304,7 +310,7 @@ requestRankReward(RankType, RoleID, LastGetTime) ->
 			%% 还没领过
 			SortID = getRankSort(RankType, RoleID),
 			case getCfg:getCfgPStack(cfg_rank, RankType) of
-				#rankCfg{rank_reward = Reward} when erlang:is_list(Reward) ->
+				#rankCfg{rank_reward = Reward, rewardType = ?RankRewardType_Draw} when erlang:is_list(Reward) ->
 					Fun = fun({SS, SE, _ID, _Number}) ->
 						if
 							SortID >= SS andalso SortID =< SE ->
@@ -329,80 +335,82 @@ requestRankReward(RankType, RoleID, LastGetTime) ->
 			%% 已经领过了
 			false
 	end.
-%%勇者试炼排行榜相关操作
--spec dealWarriorTrialRank(FreshTime :: uint64(), RankType::uint8(), RankList::[#recSaveRank{},...]) -> ok.
-dealWarriorTrialRank(FreshTime, ?PlayerRankType_WarriorTrial, RankList) ->
-	%%如果是星期一就清空玩家勇士试炼周数据
-	NowTime = case FreshTime > 0 of
-				  true ->
-					  FreshTime;
-				  _ ->
-					  time:getSyncTime1970FromDBS()
-			  end,
-	{{Y, M, D}, {_H, _Min, _S}} = calendar:gregorian_seconds_to_datetime(NowTime),
-	%% 如果FreshTime为0表示是GM指令强制刷新
-	case FreshTime =:= 0 orelse calendar:day_of_the_week(Y, M, D) =:= 1 of
-		true ->
-			Sql = qlc:q([Infos || Infos <- mnesia:table(rec_warrior_trial), Infos#rec_warrior_trial.tswkTrialSchedule > 0]),
-			case edb:selectRecord(Sql) of
-				WarriorInfos ->
-					%%给玩家发奖励
-					Fun = fun(#rec_warrior_trial{roleID = RoleID} = WarriorInfo) ->
-						%%获取该玩家的排名
-						Rank = case lists:keyfind(RoleID, #recSaveRank.roleID, RankList) of
-								   #recSaveRank{rankSort = R} ->
-									   R;
-								   _ ->
-									   999999
-							   end,
-						%%发奖励
-						AwardFun = fun({SS, SE, ID, Number}, {AccID, AccNum,Index}) ->
-							case Rank >= SS andalso Rank =< SE of
-								true ->
-									{ID, Number, Index + 1};
-								_ ->
-									{AccID, AccNum, Index}
-							end
-						end,
-						#globalsetupCfg{setpara = AwardList} = getCfg:getCfgPStack(cfg_globalsetup, shilianjiangli),
-						{AwardID, AwardNumber, AwardIndex} = lists:foldl(AwardFun, {0, 0, 0}, AwardList),
-						#itemCfg{name = Name} = getCfg:getCfgPStack(cfg_item, AwardID),
-						MailTitle = stringCfg:getString(warriorMailTitle),
-						MailContent = case AwardIndex < erlang:length(AwardList) of
-										  true ->
-											  stringCfg:getString(warriorMailContent1,[Rank, Name]);
-										  _ ->
-											  stringCfg:getString(warriorMailContent2,[Name])
-									  end,
-						%%发送奖励邮件
-						sendRankAwardByMail(MailTitle, MailContent, RoleID, [{AwardID, AwardNumber}], ?ItemSourceWarriorRank, ""),
-						?LOG_OUT("Clear RoleID:~p warriorTrial week Rank",[RoleID]),
-						%%清空周数据
-						NewWarriorInfo = WarriorInfo#rec_warrior_trial{tswkTrialSchedule = 0, tswkTrialTime = 0},
-						edb:checkAndSave(rec_warrior_trial, RoleID, NewWarriorInfo, new_rec_warrior_trial, update_rec_warrior_trial),
-						%%清rolekeyinfo的相关值
-						case core:queryRoleKeyInfoByRoleID(RoleID) of
-							#?RoleKeyRec{}->
-                                gsSendMsg:sendMsg2PublicDMSaveData({?RoleKeyRec, RoleID, [{#?RoleKeyRec.wtPhase, 0}, {#?RoleKeyRec.wtPhaseTime, 0}]});
-							_ ->
-								?ERROR_OUT("can't find rolekeyinfo[~p]",[RoleID])
-						end
-					end,
-					lists:foreach(Fun, WarriorInfos)
-			end,
-			%%清除RoleKeyInfo中的勇者试炼数据
-			clearWarriorTrialDataInRoleKeyInfo(),
-			%%通知在线玩家清零排行需要的缓存数据
-			psMgr:sendMsg2PS(?PsNamePlayerMgr, pidMsg2AllOLPlayer, {cleanPlayerWarriorData, {}});
-		_ ->
-			skip
-	end,
-	ok;
-dealWarriorTrialRank(_,_,_) ->
-	ok.
-
-clearWarriorTrialDataInRoleKeyInfo() ->
-	gsSendMsg:sendMsg2PublicDMSaveData(clearWarriorTrialDataInRoleKeyInfo).
+% 未使用
+%%%勇者试炼排行榜相关操作
+%-spec dealWarriorTrialRank(FreshTime :: uint64(), RankType::uint8(), RankList::[#recSaveRank{},...]) -> ok.
+%dealWarriorTrialRank(FreshTime, ?PlayerRankType_WarriorTrial, RankList) ->
+%	%%如果是星期一就清空玩家勇士试炼周数据
+%	NowTime = case FreshTime > 0 of
+%				  true ->
+%					  FreshTime;
+%				  _ ->
+%					  time:getSyncTime1970FromDBS()
+%			  end,
+%	{{Y, M, D}, {_H, _Min, _S}} = calendar:gregorian_seconds_to_datetime(NowTime),
+%	%% 如果FreshTime为0表示是GM指令强制刷新
+%	case FreshTime =:= 0 orelse calendar:day_of_the_week(Y, M, D) =:= 1 of
+%		true ->
+%			Sql = qlc:q([Infos || Infos <- mnesia:table(rec_warrior_trial), Infos#rec_warrior_trial.tswkTrialSchedule > 0]),
+%			case edb:selectRecord(Sql) of
+%				WarriorInfos ->
+%					%%给玩家发奖励
+%					Fun = fun(#rec_warrior_trial{roleID = RoleID} = WarriorInfo) ->
+%						%%获取该玩家的排名
+%						Rank = case lists:keyfind(RoleID, #recSaveRank.roleID, RankList) of
+%								   #recSaveRank{rankSort = R} ->
+%									   R;
+%								   _ ->
+%									   999999
+%							   end,
+%						%%发奖励
+%						AwardFun = fun({SS, SE, ID, Number}, {AccID, AccNum,Index}) ->
+%							case Rank >= SS andalso Rank =< SE of
+%								true ->
+%									{ID, Number, Index + 1};
+%								_ ->
+%									{AccID, AccNum, Index + 1}
+%							end
+%						end,
+%						#globalsetupCfg{setpara = AwardList} = getCfg:getCfgPStack(cfg_globalsetup, shilianjiangli),
+%						{AwardID, AwardNumber, AwardIndex} = lists:foldl(AwardFun, {0, 0, 0}, AwardList),
+%						#itemCfg{name = Name} = getCfg:getCfgPStack(cfg_item, AwardID),
+%						MailTitle = stringCfg:getString(warriorMailTitle),
+%						MailContent = case AwardIndex < erlang:length(AwardList) of
+%										  true ->
+%											  stringCfg:getString(warriorMailContent1,[Rank, Name]);
+%										  _ ->
+%											  stringCfg:getString(warriorMailContent2,[Name])
+%									  end,
+%						%%发送奖励邮件
+%						sendRankAwardByMail(MailTitle, MailContent, RoleID, [{AwardID, AwardNumber}], ?ItemSourceWarriorRank, ""),
+%						?LOG_OUT("Clear RoleID:~p warriorTrial week Rank",[RoleID]),
+%						%%清空周数据
+%						NewWarriorInfo = WarriorInfo#rec_warrior_trial{tswkTrialSchedule = 0, tswkTrialTime = 0},
+%						edb:checkAndSave(rec_warrior_trial, RoleID, NewWarriorInfo, new_rec_warrior_trial, update_rec_warrior_trial),
+%						%%清rolekeyinfo的相关值
+%						case core:queryRoleKeyInfoByRoleID(RoleID) of
+%							#?RoleKeyRec{}->
+%                                gsSendMsg:sendMsg2PublicDMSaveData({?RoleKeyRec, RoleID, [{#?RoleKeyRec.wtPhase, 0}, {#?RoleKeyRec.wtPhaseTime, 0}]});
+%							_ ->
+%								?ERROR_OUT("can't find rolekeyinfo[~p]",[RoleID])
+%						end
+%					end,
+%					lists:foreach(Fun, WarriorInfos)
+%			end,
+%			%%清除RoleKeyInfo中的勇者试炼数据
+%			clearWarriorTrialDataInRoleKeyInfo(),
+%			%%通知在线玩家清零排行需要的缓存数据
+%			psMgr:sendMsg2PS(?PsNamePlayerMgr, pidMsg2AllOLPlayer, {cleanPlayerWarriorData, {}}),
+%			ok;
+%		_ ->
+%			skip
+%	end,
+%	ok;
+%dealWarriorTrialRank(_,_,_) ->
+%	ok.
+%
+%clearWarriorTrialDataInRoleKeyInfo() ->
+%	gsSendMsg:sendMsg2PublicDMSaveData(clearWarriorTrialDataInRoleKeyInfo).
 
 -spec dealWorldLevel(RankType::uint8, RankList::[#recSaveRank{},...]) -> ok.
 dealWorldLevel(?PlayerRankType_LevelExp, RankList) ->
@@ -452,3 +460,33 @@ sendMail(ToRoleID, Title, Content, ItemID, ItemNumber, IsBind, Reason,MailSubjoi
 			skip
 	end,
 	ok.
+
+
+%% 排行榜刷新时对发奖类型?RankRewardType_Mail的排行榜进行邮件发奖
+-spec rewardMail([#recSaveRank{}, ...], #rankCfg{}) -> no_return().
+rewardMail(_, #rankCfg{rewardType = RewardType}) when RewardType =/= ?RankRewardType_Mail ->
+	skip;
+rewardMail([], _) ->
+	ok;
+rewardMail([#recSaveRank{rankSort = SortID, roleID = RoleID} | T], #rankCfg{rank_reward = Reward} = Cfg) ->
+	rewardMail_reward(RoleID, SortID, Reward),
+	rewardMail(T, Cfg).
+
+rewardMail_reward(RoleID, SortID, ListReward) ->
+	FunFind =
+		fun({IDMin, IDMax, ItemID, ItemCount}, Acc) ->
+			case SortID >= IDMin andalso SortID =< IDMax of
+				true ->
+					{true, {ItemID, ItemCount}};
+				_ ->
+					Acc
+			end
+		end,
+	case misc:foldlEx(FunFind, {false, 0}, ListReward) of
+		{false, _} ->
+			skip;
+		{true, Reward} ->
+			MailTitle = stringCfg:getString(charmRankTitle),
+			MailContent = stringCfg:getString(charmRankContent, [SortID]),
+			sendRankAwardByMail(MailTitle, MailContent, RoleID, [Reward], ?ItemSourceCharmRank, "")
+	end.

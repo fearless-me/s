@@ -5,13 +5,20 @@
 -record(mainmenu_FunctionOpenCfg, {
         id,
 
-        %%: 李菡琦:
-        %%: 开启等级
-        level,
+        %%: user:
+        %%: 1，等级开启，param为等级
+        %%: 2，完成任务开启，param为任务id
+        type,
 
-        %%: 李菡琦:
-        %%: 开启功能名称
+        %%: 参数 
+        param,
+
+        %%: 按钮名称
         name,
+
+        %%: user:
+        %%: 按钮描述
+        namedescribe,
 
         %%: 李菡琦:
         %%: 开启功能描述

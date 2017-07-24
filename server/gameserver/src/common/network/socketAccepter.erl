@@ -60,13 +60,13 @@ start_link(Module,#listenTcpOptions{port = Port} = Option) when is_integer(Port)
 init([Module,#listenTcpOptions{port = Port,listenDelay = ListenDelay} = Option]) ->
 	?LOG_OUT("~p init",[?MODULE]),
 	process_flag(trap_exit, true),
-	
+
 	%%查看是否有延迟监听的选项，如果有则延迟监听，否则立即监听
 	case ListenDelay of
 		N when erlang:is_integer(N), N > 0 ->
 			%%延迟N秒监听
 			erlang:send_after(N * 1000, self(), startListen),
-			
+
 			{ok,
 			 #acceptState{
 						  module = Module,
@@ -126,7 +126,7 @@ handle_info(Info,State) ->
 	{noreply,State}.
 
 terminate(Reason, _State) ->
-	?ERROR_OUT( "~p ~p terminate Reason[~p]", [?MODULE, self(), Reason] ),
+	?ERROR_OUT("~p ~p terminate Reason[~p]", [?MODULE, self(), Reason]),
 	ok.
 
 code_change(_OldVsn, State, _Extra) ->
@@ -143,30 +143,15 @@ accept(ListSock,CliSocket,#acceptState{socket = ListSock,module = Module,option 
 				  ?ERROR_OUT("accept exception:~p",[Why]),
 				  failed
 		  end,
-	
+
 	%% 这里无论如何都需要监听
 	%% Signal the network driver that we are ready to accept another connection
 	case prim_inet:async_accept(ListSock, -1) of
 		{ok, NewRef} ->
-			try
-				case misc:getRemoteIP_Port(CliSocket) of
-					{IP,Port} ->
-						case Ret of
-							{ok,Pid1} ->
-								?LOG_OUT("Pid[~p] Client[~p][~p]:[~p] connnected,NewRef:~p!",[Pid1,IP,Port,CliSocket,NewRef]);
-							_ ->
-								?LOG_OUT("Client[~p][~p]:[~p] connnected,NewRef:~p,But start childOtp failed!",[CliSocket,IP,Port,NewRef])
-						end;
-					_ ->
-						?ERROR_OUT("Error CliSocket[~p] Ref:~p cannot get RemoteIP",[CliSocket,NewRef])
-				end
-			catch
-				_:Why1 ->
-					?ERROR_OUT("getRemoteIP_Port exception:~p",[Why1])
-			end,
+			?LOG_OUT("prim_inet:async_accept going on CliSocket:~p, NewRef:~p, Ret:~p", [CliSocket, NewRef, Ret]),
 			{noreply, State#acceptState{acceptor = NewRef}};
 		{error, NewRef} ->
-			?ERROR_OUT( "~p prim_inet:async_accept ListSock[~p] error NewRef[~p]", [self(), ListSock, NewRef] ),
+			?ERROR_OUT("~p prim_inet:async_accept ListSock[~p] error NewRef[~p]", [self(), ListSock, NewRef]),
 			{noreply, State#acceptState{acceptor = NewRef}}
 	end.
 
@@ -175,10 +160,10 @@ setAcceptedOption(ListSock,CliSocket,Module,Option) ->
 			   ok ->
 				   ok;
 			   {error, Reason1} ->
-				   ?ERROR_OUT( "~p set_sockopt ListSock[~p], CliSocket[~p] error Reason1[~p]", [self(), ListSock, CliSocket, Reason1] ),
+				   ?ERROR_OUT("~p set_sockopt ListSock[~p], CliSocket[~p] error Reason1[~p]", [self(), ListSock, CliSocket, Reason1]),
 				   failed
 		   end,
-	
+
 	Ret2 = case Ret1 of
 			   ok ->
 				   case inet:setopts(CliSocket, ?TCP_OPTIONS) of
@@ -191,7 +176,7 @@ setAcceptedOption(ListSock,CliSocket,Module,Option) ->
 			   _ ->
 				   Ret1
 		   end,
-	
+
 	case Ret2 of
 		ok ->
 			%% New client connected - spawn a new process using the simple_one_for_one supervisor.
@@ -201,10 +186,11 @@ setAcceptedOption(ListSock,CliSocket,Module,Option) ->
 						ok ->
 							{ok,Pid};
 						{error, Reason3} ->
-							?ERROR_OUT("gen_tcp:controlling_process error, Reason:~p",[Reason3]),
+							?ERROR_OUT("gen_tcp:controlling_process error, Socket:~p, Reason:~p",[CliSocket, Reason3]),
 							failed
 					end;
-				_ ->
+				Reason4 ->
+					?ERROR_OUT("socketSup:start_child error, Socket:~p, Reason:~p",[CliSocket, Reason4]),
 					failed
 			end;
 		_ ->
@@ -216,7 +202,7 @@ startListen(Port) ->
 		{ok, Listen_socket} ->
 			%%first accepting
 			{ok, Ref} = prim_inet:async_accept(Listen_socket, -1),
-			?LOG_OUT( "~p ~p Listen_socket ~p Ref:~p", [?MODULE, self(), Listen_socket,Ref] ),
+			?LOG_OUT("~p ~p Listen_socket ~p Ref:~p", [?MODULE, self(), Listen_socket,Ref]),
 			{Listen_socket, Ref};
 		Exception ->
 			?ERROR_OUT("Error listen Port[~p],Exception[~p]",[Port,Exception]),

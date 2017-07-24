@@ -6,7 +6,7 @@
         %%: id，不能重复
         id,
 
-        %%: 提示文字，调取strings表的id字段
+        %%: 提示文字，调取severstrings表的id字段
         stringid,
 
         %%: 显示下一条的等待时间

@@ -23,7 +23,9 @@
 	isInDoubleMountState/0,
 	isDoubleMountType/1,
 	getPetMountID1/0,
-	getGuestRoleID/0
+	getGuestRoleID/0,
+
+	getDoubleMount/0	%% 获取双人骑宠状态
 ]).
 -export([
 	onOtherinviteDoubleMount/2,
@@ -310,7 +312,8 @@ inviteOtherDoubleMountGoAck(_FromPid, Data)->
 			?MOUNT_OUT("doubleMout recive go ack"),
 %%			Rec = #recDoublePetMount{petID = PetID, petCode = PetCode, ownerCode = SelfCode,
 %%				ownerRoleID = SelfRoleID, guestCode = TarCode, guestRoleID = TarRoleID},
-			playerPet:sendPetOnMountResult(PetCode, PetID, SelfCode, TarCode);
+			playerPet:sendPetOnMountResult(PetCode, PetID, SelfCode, TarCode),
+			playerRace:onApply();	%% 跨服骑宠竞速：有人上了自己的双人坐骑，如果自己已经报名，则需要重新报名
 		_ when MountState =:= false ->
 			resetDoubleMount(),
 			?MOUNT_OUT("doubleMout recive go ack , mountstate false");
@@ -395,7 +398,12 @@ checkCanbeInvite(SrcRoleID)->
 				0 ->
 					{false, ?ErrorCode_PetDoubleMountTargetOffLine};
 				Code ->
-					docheckInviteTarget(Code)
+				  case playerPet:canOnMount() of
+					  true ->
+						  docheckInviteTarget(Code);
+					  _->
+						  {false, ?ErrorCode_PetDoubleMountTargetCant}
+				  end
 			end
 	end.
 

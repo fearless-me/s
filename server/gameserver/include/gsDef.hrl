@@ -24,8 +24,10 @@
 -define(PsNameLS,lsMainOtp_PID).
 %%公共进程进程名
 -define(PsNameCS,csPID).
-%%跨服进程进程名
--define(PsNameCros,crosPID).
+%%跨服进程进程名(普通服所在进程)
+-define(PsNameNormalCross, normalCrossPID).
+%%跨服进程进程名(跨服所在进程)
+-define(PsNameCrossNormal, crossNormalPID).
 %%跨服混沌战场Pid
 -define(PsNameCrosHd, crosHdPID).
 %%跨服竞技场战场Pid
@@ -65,6 +67,17 @@
 -define(PlayerDataMgr, playerDataMgrOtp).
 %%公共数据管理进程
 -define(PublicDataMgr, publicDataMgrOtp).
+%%世界聊天管理进程
+-define(ChatOtp, chatOtp).
+%%家园主进程
+-define(HomeOtp, homeOtp).
+%%世界聊天管理进程
+-define(LogDBPID, logDBPID).
+%%数据库进程名（注意，以后会修改了多个进程，所以这个是临时的）
+-define(PsNameDB, dbMgrOtp).
+%%主数据保存进程
+-define(PsNameDBMain, dbMainPID).
+
 
 %%%===================================================================>>>
 

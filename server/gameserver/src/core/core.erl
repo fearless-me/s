@@ -23,10 +23,7 @@
 	sendMsgToMapMgr/3,
 	callMap/3,
 	sendMsgToActivity/3,
-	setGlobalVariant/2,
-	setGlobalBitVariant/2,
-	setWorldVariant/2,
-	setWorldBitVariant/2,
+	sendMsgToActivityMgrCross/2,
 	packNetMsg/1,
 	boardcastAllGSNetMsg/1,
 	boardcastAllGSMsg/2,
@@ -46,7 +43,23 @@
 	getWorldLevel/0,
 	utcTimeIsDayReset/1,
 	isDay/0,
-	isSingleCopyMap/1
+	isSingleCopyMap/1,
+	isAssistCopyMapByCopyMapPID/2,
+	isTransformationMap/1,
+	getRealDBIDByUID/1,		%% 查询指定UID归属于哪个dbID
+	queryServerNameByUID/1,	%% 查询目标服务器的名字 本服务器名请使用globalSetup:getServerName/0
+	queryCrossRoleBase/1	%% 根据角色ID创建跨服角色基础信息，如果角色在跨服则可以在跨服调用，否则只能在归属服调用
+]).
+
+-export([
+	setGlobalVariant/2,
+	setGlobalBitVariant/2,
+	saveGlobalVariant/2,
+	saveGlobalBitVariant/1,
+	setWorldVariant/2,
+	setWorldBitVariant/2,
+	saveWorldVariant/2,
+	saveWorldBitVariant/1
 ]).
 
 -export([
@@ -70,11 +83,13 @@
 ]).
 
 %%是不是在跨服里
--spec isCross() ->boolean().
+-spec isCross() -> boolean().
 isCross() ->
-	case application:get_env(isCrossServer) of
-		{ok, V} ->V;
-		_ ->false
+	case config:getInt("serverType", ?ServerType_Normal) of
+		?ServerType_Normal -> false;
+		?ServerType_Cross -> true;
+		?ServerType_Test_Normal -> false;
+		?ServerType_Test_Cross -> true
 	end.
 
 %% 服务器ID，强制设为1
@@ -84,8 +99,9 @@ getServerID() -> globalSetup:getServerID().
 -spec getMapCfg(MapID) -> [] | #recGameMapCfg{} when
 	MapID::uint().
 getMapCfg(MapID) ->
-	MapMod = "cfg_gamemapcfg" ++ integer_to_list(MapID),
-	Module = list_to_atom(MapMod),
+%%	MapMod = "cfg_gamemapcfg" ++ integer_to_list(MapID),
+%%	Module = list_to_atom(MapMod),
+	Module = gameMapCfg:getMapCfg(MapID),
 	case Module:getRow(MapID) of
 		[]->
 			?ERROR_OUT("GetMapCfg err Module:~p Key1:~p, ~p",[Module, MapID, misc:getStackTrace()]),
@@ -172,9 +188,29 @@ sendMsgToActivity(ActivityType, MsgID, Msg) ->
 		error ->
 			skip;
 		ProcessName ->
-			psMgr:sendMsg2PS(ProcessName, MsgID, Msg)
+			case getCfg:getCfgByKey(cfg_activity, ActivityType) of
+				#activityCfg{type = 0} ->	%% 本地活动
+					psMgr:sendMsg2PS(ProcessName, MsgID, Msg);
+				#activityCfg{type = 1} ->	%% 跨服活动
+					case core:isCross() of
+						true ->
+							psMgr:sendMsg2PS(ProcessName, MsgID, Msg);
+						_ ->
+							gsSendMsg:sendMsg2Cross(ProcessName, MsgID, Msg)
+					end
+			end
 	end,
 	ok.
+
+%% 发消息给跨服活动管理进程
+-spec sendMsgToActivityMgrCross(MsgID::term(), Msg::term()) -> no_return().
+sendMsgToActivityMgrCross(MsgID, Msg) ->
+	case core:isCross() of
+		true ->
+			psMgr:sendMsg2PS(?PsNameActivityMgr, MsgID, Msg);
+		_ ->
+			gsSendMsg:sendMsg2Cross(?PsNameActivityMgr, MsgID, Msg)
+	end.
 
 %%设置全局变量，并通知CS及其它所有GS
 -spec setGlobalVariant(VarIndex,Value) -> boolean() when VarIndex::uint(),Value::int().
@@ -193,23 +229,28 @@ setGlobalVariant(VarIndex,Value) ->
 setGlobalBitVariant(BitIndex, Value) ->
 	case variant:setGlobalBitVariant(BitIndex, Value) of
 		true ->
-			Index = BitIndex div ?Setting_Switch_BitSize,
-			Value1 = variant:getGlobalVariant(Index),
-			saveGlobalVariant(Index,Value1),
+			saveGlobalBitVariant(BitIndex),
 			playerVariant:sendGlobalBitVarChangeToAllOnlinePlayer(BitIndex, Value),
 			true;
 		_ ->
 			false
 	end.
 
+%% 保存全局变量
 -spec saveGlobalVariant(Index,Value) -> ok when
 	Index::uint(),Value::int().
 saveGlobalVariant(Index,Value) ->
 	gsSendMsg:sendMsg2DBServer(saveVariant, 0, #rec_variant0{
 		roleID = ?GlobalVariantID,
 		index = Index,
-		value = Value}),
-	ok.
+		value = Value}).
+
+%% 保存全局位变量
+-spec saveGlobalBitVariant(BitIndex::uint32()) -> ok.
+saveGlobalBitVariant(BitIndex) ->
+	Index = BitIndex div ?Setting_Switch_BitSize,
+	Value1 = variant:getGlobalVariant(Index),
+	saveGlobalVariant(Index, Value1).
 
 %%设置世界变量，并保存数据库
 -spec setWorldVariant(VarIndex,Value) -> boolean() when VarIndex::uint(),Value::int().
@@ -227,22 +268,27 @@ setWorldVariant(VarIndex,Value) ->
 setWorldBitVariant(BitIndex,Value) when erlang:is_boolean(Value)->
 	case variant:setWorldBitVariant(gsMainLogic:getServerID(),BitIndex, Value) of
 		true ->
-			Index = BitIndex div ?Setting_Switch_BitSize,
-			Value1 = variant:getWorldVariant(gsMainLogic:getServerID(),Index),
-			saveWorldVariant(Index,Value1),
+			saveWorldBitVariant(BitIndex),
 			true;
 		_ ->
 			false
 	end.
 
+%% 保存世界变量
 -spec saveWorldVariant(Index,Value) -> ok when
 	Index::uint(),Value::int().
 saveWorldVariant(Index,Value) ->
 	gsSendMsg:sendMsg2DBServer(saveVariant,0,#rec_variant0{
 		roleID = gsMainLogic:getServerID(),
 		index = Index,
-		value = Value}),
-	ok.
+		value = Value}).
+
+%% 保存世界位变量
+-spec saveWorldBitVariant(BitIndex::uint()) -> ok.
+saveWorldBitVariant(BitIndex) ->
+	Index = BitIndex div ?Setting_Switch_BitSize,
+	Value1 = variant:getWorldVariant(gsMainLogic:getServerID(),Index),
+	saveWorldVariant(Index, Value1).
 
 packNetMsg(Msg) ->
 	case netmsgWrite:packNetMsg(Msg) of
@@ -587,6 +633,31 @@ isSingleCopyMap(CopyMapID) ->
 			false
 	end.
 
+%% 是否允许变形
+-spec isTransformationMap(MapID::uint()) -> boolean().
+isTransformationMap(MapID) ->
+	case getCfg:getCfgByKey(cfg_mapsetting, MapID) of
+		#mapsettingCfg{distortion = 1} ->
+			true;
+		_ ->
+			false
+	end.
+
+%% 重要，是否助战，影响发奖
+-spec isAssistCopyMapByCopyMapPID(RoleID::uint64(), MapPID::pid()) -> boolean().
+isAssistCopyMapByCopyMapPID(RoleID, MapPID) ->
+	case ets:lookup(ets_recAssistCopyMap, RoleID) of
+		[#recAssistCopyMap{}|_] = List ->
+			case lists:keyfind(MapPID, #recAssistCopyMap.mapPID, List) of
+				#recAssistCopyMap{} ->
+					true;
+				_ ->
+					false
+			end;
+		_ ->
+			false
+	end.
+
 %% debug版自动编译热更新
 auto(0) ->
 	%% 关闭
@@ -594,3 +665,66 @@ auto(0) ->
 auto(_) ->
 	%% 开启
 	psMgr:sendMsg2PS(?PsNameLS, modify_debug_auto_param, true).
+
+%% 查询指定UID归属于哪个dbID
+%% 注1：首先根据UID的生成规则计算出生成UID的dbID
+%%     再根据从跨服同步过来的映射表计算出当前归属的dbID
+-spec getRealDBIDByUID(UID::uint64()) -> RealDBID::uint().
+getRealDBIDByUID(UID) ->
+	case uidMgr:checkUID(UID) of
+		true ->
+			DBID = uidMgr:getDBIDByUID(UID),
+			case ets:lookup(?EtsRealDBID, DBID) of
+				[] ->
+					0;	%% 没有找到该UID的归dbID，可能尚未与跨服连接并同步该表
+				[#recRealDBID{real = RealDBID}] ->
+					RealDBID
+			end;
+		_ ->
+			0	%% 非法的UID
+	end.
+
+%% 查询目标服务器的名字
+%% 本服务器名请使用globalSetup:getServerName/0
+-spec queryServerNameByUID(UID::uint64()) -> ServerName::string().
+queryServerNameByUID(UID) ->
+	case uidMgr:checkUID(UID) of
+		true ->
+			DBID = uidMgr:getDBIDByUID(UID),
+			case ets:lookup(?EtsRealDBID, DBID) of
+				[] ->
+					"unknown";	%% 没找到
+				[#recRealDBID{name = Name}] ->
+					Name
+			end;
+		_ ->
+			"invalid"	%% 非法的UID
+	end.
+
+%% 根据角色ID创建跨服角色基础信息，如果角色在跨服则可以在跨服调用，否则只能在归属服调用
+-spec queryCrossRoleBase(RoleID::uint64()) -> #pk_CrossRoleBase{}|0.
+queryCrossRoleBase(RoleID) ->
+	case core:queryRoleKeyInfoByRoleID(RoleID) of
+		#?RoleKeyRec{
+			roleName = Name,
+			level = Level,
+			career = Career,
+			race = Race,
+			sex = Sex,
+			head = Head,
+			face = Face
+		} ->
+			#pk_CrossRoleBase{
+				id = RoleID,
+				name = Name,
+				server = core:queryServerNameByUID(RoleID),
+				level = Level,
+				career = Career,
+				race = Race,
+				sex = Sex,
+				head = Head,
+				face = Face
+			};
+		_ ->
+			0
+	end.

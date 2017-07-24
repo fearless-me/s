@@ -166,11 +166,11 @@ completeSchedule() ->
 
 	%% 清技能CD和回血
 	playerBase:clearSkillCDAndRestoreHp(),
-	playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_NvShenJinBi, MissionID),
+	playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_NvShenJinBi),
 
 	%%通知客户端
 	playerMsg:sendNetMsg(#pk_GS2U_WarriorTrialSuccess{result = true}),
-	playerSevenDayAim:updateCondition(?SevenDayAim_WarriorTrial, [MissionID - 1]),
+	playerSevenDayAim:updateCondition(?SevenDayAim_WarriorTrial, [MissionID]),
 	ok.
 %%开始扫荡关卡
 -spec beginSweepMission() -> ok.
@@ -193,7 +193,7 @@ beginSweepMission() ->
 			R =
 				case Result of
 					#pk_GS2U_RequestAutoDealAck{} ->
-						playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_NvShenJinBi, MissionID),
+						playerTask:updateTask(?TaskSubType_Active, ?TaskSubType_Active_Sub_NvShenJinBi),
 						%%扫荡成功
 						WarriorTrialInfo = getWarriorTrialInfo(),
 						#rec_warrior_trial{trialSchedule = RecordSchedule, tswkTrialSchedule = TTS} = WarriorTrialInfo,
@@ -247,7 +247,9 @@ tickMaxTime() ->
 							%%通知客户端
 							playerMsg:sendNetMsg(#pk_GS2U_WarriorTrialSuccess{result = false}),
 							%%为了让客户端挑战失败的特效显示出来，延迟离开副本
-							erlang:send_after(2000, self(), {warriorTrialResetCopyMap, MapID});
+%%							core:sendMsgToMapMgr(MapID, resetCopyMap, {playerState:getRoleID(), playerState:getTeamID(), MapID}),
+							sendRstMsg(MapID),
+							ok;
 						_ ->
 							skip
 					end;
@@ -276,10 +278,13 @@ quitQuitMap() ->
 playerBeKilled(MapID) ->
 	?LOG_OUT("player:~p WarriorTrial Killed by Boss in MapID:~p",[playerState:getRoleID(),MapID]),
 	playerState:setWarriorTrialTime(0),
+	%%先通知客户端挑战失败
+	playerMsg:sendNetMsg(#pk_GS2U_WarriorTrialSuccess{result = false}),
 	%%你已经死了
 	playerMsg:sendErrorCodeMsg(?ErrorCode_WarriorTrialPlayerDead),
 	%%重置副本
-	core:sendMsgToMapMgr(MapID, resetCopyMap, {playerState:getRoleID(), playerState:getTeamID(), MapID}),
+	sendRstMsg(MapID),
+%%	core:sendMsgToMapMgr(MapID, resetCopyMap, {playerState:getRoleID(), playerState:getTeamID(), MapID}),
 	ok.
 %%完成所有关卡
 -spec playerCompleteAllMissions(MapID::uint16()) -> ok.
@@ -289,7 +294,8 @@ playerCompleteAllMissions(MapID) ->
 	%%你已经登峰造极啦
 	playerMsg:sendErrorCodeMsg(?ErrorCode_WarriorTrialMaxMission),
 	%%重置副本
-	core:sendMsgToMapMgr(MapID, resetCopyMap, {playerState:getRoleID(), playerState:getTeamID(), MapID}),
+	sendRstMsg(MapID),
+%%	core:sendMsgToMapMgr(MapID, resetCopyMap, {playerState:getRoleID(), playerState:getTeamID(), MapID}),
 	ok.
 %%Internal Function%%
 %%获取关卡数
@@ -491,3 +497,9 @@ getWarriorTrialInfo() ->
 		_ ->
 			#rec_warrior_trial{roleID = playerState:getRoleID()}
 	end.
+
+
+sendRstMsg(MapID)->
+	#mapsettingCfg{finish_time = FT} = getCfg:getCfgByArgs(cfg_mapsetting, MapID),
+	psMgr:sendMsg2PS(playerState:getMapPid(), clearMonsterAndCollectObject, 0),
+	erlang:send_after(FT*1000, self(), {warriorTrialResetCopyMap, MapID}).

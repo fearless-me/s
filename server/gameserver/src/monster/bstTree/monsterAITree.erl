@@ -41,6 +41,16 @@ initMonsterAI(Code,AI,MoveType,Params) ->
 					put({aiType,AI},Tree),
 					Tree
 			end;
+		[?AI_Type_ActiveCopyMapConvoy, ?BST_SELTARGET_ENEMY_MONSTER, SelSkill] ->
+			%% 普通主动怪
+			case get({aiType,AI}) of
+				#bstTree{} = Tree ->
+					Tree;
+				_ ->
+					Tree = initActiveMonsterAI2(?BST_SELTARGET_ENEMY_MONSTER, SelSkill),
+					put({aiType,AI},Tree),
+					Tree
+			end;
 		[?AI_Type_Carrier, _SelTarget, _SelSkill] ->
 			%% 载体AI
 			Key = AI ++ [MoveType],
@@ -86,6 +96,7 @@ initMonsterAI(Code,AI,MoveType,Params) ->
 					Tree
 			end;
 		[?AI_TYPE_ConvoyPlayerFollow|_] ->
+			monsterAI:initSpecWayLineConvoy(Code,Params),
 			none;
 		[?AI_TYPE_None | _] ->
 			none;
@@ -243,6 +254,65 @@ initActiveMonsterAI(SelTarget, SelSkill) ->
 				   },
 	bstTree:revertBstTree(Tree),
 	Tree.
+
+initActiveMonsterAI2(SelTarget, SelSkill) ->
+	%%根节点
+	RootNodeID = bstTree:addRootNode(),
+		%%顺序节点
+		SeqID = bstTree:addNodeSeq(RootNodeID,0),
+			%%巡逻移动
+			bstTree:addActionMove2(SeqID,0),
+		%%非装饰节点
+		DecNotNodeID = bstTree:addNodeDecNot(SeqID,SeqID),
+			%%攻击顺序节点
+			SeqID1 = bstTree:addNodeSeq(DecNotNodeID,0),
+				%%选择节点
+				SelectID = bstTree:addNodeSelector(SeqID1,0),
+					%%周围是否有目标
+					TID = bstTree:addCondHasTarget(SelectID,0),
+					%%是否被击
+					bstTree:addCondIsBeAttacked(SelectID,TID),
+				%%循环装饰节点
+				LoopID1 = bstTree:addNodeDecLoop(SeqID1,SelectID),
+	            	%%顺序节点
+					SeqID2 = bstTree:addNodeSeq(LoopID1,0),
+	                   	 %%选择目标
+				         ID1 = bstTree:addActionSelectTarget(SeqID2, SelTarget,0),
+	                     %%自己是否存活
+						 ID2 = bstTree:addCondIsAlive(SeqID2,ID1),
+						 %%目标是否存在
+						 ID3 = bstTree:addCondIsTargetExist(SeqID2,ID2),
+						 %%目标是否存活
+						 ID4 = bstTree:addCondIsTargetAlive(SeqID2,ID3),
+	                     %%非装饰节点
+						 DecNotID1 = bstTree:addNodeDecNot(SeqID2,ID4),
+						      %%循环装饰节点
+							  LoopID2 = bstTree:addNodeDecLoop(DecNotID1,0),
+									%%是否在公共CD
+									bstTree:addCondIsAttackCD(LoopID2,0),
+		                 %%非装饰节点
+						 DecNotID2 = bstTree:addNodeDecNot(SeqID2,DecNotID1),
+						      %%循环装饰节点
+							  LoopID3 = bstTree:addNodeDecLoop(DecNotID2,0),
+									 %%是否在施法中
+                                    bstTree:addCondIsCast(LoopID3,0),
+						 %%选择技能
+						 ID5 = bstTree:addActionSelectSkill(SeqID2, SelSkill, DecNotID2),
+	                     %%顺序节点
+						 SeqID3 = bstTree:addNodeSeq(SeqID2,ID5),
+                         	%%追逐
+						 	ID6 = bstTree:addActionPursue(SeqID3,0),
+						 	%%攻击
+						 	bstTree:addActionAttack(SeqID3,ID6),
+
+	%%树结点挂载结束，添加到树
+	Tree = #bstTree{
+					root = RootNodeID
+				   },
+	bstTree:revertBstTree(Tree),
+	Tree.
+
+
 %% ====================================================================
 initPassiveMonsterAIMaterial(_SelTarget, SelSkill) ->
 		%%根节点

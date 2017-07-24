@@ -8,6 +8,7 @@
 -behaviour(myGenServer).
 
 -include("dbPrivate.hrl").
+-include("gsDef.hrl").
 
 -define(DBPSTypeGS,1).
 -define(DBPSTypeLS,2).
@@ -22,7 +23,7 @@
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2, code_change/3,handle_exception/3]).
 
 start_link() ->
-	myGenServer:start_link({local,?MODULE},?MODULE, [], [{timeout,?Start_Link_TimeOut_ms}]).
+	myGenServer:start_link({local,?PsNameDB},?MODULE, [], [{timeout,?Start_Link_TimeOut_ms}]).
 
 init([]) ->
 	?LOG_OUT("~p init",[?MODULE]),
@@ -30,12 +31,12 @@ init([]) ->
 	mysql:init(),
 
 	%%开启为GS服务的工作进程
-	L = startDBOtp(?GAMEDB_CONNECT_NUM - 4),
+	L = startDBOtp(gs, ?DBOTP_GS_NUM),
 	setDBOtpList(?DBPSTypeGS,L),
 	setIdleOtpList(?DBPSTypeGS,L),
 
 	%%开启为LS服务的工作进程
-	LSList = startDBOtp(2),
+	LSList = startDBOtp(ls, ?DBOTP_LS_NUM),
 	setDBOtpList(?DBPSTypeLS,LSList),
 	setIdleOtpList(?DBPSTypeLS,LSList),
 
@@ -50,16 +51,16 @@ handle_call(Request, _From, State) ->
 	handle_call(Request, State).
 
 handle_cast(_Msg, State) ->
-    {noreply, State}.
+	{noreply, State}.
 
 handle_info(Info, State)->
 	handle_msg(Info,State).
 
 terminate(_Reason, _State) ->
-    ok.
+	ok.
 
 code_change(_OldVsn, State, _Extra) ->
-    {ok, State}.
+	{ok, State}.
 
 handle_exception(Type,Why,State) ->
 	myGenServer:default_handle_excetion(Type, Why, State).
@@ -85,21 +86,21 @@ handle_msg(Msg, State)->
 	{noreply, State}.
 
 %%开起N个DB工作进程，返回开起的DB进程列表
--spec startDBOtp(N) -> list() when
-	N::uint().
-startDBOtp(N) ->
+-spec startDBOtp(PoolType::atom(), N::uint()) -> list().
+startDBOtp(PoolType, N) ->
 	List = lists:seq(1, N),
-	Fun = fun(_,AccIn) ->
-				  Ret = dbOtp:start_link(),
-				  case Ret of
-					  {ok,Pid} ->
-						  %%设置该DB进程管理的角色列表为空
-						  setDBPidAccountList(Pid,[]),
-						  [{Pid} | AccIn];
-					  _ ->
-						  AccIn
-				  end
-		  end,
+	Fun =
+		fun(_, AccIn) ->
+			Ret = dbOtp:start_link(PoolType, addDBOtpIndex()),
+			case Ret of
+				{ok,Pid} ->
+					%%设置该DB进程管理的角色列表为空
+					setDBPidAccountList(Pid,[]),
+					[{Pid} | AccIn];
+				_ ->
+					AccIn
+			end
+		end,
 	lists:foldl(Fun, [], List).
 
 %%分配消息到负责LS的某个数据库进程
@@ -111,8 +112,9 @@ sendToLSDBOtp(MsgID,PidFrom,Msg) ->
 				true ->
 					psMgr:sendMsg2PS(Pid,MsgID,{PidFrom,Msg});
 				_ ->
+					?ERROR_OUT("sendToLSDBOtp dead pid:~p", [Pid]),
 					%%死亡了一个进程，需要新开一个进程
-					[NewList] = startDBOtp(1),
+					[NewList] = startDBOtp(deadls, 1),
 					%%将死亡进程从列表中删除，并加上新的进程
 					DBOtpList = getDBOtpList(?DBPSTypeLS),
 					L = lists:keydelete(Pid,1,DBOtpList),
@@ -151,19 +153,20 @@ sendToGSDBOtp(AccountID,MsgID,PidFrom,Msg) ->
 -spec callGSDBOtp(AccountID,MsgID,PidFrom,Msg) -> ok when
 	AccountID::uint(),MsgID::atom(),PidFrom::pid(),Msg::term().
 callGSDBOtp(AccountID,MsgID,PidFrom,Msg) ->
-	DBPid = case getAccountDBPid(AccountID) of
-						Pid when erlang:is_pid(Pid) ->
-							case erlang:is_process_alive(Pid) of
-								true ->
-									Pid;
-								_ ->
-									%%如果某个DB工作进程死掉，则需要重新分配一个进程，并处理该进程之前绑定的角色
-									dealDeadDBPid(Pid),
-									allocAccountIDToDBOtp(AccountID)
-							end;
-						undefined ->
-							allocAccountIDToDBOtp(AccountID)
-					end,
+	DBPid =
+		case getAccountDBPid(AccountID) of
+			Pid when erlang:is_pid(Pid) ->
+				case erlang:is_process_alive(Pid) of
+					true ->
+						Pid;
+					_ ->
+						%%如果某个DB工作进程死掉，则需要重新分配一个进程，并处理该进程之前绑定的角色
+						dealDeadDBPid(Pid),
+						allocAccountIDToDBOtp(AccountID)
+				end;
+			undefined ->
+				allocAccountIDToDBOtp(AccountID)
+		end,
 	%%?DEBUG_OUT("send msg[~p] to Pid[~p]",[MsgID,DBPid]),
 	psMgr:call(DBPid,MsgID,{PidFrom,Msg}).
 
@@ -187,8 +190,9 @@ allocAccountIDToDBOtp(RoleID) ->
 -spec dealDeadDBPid(Pid) -> ok when
 	Pid::pid().
 dealDeadDBPid(Pid) ->
+	?ERROR_OUT("dealDeadDBPid:~p", [Pid]),
 	%%死亡了一个进程，需要新开一个进程
-	NewList = startDBOtp(1),
+	[NewList] = startDBOtp(deadgs, 1),
 	%%将死亡进程从列表中删除，并加上新的进程
 	DBOtpList = getDBOtpList(?DBPSTypeGS),
 	L = lists:keydelete(Pid,1,DBOtpList),
@@ -253,4 +257,13 @@ setDBPidAccountList(DBPid,List) ->
 	put(DBPid,List),
 	ok.
 
-
+addDBOtpIndex() ->
+	Index =
+		case get('DBOtpIndex') of
+			undefined ->
+				1;
+			V ->
+				V + 1
+		end,
+	put('DBOtpIndex', Index),
+	Index.

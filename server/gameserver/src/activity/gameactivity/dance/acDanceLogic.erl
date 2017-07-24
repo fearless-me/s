@@ -42,6 +42,8 @@ activityChangeCallBack(?ActivityPhase_Close) ->
 			erlang:cancel_timer(TimerRef)
 	end,
 
+	acDanceState:setTimerRef(undefined),
+
 	acDanceState:setDancePhase(?DancePhase_End),
 
 	%% 清理数据
@@ -136,7 +138,8 @@ start() ->
 	{DanceListID, CorrectID} = acDanceState:getRandListAndTargetID(),
 	Msg = #pk_GS2U_ActionList{correctID = CorrectID, danceIDs = DanceListID},
 	Fun =
-		fun(_Key, #dance_ing{netPid = NetPid}, _) ->
+		fun(_Key, #dance_ing{netPid = NetPid, roleID = RoleID}, _) ->
+			?DEBUG_OUT("start:~p", [RoleID]),
 			gsSendMsg:sendNetMsg(NetPid, Msg)
 		end,
 	dict:fold(Fun, ok, acDanceState:getDanceIng()),
@@ -154,19 +157,20 @@ prepare() ->
 	List = dict:to_list(acDanceState:getDanceIng()),
 	Msg = #pk_GS2U_SwitchDance{second = ?DancePrepareTime},
 	F =
-		fun({_Key, #dance_ing{netPid = NetPid} = Ing}) ->
+		fun({_Key, #dance_ing{netPid = NetPid, roleID = RoleID} = Ing}) ->
+			?DEBUG_OUT("prepare:~p,~p", [RoleID, ?DancePrepareTime]),
 			acDanceState:putDanceIngObject(Ing#dance_ing{correct = false}),
 			gsSendMsg:sendNetMsg(NetPid, Msg)
 		end,
 	lists:foreach(F, List),
 
-	{DanceListID, CorrectID} = acDanceState:getRandListAndTargetID(),
-	Msg2 = #pk_GS2U_ActionList{correctID = CorrectID, danceIDs = DanceListID},
-	Fun =
-		fun(_Key, #dance_ing{netPid = NetPid}, _) ->
-			gsSendMsg:sendNetMsg(NetPid, Msg2)
-		end,
-	dict:fold(Fun, ok, acDanceState:getDanceIng()),
+%%	{DanceListID, CorrectID} = acDanceState:getRandListAndTargetID(),
+%%	Msg2 = #pk_GS2U_ActionList{correctID = CorrectID, danceIDs = DanceListID},
+%%	Fun =
+%%		fun(_Key, #dance_ing{netPid = NetPid}, _) ->
+%%			gsSendMsg:sendNetMsg(NetPid, Msg2)
+%%		end,
+%%	dict:fold(Fun, ok, acDanceState:getDanceIng()),
 
 	?DEBUG_OUT("dance prepare..."),
 	ok.
@@ -249,7 +253,7 @@ inDanceArea({RoleID, _Pid, NetPid, false}) ->
 	end,
 	ok.
 
-enterDanceArea(_RoleID, _Pid, NetPid) ->
+enterDanceArea(RoleID, _Pid, NetPid) ->
 	case acDanceState:getDancePhase() of
 		?DancePhase_Prepare ->
 			%% 当前在准备阶段，告诉剩下几秒倒计时
@@ -259,14 +263,19 @@ enterDanceArea(_RoleID, _Pid, NetPid) ->
 			Msg = #pk_GS2U_SwitchDance{second = Set - Now},
 			gsSendMsg:sendNetMsg(NetPid, Msg),
 
-			{DanceListID, CorrectID} = acDanceState:getRandListAndTargetID(),
-			Msg2 = #pk_GS2U_ActionList{correctID = CorrectID, danceIDs = DanceListID},
-			gsSendMsg:sendNetMsg(NetPid, Msg2),
+			?DEBUG_OUT("enterDanceArea:~p, ~p", [RoleID, Set - Now]),
+
+%%			{DanceListID, CorrectID} = acDanceState:getRandListAndTargetID(),
+%%			Msg2 = #pk_GS2U_ActionList{correctID = CorrectID, danceIDs = DanceListID},
+%%			gsSendMsg:sendNetMsg(NetPid, Msg2),
 			ok;
 		?DancePhase_Start ->
 			%% 当前在跳舞阶段，告诉跳的舞蹈是什么
 			{DanceListID, CorrectID} = acDanceState:getRandListAndTargetID(),
 			Msg = #pk_GS2U_ActionList{correctID = CorrectID, danceIDs = DanceListID},
+
+			?DEBUG_OUT("enterDanceArea start:~p", [RoleID]),
+
 			gsSendMsg:sendNetMsg(NetPid, Msg),
 			ok;
 		_ ->
@@ -340,15 +349,15 @@ setPhase(?DancePhase_End) ->
 	ok;
 setPhase(?DancePhase_Prepare) ->
 	%% 设置阶段
-	acDanceState:setDancePhase(?DancePhase_Start),
-	%% 下一次切换阶段时间
-	acDanceState:setChangePhaseTime(time2:getTimestampSec() + ?DanceStartTime),
-	ok;
-setPhase(?DancePhase_Start) ->
-	%% 设置阶段
 	acDanceState:setDancePhase(?DancePhase_Prepare),
 	%% 下一次切换阶段时间
 	acDanceState:setChangePhaseTime(time2:getTimestampSec() + ?DancePrepareTime),
+	ok;
+setPhase(?DancePhase_Start) ->
+	%% 设置阶段
+	acDanceState:setDancePhase(?DancePhase_Start),
+	%% 下一次切换阶段时间
+	acDanceState:setChangePhaseTime(time2:getTimestampSec() + ?DanceStartTime),
 	ok.
 
 getAndSetDanceIDList() ->

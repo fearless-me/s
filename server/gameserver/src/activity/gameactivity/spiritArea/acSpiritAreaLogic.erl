@@ -265,21 +265,35 @@ tick() ->
 %%% ====================================================================
 
 %%----------------------------------------------------------------------------------------------
-%% 向地图上的玩家发送网络消息
--spec sendNetMsgToMapPlayer(PlayerEts::etsTab(), Msg::term()) -> ok.
-sendNetMsgToMapPlayer(PlayerEts, Msg) ->
-	MatchSpec = ets:fun2ms(fun(Object) -> Object#recMapObject.netPid end),
+%% 向地图上的玩家发送网络消息（目前仅发送了活动心跳，其余情况请另行调整）
+-spec sendNetMsgToMapPlayer(PlayerEts::etsTab(), Msg::#pk_GS2U_SpiritArea_Tick_Sync{}, MapPid::pid()) -> ok.
+sendNetMsgToMapPlayer(PlayerEts, Msg = #pk_GS2U_SpiritArea_Tick_Sync{}, MapPid) ->
+	MatchSpec = ets:fun2ms(fun(Object) -> {Object#recMapObject.id, Object#recMapObject.netPid} end),
 	MapPlayerNetPidList = myEts:selectEts(PlayerEts, MatchSpec),
-	lists:foreach(fun(NetPid) -> playerMsg:sendNetMsg(NetPid, Msg) end, MapPlayerNetPidList),
+	FunSend =
+		fun({ID, NetPid}) ->
+			IsAssist = core:isAssistCopyMapByCopyMapPID(ID, MapPid),
+			playerMsg:sendNetMsg(NetPid, Msg#pk_GS2U_SpiritArea_Tick_Sync{isAssist = IsAssist})
+		end,
+	lists:foreach(FunSend, MapPlayerNetPidList),
 	ok.
 
 %%----------------------------------------------------------------------------------------------
-%% 向地图上的玩家发送进程消息
--spec sendMsgToMapPlayer(PlayerEts::etsTab(), MsgID::atom(), Msg::term()) -> ok.
-sendMsgToMapPlayer(PlayerEts, MsgID, Msg) ->
-	MatchSpec = ets:fun2ms(fun(Object) -> Object#recMapObject.pid end),
+%% 向地图上的玩家发送进程消息（目前仅发送了波次奖励，其余情况请另行调整）
+-spec sendMsgToMapPlayer(PlayerEts::etsTab(), MsgID::atom(), Msg::term(), MapPid::pid()) -> ok.
+sendMsgToMapPlayer(PlayerEts, MsgID = spiritArea_reward, Msg, MapPid) ->
+	MatchSpec = ets:fun2ms(fun(Object) -> {Object#recMapObject.id, Object#recMapObject.pid} end),
 	MapPlayerNetPidList = myEts:selectEts(PlayerEts, MatchSpec),
-	lists:foreach(fun(Pid) -> psMgr:sendMsg2PS(Pid, MsgID, Msg) end, MapPlayerNetPidList),
+	FunSend =
+		fun({ID, Pid}) ->
+			case core:isAssistCopyMapByCopyMapPID(ID, MapPid) of
+				true ->
+					skip;
+				_ ->
+					psMgr:sendMsg2PS(Pid, MsgID, Msg)
+			end
+		end,
+	lists:foreach(FunSend, MapPlayerNetPidList),
 	ok.
 
 %%----------------------------------------------------------------------------------------------
@@ -292,7 +306,8 @@ syncInfo(#recMapInfo{
 	state			= State,
 	time			= Time,
 	deadlineTime	= DeadlineTime,
-	playerEts		= PlayerEts
+	playerEts		= PlayerEts,
+	mapPid			= MapPid
 }) ->
 	StateForNetMsg =
 		case State of
@@ -309,7 +324,7 @@ syncInfo(#recMapInfo{
 			state	= StateForNetMsg
 		},
 	%?DEBUG_OUT("[DebugForSpiritArea] syncInfo ~p", [Msg]),
-	sendNetMsgToMapPlayer(PlayerEts, Msg).
+	sendNetMsgToMapPlayer(PlayerEts, Msg, MapPid).
 
 %%----------------------------------------------------------------------------------------------
 %% 处理所有地图的事件
@@ -348,7 +363,7 @@ oneMapRun(#recMapInfo{state = ?State_Ready} = R) ->
 %% 主玩法阶段
 oneMapRun(#recMapInfo{state = ?State_Going, count = Count,
 	deadlineTime = TimeAll, wave = Wave, level = Level,
-	playerEts = PlayerEts, timeFMD = TimeFMD} = R) when Count < 1 ->
+	playerEts = PlayerEts, timeFMD = TimeFMD, mapPid = MapPid} = R) when Count < 1 ->
 	%% 全部怪物死亡，切换状态
 	case TimeFMD of
 		0 ->
@@ -364,7 +379,7 @@ oneMapRun(#recMapInfo{state = ?State_Going, count = Count,
 				},
 			acSpiritAreaState:replaceMapInfo(RNew),
 			%% 发放波次奖励
-			sendMsgToMapPlayer(PlayerEts, spiritArea_reward, {Level, Wave}),
+			sendMsgToMapPlayer(PlayerEts, spiritArea_reward, {Level, Wave}, MapPid),
 			oneMapRun(RNew);
 		_ ->
 			acSpiritAreaState:replaceMapInfo(R#recMapInfo{timeFMD = TimeFMD - 1})

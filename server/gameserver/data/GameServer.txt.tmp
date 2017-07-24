@@ -6,8 +6,12 @@
 ;服务器ID，这个字段必须有，且大小写为ServerId
 ServerId=1
 
-#平台分配的游戏编号
-GameID=165
+#DEBUG调试默认
+ADBID=1
+DBID=1
+
+#1:正式普通服,2:正式跨服,3:正式战斗服,0:测试普通服,5:测试跨服
+serverType=0
 
 #CrosNode=跨服服务器
 #CrosNode=gameserver@127.0.0.1
@@ -70,7 +74,11 @@ Web2LsPort=9003
 Web2LsKey=aaaaaaaaaaaaabcdaaaaaaaaaaaaabcd
 
 #平台服务器订单校验地址
+#订单检验beat地址:http://payment-beta.funcell123.com
 PaymentVerifyUrl=http://mainaland.payment.raink.com.cn
 
 #http服务器端口
 HttpServerPort=9009
+
+#平台分配的游戏编号
+GameID=165

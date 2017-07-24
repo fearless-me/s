@@ -93,12 +93,13 @@ initSkillChangeCareer(OldCareer, _NewCareer) ->
 					{[RecSkill | SL], DL}
 			end
 		end,
-	{SaveSkillList, DelSkillList} = lists:foldl(FunFilter, {[], []}, OldSkillList),
+	{SaveSkillList1, DelSkillList} = lists:foldl(FunFilter, {[], []}, OldSkillList),
 
+	WakeSkills = getWakeSkills(),
+	SaveSkillList = lists:subtract(SaveSkillList1, WakeSkills),
+%%	
 	initSkill(),
-%%	doInitRoleSkill(NewCareer, false),
-
-	lists:foreach(fun(ID) -> delPassEff(ID) end, DelSkillList),
+	lists:foreach(fun(ID) -> delPassEff(ID) end, DelSkillList ++ WakeSkills),
 	playerState:setSkill(SaveSkillList),
 %%	NewSkillList = playerState:getSkill(),
 %%	playerState:setSkill(lists:append(SaveSkillList, NewSkillList)),
@@ -244,6 +245,22 @@ initPassSkill([SkillID | List], Career) ->
 %%开放觉醒技能
 %% 20161101 觉醒技能脱离女神系统，并入器灵系统
 %% 该函数具有根据器灵提供的经验转换的等级刷新觉醒技能的效果
+
+getWakeSkills()->
+	SkillExp = playerPropSync:getProp(?PriProp_WakeUpExp),
+	case SkillExp > 0 of
+		true ->
+			{_, SkillLv} = playerGodWeapon:getWakeSkillLvByExp(SkillExp),
+			case getCfg:getCfgByKey(cfg_transformspell, SkillLv, playerState:getCareer()) of
+				#transformspellCfg{} = WSInfo ->
+					getAwakenSkills(WSInfo);
+				_ ->
+					[]
+			end;
+		_ ->
+			[]
+	end.
+
 -spec openWakeSkill() -> ok.
 openWakeSkill() ->
 	SkillExp = playerPropSync:getProp(?PriProp_WakeUpExp),
@@ -550,7 +567,7 @@ doUpSkill(SkillID) ->
 								target = ?PLogTS_PlayerSkill,
 								source = ?PLogTS_PlayerSelf
 							},
-							useMoney(Type, Num, PLog)
+							useMoneyOnUpSkill(Type, Num, PLog)
 						end,
 
 					lists:foreach(Fun, Coins),
@@ -1309,15 +1326,43 @@ canUseMoney(CoinType, Num) ->
 			playerState:getCoin(CoinType) >= Num
 	end.
 
--spec useMoney(CoinType :: uint(), Num :: uint(), Plog :: #recPLogTSMoney{}) -> boolean().
-useMoney(CoinType, Num, PLog) ->
+-spec useMoneyOnUpSkill(CoinType :: uint(), Num :: uint(), Plog :: #recPLogTSMoney{}) -> boolean().
+useMoneyOnUpSkill(CoinType, Num, PLog) ->
 	CoinUseType = getCoinUseType(CoinType),
 	case CoinUseType > 0 of
 		true ->
 			playerMoney:useCoin(CoinUseType, Num, PLog);
 		_ ->
 			playerMoney:decCoin(CoinType, Num, PLog)
+	end,
+	MoneyType = getMoneyType(CoinType),
+	case MoneyType > 0 of
+		true->
+			addUpSkillCost(MoneyType, Num);
+		_ ->
+			skip
 	end.
+
+addUpSkillCost(MoneyType, MoneyNumber)->
+	L1 = playerPropSync:getProp(?SerProp_UpSkill_CostList),
+	L2 =
+		case lists:keyfind(MoneyType, 1, L1) of
+		{MoneyType, OldNumber} ->
+			lists:keystore(MoneyType, 1, L1, {MoneyType, OldNumber + MoneyNumber});
+		_ ->
+			[{MoneyType, MoneyNumber} | L1]
+	end,
+	playerPropSync:setAny(?SerProp_UpSkill_CostList, L2),
+	ok.
+
+getMoneyType(?CoinTypeGold)-> ?CoinTypeGold;
+getMoneyType(?CoinTypeDiamond)-> ?CoinTypeDiamond;
+getMoneyType(?CoinTypeBindDiamond)-> ?CoinTypeBindDiamond;
+getMoneyType(?CoinUseTypeGold)-> ?CoinTypeGold;
+getMoneyType(?CoinUseTypeDiamondJustNotBind)-> ?CoinTypeBindDiamond;
+getMoneyType(?CoinUseTypeDiamond)-> ?CoinTypeBindDiamond;
+getMoneyType(_)-> 0.
+
 
 %%扣除道具
 -spec delItem(ItemList :: list(), Reason :: uint()) -> ok.

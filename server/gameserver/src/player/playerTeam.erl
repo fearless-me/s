@@ -15,7 +15,8 @@
 %% API
 
 -export([
-	onPlayerChangeScene/1
+	onPlayerChangeScene/1,
+	checkTeamOnEnterMap/1
 ]).
 
 -export([
@@ -47,7 +48,7 @@
 	queryRole/1,
 	queryMatch/0
 ]).
-
+%%%-------------------------------------------------------------------
 onPlayerChangeScene(NewMapID) ->
 	try
 		case playerScene:getMapType(NewMapID) of
@@ -64,6 +65,30 @@ onPlayerChangeScene(NewMapID) ->
 	ok.
 
 %%%-------------------------------------------------------------------
+checkTeamOnEnterMap(MapID)->
+	RoleID = playerState:getRoleID(),
+	case getCfg:getCfgByArgs(cfg_mapsetting, MapID) of
+		#mapsettingCfg{map_type = ?MapTypeActivity, teamtype = Type}->
+			doCheckTeamOnEnterMap(Type, RoleID);
+		#mapsettingCfg{map_type = ?MapTypeCopyMap, teamtype = Type}->
+			doCheckTeamOnEnterMap(Type, RoleID);
+		_ ->
+			skip
+	end,
+	ok.
+
+doCheckTeamOnEnterMap(0,RoleID)->
+	case teamInterface:isInTeam(RoleID) of
+		true ->
+			leaveTeam(false);
+		_ ->
+			skip
+	end;
+doCheckTeamOnEnterMap(_Any, RoleID)->
+	true = teamInterface:isInTeam(RoleID).
+
+
+%%%-------------------------------------------------------------------
 sendInitTeamInfo() ->
 	RoleID = playerState:getRoleID(),
 	case teamInterface:getTeamInfoWithRoleID(RoleID) of
@@ -71,7 +96,7 @@ sendInitTeamInfo() ->
 			TeamMsg = teamInterface:makeTeamInfoMsg(TeamInfo),
 			playerMsg:sendNetMsg(TeamMsg);
 		_ ->
-			playerMsg:sendNetMsg(#pk_GS2U_TeamReset{})
+			playerMsg:sendNetMsg(#pk_GS2U_TeamReset{reason = ?TeamRst_0})
 	end,
 	syncInfo2Team(true),
 	ok.
@@ -120,29 +145,13 @@ doSendTeamQuickInfo(TeamID, CopyMapID, Channel) ->
 %%					"</t>";
 %%			_ ->
 		"<t=8>"
-					++ erlang:integer_to_list(CopyMapID) ++ ","
-					++ erlang:integer_to_list(TeamID) ++ ","
-					++ StrPlayerCode ++ "_" ++ PlayerName ++
+		++ erlang:integer_to_list(CopyMapID) ++ ","
+		++ erlang:integer_to_list(TeamID) ++ ","
+		++ StrPlayerCode ++ "_" ++ PlayerName ++
 		"</t>",
 %%		end,
 	playerChat:onChannelSystemChatMsg(Channel, QuickTeamMsg),
 	playerMsg:sendErrorCodeMsg(?ErrorCode_TeamQuickInfoSendOk).
-
-%%-spec getLevelLimit_SpiritArea() -> {LevelMin :: uint(), LevelMax :: uint()}.
-%%getLevelLimit_SpiritArea() ->
-%%	RoleLevel = playerState:getLevel(),
-%%	ListKey1 = getCfg:get1KeyList(cfg_spiritArea),
-%%	FunFind =
-%%		fun(Key1, {_, {Min, _Max}}) ->
-%%			case RoleLevel >= Key1 of
-%%				true ->
-%%					{false, {Key1, Key1}};
-%%				_ ->
-%%					{true, {Min, Key1}}
-%%			end
-%%		end,
-%%	{_, R} = misc:foldlEx(FunFind, {false, {0, 99999}}, ListKey1),
-%%	R.
 
 %%%-------------------------------------------------------------------
 fastMatchTeam(MapList) ->
@@ -202,7 +211,7 @@ canMatchTeam(RoleID, CurMapID, MapList) ->
 %% 要优化这个逻辑
 doMatchTeam(MapList, Active) ->
 	RoleID = playerState:getRoleID(),
-	MCL = [ {CopyMapID,copyMapEnterCount(CopyMapID)} ||
+	MCL = [{CopyMapID, copyMapEnterCount(CopyMapID)} ||
 		CopyMapID <- MapList],
 	psMgr:sendMsg2PS(
 		?PsNameTeam,
@@ -245,7 +254,7 @@ teamOperate(?TeamOP_ChangeCopyMap, NewCopyMapID, _) ->
 teamOperate(?TeamOP_StartCopyMap, _, _) ->
 	leaderStartCopyMap();
 teamOperate(?TeamOP_LeaveTeam, _, _) ->
-	leaveTeam(true);
+	playerTeamCopyMap:leaveTeamCopyMap(true);
 teamOperate(?TeamOP_SetSearchFlag, Flag, _) ->
 	setSearchFlag(Flag);
 teamOperate(?TeamOP_Dismiss, _, _) ->
@@ -262,6 +271,8 @@ teamOperate(?TeamOP_FastCreate, TargetRoleID, CopyMapID) ->
 	createTeam(CopyMapID, TargetRoleID);
 teamOperate(?TeamOP_LeaveTeamAndEnterCopy, CopyMapID, _) ->
 	leaveTeamAndEnterCopyMap(CopyMapID);
+teamOperate(?TeamOP_AssistCopyMap, Type, CopyMapID) ->
+	assistCopyMap(Type, CopyMapID);
 teamOperate(_, _, _) ->
 	ok.
 %%%-------------------------------------------------------------------
@@ -280,16 +291,16 @@ createTeam(CopyMapID, TargetRoleID) ->
 
 canCreateTeam(_CopyMapID) ->
 	RoleID = playerState:getRoleID(),
-	case teamInterface:isInTeam(RoleID) of
-		false ->
-%%			case playerCopyMap:canEnterCopyMap(CopyMapID, false) of
-%%				true ->
-			{true, 0};
-%%				ErrorCode ->
-%%					{false, ErrorCode}
-%%			end;
+	case canJoinTeam() of
+		true ->
+			case teamInterface:isInTeam(RoleID) of
+				false ->
+					{true, 0};
+				_ ->
+					{false, ?ErrorCode_TeamHasTeam}
+			end;
 		_ ->
-			{false, ?ErrorCode_TeamHasTeam}
+			{false, ?ErrorCode_TeamCantJoinInSpecialMap}
 	end.
 %%%-------------------------------------------------------------------
 dismissTeam() ->
@@ -340,9 +351,9 @@ inviteOther(TargetRoleID) ->
 	end,
 	ok.
 
-queryName(RoleID)->
+queryName(RoleID) ->
 	case core:queryBaseRoleByRoleID(RoleID) of
-		#rec_base_role{roleName = Name}->
+		#rec_base_role{roleName = Name} ->
 			Name;
 		_ ->
 			""
@@ -357,7 +368,7 @@ canInviteOther(TargetRoleID) ->
 					{false, ?ErrorCode_TeamTargetHasTeam};
 				_ ->
 					case core:queryOnLineRoleByRoleID(TargetRoleID) of
-						#rec_OnlinePlayer{}->
+						#rec_OnlinePlayer{} ->
 							checkTeamInfo(RoleID);
 						_ ->
 							{false, ?ErrorCode_TeamInvitorOffline}
@@ -366,14 +377,17 @@ canInviteOther(TargetRoleID) ->
 		_ ->
 			{false, ?ErrorCode_TeamSelftNotInTeam}
 	end.
+
 checkTeamInfo(RoleID) ->
 	case teamInterface:getTeamInfoWithRoleID(RoleID) of
-		#recTeamInfo{memberList = ML} = TeamInfo ->
-			case length(ML) >= ?MAX_TeamMemberNum of
+		#recTeamInfo{canBeSearch = 0, leaderID = LeaderID} when LeaderID =/= RoleID ->
+			{false, ?ErrorCode_TeamOnlyLeaderCanOp};
+		#recTeamInfo{} = TeamInfo ->
+			case teamInterface:isTeamFullWithTeamInfo(TeamInfo) of
 				true ->
 					{false, ?ErrorCode_TeamMemberMax};
 				_ ->
-					case teamInterface:isTeamStartCopyMapAcking(TeamInfo) of
+					case teamInterface:isTeamStartCopyMapAck(TeamInfo) of
 						false ->
 							{true, TeamInfo};
 						_ ->
@@ -436,24 +450,32 @@ canJoinTeam(true, LeaderID, LeaderID) ->
 	{false, ?ErrorCode_TeamHasTeam};
 canJoinTeam(_, LeaderID, LeaderID) ->
 	{false, ?ErrorCode_TeamCantBeSelf};
-canJoinTeam(_IsActive, RoleID, LeaderID) ->
-	case teamInterface:isInTeam(RoleID) of
-		false ->
-			TeamInfo =  teamInterface:getTeamInfoWithRoleID(LeaderID),
-			case TeamInfo of
-				#recTeamInfo{} ->
-					case teamInterface:isTeamStartCopyMapAcking(TeamInfo) of
-						false ->
-							{true, TeamInfo};
+canJoinTeam(IsActive, RoleID, LeaderID) ->
+	case canJoinTeam() of
+		true ->
+			case teamInterface:isInTeam(RoleID) of
+				false ->
+					TeamInfo = teamInterface:getTeamInfoWithRoleID(LeaderID),
+					case TeamInfo of
+						#recTeamInfo{canBeSearch = 0} when IsActive ->
+							{false, ?ErrorCode_TeamCantJoinBeLocked};
+						#recTeamInfo{} ->
+							case teamInterface:isTeamStartCopyMapAck(TeamInfo) of
+								false ->
+									{true, TeamInfo};
+								_ ->
+									{false, ?ErrorCode_TeamAreadyStartCopy}
+							end;
 						_ ->
-							{false, ?ErrorCode_TeamAreadyStartCopy}
+							{false, ?ErrorCode_TeamDissmissed}
 					end;
 				_ ->
-					{false, ?ErrorCode_TeamDissmissed}
+					{false, ?ErrorCode_TeamHasTeam}
 			end;
 		_ ->
-			{false, ?ErrorCode_TeamHasTeam}
+			{false, ?ErrorCode_TeamCantJoinInSpecialMap}
 	end.
+
 %%%-------------------------------------------------------------------
 fastJoinTeam(TeamID) ->
 	RoleID = playerState:getRoleID(),
@@ -501,7 +523,7 @@ leaveTeam(IsNotify) ->
 			psMgr:sendMsg2PS(
 				?PsNameTeam,
 				leaveTeam,
-				{RoleID, playerState:getNetPid(), IsNotify}
+				{RoleID, self(), playerState:getNetPid(), IsNotify}
 			);
 		_ ->
 			skip
@@ -523,6 +545,41 @@ leaveTeamAndEnterCopyMap(CopyMapID) ->
 	end,
 	ok.
 
+%% 助战
+assistCopyMap(1, CopyMapID) ->
+	%% 开启助战
+	RoleID = playerState:getRoleID(),
+	case teamInterface:getTeamInfoWithRoleID(RoleID) of
+		#recTeamInfo{copyMapID = CopyMapID} ->
+			case teamInterface:getTeamMemberInfoWithRoleID(RoleID) of
+				#recTeamMemberInfo{assistMapID = CopyMapID} ->
+					playerMsg:sendErrorCodeMsg(?ErrorCode_AlreadyOpenAssist);
+				_ ->
+					psMgr:sendMsg2PS(
+						?PsNameTeam,
+						assistCopyMapStart,
+						{RoleID, CopyMapID, playerState:getNetPid()}
+					)
+			end;
+		_ ->
+			playerMsg:sendErrorCodeMsg(?ErrorCode_TeamSelftNotInTeam)
+	end,
+	ok;
+assistCopyMap(2, _CopyMapID) ->
+	%% 取消助战
+	RoleID = playerState:getRoleID(),
+	case teamInterface:getTeamMemberInfoWithRoleID(RoleID) of
+		#recTeamMemberInfo{assistMapID = 0} ->
+			playerMsg:sendErrorCodeMsg(?ErrorCode_AlreadyCancelAssist);
+		_ ->
+			psMgr:sendMsg2PS(
+				?PsNameTeam,
+				assistCopyMapCancel,
+				{playerState:getRoleID(), playerState:getNetPid()}
+			)
+	end,
+	ok.
+
 enterCopyMap(CopyMapID) ->
 	case playerCopyMap:canEnterCopyMap(CopyMapID) of
 		true ->
@@ -541,7 +598,7 @@ changeLeader(TarRoleID) ->
 			psMgr:sendMsg2PS(
 				?PsNameTeam,
 				changeLeader,
-				{RoleID, playerState:getNetPid(), TarRoleID, MapPid, IsNotInCopy}
+				{RoleID, playerState:getNetPid(), TarRoleID, MapPid, MapID, IsNotInCopy}
 			);
 		{_, ErrorCode} ->
 			playerMsg:sendErrorCodeMsg(ErrorCode)
@@ -639,7 +696,7 @@ onReceivedLeaderStartCopyMap({LeaderID, CopyMapID}) ->
 				{RoleID, playerState:getNetPid(), 0, false}
 			);
 		_ ->
-			skop
+			skip
 	end,
 	ok.
 %%%-------------------------------------------------------------------
@@ -694,36 +751,6 @@ doMemberStartCopyMapAck(Ack, RoleID, CopyMapID) ->
 				false
 			)
 	end.
-%%	MapID = playerState:getMapID(),
-%%	case playerCopyMap:canEnterCopyMap(CopyMapID, true) of
-%%		true ->
-%%			case checkNotInCopyMap(MapID) of
-%%				true ->
-%%					psMgr:sendMsg2PS(
-%%						?PsNameTeam,
-%%						memberStartCopymapAck,
-%%						{RoleID, playerState:getNetPid(), Ack}
-%%					);
-%%				_ ->
-%%					playerMsg:getErrorCodeMsg(?ErrorCode_TeamCantOpInCopyMap)
-%%			end;
-%%		ErrorCode ->
-%%			playerMsg:sendErrorCodeMsg(ErrorCode),
-%%			psMgr:sendMsg2PS(
-%%				?PsNameTeam,
-%%				memberStartCopymapAck,
-%%				{RoleID, playerState:getNetPid(), 0}
-%%			),
-%%			Msg = playerMsg:getErrorCodeMsg(
-%%				?ErrorCode_TeamSomeOneCantInCopyMap,
-%%				[playerState:getName()]
-%%			),
-%%			teamInterface:sendNetMsg2TeamWithRoleID(
-%%				RoleID,
-%%				Msg,
-%%				false
-%%			)
-%%	end.
 
 checkMeCanEnterCopyMap(CopyMapID) ->
 	MapID = playerState:getMapID(),
@@ -779,7 +806,7 @@ autoChangeLeader(_) ->
 	psMgr:sendMsg2PS(
 		?PsNameTeam,
 		leaderOffline,
-		{RoleID, MapPid, IsNotInCopy}
+		{RoleID, MapPid, MapID, IsNotInCopy}
 	),
 	ok.
 
@@ -808,8 +835,11 @@ doSyncInfo2Team(#recTeamInfo{copyMapID = CopyMapID}, Code) ->
 	[_, AV] = playerPropSync:getProp(?SerProp_ActionPoint),
 	CopyMapEnterCount = copyMapEnterCount(CopyMapID),
 	NetPid = playerState:getNetPid(),
+
+	RoleID = playerState:getRoleID(),
+
 	Info = #recSyncMemberInfo{
-		roleID = playerState:getRoleID(),
+		roleID = RoleID,
 		code = Code,
 		pid = self(),
 		netPid = NetPid,
@@ -828,6 +858,12 @@ doSyncInfo2Team(#recTeamInfo{copyMapID = CopyMapID}, Code) ->
 	},
 	psMgr:sendMsg2PS(?PsNameTeam, updateMemberInfo, Info),
 
+	AssistMapID =
+		case teamInterface:getTeamMemberInfoWithRoleID(RoleID) of
+			#recTeamMemberInfo{assistMapID = AssMapID} -> AssMapID;
+			_ -> 0
+		end,
+
 	%%放在这里用通知队友
 	Msg = #pk_GS2U_UpdateMemberExInfo{
 		infoEx = #pk_TeamMemberInfoEx{
@@ -840,6 +876,7 @@ doSyncInfo2Team(#recTeamInfo{copyMapID = CopyMapID}, Code) ->
 			mapInstanceID = misc:pid_to_integer(Info#recSyncMemberInfo.mapPID),
 			copyMapLeftCount = CopyMapEnterCount,
 			actionPoint = AV,
+			assistMapID = AssistMapID,
 			force = Info#recSyncMemberInfo.force,
 			x = X,
 			y = Y
@@ -875,13 +912,36 @@ copyMapEnterCount(0) ->
 	0;
 copyMapEnterCount(CopyMapID) ->
 	playerCopyMap:getEnterCopyMapCount(CopyMapID).
-
+%%%-------------------------------------------------------------------
+getMapLimit(0) ->
+	[0, 1, 999];
+getMapLimit(MapID) ->
+	case getCfg:getCfgByArgs(cfg_mapsetting, MapID) of
+		#mapsettingCfg{
+			useVitality = APNeed,
+			playerEnter_MinLevel = MinLevel,
+			playerEnter_MaxLevel = MaxLevel
+		} ->
+			[APNeed, MinLevel, MaxLevel];
+		_ ->
+			[0, 1, 999]
+	end.
 %%%-------------------------------------------------------------------
 queryRole(Type) ->
+	case canQueryRole() of
+		{true, MapID} ->
+			queryRole(Type, MapID);
+		_ ->
+			skip
+	end,
+	ok.
+
+queryRole(Type, MapID) ->
+	[APNeed, MinLevel, MaxLevel] = getMapLimit(MapID),
 	L1 =
-		case catch doQueryRole(Type) of
+		case catch doQueryRole(Type, APNeed, MinLevel, MaxLevel) of
 			{'EXIT', Err} ->
-				?ERROR_OUT("queryRole(~p),err[~p]",[Type, Err]),
+				?ERROR_OUT("queryRole(~p),err[~p]", [Type, Err]),
 				[];
 			L0 ->
 				L0
@@ -889,18 +949,34 @@ queryRole(Type) ->
 	playerMsg:sendNetMsg(#pk_GS2U_QueryRoleListAck{
 		queryType = Type,
 		playerList = L1
-	}).
+	}),
+	ok.
+
+canQueryRole() ->
+	RoleID = playerState:getRoleID(),
+	case teamInterface:getTeamInfoWithRoleID(RoleID) of
+		#recTeamInfo{copyMapID = MapID, canBeSearch = 0, leaderID = RoleID} ->
+			{true, MapID};
+		#recTeamInfo{copyMapID = MapID, canBeSearch = 1} ->
+			{true, MapID};
+		_ ->
+			{false, 99999999999}
+	end.
+
 
 %%%-------------------------------------------------------------------
-doQueryRole(?Search_Nearby) ->
+doQueryRole(?Search_Nearby, APNeed, MinLevel, MaxLevel) ->
 	Me = playerState:getRoleID(),
 	PlayerEts = playerState:getMapPlayerEts(),
 	%%
-	Q = ets:fun2ms(fun(Obj) when Obj#recMapObject.id =/= Me -> Obj#recMapObject.id end),
+	Q = ets:fun2ms(fun(Obj) when Obj#recMapObject.id =/= Me -> {Obj#recMapObject.id, Obj#recMapObject.level} end),
 	RoleIDList1 = ets:select(PlayerEts, Q),
 	%%
-	RoleIDList2 = [RoleID || RoleID <- RoleIDList1
-		, teamInterface:isInTeam(RoleID) =:= false],
+	RoleIDList2 = [RoleID || {RoleID, RoleLevel} <- RoleIDList1
+		, teamInterface:isInTeam(RoleID) =:= false
+		, RoleLevel >= MinLevel
+		, RoleLevel =< MaxLevel
+		, checkActionPoint(RoleID, APNeed)],
 
 	%%
 	RoleIDList3 =
@@ -914,31 +990,34 @@ doQueryRole(?Search_Nearby) ->
 	RoleIDList4 = lists:sublist(RoleIDList3, ?SearchList_Max),
 	makeOnlineRoleSnapshot(RoleIDList4, ?Search_Nearby);
 %%
-doQueryRole(?Search_Friend) ->
-	RoleID = playerState:getRoleID(),
+doQueryRole(?Search_Friend, APNeed, MinLevel, MaxLevel) ->
+	Me = playerState:getRoleID(),
 	%%
-	#recFriend2Data{relations = FL} = friend2State:queryFriend2Data(RoleID),
+	#recFriend2Data{relations = FL} = friend2State:queryFriend2Data(Me),
 	FRoleIDList1 = [FriendID ||
 		#rec_friend2_relation{targetRoleID = FriendID, relation = Relation} <- FL
 		, Relation =:= ?RELATION_FORMAL
+		, checkOnlineLevel(FriendID, MinLevel, MaxLevel)
 		, teamInterface:isInTeam(FriendID) =:= false
+		, checkActionPoint(FriendID, APNeed)
 		, core:queryPlayerPidByRoleID(FriendID) =/= offline],
 	%%
 	FRoleIDList2 = lists:sublist(FRoleIDList1, ?SearchList_Max),
 	makeOnlineRoleSnapshot(FRoleIDList2, ?Search_Friend);
 %%
-doQueryRole(?Search_Guild) ->
-	RoleID = playerState:getRoleID(),
-	L1 = queryGuildMemberList(RoleID),
+doQueryRole(?Search_Guild, APNeed, MinLevel, MaxLevel) ->
+	Me = playerState:getRoleID(),
+	L1 = queryGuildMemberList(Me),
 	L2 = [ID || ID <- L1
-		, RoleID =/= ID
+		, Me =/= ID
 		, teamInterface:isInTeam(ID) =:= false
+		, checkOnlineLevel(ID, MinLevel, MaxLevel)
+		, checkActionPoint(ID, APNeed)
 		, core:queryPlayerPidByRoleID(ID) =/= offline],
 	makeOnlineRoleSnapshot(L2, ?Search_Guild);
 %%
-doQueryRole(_) ->
+doQueryRole(_, APNeed, MinLevel, MaxLevel) ->
 	Me = playerState:getRoleID(),
-	MinLevel = getMyTeamCopyMinLevel(Me),
 	QS = ets:fun2ms(fun(Obj) when Obj#rec_OnlinePlayer.roleID =/= Me -> Obj#rec_OnlinePlayer.roleID end),
 	L1 = ets:select(ets_rec_OnlinePlayer, QS),
 	LL = erlang:length(L1),
@@ -950,7 +1029,7 @@ doQueryRole(_) ->
 				LS =
 					case random:uniform(2) of
 						1 ->
-							misc:shuffle(lists:reverse(L1));
+							lists:reverse(L1);
 						_ ->
 							misc:shuffle(L1)
 					end,
@@ -962,11 +1041,20 @@ doQueryRole(_) ->
 			case core:queryBaseRoleByRoleID(RoleID) of
 				#rec_base_role{level = LV} ->
 					IsInTeam = teamInterface:isInTeam(RoleID),
-					case LV >= MinLevel andalso RoleID =/= Me andalso IsInTeam =:= false of
+					IsEnough = checkActionPoint(RoleID, APNeed),
+					if
+						RoleID =:= Me ->
+							ACC;
+						LV < MinLevel ->
+							ACC;
+						LV > MaxLevel ->
+							ACC;
+						IsInTeam ->
+							ACC;
+						not IsEnough ->
+							ACC;
 						true ->
-							[RoleID | ACC];
-						_ ->
-							ACC
+							[RoleID | ACC]
 					end;
 				_ ->
 					ACC
@@ -975,24 +1063,28 @@ doQueryRole(_) ->
 
 	L4 = lists:sublist(L3, ?SearchList_Max),
 	makeOnlineRoleSnapshot(L4, ?Search_Online).
+
+checkOnlineLevel(RoleID, MinLevel, MaxLevel) ->
+	case core:queryBaseRoleByRoleID(RoleID) of
+		#rec_base_role{level = Level} when Level >= MinLevel andalso Level =< MaxLevel ->
+			true;
+		_ ->
+			false
+	end.
 %%%-------------------------------------------------------------------
 makeOnlineRoleSnapshot([], _Type) ->
 	[];
 makeOnlineRoleSnapshot(RoleIDList, Type) ->
 	lists:foldl(
 		fun(RoleID, ACC) ->
-%%			case teamInterface:isInTeam(RoleID) of
-%%				true ->
-%%					ACC;
-%%				_ ->
 			case marshallOnlineRoleSnapshot(RoleID, Type) of
 				#pk_OnlineMemberSnapshot{} = Rec ->
 					[Rec | ACC];
 				_ ->
 					ACC
 			end
-%%			end
 		end, [], RoleIDList).
+
 marshallOnlineRoleSnapshot(RoleID, Type) ->
 	case core:queryRoleKeyInfoByRoleID(RoleID) of
 		#?RoleKeyRec{
@@ -1003,7 +1095,8 @@ marshallOnlineRoleSnapshot(RoleID, Type) ->
 			race = Race,
 			sex = Sex,
 			head = Head,
-			playerForce = PF
+			playerForce = PF,
+			petForce = PetForce
 		} ->
 			{GuildID, GuildName} = queryRoleGuildIDAndName(ID),
 			#pk_OnlineMemberSnapshot{
@@ -1018,7 +1111,7 @@ marshallOnlineRoleSnapshot(RoleID, Type) ->
 				race = Race,
 				sex = Sex,
 				head = Head,
-				force = PF
+				force = PF + PetForce
 			};
 		_ ->
 			undefined
@@ -1092,34 +1185,12 @@ getPlayerHpPc() ->
 	MaxHp = playerState:getMaxHp(),
 	skill:getPercent(CurHp, MaxHp).
 
-%%sendNetMsgToOnlineRole(RoleID, Msg) ->
-%%	case core:queryNetPidByRoleID(RoleID) of
-%%		NetPid when is_pid(NetPid) ->
-%%			playerMsg:sendNetMsg(NetPid, Msg);
-%%		_ ->
-%%			offline
-%%	end.
-
 sendMsgToOnlineRole(RoleID, MsgID, Msg) ->
 	case core:queryPlayerPidByRoleID(RoleID) of
 		Pid when is_pid(Pid) ->
 			psMgr:sendMsg2PS(Pid, MsgID, Msg);
 		_ ->
 			offline
-	end.
-
-%%
-getMyTeamCopyMinLevel(RoleID) ->
-	case teamInterface:getTeamInfoWithRoleID(RoleID) of
-		#recTeamInfo{copyMapID = CopyMapID} when CopyMapID > 0 ->
-			case getCfg:getCfgByArgs(cfg_mapsetting, CopyMapID) of
-				#mapsettingCfg{type = ?MapTypeCopyMap, playerEnter_MinLevel = EnterMinLevel} ->
-					EnterMinLevel;
-				_ ->
-					playerState:getLevel()
-			end;
-		_ ->
-			playerState:getLevel()
 	end.
 
 %%
@@ -1140,3 +1211,19 @@ queryGuildMemberList(RoleID) ->
 				[]
 		end,
 	[ID || #rec_guild_member{roleID = ID, power = Power} <- ML, Power =/= ?GuildMemLevel_Request].
+
+checkActionPoint(RoleID, AP) ->
+	case core:queryRoleKeyInfoByRoleID(RoleID) of
+		#?RoleKeyRec{actionPoint = C} when C >= AP ->
+			true;
+		_ ->
+			false
+	end.
+
+%% 能否创建加入队伍等
+canJoinTeam() ->
+	canJoinTeam(playerState:getMapID()).
+canJoinTeam(?GuildBattleMapID) ->
+	false;
+canJoinTeam(_MapID) ->
+	true.

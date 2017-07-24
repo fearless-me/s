@@ -35,11 +35,14 @@ initDailyCounter(List) ->
 
 -spec sendToClient() -> ok.
 sendToClient() ->
+	?DEBUG_OUT("[DebugForDaily] playerDaily:sendToClient/0"),
 	List = playerState:getDailyCounterList(),
 	case List of
 		[] ->
+			?DEBUG_OUT("[DebugForDaily] playerDaily:sendToClient/0 skip"),
 			skip;
 		_ ->
+			?DEBUG_OUT("[DebugForDaily] playerDaily:sendToClient/0 ListLen:~w", [erlang:length(List)]),
 			init2Client(List)
 	end,
 	ok.
@@ -108,9 +111,14 @@ resetDailyCount() ->
 
 	%% 重置其它数据
 
+	%% 玩家在线，登录计数+1
+	playerLogin:accLoginDayAll(),
+
 	%% 重置“环任务”状态
 	%% 该流程本身已经重置了每日计数，因此即将执行的这个函数不再重置每日计数
-	playerLoopTask:onReset(resetDailyCount, {false, false, false}),
+	%% LUN-4438 【家族任务】当天做过几次任务后，进行在线跨天和离线跨天，未刷新重置任务
+	%% 原需求跨天不重置任务状态，因上述BUG改为重置
+	playerLoopTask:onReset(resetDailyCount, {true, true, false}),
 
 	ok.
 

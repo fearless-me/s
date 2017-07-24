@@ -161,6 +161,31 @@ handle_info({saveladder1v1data, _Pid, Data}, State)->
     publicDataMgrLadder1v1:saveladder1v1data(Data),
     {noreply, State};
 
+%% 普通服：数据库返回加载结果
+handle_info({loadMergeLogAck, _PidFromDB, MsgFromDB}, State) ->
+    %% 计算出本服的真实dbID映射关系（没有写入ETS），通知cross计算结果
+	?DEBUG_OUT("[DebugForRealDBID] FromDB Count:~w ~w", [erlang:length(MsgFromDB), MsgFromDB]),
+    MyDBID = globalSetup:getDBID(),
+    MsgToCross = publicDataMgrLoad:loadMergeLogAck(MsgFromDB, [], MyDBID),
+    gsSendMsg:sendMsg2Cross(?PublicDataMgr, realDBID, MsgToCross),
+    {noreply,State};
+
+%% 跨服：刷新真实dbID映射关系并广播给所有普通服
+handle_info({realDBID, _PidFromGS, MsgFromGS}, State) ->
+	?DEBUG_OUT("[DebugForRealDBID] FromGS Count:~w ~w", [erlang:length(MsgFromGS), MsgFromGS]),
+	lists:foreach(fun(R) -> ets:insert(?EtsRealDBID, R) end, MsgFromGS),
+	MsgBroadGS = ets:tab2list(?EtsRealDBID),
+	gsSendMsg:sendMsg2AllSource(?PublicDataMgr, realDBIDAck, MsgBroadGS),
+    {noreply,State};
+
+%% 普通服：收到真实dbID映射关系的广播
+handle_info({realDBIDAck, _PidFromCross, MsgFromCross}, State) ->
+	?DEBUG_OUT("[DebugForRealDBID] FromCross Count:~w ~w", [erlang:length(MsgFromCross), MsgFromCross]),
+	lists:foreach(fun(R) -> ets:insert(?EtsRealDBID, R) end, MsgFromCross),
+    %% 第一次收到广播时向跨服同步跨服好友数据
+	friend2Cross:normal_syncInit(),
+	{noreply,State};
+
 handle_info(Info, State) ->
     ?ERROR_OUT("recv unknow info:~p", [Info]),
     {noreply, State}.

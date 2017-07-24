@@ -65,6 +65,7 @@ onChangeCareerSuccess(OldCareer, NewCareer) ->
 	Msg = #pk_GS2U_ChangeCarrer{result = true, newCareer = NewCareer},
 	playerMsg:sendNetMsg(Msg),
 
+	playerSkillLearn:openWakeSkill(),
 	playerSkillLearn:sendSkillSlotInfo(),
 	playerSkillLearn:sendSkillSlotSkillInfo2Client(),
 	playerSkillLearn:sendSkillInfo2Client(),
@@ -72,6 +73,7 @@ onChangeCareerSuccess(OldCareer, NewCareer) ->
 
 	giveNewCareerGift(NewCareer),
 	returnSkillPoint(playerState:getLevel()),
+	returnSkillCost(),
 
 	playerTask:updateTask(?TaskSubType_CareerChang, ?Career2CareerStage(NewCareer)),
 	?LOG_OUT("player[~p] changeCareer[~p -> ~p] ok",
@@ -88,7 +90,7 @@ giveNewCareerGift(NewCareer) ->
 						new = ItemNum,
 						change = ItemNum,
 						target = ?PLogTS_PlayerSelf,
-						source = ?PLogTS_Vip,
+						source = ?PLogTS_System,
 						gold = 0,
 						goldtype = 0,
 						changReason = ?ItemSourceVipLevelAward,
@@ -99,6 +101,25 @@ giveNewCareerGift(NewCareer) ->
 		_ ->
 			skip
 	end,
+	ok.
+
+returnSkillCost()->
+	RoleID = playerState:getRoleID(),
+	L = playerPropSync:getProp(?SerProp_UpSkill_CostList),
+	playerPropSync:setAny(?SerProp_UpSkill_CostList, []),
+	Title = stringCfg:getString(career_transfer_email_1),
+	Content = stringCfg:getString(career_transfer_email_2),
+	lists:foreach(
+		fun({MoneyType, MoneyNumber}) ->
+			mail:sendMoneySystemMail(
+				RoleID
+				, Title
+				, Content
+				, MoneyType
+				, MoneyNumber
+				, []
+			)
+		end, L),
 	ok.
 
 returnSkillPoint(Level) ->

@@ -77,11 +77,53 @@ getRow(1005)->
     name = "cangkongzhita_1",
     isloop = 0
     };
-getRow(10000)->
+getRow(1006)->
     #animationCfg {
-    id = 10000,
+    id = 1006,
+    name = "jinglinggutu_1",
+    isloop = 0
+    };
+getRow(1007)->
+    #animationCfg {
+    id = 1007,
+    name = "akelezhucheng_1",
+    isloop = 0
+    };
+getRow(2001)->
+    #animationCfg {
+    id = 2001,
+    name = "kuqidenvhai_1",
+    isloop = 0
+    };
+getRow(2002)->
+    #animationCfg {
+    id = 2002,
+    name = "mozuanna_1",
+    isloop = 0
+    };
+getRow(2003)->
+    #animationCfg {
+    id = 2003,
     name = "shenzhizhaohuan_1",
     isloop = 0
+    };
+getRow(2100)->
+    #animationCfg {
+    id = 2100,
+    name = "kaohekaishi_1",
+    isloop = 0
+    };
+getRow(2101)->
+    #animationCfg {
+    id = 2101,
+    name = "chouqukaohe",
+    isloop = 0
+    };
+getRow(2102)->
+    #animationCfg {
+    id = 2102,
+    name = "dabaimowu_1",
+    isloop = 1
     };
 getRow(10001)->
     #animationCfg {
@@ -116,7 +158,14 @@ getKeyList()->[
     {1002},
     {1004},
     {1005},
-    {10000},
+    {1006},
+    {1007},
+    {2001},
+    {2002},
+    {2003},
+    {2100},
+    {2101},
+    {2102},
     {10001},
     {10002},
     {10003}
@@ -135,7 +184,14 @@ get1KeyList()->[
     1002,
     1004,
     1005,
-    10000,
+    1006,
+    1007,
+    2001,
+    2002,
+    2003,
+    2100,
+    2101,
+    2102,
     10001,
     10002,
     10003

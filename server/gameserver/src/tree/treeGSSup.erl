@@ -82,16 +82,6 @@ init([]) ->
 			[gsMainOtp]                           				% Modules  = [Module] | dynamic
 		},
 
-		%%跨服窗口进程
-		CrosServer = {
-			gsCrosOtp,
-			{gsCrosOtp, start_link, []},
-			permanent,
-			2000,
-			worker,
-			[gsCrosOtp]
-		},
-
 		%%玩家数据进程
 		PlayerDataOtp = {
 			playerDataOtp,
@@ -140,18 +130,28 @@ init([]) ->
 			[httpServerOtp]
 		},
 
+		ChatOtp = {
+			chatOtp,
+			{chatOtp, start_link, []},
+			permanent,
+			2000,
+			worker,
+			[chatOtp]
+		},
+
+		HomeOtp = {
+			homeOtp,
+			{homeOtp, start_link, []},
+			permanent,
+			2000,
+			worker,
+			[homeOtp]
+		},
+
 		ProcessList =
 			case core:isCross() of
 				true ->
-					[
-						Main,
-						PlayerDataOtp,
-						PlayerDataMgrOtp,
-						PublicDataOtp,
-						PublicDataMgrOtp,
-						DBServer
-					];
-				_ ->
+					%% 跨服启动的进程
 					[
 						Main,
 						PlayerDataOtp,
@@ -159,8 +159,20 @@ init([]) ->
 						PublicDataOtp,
 						PublicDataMgrOtp,
 						DBServer,
-						CrosServer,
-						HttpServerOtp
+						ChatOtp
+					];
+				_ ->
+					%% 普通服启动的进程
+					[
+						Main,
+						PlayerDataOtp,
+						PlayerDataMgrOtp,
+						PublicDataOtp,
+						PublicDataMgrOtp,
+						DBServer,
+						HttpServerOtp,
+						ChatOtp,
+						HomeOtp
 					]
 			end,
 

@@ -34,8 +34,8 @@
 	initItemUsedTimeFromDB/1,
 	initAwakenFromDB/1,
 	initDropListFromDB/1,
-	initOfflineExpFromDB/1,
-	initPersonalityFromDB/1]).
+	initOfflineExpFromDB/1
+]).
 
 -spec initSkillFromDB(SkillList) -> ok when
 	SkillList :: list().
@@ -262,12 +262,6 @@ initSubmitedTaskFromDB(CompletedTaskList) ->
 	NewCompletedList = lists:foldl(CompletedTaskFun, [], CompletedTaskList),
 	playerState:setSubmittedTask(NewCompletedList),
 	ok.
--spec initPersonalityFromDB(PersonalityInfoList) -> ok when
-	PersonalityInfoList :: [#rec_personality_info{}, ...].
-initPersonalityFromDB(PersonalityInfoList) ->
-	[PersonalityInfo | _] = PersonalityInfoList,
-	%%?DEBUG_OUT("initPersonalityFromDB PersonalityInfo = ~p", [PersonalityInfo]),
-	playerPersonalityInfo:initPersonalityFromDB(PersonalityInfo).
 
 -spec initOfflineExpFromDB(ExtRole) -> ok when
 	ExtRole :: [#rec_ext_role{}, ...].
@@ -350,7 +344,8 @@ initAchieve(#rec_achieve{
 		aScheduleNum = AchieveSnum
 	},
 	AchieveList = playerState:getPlayerAchieveList(),
-	playerState:setPlayerAchieveList([Achieve | AchieveList]).
+	NewAchieveList = lists:keystore(AchieveID, #recAchieve.aID, AchieveList, Achieve),
+	playerState:setPlayerAchieveList(NewAchieveList).
 
 -spec initBadge(#rec_badge{}) -> ok.
 initBadge(#rec_badge{
@@ -429,12 +424,15 @@ initWake(#rec_awaken_info{
 initPet(#rec_pet_info{
 	attas = Attas,
 	petID = PetID,
+	petLv = PetLevel,
+	exp = Exp,
 	star = Star,
 	status = Status,
 	name = Name,
 	force = Force,
 	raw = Raw,
-	time = Time
+	time = Time,
+	upCount = UpCount
 } ) ->
 	Pets = playerState:getPets(),
 	NewStatus =
@@ -447,13 +445,16 @@ initPet(#rec_pet_info{
 		end,
 	Pet = #recPetInfo{
 		pet_time = Time,
+		pet_level = PetLevel,
+		pet_exp = Exp,
 		pet_attas = Attas,
 		pet_force = Force,
 		pet_name = Name,
 		pet_id = PetID,
 		pet_star = Star,
 		pet_raw = Raw,
-		pet_status = NewStatus
+		pet_status = NewStatus,
+		upCount = UpCount
 	},
 	playerState:setPets([Pet | Pets]).
 

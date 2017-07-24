@@ -80,7 +80,16 @@ initBaseProp(Level, Career) ->
 
 %%保存buff增加或者减少的属性
 -spec saveBuffProp(BuffID :: uint(), PlusList :: list(), MultList :: list(), Opreate :: add|del) -> ok.
-saveBuffProp(_BuffID, PlusList, MultList, add) ->
+saveBuffProp(BuffID, PlusList, MultList, Op) ->
+	case getCfg:getCfgByArgs(cfg_buff, BuffID) of
+		#buffCfg{battlepower = 1} ->
+			skip;
+		_ ->
+			saveBuffProp1(BuffID, PlusList, MultList, Op)
+	end,
+	ok.
+
+saveBuffProp1(_BuffID, PlusList, MultList, add) ->
 	PropPcList = playerState:getBuffBattlePropPcList(),
 	PropAddList = playerState:getBuffBattlePropAddList(),
 	Fun =
@@ -100,7 +109,7 @@ saveBuffProp(_BuffID, PlusList, MultList, add) ->
 	NewPropPcList = lists:foldl(Fun1, PropPcList, MultList),
 	playerState:setBuffBattlePropPcList(NewPropPcList),
 	playerState:setBuffBattlePropAddList(NewPropAddList);
-saveBuffProp(BuffID, PlusList, MultiList, del) ->
+saveBuffProp1(BuffID, PlusList, MultiList, del) ->
 	PropPcList = playerState:getBuffBattlePropPcList(),
 	PropAddList = playerState:getBuffBattlePropAddList(),
 	Fun =
@@ -261,8 +270,8 @@ sendAllBattleProp(BattlePropList) ->
 -spec sendBattleProp(List) -> ok when
 	List :: [#pk_BattleProp{}, ...].
 sendBattleProp(List) ->
-	?DEBUG_OUT("[~p]send battle prop ~n ~w,~nst=~p",
-		[playerState:getRoleID(), List, misc:getStackTrace()]),
+%%	?DEBUG_OUT("[~p]send battle prop ~n ~w,~nst=~p",
+%%		[playerState:getRoleID(), List, misc:getStackTrace()]),
 	Code = playerState:getPlayerCode(),
 	Msg = #pk_GS2U_BattlePropList{code = Code, id = 0, battleProp = List},
 	playerMsg:sendNetMsg(Msg),
@@ -297,12 +306,14 @@ changeProp_CalcType(EnhanceProp, ExtProp, ?EquipOn, IsNotify) ->
 	NewBattleProp1 = battleProp:addBattlePropAddValue(BattleProp, ResultAddProp),
 	NewBattleProp2 = battleProp:addBattlePropRateValue(NewBattleProp1, ResultMulProp),
 	playerCalcProp:calcBattleProp(NewBattleProp2, true, IsNotify);
-changeProp_CalcType(EnhanceProp, ExtProp, _, IsNotify) ->
+changeProp_CalcType(EnhanceProp, ExtProp, ?EquipOff, IsNotify) ->
 	{ResultAddProp, ResultMulProp} = battleProp:calcPropGroup(EnhanceProp, ExtProp, ?EquipOff),
 	BattleProp = playerCalcProp:getBattleProp(),
 	NewBattleProp1 = battleProp:addBattlePropAddValue(BattleProp, ResultAddProp),
 	NewBattleProp2 = battleProp:delBattlePropRateValue(NewBattleProp1, ResultMulProp),
-	playerCalcProp:calcBattleProp(NewBattleProp2, true, IsNotify).
+	playerCalcProp:calcBattleProp(NewBattleProp2, true, IsNotify);
+changeProp_CalcType(_AnyEnc, _AnyExt, _AnyOp, _None) ->
+	skip.
 
 
 changeProp_AddMulti(AddPropList_Del, MultiPropList_Del, AddPropList, MultiPropList, IsNotify) ->
@@ -319,8 +330,10 @@ changeProp_AddMulti(AddPropList, MultiPropList, ?EquipOn, IsNotify) ->
 	NewBattleProp1 = battleProp:addBattlePropAddValue(BattleProp, AddPropList),
 	NewBattleProp2 = battleProp:addBattlePropRateValue(NewBattleProp1, MultiPropList),
 	playerCalcProp:calcBattleProp(NewBattleProp2, true, IsNotify);
-changeProp_AddMulti(AddPropList, MultiPropList, _, IsNotify) ->
+changeProp_AddMulti(AddPropList, MultiPropList, ?EquipOff, IsNotify) ->
 	BattleProp = playerCalcProp:getBattleProp(),
 	NewBattleProp1 = battleProp:addBattlePropAddValue(BattleProp, AddPropList),
 	NewBattleProp2 = battleProp:delBattlePropRateValue(NewBattleProp1, MultiPropList),
-	playerCalcProp:calcBattleProp(NewBattleProp2, true, IsNotify).
+	playerCalcProp:calcBattleProp(NewBattleProp2, true, IsNotify);
+changeProp_AddMulti(_AnyProp, _AnyMulti, _AnyOp, _None) ->
+	skip.

@@ -18,6 +18,7 @@
 	gatherTick/0,
 	requestGatherItem/1,
 	deleteCollect/1,
+	deleteCollectFast/1,
 	deleteObject/2,
 	deleteObjectFast/2
 ]).
@@ -83,7 +84,7 @@ gatherFresh(#gatherWaitReliveRec{code = Code, id = GatherID, deadTime = DeadTime
 requestGatherItem({Code, GatherID}) ->
 	CollectEts = mapState:getMapCollectEts(),
 	case myEts:lookUpEts(CollectEts, Code) of
-		[#recMapObject{id = GatherID, hp = HP, maxHp = MaxHP} = Obj] when HP > 0 orelse MaxHP =:= 0 ->
+		[#recMapObject{id = GatherID, hp = HP, maxHp = MaxHP, groupID = GroupID} = Obj] when HP > 0 orelse MaxHP =:= 0 ->
 			%% 可以采集
 			case MaxHP =:= 0 of
 				false ->
@@ -112,7 +113,7 @@ requestGatherItem({Code, GatherID}) ->
 					%% 这是一个可以无限采集的东西
 					skip
 			end,
-
+			psMgr:sendMsg2PS(self(), collectItem, {Code, GatherID, GroupID, 1}),
 			%% 采集成功
 			GatherID;
 		_ ->
@@ -151,7 +152,18 @@ deleteObject(TargetEts, Code) ->
 	end,
 	ok.
 
-%% 从ets删除对象
+%% 删除采集物（快速）
+-spec deleteCollectFast(Code::uint()) -> ok.
+deleteCollectFast(Code) ->
+	%% 从复活列表中删除
+	mapState:delGatherWaitReliveList(Code),
+
+	%% 从ets中删除
+	CollectEts = mapState:getMapCollectEts(),
+	deleteObjectFast(CollectEts, Code),
+	ok.
+
+%% 从ets删除对象（快速）
 -spec deleteObjectFast(TargetEts::etsTab(), Code::uint()) -> ok.
 deleteObjectFast(TargetEts, Code) ->
 	case ets:member(TargetEts, Code) of

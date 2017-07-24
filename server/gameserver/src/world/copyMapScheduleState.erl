@@ -144,3 +144,16 @@ getMapScheduleCharacterID(GroupID)->
 
 delMapScheduleCharacterID(GroupID)->
 	erase({mapScheduleCharacterID, GroupID}).
+
+%% 副本进度对应的采集物Code，便于进度完成时清除采集物
+%% 注：ScheduleID对应为#copymapScheduleInitCfg.id
+setMapScheduleCollectCode(GroupID, ScheduleID, IsParallel, List) ->
+	%?DEBUG_OUT("[DebugForCopyMapC] init ~w setCollect:~w", [IsParallel, List]),
+	put({mapScheduleCollectCode, GroupID, ScheduleID, IsParallel}, List).
+getMapScheduleCollectCode(GroupID, ScheduleID, IsParallel) ->
+	case get({mapScheduleCollectCode, GroupID, ScheduleID, IsParallel}) of
+		undefined ->
+			[];
+		List ->
+			List
+	end.

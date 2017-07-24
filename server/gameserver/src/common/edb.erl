@@ -169,7 +169,7 @@ writeRecord(Record) ->
 -spec s_writeRecord(Record) -> ok when Record::tuple().
 s_writeRecord(Record) ->
 	F = fun() ->
-		mnesia:s_write(Record,write)
+		mnesia:s_write(Record)
 	end,
 	Ret = mnesia:transaction(F),
 	case Ret of

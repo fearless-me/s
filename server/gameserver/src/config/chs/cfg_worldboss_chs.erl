@@ -39,13 +39,13 @@ getRow(worldboss_buyattack)->
     #worldbossCfg {
     id = 7,
     settype = worldboss_buyattack,
-    setpara = [{100,10000,5},{103,50,5}]
+    setpara = [{100,10000,5},{103,20,5}]
     };
 getRow(worldboss_list)->
     #worldbossCfg {
     id = 1,
     settype = worldboss_list,
-    setpara = [{722,79,94},{723,79,94}]
+    setpara = [{722,324,320}]
     };
 getRow(_)->[].
 

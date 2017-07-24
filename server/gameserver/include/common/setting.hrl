@@ -58,7 +58,7 @@
 %% 玩家只读数值类变量，占5000个32位整数
 %% (@)玩家只读数值变量开始
 -define(Setting_PlayerVarReadOnly_Start, 25001).
-%% (@)玩家累计登录天数 ($0)
+%% (@)玩家累计登录天数（七日签到相关，有等级限制） ($0)
 -define(Setting_PlayerVarReadOnly_AccLoginDay, 25002).
 %% (@)玩家在世界BOSS战中对BOSS产生的伤害 ($0)
 -define(Setting_PlayerVarReadOnly_WorldBossDamage, 25003).
@@ -80,7 +80,7 @@
 -define(Setting_PlayerVarReadOnly_KoreaGift, 25014).
 %% (@)玩家被拉黑次数($0)
 -define(Setting_PlayerVarReadOnly_BeBlackCount, 25015).
-%% (@)玩家收到的赞($0)
+%% (@)玩家收到的赞($0)===========已废弃，点赞由身份证功能模块管理，参考playerIdentity
 -define(Setting_PlayerVarReadOnly_BeLike, 25016).
 %% (@)玩家上次记录的弧度制经度十万倍取整[-PI * 100000, +PI * 100000]($0)
 -define(Setting_PlayerVarReadOnly_RatLongitudeHT, 25017).
@@ -90,6 +90,8 @@
 -define(Setting_PlayerVarReadOnly_SnowmanGift, 25019).
 %% (@)记录最后一次领取雪人礼盒的时间，用于辅助PlayerVarReadOnly_SnowmanGift变量的重置($0)
 -define(Setting_PlayerVarReadOnly_SnowmanGiftLastTime, 25020).
+%% (@)玩家累计登录天数（通用，无等级限制） ($0)
+-define(Setting_PlayerVarReadOnly_AccLoginDayAll, 25021).
 %% (@)玩家只读数值变量结束
 -define(Setting_PlayerVarReadOnly_End, 30000).
 
@@ -112,7 +114,7 @@
 -define(Setting_ClientVar_FirestEnterInstance101, 35008).
 %% (*)客户端检验王者膜拜日常($0)
 -define(Setting_ClientVar_DailyInfo_ArenaKingWorship, 35009).
-%% (*)客户端显示的同屏玩家数量($10)
+%% (*)客户端显示的同屏玩家数量($5)
 -define(Setting_ClientVar_ScreenPlayerNumber, 35010).
 %% (*)地图是否第一次进入信息开始字段
 -define(Setting_ClientVar_FirstEnterMap_Start, 40000).
@@ -122,6 +124,7 @@
 %% 全局开关类变量,占1000个32位整数,范围(50100 ~ 51100),50100*32=1603200,51100*32=1635200
 -define(Setting_GlobalBitVar_StartBit, 1603200).
 %% 世界BOSS战开启状态($0)
+%% GlobalBitVar_WorldBossWar_Running = 1603201,
 %% 等级开关($0)
 %% GlobalBitVar_Level_Running = 1603202,
 %% 日志3dgamedatalog库开关($1)
@@ -140,37 +143,37 @@
 %% 客户端只读全局开关类变量,占1000个32位整数,范围(52300 ~ 53300),52300*32=1673600,53300*32=1705600
 %% (@)客户端只读全局开关类变量开始
 -define(Setting_GlobalBitVarReadOnly_StartBit, 1673600).
-%% (@)QQ群号($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__QQ群号($0)
 -define(Setting_GlobalBitVarReadOnly_Hide_QQ, 1673601).
 %% (@)激活码($1)
 -define(Setting_GlobalBitVarReadOnly_Hide_ActiveCode, 1673602).
-%% (@)手机号绑定($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__手机号绑定($0)
 -define(Setting_GlobalBitVarReadOnly_Hide_MobileBind, 1673603).
-%% (@)手动更新按钮($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__手动更新按钮($0)
 -define(Setting_GlobalBitVarReadOnly_Hide_ManualUpdate, 1673604).
 %% (@)排行榜功能($1)
 -define(Setting_GlobalBitVarReadOnly_Hide_Rank, 1673605).
-%% (@)BUG提交按钮($0)
+%% (@)BUG提交按钮($1)
 -define(Setting_GlobalBitVarReadOnly_Hide_BugReport, 1673606).
-%% (@)幸运抽奖功能($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__幸运抽奖功能($0)
 -define(Setting_GlobalBitVarReadOnly_Hide_LuckyDraw, 1673607).
-%% (@)充值按鈕($0)
+%% (@)充值按钮($0)
 -define(Setting_GlobalBitVarReadOnly_Hide_ChargeButton, 1673608).
-%% (@)每日累充奖励开关($1)
+%% (@)每日累充奖励($0)
 -define(Setting_GlobalBitVarReadOnly_Hide_Daily_AccCharge, 1673609).
-%% (@)更新和更新提示($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__更新和更新提示($0)
 -define(Setting_GlobalBitVarReadOnly_Hide_GameResourceUpdate, 1673610).
 %% (@)传送按钮($1)
 -define(Setting_GlobalBitVarReadOnly_Hide_TransButton, 1673611).
 %% (@)月卡福利($1)
 -define(Setting_GlobalBitVarReadOnly_Hide_MonWelfare, 1673612).
-%% (@)打开占卜抽奖($0)
+%% (@)占卜抽奖($0)
 -define(Setting_GlobalBitVarReadOnly_Lottery, 1673613).
-%% (@)打开充值活动($1)
+%% (@)充值活动($1)
 -define(Setting_GlobalBitVarReadOnly_RechargeActivity, 1673614).
 %% (@)深红溶渊($1)
 -define(Setting_GlobalBitVarReadOnly_Darkness, 1673615).
-%% (@)骑宠领地($1)
+%% (@)新骑宠领地($1)
 -define(Setting_GlobalBitVarReadOnly_PetBattle, 1673616).
 %% (@)福利按钮($1)
 -define(Setting_GlobalBitVarReadOnly_WelfareBtn, 1673617).
@@ -178,29 +181,29 @@
 -define(Setting_GlobalBitVarReadOnly_ShopBtn, 1673618).
 %% (@)神秘商店按钮($1)
 -define(Setting_GlobalBitVarReadOnly_SecretShopBtn, 1673619).
-%% (@)时空裂痕按钮($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__时空裂痕按钮($0)
 -define(Setting_GlobalBitVarReadOnly_RiftBtn, 1673620).
-%% (@)盗宝贼踪迹按钮($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__哥布林盗宝贼踪迹按钮($0)
 -define(Setting_GlobalBitVarReadOnly_StealBtn, 1673621).
-%% (@)铸币熔炉按钮($1)
+%% (@)惊天喵盗团($1)
 -define(Setting_GlobalBitVarReadOnly_CoinBtn, 1673622).
-%% (@)藏宝海湾按钮($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__藏宝海湾按钮($0)
 -define(Setting_GlobalBitVarReadOnly_BuriedBtn, 1673623).
-%% (@)首领入侵按钮($0)
+%% (@)世界BOSS按钮($0)
 -define(Setting_GlobalBitVarReadOnly_LeaderBtn, 1673624).
-%% (@)幸运选择题按钮($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__幸运选择题按钮($0)
 -define(Setting_GlobalBitVarReadOnly_LuckAnswerBtn, 1673625).
-%% (@)守护碧空城按钮($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__守护碧空城按钮($0)
 -define(Setting_GlobalBitVarReadOnly_GuardCityBtn, 1673626).
-%% (@)客户端更新后是否自动关闭客户端($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__客户端更新后是否自动关闭客户端($0)
 -define(Setting_GlobalBitVarReadOnly_CloseAfterUpdate, 1673627).
-%% (@)混沌战场按钮($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__混沌战场按钮($0)
 -define(Setting_GlobalBitVarReadOnly_HDBattle, 1673628).
-%% (@)春节活动开关($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__春节活动开关($0)
 -define(Setting_GlobalBitVarReadOnly_NewYearAct, 1673629).
-%% (@)成长礼包按钮($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__成长礼包按钮($0)
 -define(Setting_GlobalBitVarReadOnly_GrowUp, 1673630).
-%% (@)优惠推送按钮($0)
+%% (@)废弃或者不确定是否使用-请联合客户端查询__优惠推送按钮($0)
 -define(Setting_GlobalBitVarReadOnly_RebatePush, 1673631).
 %% (@)跨服战场($0)
 -define(Setting_GlobalBitVarReadOnly_CrossServerBattle, 1673632).
@@ -214,21 +217,21 @@
 -define(Setting_GlobalBitVarReadOnly_GuildExpedition, 1673636).
 %% (@)玩家个性展示($1)
 -define(Setting_GlobalBitVarReadOnly_PersonalityInfo, 1673637).
-%% (@)王者雕像($0)
+%% (@)世界守护活动($0)
 -define(Setting_GlobalBitVarReadOnly_KingBattleAll, 1673638).
-%% (@)马车劫掠($1)
+%% (@)马车劫掠($0)
 -define(Setting_GlobalBitVarReadOnly_EscortGoods, 1673639).
 %% (@)装备冲星($1)
 -define(Setting_GlobalBitVarReadOnly_equipStar, 1673640).
 %% (@)翅膀($1)
 -define(Setting_GlobalBitVarReadOnly_playerWing, 1673641).
-%% (@)符文($1)
+%% (@)符文($0)
 -define(Setting_GlobalBitVarReadOnly_PlayerRune, 1673642).
 %% (@)婚姻($0)
 -define(Setting_GlobalBitVarReadOnly_WeddingSite, 1673643).
 %% (@)交易行是否扣税($1)
 -define(Setting_GlobalBitVarReadOnly_PlayerTradeTax, 1673644).
-%% (@)宝藏系统开关($0)
+%% (@)扭蛋($0)
 -define(Setting_GGlobalBitVarReadOnly_Hide_LOTTERY_SYS, 1673645).
 %% (@)打开充值more按钮($0)
 -define(Setting_GGlobalBitVarReadOnly_RechargeMore, 1673646).
@@ -236,7 +239,7 @@
 -define(Setting_GGlobalBitVarReadOnly_RechargeThirdPartyTab, 1673647).
 %% (@)家族堆雪人活动($1)
 -define(Setting_GlobalBitVarReadOnly_Snowman, 1673648).
-%% (@)交易行($0)
+%% (@)交易行($1)
 -define(Setting_GlobalBitVarReadOnly_Trade, 1673649).
 %% (@)查看远程玩家($0)
 -define(Setting_GlobalBitVarReadOnly_RPView, 1673650).
@@ -356,6 +359,7 @@
 		 {25018, 0},
 		 {25019, 0},
 		 {25020, 0},
+		 {25021, 0},
 		 {35002, 0},
 		 {35003, 60},
 		 {35004, 1},
@@ -364,16 +368,16 @@
 		 {35007, 0},
 		 {35008, 0},
 		 {35009, 0},
-		 {35010, 10},
+		 {35010, 5},
 		 {1673601, 0},
 		 {1673602, 1},
 		 {1673603, 0},
 		 {1673604, 0},
 		 {1673605, 1},
-		 {1673606, 0},
+		 {1673606, 1},
 		 {1673607, 0},
 		 {1673608, 0},
-		 {1673609, 1},
+		 {1673609, 0},
 		 {1673610, 0},
 		 {1673611, 1},
 		 {1673612, 1},
@@ -403,17 +407,17 @@
 		 {1673636, 0},
 		 {1673637, 1},
 		 {1673638, 0},
-		 {1673639, 1},
+		 {1673639, 0},
 		 {1673640, 1},
 		 {1673641, 1},
-		 {1673642, 1},
+		 {1673642, 0},
 		 {1673643, 0},
 		 {1673644, 1},
 		 {1673645, 0},
 		 {1673646, 0},
 		 {1673647, 0},
 		 {1673648, 1},
-		 {1673649, 0},
+		 {1673649, 1},
 		 {1673650, 0},
 		 {1673651, 0},
 		 {1673652, 1},
@@ -481,6 +485,7 @@
 		 25018,
 		 25019,
 		 25020,
+		 25021,
 		 30000,
 		 35001,
 		 50000,

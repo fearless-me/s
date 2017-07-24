@@ -8,27 +8,27 @@
 getRow(101)->
     #comboSkillCfg {
     iD = 101,
-    skills = [101000,101001,101002]
+    skills = [101000,101001,101002,101013]
     };
 getRow(102)->
     #comboSkillCfg {
     iD = 102,
-    skills = [201000,201001,201002]
+    skills = [201000,201002,201007]
     };
 getRow(103)->
     #comboSkillCfg {
     iD = 103,
-    skills = [301000,301001,301002]
+    skills = [301000,301001,301002,301007]
     };
 getRow(104)->
     #comboSkillCfg {
     iD = 104,
-    skills = [111000,111001,111002]
+    skills = [111000,111001,111002,111009]
     };
 getRow(105)->
     #comboSkillCfg {
     iD = 105,
-    skills = [112000,112001,112002]
+    skills = [112000,112001,112002,112009]
     };
 getRow(106)->
     #comboSkillCfg {
@@ -48,12 +48,12 @@ getRow(108)->
 getRow(109)->
     #comboSkillCfg {
     iD = 109,
-    skills = [312000,312001,312002]
+    skills = [312000,312001,312002,312009]
     };
 getRow(111)->
     #comboSkillCfg {
     iD = 111,
-    skills = [101010,101011,101012]
+    skills = [101010,101011,101012,101014]
     };
 getRow(112)->
     #comboSkillCfg {
@@ -68,12 +68,12 @@ getRow(113)->
 getRow(114)->
     #comboSkillCfg {
     iD = 114,
-    skills = [111010,111011,111012]
+    skills = [111010,111011,111012,111013]
     };
 getRow(115)->
     #comboSkillCfg {
     iD = 115,
-    skills = [112010,112011,112012]
+    skills = [112010,112011,112012,112013]
     };
 getRow(116)->
     #comboSkillCfg {
@@ -93,7 +93,7 @@ getRow(118)->
 getRow(119)->
     #comboSkillCfg {
     iD = 119,
-    skills = [312010,312011,312012]
+    skills = [312010,312011,312012,312013]
     };
 getRow(120)->
     #comboSkillCfg {

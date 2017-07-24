@@ -60,6 +60,10 @@ init([]) ->
 	%% 创建活动存储ets
 	ets:new(?AcMgrEts, [named_table, protected, {keypos,#rec_activity.id}]),
 
+	%% 创建跨服报名ETS
+	ets:new(?EtsCrossApply, [named_table, protected, set, {keypos, #recCrossApply.id}, {read_concurrency, true}]),
+	ets:new(?EtsCrossApplyHelper, [named_table, protected, set, {keypos, #recCrossApplyHelper.roleID}, {read_concurrency, true}]),
+
 	%% 创建活动子进程
 	activityMgrLogic:createActivityChildProcess(),
 
@@ -106,9 +110,43 @@ handle_info({getAllActivityDataAck, _Pid, Msg}, State)->
 	{noreply, State};
 
 %% 活动改变
-handle_info({activityChangeMsg, _Pid, Data}, State) ->
-	activityMgrLogic:getAllActivityDataAck(Data),
-	psMgr:sendMsg2PS(?PsNamePlayerMgr, pidMsg2AllOLPlayer, {synAllActivityState,{}}),
+handle_info({activityChangeMsg, _Pid, #rec_activity{id = AID} = Activity}, State) ->
+	?DEBUG_OUT("receive activityChangeMsg:~p", [AID]),
+	activityMgrLogic:getAllActivityDataAck(Activity),
+	psMgr:sendMsg2PS(?PsNamePlayerMgr, pidMsg2AllOLPlayer, {synAllActivityState,AID}),
+	{noreply, State};
+
+%%%-------------------------------------------------------------------
+% 跨服活动相关处理
+
+% 活动报名
+handle_info({cac_apply, _Pid, Msg}, State) ->
+	activityMgrLogicCross:apply(Msg),
+	{noreply, State};
+
+% 查询报名情况
+handle_info({cac_query, _Pid, Msg}, State) ->
+	activityMgrLogicCross:query(Msg),
+	{noreply, State};
+
+% 取消报名
+handle_info({cac_cancel, _Pid, Msg}, State) ->
+	activityMgrLogicCross:cancel(Msg),
+	{noreply, State};
+
+% 报名截止
+handle_info({cac_applyEnd, _Pid, Msg}, State) ->
+	activityMgrLogicCross:applyEnd(Msg),
+	{noreply, State};
+
+% 邮件发奖
+handle_info({cac_mail, _Pid, Msg}, State) ->
+	activityMgrLogicCross:mail(Msg),
+	{noreply, State};
+
+% gm指令
+handle_info({gm, _Pid, Msg}, State) ->
+	activityMgrLogicCross:gm(Msg),
 	{noreply, State};
 
 %% 子进程挂掉

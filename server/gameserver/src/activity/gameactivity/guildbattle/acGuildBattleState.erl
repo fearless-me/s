@@ -15,6 +15,22 @@
 %% -export([]).
 -compile(export_all).
 
+setFreshOccupyTime(Time) ->
+	put('FreshOccupyTime', Time).
+getFreshOccupyTime() ->
+	case get('FreshOccupyTime') of
+		undefined -> 0;
+		V -> V
+	end.
+
+setEndTime(EndTime) ->
+	put('EndTime', EndTime).
+getEndTime() ->
+	case get('EndTime') of
+		undefined -> 0;
+		V -> V
+	end.
+
 %% 基础配置
 setBaseConfig(Data) ->
     put('BaseConfig', Data),

@@ -2023,7 +2023,7 @@ getRow(135)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "生命",
+    desc = "生命值",
     display = 0,
     sequence = 1,
     propclass = 0,
@@ -2038,7 +2038,7 @@ getRow(136)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "物攻",
+    desc = "物理攻击",
     display = 0,
     sequence = 2,
     propclass = 0,
@@ -2053,7 +2053,7 @@ getRow(137)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "法攻",
+    desc = "魔法攻击",
     display = 0,
     sequence = 3,
     propclass = 0,
@@ -2068,7 +2068,7 @@ getRow(138)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "物防",
+    desc = "物理防御",
     display = 0,
     sequence = 4,
     propclass = 0,
@@ -2083,7 +2083,7 @@ getRow(139)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "法防",
+    desc = "魔法防御",
     display = 0,
     sequence = 5,
     propclass = 0,
@@ -2098,7 +2098,7 @@ getRow(140)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "暴击等级",
+    desc = "暴击",
     display = 0,
     sequence = 6,
     propclass = 0,
@@ -2113,7 +2113,7 @@ getRow(141)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "抗爆等级",
+    desc = "爆伤减免",
     display = 0,
     sequence = 7,
     propclass = 0,
@@ -2128,7 +2128,7 @@ getRow(142)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "爆伤等级",
+    desc = "暴击伤害",
     display = 0,
     sequence = 8,
     propclass = 0,
@@ -2143,7 +2143,7 @@ getRow(143)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "韧性等级",
+    desc = "韧性",
     display = 0,
     sequence = 9,
     propclass = 0,
@@ -2158,7 +2158,7 @@ getRow(144)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "命中等级",
+    desc = "命中",
     display = 0,
     sequence = 10,
     propclass = 0,
@@ -2173,7 +2173,7 @@ getRow(145)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "闪避等级",
+    desc = "闪避",
     display = 0,
     sequence = 11,
     propclass = 0,
@@ -2188,7 +2188,7 @@ getRow(146)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "破甲等级",
+    desc = "破甲",
     display = 0,
     sequence = 12,
     propclass = 0,
@@ -2205,7 +2205,7 @@ getRow(147)->
     baseValue = 0,
     desc = "Hp自动回复",
     display = 0,
-    sequence = 13,
+    sequence = 14,
     propclass = 0,
     minitips = "生命自动回复越高则每秒角色恢复的生命值越大",
     rolePanelShow = 1
@@ -2220,7 +2220,7 @@ getRow(148)->
     baseValue = 0,
     desc = "Mp自动回复",
     display = 0,
-    sequence = 14,
+    sequence = 15,
     propclass = 0,
     minitips = "魔力自动回复越高则每秒角色恢复的魔力值越大",
     rolePanelShow = 1
@@ -2235,7 +2235,7 @@ getRow(149)->
     baseValue = 1,
     desc = "伤害加成",
     display = 3,
-    sequence = 15,
+    sequence = 16,
     propclass = 0,
     minitips = "伤害加成越高则造成的伤害越高",
     rolePanelShow = 0
@@ -2250,7 +2250,7 @@ getRow(150)->
     baseValue = 1,
     desc = "伤害减免",
     display = 3,
-    sequence = 16,
+    sequence = 17,
     propclass = 0,
     minitips = "伤害减免越高则被造成的伤害越低",
     rolePanelShow = 0
@@ -2265,10 +2265,10 @@ getRow(151)->
     baseValue = 1,
     desc = "宠物伤害加成",
     display = 3,
-    sequence = 17,
+    sequence = 18,
     propclass = 0,
     minitips = "宠物伤害加成越高则宠物造成的伤害越高",
-    rolePanelShow = 0
+    rolePanelShow = 1
     };
 getRow(152)->
     #battlePropInfoCfg {
@@ -2280,10 +2280,10 @@ getRow(152)->
     baseValue = 1,
     desc = "宠物伤害减免",
     display = 3,
-    sequence = 18,
+    sequence = 19,
     propclass = 0,
     minitips = "宠物伤害减免越高则宠物被造成的伤害越低",
-    rolePanelShow = 0
+    rolePanelShow = 1
     };
 getRow(153)->
     #battlePropInfoCfg {
@@ -2293,9 +2293,9 @@ getRow(153)->
     minNum = -5,
     maxNum = 5,
     baseValue = 1,
-    desc = "技能cd减少",
+    desc = "冷却缩减",
     display = 3,
-    sequence = 19,
+    sequence = 20,
     propclass = 0,
     minitips = "减少技能cd时间",
     rolePanelShow = 0
@@ -2310,10 +2310,10 @@ getRow(154)->
     baseValue = 1,
     desc = "技能治疗效果",
     display = 3,
-    sequence = 20,
+    sequence = 21,
     propclass = 0,
     minitips = "增加技能治疗效果",
-    rolePanelShow = 0
+    rolePanelShow = 1
     };
 getRow(155)->
     #battlePropInfoCfg {
@@ -2322,13 +2322,13 @@ getRow(155)->
     ownerType = 0,
     minNum = -5,
     maxNum = 5,
-    baseValue = 1,
+    baseValue = 0.1,
     desc = "受到技能治疗效果",
     display = 3,
-    sequence = 21,
+    sequence = 22,
     propclass = 0,
     minitips = "增加收到治疗效果",
-    rolePanelShow = 0
+    rolePanelShow = 1
     };
 getRow(156)->
     #battlePropInfoCfg {
@@ -2340,10 +2340,10 @@ getRow(156)->
     baseValue = 1,
     desc = "吸收盾增效",
     display = 3,
-    sequence = 22,
+    sequence = 23,
     propclass = 0,
     minitips = "增加吸收盾效果",
-    rolePanelShow = 0
+    rolePanelShow = 1
     };
 getRow(157)->
     #battlePropInfoCfg {
@@ -2355,10 +2355,10 @@ getRow(157)->
     baseValue = 0,
     desc = "移动速度",
     display = 1,
-    sequence = 23,
+    sequence = 24,
     propclass = 0,
     minitips = "移动速度越高则人物移动速度越快",
-    rolePanelShow = 0
+    rolePanelShow = 1
     };
 getRow(158)->
     #battlePropInfoCfg {
@@ -2370,10 +2370,10 @@ getRow(158)->
     baseValue = 0,
     desc = "杀怪经验增加",
     display = 1,
-    sequence = 24,
+    sequence = 25,
     propclass = 0,
     minitips = "增加人物杀怪经验",
-    rolePanelShow = 0
+    rolePanelShow = 1
     };
 getRow(159)->
     #battlePropInfoCfg {
@@ -2385,7 +2385,7 @@ getRow(159)->
     baseValue = 1,
     desc = "药水增效",
     display = 3,
-    sequence = 25,
+    sequence = 26,
     propclass = 0,
     minitips = "增加药水恢复消耗",
     rolePanelShow = 0
@@ -2398,9 +2398,9 @@ getRow(160)->
     minNum = 0,
     maxNum = 2147483647,
     baseValue = 0,
-    desc = "坚固等级",
+    desc = "坚固",
     display = 0,
-    sequence = 26,
+    sequence = 13,
     propclass = 0,
     minitips = "坚固等级越高则受到破甲的概率越小",
     rolePanelShow = 0

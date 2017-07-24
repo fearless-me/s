@@ -223,20 +223,21 @@ studyGuildSkill(#guildskillCfg{skillid = SID, skilllevel = SLvl, skilllearn = Ne
 						Type =:= ?CoinTypeBindDiamond -> playerMoney:useCoin(?CoinUseTypeDiamond, Value, Log);
 						Type =:= ?CoinTypePrestige -> playerMoney:decCoin(?CoinTypePrestige, Value, Log);
 						Type =:= ?CoinTypeHonor -> playerMoney:decCoin(?CoinTypeHonor, Value, Log);
-						Type =:= ?GuildContributeType ->
-							%% 扣军团贡献点
-							case ets:lookup(rec_guild_member, RoleID) of
-								[#rec_guild_member{liveness = Con} = Member] ->
-									?LOG_OUT("studyGuildSkill:guildID=~p,roleID=~p,contribute=~p,dec=~p",
-										[GuildID, RoleID, Con, Value]),
-									NewMember = Member#rec_guild_member{liveness = Con - Value},
-                                    ets:update_element(rec_guild_member, RoleID, {#rec_guild_member.liveness, Con - Value}),
-									%% 发给CS去保存
-									psMgr:sendMsg2PS(?PsNameGuild, guildWarBattleResult, NewMember),
-									true;
-								_ ->
-									false
-							end;
+						Type =:= ?GuildContributeType -> playerMoney:decCoin(?CoinTypeGuildContribute, Value, Log);
+						%Type =:= ?GuildContributeType ->	%% #rec_guild_member.liveness是加入该家族后的累计贡献，需要扣除贡献则扣除货币?CoinTypeGuildContribute
+						%	%% 扣军团贡献点
+						%	case ets:lookup(rec_guild_member, RoleID) of
+						%		[#rec_guild_member{liveness = Con} = Member] ->
+						%			?LOG_OUT("studyGuildSkill:guildID=~p,roleID=~p,contribute=~p,dec=~p",
+						%				[GuildID, RoleID, Con, Value]),
+						%			NewMember = Member#rec_guild_member{liveness = Con - Value},
+                        %            ets:update_element(rec_guild_member, RoleID, {#rec_guild_member.liveness, Con - Value}),
+						%			%% 发给CS去保存
+						%			psMgr:sendMsg2PS(?PsNameGuild, guildWarBattleResult, NewMember),
+						%			true;
+						%		_ ->
+						%			false
+						%	end;
 						true ->
 							false
 					end;

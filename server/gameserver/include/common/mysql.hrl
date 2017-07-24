@@ -22,7 +22,6 @@
 
 
 -ifndef(RELEASE).
-
 %%游戏数据库的连接数量
 -define(GAMEDB_CONNECT_NUM, 6).
 %%游戏日志数据库的连接数量
@@ -33,20 +32,29 @@
 -define(ACTIVECODEDB_CONNECT_NUM, 1).
 %%订单支付数据库连接的连接数量
 -define(RECHARGE_CONNECT_NUM, 1).
-
+%%为LS服务的工作者进程数量
+-define(DBOTP_LS_NUM, 1).
+%%为GS服务的工作者进程数量
+-define(DBOTP_GS_NUM, 2).
+%%日志工作者进程数量
+-define(LogDBWorkerOtp_NUM, 1).
 -else.
-
 %%游戏数据库的连接数量
--define(GAMEDB_CONNECT_NUM, 30).
+-define(GAMEDB_CONNECT_NUM, 100).
 %%游戏日志数据库的连接数量
--define(LOGDB_CONNECT_NUM, 5).
+-define(LOGDB_CONNECT_NUM, 50).
 %%游戏登录账号数据库的连接数量
--define(LOGINDB_CONNECT_NUM, 5).
+-define(LOGINDB_CONNECT_NUM, 15).
 %%激活码数据库的连接数量
 -define(ACTIVECODEDB_CONNECT_NUM, 5).
 %%订单支付数据库连接的连接数量
 -define(RECHARGE_CONNECT_NUM, 10).
-
+%%为LS服务的工作者进程数量
+-define(DBOTP_LS_NUM, 3).
+%%为GS服务的工作者进程数量
+-define(DBOTP_GS_NUM, 12).
+%%日志工作者进程数量
+-define(LogDBWorkerOtp_NUM, 10).
 -endif.
 
 %% MySQL记录集中的所有行

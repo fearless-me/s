@@ -125,7 +125,7 @@ insertRedenvelope(Row) ->
 			Row#rec_redenvelope.takeMoney,
 			Row#rec_redenvelope.createTime,
 			Row#rec_redenvelope.deadlineTime,
-			Row#rec_redenvelope.luckContent
+			misc:anti_sqlInjectionAttack(Row#rec_redenvelope.luckContent)
 		]),
 	?LOG_OUT("saveRedenvelope roleid:~p,redUID:~p",[Row#rec_redenvelope.creator,Row#rec_redenvelope.redUID]),
 	libDB:logExecResult(stInsertRedEnvelope,Row#rec_redenvelope.creator,Ret),

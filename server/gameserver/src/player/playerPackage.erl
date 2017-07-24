@@ -25,7 +25,7 @@
 	delGoodsByID/4,                                %%根据ID和数量物理删除背包中的物品
 	useItemByUID/4,                                %%使用指定UID的普通道具指定数量
 	goodsMove/3,                                %%背包间操作
-	splitItem/4,                                %%拆分道具
+	splitItem/5,                                %%拆分道具
 	sortBag/1,                                    %%背包整理
 	lockGoods/2,                                %%锁定物品
 	sellAllPoorEquip/0,                            %%一键出售所有策划规定的较差品质的装备
@@ -44,7 +44,9 @@
 	getItemNumByID/1,                            %%获取普通背包指定ID的道具非锁定数量
 	getGoodsNumByID/2,                           %%获取指定背包指定ID的道具非锁定数量
 	getGoodsNumByID/3,                           %%获取指定背包指定ID的道具指定锁定数量
-	getGoodsCountByID/2                          %%获取指定背包指定ID的道具指定锁定数量
+	getGoodsCountByID/2,                          %%获取指定背包指定ID的道具指定锁定数量
+	getEquipNum/2,
+    getEquipNumAll/1
 ]).
 
 %%背包系统发送给客户端的接口
@@ -102,6 +104,28 @@
 	expiredTime
 }).
 
+getEquipNumAll(Quality)->
+    Bags = [
+        ?Item_Location_Equip_Bag,
+        ?Item_Location_Equip_Storage,
+        ?Item_Location_BodyEquipBag
+    ],
+    L0 = [getEquipNum(Bag, Quality) || Bag <- Bags],
+    lists:sum(L0).
+
+getEquipNum(BagType, Quality)->
+    case playerState:getPackage(BagType) of
+        undefined ->
+            0;
+        L0 ->
+            L1 = [equipIsQuality(Quality, Item) || Item <- L0],
+            lists:sum(L1)
+    end.
+
+equipIsQuality(Quality, #recSaveEquip{quality = Quality})->
+    1;
+equipIsQuality(_Any1, _Any2)->
+    0.
 %% ====================================================================
 %% API functions
 %% ====================================================================
@@ -320,12 +344,12 @@ sendInitGoodsNetMsg() ->
 	sendInitEquipNetMsg(?Item_Location_BodyEquipBag),
 
 	%%发送宝石镶嵌消息
-	GembedList = playerState:getPackage(?Item_Location_GemEmbedBag),
-	GembedInfoList = [#pk_GemEmbedInfo{
-		gemUID = GemUID,
-		slot = getEmbedGemSlot(Pos)
-	} || #rec_item{itemUID = GemUID, pos = Pos} <- GembedList],
-	playerMsg:sendNetMsg(#pk_GS2U_GemEmbedInit{gemEmbedInfos = GembedInfoList}),
+%%	GembedList = playerState:getPackage(?Item_Location_GemEmbedBag),
+%%	GembedInfoList = [#pk_GemEmbedInfo{
+%%		gemUID = GemUID,
+%%		slot = getEmbedGemSlot(Pos)
+%%	} || #rec_item{itemUID = GemUID, pos = Pos} <- GembedList],
+%%	playerMsg:sendNetMsg(#pk_GS2U_GemEmbedInit{gemEmbedInfos = GembedInfoList}),
 
 	%%发送回收站里的东西
 	Fun = fun(#recSaveEquip{} = Equip, {ItemList, EquipList, N}) ->
@@ -387,12 +411,14 @@ addGoodsAndMail(GoodsID, GoodsNum, _IsBind, EquipQuality, #recPLogTSItem{} = TS)
 addGoodsInstance(#rec_item{itemID = ItemID} = Item, #recPLogTSItem{} = TS) ->
 	%%有可能之前是一个不知道放哪里的道具，这里需要判定一下，同时也不管外部的背包位置在哪里
 	%%都统一使用判定的正确位置，防止外部传入的位置错误。
-	BagType = case goods:isGemItem(ItemID) of
-				  true ->
-					  ?Item_Location_Gem_Bag;
-				  _ ->
-					  ?Item_Location_Bag
-			  end,
+	#itemCfg{itemType = ItemType} = getCfg:getCfgPStack(cfg_item, ItemID),
+	BagType = getPackageType(ItemType),
+%%	BagType = case goods:isGemItem(ItemID) of
+%%				  true ->
+%%					  ?Item_Location_Gem_Bag;
+%%				  _ ->
+%%					  ?Item_Location_Bag
+%%			  end,
 	addItemInstance(BagType, setupGoodsExpireTime(Item#rec_item{pos = BagType, isBind = false}), TS);
 addGoodsInstance(#recSaveEquip{roleID = RoleID, pos = Pos} = Equip0, #recPLogTSItem{} = TS) ->
 	Equip2 = case Pos =:= 0 of
@@ -751,20 +777,22 @@ sortBag(BagType) ->
 	ok.
 
 %%根据数量拆分道具
--spec splitItem(ItemUID, Num, IsStoreInBag :: boolean(), #recPLogTSItem{}) -> #rec_item{} | failed
-	when ItemUID :: uint(), Num :: uint().
-splitItem(ItemUID, Num, IsStoreInBag, #recPLogTSItem{} = TS) ->
-	{Item, BagType} = case getGoodsFromBagByUID(ItemUID, ?Item_Location_Bag) of
-						  #rec_item{itemUID = ItemUID, isLocked = false} = NormalItem ->
-							  {NormalItem, ?Item_Location_Bag};
-						  _ ->
-							  case getGoodsFromBagByUID(ItemUID, ?Item_Location_Gem_Bag) of
-								  #rec_item{itemUID = ItemUID, isLocked = false} = GemItem ->
-									  {GemItem, ?Item_Location_Gem_Bag};
-								  _ ->
-									  false
-							  end
-					  end,
+-spec splitItem(ItemUID, ItemID, Num, IsStoreInBag :: boolean(), #recPLogTSItem{}) -> #rec_item{} | failed
+	when ItemUID :: uint(), ItemID :: uint(), Num :: uint().
+splitItem(ItemUID, ItemID, Num, IsStoreInBag, #recPLogTSItem{} = TS) ->
+	#itemCfg{itemType = ItemType} = getCfg:getCfgPStack(cfg_item, ItemID),
+	BagType = getPackageType(ItemType),
+	Item = case getGoodsFromBagByUID(ItemUID, BagType) of
+			   #rec_item{itemUID = ItemUID, isLocked = false} = NormalItem ->
+				   NormalItem;
+			   _ ->
+				   case getGoodsFromBagByUID(ItemUID, BagType) of
+					   #rec_item{itemUID = ItemUID, isLocked = false} = GemItem ->
+						   GemItem;
+					   _ ->
+						   false
+				   end
+		   end,
 	splitItem1(BagType, Item, Num, IsStoreInBag, TS).
 
 %%一键卖出所有策划设定的品质较差的装备
@@ -844,8 +872,12 @@ changeGoodsOwner(GoodsUID, GoodsID, CurOwnerID, ToOwnerID, IsInBag, #recPLogTSIt
 
 %%获取指定背包中所有指定ID的物品
 -spec getGoodsByID(GoodsID, BagType) -> [] | [#rec_item{}, ...] | [#recSaveEquip{}, ...] when
-	GoodsID :: uint(), BagType :: ?Item_Location_Bag | ?Item_Location_Gem_Bag | ?Item_Location_Equip_Bag.
-getGoodsByID(GoodsID, BagType) when BagType =:= ?Item_Location_Bag; BagType =:= ?Item_Location_Gem_Bag; BagType =:= ?Item_Location_Equip_Bag ->
+	GoodsID :: uint(), BagType :: ?Item_Location_Bag | ?Item_Location_Gem_Bag | ?Item_Location_Equip_Bag | ?Item_Location_Pieces_Bag.
+getGoodsByID(GoodsID, BagType) when
+	BagType =:= ?Item_Location_Bag;
+	BagType =:= ?Item_Location_Equip_Bag;
+	BagType =:= ?Item_Location_Gem_Bag;
+	BagType =:= ?Item_Location_Pieces_Bag ->
 	Bag = playerState:getPackage(BagType),
 	Fun = fun(Goods, AccIn) ->
 		case Goods of
@@ -864,7 +896,9 @@ getGoodsByID(GoodsID, BagType) when BagType =:= ?Item_Location_Bag; BagType =:= 
 getItemNumByID(0) ->
 	0;
 getItemNumByID(GoodsID) ->
-	getGoodsNumByID(?Item_Location_Bag, GoodsID).
+	PayItemType = playerPackage:getItemType(GoodsID),
+	PacketType = playerPackage:getPackageType(PayItemType),
+	getGoodsNumByID(PacketType, GoodsID).
 
 -spec tickPackage() -> ok.
 tickPackage() ->
@@ -969,6 +1003,7 @@ deleteExpiredTimeGoods1(BagType, UID) ->
 
 	case Equip of
 		#recSaveEquip{} ->
+			playerGem:onEquipOff(Equip),
 			playerEquip:onEquipOff(Equip, true);
 		_ ->
 			skip
@@ -1336,7 +1371,7 @@ addNewEquipInstance(#recSaveEquip{itemID = ItemID, isBind = IsBind, quality = Qu
 addItemInstance(BagType,
 	#rec_item{roleID = RoleID, itemUID = ItemUID, pileNum = PileNum, pos = Pos} = Item,
 	#recPLogTSItem{changReason = Reason} = TS) when
-	BagType =:= ?Item_Location_Bag; BagType =:= ?Item_Location_Gem_Bag; BagType =:= ?Item_Location_GemEmbedBag ->
+	BagType =:= ?Item_Location_Bag; BagType =:= ?Item_Location_Pieces_Bag; BagType =:= ?Item_Location_Gem_Bag; BagType =:= ?Item_Location_GemEmbedBag ->
 
 	case getBagIdleSlotNum(BagType) > 0 of
 		true ->
@@ -2017,6 +2052,8 @@ equipOn(#recSaveEquip{itemUID = EquipUID} = Equip,
 			NewEquip = Equip#recSaveEquip{pos = ?Item_Location_BodyEquipBag},
 			moveItem(EquipUID, ?Item_Location_BodyEquipBag, ?Item_Location_Equip_Bag, #recSaveEquip.itemUID, NewEquip),
 
+			%% 这个必须放在新装备计算属性之前
+			playerGem:onEquipChange(Type, OldEquip, NewEquip),
 			playerEquip:onEquipOn(NewEquip, true),
 
 			playerState:setLastExchangeEquip(time:getUTCNowMS()),
@@ -2037,6 +2074,7 @@ equipOff(GoodsUID) when erlang:is_integer(GoodsUID), GoodsUID > 0 ->
 					case Equip of
 						#recSaveEquip{} ->
 							moveItem(GoodsUID, ?Item_Location_Equip_Bag, ?Item_Location_BodyEquipBag, #recSaveEquip.itemUID, Equip#recSaveEquip{pos = ?Item_Location_Equip_Bag}),
+							playerGem:onEquipOff(Equip),
 							playerEquip:onEquipOff(Equip, true);
 						_ ->
 							?ERROR_OUT("equipOff Cannot found EquipUID:~p from BodyEquipBag", [GoodsUID])
@@ -2054,6 +2092,7 @@ gm_equipoff(Equip) ->
 	case Equip of
 		#recSaveEquip{itemUID = GoodsUID} ->
 			moveItem(GoodsUID, ?Item_Location_Equip_Bag, ?Item_Location_BodyEquipBag, #recSaveEquip.itemUID, Equip#recSaveEquip{pos = ?Item_Location_Equip_Bag}),
+			playerGem:onEquipOff(Equip),
 			playerEquip:onEquipOff(Equip, true);
 		_ ->
 			?ERROR_OUT("gm_equipoff Cannot found Equip:~p from BodyEquipBag", [Equip])
@@ -2498,7 +2537,7 @@ useItem(#rec_item{itemUID = ItemUID, itemID = ItemID, pileNum = PileNum, pos = P
 changeMyGoodsOwner(GoodsUID, GoodsID, ToOwnerID, #recPLogTSItem{} = TS) ->
 	RoleID = playerState:getRoleID(),
 	%%物品当前归属自己，需要删除，但只能从内存中删除
-	{IsEquip, Type} = case getGoodsByUID(GoodsUID, [?Item_Location_Bag, ?Item_Location_Equip_Bag, ?Item_Location_Gem_Bag]) of
+	{IsEquip, Type} = case getGoodsByUID(GoodsUID, [?Item_Location_Bag, ?Item_Location_Equip_Bag, ?Item_Location_Gem_Bag, ?Item_Location_Pieces_Bag]) of
 						  #rec_item{pos = BagType} ->
 							  ItemList = playerState:getPackage(BagType),
 							  NIL = lists:keydelete(GoodsUID, #rec_item.itemUID, ItemList),
@@ -2548,79 +2587,79 @@ makeEmbedGemPos(Slot) ->
 gemEmbedOn([]) ->
 	playerForce:calcPlayerForce(?PlayerGemForce, true);
 gemEmbedOn([#pk_GemEmbedInfo{} = H | T]) ->
-	gemEmbedOn1(H),
+%%	gemEmbedOn1(H),
 	gemEmbedOn(T).
-
-gemEmbedOn1(#pk_GemEmbedInfo{gemUID = GemUID, slot = Slot}) when erlang:is_integer(Slot), Slot > 0, Slot =< ?GemEmbedDefaultOpenSlotNum ->
-	case getGoodsFromBagByUID(GemUID, ?Item_Location_Gem_Bag) of
-		#rec_item{itemUID = GemUID, itemID = GemID, pos = Pos, pileNum = PileNum} = GemItem ->
-			CurSlot = getEmbedGemSlot(Pos),
-			case CurSlot > 0 of
-				false -> %%还没有被镶嵌
-					%%检查客户端传过来的位置是否正确,以及位置上是否存在宝石
-					case isValidSlot(GemID, Slot) andalso isExistEmbedGem(Slot) =:= false of
-						true ->
-							case PileNum > 1 of
-								true ->
-									%%如果原来的宝石有多个堆叠数量，需要拆分一个出来，再镶嵌
-									PLogSplit = #recPLogTSItem{
-										old = PileNum,
-										new = PileNum - 1,
-										change = 1,
-										target = ?PLogTS_PlayerSelf,
-										source = ?PLogTS_PlayerSelf,
-										gold = 0,
-										goldtype = 0,
-										changReason = ?ItemSourceSplit,
-										reasonParam = Slot
-									},
-									case splitItem1(?Item_Location_Gem_Bag, GemItem, 1, false, PLogSplit) of
-										#rec_item{itemUID = NewGemUID, pileNum = PNum} = SplittedItem ->
-											%%宝石镶嵌成就统计
-											statEmbedGemLevel(GemID),
-											playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Gem),
-											%%修改宝石镶嵌位置
-											Item = SplittedItem#rec_item{pos = makeEmbedGemPos(Slot), isBind = false},
-											PLog = #recPLogTSItem{
-												old = 0,
-												new = PNum,
-												change = PNum,
-												target = ?PLogTS_PlayerSelf,
-												source = ?PLogTS_GemEmbed,
-												gold = 0,
-												goldtype = 0,
-												changReason = ?ItemDeleteReasonGemOn,
-												reasonParam = Slot
-											},
-											addItemInstance(?Item_Location_GemEmbedBag, Item, PLog),
-											NewGemUID;
-										_ ->
-											?ERROR_OUT("SplitItem UID[~p] failed in gemEmbedOn", [GemUID]),
-											skip
-									end;
-								_ ->
-									%%宝石镶嵌成就统计
-									statEmbedGemLevel(GemID),
-									playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Gem),
-									%%如果原来的宝石只有一个，则直接移动到镶嵌位置
-									Item = GemItem#rec_item{pos = makeEmbedGemPos(Slot), isBind = false},
-									moveItem(GemUID, ?Item_Location_GemEmbedBag, ?Item_Location_Gem_Bag, #rec_item.itemUID, Item)
-							end;
-						_ ->
-							?ERROR_OUT("InvalidSlot[~p] of GemID:~p or ExistGem In Slot[~p]", [Slot, GemID, Slot]),
-							skip
-					end;
-				_ ->
-					%%已经被镶嵌了
-					?ERROR_OUT("GemID:~p already embed In Slot[~p]", [Slot, GemID, Slot]),
-					skip
-			end;
-		_ ->
-			%%没有找到此道具啊
-			?ERROR_OUT("gemEmbedOn Cannot found GemUID:~p", [GemUID]),
-			skip
-	end,
-	ok.
+%%
+%%gemEmbedOn1(#pk_GemEmbedInfo{gem = GemUID, slot = Slot}) when erlang:is_integer(Slot), Slot > 0, Slot =< ?GemEmbedDefaultOpenSlotNum ->
+%%	case getGoodsFromBagByUID(GemUID, ?Item_Location_Gem_Bag) of
+%%		#rec_item{itemUID = GemUID, itemID = GemID, pos = Pos, pileNum = PileNum} = GemItem ->
+%%			CurSlot = getEmbedGemSlot(Pos),
+%%			case CurSlot > 0 of
+%%				false -> %%还没有被镶嵌
+%%					%%检查客户端传过来的位置是否正确,以及位置上是否存在宝石
+%%					case isValidSlot(GemID, Slot) andalso isExistEmbedGem(Slot) =:= false of
+%%						true ->
+%%							case PileNum > 1 of
+%%								true ->
+%%									%%如果原来的宝石有多个堆叠数量，需要拆分一个出来，再镶嵌
+%%									PLogSplit = #recPLogTSItem{
+%%										old = PileNum,
+%%										new = PileNum - 1,
+%%										change = 1,
+%%										target = ?PLogTS_PlayerSelf,
+%%										source = ?PLogTS_PlayerSelf,
+%%										gold = 0,
+%%										goldtype = 0,
+%%										changReason = ?ItemSourceSplit,
+%%										reasonParam = Slot
+%%									},
+%%									case splitItem1(?Item_Location_Gem_Bag, GemItem, 1, false, PLogSplit) of
+%%										#rec_item{itemUID = NewGemUID, pileNum = PNum} = SplittedItem ->
+%%											%%宝石镶嵌成就统计
+%%											statEmbedGemLevel(GemID),
+%%											playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Gem),
+%%											%%修改宝石镶嵌位置
+%%											Item = SplittedItem#rec_item{pos = makeEmbedGemPos(Slot), isBind = false},
+%%											PLog = #recPLogTSItem{
+%%												old = 0,
+%%												new = PNum,
+%%												change = PNum,
+%%												target = ?PLogTS_PlayerSelf,
+%%												source = ?PLogTS_GemEmbed,
+%%												gold = 0,
+%%												goldtype = 0,
+%%												changReason = ?ItemDeleteReasonGemOn,
+%%												reasonParam = Slot
+%%											},
+%%											addItemInstance(?Item_Location_GemEmbedBag, Item, PLog),
+%%											NewGemUID;
+%%										_ ->
+%%											?ERROR_OUT("SplitItem UID[~p] failed in gemEmbedOn", [GemUID]),
+%%											skip
+%%									end;
+%%								_ ->
+%%									%%宝石镶嵌成就统计
+%%									statEmbedGemLevel(GemID),
+%%									playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_Gem),
+%%									%%如果原来的宝石只有一个，则直接移动到镶嵌位置
+%%									Item = GemItem#rec_item{pos = makeEmbedGemPos(Slot), isBind = false},
+%%									moveItem(GemUID, ?Item_Location_GemEmbedBag, ?Item_Location_Gem_Bag, #rec_item.itemUID, Item)
+%%							end;
+%%						_ ->
+%%							?ERROR_OUT("InvalidSlot[~p] of GemID:~p or ExistGem In Slot[~p]", [Slot, GemID, Slot]),
+%%							skip
+%%					end;
+%%				_ ->
+%%					%%已经被镶嵌了
+%%					?ERROR_OUT("GemID:~p already embed In Slot[~p]", [Slot, GemID, Slot]),
+%%					skip
+%%			end;
+%%		_ ->
+%%			%%没有找到此道具啊
+%%			?ERROR_OUT("gemEmbedOn Cannot found GemUID:~p", [GemUID]),
+%%			skip
+%%	end,
+%%	ok.
 
 %% 宝石卸载
 -spec gemEmbedOff(list() | integer()) -> boolean().
@@ -2954,7 +2993,7 @@ mixGem1(ItemID, GemNum, GemList) ->
 							playerAchieve:achieveEvent(?Achieve_AttachedSpec, [1]),
 							?LOG_OUT("use item[~p][~p], mixto[~p][~p], left[~p]",
 								[ItemID, GemNum, NextLevelGemID, NextGemNumber, LeftGemNumber]),
-							
+
 							%% 给下一级宝石
 							PLog = #recPLogTSItem{
 								old = 0,
@@ -3087,26 +3126,26 @@ statEmbedGemLevel(GemID) ->
 
 -spec sendEmbedGemNetMsg(#rec_item{}) -> ok.
 sendEmbedGemNetMsg(#rec_item{itemUID = ItemUID, pos = Pos}) ->
-	Slot = getEmbedGemSlot(Pos),
-	playerMsg:sendNetMsg(#pk_GS2U_GemEmbedAdd{gemEmbedInfo = #pk_GemEmbedInfo{gemUID = ItemUID, slot = Slot}}),
+%%	Slot = getEmbedGemSlot(Pos),
+%%	playerMsg:sendNetMsg(#pk_GS2U_GemEmbedAdd{gemEmbedInfo = #pk_GemEmbedInfo{gemUID = ItemUID, slot = Slot}}),
 	ok.
 
 %%宝石镶嵌时改变战斗属性
 -spec gemEmbedOnChangeProp(GemID, Slot) -> ok when GemID :: uint(), Slot :: uint().
 gemEmbedOnChangeProp(GemID, Slot) ->
-	mainGemChangeProp(?EquipOff, getMainGemLevel()),
-	gemChangeProp(GemID, Slot, ?EquipOn),
-	calcMainGemLevel(),
-	mainGemChangeProp(?EquipOn, getMainGemLevel()),
+%%	mainGemChangeProp(?EquipOff, getMainGemLevel()),
+%%	gemChangeProp(GemID, Slot, ?EquipOn),
+%%	calcMainGemLevel(),
+%%	mainGemChangeProp(?EquipOn, getMainGemLevel()),
 	ok.
 
 %%宝石拆卸时改变战斗属性
 -spec gemEmbedOffChangeProp(GemID, Slot) -> ok when GemID :: uint(), Slot :: uint().
 gemEmbedOffChangeProp(GemID, Slot) ->
-	mainGemChangeProp(?EquipOff, getMainGemLevel()),
-	gemChangeProp(GemID, Slot, ?EquipOff),
-	calcMainGemLevel(),
-	mainGemChangeProp(?EquipOn, getMainGemLevel()),
+%%	mainGemChangeProp(?EquipOff, getMainGemLevel()),
+%%	gemChangeProp(GemID, Slot, ?EquipOff),
+%%	calcMainGemLevel(),
+%%	mainGemChangeProp(?EquipOn, getMainGemLevel()),
 	ok.
 
 %%解析宝石属性
@@ -3317,92 +3356,93 @@ calcGemSpriteLevel() ->
 
 %%根据宝石ID从配置表中取出宝石的属性
 -spec getGemPropByID(SlotID, GemID) -> {Target :: uint() | undefined, [{Prop, Value, AddOrMulti}, ...]} when GemID :: uint(), Prop :: uint(), Value :: number(), AddOrMulti :: 0|1, SlotID :: uint().
-getGemPropByID(SlotID, GemID) ->
-	case getCfg:getCfgByArgs(cfg_item, GemID) of
-		#itemCfg{useParam3 = Level} -> %%这里useParam3作为宝石激活宝石孔的等级
-			case getCfg:getCfgByArgs(cfg_gemproperty, SlotID, Level) of
-				#gempropertyCfg{
-					target = Target,
-					paladin = Paladin,
-					wizard = Wizard,
-					mechanic = Mechanic,
-					assassin = Assassin,
-					soulReaper = SoulReaper
-				} ->
-					Career = playerState:getCareer(),
-					PropList = case ?Career2CareerMain(Career) of
-								   ?CareerMain_1_Warrior ->
-									   %% 骑士
-									   Paladin;
-								   ?CareerMain_2_Magician ->
-									   %% 魔法师
-									   Wizard;
-								   ?CareerMain_3_Bravo ->
-									   %% 刺客
-									   Assassin;
-								   ?CareerMain_4 ->
-									   %% 灵魂收割者
-									   SoulReaper;
-								   ?CareerMain_5 ->
-									   Mechanic;
-								   _ ->
-									   ?ERROR_OUT("gold weapon getPropList error Career[~p]", [Career]),
-									   []
-							   end,
-					{Target, PropList};
-				_ ->
-					?ERROR_OUT("Error getGemPropByID:~p by cfg_gemproperty:~p, no cfg", [SlotID, Level]),
-					{undefined, []}
-			end;
-		_ ->
-			?ERROR_OUT("Error getGemPropByID:~p by cfg_item, no cfg", [GemID]),
-			{undefined, []}
-	end.
+getGemPropByID(SlotID, GemID) -> {undefined, []}.
+%%	case getCfg:getCfgByArgs(cfg_item, GemID) of
+%%		#itemCfg{useParam3 = Level} -> %%这里useParam3作为宝石激活宝石孔的等级
+%%			case getCfg:getCfgByArgs(cfg_gemproperty, SlotID, Level) of
+%%				#gempropertyCfg{
+%%					target = Target,
+%%					paladin = Paladin,
+%%					wizard = Wizard,
+%%					mechanic = Mechanic,
+%%					assassin = Assassin,
+%%					soulReaper = SoulReaper
+%%				} ->
+%%					Career = playerState:getCareer(),
+%%					PropList = case ?Career2CareerMain(Career) of
+%%								   ?CareerMain_1_Warrior ->
+%%									   %% 骑士
+%%									   Paladin;
+%%								   ?CareerMain_2_Magician ->
+%%									   %% 魔法师
+%%									   Wizard;
+%%								   ?CareerMain_3_Bravo ->
+%%									   %% 刺客
+%%									   Assassin;
+%%								   ?CareerMain_4 ->
+%%									   %% 灵魂收割者
+%%									   SoulReaper;
+%%								   ?CareerMain_5 ->
+%%									   Mechanic;
+%%								   _ ->
+%%									   ?ERROR_OUT("gold weapon getPropList error Career[~p]", [Career]),
+%%									   []
+%%							   end,
+%%					{Target, PropList};
+%%				_ ->
+%%					?ERROR_OUT("Error getGemPropByID:~p by cfg_gemproperty:~p, no cfg", [SlotID, Level]),
+%%					{undefined, []}
+%%			end;
+%%		_ ->
+%%			?ERROR_OUT("Error getGemPropByID:~p by cfg_item, no cfg", [GemID]),
+%%			{undefined, []}
+%%	end.
 
 %%获取镶嵌背包中所有宠物宝石加的属性列表，包括加法值和乘法值
 -spec getAllPetGemIDFromPackage() -> {AddPropList, MultiPropList} when AddPropList :: [{Key, Value}, ...] | [], MultiPropList :: [{Key, Value}, ...] | [], Key :: uint(), Value :: uint().
-getAllPetGemIDFromPackage() ->
-	List = playerState:getPackage(?Item_Location_GemEmbedBag),
-	Fun = fun(#rec_item{itemID = GemID, pos = Pos}, {APL, MPL} = AccIn) ->
-		case erlang:is_integer(GemID) andalso GemID > 0 of
-			true ->
-				Slot = getEmbedGemSlot(Pos),
-				{Target, PropList} = getGemPropByID(Slot, GemID),
-				%%: 加成目标
-				%%: 1 玩家
-				%%: 2 技能召唤宠物
-				%%: 3 收费宠物
-				case Target of
-					1 ->
-						AccIn;
-					2 ->
-						{AddResultPropList, MultiResultPropList, true} = lists:foldl(fun parseGemProp/2, {[], [], true}, PropList),
-						{AddResultPropList ++ APL, MultiResultPropList ++ MPL};
-					3 ->
-						{AddResultPropList, MultiResultPropList, true} = lists:foldl(fun parseGemProp/2, {[], [], true}, PropList),
-						{AddResultPropList ++ APL, MultiResultPropList ++ MPL};
-					_ ->
-						AccIn
-				end
-		end
-		  end,
-	lists:foldl(Fun, {[], []}, List).
+getAllPetGemIDFromPackage() -> {[], []}.
+%%	List = playerState:getPackage(?Item_Location_GemEmbedBag),
+%%	Fun = fun(#rec_item{itemID = GemID, pos = Pos}, {APL, MPL} = AccIn) ->
+%%		case erlang:is_integer(GemID) andalso GemID > 0 of
+%%			true ->
+%%				Slot = getEmbedGemSlot(Pos),
+%%				{Target, PropList} = getGemPropByID(Slot, GemID),
+%%				%%: 加成目标
+%%				%%: 1 玩家
+%%				%%: 2 技能召唤宠物
+%%				%%: 3 收费宠物
+%%				case Target of
+%%					1 ->
+%%						AccIn;
+%%					2 ->
+%%						{AddResultPropList, MultiResultPropList, true} = lists:foldl(fun parseGemProp/2, {[], [], true}, PropList),
+%%						{AddResultPropList ++ APL, MultiResultPropList ++ MPL};
+%%					3 ->
+%%						{AddResultPropList, MultiResultPropList, true} = lists:foldl(fun parseGemProp/2, {[], [], true}, PropList),
+%%						{AddResultPropList ++ APL, MultiResultPropList ++ MPL};
+%%					_ ->
+%%						AccIn
+%%				end
+%%		end
+%%		  end,
+%%	lists:foldl(Fun, {[], []}, List).
 
 -spec isValidSlot(GemID, Slot) -> boolean() when GemID :: uint(), Slot :: uint8().
 isValidSlot(GemID, Slot) ->
-	case getCfg:getCfgPStack(cfg_gembox_info, Slot) of
-		#gembox_infoCfg{gem_type = Type} ->
-			case getCfg:getCfgPStack(cfg_item, GemID) of
-				#itemCfg{useParam4 = Type} ->
-					true;
-				_ ->
-					?WARN_OUT("GemID[~p] is InValid Slot:~p,Type:~p", [GemID, Slot, Type]),
-					false
-			end;
-		_ ->
-			?WARN_OUT("GemID[~p] cannot find Slot:~p of cfg in cfg_gembox_info", [GemID, Slot]),
-			false
-	end.
+	false.
+%%	case getCfg:getCfgPStack(cfg_gembox_info, Slot) of
+%%		#gembox_infoCfg{gem_type = Type} ->
+%%			case getCfg:getCfgPStack(cfg_item, GemID) of
+%%				#itemCfg{useParam4 = Type} ->
+%%					true;
+%%				_ ->
+%%					?WARN_OUT("GemID[~p] is InValid Slot:~p,Type:~p", [GemID, Slot, Type]),
+%%					false
+%%			end;
+%%		_ ->
+%%			?WARN_OUT("GemID[~p] cannot find Slot:~p of cfg in cfg_gembox_info", [GemID, Slot]),
+%%			false
+%%	end.
 
 -spec isExistEmbedGem(Slot) -> boolean() when Slot :: uint8().
 isExistEmbedGem(Slot) ->

@@ -38,7 +38,8 @@
 ]).
 
 -export([
-	getUIDType/1
+	getUIDType/1,
+	getDBIDByUID/1
 ]).
 
 -export([
@@ -50,8 +51,14 @@
 	makeGuildUID/0,
 	makeRuneUID/0,
 	makeTeamUID/0,
-	makeCompanionUID/0,
+	makeCrossApplyUID/0,
 	makeRedEnvelopeUID/0
+]).
+
+%% 本导出函数仅针对角色UID
+-export([
+	getShortID/1,
+	getUIDByShortID/1
 ]).
 
 %%生成角色UID
@@ -89,9 +96,9 @@ makeRuneUID() ->
 makeTeamUID() ->
 	makeUID(?UID_TYPE_Team).
 
-%%生成灵魂伙伴团队UID
-makeCompanionUID() ->
-	makeUID(?UID_TYPE_Companion).
+%%生成跨服报名组UID
+makeCrossApplyUID() ->
+	makeUID(?UID_TYPE_CrossApply).
 
 %%生成红包UID
 makeRedEnvelopeUID() ->
@@ -185,16 +192,40 @@ getMaxUID(UIDType) ->
 %% 获取UID类型
 -spec getUIDType(UID::uid_type()) -> uint32().
 getUIDType(UID) ->
-	<<_H:?UIDBit_Highest, UIDType:?UIDBit_Type, _ADBID:?UIDBit_ADBID, _DBID:?UIDBit_DBID, _UIDIndex:?UIDBit_UIDIdex, _IDRange:?UIDBit_IDRange>> = <<UID:64>>,
+	{_H, UIDType, _ADBID, _DBID, _UIDIndex, _IDRange} = parseUID(UID),
 	UIDType.
+
+%% 通过UID获取DBID
+-spec getDBIDByUID(UID::uint64()) -> uint32().
+getDBIDByUID(UID) ->
+	{_, _, _, DBID, _, _} = parseUID(UID),
+	DBID.
 
 getUID(UIDType, ADBID, DBID, IDIndex, IDRange) ->
 	High = 0,
 	<<UID:64>> = <<High:?UIDBit_Highest, UIDType:?UIDBit_Type, ADBID:?UIDBit_ADBID, DBID:?UIDBit_DBID, IDIndex:?UIDBit_UIDIdex, IDRange:?UIDBit_IDRange>>,
 	UID.
 
+%% 解析UID
+-spec parseUID(UID::uint64()) -> {H::integer(), UIDType::integer(), ADBID::integer(), DBID::integer(), UIDIndex::integer(), IDRange::integer()}.
+parseUID(UID) ->
+	<<H:?UIDBit_Highest, UIDType:?UIDBit_Type, ADBID:?UIDBit_ADBID, DBID:?UIDBit_DBID, UIDIndex:?UIDBit_UIDIdex, IDRange:?UIDBit_IDRange>> = <<UID:64>>,
+	{H, UIDType, ADBID, DBID, UIDIndex, IDRange}.
+
 %%当达到最大UID值时，会自动从最小值再次开始
 -spec makeUID(Type) -> uint() when Type::uid_type().
 makeUID(Type) ->
 	[#recUID{minUID = MinUID, maxUID = MaxUID}] = ets:lookup(?UIDEts, Type),
 	ets:update_counter(?UIDEts, Type, {#recUID.curUID, 1, MaxUID, MinUID}).
+
+%% ================以下两个方法仅针对角色UID================
+%% 角色UID转换为短UID
+getShortID(UID) ->
+	{_H, _UIDType, _ADBID, DBID, UIDIndex, IDRange} = parseUID(UID),
+	(IDRange bsl (?UIDBit_DBID + ?UIDBit_UIDIdex)) bor (DBID bsl ?UIDBit_UIDIdex) bor UIDIndex.
+%% 短角色UID转换为标准角色UID
+getUIDByShortID(ShortID) ->
+	<<IDRange:?UIDBit_IDRange, DBID:?UIDBit_DBID, UIDIndex:?UIDBit_UIDIdex>>
+		= <<ShortID:(?UIDBit_DBID + ?UIDBit_UIDIdex + ?UIDBit_IDRange)>>,
+	getUID(?UID_TYPE_Role, globalSetup:getADBID(), DBID, UIDIndex, IDRange).
+%% ================以上两个方法仅针对角色UID================

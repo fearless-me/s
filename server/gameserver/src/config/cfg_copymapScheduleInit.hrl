@@ -81,7 +81,7 @@
 
         %%: 事件定义，condition条件下触发，无condition条件，直接触发，每条定义程序写死
         %%: 格式[id]
-        %%: 1.为副本觉醒引导，与之相关的其他参数在globsetup表中配置
+        %%: 1.为副本觉醒引导，eventParam1配置触发的技能id，eventParam2配置武器模型变化
         %%: 2.女神技能预览引导，eventParam1配置触发的技能id
         event,
 

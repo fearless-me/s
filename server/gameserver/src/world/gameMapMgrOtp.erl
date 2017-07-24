@@ -67,12 +67,6 @@ init([Name]) ->
 	erlang:process_flag(priority, high),
 	?LOG_OUT("~p init",[?MODULE]),
 	initInternal(Name),
-	case core:isCross() of
-		true ->
-			skip;
-		_ ->
-			erlang:send_after(?GameMapMgrTickTime, self(), tick)
-	end,
 	?LOG_OUT("~p init OK",[?MODULE]),
 	{ok, #state{}}.
 
@@ -158,10 +152,6 @@ handle_info({wildbossFresh, _Pid, Msg}, State) ->
 	lists:foreach(Fun, L),
 	{noreply, State};
 
-%地图更新
-handle_info(tick,State) ->
-	tick(),
-	{noreply,State};
 handle_info(Info, State) ->
 	sendMsgToWorkOtp(Info),
 	{noreply, State}.
@@ -303,6 +293,3 @@ getOneWorkOtp() ->
 			setIdleWorkOtpList(getWorkOtpList()),
 			getOneWorkOtp()
 	end.
-tick() ->
-%%	erlang:send_after(?GameMapMgrTickTime, self(), tick),
-	ok.

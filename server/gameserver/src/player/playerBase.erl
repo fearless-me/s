@@ -40,10 +40,14 @@
 	onPlayerOffline/1,
 	printPropList/0,
 	setHpDirect/1,
-	clearSkillCDAndRestoreHp/0
+	clearSkillCDAndRestoreHp/0,
+
+	backRes/1,					%% 角色进程扣除资源后请求公共进程执行操作，操作被拒绝，返回角色进程返还资源
+	costRes/6					%% 消耗资源并生成argsBack()的元素，用于搭配backRes/1使用
 ]).
 
 -export([
+	initExpLimit/0,
 	getCfgHPRecover/2,
 	getCfgMaxExp/2,
 	getCfgBaseProps/2
@@ -192,11 +196,11 @@ firstEnterWorld(0) ->
 	playerSkillLearn:addSkillPointLevelUp(1),
 	playerEquip:equipRecastInit(),
 	playerTask:acceptTask(?FirstTaskID, 0),
-	try
-		playerGoddess:initRoleWake()
-	catch
-		_: _ -> skip
-	end,
+%%	try
+%%		playerGoddess:initRoleWake()
+%%	catch
+%%		_: _ -> skip
+%%	end,
 	%%初始化玩家默认变量
 	playerVariant:initDefaultVariant(),
 	ok;
@@ -263,7 +267,7 @@ tickPlayer() ->
 				true ->
 					playerOnlineReward:tick(),
 					playerPet:tickExpressPet(),
-					playerFashion:checkFashionTimeOut(true),
+					playerFashion:checkTimeout(true),
 
 					try
 						%检查玩家是否有限时称号过期,一分钟检查一次
@@ -406,6 +410,7 @@ sendExpInDanInfo() ->
 -spec modifyAddExpBySource(BaseExp, Source, MonsterID) -> uint() when
 	BaseExp :: uint(), Source :: uint(), MonsterID :: uint().
 modifyAddExpBySource(BaseExp, ?ExpSourceKillMonster, MonsterID) ->
+	MapCfg = playerScene:getMapSubType(playerState:getMapID()),
 	%% 计算多倍经验加成后的总经验
 	NewExp = calcMultiExp(BaseExp),
 	%% 获取爵位加成后的总经验
@@ -421,9 +426,53 @@ modifyAddExpBySource(BaseExp, ?ExpSourceKillMonster, MonsterID) ->
 	%% 由于两次计算都包含基本经验，所以需要减一个基本经验，否则会重复计算
 	?DEBUG_OUT("modifyAddExpBySource ~p - ~p + ~p - ~p + ~p + ~p + ~p", [
 		TotalExp, BaseExp, NewExp, BaseExp, TeamExp, WorldExp, GoddessExp]),
-	misc:ceil(TotalExp - BaseExp + NewExp - BaseExp + TeamExp + WorldExp + GoddessExp);
+	LastExp = misc:ceil(TotalExp - BaseExp + NewExp - BaseExp + TeamExp + WorldExp + GoddessExp),
+	modifyExpWithFactor(MapCfg, LastExp);
 modifyAddExpBySource(BaseExp, _, _) ->
 	BaseExp.
+
+initExpLimit()->
+	CurLimit = playerDaily:getDailyCounter(?DailyType_KillMonsterExp, 1),
+	case CurLimit =< 0 of
+		true ->
+			LimitGetExp =
+				case getCfg:getCfgByArgs(cfg_indexFunction, playerState:getLevel()) of
+					#indexFunctionCfg{field_exp_up = V}->
+						V;
+					_ ->
+						9999999999
+				end,
+
+			playerDaily:zeroDailyCount(?DailyType_KillMonsterExp, 0),
+			playerDaily:incCounter(?DailyType_KillMonsterExp, 1, LimitGetExp);
+		_ ->
+			skip
+	end,
+	ok.
+
+modifyExpWithFactor(
+	#mapsettingCfg{type = MapType, subtype = MapSubType}
+	, AddExp
+) when MapType =:= ?MapTypeNormal ; MapSubType =:= ?MapSubTypeExpMap ->
+	initExpLimit(),
+	TotalGetExp = playerDaily:getDailyCounter(?DailyType_KillMonsterExp, 0),
+	LimitGetExp = playerDaily:getDailyCounter(?DailyType_KillMonsterExp, 1),
+	Factor =
+		case getCfg:getCfgByArgs(cfg_globalsetup, filed_exp_decline) of
+			#globalsetupCfg{setpara = [V]} ->
+				V;
+			_ ->
+				1
+	    end,
+	if
+		TotalGetExp > LimitGetExp ->
+			misc:clamp(trunc(AddExp * Factor), 1, AddExp);
+		true ->
+			playerDaily:incCounter(?DailyType_KillMonsterExp, 0, TotalGetExp + AddExp),
+			AddExp
+	end;
+modifyExpWithFactor(_MapCfg, AddExp)->
+	AddExp.
 
 %% 获取组队和个人分配后经验
 -spec teamAllotExp(BaseExp, MonsterID) -> uint() when
@@ -442,8 +491,8 @@ teamAllotExp(BaseExp, _MonsterID) ->
 %%	TemInfo = playerBattle:getSameMapTeamMemberPid(),
 	%%LevAmendExp = 1 + (NewMonsterLevel -  PlayerLevel) * 0.05,
 	%%LevAmendExp1 = misc:clamp(LevAmendExp, ?ExpAllotMinPar, ?ExpAllotMaxPar),
-	TeamMemberCount = teamInterface:getTeamMemberCountWithRoleID(
-		playerState:getRoleID(), false),
+	TeamMemberCount = teamInterface:getTeamMemberCountInSameMapWithRoleID(
+		playerState:getRoleID(), playerState:getMapPlayerEts(), false),
 	NewExp = case TeamMemberCount + 1 of
 				 1 ->
 					 %%erlang:round(BaseExp * LevAmendExp1);
@@ -606,6 +655,9 @@ onPlayerOffline(Why) ->
 			%%离开切磋
 			playerBattleLearn:offLineBattleLearn(),
 
+			%% 离开游乐设施
+			playerGuildFairground:tryRideDown(),
+
 			case Why of
 				logCrossAck ->
 					skip;
@@ -746,7 +798,15 @@ onPlayerOffline(Why) ->
 			playerDance:leaveDanceMap(),
 
 			%% 发给db保存下线时间
-			gsSendMsg:sendMsg2DBServer(playerOffline, playerState:getAccountID(), playerState:getRoleID())
+			gsSendMsg:sendMsg2DBServer(playerOffline, playerState:getAccountID(), playerState:getRoleID()),
+
+			%% 由于跨服中的roleKeyInfo是从普通服带来的，所以非正常下线应该删除
+			case core:isCross() of
+				true ->
+					ets:delete(ets_rolekeyinfo, playerState:getRoleID());	%% 删除掉自己带过来的roleKeyInfo
+				_ ->
+					skip
+			end
 	end,
 	ok.
 
@@ -813,13 +873,16 @@ setLevel(Level, IsUpdate) when Level > 0 andalso erlang:is_boolean(IsUpdate) ->
 			end,
 			if
 				IsUpdate =:= true ->
-					playerLevelUp:onLevelUp(OldLevel, Level);
+					playerLevelUp:onLevelUp(OldLevel, Level),
+
+					%%升级后设置当前血量
+					MaxHp = playerState:getMaxHp(),
+					playerState:setCurHp(MaxHp),
+					ok;
 				true ->
 					skip
 			end,
-			%%升级后设置当前血量
-			MaxHp = playerState:getMaxHp(),
-			playerState:setCurHp(MaxHp),
+
 			notifyTeamMemberLevel(Level),
 			playerChat:playerChangeChatCD(Level),
 			playerWorldLevel:changeWorldExp(Level, playerState:getWorldLevel()),
@@ -1489,3 +1552,53 @@ addHDBattleHonor(Now) ->
 			skip
 	end,
 	ok.
+
+%%%-------------------------------------------------------------------
+% 角色进程扣除资源后请求公共进程执行操作，操作被拒绝，返回角色进程返还资源
+-spec backRes(argsBack()) -> no_return().
+backRes([]) ->
+	ok;
+backRes([{?BackType_Coin, CoinType, CoinNum, PLogTS, Reason} | T]) ->
+	PLog = #recPLogTSMoney{
+		target = ?PLogTS_PlayerSelf,
+		source = PLogTS,
+		reason = Reason
+	},
+	playerMoney:addCoin(CoinType, CoinNum, PLog),
+	backRes(T);
+backRes([{?BackType_Item, ItemID, ItemCount, PLogTS, Reason} | T]) ->
+	PLog = #recPLogTSItem{
+		new = ItemCount,
+		change = ItemCount,
+		target = ?PLogTS_PlayerSelf,
+		source = PLogTS,
+		changReason = Reason
+	},
+	playerPackage:addGoodsAndMail(ItemID, ItemCount, true, 0, PLog),
+	backRes(T).
+
+
+%%%-------------------------------------------------------------------
+% 消耗资源并生成argsBack()的元素，用于搭配backRes/1使用
+costRes(?BackType_Coin = BackType, ResID, ResCount, PLogTS, ReasonGo, ReasonBack) ->
+	PLog = #recPLogTSMoney{
+		target = PLogTS,
+		source = ?PLogTS_PlayerSelf,
+		reason = ReasonGo
+	},
+	Ret = playerMoney:useCoin(ResID, ResCount, PLog),
+	{_, ResIDReal} = lists:keyfind(ResID, 1, ?CoinUseType2CoinType),	%% 必须找到
+	{Ret, {BackType, ResIDReal, ResCount, PLogTS, ReasonBack}};
+costRes(?BackType_Item = BackType, ResID, ResCount, PLogTS, ReasonGo, ReasonBack) ->
+	#itemCfg{itemType = ItemType} =
+		getCfg:getCfgPStack(cfg_item, ResID),
+	BagType = playerPackage:getPackageType(ItemType),
+	PLog = #recPLogTSItem{
+		old = ResCount,
+		change = -ResCount,
+		target = PLogTS,
+		source = ?PLogTS_PlayerSelf,
+		changReason = ReasonGo
+	},
+	Ret = playerPackage:delGoodsByID(BagType, ResID, ResCount, PLog),
+	{Ret, {BackType, ResID, ResCount, PLogTS, ReasonBack}}.

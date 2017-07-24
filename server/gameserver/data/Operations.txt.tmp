@@ -9,10 +9,9 @@ ServerName=luna_mainland_offcial_1
 #运维数据库连接信息
 DBIP=127.0.0.1
 DBUserName=root
-DBPassword=abcd
+DBPassword=1234
 DBPort=3306
 DBName=3dgameaccount
 
-#DEBUG调试默认
-ADBID=1
-DBID=1
+#licenceKey
+GameKey=3CC39EBB499387AF70D1200CEDC44B67

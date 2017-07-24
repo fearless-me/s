@@ -238,7 +238,7 @@ getMsgStatisticsEts(Type) ->
 startTcpPackageNumberStatistics() ->
 	?DEBUG_OUT("startSocketNumberStatistics"),
 	put(?RecvPackageAtom, 0),
-	timer:send_interval(?RecvClientPackageIntervalTime, recvClientPackageInterval),
+	erlang:send_after(?RecvClientPackageIntervalTime, self(), recvClientPackageInterval),
 	ok.
 
 %% 统计心跳
@@ -250,8 +250,15 @@ recvClientPackageInterval() ->
 -else.
 recvClientPackageInterval() ->
 	Number = get(?RecvPackageAtom),
-	?DEBUG_OUT("RECV IntervalTime:~p,Number:~p/~p,Average:~p",
-		[?RecvClientPackageIntervalTime, Number, ?RecvClientPackageIntervalTime, round(Number / ?RecvClientPackageIntervalTime * 1000)]),
+	?DEBUG_OUT("RECV Pid:~p IP:~p IntervalTime:~p,Number:~p/~p,Average:~p",
+		[
+			self(),
+			socketHandler:getUserIpAndPort(),
+			?RecvClientPackageIntervalTime,
+			Number,
+			?RecvClientPackageIntervalTime,
+			round(Number / ?RecvClientPackageIntervalTime * 1000)
+		]),
 	put(?RecvPackageAtom, 0),
 	ok.
 -endif.

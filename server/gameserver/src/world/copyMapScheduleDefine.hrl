@@ -43,6 +43,7 @@
 
 %% 并行进度表
 -record(recPSConf, {
+	myConfigID	= 0,		% 改进度对应#copymapScheduleInitCfg.id
 	completeDo  = 0,        % 该进度完成做的操作
 	isComplete  = false,    % 是否已经完成
 	killMonster = []::[#recKCcalc{}|_],     % 杀怪列表[#recKCcalc{}|_]
@@ -55,6 +56,13 @@
 %% 因此，服务端将会在show2事件有效时，延迟初始化其它内容，这里定义的结构就暂存了初始化其它内容所需的参数
 %% 注：只支持mapsetting.scheduleConf，mapsetting.parallelScheduleConf
 -record(copyMapScheduleInit, {
+	groupID		= 0	:: uint(),
+	scheduleID	= 0	:: uint(),
+	configID	= 0	:: uint(),
+	show2ID		= 0	:: uint()
+}).
+%% 类似于copyMapScheduleInit，区别在于将在show2事件完成后才进行进度的结算
+-record(copyMapScheduleComplete, {
 	groupID		= 0	:: uint(),
 	scheduleID	= 0	:: uint(),
 	configID	= 0	:: uint(),

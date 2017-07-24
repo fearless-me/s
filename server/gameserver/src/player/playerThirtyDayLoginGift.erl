@@ -106,7 +106,7 @@ reward_checkID(ID) ->
 reward_checkCondition(?ThirtyDayAim_RoleLevel, ValueAim) ->
 	playerState:getLevel() >= ValueAim;
 reward_checkCondition(?ThirtyDayAim_LoginDay, ValueAim) ->
-	variant:getPlayerVariant(playerState:getRoleID(), ?Setting_PlayerVarReadOnly_AccLoginDay) >= ValueAim;
+	variant:getPlayerVariant(playerState:getRoleID(), ?Setting_PlayerVarReadOnly_AccLoginDayAll) >= ValueAim;
 reward_checkCondition(Type, ValueAim) ->
 	?ERROR_OUT("invalie Type:~w ValueAim:~w", [Type, ValueAim]),
 	false.
@@ -135,7 +135,7 @@ reward_item(?RewardsType_Fashion = RwardsType, [{Sex, ID, Count} | T]) when Sex 
 				changReason = ?ItemSourceThirtyDayLoginGift,
 				reasonParam = 0
 			},
-			playerPackage:addGoodsAndMail(ID, 1, false, 0, PLog);
+			playerPackage:addGoodsAndMail(ID, Count, false, 0, PLog);
 		_ ->
 			skip
 	end,
@@ -162,7 +162,7 @@ reward_item(?RewardsType_Equipment = RwardsType, [{Career, ID, Count} | T]) when
 				changReason = ?ItemSourceThirtyDayLoginGift,
 				reasonParam = 0
 			},
-			playerPackage:addGoodsAndMail(ID, 1, false, 0, PLog);
+			playerPackage:addGoodsAndMail(ID, Count, false, 0, PLog);
 		_ ->
 			skip
 	end,
@@ -186,7 +186,7 @@ reward_item(?RewardsType_Item = RwardsType, [{ItemID, Count} | T]) ->
 		changReason = ?ItemSourceThirtyDayLoginGift,
 		reasonParam = 0
 	},
-	playerPackage:addGoodsAndMail(ItemID, 1, false, 0, PLog),
+	playerPackage:addGoodsAndMail(ItemID, Count, false, 0, PLog),
 	reward_item(RwardsType, T);
 %% 不带数量的道具奖励
 reward_item(?RewardsType_Item = RwardsType, [{ItemID} | T]) ->
@@ -204,13 +204,13 @@ reward_item(RwardsType, [Unknown | T]) ->
 %% 上线初始化并推送状态
 -spec init() -> ok.
 init() ->
-	case playerPropSync:getProp(?SerProp_SevenDayAimTimeBegin) of
+	case playerPropSync:getProp(?SerProp_ThirtyDayTimeBegin) of
 		0 ->
 			%% 取当天凌晨4点时间
 			TimeNowUTC = time:getSyncTime1970FromDBS(),
 			Date = time:convertSec2DateTime(TimeNowUTC),
 			TimeBeginOfDay = time:getDayBeginSeconds(Date) + ?ResetTimeHour * 3600 - ?SECS_FROM_0_TO_1970,
-			playerPropSync:setInt(?SerProp_SevenDayAimTimeBegin, TimeBeginOfDay);
+			playerPropSync:setInt(?SerProp_ThirtyDayTimeBegin, TimeBeginOfDay);
 		_ ->
 			skip
 	end,
@@ -229,14 +229,14 @@ init() ->
 %% 获取活动开始时间
 -spec getTimeBegin() -> Sec::uint32().
 getTimeBegin() ->
-	playerPropSync:getProp(?SerProp_SevenDayAimTimeBegin).
+	playerPropSync:getProp(?SerProp_ThirtyDayTimeBegin).
 
 %%% --------------------------------------------------------------------
 %% 检查活动时间
 -spec checkTime() -> boolean().
 checkTime() ->
 	TimeNow = time:getSyncTimeFromDBS(),
-	case playerPropSync:getProp(?SerProp_SevenDayAimTimeBegin) + ?ThirtyDayTime =< TimeNow of
+	case playerPropSync:getProp(?SerProp_ThirtyDayTimeBegin) + ?ThirtyDayTime =< TimeNow of
 		true ->
 			false;
 		_ ->

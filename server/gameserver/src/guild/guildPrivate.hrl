@@ -106,5 +106,8 @@
 	listUser :: [#recGuildRideUser{}, ...]
 }).
 
+%% 碎片祈福内存记录表
+-define(EtsSuppHistory, pk_SuppHistory).
+
 
 -endif. %% Define_guildPrivate_hrl_____

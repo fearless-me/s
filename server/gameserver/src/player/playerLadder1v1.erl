@@ -453,32 +453,37 @@ requestKingList() ->
 %% 膜拜王者
 %% -spec worshipTarget(TargetRoleID :: uint64()) -> ok.
 worshipTarget(TargetRoleID,RoleName) ->
-	Times = playerDaily:getDailyCounter(?DailyType_Ladder1v1, ?DailySubType_MoBai),
-	case Times < ?Max_MoBai_Number of
-		true ->
-			SelfRoleID = playerState:getRoleID(),
-			case SelfRoleID /= TargetRoleID of
+	case queryRoleLadder(playerState:getRoleID()) of
+		#rec_ladder_1v1{} ->
+			Times = playerDaily:getDailyCounter(?DailyType_Ladder1v1, ?DailySubType_MoBai),
+			case Times < ?Max_MoBai_Number of
 				true ->
-					#globalsetupCfg{setpara = [CoinNumber]} = getCfg:getCfgPStack(cfg_globalsetup, jjc_worship),
-					playerMsg:sendErrorCodeMsg(?ErrorCode_Ladder1v1_WorShipSuccess, [RoleName]),
+					SelfRoleID = playerState:getRoleID(),
+					case SelfRoleID /= TargetRoleID of
+						true ->
+							#globalsetupCfg{setpara = [CoinNumber]} = getCfg:getCfgPStack(cfg_globalsetup, jjc_worship),
+							playerMsg:sendErrorCodeMsg(?ErrorCode_Ladder1v1_WorShipSuccess, [RoleName]),
 
-					%% 膜拜成功
-					worshipTargetSuccess(TargetRoleID),
+							%% 膜拜成功
+							worshipTargetSuccess(TargetRoleID),
 
-					psMgr:sendMsg2PS(?PsNameLadder1v1, worshipTarget, {SelfRoleID, TargetRoleID, 0}),
+							psMgr:sendMsg2PS(?PsNameLadder1v1, worshipTarget, {SelfRoleID, TargetRoleID, 0}),
 
-					Title = stringCfg:getString(arena_Ladder1v1_King_Title),
-					Content2 = stringCfg:getString(arena_Ladder1v1_King_Content),
-					mail:sendMoneySystemMail(playerState:getRoleID(), Title, Content2,
-						?CoinTypeBindDiamond, CoinNumber, []),
-					ok;
+							Title = stringCfg:getString(arena_Ladder1v1_King_Title),
+							Content2 = stringCfg:getString(arena_Ladder1v1_King_Content),
+							mail:sendMoneySystemMail(playerState:getRoleID(), Title, Content2,
+								?CoinTypeBindDiamond, CoinNumber, []),
+							ok;
+						_ ->
+							%% 不能膜拜自己
+							playerMsg:sendErrorCodeMsg(?ErrorCode_Ladder1v1_WorShipFailed_Self)
+					end;
 				_ ->
-					%% 不能膜拜自己
-					playerMsg:sendErrorCodeMsg(?ErrorCode_Ladder1v1_WorShipFailed_Self)
+					playerMsg:sendErrorCodeMsg(?ErrorCode_Ladder1v1_NoWorShipTimes),
+					?DEBUG_OUT("worshipTarget:selfroleid=~p, targetroleid=~p", [playerState:getRoleID(), TargetRoleID])
 			end;
 		_ ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_Ladder1v1_NoWorShipTimes),
-			?DEBUG_OUT("worshipTarget:selfroleid=~p, targetroleid=~p", [playerState:getRoleID(), TargetRoleID])
+			playerMsg:sendErrorCodeMsg(?ErrorCode_Ladder1v1_WorShipFailed, [RoleName])
 	end,
 	ok.
 

@@ -19,10 +19,10 @@
 
 dealRoleKeyInfoData([]) ->
     ok;
-dealRoleKeyInfoData({RoleInfoList, RoleCoinInfoList, PropInfoList, PetInfoList, PraiseInfoList, PetManorInfoList, WarriorList}) ->
+dealRoleKeyInfoData({RoleInfoList, RoleCoinInfoList, PropInfoList, PetInfoList, PetManorInfoList, WarriorList, IdentityList}) ->
     %% 临时数据插入ETS
 	%% 这个不能放在其它进程中处理，不然会有并发的问题
-    insert_RoleKeyInfoToETS(RoleCoinInfoList, PropInfoList, PetInfoList, PraiseInfoList, PetManorInfoList, WarriorList),
+    insert_RoleKeyInfoToETS(RoleCoinInfoList, PropInfoList, PetInfoList, PetManorInfoList, WarriorList, IdentityList),
 
     %% 关键数据插入内存数据库
     Len = erlang:length(RoleInfoList),
@@ -115,46 +115,47 @@ roleKeyInfofastDeal2(RoleKeyList, Ets) ->
                         {I, F};
                     _ -> {0, 0}
                 end,
-            Key4 = {temp_RoleKeyInfo_Praise,RoleID},
-            Praise =
-                case ets:lookup(Ets, Key4) of
-                    [{_,#recRolePraise{praiseNum = PraiseNum}}] ->
-                        ets:delete(Ets, Key4),
-                        PraiseNum;
-                    _ -> 0
-                end,
-            Key5 = {temp_RoleKeyInfo_Coin, RoleID,?CoinTypeGold},
+            Key4 = {temp_RoleKeyInfo_Coin, RoleID,?CoinTypeGold},
             Gold =
-                case ets:lookup(Ets, Key5) of
+                case ets:lookup(Ets, Key4) of
                     [{_,#rec_player_coin{coinNumber = CoinNumber}}] ->
-                        ets:delete(Ets, Key5),
+                        ets:delete(Ets, Key4),
                         CoinNumber;
                     _ -> 0
                 end,
-            Key6 = {temp_RoleKeyInfo_PetManor,RoleID},
+            Key5 = {temp_RoleKeyInfo_PetManor,RoleID},
             PvpIntegral =
-                case ets:lookup(Ets, Key6) of
+                case ets:lookup(Ets, Key5) of
                     [{_,#rec_pet_manor_battle{save_time = SaveTime, pet_integral = Integral}}] ->
-                        ets:delete(Ets, Key6),
+                        ets:delete(Ets, Key5),
                         {SaveTime, Integral};
                     _ ->
                         {0, 0}
                 end,
-            Key7 = {temp_RoleKeyInfo_Warrior,RoleID},
+            Key6 = {temp_RoleKeyInfo_Warrior,RoleID},
             {WTPhase, WTPhaseTime} =
-                case ets:lookup(Ets, Key7) of
+                case ets:lookup(Ets, Key6) of
                     [#rec_warrior_trial{tswkTrialSchedule = T1, tswkTrialTime = T2}] ->
-                        ets:delete(Ets, Key7),
+                        ets:delete(Ets, Key6),
                         {T1, T2};
                     _ -> {0, 0}
                 end,
-            Key8 = {temp_RoleKeyInfo_Prop,RoleID,?SerProp_PlayerHistoryForce},
+            Key7 = {temp_RoleKeyInfo_Prop,RoleID,?SerProp_PlayerHistoryForce},
             PlayerMaxForce =
-                case ets:lookup(Ets, Key8) of
+                case ets:lookup(Ets, Key7) of
                     [{_, #rec_player_prop{propValue = PFFF}}] ->
-                        ets:delete(Ets, Key8),
+                        ets:delete(Ets, Key7),
                         erlang:binary_to_integer(PFFF);
                     _ -> 0
+                end,
+            Key8 = {temp_RoleKeyInfo_Identity,RoleID},
+			{Face, Like, Charm} =
+                case ets:lookup(Ets, Key8) of
+                    [{_, #recRoleKeyInfoIdentity{face = FaceBin, like = Like_, charm = Charm_}}] ->
+                        ets:delete(Ets, Key8),
+						{misc:listUnit8_to_stringASCII_inverse(erlang:binary_to_list(FaceBin)), Like_, Charm_};
+                    _ ->
+						{[], 0, 0}
                 end,
 
             %% 添加到内存数据库
@@ -166,9 +167,11 @@ roleKeyInfofastDeal2(RoleKeyList, Ets) ->
                 maxForce        = PlayerMaxForce,
                 petID           = PetID,
                 pvpIntegral     = PvpIntegral,
-                praise          = Praise,
                 wtPhase         = WTPhase,
-                wtPhaseTime     = WTPhaseTime
+                wtPhaseTime     = WTPhaseTime,
+				face			= Face,
+				like			= Like,
+				charm			= Charm
             },
 
             %% 插入内存数据库
@@ -178,9 +181,9 @@ roleKeyInfofastDeal2(RoleKeyList, Ets) ->
     ?LOG_OUT("[pid=~p] write roleKeyInfofastDeal2 end!",[self()]),
     ok.
 
-insert_RoleKeyInfoToETS(RoleCoinInfoList, PropList, PetList, PraiseInfoList, PetManorInfoList, WarriorList) ->
+insert_RoleKeyInfoToETS(RoleCoinInfoList, PropList, PetList, PetManorInfoList, WarriorList, IdentityList) ->
     ?LOG_OUT("insert_RoleKeyInfoToETS start... ~p",
-        [{length(RoleCoinInfoList), length(PropList), length(PetList), length(PraiseInfoList), length(PetManorInfoList), length(WarriorList)}]),
+        [{length(RoleCoinInfoList), length(PropList), length(PetList), length(PetManorInfoList), length(WarriorList), length(IdentityList)}]),
     Ets = publicDataMgrState:getRoleKeyInfoTempEts(),
 
     F1 =
@@ -202,21 +205,22 @@ insert_RoleKeyInfoToETS(RoleCoinInfoList, PropList, PetList, PraiseInfoList, Pet
     lists:foreach(F3,PetList),
 
     F4 =
-        fun(#recRolePraise{roleID = RID} = V) ->
-            ets:insert(Ets, {{temp_RoleKeyInfo_Praise,RID}, V})
-        end,
-    lists:foreach(F4,PraiseInfoList),
-
-    F5 =
         fun(#rec_pet_manor_battle{roleID = RID} = V) ->
             ets:insert(Ets, {{temp_RoleKeyInfo_PetManor,RID}, V})
         end,
-    lists:foreach(F5,PetManorInfoList),
+    lists:foreach(F4,PetManorInfoList),
 
-    F6 =
+    F5 =
         fun(#rec_warrior_trial{roleID = RID} = V) ->
             ets:insert(Ets, {{temp_RoleKeyInfo_Warrior,RID}, V})
         end,
-    lists:foreach(F6,WarriorList),
+    lists:foreach(F5,WarriorList),
+
+    F6 =
+        fun(#recRoleKeyInfoIdentity{roleID = RID} = V) ->
+            ets:insert(Ets, {{temp_RoleKeyInfo_Identity,RID}, V})
+        end,
+    lists:foreach(F6,IdentityList),
+
     ?LOG_OUT("insert_RoleKeyInfoToETS end..."),
     ok.

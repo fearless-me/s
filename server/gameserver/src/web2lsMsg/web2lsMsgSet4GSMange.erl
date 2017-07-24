@@ -40,30 +40,13 @@ doMsg( CmdSerial, Data ) ->
 				case ets:lookup(?ETSGameServerInfo, ServerID) of
 					[] ->
 						{obj,[{"add",false},{"extData",null}]};
-					[#recGameServer{gameServerID=GSID,
-						gameServerState = OldState,
-						maxPlayer = OldMaxPlayer,
-						gameServerPlayerCount = OnlinePlayer
-					}|_] ->
-						updateQueueNumber(OldMaxPlayer,MaxPlayer,OnlinePlayer,OldState,GsState,GSID),
-						ets:update_element(?ETSGameServerInfo, GSID,
-							[
-								{#recGameServer.gameServerState,GsState},
-								{#recGameServer.maxPlayer,MaxPlayer}
-							]),
-%%						case GsState of
-%%							?GameServer_State_Running ->
-%%								%把本大区置为正常状态
-%%								globalSetup:delete(?GSKey_areaMaintain);
-%%							_ ->skip
-%%						end,
+					[#recGameServer{} | _] ->
+						loginQueueOtp:send2me(canLoginNumInit, MaxPlayer),
 						{obj,[{"update",true},{"extData",null}]};
 					OtherMatch ->
 						?ERROR_OUT("case err:~p",[OtherMatch])
 				end,
-			lsSendMsg:sendMsg2DBServer(updateDBInfo, {MaxPlayer}),
-
-			erlang:send_after(1000, self(), {handleMsgAck, self(),{CmdSerial,Stat} }),
+			erlang:send_after(3000, self(), {handleMsgAck, self(),{CmdSerial,Stat} }),
 			true;
 		_ ->
 			false
@@ -121,34 +104,4 @@ parseArgs(Data) ->
 	catch
 		_:_ ->
 			false
-	end.
-
-%% 队列人数修正
-updateQueueNumber(OldMaxPlayer,MaxPlayer,OnlinePlayer,OldState,NewState,GSId) ->
-	Running = 2,
-	_Maintain = 4,
-	PlayerNum = MaxPlayer - OnlinePlayer,
-	case OldState of
-		Val when Running=:= Val andalso NewState =/= Running ->
-			loginQueueOtp:send2me(canLoginNumInit, {GSId,-PlayerNum,MaxPlayer});
-		Val2 when Running=/= Val2 andalso NewState =:= Running ->
-			loginQueueOtp:send2me(canLoginNumInit, {GSId,PlayerNum,MaxPlayer});
-		Val3 when Running=:= Val3 andalso NewState =:= Running ->
-			NewNum = setGSMaxPlayer(OldMaxPlayer,MaxPlayer,OnlinePlayer),
-			NewPlayerNum = NewNum - OldMaxPlayer,
-
-			loginQueueOtp:send2me(canLoginNumInit, {GSId,NewPlayerNum,MaxPlayer});
-		_Other2 ->
-			skip
-	end,
-	ok.
-
-%%修改gs最大人数的配置
--spec setGSMaxPlayer(OldMaxPlayerNum::uint32(),MaxPlayerNum::uint32(),CurOnLine::uint32()) ->uint32().
-setGSMaxPlayer(OldMaxPlayerNum,MaxPlayerNum,CurOnLine) ->
-	case MaxPlayerNum>=CurOnLine of
-		true ->
-			MaxPlayerNum;
-		_ ->
-			OldMaxPlayerNum
 	end.

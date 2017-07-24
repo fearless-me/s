@@ -300,7 +300,7 @@ closenessAdd_Check({RoleID_A, RoleID_B, Value, Reason}) ->
 						} ->
 							erlang:min(Value, ValueLimit2);
 						_ ->
-							0 %% 双方不是夫妻，忽略
+							0  %% 双方不是夫妻，忽略
 					end
 			end
 	end.

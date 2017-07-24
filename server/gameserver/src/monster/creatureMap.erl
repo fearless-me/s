@@ -8,17 +8,16 @@
 
 
 -include("monsterPrivate.hrl").
--define(EnemyCamp, 2).
 %% ====================================================================
 %% API functions
 %% ====================================================================
 -export([
-		 addCreatureToEts/3,
-		 delCreatureFromEts/2,
-		 syncCreatureToEts/1,
-		 searchEnemy/2,
-		 dealEnterMapAck/2
-		]).
+	addCreatureToEts/3,
+	delCreatureFromEts/2,
+	syncCreatureToEts/1,
+	searchEnemy/2,
+	dealEnterMapAck/2
+]).
 
 %% 添加Creature到ETS表中
 -spec addCreatureToEts(Code, MapObject, CodeType) -> true when
@@ -55,17 +54,17 @@ delCreatureFromEts(Code, _) ->
 	myEts:deleteEts(MonsterEts, Code).
 
 -spec dealEnterMapAck(Ack, Code) -> ok when
-		  Ack :: #enterMapInfo{},
-    Code :: uint().
+	Ack :: #enterMapInfo{},
+	Code :: uint().
 dealEnterMapAck(#enterMapInfo{
-    mapid = MapID,
-    mapPlayerEts = MapPlayerEts,
-    mapPetEts = MapPetEts,
-    mapMonsterEts = MapMonsterEts,
-    mapPid = MapPid,
-    mapLine = MapLine,
-    x = X,
-    y = Y
+	mapid = MapID,
+	mapPlayerEts = MapPlayerEts,
+	mapPetEts = MapPetEts,
+	mapMonsterEts = MapMonsterEts,
+	mapPid = MapPid,
+	mapLine = MapLine,
+	x = X,
+	y = Y
 }, Code) ->
 	?LOG_OUT("Pet Code [~p] enter mapid[~p] mapPid[~p] line[~p] ~p,~p ok",[Code,MapID,MapPid,MapLine, X ,Y]),
 	monsterState:setMapPlayerEts(Code,MapPlayerEts),
@@ -77,7 +76,7 @@ dealEnterMapAck(#enterMapInfo{
 	monsterState:setMoveTarget(Code, 0, 0),
 	%%强制脱战
 	monsterBattle:delBothHate(Code),
-	
+
 	%%同屏给周围玩家
 %%	CasterInfo = monsterState:getCasterInfo(Code),
 %%	Camp = monsterState:getCamp(Code),
@@ -119,8 +118,8 @@ dealEnterMapAck(#enterMapInfo{
 
 %%  同步所有生物到ETS表中
 -spec syncCreatureToEts(Code) -> Result when
-		  Code :: uint(),
-		  Result :: boolean().
+	Code :: uint(),
+	Result :: boolean().
 syncCreatureToEts(Code) ->
 	{X,Y} = monsterState:getMonsterPos(Code),
 	ActionStatus = monsterState:getActionStatus(Code),
@@ -141,25 +140,25 @@ syncCreatureToEts(Code) ->
 	MaxHp = monsterState:getBattlePropTotal(Code, ?Prop_MaxHP),
 	Speed = 0, %% monsterState:getBattlePropTotal(Code, ?Prop_attackspeed),
 	List = [{#recMapObject.x, X},
-			{#recMapObject.y, Y},
-			{#recMapObject.name,Name},
-			{#recMapObject.actionStatus, ActionStatus},
-			{#recMapObject.status, Status},
-			{#recMapObject.hp, Hp}, 
-			{#recMapObject.mp, Mp},
-			{#recMapObject.maxHp, MaxHp},
-			{#recMapObject.moveTargetList, MoveList},
-			{#recMapObject.buffList, BuffList},
-			{#recMapObject.moveSpeed, MoveSpeed},
-			{#recMapObject.guild, GuildID},
-			{#recMapObject.teamID, TeamID},
-			{#recMapObject.camp, Camp},
-			{#recMapObject.groupID, GroupID},
-			{#recMapObject.attackSpeed, Speed},
-			{#recMapObject.ownId, CasterInfo#recCasterInfo.casterId},
-			{#recMapObject.ownPid, CasterInfo#recCasterInfo.casterPid},
-			{#recMapObject.ownCode, CasterInfo#recCasterInfo.casterCode},
-			{#recMapObject.pkMode, CasterInfo#recCasterInfo.casterPkMode}],
+		{#recMapObject.y, Y},
+		{#recMapObject.name,Name},
+		{#recMapObject.actionStatus, ActionStatus},
+		{#recMapObject.status, Status},
+		{#recMapObject.hp, Hp},
+		{#recMapObject.mp, Mp},
+		{#recMapObject.maxHp, MaxHp},
+		{#recMapObject.moveTargetList, MoveList},
+		{#recMapObject.buffList, BuffList},
+		{#recMapObject.moveSpeed, MoveSpeed},
+		{#recMapObject.guild, GuildID},
+		{#recMapObject.teamID, TeamID},
+		{#recMapObject.camp, Camp},
+		{#recMapObject.groupID, GroupID},
+		{#recMapObject.attackSpeed, Speed},
+		{#recMapObject.ownId, CasterInfo#recCasterInfo.casterId},
+		{#recMapObject.ownPid, CasterInfo#recCasterInfo.casterPid},
+		{#recMapObject.ownCode, CasterInfo#recCasterInfo.casterCode},
+		{#recMapObject.pkMode, CasterInfo#recCasterInfo.casterPkMode}],
 	case monsterState:getCodeType(Code) of
 		?SpawnPet ->
 			Ets = monsterState:getMapPetEts(Code),
@@ -170,14 +169,14 @@ syncCreatureToEts(Code) ->
 		?SpawnCarrier ->
 			Ets = monsterState:getMapMonsterEts(Code),
 			NewList = [{#recMapObject.other,[{moveStatus,MoveStatus},{subType,1},{casterCode,CasterInfo#recCasterInfo.casterCode}]} | List];
-		_ ->   
+		_ ->
 			Ets = monsterState:getMapMonsterEts(Code),
 			NewList = [{#recMapObject.other,[{moveStatus,MoveStatus},{subType,0},{casterCode,CasterInfo#recCasterInfo.casterCode}]} | List]
 	end,
 	myEts:updateEts(Ets, Code, NewList).
 
 -spec searchEnemy(Type, Code) -> ok when
-    Type :: uint(),
+	Type :: uint(),
 	Code :: uint().
 searchEnemy(?SpawnPet, _Code) ->
 	ok;
@@ -199,10 +198,13 @@ searchEnemy(_, Code) ->
 							   [];
 						   _ ->
 							   HateList1
-			           end,
+					   end,
 
 			case AI of
 				[?AI_Type_Active, ?BST_SELTARGET_ENEMY_MONSTER, _] ->
+					MonsterEts = monsterState:getMapMonsterEts(Code),
+					searchEnemy1(Code,?BST_SELTARGET_ENEMY_MONSTER,HateList,WatchRadius,MonsterEts,?ObjTypeMonster,X,Y,GroupID);
+				[?AI_Type_ActiveCopyMapConvoy, ?BST_SELTARGET_ENEMY_MONSTER, _] ->
 					MonsterEts = monsterState:getMapMonsterEts(Code),
 					searchEnemy1(Code,?BST_SELTARGET_ENEMY_MONSTER,HateList,WatchRadius,MonsterEts,?ObjTypeMonster,X,Y,GroupID);
 				[?AI_Type_Active, ?BST_SELTARGET_ENEMY_MONSTER_FIRST, _] ->
@@ -219,7 +221,7 @@ searchEnemy(_, Code) ->
 				[?AI_Type_PassiveSpecWay, TargetType, _] ->
 					PlayerEts = monsterState:getMapPlayerEts(Code),
 					searchEnemy1(Code,TargetType,[],WatchRadius,PlayerEts,?ObjTypePlayer,X,Y,GroupID);
-					%TargetCode = monsterState:getAttackTarget(Code);
+				%TargetCode = monsterState:getAttackTarget(Code);
 %%					?DEBUG_OUT("###########searchEnemy(~p/~p),monster(~p,~p),hlen(~p)",[TargetCode, WatchRadius, MonID, AI, length(HateList)]);
 				_ ->
 					skip
@@ -298,7 +300,15 @@ searchEnemy1(Code,TargetType,HateList,WatchRadius,Ets,ObjType,X,Y,GroupID) ->
 	case HateList of
 		[] ->
 			SelfCamp = monsterState:getCamp(Code),
-			Match = mapView:getNearViewObject(monsterState:getMapPid(Code),Ets, ObjType, {X, Y}, GroupID),
+
+			%% 如果视野范围为10000，则全图选怪
+			Match =
+				case WatchRadius =:= 10000 andalso mapState:getMapType() =:= ?MapTypeCopyMap of
+					true ->
+						mapView:getAllObject(monsterState:getMapPid(Code),Ets, ObjType, GroupID);
+					_ ->
+						mapView:getNearViewObject(monsterState:getMapPid(Code),Ets, ObjType, {X, Y}, GroupID)
+				end,
 			case Match of
 				[] ->
 					skip;
@@ -338,7 +348,7 @@ searchEnemy1(Code,TargetType,HateList,WatchRadius,Ets,ObjType,X,Y,GroupID) ->
 												skip
 										end,
 									case Res of
-										?EnemyCamp ->
+										?Camp_Hostile ->
 											[Target | Acc];
 										_ ->
 											Acc

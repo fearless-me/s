@@ -8,225 +8,251 @@
 getRow(1)->
     #mainmenu_FunctionOpenCfg {
     id = 1,
-    level = 3,
+    type = 1,
+    param = 3,
     name = "技能",
-    describe = "角色技能开启",
+    namedescribe = "3级开启",
+    describe = "角色技能即将开启",
     icon = "MenuIcon_25"
     };
 getRow(2)->
     #mainmenu_FunctionOpenCfg {
     id = 2,
-    level = 4,
+    type = 1,
+    param = 4,
     name = "自动战斗",
-    describe = "自动战斗功能开启",
+    namedescribe = "4级开启",
+    describe = "自动战斗功能即将开启",
     icon = "MenuIcon_49"
     };
 getRow(3)->
     #mainmenu_FunctionOpenCfg {
     id = 3,
-    level = 5,
+    type = 1,
+    param = 6,
     name = "在线福利",
-    describe = "在线福利开启",
+    namedescribe = "6级开启",
+    describe = "在线福利即将开启",
     icon = "MenuIcon_4"
     };
 getRow(4)->
     #mainmenu_FunctionOpenCfg {
     id = 4,
-    level = 6,
-    name = "女神",
-    describe = "女神功能开启",
-    icon = "MenuIcon_18"
+    type = 2,
+    param = 32,
+    name = "装备精炼",
+    namedescribe = "即将开启",
+    describe = "强化-精炼功能即将开启",
+    icon = "MenuIcon_10"
     };
 getRow(5)->
     #mainmenu_FunctionOpenCfg {
     id = 5,
-    level = 7,
-    name = "装备精炼",
-    describe = "强化-精炼功能开启",
-    icon = "MenuIcon_10"
+    type = 2,
+    param = 34,
+    name = "时装",
+    namedescribe = "即将开启",
+    describe = "时装功能即将开启",
+    icon = "MenuIcon_22"
     };
 getRow(6)->
     #mainmenu_FunctionOpenCfg {
     id = 6,
-    level = 8,
-    name = "时装",
-    describe = "时装功能开启",
-    icon = "MenuIcon_22"
+    type = 2,
+    param = 36,
+    name = "红包",
+    namedescribe = "即将开启",
+    describe = "红包功能即将开启",
+    icon = "MenuIcon_47"
     };
 getRow(7)->
     #mainmenu_FunctionOpenCfg {
     id = 7,
-    level = 9,
-    name = "红包",
-    describe = "红包功能开启",
-    icon = "MenuIcon_47"
+    type = 1,
+    param = 10,
+    name = "副本",
+    namedescribe = "10级开启",
+    describe = "副本功能即将开启",
+    icon = "MenuIcon_5"
     };
 getRow(8)->
     #mainmenu_FunctionOpenCfg {
     id = 8,
-    level = 10,
-    name = "副本",
-    describe = "副本功能开启",
-    icon = "MenuIcon_5"
+    type = 2,
+    param = 56,
+    name = "骑宠",
+    namedescribe = "即将开启",
+    describe = "骑宠功能即将开启",
+    icon = "MenuIcon_8"
     };
 getRow(9)->
     #mainmenu_FunctionOpenCfg {
     id = 9,
-    level = 11,
-    name = "器灵",
-    describe = "器灵功能开启",
-    icon = "MenuIcon_11"
+    type = 1,
+    param = 14,
+    name = "兑换",
+    namedescribe = "14级开启",
+    describe = "兑换功能即将开启",
+    icon = "MenuIcon_24"
     };
 getRow(10)->
     #mainmenu_FunctionOpenCfg {
     id = 10,
-    level = 12,
-    name = "骑宠",
-    describe = "骑宠功能开启",
-    icon = "MenuIcon_8"
+    type = 1,
+    param = 15,
+    name = "扭蛋",
+    namedescribe = "15级开启",
+    describe = "扭蛋功能即将开启",
+    icon = "MenuIcon_16"
     };
 getRow(11)->
     #mainmenu_FunctionOpenCfg {
     id = 11,
-    level = 14,
-    name = "兑换",
-    describe = "兑换功能开启",
-    icon = "MenuIcon_24"
+    type = 1,
+    param = 16,
+    name = "骑宠领地",
+    namedescribe = "16级开启",
+    describe = "日常-骑宠领地即将开启",
+    icon = "MenuIcon_8"
     };
 getRow(12)->
     #mainmenu_FunctionOpenCfg {
     id = 12,
-    level = 15,
-    name = "扭蛋",
-    describe = "扭蛋功能开启",
-    icon = "MenuIcon_16"
+    type = 1,
+    param = 18,
+    name = "萝莉与绅士",
+    namedescribe = "18级开启",
+    describe = "日常-萝莉与绅士即将开启",
+    icon = "MenuIcon_6"
     };
 getRow(13)->
     #mainmenu_FunctionOpenCfg {
     id = 13,
-    level = 16,
-    name = "骑宠助阵",
-    describe = "骑宠助阵功能开启",
-    icon = "MenuIcon_8"
+    type = 1,
+    param = 20,
+    name = "转职",
+    namedescribe = "20级开启",
+    describe = "转职功能即将开启",
+    icon = "MenuIcon_7"
     };
 getRow(14)->
     #mainmenu_FunctionOpenCfg {
     id = 14,
-    level = 18,
-    name = "萝莉与绅士",
-    describe = "日常-萝莉与绅士开启",
+    type = 1,
+    param = 22,
+    name = "竞技场",
+    namedescribe = "22级开启",
+    describe = "日常-竞技场即将开启",
     icon = "MenuIcon_6"
     };
 getRow(15)->
     #mainmenu_FunctionOpenCfg {
     id = 15,
-    level = 20,
-    name = "转职",
-    describe = "转职功能开启",
-    icon = "MenuIcon_7"
+    type = 1,
+    param = 23,
+    name = "惊天喵盗团",
+    namedescribe = "23级开启",
+    describe = "日常-惊天喵盗团即将开启",
+    icon = "MenuIcon_6"
     };
 getRow(16)->
     #mainmenu_FunctionOpenCfg {
     id = 16,
-    level = 21,
-    name = "星空之翼",
-    describe = "星空之翼功能开启",
-    icon = "MenuIcon_20"
+    type = 1,
+    param = 24,
+    name = "家族",
+    namedescribe = "24级开启",
+    describe = "家族功能即将开启",
+    icon = "MenuIcon_12"
     };
 getRow(17)->
     #mainmenu_FunctionOpenCfg {
     id = 17,
-    level = 22,
-    name = "竞技场",
-    describe = "日常-竞技场开启",
+    type = 1,
+    param = 25,
+    name = "守护女神",
+    namedescribe = "25级开启",
+    describe = "日常-守护女神即将开启",
     icon = "MenuIcon_6"
     };
 getRow(18)->
     #mainmenu_FunctionOpenCfg {
     id = 18,
-    level = 23,
-    name = "惊天喵盗团",
-    describe = "日常-惊天喵盗团开启",
-    icon = "MenuIcon_6"
+    type = 1,
+    param = 26,
+    name = "灵力冥想",
+    namedescribe = "26级开启",
+    describe = "灵力冥想功能即将开启",
+    icon = "MenuIcon_4"
     };
 getRow(19)->
     #mainmenu_FunctionOpenCfg {
     id = 19,
-    level = 24,
-    name = "家族",
-    describe = "家族功能开启",
-    icon = "MenuIcon_12"
+    type = 1,
+    param = 27,
+    name = "约会地下城",
+    namedescribe = "27级开启",
+    describe = "日常-约会地下城即将开启",
+    icon = "MenuIcon_6"
     };
 getRow(20)->
     #mainmenu_FunctionOpenCfg {
     id = 20,
-    level = 25,
-    name = "守护女神",
-    describe = "日常-守护女神开启",
-    icon = "MenuIcon_6"
+    type = 2,
+    param = 207,
+    name = "合成",
+    namedescribe = "即将开启",
+    describe = "合成功能即将开启",
+    icon = "MenuIcon_17"
     };
 getRow(21)->
     #mainmenu_FunctionOpenCfg {
     id = 21,
-    level = 26,
-    name = "灵力冥想",
-    describe = "灵力冥想功能开启",
-    icon = "MenuIcon_4"
+    type = 2,
+    param = 264,
+    name = "装备升星",
+    namedescribe = "即将开启",
+    describe = "强化-升星功能即将开启",
+    icon = "MenuIcon_10"
     };
 getRow(22)->
     #mainmenu_FunctionOpenCfg {
     id = 22,
-    level = 30,
-    name = "合成",
-    describe = "合成功能开启",
-    icon = "MenuIcon_17"
+    type = 1,
+    param = 33,
+    name = "纹章",
+    namedescribe = "33级开启",
+    describe = "纹章功能即将开启",
+    icon = "MenuIcon_9"
     };
 getRow(23)->
     #mainmenu_FunctionOpenCfg {
     id = 23,
-    level = 30,
-    name = "装备升星",
-    describe = "强化-升星功能开启",
-    icon = "MenuIcon_10"
+    type = 1,
+    param = 34,
+    name = "婚姻",
+    namedescribe = "34级开启",
+    describe = "婚姻功能即将开启",
+    icon = "MenuIcon_22"
     };
 getRow(24)->
     #mainmenu_FunctionOpenCfg {
     id = 24,
-    level = 32,
-    name = "约会地下城",
-    describe = "日常-约会地下城开启",
+    type = 1,
+    param = 35,
+    name = "遗迹训练场",
+    namedescribe = "35级开启",
+    describe = "日常-遗迹训练场即将开启",
     icon = "MenuIcon_6"
     };
 getRow(25)->
     #mainmenu_FunctionOpenCfg {
     id = 25,
-    level = 33,
-    name = "纹章",
-    describe = "纹章功能开启",
-    icon = "MenuIcon_9"
-    };
-getRow(26)->
-    #mainmenu_FunctionOpenCfg {
-    id = 26,
-    level = 34,
-    name = "婚姻",
-    describe = "婚姻功能开启",
-    icon = "MenuIcon_22"
-    };
-getRow(27)->
-    #mainmenu_FunctionOpenCfg {
-    id = 27,
-    level = 35,
-    name = "遗迹训练场",
-    describe = "日常-遗迹训练场开启",
-    icon = "MenuIcon_6"
-    };
-getRow(28)->
-    #mainmenu_FunctionOpenCfg {
-    id = 28,
-    level = 38,
+    type = 1,
+    param = 38,
     name = "深红熔渊",
-    describe = "日常-深红熔渊开启",
+    namedescribe = "38级开启",
+    describe = "日常-深红熔渊即将开启",
     icon = "MenuIcon_6"
     };
 getRow(_)->[].
@@ -256,10 +282,7 @@ getKeyList()->[
     {22},
     {23},
     {24},
-    {25},
-    {26},
-    {27},
-    {28}
+    {25}
     ].
 
 get1KeyList()->[
@@ -287,9 +310,6 @@ get1KeyList()->[
     22,
     23,
     24,
-    25,
-    26,
-    27,
-    28
+    25
     ].
 

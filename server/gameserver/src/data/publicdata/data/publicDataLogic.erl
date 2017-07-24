@@ -30,4 +30,11 @@ initEts() ->
     ets:new(ets_recLadderMatchInfo, [public, named_table, duplicate_bag, {keypos, #recLadderMatchInfo.roleID}, {write_concurrency, true}, {read_concurrency, true}]),
     %% 天梯1v1比赛状态信息
     ets:new(ets_recLadderMatchState, [public, named_table, duplicate_bag, {keypos, #recLadderMatchState.rank}, {write_concurrency, true}, {read_concurrency, true}]),
+
+	%% 玩家助战表
+    ets:new(ets_recAssistCopyMap, [public, named_table, bag, {keypos, #recAssistCopyMap.roleID}, {write_concurrency, true}, {read_concurrency, true}]),
+
+    %% 真实dbID映射关系
+    ets:new(?EtsRealDBID, [public, named_table, set, {keypos, #recRealDBID.dbID}, {write_concurrency, false}, {read_concurrency, true}]),
+
     ok.

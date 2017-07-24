@@ -6,6 +6,8 @@
 -include("playerPrivate.hrl").
 -include("redEnvelope.hrl").
 
+-define(RED_MIN_DIAMOND, 100).
+
 -export([
 	sendRedEnvelope/6,
 	sendRedEnvelopeAck/1,
@@ -210,7 +212,7 @@ checkSendCountLimit(_)->
 %% 检查钱
 checkMoney(AllNumber, _) when AllNumber =< 0 orelse AllNumber > ?RED_MAXNUM_ONERED ->
 	{false, ?ErrorCode_RedEnvelope_code_Arg_Err};
-checkMoney(_, AllMoney) when AllMoney =< 0 ->
+checkMoney(_, AllMoney) when AllMoney < ?RED_MIN_DIAMOND ->
 	{false, ?ErrorCode_RedEnvelope_code_Arg_Err};
 checkMoney(AllNumber, AllMoney)->
 	V = trunc(AllMoney/AllNumber),

@@ -11,7 +11,9 @@
 %% ====================================================================
 -export([
 	inviteMemberToCopyMap/3,
-	changeTeamLeader/2
+	leaveCopyMapInitiative/1,
+	leaveTeamCopyMap/1,
+	isAssistCopyMapByCopyMapID/2
 ]).
 
 inviteMemberToCopyMap(_TeamID,RoleID,CopyMapID) ->
@@ -26,25 +28,51 @@ inviteMemberToCopyMap(_TeamID,RoleID,CopyMapID) ->
 		_ ->
 			skip
 	end,
-%%	case team2:getTeamInfoByTeamID(TeamID) of
-%%		#rec_team{leaderID = LID, members = MembersList} ->
-%%			case LID =:= RoleID of
-%%				true ->
-%%					?LOG_OUT("inviteMemberToCopyMap:roleid=~p,teamid=~p,mapid=~p",
-%%						[RoleID,TeamID,CopyMapID]),
-%%					%% 只有队长可以邀请
-%%					[psMgr:sendMsg2PS(Pid, broadcast, #pk_GS2U_InvateEnterCopyMap{copyMapID = CopyMapID})
-%%						|| #recTeamMemberInfo{roleID = MemberID, pid = Pid} <- MembersList, MemberID =/= RoleID];
-%%				_ ->
-%%					skip
-%%			end;
-%%		_ ->
-%%			skip
-%%	end,
 	ok.
 
-%% 队伍队长发生改变，不包括队伍解散
--spec changeTeamLeader(OldLeaderID::uint(), NewLeaderID::uint()) -> ok.
-changeTeamLeader(OldLeaderID, NewLeaderID) ->
-	core:sendMsgToMapMgr(playerState:getMapID(), changeTeamLeader, {OldLeaderID, NewLeaderID}),
+%% 主动离开副本，需要离开队伍
+-spec leaveCopyMapInitiative(IsNotify::boolean()) -> boolean().
+leaveCopyMapInitiative(IsNotify) ->
+	MapID = playerState:getMapID(),
+	case playerScene:getMapType(MapID) of
+		?MapTypeCopyMap ->
+			MapPid = playerState:getMapPid(),
+			core:sendMsgToMapMgr(MapID, playerLeaveCopyMap, {playerState:getRoleID(), MapID, MapPid}),
+			playerTeam:leaveTeam(IsNotify),
+			true;
+		_ ->
+			false
+	end.
+
+%% 离开队伍，如果在副本中，需要离开副本
+-spec leaveTeamCopyMap(IsNotify::boolean()) -> ok.
+leaveTeamCopyMap(IsNotify) ->
+	MapID = playerState:getMapID(),
+	case playerScene:getMapType(MapID) of
+		?MapTypeCopyMap ->
+			%% 离开副本
+			playerCopyMap:leaveCopyMap(),
+
+			MapPid = playerState:getMapPid(),
+			core:sendMsgToMapMgr(MapID, playerLeaveCopyMap, {playerState:getRoleID(), MapID, MapPid}),
+			ok;
+		_ ->
+			skip
+	end,
+	%% 离开队伍
+	playerTeam:leaveTeam(IsNotify),
 	ok.
+
+%% 用于第一次进入副本时，根据组队中助战地图ID来判断
+-spec isAssistCopyMapByCopyMapID(RoleID::uint64(), CopyMapID::uint16()) -> boolean().
+isAssistCopyMapByCopyMapID(RoleID, CopyMapID) ->
+	case playerScene:getMapType(CopyMapID) of
+		?MapTypeCopyMap ->
+			case teamInterface:getTeamMemberInfoWithRoleID(RoleID) of
+				#recTeamMemberInfo{assistMapID = CopyMapID} -> true;
+				_ -> false
+			end;
+		_ ->
+			false
+	end.
+

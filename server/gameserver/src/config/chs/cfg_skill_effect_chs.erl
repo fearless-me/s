@@ -18,22 +18,28 @@ getRow(0)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "永不触发"
     };
 getRow(1)->
     #skill_effectCfg {
     iD = 1,
-    effectType = 11,
+    effectType = 4,
     effectChance = 1,
-    effectcondition = 1,
-    effectTarget = 1,
-    param1 = 1,
-    param2 = 6.8,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 2,
+    param2 = 5,
     param3 = 0,
     param4 = 0,
     param5 = 0,
-    param6 = 0,
-    skillName = "骑士普攻回神力"
+    param6 = 2,
+    param7 = 10,
+    param8 = 0,
+    param9 = 0,
+    skillName = "自身范围圆随机坐标召唤测试"
     };
 getRow(2)->
     #skill_effectCfg {
@@ -48,6 +54,9 @@ getRow(2)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "神圣盾击击晕目标"
     };
 getRow(3)->
@@ -63,6 +72,9 @@ getRow(3)->
     param4 = 10800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "净化伤害载体"
     };
 getRow(4)->
@@ -78,6 +90,9 @@ getRow(4)->
     param4 = 1800,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "净化抓取载体"
     };
 getRow(5)->
@@ -93,6 +108,9 @@ getRow(5)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冲锋"
     };
 getRow(6)->
@@ -108,6 +126,9 @@ getRow(6)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "王者光环主动"
     };
 getRow(7)->
@@ -123,6 +144,9 @@ getRow(7)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "赦免"
     };
 getRow(8)->
@@ -138,6 +162,9 @@ getRow(8)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "圣光守护"
     };
 getRow(9)->
@@ -153,6 +180,9 @@ getRow(9)->
     param4 = 6800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "黎明之锤载体"
     };
 getRow(10)->
@@ -168,6 +198,9 @@ getRow(10)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "黎明之锤暴击"
     };
 getRow(11)->
@@ -183,6 +216,9 @@ getRow(11)->
     param4 = 10800,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "圣光壁垒载体"
     };
 getRow(12)->
@@ -198,6 +234,9 @@ getRow(12)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "圣光壁垒载体回血"
     };
 getRow(13)->
@@ -213,6 +252,9 @@ getRow(13)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "港口竞速减速"
     };
 getRow(14)->
@@ -228,6 +270,9 @@ getRow(14)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "忏悔"
     };
 getRow(15)->
@@ -243,6 +288,9 @@ getRow(15)->
     param4 = 0,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤女神"
     };
 getRow(16)->
@@ -258,37 +306,46 @@ getRow(16)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "信仰铠甲"
     };
 getRow(17)->
     #skill_effectCfg {
     iD = 17,
-    effectType = 1,
+    effectType = 4,
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 38,
-    param2 = 0,
+    param1 = 2,
+    param2 = 5,
     param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "守护之力"
+    param4 = 2,
+    param5 = 2,
+    param6 = 2,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "时间间隔触发召唤怪物测试"
     };
 getRow(18)->
     #skill_effectCfg {
     iD = 18,
-    effectType = 1,
+    effectType = 14,
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 1,
-    param1 = 39,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
+    param1 = 51,
+    param2 = 5,
+    param3 = 5,
+    param4 = 5000,
     param5 = 0,
-    param6 = 0,
-    skillName = "十字军"
+    param6 = 2,
+    param7 = 10,
+    param8 = 0,
+    param9 = 0,
+    skillName = "自身范围圆随机坐标创建技能载体"
     };
 getRow(19)->
     #skill_effectCfg {
@@ -303,37 +360,46 @@ getRow(19)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "盾牌大师"
     };
 getRow(20)->
     #skill_effectCfg {
     iD = 20,
-    effectType = 1,
+    effectType = 4,
     effectChance = 1,
     effectcondition = 0,
-    effectTarget = 1,
-    param1 = 41,
-    param2 = 0,
+    effectTarget = 0,
+    param1 = 55,
+    param2 = 1,
     param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "圣光之速"
+    param4 = 10,
+    param5 = 10,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "召唤55测试"
     };
 getRow(21)->
     #skill_effectCfg {
     iD = 21,
-    effectType = 1,
+    effectType = 4,
     effectChance = 1,
     effectcondition = 0,
-    effectTarget = 1,
-    param1 = 42,
-    param2 = 0,
+    effectTarget = 0,
+    param1 = 56,
+    param2 = 1,
     param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "辩护"
+    param4 = 10,
+    param5 = 10,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "召唤56测试"
     };
 getRow(22)->
     #skill_effectCfg {
@@ -348,6 +414,9 @@ getRow(22)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "审判"
     };
 getRow(23)->
@@ -363,6 +432,9 @@ getRow(23)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "惩戒"
     };
 getRow(24)->
@@ -378,6 +450,9 @@ getRow(24)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "圣力精通"
     };
 getRow(25)->
@@ -393,6 +468,9 @@ getRow(25)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "净化抓取载体效果"
     };
 getRow(26)->
@@ -408,6 +486,9 @@ getRow(26)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "致命火焰点燃"
     };
 getRow(27)->
@@ -423,6 +504,9 @@ getRow(27)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "御法暴击回秘法"
     };
 getRow(28)->
@@ -438,6 +522,9 @@ getRow(28)->
     param4 = 3800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "陨石术伤害载体"
     };
 getRow(29)->
@@ -453,6 +540,9 @@ getRow(29)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "炎爆"
     };
 getRow(30)->
@@ -468,6 +558,9 @@ getRow(30)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "击退不受控制0.5秒"
     };
 getRow(31)->
@@ -483,6 +576,9 @@ getRow(31)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法术结界"
     };
 getRow(32)->
@@ -498,6 +594,9 @@ getRow(32)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "熔岩护甲"
     };
 getRow(33)->
@@ -513,6 +612,9 @@ getRow(33)->
     param4 = 1,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤魔宠"
     };
 getRow(34)->
@@ -528,6 +630,9 @@ getRow(34)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰寒减速"
     };
 getRow(35)->
@@ -543,6 +648,9 @@ getRow(35)->
     param4 = 6800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰风暴载体"
     };
 getRow(36)->
@@ -558,6 +666,9 @@ getRow(36)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰风暴载体减速"
     };
 getRow(37)->
@@ -573,6 +684,9 @@ getRow(37)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "变形术"
     };
 getRow(38)->
@@ -588,6 +702,9 @@ getRow(38)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "寒冰护甲"
     };
 getRow(39)->
@@ -603,6 +720,9 @@ getRow(39)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "寒冰甲触发减速"
     };
 getRow(40)->
@@ -618,6 +738,9 @@ getRow(40)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰环术冻结"
     };
 getRow(41)->
@@ -633,6 +756,9 @@ getRow(41)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "极寒之风"
     };
 getRow(42)->
@@ -648,6 +774,9 @@ getRow(42)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "魔龙之心"
     };
 getRow(43)->
@@ -663,6 +792,9 @@ getRow(43)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰冷血脉"
     };
 getRow(44)->
@@ -678,6 +810,9 @@ getRow(44)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "虚空之盾"
     };
 getRow(45)->
@@ -693,6 +828,9 @@ getRow(45)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "秘学大师"
     };
 getRow(46)->
@@ -708,6 +846,9 @@ getRow(46)->
     param4 = 4800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "秘能之核载体"
     };
 getRow(47)->
@@ -723,6 +864,9 @@ getRow(47)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "灵魂收割抓人"
     };
 getRow(48)->
@@ -738,6 +882,9 @@ getRow(48)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "灵魂收割减少冷却"
     };
 getRow(49)->
@@ -753,6 +900,9 @@ getRow(49)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "灵魂收割抓人不受控制"
     };
 getRow(50)->
@@ -768,6 +918,9 @@ getRow(50)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命收割"
     };
 getRow(51)->
@@ -783,6 +936,9 @@ getRow(51)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "灵魂湮灭"
     };
 getRow(52)->
@@ -798,6 +954,9 @@ getRow(52)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "魔女普攻回魔怒"
     };
 getRow(53)->
@@ -813,6 +972,9 @@ getRow(53)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "邪恶光环"
     };
 getRow(54)->
@@ -828,6 +990,9 @@ getRow(54)->
     param4 = 1,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "恶魔仆人"
     };
 getRow(55)->
@@ -843,6 +1008,9 @@ getRow(55)->
     param4 = 6800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "亵渎之地载体"
     };
 getRow(56)->
@@ -858,6 +1026,9 @@ getRow(56)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "末日决战减少冷却"
     };
 getRow(57)->
@@ -873,6 +1044,9 @@ getRow(57)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "末日决战击晕"
     };
 getRow(58)->
@@ -888,6 +1062,9 @@ getRow(58)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "末日决战冲锋"
     };
 getRow(59)->
@@ -903,6 +1080,9 @@ getRow(59)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "暗影灵气"
     };
 getRow(60)->
@@ -918,6 +1098,9 @@ getRow(60)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "亡者气息"
     };
 getRow(61)->
@@ -933,6 +1116,9 @@ getRow(61)->
     param4 = 1,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "远古恶魔"
     };
 getRow(62)->
@@ -948,6 +1134,9 @@ getRow(62)->
     param4 = 3,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生生不息额外召唤"
     };
 getRow(63)->
@@ -963,6 +1152,9 @@ getRow(63)->
     param4 = 1,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "地狱坚韧额外召唤"
     };
 getRow(64)->
@@ -978,6 +1170,9 @@ getRow(64)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "邪恶仪式"
     };
 getRow(65)->
@@ -993,6 +1188,9 @@ getRow(65)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "地狱坚韧"
     };
 getRow(66)->
@@ -1008,6 +1206,9 @@ getRow(66)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "地狱坚韧"
     };
 getRow(67)->
@@ -1023,6 +1224,9 @@ getRow(67)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "黑暗正义"
     };
 getRow(68)->
@@ -1038,6 +1242,9 @@ getRow(68)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "灵魂燃烧减圣力"
     };
 getRow(69)->
@@ -1053,6 +1260,9 @@ getRow(69)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "献祭"
     };
 getRow(70)->
@@ -1068,6 +1278,9 @@ getRow(70)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "雷光刺"
     };
 getRow(71)->
@@ -1083,6 +1296,9 @@ getRow(71)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "致命投掷"
     };
 getRow(72)->
@@ -1098,6 +1314,9 @@ getRow(72)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "缴械"
     };
 getRow(73)->
@@ -1113,6 +1332,9 @@ getRow(73)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "一闪"
     };
 getRow(74)->
@@ -1128,6 +1350,9 @@ getRow(74)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影袭"
     };
 getRow(75)->
@@ -1143,6 +1368,9 @@ getRow(75)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影武"
     };
 getRow(76)->
@@ -1158,6 +1386,9 @@ getRow(76)->
     param4 = 7,
     param5 = 24,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影武"
     };
 getRow(77)->
@@ -1173,6 +1404,9 @@ getRow(77)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影疗"
     };
 getRow(78)->
@@ -1188,6 +1422,9 @@ getRow(78)->
     param4 = 7,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影疗"
     };
 getRow(79)->
@@ -1203,6 +1440,9 @@ getRow(79)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "无敌"
     };
 getRow(80)->
@@ -1218,6 +1458,9 @@ getRow(80)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "定身3秒"
     };
 getRow(81)->
@@ -1233,6 +1476,9 @@ getRow(81)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冻结"
     };
 getRow(82)->
@@ -1248,6 +1494,9 @@ getRow(82)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "形变"
     };
 getRow(83)->
@@ -1263,6 +1512,9 @@ getRow(83)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "沉默"
     };
 getRow(84)->
@@ -1278,6 +1530,9 @@ getRow(84)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "缴械"
     };
 getRow(85)->
@@ -1293,6 +1548,9 @@ getRow(85)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "减速"
     };
 getRow(86)->
@@ -1308,6 +1566,9 @@ getRow(86)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "pk保护"
     };
 getRow(87)->
@@ -1323,6 +1584,9 @@ getRow(87)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "击退"
     };
 getRow(88)->
@@ -1338,6 +1602,9 @@ getRow(88)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "伤害转血"
     };
 getRow(89)->
@@ -1353,6 +1620,9 @@ getRow(89)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "修改生命"
     };
 getRow(90)->
@@ -1368,6 +1638,9 @@ getRow(90)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "修改法力"
     };
 getRow(91)->
@@ -1383,6 +1656,9 @@ getRow(91)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "虚化"
     };
 getRow(92)->
@@ -1398,6 +1674,9 @@ getRow(92)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "吸收盾"
     };
 getRow(93)->
@@ -1413,6 +1692,9 @@ getRow(93)->
     param4 = 5,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "移除状态buff"
     };
 getRow(94)->
@@ -1428,6 +1710,9 @@ getRow(94)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "随机移除buff"
     };
 getRow(95)->
@@ -1443,6 +1728,9 @@ getRow(95)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤怪物"
     };
 getRow(97)->
@@ -1458,6 +1746,9 @@ getRow(97)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "强拉仇恨"
     };
 getRow(98)->
@@ -1473,6 +1764,9 @@ getRow(98)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤怪物"
     };
 getRow(99)->
@@ -1488,6 +1782,9 @@ getRow(99)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "伤害转血"
     };
 getRow(100)->
@@ -1503,6 +1800,9 @@ getRow(100)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "获得神圣之力"
     };
 getRow(101)->
@@ -1518,6 +1818,9 @@ getRow(101)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "直接修改目标血"
     };
 getRow(102)->
@@ -1533,6 +1836,9 @@ getRow(102)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "护法被动技能"
     };
 getRow(103)->
@@ -1548,6 +1854,9 @@ getRow(103)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "羁绊被动技能"
     };
 getRow(104)->
@@ -1563,6 +1872,9 @@ getRow(104)->
     param4 = 0,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤骷髅战士10"
     };
 getRow(105)->
@@ -1578,6 +1890,9 @@ getRow(105)->
     param4 = 0,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤骷髅弓手10"
     };
 getRow(106)->
@@ -1593,6 +1908,9 @@ getRow(106)->
     param4 = 0,
     param5 = 0,
     param6 = 2,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤骷髅战士20"
     };
 getRow(107)->
@@ -1608,6 +1926,9 @@ getRow(107)->
     param4 = 10800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "火池伤害载体"
     };
 getRow(108)->
@@ -1623,6 +1944,9 @@ getRow(108)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战士神力觉醒"
     };
 getRow(109)->
@@ -1638,6 +1962,9 @@ getRow(109)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战士神力觉醒被动1技能"
     };
 getRow(110)->
@@ -1653,6 +1980,9 @@ getRow(110)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战士神力觉醒被动2技能"
     };
 getRow(111)->
@@ -1668,6 +1998,9 @@ getRow(111)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战士神力觉醒被动3技能"
     };
 getRow(112)->
@@ -1683,6 +2016,9 @@ getRow(112)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战士神力觉醒被动4技能"
     };
 getRow(113)->
@@ -1698,6 +2034,9 @@ getRow(113)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师神力觉醒"
     };
 getRow(114)->
@@ -1713,6 +2052,9 @@ getRow(114)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师神力觉醒被动1技能"
     };
 getRow(115)->
@@ -1728,6 +2070,9 @@ getRow(115)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师神力觉醒被动2技能"
     };
 getRow(116)->
@@ -1743,6 +2088,9 @@ getRow(116)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师神力觉醒被动3技能"
     };
 getRow(117)->
@@ -1758,6 +2106,9 @@ getRow(117)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师神力觉醒被动全技能"
     };
 getRow(118)->
@@ -1773,6 +2124,9 @@ getRow(118)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "刺客神力觉醒"
     };
 getRow(119)->
@@ -1788,6 +2142,9 @@ getRow(119)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "刺客神力觉醒被动1技能"
     };
 getRow(120)->
@@ -1803,6 +2160,9 @@ getRow(120)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "刺客神力觉醒被动2技能"
     };
 getRow(121)->
@@ -1818,6 +2178,9 @@ getRow(121)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "刺客神力觉醒被动3技能"
     };
 getRow(122)->
@@ -1833,6 +2196,9 @@ getRow(122)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "刺客神力觉醒被动全技能"
     };
 getRow(123)->
@@ -1848,6 +2214,9 @@ getRow(123)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "灵魂燃烧减秘法"
     };
 getRow(124)->
@@ -1863,6 +2232,9 @@ getRow(124)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "灵魂燃烧减魔怒"
     };
 getRow(125)->
@@ -1878,6 +2250,9 @@ getRow(125)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "灵魂燃烧减影力"
     };
 getRow(126)->
@@ -1893,6 +2268,9 @@ getRow(126)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "乱影击不受控制虚化"
     };
 getRow(127)->
@@ -1908,6 +2286,9 @@ getRow(127)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "杀戮机器"
     };
 getRow(128)->
@@ -1923,6 +2304,9 @@ getRow(128)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "乘胜追击"
     };
 getRow(129)->
@@ -1938,6 +2322,9 @@ getRow(129)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战斗潜能"
     };
 getRow(130)->
@@ -1953,6 +2340,9 @@ getRow(130)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "刺客信条"
     };
 getRow(131)->
@@ -1968,6 +2358,9 @@ getRow(131)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "料敌先机"
     };
 getRow(132)->
@@ -1983,6 +2376,9 @@ getRow(132)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "麻痹毒药"
     };
 getRow(133)->
@@ -1998,6 +2394,9 @@ getRow(133)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "致伤毒药"
     };
 getRow(134)->
@@ -2013,6 +2412,9 @@ getRow(134)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "熔岩护甲触发跑速"
     };
 getRow(135)->
@@ -2028,6 +2430,9 @@ getRow(135)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "王者光环调用"
     };
 getRow(136)->
@@ -2043,6 +2448,9 @@ getRow(136)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "王者光环被动属性"
     };
 getRow(137)->
@@ -2058,6 +2466,9 @@ getRow(137)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "邪恶光环调用"
     };
 getRow(138)->
@@ -2073,6 +2484,9 @@ getRow(138)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "邪恶光环被动属性"
     };
 getRow(139)->
@@ -2088,6 +2502,9 @@ getRow(139)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "希望光环调用"
     };
 getRow(140)->
@@ -2103,6 +2520,9 @@ getRow(140)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "希望光环被动属性"
     };
 getRow(141)->
@@ -2118,6 +2538,9 @@ getRow(141)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "极寒之风伤害加深"
     };
 getRow(142)->
@@ -2133,6 +2556,9 @@ getRow(142)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "极寒之风提高暴击"
     };
 getRow(143)->
@@ -2148,6 +2574,9 @@ getRow(143)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "邪恶光环调用"
     };
 getRow(144)->
@@ -2163,6 +2592,9 @@ getRow(144)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "邪恶光环被动属性"
     };
 getRow(145)->
@@ -2178,6 +2610,9 @@ getRow(145)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "审判"
     };
 getRow(146)->
@@ -2193,6 +2628,9 @@ getRow(146)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "受到攻击回魔怒"
     };
 getRow(147)->
@@ -2208,6 +2646,9 @@ getRow(147)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影踪劲"
     };
 getRow(148)->
@@ -2223,6 +2664,9 @@ getRow(148)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影踪劲触发持续伤害"
     };
 getRow(149)->
@@ -2238,6 +2682,9 @@ getRow(149)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "M冲锋击晕"
     };
 getRow(150)->
@@ -2253,6 +2700,9 @@ getRow(150)->
     param4 = 0,
     param5 = 0,
     param6 = 2,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤骷髅弓手20"
     };
 getRow(151)->
@@ -2268,6 +2718,9 @@ getRow(151)->
     param4 = 10800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "高级火池伤害载体"
     };
 getRow(152)->
@@ -2283,6 +2736,9 @@ getRow(152)->
     param4 = 10800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "毒池伤害载体"
     };
 getRow(153)->
@@ -2298,6 +2754,9 @@ getRow(153)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "持续暗影伤害"
     };
 getRow(154)->
@@ -2313,6 +2772,9 @@ getRow(154)->
     param4 = 10800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "高级毒池伤害载体"
     };
 getRow(155)->
@@ -2328,6 +2790,9 @@ getRow(155)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "持续暗影伤害"
     };
 getRow(156)->
@@ -2343,6 +2808,9 @@ getRow(156)->
     param4 = 10800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰池伤害载体"
     };
 getRow(157)->
@@ -2358,6 +2826,9 @@ getRow(157)->
     param4 = 10800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "高级冰池伤害载体"
     };
 getRow(158)->
@@ -2373,6 +2844,9 @@ getRow(158)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "减速"
     };
 getRow(159)->
@@ -2388,6 +2862,9 @@ getRow(159)->
     param4 = 10800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "血池"
     };
 getRow(160)->
@@ -2403,6 +2880,9 @@ getRow(160)->
     param4 = 10800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "旋风伤害载体"
     };
 getRow(161)->
@@ -2418,6 +2898,9 @@ getRow(161)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰环术冻结"
     };
 getRow(162)->
@@ -2433,6 +2916,9 @@ getRow(162)->
     param4 = 2300,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "追踪炸弹"
     };
 getRow(163)->
@@ -2448,6 +2934,9 @@ getRow(163)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "吸收盾"
     };
 getRow(164)->
@@ -2463,6 +2952,9 @@ getRow(164)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "水爆术击晕"
     };
 getRow(165)->
@@ -2478,6 +2970,9 @@ getRow(165)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "狂化"
     };
 getRow(166)->
@@ -2493,6 +2988,9 @@ getRow(166)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "吸血扣目标血"
     };
 getRow(167)->
@@ -2508,6 +3006,9 @@ getRow(167)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "吸血加自身血"
     };
 getRow(168)->
@@ -2523,6 +3024,9 @@ getRow(168)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "击晕目标"
     };
 getRow(169)->
@@ -2538,6 +3042,9 @@ getRow(169)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "直接扣除25%+10生命值"
     };
 getRow(170)->
@@ -2553,6 +3060,9 @@ getRow(170)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "行云流水"
     };
 getRow(171)->
@@ -2568,6 +3078,9 @@ getRow(171)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "迅雷之势"
     };
 getRow(172)->
@@ -2583,6 +3096,9 @@ getRow(172)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "迅雷之势移除buff"
     };
 getRow(173)->
@@ -2598,6 +3114,9 @@ getRow(173)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "直接扣除2.5%+10生命值"
     };
 getRow(174)->
@@ -2613,6 +3132,9 @@ getRow(174)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "直接+2.5%+1生命值"
     };
 getRow(175)->
@@ -2628,6 +3150,9 @@ getRow(175)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "击退不受控制1秒"
     };
 getRow(176)->
@@ -2643,6 +3168,9 @@ getRow(176)->
     param4 = 10800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "高级旋风伤害载体"
     };
 getRow(177)->
@@ -2658,6 +3186,9 @@ getRow(177)->
     param4 = 2300,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "高级追踪炸弹"
     };
 getRow(178)->
@@ -2673,6 +3204,9 @@ getRow(178)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "高级吸血扣目标血"
     };
 getRow(179)->
@@ -2688,6 +3222,9 @@ getRow(179)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "高级吸血加自身血"
     };
 getRow(180)->
@@ -2703,6 +3240,9 @@ getRow(180)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "怪物近战烧能量"
     };
 getRow(181)->
@@ -2718,6 +3258,9 @@ getRow(181)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "穷追猛打持续伤害"
     };
 getRow(182)->
@@ -2733,6 +3276,9 @@ getRow(182)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "被动闪避15%"
     };
 getRow(183)->
@@ -2748,6 +3294,9 @@ getRow(183)->
     param4 = 30800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "追踪炸弹2000型"
     };
 getRow(184)->
@@ -2763,6 +3312,9 @@ getRow(184)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "霜冻领域冻结"
     };
 getRow(185)->
@@ -2778,6 +3330,9 @@ getRow(185)->
     param4 = 8300,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "霜冻领域载体"
     };
 getRow(186)->
@@ -2793,6 +3348,9 @@ getRow(186)->
     param4 = 1,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤邪神"
     };
 getRow(187)->
@@ -2808,6 +3366,9 @@ getRow(187)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "死亡标记"
     };
 getRow(188)->
@@ -2823,6 +3384,9 @@ getRow(188)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "高级冲锋击晕"
     };
 getRow(189)->
@@ -2838,6 +3402,9 @@ getRow(189)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "普通冲锋击晕"
     };
 getRow(190)->
@@ -2853,6 +3420,9 @@ getRow(190)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "神迹变身2"
     };
 getRow(191)->
@@ -2868,6 +3438,9 @@ getRow(191)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "神迹变身3"
     };
 getRow(192)->
@@ -2883,6 +3456,9 @@ getRow(192)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "神迹变身4"
     };
 getRow(193)->
@@ -2898,6 +3474,9 @@ getRow(193)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "神迹变身5"
     };
 getRow(194)->
@@ -2913,6 +3492,9 @@ getRow(194)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "御法者变身2"
     };
 getRow(195)->
@@ -2928,6 +3510,9 @@ getRow(195)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "御法者变身3"
     };
 getRow(196)->
@@ -2943,6 +3528,9 @@ getRow(196)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "御法者变身4"
     };
 getRow(197)->
@@ -2958,6 +3546,9 @@ getRow(197)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "御法者变身5"
     };
 getRow(198)->
@@ -2973,6 +3564,9 @@ getRow(198)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "死神变身2"
     };
 getRow(199)->
@@ -2988,6 +3582,9 @@ getRow(199)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "死神变身3"
     };
 getRow(200)->
@@ -3003,6 +3600,9 @@ getRow(200)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "死神变身4"
     };
 getRow(201)->
@@ -3018,6 +3618,9 @@ getRow(201)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "死神变身5"
     };
 getRow(202)->
@@ -3033,6 +3636,9 @@ getRow(202)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影王变身2"
     };
 getRow(203)->
@@ -3048,6 +3654,9 @@ getRow(203)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影王变身3"
     };
 getRow(204)->
@@ -3063,6 +3672,9 @@ getRow(204)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影王变身4"
     };
 getRow(205)->
@@ -3078,6 +3690,9 @@ getRow(205)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影王变身5"
     };
 getRow(206)->
@@ -3093,6 +3708,9 @@ getRow(206)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "传奇击中提高攻速10%"
     };
 getRow(207)->
@@ -3108,6 +3726,9 @@ getRow(207)->
     param4 = 5800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "传奇击中自身火焰载体"
     };
 getRow(208)->
@@ -3123,6 +3744,9 @@ getRow(208)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "传奇持续物理伤害"
     };
 getRow(209)->
@@ -3138,6 +3762,9 @@ getRow(209)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "非冰寒减速"
     };
 getRow(210)->
@@ -3153,6 +3780,9 @@ getRow(210)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "传奇击中提高暴击10%"
     };
 getRow(211)->
@@ -3168,6 +3798,9 @@ getRow(211)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "传奇击中提高攻速15%"
     };
 getRow(212)->
@@ -3183,6 +3816,9 @@ getRow(212)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "传奇击中提高暴击15%"
     };
 getRow(213)->
@@ -3198,6 +3834,9 @@ getRow(213)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "被动招架10%"
     };
 getRow(214)->
@@ -3213,6 +3852,9 @@ getRow(214)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "被动格挡30%"
     };
 getRow(215)->
@@ -3228,6 +3870,9 @@ getRow(215)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "血腥爪击"
     };
 getRow(216)->
@@ -3243,6 +3888,9 @@ getRow(216)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之种"
     };
 getRow(217)->
@@ -3258,6 +3906,9 @@ getRow(217)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "蛮力猛击"
     };
 getRow(218)->
@@ -3273,6 +3924,9 @@ getRow(218)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "洞悉弱点"
     };
 getRow(219)->
@@ -3288,6 +3942,9 @@ getRow(219)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "迅疾打击"
     };
 getRow(220)->
@@ -3303,6 +3960,9 @@ getRow(220)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "节能施法"
     };
 getRow(221)->
@@ -3318,6 +3978,9 @@ getRow(221)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "虚空调和"
     };
 getRow(222)->
@@ -3333,6 +3996,9 @@ getRow(222)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "自然之力"
     };
 getRow(223)->
@@ -3348,6 +4014,9 @@ getRow(223)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "原始坚韧"
     };
 getRow(224)->
@@ -3363,6 +4032,9 @@ getRow(224)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野蛮防御"
     };
 getRow(225)->
@@ -3378,6 +4050,9 @@ getRow(225)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "狂乱"
     };
 getRow(226)->
@@ -3393,6 +4068,9 @@ getRow(226)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "锋利兽爪"
     };
 getRow(227)->
@@ -3408,6 +4086,9 @@ getRow(227)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "急奔"
     };
 getRow(228)->
@@ -3423,6 +4104,9 @@ getRow(228)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "割裂"
     };
 getRow(229)->
@@ -3438,6 +4122,9 @@ getRow(229)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "狂野怒火"
     };
 getRow(230)->
@@ -3453,6 +4140,9 @@ getRow(230)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生存本能"
     };
 getRow(231)->
@@ -3468,6 +4158,9 @@ getRow(231)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战争精英"
     };
 getRow(232)->
@@ -3483,6 +4176,9 @@ getRow(232)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "毁灭打击"
     };
 getRow(233)->
@@ -3498,6 +4194,9 @@ getRow(233)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野性狂怒"
     };
 getRow(234)->
@@ -3513,6 +4212,9 @@ getRow(234)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "秘能恢复"
     };
 getRow(235)->
@@ -3528,6 +4230,9 @@ getRow(235)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "血腥爪击II"
     };
 getRow(236)->
@@ -3543,6 +4248,9 @@ getRow(236)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之种"
     };
 getRow(237)->
@@ -3558,6 +4266,9 @@ getRow(237)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "蛮力猛击"
     };
 getRow(238)->
@@ -3573,6 +4284,9 @@ getRow(238)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "洞悉弱点"
     };
 getRow(239)->
@@ -3588,6 +4302,9 @@ getRow(239)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "迅疾打击"
     };
 getRow(240)->
@@ -3603,6 +4320,9 @@ getRow(240)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "节能施法"
     };
 getRow(241)->
@@ -3618,6 +4338,9 @@ getRow(241)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "虚空调和"
     };
 getRow(242)->
@@ -3633,6 +4356,9 @@ getRow(242)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "自然之力"
     };
 getRow(243)->
@@ -3648,6 +4374,9 @@ getRow(243)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战争精英"
     };
 getRow(244)->
@@ -3663,6 +4392,9 @@ getRow(244)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "毁灭打击"
     };
 getRow(245)->
@@ -3678,6 +4410,9 @@ getRow(245)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "血腥爪击I"
     };
 getRow(246)->
@@ -3693,6 +4428,9 @@ getRow(246)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之种"
     };
 getRow(247)->
@@ -3708,6 +4446,9 @@ getRow(247)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "蛮力猛击"
     };
 getRow(248)->
@@ -3723,6 +4464,9 @@ getRow(248)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "洞悉弱点"
     };
 getRow(249)->
@@ -3738,6 +4482,9 @@ getRow(249)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "迅疾打击"
     };
 getRow(250)->
@@ -3753,6 +4500,9 @@ getRow(250)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "节能施法"
     };
 getRow(251)->
@@ -3768,6 +4518,9 @@ getRow(251)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "虚空调和"
     };
 getRow(252)->
@@ -3783,6 +4536,9 @@ getRow(252)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "自然之力"
     };
 getRow(253)->
@@ -3798,6 +4554,9 @@ getRow(253)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战争精英"
     };
 getRow(254)->
@@ -3813,6 +4572,9 @@ getRow(254)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "毁灭打击"
     };
 getRow(255)->
@@ -3828,6 +4590,9 @@ getRow(255)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "骑士祝福"
     };
 getRow(256)->
@@ -3843,6 +4608,9 @@ getRow(256)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "王者圣令冷却加速"
     };
 getRow(257)->
@@ -3858,6 +4626,9 @@ getRow(257)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "希望圣令冷却加速"
     };
 getRow(258)->
@@ -3873,6 +4644,9 @@ getRow(258)->
     param4 = 10800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "祝福伤害载体"
     };
 getRow(259)->
@@ -3888,6 +4662,9 @@ getRow(259)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "能量过载"
     };
 getRow(260)->
@@ -3903,6 +4680,9 @@ getRow(260)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "天才法师加速施法"
     };
 getRow(261)->
@@ -3918,6 +4698,9 @@ getRow(261)->
     param4 = 6800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "黎明之锤载体"
     };
 getRow(262)->
@@ -3933,6 +4716,9 @@ getRow(262)->
     param4 = 6800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "陨石术伤害载体"
     };
 getRow(263)->
@@ -3948,6 +4734,9 @@ getRow(263)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影袭"
     };
 getRow(264)->
@@ -3963,6 +4752,9 @@ getRow(264)->
     param4 = 6800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "亵渎之地载体"
     };
 getRow(265)->
@@ -3978,6 +4770,9 @@ getRow(265)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "致命武力"
     };
 getRow(266)->
@@ -3993,6 +4788,9 @@ getRow(266)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "绝对防御"
     };
 getRow(267)->
@@ -4008,6 +4806,9 @@ getRow(267)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冲锋"
     };
 getRow(268)->
@@ -4023,6 +4824,9 @@ getRow(268)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "攻击获得无双值"
     };
 getRow(269)->
@@ -4038,6 +4842,9 @@ getRow(269)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "降低速度"
     };
 getRow(270)->
@@ -4053,6 +4860,9 @@ getRow(270)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "点燃"
     };
 getRow(271)->
@@ -4068,6 +4878,9 @@ getRow(271)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "神器增强自身"
     };
 getRow(272)->
@@ -4083,6 +4896,9 @@ getRow(272)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "神器技能减疗"
     };
 getRow(273)->
@@ -4098,6 +4914,9 @@ getRow(273)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "米诺陶斯击退"
     };
 getRow(274)->
@@ -4113,6 +4932,9 @@ getRow(274)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "米诺陶斯眩晕"
     };
 getRow(275)->
@@ -4128,6 +4950,9 @@ getRow(275)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "米诺陶斯扣除25%血量"
     };
 getRow(276)->
@@ -4143,6 +4968,9 @@ getRow(276)->
     param4 = 5000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "毒池伤害载体"
     };
 getRow(277)->
@@ -4158,6 +4986,9 @@ getRow(277)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "持续暗影伤害"
     };
 getRow(278)->
@@ -4173,6 +5004,9 @@ getRow(278)->
     param4 = 1800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "导弹伤害载体"
     };
 getRow(279)->
@@ -4188,6 +5022,9 @@ getRow(279)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "强化致命投掷"
     };
 getRow(280)->
@@ -4203,6 +5040,9 @@ getRow(280)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "击晕目标"
     };
 getRow(281)->
@@ -4218,6 +5058,9 @@ getRow(281)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰环术冻结2秒"
     };
 getRow(282)->
@@ -4233,6 +5076,9 @@ getRow(282)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "非冰寒减速"
     };
 getRow(283)->
@@ -4248,6 +5094,9 @@ getRow(283)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "火球灼烧"
     };
 getRow(284)->
@@ -4263,6 +5112,9 @@ getRow(284)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "神器技能击退"
     };
 getRow(285)->
@@ -4278,6 +5130,9 @@ getRow(285)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "金鱼粘液冰冻"
     };
 getRow(286)->
@@ -4293,6 +5148,9 @@ getRow(286)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "击晕目标2秒"
     };
 getRow(287)->
@@ -4308,6 +5166,9 @@ getRow(287)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "击晕目标3秒"
     };
 getRow(288)->
@@ -4323,6 +5184,9 @@ getRow(288)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "80%概率击晕目标3秒"
     };
 getRow(289)->
@@ -4338,6 +5202,9 @@ getRow(289)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "星际战神击退定身2秒"
     };
 getRow(290)->
@@ -4353,6 +5220,9 @@ getRow(290)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "星际战神击退不受控制0.5秒"
     };
 getRow(291)->
@@ -4368,6 +5238,9 @@ getRow(291)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "熊猫缴械3秒"
     };
 getRow(292)->
@@ -4383,6 +5256,9 @@ getRow(292)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "鲸鱼冻结3秒"
     };
 getRow(293)->
@@ -4398,6 +5274,9 @@ getRow(293)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "金龙变形术3秒"
     };
 getRow(294)->
@@ -4413,6 +5292,9 @@ getRow(294)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "军团团员眩晕1.5秒"
     };
 getRow(295)->
@@ -4428,6 +5310,9 @@ getRow(295)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "军团军团长缴械2秒"
     };
 getRow(296)->
@@ -4443,6 +5328,9 @@ getRow(296)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "远行兽眩晕1.5秒"
     };
 getRow(297)->
@@ -4458,6 +5346,9 @@ getRow(297)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "远行兽眩晕伤害抗性降低30%"
     };
 getRow(300)->
@@ -4473,6 +5364,9 @@ getRow(300)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身生命上限+500"
     };
 getRow(301)->
@@ -4488,6 +5382,9 @@ getRow(301)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身生命上限+3000"
     };
 getRow(302)->
@@ -4503,6 +5400,9 @@ getRow(302)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身生命上限+6000"
     };
 getRow(303)->
@@ -4518,6 +5418,9 @@ getRow(303)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身生命上限+12000"
     };
 getRow(304)->
@@ -4533,6 +5436,9 @@ getRow(304)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身生命上限+24000"
     };
 getRow(305)->
@@ -4548,6 +5454,9 @@ getRow(305)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身物理防御+35"
     };
 getRow(306)->
@@ -4563,6 +5472,9 @@ getRow(306)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身物理防御+210"
     };
 getRow(307)->
@@ -4578,6 +5490,9 @@ getRow(307)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身物理防御+420"
     };
 getRow(308)->
@@ -4593,6 +5508,9 @@ getRow(308)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身物理防御+840"
     };
 getRow(309)->
@@ -4608,6 +5526,9 @@ getRow(309)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身物理防御+1680"
     };
 getRow(310)->
@@ -4623,6 +5544,9 @@ getRow(310)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身魔法防御+35"
     };
 getRow(311)->
@@ -4638,6 +5562,9 @@ getRow(311)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身魔法防御+210"
     };
 getRow(312)->
@@ -4653,6 +5580,9 @@ getRow(312)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身魔法防御+420"
     };
 getRow(313)->
@@ -4668,6 +5598,9 @@ getRow(313)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身魔法防御+840"
     };
 getRow(314)->
@@ -4683,6 +5616,9 @@ getRow(314)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身魔法防御+1680"
     };
 getRow(315)->
@@ -4698,6 +5634,9 @@ getRow(315)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身神圣伤害+25"
     };
 getRow(316)->
@@ -4713,6 +5652,9 @@ getRow(316)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身神圣伤害+150"
     };
 getRow(317)->
@@ -4728,6 +5670,9 @@ getRow(317)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身神圣伤害+300"
     };
 getRow(318)->
@@ -4743,6 +5688,9 @@ getRow(318)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身神圣伤害+600"
     };
 getRow(319)->
@@ -4758,6 +5706,9 @@ getRow(319)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身神圣伤害+1200"
     };
 getRow(320)->
@@ -4773,6 +5724,9 @@ getRow(320)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身物理伤害+25"
     };
 getRow(321)->
@@ -4788,6 +5742,9 @@ getRow(321)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身物理伤害+150"
     };
 getRow(322)->
@@ -4803,6 +5760,9 @@ getRow(322)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身物理伤害+300"
     };
 getRow(323)->
@@ -4818,6 +5778,9 @@ getRow(323)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身物理伤害+600"
     };
 getRow(324)->
@@ -4833,6 +5796,9 @@ getRow(324)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身物理伤害+1200"
     };
 getRow(325)->
@@ -4848,6 +5814,9 @@ getRow(325)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身暗影伤害+25"
     };
 getRow(326)->
@@ -4863,6 +5832,9 @@ getRow(326)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身暗影伤害+150"
     };
 getRow(327)->
@@ -4878,6 +5850,9 @@ getRow(327)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身暗影伤害+300"
     };
 getRow(328)->
@@ -4893,6 +5868,9 @@ getRow(328)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身暗影伤害+600"
     };
 getRow(329)->
@@ -4908,6 +5886,9 @@ getRow(329)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身暗影伤害+1200"
     };
 getRow(330)->
@@ -4923,6 +5904,9 @@ getRow(330)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身元素伤害+25"
     };
 getRow(331)->
@@ -4938,6 +5922,9 @@ getRow(331)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身元素伤害+150"
     };
 getRow(332)->
@@ -4953,6 +5940,9 @@ getRow(332)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身元素伤害+300"
     };
 getRow(333)->
@@ -4968,6 +5958,9 @@ getRow(333)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身元素伤害+600"
     };
 getRow(334)->
@@ -4983,6 +5976,9 @@ getRow(334)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "宠物自身元素伤害+1200"
     };
 getRow(335)->
@@ -4998,6 +5994,9 @@ getRow(335)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人暴伤减免+0.02"
     };
 getRow(336)->
@@ -5013,6 +6012,9 @@ getRow(336)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人暴伤减免+0.14"
     };
 getRow(337)->
@@ -5028,6 +6030,9 @@ getRow(337)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人暴伤减免+0.36"
     };
 getRow(338)->
@@ -5043,6 +6048,9 @@ getRow(338)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人暴伤减免+0.68"
     };
 getRow(339)->
@@ -5058,6 +6066,9 @@ getRow(339)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人暴伤减免+1.1"
     };
 getRow(340)->
@@ -5073,6 +6084,9 @@ getRow(340)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人冰冻豁免+0.01"
     };
 getRow(341)->
@@ -5088,6 +6102,9 @@ getRow(341)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人冰冻豁免+0.06"
     };
 getRow(342)->
@@ -5103,6 +6120,9 @@ getRow(342)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人冰冻豁免+0.11"
     };
 getRow(343)->
@@ -5118,6 +6138,9 @@ getRow(343)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人冰冻豁免+0.16"
     };
 getRow(344)->
@@ -5133,6 +6156,9 @@ getRow(344)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人冰冻豁免+0.21"
     };
 getRow(345)->
@@ -5148,6 +6174,9 @@ getRow(345)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人减速豁免+0.01"
     };
 getRow(346)->
@@ -5163,6 +6192,9 @@ getRow(346)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人减速豁免+0.06"
     };
 getRow(347)->
@@ -5178,6 +6210,9 @@ getRow(347)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人减速豁免+0.11"
     };
 getRow(348)->
@@ -5193,6 +6228,9 @@ getRow(348)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人减速豁免+0.16"
     };
 getRow(349)->
@@ -5208,6 +6246,9 @@ getRow(349)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人减速豁免+0.21"
     };
 getRow(350)->
@@ -5223,6 +6264,9 @@ getRow(350)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人眩晕豁免+0.01"
     };
 getRow(351)->
@@ -5238,6 +6282,9 @@ getRow(351)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人眩晕豁免+0.06"
     };
 getRow(352)->
@@ -5253,6 +6300,9 @@ getRow(352)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人眩晕豁免+0.11"
     };
 getRow(353)->
@@ -5268,6 +6318,9 @@ getRow(353)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人眩晕豁免+0.16"
     };
 getRow(354)->
@@ -5283,6 +6336,9 @@ getRow(354)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人眩晕豁免+0.21"
     };
 getRow(355)->
@@ -5298,6 +6354,9 @@ getRow(355)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人暴击豁免+0.01"
     };
 getRow(356)->
@@ -5313,6 +6372,9 @@ getRow(356)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人暴击豁免+0.06"
     };
 getRow(357)->
@@ -5328,6 +6390,9 @@ getRow(357)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人暴击豁免+0.11"
     };
 getRow(358)->
@@ -5343,6 +6408,9 @@ getRow(358)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人暴击豁免+0.16"
     };
 getRow(359)->
@@ -5358,6 +6426,9 @@ getRow(359)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人暴击豁免+0.21"
     };
 getRow(360)->
@@ -5373,6 +6444,9 @@ getRow(360)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "主人控制豁免2秒 （翅膀）"
     };
 getRow(400)->
@@ -5388,6 +6462,9 @@ getRow(400)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "远行兽增加主人攻击"
     };
 getRow(3200)->
@@ -5403,6 +6480,9 @@ getRow(3200)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "裁决者变身1"
     };
 getRow(3201)->
@@ -5418,6 +6498,9 @@ getRow(3201)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "裁决者变身2"
     };
 getRow(3202)->
@@ -5433,6 +6516,9 @@ getRow(3202)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "裁决者变身3"
     };
 getRow(3203)->
@@ -5448,6 +6534,9 @@ getRow(3203)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "裁决者变身4"
     };
 getRow(3204)->
@@ -5463,6 +6552,9 @@ getRow(3204)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "裁决者变身5"
     };
 getRow(3300)->
@@ -5478,6 +6570,9 @@ getRow(3300)->
     param4 = 8300,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "烈焰领域载体"
     };
 getRow(3301)->
@@ -5493,6 +6588,9 @@ getRow(3301)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "烈焰领域降低伤害"
     };
 getRow(3302)->
@@ -5508,6 +6606,9 @@ getRow(3302)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "烈焰领域冻结"
     };
 getRow(3505)->
@@ -5523,6 +6624,9 @@ getRow(3505)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战神之力I"
     };
 getRow(3506)->
@@ -5538,6 +6642,9 @@ getRow(3506)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战神之力II"
     };
 getRow(3507)->
@@ -5553,6 +6660,9 @@ getRow(3507)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战神之力III"
     };
 getRow(3508)->
@@ -5568,6 +6678,9 @@ getRow(3508)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战神之力IV"
     };
 getRow(3509)->
@@ -5583,6 +6696,9 @@ getRow(3509)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战神之力V"
     };
 getRow(3510)->
@@ -5598,6 +6714,9 @@ getRow(3510)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战神之力VI"
     };
 getRow(3511)->
@@ -5613,6 +6732,9 @@ getRow(3511)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战神之力VII"
     };
 getRow(3512)->
@@ -5628,6 +6750,9 @@ getRow(3512)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战神之力VIII"
     };
 getRow(3513)->
@@ -5643,6 +6768,9 @@ getRow(3513)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战神之力IX"
     };
 getRow(3514)->
@@ -5658,6 +6786,9 @@ getRow(3514)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战神之力X"
     };
 getRow(3515)->
@@ -5673,6 +6804,9 @@ getRow(3515)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之力I"
     };
 getRow(3516)->
@@ -5688,6 +6822,9 @@ getRow(3516)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之力II"
     };
 getRow(3517)->
@@ -5703,6 +6840,9 @@ getRow(3517)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之力III"
     };
 getRow(3518)->
@@ -5718,6 +6858,9 @@ getRow(3518)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之力IV"
     };
 getRow(3519)->
@@ -5733,6 +6876,9 @@ getRow(3519)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之力V"
     };
 getRow(3520)->
@@ -5748,6 +6894,9 @@ getRow(3520)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之力VI"
     };
 getRow(3521)->
@@ -5763,6 +6912,9 @@ getRow(3521)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之力VII"
     };
 getRow(3522)->
@@ -5778,6 +6930,9 @@ getRow(3522)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之力VIII"
     };
 getRow(3523)->
@@ -5793,6 +6948,9 @@ getRow(3523)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之力IX"
     };
 getRow(3524)->
@@ -5808,6 +6966,9 @@ getRow(3524)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生命之力X"
     };
 getRow(3525)->
@@ -5823,6 +6984,9 @@ getRow(3525)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "坚韧之力I"
     };
 getRow(3526)->
@@ -5838,6 +7002,9 @@ getRow(3526)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "坚韧之力II"
     };
 getRow(3527)->
@@ -5853,6 +7020,9 @@ getRow(3527)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "坚韧之力III"
     };
 getRow(3528)->
@@ -5868,6 +7038,9 @@ getRow(3528)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "坚韧之力IV"
     };
 getRow(3529)->
@@ -5883,6 +7056,9 @@ getRow(3529)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "坚韧之力V"
     };
 getRow(3530)->
@@ -5898,6 +7074,9 @@ getRow(3530)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "坚韧之力VI"
     };
 getRow(3531)->
@@ -5913,6 +7092,9 @@ getRow(3531)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "坚韧之力VII"
     };
 getRow(3532)->
@@ -5928,6 +7110,9 @@ getRow(3532)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "坚韧之力VIII"
     };
 getRow(3533)->
@@ -5943,6 +7128,9 @@ getRow(3533)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "坚韧之力IX"
     };
 getRow(3534)->
@@ -5958,7 +7146,46 @@ getRow(3534)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "坚韧之力X"
+    };
+getRow(5000)->
+    #skill_effectCfg {
+    iD = 5000,
+    effectType = 2,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 1,
+    param1 = 32,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "攻击清除变形"
+    };
+getRow(5001)->
+    #skill_effectCfg {
+    iD = 5001,
+    effectType = 2,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 1,
+    param1 = 32,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "被攻击清除变形"
     };
 getRow(7011)->
     #skill_effectCfg {
@@ -5973,6 +7200,9 @@ getRow(7011)->
     param4 = 13000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7012)->
@@ -5988,6 +7218,9 @@ getRow(7012)->
     param4 = 13000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7013)->
@@ -6003,6 +7236,9 @@ getRow(7013)->
     param4 = 13000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7014)->
@@ -6018,6 +7254,9 @@ getRow(7014)->
     param4 = 13000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7015)->
@@ -6033,6 +7272,9 @@ getRow(7015)->
     param4 = 13000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7021)->
@@ -6048,6 +7290,9 @@ getRow(7021)->
     param4 = 15000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7022)->
@@ -6063,6 +7308,9 @@ getRow(7022)->
     param4 = 15000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7023)->
@@ -6078,6 +7326,9 @@ getRow(7023)->
     param4 = 15000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7024)->
@@ -6093,6 +7344,9 @@ getRow(7024)->
     param4 = 15000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7025)->
@@ -6108,6 +7362,9 @@ getRow(7025)->
     param4 = 15000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7031)->
@@ -6123,6 +7380,9 @@ getRow(7031)->
     param4 = 25000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7032)->
@@ -6138,6 +7398,9 @@ getRow(7032)->
     param4 = 25000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7033)->
@@ -6153,6 +7416,9 @@ getRow(7033)->
     param4 = 25000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7034)->
@@ -6168,6 +7434,9 @@ getRow(7034)->
     param4 = 25000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7035)->
@@ -6183,6 +7452,9 @@ getRow(7035)->
     param4 = 25000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7041)->
@@ -6198,6 +7470,9 @@ getRow(7041)->
     param4 = 25000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7042)->
@@ -6213,6 +7488,9 @@ getRow(7042)->
     param4 = 25000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7043)->
@@ -6228,6 +7506,9 @@ getRow(7043)->
     param4 = 25000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7044)->
@@ -6243,6 +7524,9 @@ getRow(7044)->
     param4 = 25000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7045)->
@@ -6258,6 +7542,9 @@ getRow(7045)->
     param4 = 25000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7111)->
@@ -6273,6 +7560,9 @@ getRow(7111)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7112)->
@@ -6288,6 +7578,9 @@ getRow(7112)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7113)->
@@ -6303,6 +7596,9 @@ getRow(7113)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7114)->
@@ -6318,6 +7614,9 @@ getRow(7114)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7115)->
@@ -6333,6 +7632,9 @@ getRow(7115)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7121)->
@@ -6348,6 +7650,9 @@ getRow(7121)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7122)->
@@ -6363,6 +7668,9 @@ getRow(7122)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7123)->
@@ -6378,6 +7686,9 @@ getRow(7123)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7124)->
@@ -6393,6 +7704,9 @@ getRow(7124)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7125)->
@@ -6408,6 +7722,9 @@ getRow(7125)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7131)->
@@ -6423,6 +7740,9 @@ getRow(7131)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7132)->
@@ -6438,6 +7758,9 @@ getRow(7132)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7133)->
@@ -6453,6 +7776,9 @@ getRow(7133)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7134)->
@@ -6468,6 +7794,9 @@ getRow(7134)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7135)->
@@ -6483,6 +7812,9 @@ getRow(7135)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7141)->
@@ -6498,6 +7830,9 @@ getRow(7141)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7142)->
@@ -6513,6 +7848,9 @@ getRow(7142)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7143)->
@@ -6528,6 +7866,9 @@ getRow(7143)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7144)->
@@ -6543,6 +7884,9 @@ getRow(7144)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7145)->
@@ -6558,6 +7902,9 @@ getRow(7145)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7211)->
@@ -6573,6 +7920,9 @@ getRow(7211)->
     param4 = 4,
     param5 = 4,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "仁慈召唤I"
     };
 getRow(7212)->
@@ -6588,6 +7938,9 @@ getRow(7212)->
     param4 = 4,
     param5 = -4,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战争召唤I"
     };
 getRow(7213)->
@@ -6603,6 +7956,9 @@ getRow(7213)->
     param4 = -4,
     param5 = 4,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "智慧召唤I"
     };
 getRow(7214)->
@@ -6618,6 +7974,9 @@ getRow(7214)->
     param4 = -4,
     param5 = -4,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "暗夜召唤I"
     };
 getRow(7311)->
@@ -6633,6 +7992,9 @@ getRow(7311)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7312)->
@@ -6648,6 +8010,9 @@ getRow(7312)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7313)->
@@ -6663,6 +8028,9 @@ getRow(7313)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7314)->
@@ -6678,6 +8046,9 @@ getRow(7314)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7315)->
@@ -6693,6 +8064,9 @@ getRow(7315)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7321)->
@@ -6708,6 +8082,9 @@ getRow(7321)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7322)->
@@ -6723,6 +8100,9 @@ getRow(7322)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7323)->
@@ -6738,6 +8118,9 @@ getRow(7323)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7324)->
@@ -6753,6 +8136,9 @@ getRow(7324)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7325)->
@@ -6768,6 +8154,9 @@ getRow(7325)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤战争女神"
     };
 getRow(7331)->
@@ -6783,6 +8172,9 @@ getRow(7331)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7332)->
@@ -6798,6 +8190,9 @@ getRow(7332)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7333)->
@@ -6813,6 +8208,9 @@ getRow(7333)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7334)->
@@ -6828,6 +8226,9 @@ getRow(7334)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7335)->
@@ -6843,6 +8244,9 @@ getRow(7335)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤智慧女神"
     };
 getRow(7341)->
@@ -6858,6 +8262,9 @@ getRow(7341)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7342)->
@@ -6873,6 +8280,9 @@ getRow(7342)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7343)->
@@ -6888,6 +8298,9 @@ getRow(7343)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7344)->
@@ -6903,6 +8316,9 @@ getRow(7344)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7345)->
@@ -6918,6 +8334,9 @@ getRow(7345)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤暗夜女神"
     };
 getRow(7411)->
@@ -6933,6 +8352,9 @@ getRow(7411)->
     param4 = 1500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7421)->
@@ -6948,6 +8370,9 @@ getRow(7421)->
     param4 = 5000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7431)->
@@ -6963,6 +8388,9 @@ getRow(7431)->
     param4 = 8000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(7441)->
@@ -6978,6 +8406,9 @@ getRow(7441)->
     param4 = 10000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "召唤仁慈女神"
     };
 getRow(10001)->
@@ -6993,6 +8424,9 @@ getRow(10001)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "骑士大招免控1"
     };
 getRow(10002)->
@@ -7008,6 +8442,9 @@ getRow(10002)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "骑士大招免控2"
     };
 getRow(10003)->
@@ -7023,6 +8460,9 @@ getRow(10003)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "怒焰之心"
     };
 getRow(10004)->
@@ -7038,6 +8478,9 @@ getRow(10004)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师大招免控1"
     };
 getRow(10005)->
@@ -7053,6 +8496,9 @@ getRow(10005)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师大招免控2"
     };
 getRow(10006)->
@@ -7068,6 +8514,9 @@ getRow(10006)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "刺客先发制人"
     };
 getRow(10007)->
@@ -7083,6 +8532,9 @@ getRow(10007)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "刺客生存意志"
     };
 getRow(10008)->
@@ -7098,6 +8550,9 @@ getRow(10008)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "雷霆意志被动"
     };
 getRow(10009)->
@@ -7113,6 +8568,9 @@ getRow(10009)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "魔女亡者气息免控1"
     };
 getRow(10010)->
@@ -7128,6 +8586,9 @@ getRow(10010)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "魔女亡者气息免控2"
     };
 getRow(10011)->
@@ -7143,6 +8604,9 @@ getRow(10011)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "远古恶魔"
     };
 getRow(10012)->
@@ -7158,6 +8622,9 @@ getRow(10012)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "献祭，力量+5%"
     };
 getRow(10013)->
@@ -7173,6 +8640,9 @@ getRow(10013)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "亡者意志，体质+5%"
     };
 getRow(10014)->
@@ -7188,6 +8658,9 @@ getRow(10014)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "死亡凝视，防御+5%"
     };
 getRow(10015)->
@@ -7203,6 +8676,9 @@ getRow(10015)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "点射定身"
     };
 getRow(10016)->
@@ -7218,6 +8694,9 @@ getRow(10016)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "爆炎手雷击退"
     };
 getRow(10017)->
@@ -7233,6 +8712,9 @@ getRow(10017)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "爆炎手雷击退抓取不受控制"
     };
 getRow(10018)->
@@ -7248,6 +8730,9 @@ getRow(10018)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "火焰喷射降低伤害抗性"
     };
 getRow(10019)->
@@ -7263,6 +8748,9 @@ getRow(10019)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "激光射线降低伤害"
     };
 getRow(10020)->
@@ -7278,6 +8766,9 @@ getRow(10020)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "重力炸弹定身"
     };
 getRow(10021)->
@@ -7293,6 +8784,9 @@ getRow(10021)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "炮击击退"
     };
 getRow(10022)->
@@ -7308,6 +8802,9 @@ getRow(10022)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "炮击击退不受控制"
     };
 getRow(10023)->
@@ -7323,6 +8820,9 @@ getRow(10023)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "迅捷加速，伤害提高，攻速提高"
     };
 getRow(10024)->
@@ -7338,6 +8838,9 @@ getRow(10024)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "迅捷免疫1"
     };
 getRow(10025)->
@@ -7353,6 +8856,9 @@ getRow(10025)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "迅捷免疫2"
     };
 getRow(10026)->
@@ -7368,6 +8874,9 @@ getRow(10026)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "嗜血光环"
     };
 getRow(10027)->
@@ -7383,6 +8892,9 @@ getRow(10027)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "杀戮意志暴击"
     };
 getRow(10028)->
@@ -7398,6 +8910,9 @@ getRow(10028)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "杀戮意志调用"
     };
 getRow(10029)->
@@ -7413,6 +8928,9 @@ getRow(10029)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "力破"
     };
 getRow(10030)->
@@ -7428,6 +8946,9 @@ getRow(10030)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "力破调用"
     };
 getRow(10031)->
@@ -7443,6 +8964,9 @@ getRow(10031)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "血腥杀戮"
     };
 getRow(10032)->
@@ -7458,6 +8982,9 @@ getRow(10032)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "神佑"
     };
 getRow(10033)->
@@ -7473,6 +9000,9 @@ getRow(10033)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "急速"
     };
 getRow(12101)->
@@ -7488,6 +9018,9 @@ getRow(12101)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影踪劲"
     };
 getRow(12201)->
@@ -7503,6 +9036,9 @@ getRow(12201)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "影踪劲触发持续伤害"
     };
 getRow(13007)->
@@ -7518,6 +9054,9 @@ getRow(13007)->
     param4 = 1,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "远古恶魔"
     };
 getRow(13302)->
@@ -7533,6 +9072,9 @@ getRow(13302)->
     param4 = 1,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生生不息额外召唤1"
     };
 getRow(13303)->
@@ -7548,6 +9090,9 @@ getRow(13303)->
     param4 = 1,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生生不息额外召唤2"
     };
 getRow(13304)->
@@ -7563,6 +9108,9 @@ getRow(13304)->
     param4 = 1,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "生生不息额外召唤3"
     };
 getRow(13500)->
@@ -7578,6 +9126,9 @@ getRow(13500)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "夫妻技能增加生命（被动）"
     };
 getRow(13501)->
@@ -7593,6 +9144,9 @@ getRow(13501)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "夫妻技能增加物攻（被动）"
     };
 getRow(13502)->
@@ -7608,6 +9162,9 @@ getRow(13502)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "夫妻技能增加法攻（被动）"
     };
 getRow(13503)->
@@ -7623,6 +9180,9 @@ getRow(13503)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "夫妻技能增加物防（被动）"
     };
 getRow(13504)->
@@ -7638,6 +9198,9 @@ getRow(13504)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "夫妻技能增加法防（被动）"
     };
 getRow(14008)->
@@ -7653,37 +9216,28 @@ getRow(14008)->
     param4 = 6800,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰风暴载体"
     };
-getRow(15000)->
+getRow(15007)->
     #skill_effectCfg {
-    iD = 15000,
-    effectType = 4,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 44,
-    param2 = 0,
-    param3 = 6,
-    param4 = 8300,
-    param5 = 0,
-    param6 = 1,
-    skillName = "冥王召唤"
-    };
-getRow(15001)->
-    #skill_effectCfg {
-    iD = 15001,
-    effectType = 1,
+    iD = 15007,
+    effectType = 17,
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 1,
-    param1 = 20015,
+    param1 = 15005,
     param2 = 0,
     param3 = 0,
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "闪避提升20%"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "消除【鬼魂的诅咒】BUFF效果"
     };
 getRow(15010)->
     #skill_effectCfg {
@@ -7698,6 +9252,9 @@ getRow(15010)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "第三次攻击减最大生命值"
     };
 getRow(15020)->
@@ -7713,7 +9270,352 @@ getRow(15020)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "枪械师治疗"
+    };
+getRow(16000)->
+    #skill_effectCfg {
+    iD = 16000,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 1,
+    param1 = 16000,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "杂技大师-强化治疗"
+    };
+getRow(16001)->
+    #skill_effectCfg {
+    iD = 16001,
+    effectType = 7,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 0,
+    param2 = 0.5,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "贾斯丁比象-偶像魅力-拉怪"
+    };
+getRow(16002)->
+    #skill_effectCfg {
+    iD = 16002,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 16002,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "贾斯丁比象-偶像魅力-眩晕"
+    };
+getRow(16003)->
+    #skill_effectCfg {
+    iD = 16003,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 16003,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "贾斯丁比象-回眸一笑-眩晕"
+    };
+getRow(16004)->
+    #skill_effectCfg {
+    iD = 16004,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 1,
+    param1 = 16004,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "杀象特-绝不原谅-暴击增强"
+    };
+getRow(16005)->
+    #skill_effectCfg {
+    iD = 16005,
+    effectType = 4,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 20010,
+    param2 = 1,
+    param3 = 30000,
+    param4 = 0,
+    param5 = 10,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "杀象特-召唤儿子"
+    };
+getRow(16006)->
+    #skill_effectCfg {
+    iD = 16006,
+    effectType = 6,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 0,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "杀象特-儿子强行拉仇恨"
+    };
+getRow(16007)->
+    #skill_effectCfg {
+    iD = 16007,
+    effectType = 15,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 15,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "机械鸟-击退"
+    };
+getRow(16008)->
+    #skill_effectCfg {
+    iD = 16008,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 16008,
+    param2 = 16009,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "机械鸟-回血+定身"
+    };
+getRow(16012)->
+    #skill_effectCfg {
+    iD = 16012,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 16012,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "西瓜鲨-伤害吸收盾"
+    };
+getRow(16013)->
+    #skill_effectCfg {
+    iD = 16013,
+    effectType = 6,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 0,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "杀象特-儿子强行拉仇恨"
+    };
+getRow(16014)->
+    #skill_effectCfg {
+    iD = 16014,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 1,
+    param1 = 16013,
+    param2 = 16014,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "钢铁狼-杀戮意志-攻击力提升，触发卸甲"
+    };
+getRow(16015)->
+    #skill_effectCfg {
+    iD = 16015,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 16015,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "卸甲双防降低"
+    };
+getRow(16016)->
+    #skill_effectCfg {
+    iD = 16016,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 16016,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "雪橇犬-主人加油 持续回血"
+    };
+getRow(16017)->
+    #skill_effectCfg {
+    iD = 16017,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 16017,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "雪橇犬-主人别怕-双防提升"
+    };
+getRow(16018)->
+    #skill_effectCfg {
+    iD = 16018,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 16018,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "贝斯-镇魂曲-降低双防"
+    };
+getRow(16019)->
+    #skill_effectCfg {
+    iD = 16019,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 16019,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "贝斯-迷魂曲-降低闪避"
+    };
+getRow(16020)->
+    #skill_effectCfg {
+    iD = 16020,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 16020,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "寒冰踏焰-踏雪寻梅-概率冰冻"
+    };
+getRow(16021)->
+    #skill_effectCfg {
+    iD = 16021,
+    effectType = 1,
+    effectChance = 0.3,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 16020,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "寒冰踏焰-寒冰之息-冰冻"
     };
 getRow(19000)->
     #skill_effectCfg {
@@ -7728,7 +9630,10 @@ getRow(19000)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "首领入侵boss1号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
     };
 getRow(19001)->
     #skill_effectCfg {
@@ -7743,52 +9648,64 @@ getRow(19001)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "首领入侵boss1号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
     };
 getRow(19002)->
     #skill_effectCfg {
     iD = 19002,
-    effectType = 1,
+    effectType = 14,
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 0,
+    param1 = 1151,
     param2 = 0,
-    param3 = 0,
-    param4 = 0,
+    param3 = 1,
+    param4 = 3000,
     param5 = 0,
-    param6 = 0,
-    skillName = "首领入侵boss1号"
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
     };
 getRow(19003)->
     #skill_effectCfg {
     iD = 19003,
-    effectType = 1,
+    effectType = 14,
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 19003,
+    param1 = 1160,
     param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "首领入侵boss1号"
+    param3 = 1,
+    param4 = 3000,
+    param5 = 1,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
     };
 getRow(19004)->
     #skill_effectCfg {
     iD = 19004,
-    effectType = 1,
+    effectType = 7,
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
     param1 = 0,
-    param2 = 0,
+    param2 = 0.5,
     param3 = 0,
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "首领入侵boss2号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
     };
 getRow(19005)->
     #skill_effectCfg {
@@ -7803,6 +9720,9 @@ getRow(19005)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵boss2号"
     };
 getRow(19006)->
@@ -7818,6 +9738,9 @@ getRow(19006)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵boss2号"
     };
 getRow(19007)->
@@ -7833,6 +9756,9 @@ getRow(19007)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵boss2号"
     };
 getRow(19008)->
@@ -7848,6 +9774,9 @@ getRow(19008)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵boss3号"
     };
 getRow(19009)->
@@ -7863,6 +9792,9 @@ getRow(19009)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵boss3号"
     };
 getRow(19010)->
@@ -7878,6 +9810,9 @@ getRow(19010)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵boss3号"
     };
 getRow(19011)->
@@ -7893,6 +9828,9 @@ getRow(19011)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵boss3号"
     };
 getRow(19012)->
@@ -7908,7 +9846,10 @@ getRow(19012)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "首领入侵boss4号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "首领入侵boss1号"
     };
 getRow(19013)->
     #skill_effectCfg {
@@ -7917,13 +9858,16 @@ getRow(19013)->
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 0,
+    param1 = 19013,
     param2 = 0,
     param3 = 0,
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "首领入侵boss4号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "首领入侵boss1号"
     };
 getRow(19014)->
     #skill_effectCfg {
@@ -7938,7 +9882,10 @@ getRow(19014)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "首领入侵boss4号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "首领入侵boss1号"
     };
 getRow(19015)->
     #skill_effectCfg {
@@ -7953,22 +9900,28 @@ getRow(19015)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "首领入侵boss4号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "首领入侵boss1号"
     };
 getRow(19016)->
     #skill_effectCfg {
     iD = 19016,
-    effectType = 1,
+    effectType = 5,
     effectChance = 1,
     effectcondition = 0,
-    effectTarget = 0,
-    param1 = 0,
-    param2 = 0,
-    param3 = 0,
+    effectTarget = 1,
+    param1 = 2,
+    param2 = 20,
+    param3 = 3200,
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "首领入侵boss5号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "战士普攻3 冲锋"
     };
 getRow(19017)->
     #skill_effectCfg {
@@ -7983,6 +9936,9 @@ getRow(19017)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵boss5号"
     };
 getRow(19018)->
@@ -7998,6 +9954,9 @@ getRow(19018)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵boss5号"
     };
 getRow(19019)->
@@ -8013,6 +9972,9 @@ getRow(19019)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵boss5号"
     };
 getRow(19020)->
@@ -8028,7 +9990,10 @@ getRow(19020)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "野外boss2号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "30级野外boss"
     };
 getRow(19021)->
     #skill_effectCfg {
@@ -8043,22 +10008,28 @@ getRow(19021)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "野外boss2号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "30级野外boss"
     };
 getRow(19022)->
     #skill_effectCfg {
     iD = 19022,
-    effectType = 1,
+    effectType = 14,
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 0,
+    param1 = 1162,
     param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "野外boss2号"
+    param3 = 1,
+    param4 = 6000,
+    param5 = 1,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "30级野外boss"
     };
 getRow(19023)->
     #skill_effectCfg {
@@ -8073,7 +10044,10 @@ getRow(19023)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "野外boss2号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "30级野外boss"
     };
 getRow(19024)->
     #skill_effectCfg {
@@ -8088,7 +10062,10 @@ getRow(19024)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "野外boss3号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "35级野外boss"
     };
 getRow(19025)->
     #skill_effectCfg {
@@ -8103,22 +10080,10 @@ getRow(19025)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "野外boss3号"
-    };
-getRow(19026)->
-    #skill_effectCfg {
-    iD = 19026,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 0,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "野外boss3号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "35级野外boss"
     };
 getRow(19027)->
     #skill_effectCfg {
@@ -8133,7 +10098,10 @@ getRow(19027)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "野外boss3号"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "35级野外boss"
     };
 getRow(19028)->
     #skill_effectCfg {
@@ -8148,6 +10116,9 @@ getRow(19028)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野外boss4号"
     };
 getRow(19029)->
@@ -8163,6 +10134,9 @@ getRow(19029)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野外boss4号"
     };
 getRow(19030)->
@@ -8178,6 +10152,9 @@ getRow(19030)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野外boss4号"
     };
 getRow(19031)->
@@ -8193,6 +10170,9 @@ getRow(19031)->
     param4 = 0,
     param5 = 0,
     param6 = 20,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野外boss4号"
     };
 getRow(19032)->
@@ -8208,6 +10188,9 @@ getRow(19032)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野外boss5号"
     };
 getRow(19033)->
@@ -8223,6 +10206,9 @@ getRow(19033)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野外boss5号"
     };
 getRow(19034)->
@@ -8238,6 +10224,9 @@ getRow(19034)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野外boss5号"
     };
 getRow(19035)->
@@ -8253,6 +10242,9 @@ getRow(19035)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野外boss5号"
     };
 getRow(20000)->
@@ -8265,9 +10257,12 @@ getRow(20000)->
     param1 = 15000,
     param2 = 0,
     param3 = 0,
-    param4 = 2800,
+    param4 = 2500,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵4号boss载体"
     };
 getRow(20001)->
@@ -8280,9 +10275,12 @@ getRow(20001)->
     param1 = 15001,
     param2 = 0,
     param3 = 0,
-    param4 = 5000,
+    param4 = 3500,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 5,
+    param9 = 5,
     skillName = "首领入侵4号boss载体"
     };
 getRow(20002)->
@@ -8298,6 +10296,9 @@ getRow(20002)->
     param4 = 1500,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵4号boss载体"
     };
 getRow(20003)->
@@ -8310,9 +10311,12 @@ getRow(20003)->
     param1 = 15003,
     param2 = 0,
     param3 = 0,
-    param4 = 5000,
+    param4 = 10000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵4号boss载体"
     };
 getRow(20004)->
@@ -8328,6 +10332,9 @@ getRow(20004)->
     param4 = 3500,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "首领入侵4号boss载体"
     };
 getRow(20005)->
@@ -8343,6 +10350,9 @@ getRow(20005)->
     param4 = 5000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野外5号boss载体"
     };
 getRow(20006)->
@@ -8358,7 +10368,82 @@ getRow(20006)->
     param4 = 7000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "野外5号boss载体"
+    };
+getRow(21000)->
+    #skill_effectCfg {
+    iD = 21000,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 21000,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "剧情拳击胖鱼技能1，减速"
+    };
+getRow(21001)->
+    #skill_effectCfg {
+    iD = 21001,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 21001,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "剧情拳击胖鱼技能2，冰冻"
+    };
+getRow(21002)->
+    #skill_effectCfg {
+    iD = 21002,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 43,
+    param2 = 0,
+    param3 = 0,
+    param4 = 1500,
+    param5 = 0,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "剧情拳击胖鱼技能2，冰冻二段伤害载体"
+    };
+getRow(21003)->
+    #skill_effectCfg {
+    iD = 21003,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 44,
+    param2 = 0,
+    param3 = 0,
+    param4 = 2500,
+    param5 = 0,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "剧情拳击胖鱼技能2，冰冻三段伤害载体"
     };
 getRow(30001)->
     #skill_effectCfg {
@@ -8373,6 +10458,9 @@ getRow(30001)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "火器灵灼烧"
     };
 getRow(30002)->
@@ -8388,6 +10476,9 @@ getRow(30002)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "火器灵灼烧"
     };
 getRow(30003)->
@@ -8403,6 +10494,9 @@ getRow(30003)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰器灵冰盾"
     };
 getRow(30004)->
@@ -8418,6 +10512,9 @@ getRow(30004)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰器灵冰盾"
     };
 getRow(30005)->
@@ -8433,6 +10530,9 @@ getRow(30005)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "电器灵闪电风暴"
     };
 getRow(30006)->
@@ -8448,6 +10548,9 @@ getRow(30006)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "电器灵闪电风暴"
     };
 getRow(30007)->
@@ -8463,6 +10566,9 @@ getRow(30007)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "风器灵风刃"
     };
 getRow(30008)->
@@ -8478,6 +10584,9 @@ getRow(30008)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "风器灵风刃"
     };
 getRow(30009)->
@@ -8493,6 +10602,9 @@ getRow(30009)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "光器灵光愈"
     };
 getRow(30010)->
@@ -8508,6 +10620,9 @@ getRow(30010)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "光器灵光愈"
     };
 getRow(30011)->
@@ -8523,6 +10638,9 @@ getRow(30011)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "暗器灵暗灭"
     };
 getRow(30012)->
@@ -8538,6 +10656,9 @@ getRow(30012)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "暗器灵暗灭"
     };
 getRow(31001)->
@@ -8553,6 +10674,9 @@ getRow(31001)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "火器灵灼烧"
     };
 getRow(31002)->
@@ -8568,6 +10692,9 @@ getRow(31002)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "火器灵灼烧"
     };
 getRow(31003)->
@@ -8583,6 +10710,9 @@ getRow(31003)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰器灵冰盾"
     };
 getRow(31004)->
@@ -8598,6 +10728,9 @@ getRow(31004)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "冰器灵冰盾"
     };
 getRow(31005)->
@@ -8613,6 +10746,9 @@ getRow(31005)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "电器灵闪电风暴"
     };
 getRow(31006)->
@@ -8628,6 +10764,9 @@ getRow(31006)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "电器灵闪电风暴"
     };
 getRow(31007)->
@@ -8643,6 +10782,9 @@ getRow(31007)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "风器灵风刃"
     };
 getRow(31008)->
@@ -8658,6 +10800,9 @@ getRow(31008)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "风器灵风刃"
     };
 getRow(32111)->
@@ -8673,6 +10818,9 @@ getRow(32111)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "药水恢复+10%"
     };
 getRow(32112)->
@@ -8688,6 +10836,9 @@ getRow(32112)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "药水恢复+20%"
     };
 getRow(32113)->
@@ -8703,6 +10854,9 @@ getRow(32113)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "药水恢复+30%"
     };
 getRow(32114)->
@@ -8718,6 +10872,9 @@ getRow(32114)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "药水恢复+30%"
     };
 getRow(32115)->
@@ -8733,6 +10890,9 @@ getRow(32115)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "药水恢复+30%"
     };
 getRow(32211)->
@@ -8748,6 +10908,9 @@ getRow(32211)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理防御和魔法防御+300"
     };
 getRow(32212)->
@@ -8763,6 +10926,9 @@ getRow(32212)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理防御和魔法防御+400"
     };
 getRow(32213)->
@@ -8778,6 +10944,9 @@ getRow(32213)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理防御和魔法防御+500"
     };
 getRow(32214)->
@@ -8793,6 +10962,9 @@ getRow(32214)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理防御和魔法防御+600"
     };
 getRow(32215)->
@@ -8808,6 +10980,9 @@ getRow(32215)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理防御和魔法防御+700"
     };
 getRow(32311)->
@@ -8823,6 +10998,9 @@ getRow(32311)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "受到的所有伤害-5%"
     };
 getRow(32312)->
@@ -8838,6 +11016,9 @@ getRow(32312)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "受到的所有伤害-10%"
     };
 getRow(32313)->
@@ -8853,6 +11034,9 @@ getRow(32313)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "受到的所有伤害-15%"
     };
 getRow(32314)->
@@ -8868,6 +11052,9 @@ getRow(32314)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "受到的所有伤害-20%"
     };
 getRow(32315)->
@@ -8883,6 +11070,9 @@ getRow(32315)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "受到的所有伤害-25%"
     };
 getRow(32411)->
@@ -8898,6 +11088,9 @@ getRow(32411)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "暴击等级+200"
     };
 getRow(32412)->
@@ -8913,6 +11106,9 @@ getRow(32412)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "暴击等级+300"
     };
 getRow(32413)->
@@ -8928,6 +11124,9 @@ getRow(32413)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "暴击等级+500"
     };
 getRow(32414)->
@@ -8943,6 +11142,9 @@ getRow(32414)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "暴击等级+500"
     };
 getRow(32415)->
@@ -8958,6 +11160,9 @@ getRow(32415)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "暴击等级+500"
     };
 getRow(32511)->
@@ -8973,6 +11178,9 @@ getRow(32511)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理攻击和魔法攻击+50"
     };
 getRow(32512)->
@@ -8988,6 +11196,9 @@ getRow(32512)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理攻击和魔法攻击+100"
     };
 getRow(32513)->
@@ -9003,6 +11214,9 @@ getRow(32513)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理攻击和魔法攻击+150"
     };
 getRow(32514)->
@@ -9018,6 +11232,9 @@ getRow(32514)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理攻击和魔法攻击+200"
     };
 getRow(32515)->
@@ -9033,6 +11250,9 @@ getRow(32515)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理攻击和魔法攻击+250"
     };
 getRow(32611)->
@@ -9048,6 +11268,9 @@ getRow(32611)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "造成的所有伤害+10%"
     };
 getRow(32612)->
@@ -9063,6 +11286,9 @@ getRow(32612)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "造成的所有伤害+15%"
     };
 getRow(32613)->
@@ -9078,6 +11304,9 @@ getRow(32613)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "造成的所有伤害+20%"
     };
 getRow(32614)->
@@ -9093,6 +11322,9 @@ getRow(32614)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "造成的所有伤害+25%"
     };
 getRow(32615)->
@@ -9108,6 +11340,9 @@ getRow(32615)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "造成的所有伤害+30%"
     };
 getRow(32711)->
@@ -9123,6 +11358,9 @@ getRow(32711)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "破甲等级+200"
     };
 getRow(32712)->
@@ -9138,6 +11376,9 @@ getRow(32712)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "破甲等级+300"
     };
 getRow(32713)->
@@ -9153,6 +11394,9 @@ getRow(32713)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "破甲等级+500"
     };
 getRow(32714)->
@@ -9168,6 +11412,9 @@ getRow(32714)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "破甲等级+500"
     };
 getRow(32715)->
@@ -9183,6 +11430,9 @@ getRow(32715)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "破甲等级+500"
     };
 getRow(32811)->
@@ -9198,6 +11448,9 @@ getRow(32811)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "命中等级+50"
     };
 getRow(32812)->
@@ -9213,6 +11466,9 @@ getRow(32812)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "命中等级+100"
     };
 getRow(32813)->
@@ -9228,6 +11484,9 @@ getRow(32813)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "命中等级+150"
     };
 getRow(32814)->
@@ -9243,6 +11502,9 @@ getRow(32814)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "命中等级+200"
     };
 getRow(32815)->
@@ -9258,6 +11520,9 @@ getRow(32815)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "命中等级+250"
     };
 getRow(32911)->
@@ -9273,6 +11538,9 @@ getRow(32911)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "基础技能的冷却时间减少5%"
     };
 getRow(32912)->
@@ -9288,6 +11556,9 @@ getRow(32912)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "基础技能的冷却时间减少6%"
     };
 getRow(32913)->
@@ -9303,6 +11574,9 @@ getRow(32913)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "基础技能的冷却时间减少7%"
     };
 getRow(32914)->
@@ -9318,6 +11592,9 @@ getRow(32914)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "基础技能的冷却时间减少8%"
     };
 getRow(32915)->
@@ -9333,6 +11610,9 @@ getRow(32915)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "基础技能的冷却时间减少10%"
     };
 getRow(33011)->
@@ -9348,6 +11628,9 @@ getRow(33011)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "闪避+100"
     };
 getRow(33012)->
@@ -9363,6 +11646,9 @@ getRow(33012)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "闪避+150"
     };
 getRow(33013)->
@@ -9378,6 +11664,9 @@ getRow(33013)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "闪避+200"
     };
 getRow(33014)->
@@ -9393,6 +11682,9 @@ getRow(33014)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "闪避+200"
     };
 getRow(33015)->
@@ -9408,6 +11700,9 @@ getRow(33015)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "闪避+200"
     };
 getRow(33111)->
@@ -9423,6 +11718,9 @@ getRow(33111)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "韧性+150"
     };
 getRow(33112)->
@@ -9438,6 +11736,9 @@ getRow(33112)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "韧性+200"
     };
 getRow(33113)->
@@ -9453,6 +11754,9 @@ getRow(33113)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "韧性+250"
     };
 getRow(33114)->
@@ -9468,6 +11772,9 @@ getRow(33114)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "韧性+300"
     };
 getRow(33115)->
@@ -9483,6 +11790,9 @@ getRow(33115)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "韧性+350"
     };
 getRow(33211)->
@@ -9498,6 +11808,9 @@ getRow(33211)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "骑宠伤害+5%"
     };
 getRow(33212)->
@@ -9513,6 +11826,9 @@ getRow(33212)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "骑宠伤害+10%"
     };
 getRow(33213)->
@@ -9528,6 +11844,9 @@ getRow(33213)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "骑宠伤害+15%"
     };
 getRow(33214)->
@@ -9543,6 +11862,9 @@ getRow(33214)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "骑宠伤害+20%"
     };
 getRow(33215)->
@@ -9558,6 +11880,9 @@ getRow(33215)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "骑宠伤害+25%"
     };
 getRow(40001)->
@@ -9573,6 +11898,9 @@ getRow(40001)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "荼毒BUFF"
     };
 getRow(40002)->
@@ -9588,6 +11916,9 @@ getRow(40002)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "概率中毒BUFF"
     };
 getRow(40003)->
@@ -9603,6 +11934,9 @@ getRow(40003)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战士加攻"
     };
 getRow(40004)->
@@ -9618,6 +11952,9 @@ getRow(40004)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战士加防"
     };
 getRow(40006)->
@@ -9627,13 +11964,16 @@ getRow(40006)->
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 3,
-    param1 = 40006,
+    param1 = 1,
     param2 = 0,
     param3 = 0,
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "龙翔斩击退2m"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "刺客普攻击退"
     };
 getRow(40007)->
     #skill_effectCfg {
@@ -9641,14 +11981,17 @@ getRow(40007)->
     effectType = 15,
     effectChance = 1,
     effectcondition = 0,
-    effectTarget = 3,
-    param1 = 40007,
+    effectTarget = 0,
+    param1 = 2,
     param2 = 0,
     param3 = 0,
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "肩击震退"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "刺客第4式击退"
     };
 getRow(40008)->
     #skill_effectCfg {
@@ -9663,6 +12006,9 @@ getRow(40008)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "肩击概率击晕"
     };
 getRow(40009)->
@@ -9678,6 +12024,9 @@ getRow(40009)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "敲击概率击晕"
     };
 getRow(40010)->
@@ -9693,6 +12042,9 @@ getRow(40010)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "暗斩概率流血"
     };
 getRow(40011)->
@@ -9708,6 +12060,9 @@ getRow(40011)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "快步疾走加速"
     };
 getRow(40012)->
@@ -9723,6 +12078,9 @@ getRow(40012)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "弱点侦测加暴击"
     };
 getRow(40013)->
@@ -9738,6 +12096,9 @@ getRow(40013)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "升龙斩概率击晕"
     };
 getRow(40014)->
@@ -9753,6 +12114,9 @@ getRow(40014)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "烈风突刺概率流血"
     };
 getRow(40015)->
@@ -9768,6 +12132,9 @@ getRow(40015)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "强力打击暴击伤害增加"
     };
 getRow(40016)->
@@ -9783,6 +12150,9 @@ getRow(40016)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "增加法功"
     };
 getRow(40017)->
@@ -9798,6 +12168,9 @@ getRow(40017)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "恢复HP（单体）"
     };
 getRow(40018)->
@@ -9813,6 +12186,9 @@ getRow(40018)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "概率减速"
     };
 getRow(40019)->
@@ -9828,6 +12204,9 @@ getRow(40019)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "概率震退"
     };
 getRow(40020)->
@@ -9843,6 +12222,9 @@ getRow(40020)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "神光护体（无敌）"
     };
 getRow(40021)->
@@ -9858,6 +12240,9 @@ getRow(40021)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "概率冰冻效果"
     };
 getRow(40022)->
@@ -9873,6 +12258,9 @@ getRow(40022)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "概率减攻速"
     };
 getRow(40023)->
@@ -9888,6 +12276,9 @@ getRow(40023)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "增加法功"
     };
 getRow(40024)->
@@ -9903,6 +12294,9 @@ getRow(40024)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "概率灼烧效果"
     };
 getRow(40025)->
@@ -9918,6 +12312,9 @@ getRow(40025)->
     param4 = 2000,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "风刃群攻"
     };
 getRow(40026)->
@@ -9933,6 +12330,9 @@ getRow(40026)->
     param4 = 2000,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "燃焰术群攻"
     };
 getRow(40027)->
@@ -9948,6 +12348,9 @@ getRow(40027)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "降法防"
     };
 getRow(40028)->
@@ -9963,6 +12366,9 @@ getRow(40028)->
     param4 = 2000,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "神圣审判群攻"
     };
 getRow(40031)->
@@ -9978,6 +12384,9 @@ getRow(40031)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战士技能撞击-眩晕"
     };
 getRow(40032)->
@@ -9993,6 +12402,9 @@ getRow(40032)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师技能减速"
     };
 getRow(40033)->
@@ -10008,6 +12420,9 @@ getRow(40033)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师技能冰冻"
     };
 getRow(40034)->
@@ -10023,6 +12438,9 @@ getRow(40034)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师技能位移"
     };
 getRow(40035)->
@@ -10038,6 +12456,9 @@ getRow(40035)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师技能解除状态"
     };
 getRow(40036)->
@@ -10053,6 +12474,9 @@ getRow(40036)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战士普攻3 冲锋"
     };
 getRow(40043)->
@@ -10068,6 +12492,9 @@ getRow(40043)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师烈风术小击退"
     };
 getRow(40044)->
@@ -10083,6 +12510,9 @@ getRow(40044)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "治疗中毒"
     };
 getRow(40045)->
@@ -10098,6 +12528,9 @@ getRow(40045)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "修士魔法师的祝福增加法攻"
     };
 getRow(40046)->
@@ -10113,6 +12546,9 @@ getRow(40046)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "修士魔法师的祝福增加移动速度"
     };
 getRow(40048)->
@@ -10128,6 +12564,9 @@ getRow(40048)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "巫师强化睿智加法伤"
     };
 getRow(40049)->
@@ -10143,6 +12582,9 @@ getRow(40049)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "概率灼烧效果"
     };
 getRow(40050)->
@@ -10158,6 +12600,9 @@ getRow(40050)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "斗士-龙翔斩-眩晕"
     };
 getRow(40051)->
@@ -10173,6 +12618,9 @@ getRow(40051)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "守卫-飞天斩-眩晕"
     };
 getRow(40052)->
@@ -10188,6 +12636,9 @@ getRow(40052)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "守卫-嘲讽-聚集目标"
     };
 getRow(40053)->
@@ -10203,6 +12654,9 @@ getRow(40053)->
     param4 = 2000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "守卫-嘲讽-召唤载体"
     };
 getRow(40054)->
@@ -10218,6 +12672,9 @@ getRow(40054)->
     param4 = 4000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "巫师-冻结之风-载体持续伤害"
     };
 getRow(40055)->
@@ -10233,22 +12690,10 @@ getRow(40055)->
     param4 = 2000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "守卫-嘲讽-召唤载体"
-    };
-getRow(40056)->
-    #skill_effectCfg {
-    iD = 40056,
-    effectType = 14,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 3,
-    param1 = 20003,
-    param2 = 0,
-    param3 = 0,
-    param4 = 4000,
-    param5 = 1,
-    param6 = 1,
-    skillName = "巫师-烈风术载体持续伤害"
     };
 getRow(40057)->
     #skill_effectCfg {
@@ -10263,6 +12708,9 @@ getRow(40057)->
     param4 = 500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "修士-治疗中毒治疗载体"
     };
 getRow(40058)->
@@ -10278,6 +12726,9 @@ getRow(40058)->
     param4 = 500,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "修士-治疗中毒中毒载体"
     };
 getRow(40059)->
@@ -10293,6 +12744,9 @@ getRow(40059)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "修士-治疗技能解除状态"
     };
 getRow(40060)->
@@ -10308,6 +12762,9 @@ getRow(40060)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "修士-治疗中毒中毒效果"
     };
 getRow(40061)->
@@ -10323,6 +12780,9 @@ getRow(40061)->
     param4 = 3000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "修士-神圣审判载体持续伤害"
     };
 getRow(40062)->
@@ -10338,6 +12798,9 @@ getRow(40062)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "巫师-烈风术减速"
     };
 getRow(40063)->
@@ -10347,13 +12810,16 @@ getRow(40063)->
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 3,
+    param1 = 20,
     param2 = 0,
     param3 = 0,
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "斗士-局击-击退3米"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "斗士-局击-击退20米"
     };
 getRow(40064)->
     #skill_effectCfg {
@@ -10368,6 +12834,9 @@ getRow(40064)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "斗士-战士之心-增强队友物防"
     };
 getRow(40065)->
@@ -10383,6 +12852,9 @@ getRow(40065)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "斗士-强化攻击-增强自身物防"
     };
 getRow(40066)->
@@ -10398,6 +12870,9 @@ getRow(40066)->
     param4 = 7000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "修士-心之祝福载体持续治疗"
     };
 getRow(40067)->
@@ -10413,52 +12888,10 @@ getRow(40067)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "守卫-局击-降低物攻"
-    };
-getRow(40068)->
-    #skill_effectCfg {
-    iD = 40068,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 40068,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "守卫-局击-降低法攻"
-    };
-getRow(40069)->
-    #skill_effectCfg {
-    iD = 40069,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 40069,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "刺客-快速疾走-加暴伤"
-    };
-getRow(40070)->
-    #skill_effectCfg {
-    iD = 40070,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 40070,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "旅者-快速疾走-加暴伤"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "守卫-局击-降低攻击"
     };
 getRow(40071)->
     #skill_effectCfg {
@@ -10473,6 +12906,9 @@ getRow(40071)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "流氓-暗斩-加暴击"
     };
 getRow(40072)->
@@ -10488,6 +12924,9 @@ getRow(40072)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "流氓-心脏刺激-降低法攻"
     };
 getRow(40100)->
@@ -10503,6 +12942,9 @@ getRow(40100)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战士-战士之心增强队友物攻"
     };
 getRow(40101)->
@@ -10518,6 +12960,9 @@ getRow(40101)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "守卫-圣光突刺-中毒"
     };
 getRow(40102)->
@@ -10533,7 +12978,10 @@ getRow(40102)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "守卫-祝福战士-增强队友物防"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "守卫-祝福战士-增强队友防御"
     };
 getRow(40103)->
     #skill_effectCfg {
@@ -10548,37 +12996,10 @@ getRow(40103)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "守卫-祝福战士-增强队友法防"
-    };
-getRow(40104)->
-    #skill_effectCfg {
-    iD = 40104,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 40104,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "守卫-嘲讽-降低物防"
-    };
-getRow(40105)->
-    #skill_effectCfg {
-    iD = 40105,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 40105,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "守卫-嘲讽-降低法防"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "守卫-嘲讽-降低防御"
     };
 getRow(40106)->
     #skill_effectCfg {
@@ -10593,6 +13014,9 @@ getRow(40106)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "刺客-漫步航行-减速"
     };
 getRow(40107)->
@@ -10608,6 +13032,9 @@ getRow(40107)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "刺客-暗斩-流血"
     };
 getRow(40108)->
@@ -10623,7 +13050,10 @@ getRow(40108)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "刺客-快速疾走-加速"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "刺客-快速疾走-加速加爆伤"
     };
 getRow(40109)->
     #skill_effectCfg {
@@ -10638,6 +13068,9 @@ getRow(40109)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "旅者-刺针射击-流血"
     };
 getRow(40110)->
@@ -10653,6 +13086,9 @@ getRow(40110)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "旅者-刺针射击-降低物攻"
     };
 getRow(40111)->
@@ -10668,6 +13104,9 @@ getRow(40111)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "旅者-断筋射击-击退"
     };
 getRow(40112)->
@@ -10683,6 +13122,9 @@ getRow(40112)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "旅者-断筋射击-减速"
     };
 getRow(40113)->
@@ -10698,7 +13140,10 @@ getRow(40113)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "旅者-快速疾走-加速"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "旅者-快速疾走-加速爆伤"
     };
 getRow(40114)->
     #skill_effectCfg {
@@ -10713,22 +13158,10 @@ getRow(40114)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "旅者-强化视野-队友加命中"
-    };
-getRow(40115)->
-    #skill_effectCfg {
-    iD = 40115,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 40115,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "旅者-强化视野-队友加闪避"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "旅者-强化视野-队友加命中闪避"
     };
 getRow(40116)->
     #skill_effectCfg {
@@ -10743,6 +13176,9 @@ getRow(40116)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "流氓-暗斩-冲锋"
     };
 getRow(40117)->
@@ -10758,6 +13194,9 @@ getRow(40117)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "刺客-暗斩-冲锋"
     };
 getRow(40118)->
@@ -10773,6 +13212,9 @@ getRow(40118)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "流氓-暗斩-流血"
     };
 getRow(40120)->
@@ -10788,22 +13230,10 @@ getRow(40120)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "旅者-疾风-自身加命中"
-    };
-getRow(40121)->
-    #skill_effectCfg {
-    iD = 40121,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 40121,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "旅者-疾风-自身加闪避"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "旅者-疾风-自身加命中闪避"
     };
 getRow(40122)->
     #skill_effectCfg {
@@ -10818,6 +13248,9 @@ getRow(40122)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "旅者-尼达的祝福-自身加暴击"
     };
 getRow(40123)->
@@ -10833,6 +13266,9 @@ getRow(40123)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "战士-强化攻击-增强自身物攻"
     };
 getRow(40124)->
@@ -10848,6 +13284,9 @@ getRow(40124)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "法师烈风术-防止BUG而设定的怪物定身"
     };
 getRow(40125)->
@@ -10863,6 +13302,9 @@ getRow(40125)->
     param4 = 2000,
     param5 = 1,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "职业通用-虚假怪物硬值"
     };
 getRow(40126)->
@@ -10878,6 +13320,9 @@ getRow(40126)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "虚假怪物硬值（冰冻）"
     };
 getRow(40127)->
@@ -10893,6 +13338,9 @@ getRow(40127)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "守卫-嘲讽-强制攻击"
     };
 getRow(40128)->
@@ -10908,6 +13356,9 @@ getRow(40128)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理防御降低"
     };
 getRow(40129)->
@@ -10923,6 +13374,9 @@ getRow(40129)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理攻击力增加"
     };
 getRow(40130)->
@@ -10938,6 +13392,9 @@ getRow(40130)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "物理防御降低"
     };
 getRow(40131)->
@@ -10953,6 +13410,9 @@ getRow(40131)->
     param4 = 5000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "旅者-漫天箭雨-载体"
     };
 getRow(40132)->
@@ -10968,7 +13428,100 @@ getRow(40132)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "持续恢复"
+    };
+getRow(40133)->
+    #skill_effectCfg {
+    iD = 40133,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 3,
+    param1 = 20011,
+    param2 = 0,
+    param3 = 0,
+    param4 = 2000,
+    param5 = 1,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "法师-普攻-载体"
+    };
+getRow(40134)->
+    #skill_effectCfg {
+    iD = 40134,
+    effectType = 15,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 10,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "旅者-漫天箭雨-击退"
+    };
+getRow(40135)->
+    #skill_effectCfg {
+    iD = 40135,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 3,
+    param1 = 20012,
+    param2 = 0,
+    param3 = 0,
+    param4 = 2000,
+    param5 = 1,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "修士-普攻-载体"
+    };
+getRow(40136)->
+    #skill_effectCfg {
+    iD = 40136,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 40136,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "修士-神圣审判持续伤害"
+    };
+getRow(40137)->
+    #skill_effectCfg {
+    iD = 40137,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 40137,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "职业闪避-通用免疫一切攻击BUFF"
     };
 getRow(51000)->
     #skill_effectCfg {
@@ -10983,28 +13536,16 @@ getRow(51000)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "约会怪物减速"
-    };
-getRow(52000)->
-    #skill_effectCfg {
-    iD = 52000,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 52000,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "材料副本减速NPC1级"
     };
 getRow(52001)->
     #skill_effectCfg {
     iD = 52001,
     effectType = 1,
-    effectChance = 1,
+    effectChance = 0.2,
     effectcondition = 0,
     effectTarget = 0,
     param1 = 52001,
@@ -11013,13 +13554,16 @@ getRow(52001)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "材料副本减速NPC2级"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本冰系NPC1级冰冻"
     };
 getRow(52002)->
     #skill_effectCfg {
     iD = 52002,
     effectType = 1,
-    effectChance = 1,
+    effectChance = 0.2,
     effectcondition = 0,
     effectTarget = 0,
     param1 = 52002,
@@ -11028,13 +13572,16 @@ getRow(52002)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "材料副本减速NPC3级"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本冰系NPC2级冰冻"
     };
 getRow(52003)->
     #skill_effectCfg {
     iD = 52003,
     effectType = 1,
-    effectChance = 1,
+    effectChance = 0.2,
     effectcondition = 0,
     effectTarget = 0,
     param1 = 52003,
@@ -11043,13 +13590,16 @@ getRow(52003)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "材料副本减速NPC4级"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本冰系NPC3级冰冻"
     };
 getRow(52004)->
     #skill_effectCfg {
     iD = 52004,
     effectType = 1,
-    effectChance = 1,
+    effectChance = 0.2,
     effectcondition = 0,
     effectTarget = 0,
     param1 = 52004,
@@ -11058,52 +13608,298 @@ getRow(52004)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "材料副本加伤NPC1级"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本冰系NPC4级冰冻"
     };
-getRow(52005)->
+getRow(52011)->
     #skill_effectCfg {
-    iD = 52005,
+    iD = 52011,
     effectType = 1,
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 52005,
+    param1 = 52011,
     param2 = 0,
     param3 = 0,
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "材料副本加伤NPC2级"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本毒系NPC1级减速"
     };
-getRow(52006)->
+getRow(52012)->
     #skill_effectCfg {
-    iD = 52006,
+    iD = 52012,
     effectType = 1,
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 52006,
+    param1 = 52012,
     param2 = 0,
     param3 = 0,
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "材料副本加伤NPC3级"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本毒系NPC2级减速"
     };
-getRow(52007)->
+getRow(52013)->
     #skill_effectCfg {
-    iD = 52007,
+    iD = 52013,
     effectType = 1,
     effectChance = 1,
     effectcondition = 0,
     effectTarget = 0,
-    param1 = 52007,
+    param1 = 52013,
     param2 = 0,
     param3 = 0,
     param4 = 0,
     param5 = 0,
     param6 = 0,
-    skillName = "材料副本加伤NPC4级"
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本毒系NPC3级减速"
+    };
+getRow(52014)->
+    #skill_effectCfg {
+    iD = 52014,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 52014,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本毒系NPC4级减速"
+    };
+getRow(52021)->
+    #skill_effectCfg {
+    iD = 52021,
+    effectType = 1,
+    effectChance = 0.1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 52021,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC1级眩晕"
+    };
+getRow(52022)->
+    #skill_effectCfg {
+    iD = 52022,
+    effectType = 1,
+    effectChance = 0.1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 52022,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC2级眩晕"
+    };
+getRow(52023)->
+    #skill_effectCfg {
+    iD = 52023,
+    effectType = 1,
+    effectChance = 0.1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 52023,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC3级眩晕"
+    };
+getRow(52024)->
+    #skill_effectCfg {
+    iD = 52024,
+    effectType = 1,
+    effectChance = 0.1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 52024,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC4级眩晕"
+    };
+getRow(52031)->
+    #skill_effectCfg {
+    iD = 52031,
+    effectType = 14,
+    effectChance = 0.15,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 8600,
+    param2 = 0,
+    param3 = 1,
+    param4 = 3000,
+    param5 = 0,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC1级减速aoe载体"
+    };
+getRow(52032)->
+    #skill_effectCfg {
+    iD = 52032,
+    effectType = 14,
+    effectChance = 0.15,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 8601,
+    param2 = 0,
+    param3 = 1,
+    param4 = 3000,
+    param5 = 0,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC2级减速aoe载体"
+    };
+getRow(52033)->
+    #skill_effectCfg {
+    iD = 52033,
+    effectType = 14,
+    effectChance = 0.15,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 8602,
+    param2 = 0,
+    param3 = 1,
+    param4 = 3000,
+    param5 = 0,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC3级减速aoe载体"
+    };
+getRow(52034)->
+    #skill_effectCfg {
+    iD = 52034,
+    effectType = 14,
+    effectChance = 0.15,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 8603,
+    param2 = 0,
+    param3 = 1,
+    param4 = 3000,
+    param5 = 0,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC4级减速aoe载体"
+    };
+getRow(52041)->
+    #skill_effectCfg {
+    iD = 52041,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 52031,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC1级减速aoe载体"
+    };
+getRow(52042)->
+    #skill_effectCfg {
+    iD = 52042,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 52032,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC2级减速aoe载体"
+    };
+getRow(52043)->
+    #skill_effectCfg {
+    iD = 52043,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 52033,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC3级减速aoe载体"
+    };
+getRow(52044)->
+    #skill_effectCfg {
+    iD = 52044,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 52034,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "材料副本火系NPC4级减速aoe载体"
     };
 getRow(53000)->
     #skill_effectCfg {
@@ -11118,6 +13914,9 @@ getRow(53000)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "副本引导战士神力觉醒"
     };
 getRow(53001)->
@@ -11133,6 +13932,9 @@ getRow(53001)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "副本引导战士神力觉醒被动全技能"
     };
 getRow(53002)->
@@ -11148,6 +13950,9 @@ getRow(53002)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "副本引导法师神力觉醒"
     };
 getRow(53003)->
@@ -11163,6 +13968,9 @@ getRow(53003)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "副本引导法师神力觉醒被动全技能"
     };
 getRow(53004)->
@@ -11178,6 +13986,9 @@ getRow(53004)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "副本引导刺客神力觉醒"
     };
 getRow(53005)->
@@ -11193,322 +14004,10 @@ getRow(53005)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "副本引导刺客神力觉醒被动全技能"
-    };
-getRow(53101)->
-    #skill_effectCfg {
-    iD = 53101,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 61101,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动器灵技能-火器灵灼烧"
-    };
-getRow(53103)->
-    #skill_effectCfg {
-    iD = 53103,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61103,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动器灵技能-冰器灵冰盾"
-    };
-getRow(53105)->
-    #skill_effectCfg {
-    iD = 53105,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 61105,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动器灵技能-电器灵闪电风暴"
-    };
-getRow(53107)->
-    #skill_effectCfg {
-    iD = 53107,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 61107,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动器灵技能-风器灵风刃"
-    };
-getRow(53109)->
-    #skill_effectCfg {
-    iD = 53109,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 0,
-    param1 = 61109,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动器灵技能-光器灵光愈"
-    };
-getRow(53111)->
-    #skill_effectCfg {
-    iD = 53111,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61111,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动器灵技能-暗器灵暗灭"
-    };
-getRow(53200)->
-    #skill_effectCfg {
-    iD = 53200,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61201,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动战士觉醒"
-    };
-getRow(53201)->
-    #skill_effectCfg {
-    iD = 53201,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61202,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动战士觉醒被动1技能"
-    };
-getRow(53202)->
-    #skill_effectCfg {
-    iD = 53202,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61203,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动战士觉醒被动2技能"
-    };
-getRow(53203)->
-    #skill_effectCfg {
-    iD = 53203,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61204,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动战士觉醒被动3技能"
-    };
-getRow(53204)->
-    #skill_effectCfg {
-    iD = 53204,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61205,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动战士觉醒被动4技能"
-    };
-getRow(53205)->
-    #skill_effectCfg {
-    iD = 53205,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61206,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动法师觉醒"
-    };
-getRow(53206)->
-    #skill_effectCfg {
-    iD = 53206,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61207,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动法师觉醒被动1技能"
-    };
-getRow(53207)->
-    #skill_effectCfg {
-    iD = 53207,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61208,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动法师觉醒被动2技能"
-    };
-getRow(53208)->
-    #skill_effectCfg {
-    iD = 53208,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61209,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动法师觉醒被动3技能"
-    };
-getRow(53209)->
-    #skill_effectCfg {
-    iD = 53209,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61210,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动法师觉醒被动全技能"
-    };
-getRow(53210)->
-    #skill_effectCfg {
-    iD = 53210,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61211,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动刺客觉醒"
-    };
-getRow(53211)->
-    #skill_effectCfg {
-    iD = 53211,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61212,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动刺客觉醒被动1技能"
-    };
-getRow(53212)->
-    #skill_effectCfg {
-    iD = 53212,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61213,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动刺客觉醒被动2技能"
-    };
-getRow(53213)->
-    #skill_effectCfg {
-    iD = 53213,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61214,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动刺客觉醒被动3技能"
-    };
-getRow(53214)->
-    #skill_effectCfg {
-    iD = 53214,
-    effectType = 1,
-    effectChance = 1,
-    effectcondition = 0,
-    effectTarget = 1,
-    param1 = 61215,
-    param2 = 0,
-    param3 = 0,
-    param4 = 0,
-    param5 = 0,
-    param6 = 0,
-    skillName = "器灵材料活动刺客觉醒被动4技能"
     };
 getRow(53301)->
     #skill_effectCfg {
@@ -11523,6 +14022,9 @@ getRow(53301)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "守护之石霸体"
     };
 getRow(53302)->
@@ -11538,6 +14040,9 @@ getRow(53302)->
     param4 = 2000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "龙法师技能载体"
     };
 getRow(60006)->
@@ -11553,6 +14058,9 @@ getRow(60006)->
     param4 = 0,
     param5 = 0,
     param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "控制女神小精灵隐藏"
     };
 getRow(60010)->
@@ -11568,6 +14076,9 @@ getRow(60010)->
     param4 = 5000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-战士"
     };
 getRow(60011)->
@@ -11583,6 +14094,9 @@ getRow(60011)->
     param4 = 2000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-战士"
     };
 getRow(60012)->
@@ -11598,6 +14112,9 @@ getRow(60012)->
     param4 = 3000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-战士"
     };
 getRow(60013)->
@@ -11613,6 +14130,9 @@ getRow(60013)->
     param4 = 3000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-战士"
     };
 getRow(60014)->
@@ -11628,6 +14148,9 @@ getRow(60014)->
     param4 = 4000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-战士"
     };
 getRow(60015)->
@@ -11643,6 +14166,9 @@ getRow(60015)->
     param4 = 4000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-战士"
     };
 getRow(60020)->
@@ -11658,6 +14184,9 @@ getRow(60020)->
     param4 = 2000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-法师"
     };
 getRow(60021)->
@@ -11673,6 +14202,9 @@ getRow(60021)->
     param4 = 2000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-法师"
     };
 getRow(60022)->
@@ -11688,6 +14220,9 @@ getRow(60022)->
     param4 = 3000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-法师"
     };
 getRow(60023)->
@@ -11703,6 +14238,9 @@ getRow(60023)->
     param4 = 3000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-法师"
     };
 getRow(60024)->
@@ -11718,6 +14256,9 @@ getRow(60024)->
     param4 = 4000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-法师"
     };
 getRow(60025)->
@@ -11733,6 +14274,9 @@ getRow(60025)->
     param4 = 5000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-法师"
     };
 getRow(60030)->
@@ -11748,6 +14292,9 @@ getRow(60030)->
     param4 = 2000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-刺客"
     };
 getRow(60031)->
@@ -11763,6 +14310,9 @@ getRow(60031)->
     param4 = 2000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-刺客"
     };
 getRow(60032)->
@@ -11778,6 +14328,9 @@ getRow(60032)->
     param4 = 3000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-刺客"
     };
 getRow(60033)->
@@ -11793,6 +14346,9 @@ getRow(60033)->
     param4 = 3000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-刺客"
     };
 getRow(60034)->
@@ -11808,6 +14364,9 @@ getRow(60034)->
     param4 = 4000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-刺客"
     };
 getRow(60035)->
@@ -11823,6 +14382,9 @@ getRow(60035)->
     param4 = 4000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-刺客"
     };
 getRow(60036)->
@@ -11838,7 +14400,280 @@ getRow(60036)->
     param4 = 5000,
     param5 = 0,
     param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
     skillName = "觉醒技能释放伤害载体-刺客"
+    };
+getRow(61000)->
+    #skill_effectCfg {
+    iD = 61000,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 60011,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "虚化"
+    };
+getRow(190020)->
+    #skill_effectCfg {
+    iD = 190020,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 1152,
+    param2 = 0,
+    param3 = 3,
+    param4 = 20000,
+    param5 = 0,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
+    };
+getRow(190021)->
+    #skill_effectCfg {
+    iD = 190021,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 1,
+    param1 = 1153,
+    param2 = 1,
+    param3 = 0,
+    param4 = 10000,
+    param5 = 1,
+    param6 = 8,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
+    };
+getRow(190022)->
+    #skill_effectCfg {
+    iD = 190022,
+    effectType = 1,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 190022,
+    param2 = 0,
+    param3 = 0,
+    param4 = 0,
+    param5 = 0,
+    param6 = 0,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
+    };
+getRow(190030)->
+    #skill_effectCfg {
+    iD = 190030,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 1154,
+    param2 = 0,
+    param3 = 1,
+    param4 = 4000,
+    param5 = 0,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
+    };
+getRow(190031)->
+    #skill_effectCfg {
+    iD = 190031,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 1155,
+    param2 = 0,
+    param3 = 1,
+    param4 = 6000,
+    param5 = 0,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
+    };
+getRow(190032)->
+    #skill_effectCfg {
+    iD = 190032,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 1156,
+    param2 = 0,
+    param3 = 1,
+    param4 = 8000,
+    param5 = 0,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
+    };
+getRow(190033)->
+    #skill_effectCfg {
+    iD = 190033,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 1,
+    param1 = 1157,
+    param2 = 0,
+    param3 = 1,
+    param4 = 2000,
+    param5 = 1,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
+    };
+getRow(190034)->
+    #skill_effectCfg {
+    iD = 190034,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 1,
+    param1 = 1158,
+    param2 = 0,
+    param3 = 1,
+    param4 = 2000,
+    param5 = 1,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
+    };
+getRow(190035)->
+    #skill_effectCfg {
+    iD = 190035,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 1,
+    param1 = 1159,
+    param2 = 0,
+    param3 = 1,
+    param4 = 2000,
+    param5 = 1,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
+    };
+getRow(190036)->
+    #skill_effectCfg {
+    iD = 190036,
+    effectType = 14,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 1,
+    param1 = 1161,
+    param2 = 0,
+    param3 = 1,
+    param4 = 1500,
+    param5 = 0,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "40级野外boss"
+    };
+getRow(190261)->
+    #skill_effectCfg {
+    iD = 190261,
+    effectType = 4,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 1150,
+    param2 = 1,
+    param3 = 30000,
+    param4 = 10,
+    param5 = 10,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "35级野外boss"
+    };
+getRow(190262)->
+    #skill_effectCfg {
+    iD = 190262,
+    effectType = 4,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 1150,
+    param2 = 1,
+    param3 = 30000,
+    param4 = -10,
+    param5 = 10,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "35级野外boss"
+    };
+getRow(190263)->
+    #skill_effectCfg {
+    iD = 190263,
+    effectType = 4,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 1150,
+    param2 = 1,
+    param3 = 30000,
+    param4 = 10,
+    param5 = -10,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "35级野外boss"
+    };
+getRow(190264)->
+    #skill_effectCfg {
+    iD = 190264,
+    effectType = 4,
+    effectChance = 1,
+    effectcondition = 0,
+    effectTarget = 0,
+    param1 = 1150,
+    param2 = 1,
+    param3 = 30000,
+    param4 = -10,
+    param5 = -10,
+    param6 = 1,
+    param7 = 0,
+    param8 = 0,
+    param9 = 0,
+    skillName = "35级野外boss"
     };
 getRow(_)->[].
 
@@ -12240,6 +15075,8 @@ getKeyList()->[
     {3532},
     {3533},
     {3534},
+    {5000},
+    {5001},
     {7011},
     {7012},
     {7013},
@@ -12353,10 +15190,28 @@ getKeyList()->[
     {13503},
     {13504},
     {14008},
-    {15000},
-    {15001},
+    {15007},
     {15010},
     {15020},
+    {16000},
+    {16001},
+    {16002},
+    {16003},
+    {16004},
+    {16005},
+    {16006},
+    {16007},
+    {16008},
+    {16012},
+    {16013},
+    {16014},
+    {16015},
+    {16016},
+    {16017},
+    {16018},
+    {16019},
+    {16020},
+    {16021},
     {19000},
     {19001},
     {19002},
@@ -12383,7 +15238,6 @@ getKeyList()->[
     {19023},
     {19024},
     {19025},
-    {19026},
     {19027},
     {19028},
     {19029},
@@ -12400,6 +15254,10 @@ getKeyList()->[
     {20004},
     {20005},
     {20006},
+    {21000},
+    {21001},
+    {21002},
+    {21003},
     {30001},
     {30002},
     {30003},
@@ -12525,7 +15383,6 @@ getKeyList()->[
     {40053},
     {40054},
     {40055},
-    {40056},
     {40057},
     {40058},
     {40059},
@@ -12537,17 +15394,12 @@ getKeyList()->[
     {40065},
     {40066},
     {40067},
-    {40068},
-    {40069},
-    {40070},
     {40071},
     {40072},
     {40100},
     {40101},
     {40102},
     {40103},
-    {40104},
-    {40105},
     {40106},
     {40107},
     {40108},
@@ -12557,12 +15409,10 @@ getKeyList()->[
     {40112},
     {40113},
     {40114},
-    {40115},
     {40116},
     {40117},
     {40118},
     {40120},
-    {40121},
     {40122},
     {40123},
     {40124},
@@ -12574,42 +15424,38 @@ getKeyList()->[
     {40130},
     {40131},
     {40132},
+    {40133},
+    {40134},
+    {40135},
+    {40136},
+    {40137},
     {51000},
-    {52000},
     {52001},
     {52002},
     {52003},
     {52004},
-    {52005},
-    {52006},
-    {52007},
+    {52011},
+    {52012},
+    {52013},
+    {52014},
+    {52021},
+    {52022},
+    {52023},
+    {52024},
+    {52031},
+    {52032},
+    {52033},
+    {52034},
+    {52041},
+    {52042},
+    {52043},
+    {52044},
     {53000},
     {53001},
     {53002},
     {53003},
     {53004},
     {53005},
-    {53101},
-    {53103},
-    {53105},
-    {53107},
-    {53109},
-    {53111},
-    {53200},
-    {53201},
-    {53202},
-    {53203},
-    {53204},
-    {53205},
-    {53206},
-    {53207},
-    {53208},
-    {53209},
-    {53210},
-    {53211},
-    {53212},
-    {53213},
-    {53214},
     {53301},
     {53302},
     {60006},
@@ -12631,7 +15477,22 @@ getKeyList()->[
     {60033},
     {60034},
     {60035},
-    {60036}
+    {60036},
+    {61000},
+    {190020},
+    {190021},
+    {190022},
+    {190030},
+    {190031},
+    {190032},
+    {190033},
+    {190034},
+    {190035},
+    {190036},
+    {190261},
+    {190262},
+    {190263},
+    {190264}
     ].
 
 get1KeyList()->[
@@ -13032,6 +15893,8 @@ get1KeyList()->[
     3532,
     3533,
     3534,
+    5000,
+    5001,
     7011,
     7012,
     7013,
@@ -13145,10 +16008,28 @@ get1KeyList()->[
     13503,
     13504,
     14008,
-    15000,
-    15001,
+    15007,
     15010,
     15020,
+    16000,
+    16001,
+    16002,
+    16003,
+    16004,
+    16005,
+    16006,
+    16007,
+    16008,
+    16012,
+    16013,
+    16014,
+    16015,
+    16016,
+    16017,
+    16018,
+    16019,
+    16020,
+    16021,
     19000,
     19001,
     19002,
@@ -13175,7 +16056,6 @@ get1KeyList()->[
     19023,
     19024,
     19025,
-    19026,
     19027,
     19028,
     19029,
@@ -13192,6 +16072,10 @@ get1KeyList()->[
     20004,
     20005,
     20006,
+    21000,
+    21001,
+    21002,
+    21003,
     30001,
     30002,
     30003,
@@ -13317,7 +16201,6 @@ get1KeyList()->[
     40053,
     40054,
     40055,
-    40056,
     40057,
     40058,
     40059,
@@ -13329,17 +16212,12 @@ get1KeyList()->[
     40065,
     40066,
     40067,
-    40068,
-    40069,
-    40070,
     40071,
     40072,
     40100,
     40101,
     40102,
     40103,
-    40104,
-    40105,
     40106,
     40107,
     40108,
@@ -13349,12 +16227,10 @@ get1KeyList()->[
     40112,
     40113,
     40114,
-    40115,
     40116,
     40117,
     40118,
     40120,
-    40121,
     40122,
     40123,
     40124,
@@ -13366,42 +16242,38 @@ get1KeyList()->[
     40130,
     40131,
     40132,
+    40133,
+    40134,
+    40135,
+    40136,
+    40137,
     51000,
-    52000,
     52001,
     52002,
     52003,
     52004,
-    52005,
-    52006,
-    52007,
+    52011,
+    52012,
+    52013,
+    52014,
+    52021,
+    52022,
+    52023,
+    52024,
+    52031,
+    52032,
+    52033,
+    52034,
+    52041,
+    52042,
+    52043,
+    52044,
     53000,
     53001,
     53002,
     53003,
     53004,
     53005,
-    53101,
-    53103,
-    53105,
-    53107,
-    53109,
-    53111,
-    53200,
-    53201,
-    53202,
-    53203,
-    53204,
-    53205,
-    53206,
-    53207,
-    53208,
-    53209,
-    53210,
-    53211,
-    53212,
-    53213,
-    53214,
     53301,
     53302,
     60006,
@@ -13423,6 +16295,21 @@ get1KeyList()->[
     60033,
     60034,
     60035,
-    60036
+    60036,
+    61000,
+    190020,
+    190021,
+    190022,
+    190030,
+    190031,
+    190032,
+    190033,
+    190034,
+    190035,
+    190036,
+    190261,
+    190262,
+    190263,
+    190264
     ].
 

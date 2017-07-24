@@ -192,7 +192,7 @@ requestGetExpeditionEverydayReward(MapID)->
                 _ ->
                     %% to领奖
                     ?LOG_OUT("requestGetExpeditionEverydayReward, player=~p,map=~p", [playerState:getRoleID(), MapID]),
-                    playerDaily:incCounter(?DailyType_GuildExpeditionEveryDayReward, MapID, 1),
+                    playerDaily:incDailyCounter(?DailyType_GuildExpeditionEveryDayReward, MapID),
                     core:sendMsgToActivity(?ActivityType_GuildExpedition,
                         requestGetExpeditionEverydayReward,
                         {playerState:getRoleID(), playerState:getLevel(), playerState:getGuildID(), playerGuild:getGuildSelfLevel(),MapID})
@@ -206,7 +206,7 @@ requestGetExpeditionEverydayRewardAck({MapID,Ret})->
     case Ret of
         true ->
             playerMsg:sendErrorCodeMsg(?ErrorCode_GuildReward_Success),
-            playerDaily:incCounter(?DailyType_GuildExpeditionEveryDayReward, MapID, 1);
+            playerDaily:incDailyCounter(?DailyType_GuildExpeditionEveryDayReward, MapID);
         _->
             playerMsg:sendErrorCodeMsg(?ErrorCode_GuildReward_Failed),
             playerDaily:zeroDailyCount(?DailyType_GuildExpeditionEveryDayReward, MapID)

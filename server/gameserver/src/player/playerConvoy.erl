@@ -25,6 +25,7 @@
 
 -export([
 	giveUpConvoy/0,
+	convoySuccess/1,
 	convoySuccess/0
 ]).
 
@@ -81,7 +82,8 @@ convoyFailedCallBack({MonsterID, MonsterCode, ExtData} = Param) ->
 							?ERROR_OUT("convoyFailedCallBack failed:~p,~p", [Fun, Why])
 					end
 				end,
-			lists:foreach(F, ?ConvoyFailedCallBackFunList);
+			lists:foreach(F, ?ConvoyFailedCallBackFunList),
+			convoyOver();
 		Error ->
 			?ERROR_OUT("recv convoy failed roleID[~p] MonsterID[~p] MonsterCode[~p] ExtData[~p] Error[~p]",
 			[playerState:getRoleID(), MonsterID, MonsterCode, ExtData, Error])
@@ -89,6 +91,7 @@ convoyFailedCallBack({MonsterID, MonsterCode, ExtData} = Param) ->
 	ok;
 convoyFailedCallBack({RoleID, false}) ->
 	setConvoyInfo(convoyInit()),
+	convoyOver(),
 	?ERROR_OUT("convoyFailedCallBack error:~p", [RoleID]),
 	ok.
 
@@ -103,16 +106,34 @@ giveUpConvoy() ->
 			false
 	end.
 
-%% 护送成功
--spec convoySuccess() -> boolean().
+%% 护送成功.
+convoySuccess({false, _Code, MonsterID})->
+	case isConvoyIng() of
+		true ->
+			playerTask:updateTask(?TaskSubType_Convoy, MonsterID),
+			playerTask:updateTask(?TaskSubType_Convoy, playerState:getMapIDGroup(), MonsterID),
+			convoySuccess();
+		_ ->
+			false
+	end;
+convoySuccess(_)->
+	convoySuccess().
+
 convoySuccess() ->
 	case isConvoyIng() of
 		true ->
+			setConvoyInfo(convoyInit()),
 			psMgr:sendMsg2PS(playerState:getMapPid(), convoyEnd, {success, playerState:getRoleID()}),
+			convoyOver(),
 			true;
 		_ ->
 			false
 	end.
+
+
+convoyOver()->
+	playerCopyMap:leaveCopyMap(),
+	ok.
 
 %% 是不是护送目标
 -spec filterConvoyObject(CodeList::[uint64(),...]) -> CodeList2::[uint64(),...].

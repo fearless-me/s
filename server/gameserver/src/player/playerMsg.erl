@@ -5,6 +5,7 @@
 -author(zhongyuanwei).
 
 -include("playerPrivate.hrl").
+
 %-include("../netmsg/netmsgRecords.hrl").
 %% ====================================================================
 %% API functions
@@ -265,7 +266,7 @@ onMsg(?CMD_U2GS_RequestRechargeHasGiftIDList, #pk_U2GS_RequestRechargeHasGiftIDL
 			#pk_RechargeDoubleConf{payMoney = misc:toFloat(PayMoney), id = RID1} ||
 			#rec_recharge_double_conf{rebateID = RID1, funcellPayItemID = PayMoney} <- ConfIDList]
 	},
-	playerMsg:sendNetMsg(Msg),
+	sendNetMsg(Msg),
 	ok;
 
 %%充值角色(钻石)
@@ -299,7 +300,6 @@ onMsg(?CMD_U2GS_Buy4System, #pk_U2GS_Buy4System{costID = CostID, number = Number
 
 %%月卡 礼品领取
 onMsg(?CMD_U2GS_MonthCardGettingEvent, #pk_U2GS_MonthCardGettingEvent{type = _Type}) ->
-
 	playerMonthCard:getGiftMsg(),
 	ok;
 
@@ -402,7 +402,7 @@ onMsg(?CMD_U2GS_GiveUpRedEnvelope, #pk_U2GS_GiveUpRedEnvelope{}) ->
 %%///////////////////////////////////////////////////////////////////////////////////////
 %%取王者雕像的数据
 onMsg(?CMD_U2GS_RequestMarrorInfo, #pk_U2GS_RequestMarrorInfo{}) ->
-	playerAcKingBattleAll:flashMirrorInfo(),
+	playerAcKingBattleAll:flashMirrorInfo(true),
 	ok;
 
 %%取王者雕像的点赞
@@ -483,7 +483,7 @@ onMsg(?CMD_U2GS_DashTo, #pk_U2GS_DashTo{posX = X, posY = Y}) ->
 	ok;
 
 onMsg(?CMD_U2GS_ChangeWingLevel, #pk_U2GS_ChangeWingLevel{level = NewWingLevel}) ->
-	playerWing:changeWingLevel(NewWingLevel),
+%%	playerWing:changeWingLevel(NewWingLevel),
 	ok;
 
 %%设置时装可视的公共属性
@@ -491,35 +491,25 @@ onMsg(?CMD_U2GS_IsDisplayFashion, #pk_U2GS_IsDisplayFashion{flag = Value}) ->
 	playerPropSync:setInt(?PubProp_FashionVisibleFlag, Value),
 	ok;
 
-%删除buff
+%% 删除buff （据彭望解释：发动觉醒技能会有变大效果，玩家可以主动中止变大效果，此时客户端请求删除BUFF
+%%			但是我没有找到觉醒技能对应的变大效果，只有带属性的变身效果
 onMsg(?CMD_U2GS_DelBuff, #pk_U2GS_DelBuff{code = Code, buffID = BuffID}) ->
-	ObjectType = codeMgr:getObjectTypeByCode(Code),
-	if
-		ObjectType =:= ?ObjTypePlayer ->
-			SearchEts = playerState:getMapPlayerEts();
-%% 		ObjectType =:= ?ObjTypeMonster ->
-%% 			SearchEts = playerState:getMapMonsterEts();
-%% 		ObjectType =:= ?ObjTypePet ->
-%% 			SearchEts = playerState:getMapPetEts();
-		true ->
-			SearchEts = undefined
-	end,
-	if
-		SearchEts =/= undefined ->
-			case ets:lookup(SearchEts, Code) of
-				[#recMapObject{}] ->
+	case playerState:getPlayerCode() of
+		Code ->
+			case getCfg:getCfgByKey(cfg_buff, BuffID) of
+				#buffCfg{buffEffect = ?Transformation} ->
 					playerBuff:delBuff(BuffID);
-				%%psMgr:sendMsg2PS(Pid, delBuff, {Code, BuffID});
 				_ ->
 					skip
-			end;
-		true ->
+			end,
+			ok;
+		_ ->
 			skip
 	end,
 	ok;
 
 %移动到某点
-onMsg(?CMD_U2GS_MoveTo, #pk_U2GS_MoveTo{code = Code, posX = X, posY = Y} = Pk) ->
+onMsg(?CMD_U2GS_MoveTo, #pk_U2GS_MoveTo{code = Code, posX = X, posY = Y, posInfos = PosInfos} = Pk) ->
 	case codeMgr:isCodeType(?CodeTypePet, Code) andalso playerState:getActionStatus() =/= ?CreatureActionStatusChangeMap of
 		true ->
 			case lists:member(Code, playerState:getCallPetCodeList()) of
@@ -530,7 +520,7 @@ onMsg(?CMD_U2GS_MoveTo, #pk_U2GS_MoveTo{code = Code, posX = X, posY = Y} = Pk) -
 						?CreatureActionStatusDead ->
 							skip;
 						_ ->
-							monsterInterface:moveTo(Code, X, Y)
+							monsterInterface:petMoveTo(Code, X, Y, PosInfos)
 					end;
 				_ ->
 					skip
@@ -633,7 +623,7 @@ onMsg(?CMD_U2GS_RequestCompleteOneLoopTaskByOneKey, #pk_U2GS_RequestCompleteOneL
 onMsg(?CMD_U2GS_RequestAcceptTask, #pk_U2GS_RequestAcceptTask{} = Pk) ->
 	TaskID = Pk#pk_U2GS_RequestAcceptTask.taskID,
 	Code = Pk#pk_U2GS_RequestAcceptTask.code,
-	case getCfg:getCfgByKey(cfg_task_new, TaskID) of
+	case getCfg:getCfgByKey(cfg_task, TaskID) of
 		#task_newCfg{tasktype = ?TaskMainType_Marriage} ->
 			skip; %% 不能使用该接口接受情缘任务
 		_ ->
@@ -654,7 +644,7 @@ onMsg(?CMD_U2GS_SumbitTask, #pk_U2GS_SumbitTask{} = Pk) ->
 	Code = Pk#pk_U2GS_SumbitTask.code,
 	case getCfg:getCfgByKey(cfg_task, TaskID) of
 		#taskCfg{type = ?TaskMainType_Marriage} ->
-			playerMarriageTask:submitTask();
+			playerMarriageTask:leaderSubmitTask(Code);
 		_ ->
 			playerTask:submitTask(TaskID, Code, 0)
 	end,
@@ -663,6 +653,11 @@ onMsg(?CMD_U2GS_SumbitTask, #pk_U2GS_SumbitTask{} = Pk) ->
 %%重置任务
 onMsg(?CMD_U2GS_ResetTask, #pk_U2GS_ResetTask{taskID = TaskID}) ->
 	playerTask:resetTask(TaskID),
+	ok;
+
+%%触发任务BUFF
+onMsg(?CMD_U2GS_TriggerTaskBuff, #pk_U2GS_TriggerTaskBuff{taskID = TaskID}) ->
+	playerTask:triggerTaskBuff(TaskID),
 	ok;
 
 %%请求通过NPC进入活动地图
@@ -723,12 +718,12 @@ onMsg(?CMD_C2S_ChangeMap, #pk_C2S_ChangeMap{mapId = NewMapId, waypointName = Way
 						MapType =:= ?MapTypeActivity andalso SubType =:= ?MapSubTypeGuildExpedition ->
 							playerGuildExpedition:requestEnterMap(NewMapId, WaypointName);
 					%MapType =:= ?MapTypeActivity andalso SubType =:= ?MapSubTypeWeddingSite ->
-					%	playerMsg:sendErrorCodeMsg(?ErrorCode_Marriage_WS_FromInvalidMap);
+					%	sendErrorCodeMsg(?ErrorCode_Marriage_WS_FromInvalidMap);
 						true ->
-							playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
+							sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
 					end;
 				_ ->
-					playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
+					sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
 			end;
 		_ ->
 			?ERROR_OUT("CMD_C2S_ChangeMap:~p,~p", [playerState:getRoleID(), NewMapId]),
@@ -743,7 +738,7 @@ onMsg(?CMD_U2GS_GoonCopyMap, #pk_U2GS_GoonCopyMap{mapID = TMapID}) ->
 		true ->
 			playerCopyMap:goonCopyMap(TMapID);
 		ErrorCode ->
-			playerMsg:sendErrorCodeMsg(ErrorCode)
+			sendErrorCodeMsg(ErrorCode)
 	end,
 	ok;
 
@@ -766,31 +761,31 @@ onMsg(?CMD_U2GS_TransferMap, #pk_U2GS_TransferMap{mapId = NewMapId, waypointName
 						MapType =:= ?MapTypeNormal ->
 							case playerScene:canTransferMapAndSetNewTransferInfo() of
 								true -> playerScene:onRequestEnterMap(NewMapId, WaypointName);
-								_ -> playerMsg:sendErrorCodeMsg(?ErrorCode_SystemTransferMapCD)
+								_ -> sendErrorCodeMsg(?ErrorCode_SystemTransferMapCD)
 							end;
 						MapType =:= ?MapTypeActivity andalso SubType =:= ?MapSubTypeGuildExpedition ->
 							playerGuildExpedition:requestEnterMap(NewMapId, WaypointName);
 						true ->
-							playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
+							sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
 					end;
 				?MapTypeActivity ->
 					if
 						MapType =:= ?MapTypeNormal ->
 							case playerScene:canTransferMapAndSetNewTransferInfo() of
 								true -> playerScene:onRequestEnterMap(NewMapId, WaypointName);
-								_ -> playerMsg:sendErrorCodeMsg(?ErrorCode_SystemTransferMapCD)
+								_ -> sendErrorCodeMsg(?ErrorCode_SystemTransferMapCD)
 							end;
 						MapType =:= ?MapTypeActivity andalso SubType =:= ?MapSubTypeGuildExpedition ->
 							playerGuildExpedition:requestEnterMap(NewMapId, WaypointName);
 						true ->
-							playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
+							sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
 					end;
 				_ ->
-					playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
+					sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
 			end;
 		_ ->
 			?ERROR_OUT("CMD_U2GS_TransferMap:~p,~p", [playerState:getRoleID(), NewMapId]),
-			playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
+			sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
 	end,
 	ok;
 
@@ -803,7 +798,7 @@ onMsg(?CMD_U2GS_DigTransferMap, #pk_U2GS_DigTransferMap{mapId = NowMapId, waypoi
 				?MapTypeNormal ->
 					playerScene:onRequestEnterMap(NowMapId, WaypointName);
 				_ ->
-					playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
+					sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
 			end;
 		_ ->
 			?ERROR_OUT("CMD_U2GS_DigTransferMap:~p,~p", [playerState:getRoleID(), NowMapId]),
@@ -816,13 +811,13 @@ onMsg(?CMD_U2GS_getFriendPos, #pk_U2GS_getFriendPos{friendID = FriendID}) ->
 	ActStatus = playerState:getActionStatus(),
 	case ActStatus =:= ?CreatureActionStatusDead orelse playerState:isPlayerBattleStatus() of
 		true -> %%战斗和死亡状态不让传送
-			playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailedPlayerDeadOrBattle);
+			sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailedPlayerDeadOrBattle);
 		_ ->
 			case ActStatus =/= ?CreatureActionStatusChangeMap of
 				true ->
 					playerMap:tryGetFriendPos(FriendID);
 				_ ->
-					playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
+					sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
 			end
 	end,
 	ok;
@@ -834,19 +829,24 @@ onMsg(?CMD_U2GS_Transfer2NewPos, #pk_U2GS_Transfer2NewPos{mapID = MapID, x = Pos
 			ActStatus = playerState:getActionStatus(),
 			case ActStatus =:= ?CreatureActionStatusDead orelse playerState:isPlayerBattleStatus() of
 				true ->  %%战斗和死亡状态不让传送
-					playerMsg:sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailedPlayerDeadOrBattle);
+					sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailedPlayerDeadOrBattle);
 				_ ->
 					case playerScene:canTransferMapAndSetNewTransferInfo() of
 						true ->
 							playerMap:transfer2NewPos(MapID, PosX, PosY);
 						false ->
-							playerMsg:sendErrorCodeMsg(?ErrorCode_SystemTransferMapCD)
+							sendErrorCodeMsg(?ErrorCode_SystemTransferMapCD)
 					end
 			end;
 		_ ->
 			?ERROR_OUT("CMD_U2GS_Transfer2NewPos:~p,~p", [playerState:getRoleID(), MapID]),
 			sendErrorCodeMsg(?ErrorCode_SystemChangeMapFailed)
 	end,
+	ok;
+
+%%瞬间移动
+onMsg(?CMD_U2GS_Telesport, #pk_U2GS_Telesport{x = Tx, y = Ty} = P) ->
+	playerMap:telesport(Tx, Ty),
 	ok;
 
 %%聊天
@@ -1000,7 +1000,7 @@ onMsg(?CMD_U2GS_WingRise, #pk_U2GS_WingRise{itemID = ItemID, itemNum = ItemNum, 
 
 	playerPackage:useItemByID(ItemID, ItemNum, IsOnlyBind),
 	NewExp = playerState:getWingExpAccPerItemUse(),
-	playerMsg:sendNetMsg(#pk_GS2U_WingRise{
+	sendNetMsg(#pk_GS2U_WingRise{
 		itemID = ItemID,
 		expChange = NewExp - OldExp
 	}),
@@ -1017,6 +1017,57 @@ onMsg(?CMD_U2GS_UseItem, #pk_U2GS_UseItem{itemUID = UID, useNum = Num}) ->
 			skip
 	end,
 	ok;
+onMsg(?CMD_U2GS_PetLevelUp, #pk_U2GS_PetLevelUp{petID = PetID, itemUID = ItemID, useNum = Num}) ->
+	case Num > 0 andalso PetID > 0 of
+		true ->
+			playerPet:petLevelUp(PetID, ItemID, Num);
+%%			playerState:setLevelUpPetID(PetID),
+%%			playerItem:useBagItem(UID, Num, ?ItemUseReasonPlayer, UID);
+		_ ->
+			skip
+	end,
+	ok;
+%使用星月秘盒
+onMsg(?CMD_U2GS_UseStarMoonBox, #pk_U2GS_UseStarMoonBox{itemUID = UID, useNum = Num}) ->
+	case erlang:is_integer(Num) andalso Num > 0 of
+		true ->
+
+			[{CostItemId,CostNum}] =
+				case getCfg:getCfgByArgs(cfg_globalsetup, starmoonbox_cost) of
+					#globalsetupCfg{setpara = V} ->
+						V;
+					_ ->
+						[]
+				end,
+
+			KeyNum =   playerPackage:getItemNumByID(CostItemId),
+			PLog_0 = #recPLogTSItem{
+				old = KeyNum,
+				new = KeyNum - Num,
+				change = Num,
+				target = ?PLogTS_StarMoon,
+				source = ?PLogTS_PlayerSelf,
+				gold = 0,
+				goldtype = 0,
+				changReason = ?ItemUseReasonPlayer,
+				reasonParam = CostItemId
+			},
+
+
+			case playerPackage:delGoodsByID(?Item_Location_Bag, CostItemId, Num, PLog_0) of
+				true ->
+					playerItem:useBagItem(UID, Num, ?ItemDeleteReasonUsed, UID);
+				_ ->
+					skip
+			end;
+		_ ->
+			skip
+	end,
+	ok;
+
+
+
+
 
 %% 背包开启空格子
 onMsg(?CMD_OpenNewBagSlot, #pk_OpenNewBagSlot{bagType = BagType, openNum = OpenNum}) ->
@@ -1031,30 +1082,22 @@ onMsg(?CMD_U2GS_SortItem, #pk_U2GS_SortItem{type = BagType}) ->
 
 %%采集物品请求
 onMsg(?CMD_U2GS_CollectObj, #pk_U2GS_CollectObj{code = Code}) ->
-	GatherID = playerTask:getCollectObjectIDByCode(Code),
-	case GatherID > 0 of
+	case playerBattle:canGainDropGoods() of
 		true ->
-			case getCfg:getCfgPStack(cfg_object, GatherID) of
-				#objectCfg{} ->
-					playerGather:requestGatherItem(Code, GatherID);
-%%					playerGuildHome:updateGuildTask(?GuildTaskType_Collect, GatherID);
-%%					IsGatherItem = lists:member(Type, [3, 5, 6, 7, 10, 11, ?GatherType_NeedForSpeed, 15]),
-%%					if
-%%						IsGatherItem ->
-%%							%% 采集物掉落道具
-%%							playerGather:requestGatherItem(Code, GatherID);
-%%						true ->
-%%							%% 任务采集
-%%							playerTask2:updateItemCollectTask(Code)
-%%					end,
-%%					%% 玩家采集了个东西
-%%					playerGuildHome:updateGuildTask(?GuildTaskType_Collect, GatherID),
-%%					ok;
-				_ ->
+			GatherID = playerTask:getCollectObjectIDByCode(Code),
+			case GatherID > 0 of
+				true ->
+					case getCfg:getCfgPStack(cfg_object, GatherID) of
+						#objectCfg{} ->
+							playerGather:requestGatherItem(Code, GatherID);
+						_ ->
+							skip
+					end;
+				_Error ->
 					skip
 			end;
-		_Error ->
-			skip
+		_ ->
+			sendErrorCodeMsg(?ErrorCode_SystemGatherFailed)
 	end,
 	ok;
 
@@ -1072,17 +1115,32 @@ onMsg(?CMD_U2GS_EquipRecast, #pk_U2GS_EquipRecast{
 
 %%装备精炼
 onMsg(?CMD_U2GS_EquipRefine, #pk_U2GS_EquipRefine{type = Type}) ->
-	playerEquip:equipRefine(Type, true),
+	case playerMainMenu:isOpen(?ModeType_Intensify) of
+		true ->
+			playerEquip:equipRefine(Type, true);
+		_ ->
+			sendErrorCodeMsg(?ErrorCode_SystemNotOpen)
+	end,
 	ok;
 
 %%装备一键精炼
 onMsg(?CMD_U2GS_EquipRefineOneKey, #pk_U2GS_EquipRefineOneKey{}) ->
-	playerEquip:equipRefineOneKey(),
+	case playerMainMenu:isOpen(?ModeType_Intensify) of
+		true ->
+			playerEquip:equipRefineOneKey();
+		_ ->
+			sendErrorCodeMsg(?ErrorCode_SystemNotOpen)
+	end,
 	ok;
 
 %%装备冲星
 onMsg(?CMD_U2GS_EquipUpStar, #pk_U2GS_EquipUpStar{pos = Pos, type = Type}) ->
-	playerEquip:equipStar(Pos, Type),
+	case playerMainMenu:isOpen(?ModeType_UpStar) of
+		true ->
+			playerEquip:allEquipUpStar(Pos, Type);
+		_ ->
+			sendErrorCodeMsg(?ErrorCode_SystemNotOpen)
+	end,
 	ok;
 
 %%装备荣誉成长
@@ -1102,22 +1160,23 @@ onMsg(?CMD_U2GS_QueryEquipByUID, #pk_U2GS_QueryEquipByUID{} = Pk) ->
 
 %%装备分解
 onMsg(?CMD_U2GS_EquipResolve, #pk_U2GS_EquipResolve{equipUIDs = EquipUIDList}) ->
-	Fun = fun(EquipUID, [PurpleEssenceCfg, GoldenEssenceCfg]) ->
-		case playerEquip:equipResolve(EquipUID) of
-			[PurpleEssence, GoldenEssence] ->
-				[PurpleEssence + PurpleEssenceCfg, GoldenEssence + GoldenEssenceCfg];
-			_ ->
-				[PurpleEssenceCfg, GoldenEssenceCfg]
-		end
-		  end,
+	Fun =
+		fun(EquipUID, [PurpleEssenceCfg, GoldenEssenceCfg]) ->
+			case playerEquip:equipResolve(EquipUID) of
+				[PurpleEssence, GoldenEssence] ->
+					[PurpleEssence + PurpleEssenceCfg, GoldenEssence + GoldenEssenceCfg];
+				_ ->
+					[PurpleEssenceCfg, GoldenEssenceCfg]
+			end
+		end,
 	[PurpleEssenceNum, GoldenEssenceNum] = lists:foldl(Fun, [0, 0], EquipUIDList),
 	case PurpleEssenceNum =/= 0 orelse GoldenEssenceNum =/= 0 of
 		true ->
 			%%添加装备分解成就统计
 			playerAchieve:achieveEvent(?Achieve_BreakDown, [length(EquipUIDList)]),
-			playerMsg:sendNetMsg(#pk_GS2U_GetEssenceNum{purpleEssence = PurpleEssenceNum, goldenEssence = GoldenEssenceNum});
+			sendNetMsg(#pk_GS2U_GetEssenceNum{purpleEssence = PurpleEssenceNum, goldenEssence = GoldenEssenceNum});
 		false ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipResolvefailed)  %%分解失败
+			sendErrorCodeMsg(?ErrorCode_BagEquipResolvefailed)  %%分解失败
 	end,
 	ok;
 
@@ -1130,14 +1189,14 @@ onMsg(?CMD_U2GS_RequestExchangeResource, #pk_U2GS_RequestExchangeResource{}) ->
 onMsg(?CMD_U2GS_RequestExchangeResourceForeverLimitID, #pk_U2GS_RequestExchangeResourceForeverLimitID{}) ->
 	IDList = playerShop:getMyHasForeverLimitID(),
 	Msg = #pk_GS2U_RequestExchangeResourceForeverLimitIDAck{iDList = IDList},
-	playerMsg:sendNetMsg(Msg),
+	sendNetMsg(Msg),
 	ok;
 
 %%请求记录的标志配置id(可复用)
 onMsg(?CMD_U2GS_RequesForeverLimitID, #pk_U2GS_RequesForeverLimitID{type = Type}) ->
 	IDList = playerShop:getMyHasForeverLimitID(Type),
 	Msg = #pk_GS2U_RequestForeverLimitIDAck{type = Type, iDList = IDList},
-	playerMsg:sendNetMsg(Msg),
+	sendNetMsg(Msg),
 	ok;
 
 %%请求爵位购买配置id项(可复用)
@@ -1148,15 +1207,15 @@ onMsg(?CMD_U2GS_RequesBuyID, #pk_U2GS_RequesBuyID{type = 1, id = ID}) ->
 %%请求装备合成操作
 onMsg(?CMD_U2GS_EqupmentCombin, #pk_U2GS_EqupmentCombin{combinID = ID, equpmentUIDList = EqupmentUIDList}) ->
 	Succ = playerShop:resourceExchange4Equpment(ID, EqupmentUIDList),
-	playerMsg:sendNetMsg(#pk_GS2U_EqupmentCombinAck{
+	sendNetMsg(#pk_GS2U_EqupmentCombinAck{
 		combinID = ID,
 		success = Succ
 	}),
 	ok;
 
 %%远程玩家属性查看
-onMsg(?CMD_U2GS_LookRPInfo_Request, #pk_U2GS_LookRPInfo_Request{roleID = RoleID}) ->
-	playerRPView:queryRPInfo(RoleID),
+onMsg(?CMD_U2GS_LookRPInfo_Request, #pk_U2GS_LookRPInfo_Request{roleID = RoleID,view_type = Type}) ->
+	playerRPView:queryRPInfo(RoleID,Type),
 	ok;
 
 %%天梯1v1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1174,7 +1233,7 @@ onMsg(?CMD_U2GS_FreshLadderTargetList, #pk_U2GS_FreshLadderTargetList{}) ->
 onMsg(?CMD_U2GS_ChallengeTargetByRank, #pk_U2GS_ChallengeTargetByRank{ranksort = RankSort, name = TargetName}) ->
 	case playerState:getCurHp() =< 0 of
 		true ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_Ladder1v1_PleaseWait);
+			sendErrorCodeMsg(?ErrorCode_Ladder1v1_PleaseWait);
 		_ ->
 			playerLadder1v1:challengeTargetByRank(RankSort, TargetName)
 	end,
@@ -1184,7 +1243,7 @@ onMsg(?CMD_U2GS_ChallengeTargetByRank, #pk_U2GS_ChallengeTargetByRank{ranksort =
 onMsg(?CMD_U2GS_ChallengeTargetByRoleID, #pk_U2GS_ChallengeTargetByRoleID{roleID = RoleID}) ->
 	case playerState:getCurHp() =< 0 of
 		true ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_Ladder1v1_PleaseWait);
+			sendErrorCodeMsg(?ErrorCode_Ladder1v1_PleaseWait);
 		_ ->
 			playerLadder1v1:challengeTargetByRoleID(RoleID)
 	end,
@@ -1319,6 +1378,11 @@ onMsg(?CMD_U2GS_GetMailItem, #pk_U2GS_GetMailItem{mailID = MailID, itemUID = Ite
 	playerMail:getMailItem(MailID, ItemUID),
 	ok;
 
+%%一健提取
+onMsg(?CMD_U2GS_GetMailItemAll, #pk_U2GS_GetMailItemAll{}) ->
+	playerMail:getMailItemAll(),
+	ok;
+
 %%删除指定邮件
 onMsg(?CMD_U2GS_DeleteMail, #pk_U2GS_DeleteMail{mailID = MailID}) ->
 	playerMail:deleteMail(MailID),
@@ -1439,13 +1503,21 @@ onMsg(?CMD_U2GS_UsePetSkillBook, #pk_U2GS_UsePetSkillBook{petID = PetID, petSkil
 onMsg(?CMD_U2GS_PetDisapear, #pk_U2GS_PetDisapear{code = Code}) ->
 	playerPet:petDisapear(Code);
 
+%% 宠物技能操作
+onMsg(?CMD_U2GS_PetSkillOperate, #pk_U2GS_PetSkillOperate{operationType = Type, petID = PetID, petSkillId = SkillID}) ->
+	playerPetSkill:petSkillOperate(Type, PetID, SkillID);
+
+%% 宠物重置
+onMsg(?CMD_U2GS_ResetPet, #pk_U2GS_ResetPet{petID = PetID}) ->
+	playerPetReset:resetPet(PetID);
+
 %%进入副本
 onMsg(?CMD_U2GS_EnterCopyMap, #pk_U2GS_EnterCopyMap{copyMapID = CopyMapID}) ->
 	case playerCopyMap:canEnterCopyMap(CopyMapID) of
 		true ->
 			playerCopyMap:enterCopyMap(CopyMapID);
 		ErrorCode ->
-			playerMsg:sendErrorCodeMsg(ErrorCode)
+			sendErrorCodeMsg(ErrorCode)
 	end,
 	ok;
 
@@ -1453,19 +1525,9 @@ onMsg(?CMD_U2GS_EnterCopyMap, #pk_U2GS_EnterCopyMap{copyMapID = CopyMapID}) ->
 onMsg(?CMD_U2GS_LeaveCopyMap, #pk_U2GS_LeaveCopyMap{type = Type}) ->
 	playerAcKingBattleAll:onLevelKingBattleMap(),
 	Ret = playerCopyMap:leaveCopyMap(),
-	MapID = playerState:getMapID(),
-	MapPid = playerState:getMapPid(),
-	%%mwh-new-team
-	case playerScene:getMapType(MapID) of
-		?MapTypeCopyMap when Ret =:= true ->
-			core:sendMsgToMapMgr(MapID, playerLeaveCopyMap, {playerState:getRoleID(), MapID, MapPid}),
-			case Type of
-				1 ->
-					playerTeam:leaveTeam(false);
-				_ ->
-					skip
-			end,
-			ok;
+	case Ret =:= true andalso Type =:= 1 of
+		true ->
+			playerTeamCopyMap:leaveCopyMapInitiative(false);
 		_ ->
 			skip
 	end,
@@ -1549,76 +1611,76 @@ onMsg(?CMD_U2GS_CancelApply, #pk_U2GS_CancelApply{}) ->
 
 %%宝石镶嵌
 onMsg(?CMD_U2GS_GemEmbedOn, #pk_U2GS_GemEmbedOn{gemEmbedInfoList = GemEmbedInfo}) ->
-	playerPackage:gemEmbedOn(GemEmbedInfo),
+%%	playerPackage:gemEmbedOn(GemEmbedInfo),
 	ok;
 
 %%宝石拆卸
 onMsg(?CMD_U2GS_GemEmbedOff, #pk_U2GS_GemEmbedOff{gemUIDs = GemUIDList}) ->
-	playerPackage:gemEmbedOff(GemUIDList),
+%%	playerPackage:gemEmbedOff(GemUIDList),
 	ok;
 
-%%宝石合成
+%%宝石合成(废弃)
 onMsg(?CMD_U2GS_GemEmbedMake, #pk_U2GS_GemEmbedMake{id = ItemID, count = Count, flag = Flag}) ->
-	Flg = case Flag of
-			  0 ->
-				  false;
-			  _ ->
-				  true
-		  end,
-	playerPackage:gemComposition(ItemID, Count, Flg),
+%%	Flg = case Flag of
+%%			  0 ->
+%%				  false;
+%%			  _ ->
+%%				  true
+%%		  end,
+%%	playerPackage:gemComposition(ItemID, Count, Flg),
 	ok;
 
 
-%%%%宝石合成
+%%%%宝石合成(废弃)
 onMsg(?CMD_U2GS_GemEmbedMakeOnce, #pk_U2GS_GemEmbedMakeOnce{id = ItemID, bindCount = BindCount, unBindCount = UnBindCount}) ->
-	playerPackage:gemCompositionOnce(ItemID, BindCount, UnBindCount),
+%%	playerPackage:gemCompositionOnce(ItemID, BindCount, UnBindCount),
+	playerGem:gemOperate(4, 0 ,0 ,ItemID),
+	ok;
+
+onMsg(?CMD_U2GS_GemOperate, #pk_U2GS_GemOperate{ opType = Op, equipPos = EquipPos, gemPos = Slot, params = Params}) ->
+	playerGem:gemOperate(Op, EquipPos, Slot, Params),
 	ok;
 
 
 %% 查询交易行订单
 onMsg(?CMD_U2GS_QueryTrade, #pk_U2GS_QueryTrade{} = Pk) ->
-	playerTrade:queryTrade(Pk),
+	playerTrade:request(Pk),
 	ok;
-
 %% 查询最新交易订单
 onMsg(?CMD_U2GS_QueryNewestTrade, #pk_U2GS_QueryNewestTrade{} = Pk) ->
-	playerTrade:queryNewestTrade(Pk),
+	playerTrade:request(Pk),
 	ok;
-
 %% 查看上次搜索的订单的某一页
-onMsg(?CMD_U2GS_NextResult, #pk_U2GS_NextResult{pageNumber = PageNumber, opCode = OpCode} = _Pk) ->
+onMsg(?CMD_U2GS_NextResult, #pk_U2GS_NextResult{} = Pk) ->
 	%% 这个不需要排序
-	playerTrade:nextResult(PageNumber, OpCode),
+	playerTrade:request(Pk),
 	ok;
-
 %% 排序
 onMsg(?CMD_U2GS_ResultSort, #pk_U2GS_ResultSort{} = Pk) ->
-	playerTrade:sortTradeQueryResult(Pk),
+	playerTrade:request(Pk),
 	ok;
-
 %% 查询自己的交易订单
 onMsg(?CMD_U2GS_QuerySelfTrade, #pk_U2GS_QuerySelfTrade{} = Pk) ->
-	playerTrade:querySelfTrade(Pk),
+	playerTrade:request(Pk),
 	ok;
-
 %% 购买
 onMsg(?CMD_U2GS_TradeBuy, #pk_U2GS_TradeBuy{} = Pk) ->
-	playerTrade:buyTrade(Pk),
+	playerTrade:request(Pk),
 	ok;
-
 %% 拒绝购买
 onMsg(?CMD_U2GS_TradeRefuse, #pk_U2GS_TradeRefuse{} = Pk) ->
-	playerTrade:refuseBuy(Pk),
+	playerTrade:request(Pk),
 	ok;
-
 %% 上架
 onMsg(?CMD_U2GS_PutTrade, #pk_U2GS_PutTrade{} = Pk) ->
-	playerTrade:putTrade(Pk),
+	playerTrade:request(Pk),
 	ok;
-
 %% 下架
 onMsg(?CMD_U2GS_DownTrade, #pk_U2GS_DownTrade{} = Pk) ->
-	playerTrade:downTrade(Pk),
+	playerTrade:request(Pk),
+	ok;
+onMsg(?CMD_U2GS_RequestDealRecord, #pk_U2GS_RequestDealRecord{} = Pk) ->
+	playerTrade:request(Pk),
 	ok;
 
 %% 请求指定公会信息
@@ -1906,6 +1968,27 @@ onMsg(?CMD_U2GS_Guild_SnowmanDonate_Request, #pk_U2GS_Guild_SnowmanDonate_Reques
 %% 家族系统-堆雪人活动 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 家族系统-碎片祈愿 begin
+
+%% 打开祈愿界面请求列表
+onMsg(?CMD_U2GS_Guild_OpenSupplication_Request, #pk_U2GS_Guild_OpenSupplication_Request{}) ->
+	playerGuild:suppList(),
+	ok;
+
+%% 发布祈愿
+onMsg(?CMD_U2GS_Guild_Supplicate_Request, #pk_U2GS_Guild_Supplicate_Request{itemID = ItemID}) ->
+	playerGuild:suppSupp(ItemID),
+	ok;
+
+%% 赠送碎片
+onMsg(?CMD_U2GS_Guild_SupplicateGive_Request, #pk_U2GS_Guild_SupplicateGive_Request{roleID = RoleID, itemID = ItemID}) ->
+	playerGuild:suppGive(RoleID, ItemID),
+	ok;
+
+%% 家族系统-碎片祈愿 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %% 商城数据请求
 onMsg(?CMD_U2GS_MallInfo, #pk_U2GS_MallInfo{seed = Seed} = _Pk) ->
 	playerMall:requestMallInfo(Seed, ?MallSendType_Mall),
@@ -1930,11 +2013,26 @@ onMsg(?CMD_U2GS_ItemBuyRequest2, #pk_U2GS_ItemBuyRequest2{} = Pk) ->
 onMsg(?CMD_U2GS_RequestChangePKMode, #pk_U2GS_RequestChangePKMode{pkMode = PkMode}) ->
 	case playerState:getIsInActivityMap() of
 		true ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_KillModeActivityMap);
+			sendErrorCodeMsg(?ErrorCode_KillModeActivityMap);
 		_ ->
 			playerPk:tranState(PkMode)
 	end,
 	ok;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%家园%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+onMsg(?CMD_U2GS_EnterHome, #pk_U2GS_EnterHome{} = Msg) -> playerHome:msg(Msg), ok;
+onMsg(?CMD_U2GS_RequestHomeInfo, #pk_U2GS_RequestHomeInfo{} = Msg) -> playerHome:msg(Msg), ok;
+onMsg(?CMD_U2GS_ChangeHomeName, #pk_U2GS_ChangeHomeName{} = Msg) -> playerHome:msg(Msg), ok;
+onMsg(?CMD_U2GS_CreateHome, #pk_U2GS_CreateHome{} = Msg) -> playerHome:msg(Msg), ok;
+onMsg(?CMD_U2GS_UpgradeHomeArea, #pk_U2GS_UpgradeHomeArea{} = Msg) -> playerHome:msg(Msg), ok;
+onMsg(?CMD_U2GS_HomePlantOperate_Request, #pk_U2GS_HomePlantOperate_Request{} = Msg) -> playerHomePlant:msg(Msg), ok;
+onMsg(?CMD_U2GS_PutPetInFarming, #pk_U2GS_PutPetInFarming{} = Msg) -> playerHomeFarming:msg(Msg), ok;
+onMsg(?CMD_U2GS_PutOutPetFarming, #pk_U2GS_PutOutPetFarming{} = Msg) -> playerHomeFarming:msg(Msg), ok;
+onMsg(?CMD_U2GS_GetPetFood, #pk_U2GS_GetPetFood{} = Msg) -> playerHomeFarming:msg(Msg), ok;
+onMsg(?CMD_U2GS_HomeVisit, #pk_U2GS_HomeVisit{} = Msg) -> playerHome:msg(Msg), ok;
+onMsg(?CMD_U2GS_RequestVisitRecord, #pk_U2GS_RequestVisitRecord{} = Msg) -> playerHome:msg(Msg), ok;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%家园%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%获取杀戮值
 onMsg(?CMD_U2GS_KillValueRequest, #pk_U2GS_KillValueRequest{}) ->
@@ -2161,22 +2259,26 @@ onMsg(?CMD_U2GS_RefindResAll, #pk_U2GS_RefindResAll{type = Type} = _PK) ->
 onMsg(?CMD_U2GS_UpWakeInfo, #pk_U2GS_UpWakeInfo{}) ->
 	ok;
 %%	playerGoddess:upWake(CardID, Num);
-
 %%觉醒升级
 onMsg(?CMD_U2GS_UpGradeWakeInfo, #pk_U2GS_UpGradeWakeInfo{cardID = CardID}) ->
-	playerGoddess:upGradeWake(CardID);
+%%	playerGoddess:upGradeWake(CardID);
+	ok;
 %%觉醒一键升级
 onMsg(?CMD_U2GS_OnKeyUpWakeInfo, #pk_U2GS_OnKeyUpWakeInfo{cardID = CardID}) ->
-	playerGoddess:onKeyUpWakeInfo(CardID);
-
+%%	playerGoddess:onKeyUpWakeInfo(CardID);
+	ok;
 onMsg(?CMD_U2GS_UnlockState, #pk_U2GS_UnlockState{cardID = CardID, state = State}) ->
-	playerGoddess:unlockGoddessState(CardID, State);
+%%	playerGoddess:unlockGoddessState(CardID, State),
+	ok;
 onMsg(?CMD_U2GS_ChangeState, #pk_U2GS_ChangeState{cardID = CardID, state = State}) ->
-	playerGoddess:changeGoddessState(CardID, State);
+%%	playerGoddess:changeGoddessState(CardID, State),
+	ok;
 onMsg(?CMD_U2GS_CallGoddess, #pk_U2GS_CallGoddess{cardID = CardID}) ->
-	playerGoddess:callGoddess(CardID);
+%%	playerGoddess:callGoddess(CardID),
+	ok;
 onMsg(?CMD_U2GS_UnlockCard, #pk_U2GS_UnlockCard{cardID = CardID}) ->
-	playerGoddess:unlockGoddess(CardID);
+%%	playerGoddess:unlockGoddess(CardID),
+	ok;
 
 %% 请求排行榜
 onMsg(?CMD_U2GS_RequestRank, #pk_U2GS_RequestRank{type = Type}) ->
@@ -2195,7 +2297,8 @@ onMsg(?CMD_U2GS_RequestRankAward, #pk_U2GS_RequestRankAward{type = Type}) ->
 
 %% 请求领取更新资源奖励
 onMsg(?CMD_U2GS_GetUpdateReward, #pk_U2GS_GetUpdateReward{count = Count}) ->
-	playerUpdateReward:getUpdateReward(Count),
+%%	playerUpdateReward:getUpdateReward(Count),
+	sendErrorCodeMsg(?ErrorCode_SystemNotOpen),
 	ok;
 
 %%玩家请求当前地图的等级
@@ -2216,17 +2319,20 @@ onMsg(?CMD_GS2U_WorldBossBuyBuff, #pk_GS2U_WorldBossBuyBuff{type = Type}) ->
 
 %%玩家请求购买时装
 onMsg(?CMD_U2GS_BuyFashion, #pk_U2GS_BuyFashion{fashionID = FashionID, time = BuySecond}) ->
-	playerFashion:useDiamond4fashion(FashionID,BuySecond),
+	playerFashion:buyFashion(FashionID,BuySecond),
 	ok;
-
+%%
+onMsg(?CMD_U2GS_FashionRoomLevelUp, #pk_U2GS_FashionRoomLevelUp{}) ->
+	playerFashion:roomLevelUp(),
+	ok;
 %%玩家请求激活或者取消
 onMsg(?CMD_U2GS_ActiveFashionSuit, #pk_U2GS_ActiveFashionSuit{fashionSuitID = SuitID, flag = Flag}) ->
-	playerFashion:activeFashionSuit(SuitID, Flag),
+%%	playerFashion:activeFashionSuit(SuitID, Flag),
 	ok;
 
 %%玩家请求穿卸时装
 onMsg(?CMD_U2GS_OperateFashion, #pk_U2GS_OperateFashion{fashionID = FashionID, flag = Flag}) ->
-	playerFashion:putOnAndOffClothes(FashionID, Flag),
+	playerFashion:operateFashionPosition(FashionID, Flag),
 	ok;
 
 %%请求切磋
@@ -2261,31 +2367,6 @@ onMsg(?CMD_BindPhoneAwardGet, #pk_BindPhoneAwardGet{}) ->
 	?ERROR_OUT("invalid msg CMD_BindPhoneAwardGet"),
 	playerSignIn:onBindPhoneAwardGet();
 
-%%玩家上传照片
-onMsg(?CMD_UpLoadingPhoto, #pk_UpLoadingPhoto{type = _Type, sectionNum = Num, sectionIndex = Index, data = Data}) ->
-	playerPersonalityInfo:uploadingPhoto(Num, Index, Data);
-%%给自己添加标签
-onMsg(?CMD_U2GS_AddTag, #pk_U2GS_AddTag{tag = Tag}) ->
-	playerPersonalityInfo:addTag(Tag);
-%%删除标签
-onMsg(?CMD_DelTag, #pk_DelTag{index = Index}) ->
-	playerPersonalityInfo:delTag(Index);
-%%给其他玩家添加印象
-onMsg(?CMD_U2GS_AddImpression, #pk_U2GS_AddImpression{roleID = RoleID, impression = Impression}) ->
-	playerPersonalityInfo:addImpression(RoleID, Impression);
-%%删除其他玩家的印象
-onMsg(?CMD_DelImpression, #pk_DelImpression{uid = Uid}) ->
-	playerPersonalityInfo:delImpression(Uid);
-%%点赞玩家
-onMsg(?CMD_U2GS_AddPraise, #pk_U2GS_AddPraise{roleID = RoleID}) ->
-	playerPersonalityInfo:addPraise(RoleID);
-%%举报玩家
-onMsg(?CMD_U2GS_Report, #pk_U2GS_Report{roleID = RoleID}) ->
-	playerPersonalityInfo:reportPlayer(RoleID),
-	skip;
-%%添加拓展信息
-onMsg(?CMD_U2GS_PlayerExtenInfo, #pk_U2GS_PlayerExtenInfo{type = Type, info = Info}) ->
-	playerPersonalityInfo:addExtenInfo(Type, Info);
 %%激活军团副本
 onMsg(?CMD_ActiveGuildCopy, #pk_ActiveGuildCopy{mapID = MapID}) ->
 	?DEBUG_OUT("ActiveGuildCopy"),
@@ -2355,7 +2436,16 @@ onMsg(?CMD_U2GS_LevelUpGodWeapon, #pk_U2GS_LevelUpGodWeapon{weaponID = WeaponID}
 %	playerGodWeapon:levelupWeaponskill(WeaponID),
 %	ok;
 
-%%幸运答题
+%%全名答题
+
+onMsg(?CMD_U2GS_ApplyAnswer, #pk_U2GS_ApplyAnswer{}) ->
+	playerAnswer:applyAnswer(),
+	ok;
+
+onMsg(?CMD_U2GS_PlayerAnswer, #pk_U2GS_PlayerAnswer{questionID = QuestionID,isright =  Isright,answers = Answers}) ->
+	playerAnswer:answerResult(QuestionID,Isright, Answers),
+	ok;
+
 onMsg(?CMD_U2GS_PlayerAnswerQuestion, #pk_U2GS_PlayerAnswerQuestion{questionID = QuestionID, answers = Answers}) ->
 	playerAnswer:answerResult(QuestionID, Answers),
 	ok;
@@ -2438,7 +2528,7 @@ onMsg(?CMD_U2GS_RequestHDBattle, #pk_U2GS_RequestHDBattle{}) ->
 	HistoryForce = playerPropSync:getProp(?SerProp_PlayerHistoryForce),
 	case global:whereis_name(?PsNameCrosHd) of
 		undefined ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_CrosBattle_AlreadyClose);
+			sendErrorCodeMsg(?ErrorCode_CrosBattle_AlreadyClose);
 		_ ->
 			psMgr:sendMsg2PS(?PsNameCrosHd, allocMapLine, {
 				RoleID,
@@ -2470,7 +2560,7 @@ onMsg(?CMD_U2GS_RequestCrosRanks, #pk_U2GS_RequestCrosRanks{}) ->
 		[PK | Acc]
 		  end,
 	L1 = lists:foldl(Fun, [], L),
-	playerMsg:sendNetMsg(#pk_GS2U_CrosBattleExploits{ranks = L1});
+	sendNetMsg(#pk_GS2U_CrosBattleExploits{ranks = L1});
 
 
 onMsg(?CMD_U2GS_ReceiveDailyActiveAward, #pk_U2GS_ReceiveDailyActiveAward{dailyActivityValue = LivenessValue}) ->
@@ -2505,7 +2595,7 @@ onMsg(?CMD_U2GS_ReadyArena, #pk_U2GS_ReadyArena{}) ->
 	Level = playerState:getLevel(),
 	case Level < 45 of
 		true ->
-			playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipOnPlayerLevelNotMeet);
+			sendErrorCodeMsg(?ErrorCode_BagEquipOnPlayerLevelNotMeet);
 		_ ->
 			playerCrosTeam:readyMatch()
 	end,
@@ -2534,7 +2624,7 @@ onMsg(?CMD_U2GS_RequestCrosArenaRanks, #pk_U2GS_RequestCrosArenaRanks{type = 0})
 		[PK | Acc]
 		  end,
 	L1 = lists:foldl(Fun, [], L),
-	playerMsg:sendNetMsg(#pk_GS2U_CrosArenaBattleRanks{ranks = L1});
+	sendNetMsg(#pk_GS2U_CrosArenaBattleRanks{ranks = L1});
 onMsg(?CMD_U2GS_RequestCrosArenaRanks, #pk_U2GS_RequestCrosArenaRanks{type = _}) ->
 	L = ets:tab2list(?EtsCrosArenaHightRank),
 	Fun = fun(#recCrosArenaHightRank{} = R, Acc) ->
@@ -2552,7 +2642,7 @@ onMsg(?CMD_U2GS_RequestCrosArenaRanks, #pk_U2GS_RequestCrosArenaRanks{type = _})
 		[PK | Acc]
 		  end,
 	L1 = lists:foldl(Fun, [], L),
-	playerMsg:sendNetMsg(#pk_GS2U_CrosArenaBattleHighRanks{ranks = L1});
+	sendNetMsg(#pk_GS2U_CrosArenaBattleHighRanks{ranks = L1});
 
 %%取消匹配
 onMsg(?CMD_CrosArenaMatch, #pk_CrosArenaMatch{isMatch = false}) ->
@@ -2596,7 +2686,7 @@ onMsg(?CMD_U2GS_UpSkill, #pk_U2GS_UpSkill{id = Id}) ->
 	playerSkillLearn:upSkill(Id, 1),
 	ok;
 onMsg(?CMD_U2GS_ResetSkill, #pk_U2GS_ResetSkill{}) ->
-	 playerSkillLearn:resetSkill(),
+	playerSkillLearn:resetSkill(),
 	ok;
 
 %% 七日任务
@@ -2681,8 +2771,7 @@ onMsg(?CMD_U2GS_lottery_start, #pk_U2GS_lottery_start{type = LogicGroupID} = _Ms
 onMsg(?CMD_U2GS_Join_lsbattlefield, #pk_U2GS_Join_lsbattlefield{} = _Msg) ->
 	playerLSBattlefield:join_active();
 onMsg(?CMD_U2GS_get_action_point_info, #pk_U2GS_get_action_point_info{} = _Msg) ->
-	NewValue = playerActionPoint:getActionPoint(),
-	playerMsg:sendNetMsg(#pk_GS2U_action_point_info{value = NewValue});
+	playerActionPoint:queryActionPoint();
 onMsg(?CMD_U2GS_buy_action_point, #pk_U2GS_buy_action_point{} = _Msg) ->
 	playerActionPoint:buyActionPoint();
 onMsg(?CMD_U2GS_buy_action_count, #pk_U2GS_buy_action_count{copyMapID = CopyMapID}=_Msg) ->
@@ -2773,9 +2862,9 @@ onMsg(?CMD_U2GS_IdentityPicUploadData_Request, #pk_U2GS_IdentityPicUploadData_Re
 	ok;
 
 %% 下载图片请求_开始
-onMsg(?CMD_U2GS_IdentityPicDownloadBegin_Request, #pk_U2GS_IdentityPicDownloadBegin_Request{md5 = MD5} = _Msg) ->
+onMsg(?CMD_U2GS_IdentityPicDownloadBegin_Request, #pk_U2GS_IdentityPicDownloadBegin_Request{md5 = MD5, id = ID} = _Msg) ->
 	%?DEBUG_OUT("[DebugForIdentity] CMD_U2GS_IdentityPicDownloadBegin_Request"),
-	playerIdentity:picDownloadBegin({MD5}),
+	playerIdentity:picDownloadBegin({MD5, ID}),
 	ok;
 
 %% 下载图片请求_继续
@@ -2813,9 +2902,9 @@ onMsg(?CMD_U2GS_Friend2Search_Request, #pk_U2GS_Friend2Search_Request{name = Nam
 	ok;
 
 %% 推荐好友请求
-onMsg(?CMD_U2GS_Friend2Recommend_Request, #pk_U2GS_Friend2Recommend_Request{sex = Sex, isNear = IsNear} = _Msg) ->
+onMsg(?CMD_U2GS_Friend2Recommend_Request, #pk_U2GS_Friend2Recommend_Request{sex = Sex, isNear = IsNear, isPush = IsPush} = _Msg) ->
 	%?DEBUG_OUT("[DebugForFriend2] CMD_U2GS_Friend2Recommend_Request"),
-	playerFriend2:recommend(Sex, IsNear),
+	playerFriend2:recommend(Sex, IsNear, IsPush),
 	ok;
 
 %% 添加好友请求
@@ -2949,7 +3038,12 @@ onMsg(?CMD_U2GS_Friend2FormalChatVoice_Request, #pk_U2GS_Friend2FormalChatVoice_
 %% 指定关系查询
 onMsg(?CMD_U2GS_Friend2ForLook_Request, #pk_U2GS_Friend2ForLook_Request{id = ID}) ->
 	%?DEBUG_OUT("[DebugForFriend2] CMD_U2GS_Friend2ForLook_Request"),
-	playerFriend2:forLook(ID),
+	case uidMgr:checkUID(?UID_TYPE_Role, ID) of
+		true ->
+			playerFriend2:forLook(ID);
+		_ ->
+			?ERROR_OUT("pk_U2GS_Friend2ForLook_Request.id:~w is not ?UID_TYPE_Role, current roleid:~w", [ID, playerState:getRoleID()])
+	end,
 	ok;
 
 %% 希望聊天
@@ -2967,6 +3061,37 @@ onMsg(?CMD_U2GS_Friend2LBS_Request, #pk_U2GS_Friend2LBS_Request{longitude = Long
 	ok;
 
 %% 新版好友系统 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% 赠礼（以前把点赞做到CMD_U2GS_Friend2FormalOP_Requestle了，类似的赠礼功能很尴尬地在边边望着）
+onMsg(?CMD_U2GS_Gift_Request, #pk_U2GS_Gift_Request{tarRoleID = TarRoleID, itemID = ItemID, itemCount = ItemCount, content = Content}) ->
+	playerIdentity:giveGift(TarRoleID, ItemID, ItemCount, Content),
+	ok;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 新版好友系统-跨服好友 begin
+
+%% 请求跨服好友相关全列表
+onMsg(?CMD_U2GS_Friend2CrossAll_Request, #pk_U2GS_Friend2CrossAll_Request{type = Type}) ->
+	playerFriend2Cross:queryAll(Type),
+	ok;
+
+%% 请求添加跨服好友
+onMsg(?CMD_U2GS_Friend2CrossAdd_Request, #pk_U2GS_Friend2CrossAdd_Request{id = ID}) ->
+	playerFriend2Cross:add(ID),
+	ok;
+
+%% 同意或拒绝申请者
+onMsg(?CMD_U2GS_Friend2CrossAdd2_Request, #pk_U2GS_Friend2CrossAdd2_Request{id = ID, isAgreed = IsAgreed}) ->
+	playerFriend2Cross:add2(ID, IsAgreed),
+	ok;
+
+%% 请求删除跨服好友
+onMsg(?CMD_U2GS_Friend2CrossDel_Request, #pk_U2GS_Friend2CrossDel_Request{id = ID}) ->
+	playerFriend2Cross:del(ID),
+	ok;
+
+%% 新版好友系统-跨服好友 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3005,6 +3130,16 @@ onMsg(?CMD_U2GS_DatePushBox_Request, #pk_U2GS_DatePushBox_Request{code = Code, x
 	%?DEBUG_OUT("[DebugForDate] CMD_U2GS_DateLink_Select_Request ~p", [_Msg]),
 	playerDate:touchBox(Code, {X, Z},IsDelte, 0),
 	ok;
+
+
+%% 约会地下城 --- 泳池派对 begin
+%% 碰到箱子请求
+onMsg(?CMD_U2GS_DateShooting_Over, #pk_U2GS_DateShooting_Over{} = _Msg) ->
+	%?DEBUG_OUT("[DebugForDate] CMD_U2GS_DateLink_Select_Request ~p", [_Msg]),
+	playerDate:poolShooting(0),
+	ok;
+
+
 %% 约会地下城 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -3076,7 +3211,7 @@ onMsg(?CMD_U2GS_MarriageAcceptTask_Request, #pk_U2GS_MarriageAcceptTask_Request{
 
 %% 情缘任务_提交
 onMsg(?CMD_U2GS_MarriageSubmitTask_Request, #pk_U2GS_MarriageSubmitTask_Request{} = _Msg) ->
-	playerMarriageTask:submitTask(),
+%%	playerMarriageTask:leaderSubmitTask(),
 	ok;
 
 %% 姻缘系统 end
@@ -3118,6 +3253,15 @@ onMsg(?CMD_U2GS_TerritoryVigor_Request, #pk_U2GS_TerritoryVigor_Request{} = _Msg
 %% 新版骑宠领地 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 怪物图鉴 begin
+onMsg(?CMD_U2GS_MonsterBook_Request, #pk_U2GS_MonsterBook_Request{} = Msg) -> playerMonsterBook:msg(Msg);
+onMsg(?CMD_U2GS_MonsterBookSnap_Request, #pk_U2GS_MonsterBookSnap_Request{} = Msg) -> playerMonsterBook:msg(Msg);
+onMsg(?CMD_U2GS_MonsterBookUnlock_Request, #pk_U2GS_MonsterBookUnlock_Request{} = Msg) -> playerMonsterBook:msg(Msg);
+onMsg(?CMD_U2GS_MonsterBookReward_Request, #pk_U2GS_MonsterBookReward_Request{} = Msg) -> playerMonsterBook:msg(Msg);
+%% 怪物图鉴 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 onMsg(?CMD_U2GS_SevenDayAimReward_Request, #pk_U2GS_SevenDayAimReward_Request{id = ID}) ->
 	playerSevenDayAim:reward(ID),
 	ok;
@@ -3130,9 +3274,9 @@ onMsg(?CMD_U2GS_MoneyTree, #pk_U2GS_MoneyTree{}) ->
 	playerMoneyTree:giveMeMoney(),
 	ok;
 
-onMsg(?CMD_U2GS2U_CopyMapScheduleShow2, #pk_U2GS2U_CopyMapScheduleShow2{mapID = MapID, show2ID = Show2ID, groupID = GroupID, scheduleID = ScheduleID}) ->
-	?DEBUG_OUT("[DebugForShow2] CMD_U2GS2U_CopyMapScheduleShow2 MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w", [MapID, Show2ID, GroupID, ScheduleID]),
-	playerCopyMap:show2(MapID, Show2ID, GroupID, ScheduleID),
+onMsg(?CMD_U2GS2U_CopyMapScheduleShow2, #pk_U2GS2U_CopyMapScheduleShow2{mapID = MapID, show2ID = Show2ID, groupID = GroupID, scheduleID = ScheduleID, isInit = IsInit}) ->
+	?DEBUG_OUT("[DebugForShow2] CMD_U2GS2U_CopyMapScheduleShow2 MapID:~w Show2ID:~w GroupID:~w ScheduleID:~w IsInit:~w", [MapID, Show2ID, GroupID, ScheduleID, IsInit]),
+	playerCopyMap:show2(MapID, Show2ID, GroupID, ScheduleID, IsInit),
 	ok;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3141,23 +3285,20 @@ onMsg(?CMD_U2GS_ChangeCarrer, #pk_U2GS_ChangeCarrer{newCareer = NewCareer} = _Ms
 	playerCareerChange:change(NewCareer),
 	ok;
 
-onMsg(?CMD_U2GS_NeedForSpeedJoin, #pk_U2GS_NeedForSpeedJoin{} = _Msg) ->
-	playerNeedForSpeed:match();
-onMsg(?CMD_U2GS_NeedForSpeedCollideRoadScoreLine, #pk_U2GS_NeedForSpeedCollideRoadScoreLine{collideScoreLineId = LineID} = _Msg) ->
-	playerNeedForSpeed:collideScoreLine(LineID);
-onMsg(?CMD_U2GS_NeedForSpeedCancel, #pk_U2GS_NeedForSpeedCancel{} = _Msg) ->
-	playerNeedForSpeed:cancelMatch();
-onMsg(?CMD_U2GS_NeedForSpeedQuite, #pk_U2GS_NeedForSpeedQuite{} = _Msg) ->
-	playerNeedForSpeed:exitCompetition(playerState:getRoleID());
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 跨服骑宠竞速 begin
+onMsg(?CMD_U2GS_RaceApply_Request, #pk_U2GS_RaceApply_Request{} = Msg) -> playerRace:msg(Msg);
+onMsg(?CMD_U2GS_RaceCancel_Request, #pk_U2GS_RaceCancel_Request{} = Msg) -> playerRace:msg(Msg);
+onMsg(?CMD_U2GS_RaceMapItem_Request, #pk_U2GS_RaceMapItem_Request{} = Msg) -> playerRace:msg(Msg);
+%% 跨服骑宠竞速 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%onMsg(?CMD_U2GS_NeedForSpeedCollideRoadBox, #pk_U2GS_NeedForSpeedCollideRoadBox{collideBoxId = BoxID} = _Msg) ->
-%%	playerNeedForSpeed:collideRoadBox(BoxID);
-onMsg(?CMD_U2GS_NeedForSpeedUseItem, #pk_U2GS_NeedForSpeedUseItem{itemID = ItemID, targetRoleIDList = TargetRoleIDList} = _Msg) ->
-	playerNeedForSpeed:useItem(ItemID, TargetRoleIDList);
 onMsg(?CMD_U2GS_save_current_guide_id, #pk_U2GS_save_current_guide_id{guideID = _CurrentGuideID}) ->
 	ok;
+onMsg(?CMD_U2GS_IsOpenMapPanel, #pk_U2GS_IsOpenMapPanel{}) ->
+	ok;
 onMsg(_Cmd, _Msg) ->
-	?DEBUG_OUT("playerOtp receive socket undefined, cmd:~p msg:~p", [_Cmd, _Msg]),
+	?ERROR_OUT("playerOtp receive socket undefined, cmd:~p msg:~p", [_Cmd, _Msg]),
 	ok.
 
 

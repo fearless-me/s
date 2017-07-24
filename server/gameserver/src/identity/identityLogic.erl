@@ -27,7 +27,21 @@
 	identity_picDown/1,
 	identity_picDownAck/1,
 	identity_picWantDown/1,
-	identity_picUnactive/0
+	identity_picUnactive/0,
+
+	%% 跨服图片数据下载
+	friend2Cross_pic/1,
+	friend2Cross_picAck/1,
+
+	%% 点赞值与魅力值
+	addLike/1,
+	addCharm/1,
+
+	%% 赠礼
+	giveGift/1,
+
+	%% 删除角色
+	deleteRole/1
 ]).
 
 %%% ====================================================================
@@ -48,6 +62,9 @@ getDefaultValue(?IDIT_PIC2) -> [];
 getDefaultValue(?IDIT_PIC3) -> [];
 getDefaultValue(?IDIT_FACE) -> [];
 getDefaultValue(?IDIT_SIGN) -> [];
+getDefaultValue(?IDIT_LIKE) -> 0;
+getDefaultValue(?IDIT_CHARM) -> 0;
+getDefaultValue(?IDIT_GIFTS) -> [];
 getDefaultValue(InvalidArument) ->
 	?ERROR_OUT("getDefaultValue InvalidArument(~p)~n~p", [InvalidArument, misc:getStackTrace()]).
 
@@ -78,6 +95,12 @@ getNewIdentity(?IDIT_FACE, Face, IdentityOld) ->
 	IdentityOld#rec_player_identity{face = Face};
 getNewIdentity(?IDIT_SIGN, Sign, IdentityOld) ->
 	IdentityOld#rec_player_identity{sign = Sign};
+getNewIdentity(?IDIT_LIKE, Like, IdentityOld) ->
+	IdentityOld#rec_player_identity{like = Like};
+getNewIdentity(?IDIT_CHARM, Charm, IdentityOld) ->
+	IdentityOld#rec_player_identity{charm = Charm};
+getNewIdentity(?IDIT_GIFTS, Gifts, IdentityOld) ->
+	IdentityOld#rec_player_identity{gifts = Gifts};
 getNewIdentity(InvalidIDIT, Data, IdentityOld) ->
 	?ERROR_OUT("getNewIdentity InvalidArument(~p)~n~p", [{InvalidIDIT, Data, IdentityOld}, misc:getStackTrace()]).
 
@@ -99,6 +122,7 @@ idit2pos(?IDIT_PIC3) -> 2.
 %% 注1：包括标签，标签的特殊部分已由玩家进程处理
 %% 注2：相册除外，使用其它方式进行管理
 %% 注3：需要对编辑头像引起的照片数据引用计数变化而进行处理
+%% 注4：点赞值和魅力值除外，不受玩家编辑，而是其它功能调用
 -spec editIdentity(Pid::pid(), {IDIT::type_idit(), IdentityID::uint64(), Data::term()}) -> ok.
 editIdentity(Pid, {IDIT, IdentityID, Data}) ->
 	%?DEBUG_OUT("[DebugForIdentity] editIdentity IDIT(~p) IdentityID(~p) Data(~p)", [IDIT, IdentityID, Data]),
@@ -341,6 +365,232 @@ identity_picUnactive() ->
 	end,
 	ok.
 
+%% 跨服图片传输
+friend2Cross_pic({MD5, FromDBID, RoleID} = Data) ->
+	?DEBUG_OUT("[DebugForCross] face ~w MD5:~w", [RoleID, MD5]),
+	case identityState:queryPicsMain(MD5) of
+		#rec_pic_data_main{data = DataPic, state = State} ->
+			friend2Cross_pic({MD5, FromDBID, RoleID, DataPic, State});
+		_ ->
+			gsSendMsg:sendMsg2DBServer(friend2Cross_pic, 0, Data)
+	end;
+friend2Cross_pic({_MD5, 0, _RoleID, _Data, _State} = Msg) ->
+	gsSendMsg:sendMsg2Cross(?PsNameIdentity, friend2Cross_picAck, Msg);
+friend2Cross_pic({_MD5, DBID, _RoleID, _Data, _State} = Msg) ->
+	gsSendMsg:sendMsg2NormalServer(DBID, ?PsNameIdentity, friend2Cross_picAck, Msg).
+
+%% 跨服图片传输反馈
+friend2Cross_picAck({_MD5, _DBID, _RoleID, [], _State}) ->
+	?DEBUG_OUT("[DebugForCross] friend2Cross_picAck ~w []", [_RoleID]),
+	skip;
+friend2Cross_picAck({MD5, _DBID, RoleID, Data, 0}) ->
+	case core:queryOnLineRoleByRoleID(RoleID) of
+		#rec_OnlinePlayer{netPid = NetPid} ->
+			SizeMax = erlang:length(Data),
+			?DEBUG_OUT("[DebugForCross] friend2Cross_picAck ~w", [RoleID]),
+			friend2Cross_picAck_send(Data, MD5, SizeMax, SizeMax, NetPid, 0);
+		_->
+			skip
+	end.
+
+friend2Cross_picAck_send([], _MD5, _Size, _SizeMax, _NetPid, _Index) ->
+	ok;
+friend2Cross_picAck_send(Data, MD5, Size, SizeMax, NetPid, Index) ->
+	%% 截取分段数据
+	{DataA, DataB} =
+		case Size >= ?DownLoadDataCell of
+			true ->
+				lists:split(?DownLoadDataCell, Data);
+			_ ->
+				{Data, []}
+		end,
+	Msg =  #pk_GS2U_IdentityPicDownloadData_Sync{
+		md5 = MD5,
+		size = SizeMax,
+		count = misc:ceil(SizeMax / ?DownLoadDataCell),
+		index = Index,
+		data = DataA
+	},
+	playerMsg:sendNetMsg(NetPid, Msg),
+	friend2Cross_picAck_send(DataB, MD5, Size - ?DownLoadDataCell, SizeMax, NetPid, Index + 1).
+
+%%%-------------------------------------------------------------------
+% 增加点赞值
+-spec addLike({RoleID::uint64(), TargetRoleID::uint64(), Like::uint32()}) -> no_return().
+addLike({_RoleID, _TargetRoleID, 0}) ->
+	skip;
+addLike({RoleID, TargetRoleID, Like}) ->
+	LikeNewForMsg =
+		case identityState:queryIdentity(TargetRoleID) of
+			{false, Identity} ->
+				identityState:insertIdentity(Identity#rec_player_identity{like = Like}),
+				gsSendMsg:sendMsg2DBServer(identity_Insert, 0, {?IDIT_LIKE, TargetRoleID, Like}),
+				Like;
+			{true, #rec_player_identity{like = LikeOld}} ->
+				LikeNew = LikeOld + Like,
+				updateIdentity(?IDIT_LIKE, LikeNew, TargetRoleID),
+				gsSendMsg:sendMsg2DBServer(identity_Update, 0, {?IDIT_LIKE, TargetRoleID, LikeNew}),
+				LikeNew
+		end,
+	Msg =
+		#pk_GS2U_IdentityLike_Sync{
+			roleID = RoleID,
+			tarRoleID = TargetRoleID,
+			valueUpdate = Like,
+			valueNew = LikeNewForMsg
+		},
+	case core:queryOnLineRoleByRoleID(RoleID) of
+		#rec_OnlinePlayer{netPid = NetPidA} ->
+			playerMsg:sendNetMsg(NetPidA, Msg);
+		_ ->
+			skip
+	end,
+	case core:queryOnLineRoleByRoleID(TargetRoleID) of
+		#rec_OnlinePlayer{netPid = NetPidB} ->
+			playerMsg:sendNetMsg(NetPidB, Msg);
+		_ ->
+			skip
+	end.
+
+%%%-------------------------------------------------------------------
+% 增加魅力值
+-spec addCharm({RoleID::uint64(), TargetRoleID::uint64(), Charm::uint32()}) -> no_return().
+addCharm({_RoleID, _TargetRoleID, 0}) ->
+	skip;
+addCharm({RoleID, TargetRoleID, Charm}) ->
+	CharmNewForMsg =
+		case identityState:queryIdentity(TargetRoleID) of
+			{false, Identity} ->
+				identityState:insertIdentity(Identity#rec_player_identity{charm = Charm}),
+				gsSendMsg:sendMsg2DBServer(identity_Insert, 0, {?IDIT_CHARM, TargetRoleID, Charm}),
+				Charm;
+			{true, #rec_player_identity{charm = CharmOld}} ->
+				CharmNew = CharmOld + Charm,
+				updateIdentity(?IDIT_CHARM, CharmNew, TargetRoleID),
+				gsSendMsg:sendMsg2DBServer(identity_Update, 0, {?IDIT_CHARM, TargetRoleID, CharmNew}),
+				CharmNew
+		end,
+	Msg =
+		#pk_GS2U_IdentityCharm_Sync{
+			roleID = RoleID,
+			tarRoleID = TargetRoleID,
+			valueUpdate = Charm,
+			valueNew = CharmNewForMsg
+		},
+	case core:queryOnLineRoleByRoleID(RoleID) of
+		#rec_OnlinePlayer{netPid = NetPidA} ->
+			playerMsg:sendNetMsg(NetPidA, Msg);
+		_ ->
+			skip
+	end,
+	case core:queryOnLineRoleByRoleID(TargetRoleID) of
+		#rec_OnlinePlayer{netPid = NetPidB} ->
+			playerMsg:sendNetMsg(NetPidB, Msg);
+		_ ->
+			skip
+	end.
+
+%%%-------------------------------------------------------------------
+% 赠礼
+-spec giveGift({RoleID::uint64(), TargetRoleID::uint64(), ItemID::uint16(), ItemCount::uint16(), CharmAll::uint32(), FriendlyAll::uint32(), Content::string()}) -> no_return().
+giveGift({RoleID, TarRoleID, ItemID, ItemCount, CharmAll, FriendlyAll, Content}) ->
+	addCharm({RoleID, TarRoleID, CharmAll}),												%% 增加魅力值
+	playerFriend2:closenessAdd(?ClosenessAddType_GiveGift, RoleID, TarRoleID, FriendlyAll),	%% 增加友好度（仅正式好友
+	%% 记录赠礼道具数量
+	case identityState:queryIdentity(TarRoleID) of
+		{false, Identity} ->
+			GiftsNew1 = [{ItemID, ItemCount}],
+			identityState:insertIdentity(Identity#rec_player_identity{gifts = GiftsNew1}),
+			gsSendMsg:sendMsg2DBServer(identity_Insert, 0, {?IDIT_GIFTS, TarRoleID, GiftsNew1});
+		{true, #rec_player_identity{gifts = GiftsOld}} ->
+			GiftsNew2 =
+				case lists:keyfind(ItemID, 1, GiftsOld) of
+					{ItemID, ItemCountOld} ->
+						lists:keyreplace(ItemID, 1, GiftsOld, {ItemID, ItemCountOld + ItemCount});
+					_ ->
+						[{ItemID, ItemCount} | GiftsOld]
+				end,
+			updateIdentity(?IDIT_GIFTS, GiftsNew2, TarRoleID),
+			gsSendMsg:sendMsg2DBServer(identity_Update, 0, {?IDIT_GIFTS, TarRoleID, GiftsNew2})
+	end,
+	%% 记录赠礼
+	Index = identityState:createGiftIndex(),
+	GiftHistory =
+		#pk_GiftHistory{
+			index = Index,
+			time = time:getSyncTimeFromDBS(),
+			roleID = RoleID,
+			tarRoleID = TarRoleID,
+			itemID = ItemID,
+			itemCount = ItemCount,
+			charmUpdate = CharmAll
+		},
+	identityState:insertGiftHistory(GiftHistory),
+	%% 使用ErrorCode反馈赠送者
+	#itemCfg{name = ItemName} = getCfg:getCfgPStack(cfg_item, ItemID),	%% 角色进程已经检测过了，这里必然能找到
+	TarRoleName = playerNameUID:getPlayerNameByUID(TarRoleID),			%% 角色进程已经检测过了，这里必然能找到
+	?ERROR_CODE_Ex(RoleID, ?ErrorCode_GiveGift_Success, [TarRoleName, ItemCount, ItemName]),
+	%% 使用邮件反馈被赠送者
+	RoleName = playerNameUID:getPlayerNameByUID(RoleID),
+	MailTitle = stringCfg:getString(giveGiftTitle),
+	MailContent = stringCfg:getString(giveGiftContent, [RoleName, ItemCount, ItemName, CharmAll]),
+	mail:sendSystemMail(TarRoleID, MailTitle, MailContent, [], []),
+	%% 使用协议反馈双方（如果在线），这是为了便于客户端本地保存赠礼记录
+	NameTables = [#pk_NameTable{id = RoleID, name = RoleName}, #pk_NameTable{id = TarRoleID, name = TarRoleName}],
+	Msg = #pk_GS2U_Gift_Ack{
+		history = GiftHistory,
+		nameTables = NameTables
+	},
+	case core:queryOnLineRoleByRoleID(RoleID) of
+		#rec_OnlinePlayer{netPid = NetPidA} ->
+			playerMsg:sendNetMsg(NetPidA, Msg);
+		_ ->
+			skip
+	end,
+	case core:queryOnLineRoleByRoleID(TarRoleID) of
+		#rec_OnlinePlayer{netPid = NetPidB} ->
+			playerMsg:sendNetMsg(NetPidB, Msg);
+		_ ->
+			skip
+	end,
+	%% 可能需要发送走马灯公告
+	case Content of
+		[] ->
+			skip;
+		_ ->
+			Content2 = stringCfg:getString(giveGiftVIP, [RoleName, TarRoleName, ItemName, ItemCount, Content]),
+			core:sendBroadcastNotice(Content2)
+	end.
+
+%%%-------------------------------------------------------------------
+% 删除角色
+-spec deleteRole(RoleID::uint64()) -> ok.
+deleteRole(RoleID) ->
+	case identityState:queryIdentity(RoleID) of
+		{false, _} ->
+			skip;	%% 没有身份证数据，忽略
+		{_, #rec_player_identity{face = Face, pic1 = Pic1, pic2 = Pic2, pic3 = Pic3}} ->
+			%% 去掉图片的引用
+			updateCountOfPicData(false, Face),
+			updateCountOfPicData(false, Pic1),
+			updateCountOfPicData(false, Pic2),
+			updateCountOfPicData(false, Pic3),
+			%% 删除内存身份证信息
+			identityState:deleteIdentity(RoleID),
+			%% 删除数据库身份证信息
+			gsSendMsg:sendMsg2DBServer(identity_Delete, 0, {0, RoleID}),
+			%% 删除有关赠礼记录
+			Q = ets:fun2ms(
+				fun (#pk_GiftHistory{index = Key, roleID = IDA, tarRoleID = IDB})
+					when IDA =:= RoleID; IDB =:= RoleID ->
+					Key
+				end
+			),
+			L = ets:select(?EtsGiftHistory, Q),
+			lists:foreach(fun(Key) -> ets:delete(?EtsGiftHistory, Key) end, L)
+	end,
+	ok.
+
 %%% ====================================================================
 %%% Internal functions
 %%% ====================================================================
@@ -371,14 +621,25 @@ updateIdentity(?IDIT_PIC2, Pic, IdentityID) ->
 updateIdentity(?IDIT_PIC3, Pic, IdentityID) ->
 	identityState:updateIdentity(IdentityID, #rec_player_identity.pic3, Pic);
 updateIdentity(?IDIT_FACE, Face, IdentityID) ->
+	gsSendMsg:sendMsg2PublicDMSaveData({?RoleKeyRec, IdentityID, [{#?RoleKeyRec.face, Face}]}),
 	identityState:updateIdentity(IdentityID, #rec_player_identity.face, Face);
 updateIdentity(?IDIT_SIGN, Sign, IdentityID) ->
 	identityState:updateIdentity(IdentityID, #rec_player_identity.sign, Sign);
+updateIdentity(?IDIT_LIKE, Like, IdentityID) ->
+	gsSendMsg:sendMsg2PublicDMSaveData({?RoleKeyRec, IdentityID, [{#?RoleKeyRec.like, Like}]}),
+	identityState:updateIdentity(IdentityID, #rec_player_identity.like, Like);
+updateIdentity(?IDIT_CHARM, Charm, IdentityID) ->
+	gsSendMsg:sendMsg2PublicDMSaveData({?RoleKeyRec, IdentityID, [{#?RoleKeyRec.charm, Charm}]}),
+	identityState:updateIdentity(IdentityID, #rec_player_identity.charm, Charm);
+updateIdentity(?IDIT_GIFTS, Gifts, IdentityID) ->
+	identityState:updateIdentity(IdentityID, #rec_player_identity.gifts, Gifts);
 updateIdentity(InvalidIDIT, Data, IdentityID) ->
 	?ERROR_OUT("updateIdentity InvalidArument(~p)~n~p", [{InvalidIDIT, Data, IdentityID}, misc:getStackTrace()]).
 
 %% 更新已有照片数据的引用计数
 -spec updateCountOfPicData(IsAdd::boolean(), MD5::list()) -> ok | error | none.
+updateCountOfPicData(_IsAdd, []) ->
+	none;
 updateCountOfPicData(IsAdd, MD5) ->
 	%% 过滤可能的无效MD5
 	MD5IsValid =

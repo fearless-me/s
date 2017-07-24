@@ -20,6 +20,7 @@
 	initAI/2,
 	initSpecWayLine/2,
 	initSpecWayLine2/2,
+	initSpecWayLineConvoy/2,
 	spawnAI/3,
 	stopAI/1,
 	selSkill/2,
@@ -163,6 +164,35 @@ initSpecWayLine2(Code, StartWID) ->
 			skip
 	end,
 	ok.
+
+initSpecWayLineConvoy(Code, {waypoint, StartWID, EndWID})->
+	case monsterState:getMoveTargetList(Code) of
+		undefined ->
+			MapID = monsterState:getMapID(Code),
+			List = core:getMapWayPt(MapID),
+
+			SortList1 = lists:keysort(#recMapWayPt.id, List),
+			SortList2 = lists:filter(fun(#recMapWayPt{id = ID}) -> ID >= StartWID andalso ID =< EndWID end, SortList1),
+			{PL1, _WL1} = makeWay(StartWID, SortList2),
+			PL = lists:reverse(PL1),
+			?DEBUG_OUT("#######Monster[~p], WID[~p->~p] waylist[~p]",[monsterState:getId(Code), StartWID, EndWID, PL]),
+			case PL of
+				[{TX, TY} | _] ->
+					MonID = monsterState:getId(Code),
+					#monsterCfg{moveSpeed = MS} = getCfg:getCfgPStack(cfg_monster, MonID),
+					MoveSpeed = float(MS),
+					monsterState:setMoveSpeed(Code, MoveSpeed),
+					monsterMove:moveTo(Code, TX, TY),
+					monsterState:setMoveTargetList(Code, PL);
+				_ ->
+					skip
+			end;
+		_ ->
+			skip
+	end,
+	ok;
+initSpecWayLineConvoy(_Code,_Params)->
+		ok.
 
 makeWay(StartWID, WPList) ->
 	case lists:keyfind(StartWID, #recMapWayPt.id, WPList) of
@@ -312,7 +342,7 @@ extSkillSelTarget(Code, Arg) ->
 	Code :: uint(),
 	Arg :: bstActSelSkillType().
 selSkill(Code, Arg) ->
-	MonID = monsterState:getId(Code),
+	MonID = monsterState:getId2(Code),
 	#monsterCfg{
 		monsterSkill = SkillList,
 		monsterExSkill = ExSkillList,
@@ -379,7 +409,7 @@ attack(Code) ->
 	CurHp = monsterState:getCurHp(Code),
 	case CurHp > 0 of
 		true ->
-			ID = monsterState:getId(Code),
+			ID = monsterState:getId2(Code),
 			SN = monsterState:getAttackSN(Code),
 			#selSkill{skillID = SkillID} = monsterState:getSelSkill(Code),
 			#monsterCfg{monsterSkill = SkillList} = getCfg:getCfgPStack(cfg_monster, ID),

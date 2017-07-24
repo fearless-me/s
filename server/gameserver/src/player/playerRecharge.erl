@@ -214,7 +214,7 @@ chargeAccumulate(Coin) when is_number(Coin) andalso Coin > 0 ->
 getChargeGift(3, Grade) ->
 	%%每日累充
 	case variant:getGlobalBitVariant(?Setting_GlobalBitVarReadOnly_Hide_Daily_AccCharge) of
-		false ->
+		true ->
 			Sec = time:getSyncTime1970FromDBS(),
 			{{Year, Month, Day}, _} = calendar:gregorian_seconds_to_datetime(Sec - 4 * 3600),
 

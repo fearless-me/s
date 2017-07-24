@@ -21,9 +21,9 @@
 
 %% 技能目标范围(单体目标技能)
 -define(SingleSkillEnemy, 0).  %%单个敌人(主)
--define(SingleSkillMy, 1).  %%自己(主)
--define(SingleSkillMyMaster, 2).  %%自己主人(宠物技能)(主)
--define(SingleSkillMyPet, 3).  %%自己宠物(主)
+-define(SingleSkillMy, 1).  %%自己(主)(宠物技能、角色技能)
+-define(SingleSkillMyMaster, 2).  %%自己主人(主)(宠物技能)
+-define(SingleSkillMyPet, 3).  %%自己宠物(主)（角色技能）
 %% AOE对自己施放
 -define(MutiSkillCirMyEnemy, 5).  %%自身周围敌人(圆形)
 -define(MutiSkillCirMyTeam, 6).  %%自身周围队友(圆形)(主)
@@ -36,11 +36,13 @@
 -define(MutiTranSkillCirMyEnermy, 11). %%敌人位置圆形（副）
 -define(MutiTranSkillSecMyEnermy, 12). %%敌人位置扇形（副）
 
+-define(MultiSkillSecCross, 13).  %%十字选择
 
-%% 技能目标类型
--define(SkillTargetTypeMonster, 1).   %%怪物
--define(SkillTargetTypePlayer, 2).   %%玩家
--define(SkillTargetTypePet, 4).   %%宠物
+
+%%%% 技能目标类型
+%%-define(SkillTargetTypeMonster, 1).   %%怪物
+%%-define(SkillTargetTypePlayer, 2).   %%玩家
+%%-define(SkillTargetTypePet, 4).   %%宠物
 
 %%技能杂项
 -define(SkillOther, 0).   %%其他技能
@@ -48,6 +50,9 @@
 -define(SkillTrigger, 3).   %%不能被Buff技能触发
 -define(SkillCall, 4).   %%技能调用
 
+-define(Camp_Neutral,   0).
+-define(Camp_Friendly,  1).
+-define(Camp_Hostile,   2).
 
 %%技能类型
 %%-define(KnightSkill, 101).   %%骑士技能
@@ -67,10 +72,13 @@
 -define(PlayerWingSkill, 15).   %%翅膀技能
 -define(PlayerMechanicSkill, 16).   %%机械技能
 -define(PetFairySkill, 17).  %%宠物精灵技能
+-define(PolymorphRoleSkill, 18). %% 变形后的主动技能
 -define(MarrigeSkill, 19).  %%夫妻技能
 -define(GoddessSkill, 20).  %%女神技能
 
 -define(RoleSkill, [
+	?PolymorphRoleSkill,
+	
 	?Career_10_Warrior,
 	?Career_11_Guardian,?Career_11_Fighter,
 	?Career_12_Footman, ?Career_12_Swordsmen,?Career_12_Mercenary,
@@ -89,6 +97,7 @@
 -define(SkillAOETypeCircle, [?MutiSkillCirEnemy, ?MutiSkillCirMyEnemy, ?MutiSkillCirMyTeam, ?MutiTranSkillCirMyEnermy]).            %%   圆形Aoe
 -define(SkillAOETypeSector, [?MutiSkillSecEnemy, ?MutiSkillSecMyEnemy]).                                %%   扇形Aoe
 -define(SkillAOETypeRect, [?MutiSkillAngEnemy, ?MutiSkillAngMyEnemy, ?MutiTranSkillSecMyEnermy]).                                %%   矩形Aoe
+-define(SkillAOETypeCross, [?MultiSkillSecCross]). %% 十字矩形
 
 %% 仇恨列表操作
 -define(AddHate, 1).   %%新增仇恨列表
@@ -141,9 +150,16 @@
 -define(DeadTriggerSkill, 9).  %%死亡技能触发技能
 -define(BuffCallSkill, 10). %%buff调用技能
 -define(AssistTriggerSkill, 11). %%协助击杀触发技能
+-define(PetPropertyTransfer, 12). %宠物属性转化为主角属性
+-define(BeAttackTriggerHpLow, 13). %被攻击目标触发技能,血量触发
 -define(ActiveSkillList, [?InstantSkill, ?SingSkill, ?GuideSkill]). %%主动技能列表
--define(TriggerSkill, [?AttackTriggerSkill, ?NoAttackTriggerSkill, ?BeAttackTriggerSkill,
-	?ReleaseTriggerSkill, ?DeadTriggerSkill, ?AssistTriggerSkill]).
+-define(TriggerSkill,
+	[
+		?AttackTriggerSkill, ?NoAttackTriggerSkill, ?BeAttackTriggerSkill
+		, ?ReleaseTriggerSkill, ?DeadTriggerSkill, ?AssistTriggerSkill
+		, ?BeAttackTriggerHpLow
+	]
+).
 -define(PassSkillList, [?PassivitySkill | ?TriggerSkill]).%%被动技能列表
 
 %%特殊被动技能
@@ -153,6 +169,7 @@
 -define(SpecPassSkill4, 4). %%角色生命高于一定百分比获得buff
 -define(SpecPassSkill5, 5). %%对敌人生命低于一定百分比增加伤害系数
 -define(SpecPassSkill6, 6). %%对敌人生命高于一定百分比增加伤害系数
+-define(SpecPassSkill7, 7). %%角色生命低于一定百分比获出发该技能
 
 %%技能连击间隔时间
 -define(ComboSkillInternalTime, 1000 * 5).
@@ -327,6 +344,14 @@
 	casterPkMode = 0                         %%施法者Pk模式
 }).
 
+-record(recDefender, {
+	absorbValue,
+	curHp,
+	code,
+	props,
+	status                 %%被攻击者状态
+}).
+
 -record(recBeAttack, {
 	skillID,                            %%攻击者使用的技能ID
 	skillLevel,                                %%技能等级
@@ -409,21 +434,6 @@
 	hateCode,                       %%仇恨者Code,
 	hatePid,                        %%仇恨者Pid,
 	hateValue                       %%仇恨值
-}).
-
--record(recbeAttackJudge, {
-	hitJudge,              %%攻击者技能判定
-	damageMultiply,        %%攻击者乘法值
-	damagePlus,            %%攻击者加法值
-	hitratioValue,         %%攻击者命中率
-	criticalValue,         %%攻击者暴击值
-	criticalimmunity,         %%被攻击者暴击豁免
-	parryValue,            %%被攻击者招架值
-	dodageValue,           %%被攻击者闪避值
-	blockValue,            %%被攻击者格挡值
-	isPlayer,              %%被攻击者是否是玩家
-	equipList,             %%被攻击者装备列表
-	status                 %%被攻击者状态
 }).
 
 -record(recBattleLearn, {

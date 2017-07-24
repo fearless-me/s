@@ -356,14 +356,8 @@ getRow(58)->
 getRow(59)->
     #identity_tagCfg {
     id = 59,
-    tag = "梦幻",
-    resouce = "tag059"
-    };
-getRow(60)->
-    #identity_tagCfg {
-    id = 60,
     tag = "低调",
-    resouce = "tag060"
+    resouce = "tag059"
     };
 getRow(_)->[].
 
@@ -426,8 +420,7 @@ getKeyList()->[
     {56},
     {57},
     {58},
-    {59},
-    {60}
+    {59}
     ].
 
 get1KeyList()->[
@@ -489,7 +482,6 @@ get1KeyList()->[
     56,
     57,
     58,
-    59,
-    60
+    59
     ].
 

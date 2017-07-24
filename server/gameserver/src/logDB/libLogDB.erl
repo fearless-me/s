@@ -120,14 +120,15 @@ saveLog_Real(MsgID, Msg) ->
 	saveLog(MsgID, Msg).
 
 %%保存日志数据
-saveLog(?LogType_GoodsChange, [#recLogGoodsChange{}|_] = List) ->
+saveLog(_, []) -> ok;
+saveLog(?LogType_GoodsChange, [{_, #recLogGoodsChange{}}|_] = List) ->
 	%% log_item_change 表，要做特殊处理，分表，格式log_item_change201503-201612等
 
 	{{Year,Month,_Day},{_Hour,_Minute,_Second}} = time:getLocalNowDateTime1970(),
 	TableName = io_lib:format("log_item_change~p~2..0B", [Year, Month]),
 
 	Fun =
-		fun(#recLogGoodsChange{} = Rec, AccIn) ->
+		fun({_, #recLogGoodsChange{} = Rec}, AccIn) ->
 			[_|ParamList] = erlang:tuple_to_list(Rec),
 			io_lib:format(",(~p,~p,'~ts',~p,~p,~p,~p,~p,~p,~p,~p,~p,~p,~p,~p,~p)", ParamList) ++ AccIn
 		end,
@@ -139,6 +140,9 @@ saveLog(?LogType_GoodsChange, [#recLogGoodsChange{}|_] = List) ->
 	logResult(logType_GoodsChange,Ret,SQL,0),
 	ok;
 
+saveLog(Type, [{_, #recForbiddenLog{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_Forbidden, #recForbiddenLog{
 	playerID = PlayerID,
 	accountID = AccountID,
@@ -153,13 +157,16 @@ saveLog(?LogType_Forbidden, #recForbiddenLog{
 	logResult(stSaveLogForbidden,Ret,"AccountID",AccountID),
 	ok;
 
-saveLog(?LogType_AccountLogin, [#recLogAccountLogin{}|_] = List) ->
+saveLog(?LogType_AccountLogin, [{_, #recLogAccountLogin{}}|_] = List) ->
 	saveAccountLoginLog("log_account_login", List),
 	ok;
-saveLog(?LogType_AccountLogin2, [#recLogAccountLogin{}|_] = List) ->
+saveLog(?LogType_AccountLogin2, [{_, #recLogAccountLogin{}}|_] = List) ->
 	saveAccountLoginLog("log_account_login2", List),
 	ok;
 
+saveLog(Type, [{_, #recLogChatInfo{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_ChatInfo, #recLogChatInfo{
 	sendPlayerID = SendPlayerID,
 	receiveplayerid = Receiveplayerid,
@@ -167,13 +174,14 @@ saveLog(?LogType_ChatInfo, #recLogChatInfo{
 	chatChannel = ChatChannel,
 	time = Time
 }) ->
-	Ret = emysql:execute(?LOGDB_CONNECT_POOL,stSaveLogChatInfo,[SendPlayerID, Receiveplayerid, ChatString, ChatChannel, Time]),
+	ChatStringForSQL = misc:anti_sqlInjectionAttack(ChatString),
+	Ret = emysql:execute(?LOGDB_CONNECT_POOL,stSaveLogChatInfo,[SendPlayerID, Receiveplayerid, ChatStringForSQL, ChatChannel, Time]),
 	logResult(stSaveLogChatInfo,Ret,"stSaveLogChatInfo",SendPlayerID),
 	ok;
 
-saveLog(?LogType_Coin, [#recLogCoin{}|_] = List) ->
+saveLog(?LogType_Coin, [{_, #recLogCoin{}}|_] = List) ->
 	Fun =
-		fun(#recLogCoin{} = Rec, AccIn) ->
+		fun({_, #recLogCoin{} = Rec}, AccIn) ->
 			io_lib:format(",(~p,~p,'~ts',~p,~p,~p,~p,~p,~p,~p,'~ts',~p,~p,~p)",
 				[
 					Rec#recLogCoin.playerID,
@@ -199,9 +207,9 @@ saveLog(?LogType_Coin, [#recLogCoin{}|_] = List) ->
 	logResult(logType_Coin,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_Gold, [#recLogGold{}|_] = List) ->
+saveLog(?LogType_Gold, [{_, #recLogGold{}}|_] = List) ->
 	Fun =
-		fun(#recLogGold{} = Rec, AccIn) ->
+		fun({_, #recLogGold{} = Rec}, AccIn) ->
 			io_lib:format(",(~p,~p,'~ts',~p,~p,~p,~p,~p,~p,~p,'~ts',~p,~p,~p)",
 				[
 					Rec#recLogGold.playerID,
@@ -227,9 +235,9 @@ saveLog(?LogType_Gold, [#recLogGold{}|_] = List) ->
 	logResult(logType_Gold,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_CreateGoods, [#recLogCreateGoods{}|_] = List) ->
+saveLog(?LogType_CreateGoods, [{_, #recLogCreateGoods{}}|_] = List) ->
 	Fun =
-		fun(#recLogCreateGoods{
+		fun({_, #recLogCreateGoods{
 			ownerID = OwnerID,
 			goodsUID = GoodsUID,
 			goodsID = GoodsID,
@@ -241,7 +249,7 @@ saveLog(?LogType_CreateGoods, [#recLogCreateGoods{}|_] = List) ->
 			createReson = CreateReson,
 			createFromParam = CreateFromParam,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p)",
 				[
 					OwnerID, GoodsUID, GoodsID, PileNum,
@@ -257,14 +265,14 @@ saveLog(?LogType_CreateGoods, [#recLogCreateGoods{}|_] = List) ->
 	logResult(logType_CreateGoods,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_Title, [#recLogCreateTitle{}|_] = List) ->
+saveLog(?LogType_Title, [{_, #recLogCreateTitle{}}|_] = List) ->
 	Fun =
-		fun(#recLogCreateTitle{
+		fun({_, #recLogCreateTitle{
 			playerID = PlayerID,
 			titleID = TitleID,
 			source = Source,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p)",
 				[PlayerID, TitleID, Source, Time]) ++ AccIn
 		end,
@@ -274,15 +282,15 @@ saveLog(?LogType_Title, [#recLogCreateTitle{}|_] = List) ->
 	logResult(logType_Title,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_RoleExt, [#recLogRoleExt{}|_] = List) ->
+saveLog(?LogType_RoleExt, [{_, #recLogRoleExt{}}|_] = List) ->
 	Fun =
-		fun(#recLogRoleExt{
+		fun({_, #recLogRoleExt{
 			roleID = RoleID,
 			totalOfflineTime = TotalTime,
 			rewardNum = RewardNum,
 			rewardType = RewaredType,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p, ~p)",
 				[RoleID, TotalTime, RewardNum, RewaredType, Time]) ++ AccIn
 		end,
@@ -292,9 +300,9 @@ saveLog(?LogType_RoleExt, [#recLogRoleExt{}|_] = List) ->
 	logResult(logType_RoleExt,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_WeaponInfo, [#rec_log_god_weapon{}|_] = List) ->
+saveLog(?LogType_WeaponInfo, [{_, #rec_log_god_weapon{}}|_] = List) ->
 	Fun =
-		fun(#rec_log_god_weapon{
+		fun({_, #rec_log_god_weapon{
 			accountID = AccountID,
 			roleID = RoleID,
 			weaponID = WeaponID,
@@ -303,7 +311,7 @@ saveLog(?LogType_WeaponInfo, [#rec_log_god_weapon{}|_] = List) ->
 			costItem = CostItem,
 			costCoin = CostCoin,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			CostItemString = misc:term_to_string(CostItem),
 			CostCoinString = misc:term_to_string(CostCoin),
 			io_lib:format(
@@ -317,9 +325,9 @@ saveLog(?LogType_WeaponInfo, [#rec_log_god_weapon{}|_] = List) ->
 	logResult(logType_WeaponInfo,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_Rune, [#rec_log_rune{}|_] = List) ->
+saveLog(?LogType_Rune, [{_, #rec_log_rune{}}|_] = List) ->
 	Fun =
-		fun(#rec_log_rune{
+		fun({_, #rec_log_rune{
 			roleID = RoleID,				%% bigint(20) unsigned
 			accountID = AcID,				%% bigint(20) unsigned
 			runeUID = UID,				%% bigint(20) unsigned
@@ -333,7 +341,7 @@ saveLog(?LogType_Rune, [#rec_log_rune{}|_] = List) ->
 			expiredTime = ETime,				%% bigint(20) unsigned
 			time = Time,				%%日志记录时间 bigint(20) unsigned
 			props = Props				%%属性列表 varchar(255)
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, '~ts')",
 				[RoleID,AcID,UID,RuneID,Op,Lvl,Exp,IsBind,CTime,DTime,ETime,Time,Props]) ++ AccIn
 		end,
@@ -344,6 +352,9 @@ saveLog(?LogType_Rune, [#rec_log_rune{}|_] = List) ->
 	logResult(logType_Rune,Ret,SQL,0),
 	ok;
 
+saveLog(Type, [{_, #recLogCreateMail{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_CreateMail, #recLogCreateMail{
 	mailUID = MailUID,
 	senderRoleID = SenderRoleID,
@@ -368,13 +379,13 @@ saveLog(?LogType_CreateMail, #recLogCreateMail{
 	logResult(stSaveLogCreateMail,Ret,"stSaveLogCreateMail",MailUID),
 	ok;
 
-saveLog(?LogType_CreatePet, [#recLogCreatePet{}|_] = List) ->
+saveLog(?LogType_CreatePet, [{_, #recLogCreatePet{}}|_] = List) ->
 	Fun =
-		fun(#recLogCreatePet{
+		fun({_, #recLogCreatePet{
 			playerID = PlayerID,
 			petID = PetID,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p)",
 				[PlayerID, PetID, Time]) ++ AccIn
 		end,
@@ -384,9 +395,9 @@ saveLog(?LogType_CreatePet, [#recLogCreatePet{}|_] = List) ->
 	logResult(logType_CreatePet,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_CreatePlayer, [#recLogCreatePlayer{}|_] = List) ->
+saveLog(?LogType_CreatePlayer, [{_, #recLogCreatePlayer{}}|_] = List) ->
 	F =
-		fun(#recLogCreatePlayer{
+		fun({_, #recLogCreatePlayer{
 			playerID = PlayerID,
 			name = Name,
 			accountID = AccountID,
@@ -395,7 +406,7 @@ saveLog(?LogType_CreatePlayer, [#recLogCreatePlayer{}|_] = List) ->
 			race = Race,
 			career = Career,
 			time = Time
-		}) ->
+		}}) ->
 			Ret = emysql:execute(?LOGDB_CONNECT_POOL,
 				stSaveLogCreatePlayer,
 				[PlayerID, Name, AccountID, Sex, Camp, Race, Career, Time]
@@ -406,9 +417,9 @@ saveLog(?LogType_CreatePlayer, [#recLogCreatePlayer{}|_] = List) ->
 	lists:foreach(F, List),
 	ok;
 
-saveLog(?LogType_ExpChange, [#recLogExpChange{}|_] = List) ->
+saveLog(?LogType_ExpChange, [{_, #recLogExpChange{}}|_] = List) ->
 	Fun =
-		fun(#recLogExpChange{
+		fun({_, #recLogExpChange{
 			playerID = PlayerID,
 			oldLevel = OldLevel,
 			newLevel = NewLevel,
@@ -416,7 +427,7 @@ saveLog(?LogType_ExpChange, [#recLogExpChange{}|_] = List) ->
 			changValue = ChangValue,
 			changePrama = ChangePrama,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			ChangePramaStr =
 				case erlang:is_integer(ChangePrama) of
 					true -> erlang:integer_to_list(ChangePrama);
@@ -433,9 +444,9 @@ saveLog(?LogType_ExpChange, [#recLogExpChange{}|_] = List) ->
 	logResult(logType_ExpChange,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_Friend, [#rec_log_player_friend{}|_] = List) ->
+saveLog(?LogType_Friend, [{_, #rec_log_player_friend{}}|_] = List) ->
 	Fun =
-		fun(#rec_log_player_friend{
+		fun({_, #rec_log_player_friend{
 			roleID = RoleID,
 			targetRoleID = TargetRoleID,
 			oldCloseness = Old,
@@ -443,7 +454,7 @@ saveLog(?LogType_Friend, [#rec_log_player_friend{}|_] = List) ->
 			reason = Reason,
 			isActive = IsActive,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(
 				",(~w,~w,~w,~w,~w,~w,~w)",
 				[RoleID, TargetRoleID, Old, New, Reason, IsActive, Time]
@@ -455,9 +466,9 @@ saveLog(?LogType_Friend, [#rec_log_player_friend{}|_] = List) ->
 	logResult(logType_Friend, Ret, SQL, 0),
 	ok;
 
-saveLog(?LogType_Marriage, [#rec_log_player_marriage{}|_] = List) ->
+saveLog(?LogType_Marriage, [{_, #rec_log_player_marriage{}}|_] = List) ->
 	Fun =
-		fun(#rec_log_player_marriage{
+		fun({_, #rec_log_player_marriage{
 			roleID = RoleID,
 			targetRoleID = TargetRoleID,
 			oldCloseness = Old,
@@ -465,7 +476,7 @@ saveLog(?LogType_Marriage, [#rec_log_player_marriage{}|_] = List) ->
 			reason = Reason,
 			isActive = IsActive,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(
 				",(~w,~w,~w,~w,~w,~w,~w)",
 				[RoleID, TargetRoleID, Old, New, Reason, IsActive, Time]
@@ -477,14 +488,14 @@ saveLog(?LogType_Marriage, [#rec_log_player_marriage{}|_] = List) ->
 	logResult(logType_Marriage, Ret, SQL, 0),
 	ok;
 
-saveLog(?LogType_MailChange, [#recLogMailChange{}|_] = List) ->
+saveLog(?LogType_MailChange, [{_, #recLogMailChange{}}|_] = List) ->
 	Fun =
-		fun(#recLogMailChange{
+		fun({_, #recLogMailChange{
 			playerID = PlayerID,
 			mailUID = MailUID,
 			changeType = ChangeType,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p)",
 				[PlayerID, MailUID, ChangeType, Time]) ++ AccIn
 		end,
@@ -494,16 +505,16 @@ saveLog(?LogType_MailChange, [#recLogMailChange{}|_] = List) ->
 	logResult(logType_MailChange,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_MallBuy, [#recLogMallBuy{}|_] = List) ->
+saveLog(?LogType_MallBuy, [{_, #recLogMallBuy{}}|_] = List) ->
 	Fun =
-		fun(#recLogMallBuy{
+		fun({_, #recLogMallBuy{
 			playerID = PlayerID,
 			itemDataID = ItemDataID,
 			buyCount = BuyCount,
 			payMoneyType = PayMoneyType,
 			payMoney = PayMoney,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p, ~p, ~p)",
 				[PlayerID, ItemDataID, BuyCount, PayMoneyType, PayMoney, Time]) ++ AccIn
 		end,
@@ -513,6 +524,9 @@ saveLog(?LogType_MallBuy, [#recLogMallBuy{}|_] = List) ->
 	logResult(logType_MallBuy,Ret,SQL,0),
 	ok;
 
+saveLog(Type, [{_, #recLogOnlinePlayers{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_OnlinePlayers, #recLogOnlinePlayers{
 	count = Count,
 	time = Time
@@ -524,9 +538,9 @@ saveLog(?LogType_OnlinePlayers, #recLogOnlinePlayers{
 	logResult(stSaveLogOnlinePlayers,Ret,"Count",Count),
 	ok;
 
-saveLog(?LogType_PlayerDelete, [#recLogPlayerDelete{}|_] = List) ->
+saveLog(?LogType_PlayerDelete, [{_, #recLogPlayerDelete{}}|_] = List) ->
 	Fun =
-		fun(#recLogPlayerDelete{
+		fun({_, #recLogPlayerDelete{
 			playerID = PlayerID,
 			level = Level,
 			gold = Gold,
@@ -538,7 +552,7 @@ saveLog(?LogType_PlayerDelete, [#recLogPlayerDelete{}|_] = List) ->
 			purpleEssence = PurpleEssence,
 			goldenEssence = GoldenEssence,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p)",
 				[PlayerID, Level, Gold, BindGold, Diamond, Ticket, Prestige, Honor, PurpleEssence, GoldenEssence, Time]) ++ AccIn
 		end,
@@ -549,9 +563,9 @@ saveLog(?LogType_PlayerDelete, [#recLogPlayerDelete{}|_] = List) ->
 	logResult(logType_PlayerDelete,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_PlayerOffline, [#recLogPlayerOffline{}|_] = List) ->
+saveLog(?LogType_PlayerOffline, [{_, #recLogPlayerOffline{}}|_] = List) ->
 	Fun =
-		fun(#recLogPlayerOffline{
+		fun({_, #recLogPlayerOffline{
 			playerID = PlayerID,
 			level = Level,
 			exp = Exp,
@@ -564,18 +578,22 @@ saveLog(?LogType_PlayerOffline, [#recLogPlayerOffline{}|_] = List) ->
 			purpleEssence = PurpleEssence,
 			goldenEssence = GoldenEssence,
 			onlineOrOffline = OnlineOrOffline,
-			time = Time
-		}, AccIn) ->
-			io_lib:format(",(~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p)",
-				[PlayerID, Level, Exp, Gold, BindGold, Diamond, Prestige, Honor, Ticket, PurpleEssence, GoldenEssence, OnlineOrOffline, Time]) ++ AccIn
+			time = Time,
+			time2 = Time2
+		}}, AccIn) ->
+			io_lib:format(",(~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p ,~p)",
+				[PlayerID, Level, Exp, Gold, BindGold, Diamond, Prestige, Honor, Ticket, PurpleEssence, GoldenEssence, OnlineOrOffline, Time, Time2]) ++ AccIn
 		end,
 	[_|T] = lists:foldl(Fun, [], List),
 	SQL = io_lib:format("INSERT DELAYED INTO log_player_online_offline(PlayerID, Level, Exp, Gold, BindGold, Diamond, Prestige,
-                            Honor, Ticket, PurpleEssence, GoldenEssence, OnlineOrOffline, time) VALUES ~ts", [T]),
+                            Honor, Ticket, PurpleEssence, GoldenEssence, OnlineOrOffline, time, time2) VALUES ~ts", [T]),
 	Ret = emysql:execute(?LOGDB_CONNECT_POOL,SQL),
 	logResult(logType_PlayerOffline,Ret,SQL,0),
 	ok;
 
+saveLog(Type, [{_, #recLogPresentRecharge{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_PresentRecharge, #recLogPresentRecharge{
 	orderid = Orderid,
 	platformAccount = PlatformAccount,
@@ -595,6 +613,9 @@ saveLog(?LogType_PresentRecharge, #recLogPresentRecharge{
 	logResult(stSaveLogPresentRecharge,Ret,"Orderid",Orderid),
 	ok;
 
+saveLog(Type, [{_, #recLogRecharge{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_Recharge, #recLogRecharge{orderid = Orderid} = Rec) ->
 	[_TableName|ParamList] = erlang:tuple_to_list(Rec),
 	Ret = emysql:execute(?LOGDB_CONNECT_POOL, stSaveLogRecharge, ParamList),
@@ -621,14 +642,14 @@ saveLog(?LogType_Recharge, #recLogRecharge{orderid = Orderid} = Rec) ->
 %%	logResult(stSaveLogRechargeClient,Ret,"PlayerID",PlayerID),
 %%	ok;
 
-saveLog(?LogType_Skill, [#recLogSkill{}|_] = List) ->
+saveLog(?LogType_Skill, [{_, #recLogSkill{}}|_] = List) ->
 	Fun =
-		fun(#recLogSkill{
+		fun({_, #recLogSkill{
 			playerID = PlayerID,
 			skillID = SkillID,
 			level = Level,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p)", [PlayerID, SkillID, Level, Time]) ++ AccIn
 		end,
 	[_|T] = lists:foldl(Fun, [], List),
@@ -637,15 +658,15 @@ saveLog(?LogType_Skill, [#recLogSkill{}|_] = List) ->
 	logResult(logType_Skill,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_Task, [#recLogTask{}|_] = List) ->
+saveLog(?LogType_Task, [{_, #recLogTask{}}|_] = List) ->
 	Fun =
-		fun(#recLogTask{
+		fun({_, #recLogTask{
 			playerID = PlayerID,
 			taskDataID = TaskDataID,
 			level = Level,
 			type = Type,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p, ~p)", [PlayerID, TaskDataID, Level, Type, Time]) ++ AccIn
 		end,
 	[_|T] = lists:foldl(Fun, [], List),
@@ -654,9 +675,9 @@ saveLog(?LogType_Task, [#recLogTask{}|_] = List) ->
 	logResult(logType_Task,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_Trade, [#rec_log_trade{}|_] = List) ->
+saveLog(?LogType_Trade, [{_, #rec_log_trade{}}|_] = List) ->
 	Fun =
-		fun(#rec_log_trade{} = Trade, AccIn) ->
+		fun({_, #rec_log_trade{} = Trade}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p, ~p)", [
 				Trade#rec_log_trade.roleID,
 				Trade#rec_log_trade.orderID,
@@ -678,9 +699,9 @@ saveLog(?LogType_Trade, [#rec_log_trade{}|_] = List) ->
 	logResult(logType_Trade,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_Trade_OP, [#rec_log_trade_op{}|_] = List) ->
+saveLog(?LogType_Trade_OP, [{_, #rec_log_trade_op{}}|_] = List) ->
 	Fun =
-		fun(#rec_log_trade_op{} = Trade, AccIn) ->
+		fun({_, #rec_log_trade_op{} = Trade}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p, ~p)", [
 				Trade#rec_log_trade_op.tradeID,
 				Trade#rec_log_trade_op.downReson,
@@ -695,6 +716,9 @@ saveLog(?LogType_Trade_OP, [#rec_log_trade_op{}|_] = List) ->
 	logResult(logType_Trade_op,Ret,SQL,0),
 	ok;
 
+saveLog(Type, [{_, #recWeb2LsCommandLog{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_Web2lsCommand, #recWeb2LsCommandLog{
 	opCode = OpCode,
 	opUser = OpUser,
@@ -716,27 +740,30 @@ saveLog(?LogType_Web2lsCommand, #recWeb2LsCommandLog{
 	ok;
 
 %%GM指令log
-saveLog(?LogType_GMCmd, #recLogGMCmd{
-	sendPlayerID = SendRoleID,
-	chatString = ChatString,
-	time = Time
-}) ->
-	Ret = emysql:execute(?LOGDB_CONNECT_POOL,
-		stSaveLogGmCmd,
-		[SendRoleID, ChatString, Time]
-	),
-	logResult(stSaveLogGmCmd,Ret,"SendRoleID",SendRoleID),
+saveLog(?LogType_GMCmd, [{_, #recLogGMCmd{}}|_] = List) ->
+	Fun =
+		fun({_, #recLogGMCmd{
+			sendPlayerID = SendRoleID,
+			chatString = ChatString,
+			time = Time
+		}}, AccIn) ->
+			io_lib:format(",(~p, '~ts', ~p)", [SendRoleID, ChatString, Time]) ++ AccIn
+		end,
+	[_|T] = lists:foldl(Fun, [], List),
+	SQL = io_lib:format("INSERT DELAYED INTO log_gm_cmd (senderPlayerID, ChatString, TIME) VALUES ~ts", [T]),
+	Ret = emysql:execute(?LOGDB_CONNECT_POOL, SQL),
+	logResult(stSaveLogGmCmd,Ret,SQL,0),
 	ok;
 
 %%玩家等级变化log
 saveLog(?LogType_PlayerLevel, List) ->
 	Fun =
-		fun({
+		fun({_, {
 			PlayerID,			%%角色ID
 			OldLevel,			%%变化前的等级
 			CurLevel,			%%变化后的等级
 			Time		        %%时间
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p)", [PlayerID, OldLevel, CurLevel, Time]) ++ AccIn
 		end,
 	[_|T] = lists:foldl(Fun, [], List),
@@ -746,15 +773,18 @@ saveLog(?LogType_PlayerLevel, List) ->
 	ok;
 
 %%玩家反馈CoupleBack
+saveLog(Type, [{_, #recLogPlayerCB{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_PlayerCB, #recLogPlayerCB{roleID = PlayerID} = CB) ->
 	Ret = emysql:execute(?LOGDB_CONNECT_POOL, stSaveLogPlayerCoupleBack, misc:record_to_list(CB)),
 	logResult(stSaveLogPlayerCoupleBack,Ret,"recLogPlayerCB",PlayerID),
 	ok;
 
 %% 玩家排行日志
-saveLog(?LogType_Rank, [#recSaveRank{}|_] = List) ->
+saveLog(?LogType_Rank, [{_, #recSaveRank{}}|_] = List) ->
 	Fun =
-		fun(#recSaveRank{} = Rank, AccIn) ->
+		fun({_, #recSaveRank{} = Rank}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p, ~p, ~p, ~p, '~ts')",
 				[
 					Rank#recSaveRank.roleID,
@@ -774,6 +804,9 @@ saveLog(?LogType_Rank, [#recSaveRank{}|_] = List) ->
 	ok;
 
 %% 混沌战场击杀boss伤害日志
+saveLog(Type, [{_, #recLogActivityHDHurt{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_HDBattleHurt, #recLogActivityHDHurt{} = Hurt) ->
 	Ret = emysql:execute(?LOGDB_CONNECT_POOL,
 		stSaveLogActivityHDHurt,
@@ -789,6 +822,9 @@ saveLog(?LogType_HDBattleHurt, #recLogActivityHDHurt{} = Hurt) ->
 	logResult(stSaveLogActivityHDHurt, Ret, "LogActivityHurt", Hurt#recLogActivityHDHurt.roleID),
 	ok;
 %% 混沌战场击杀玩家数量日志
+saveLog(Type, [{_, #recLogActivityHDKill{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_HDBattleKill, #recLogActivityHDKill{} = Kill) ->
 	Ret = emysql:execute(?LOGDB_CONNECT_POOL,
 		stSaveLogActivityHDKill,
@@ -805,6 +841,9 @@ saveLog(?LogType_HDBattleKill, #recLogActivityHDKill{} = Kill) ->
 	ok;
 
 %%代client存日志（主要是充值相关）
+saveLog(Type, [{_, #recLogTypeEventLog{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_EventLog, #recLogTypeEventLog{
 	roleID = RoleID,
 	accountID = AccountID,
@@ -827,16 +866,16 @@ saveLog(?LogType_EventLog, #recLogTypeEventLog{
 	logResult(stSaveLogEvent, Ret, "LogType_EventLog", RoleID),
 	ok;
 
-saveLog(?LogType_AchieveNum, [#recLogAchieveNum{}|_] = List) ->
+saveLog(?LogType_AchieveNum, [{_, #recLogAchieveNum{}}|_] = List) ->
 	Fun =
-		fun(#recLogAchieveNum{
+		fun({_, #recLogAchieveNum{
 			playerID = PlayerID,
 			achieveID = AchieveID,
 			oldAchieveNum = OldAchieveNum,
 			modAchieveNum = ModAchieveNum,
 			newAchieveNum = NewAchieveNum,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p, ~p, ~p, ~p, ~p, ~p)",
 				[
 					PlayerID,
@@ -853,6 +892,9 @@ saveLog(?LogType_AchieveNum, [#recLogAchieveNum{}|_] = List) ->
 	logResult(logType_AchieveNum,Ret,SQL,0),
 	ok;
 
+saveLog(Type, [{_, #recSaveMallChangeLog{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_MallChange, #recSaveMallChangeLog{}=Mall) ->
 	Ret = emysql:execute(?LOGDB_CONNECT_POOL,
 		stSaveLogMallChange,
@@ -893,9 +935,9 @@ saveLog(?LogType_MallChange, #recSaveMallChangeLog{}=Mall) ->
 	ok;
 
 
-saveLog(?LogType_PetUpStar, [#recLogPetUpStar{}|_] = List) ->
+saveLog(?LogType_PetUpStar, [{_, #recLogPetUpStar{}}|_] = List) ->
 	Fun =
-		fun(#recLogPetUpStar{} = Rec, AccIn) ->
+		fun({_, #recLogPetUpStar{} = Rec}, AccIn) ->
 			[_TableName|ParamList] = erlang:tuple_to_list(Rec),
 			io_lib:format(",(~p, ~p, ~p, ~p, ~p)", ParamList) ++ AccIn
 		end,
@@ -905,9 +947,9 @@ saveLog(?LogType_PetUpStar, [#recLogPetUpStar{}|_] = List) ->
 	logResult(logType_PetUpStar,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_PetSkillCast, [#recLogPetCast{}|_] = List) ->
+saveLog(?LogType_PetSkillCast, [{_, #recLogPetCast{}}|_] = List) ->
 	Fun =
-		fun(#recLogPetCast{} = Rec, AccIn) ->
+		fun({_, #recLogPetCast{} = Rec}, AccIn) ->
 			[_TableName|ParamList] = erlang:tuple_to_list(Rec),
 			io_lib:format(",(~p,~p,~p,~p,~p,~p,~p)", ParamList) ++ AccIn
 		end,
@@ -917,9 +959,9 @@ saveLog(?LogType_PetSkillCast, [#recLogPetCast{}|_] = List) ->
 	logResult(logType_PetSkillCast,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_PetRaw, [#recLogPetRaw{}|_] = List) ->
+saveLog(?LogType_PetRaw, [{_, #recLogPetRaw{}}|_] = List) ->
 	Fun =
-		fun(#recLogPetRaw{} = Rec, AccIn) ->
+		fun({_, #recLogPetRaw{} = Rec}, AccIn) ->
 			[_TableName|ParamList] = erlang:tuple_to_list(Rec),
 			io_lib:format(",(~p,~p,~p,~p,~p)", ParamList) ++ AccIn
 		end,
@@ -929,9 +971,9 @@ saveLog(?LogType_PetRaw, [#recLogPetRaw{}|_] = List) ->
 	logResult(logType_PetRaw,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_PetEquipStr, [#recLogPetEquipStr{}|_] = List) ->
+saveLog(?LogType_PetEquipStr, [{_, #recLogPetEquipStr{}}|_] = List) ->
 	Fun =
-		fun(#recLogPetEquipStr{} = Rec, AccIn) ->
+		fun({_, #recLogPetEquipStr{} = Rec}, AccIn) ->
 			[_TableName|ParamList] = erlang:tuple_to_list(Rec),
 			io_lib:format(",(~p,~p,~p,~p,~p,~p)", ParamList) ++ AccIn
 		end,
@@ -941,9 +983,9 @@ saveLog(?LogType_PetEquipStr, [#recLogPetEquipStr{}|_] = List) ->
 	logResult(logType_PetEquipStr,Ret,SQL,0),
 	ok;
 
-saveLog(?LogType_RedEnvelope, [#rec_log_redenvelope{}] = List) ->
+saveLog(?LogType_RedEnvelope, [{_, #rec_log_redenvelope{}}|_] = List) ->
 	Fun =
-		fun(#rec_log_redenvelope{
+		fun({_, #rec_log_redenvelope{
 			redID = UID,
 			sendRoleID = SendRole,
 			playerID = RobPlayerID,
@@ -951,7 +993,7 @@ saveLog(?LogType_RedEnvelope, [#rec_log_redenvelope{}] = List) ->
 			moneyType = MoneyType,
 			redValue = RedValue,
 			time = NowTime
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(",(~p,~p,~p,~p,~p,~p,~p)", [UID,SendRole,RobPlayerID,OpType,RedValue,MoneyType,NowTime]) ++ AccIn
 		end,
 	[_|T] = lists:foldl(Fun, [], List),
@@ -961,6 +1003,9 @@ VALUES ~ts", [T]),
 	logResult(?LogType_RedEnvelope,Ret,SQL,0),
 	ok;
 
+saveLog(Type, [{_, #rec_log_change_role_owner{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_ChangeRoleOwner, #rec_log_change_role_owner{
 	descAccountID = DAID,
 	sourceAccountID = SAID,
@@ -976,6 +1021,9 @@ saveLog(?LogType_ChangeRoleOwner, #rec_log_change_role_owner{
 	ok;
 
 %%参与军团联赛的军团信息
+saveLog(Type, [{_, #recLogGuildBattleInfo{} = V} | L]) ->
+	saveLog(Type, V),
+	saveLog(Type, L);
 saveLog(?LogType_GuildBattleInfo, #recLogGuildBattleInfo{}=Rec) ->
 	[_TableName|ParamList] = erlang:tuple_to_list(Rec),
 
@@ -985,9 +1033,9 @@ saveLog(?LogType_GuildBattleInfo, #recLogGuildBattleInfo{}=Rec) ->
 	ok;
 
 %%各种玩法参与者信息统计
-saveLog(?LogType_ParticipatorInfo, [#recLogParticipatorInfo{}|_] = List) ->
+saveLog(?LogType_ParticipatorInfo, [{_, #recLogParticipatorInfo{}}|_] = List) ->
 	F =
-		fun(#recLogParticipatorInfo{type = Type} = Rec) ->
+		fun({_, #recLogParticipatorInfo{type = Type} = Rec}) ->
 			[_TableName|ParamList] = erlang:tuple_to_list(Rec),
 			PrepareAtom = erlang:list_to_existing_atom("stSaveLogParticipatorInfo" ++ erlang:integer_to_list(Type)),
 			Ret = emysql:execute(?LOGDB_CONNECT_POOL, PrepareAtom, ParamList),
@@ -998,9 +1046,9 @@ saveLog(?LogType_ParticipatorInfo, [#recLogParticipatorInfo{}|_] = List) ->
 	ok;
 
 %%副本信息统计
-saveLog(?LogType_CopyInfo, [#rec_log_copy{}|_] = List) ->
+saveLog(?LogType_CopyInfo, [{_, #rec_log_copy{}}|_] = List) ->
 	Fun =
-		fun(#rec_log_copy{
+		fun({_, #rec_log_copy{
 			accountID = AccountID,
 			roleID = RoleID,
 			copyMapType = CopyMapType,
@@ -1012,7 +1060,7 @@ saveLog(?LogType_CopyInfo, [#rec_log_copy{}|_] = List) ->
 			goldReward = GoldReward,
 			expReward = ExpReward,
 			dropItems = DropItems
-		}, AccIn) ->
+		}}, AccIn) ->
 			io_lib:format(
 				",(~w,~w,~w,~w,~w,~w,~w,~w,'~ts',~w,'~ts')",
 				[AccountID, RoleID, CopyMapType, CopyMapID,StartTime,
@@ -1025,12 +1073,13 @@ saveLog(?LogType_CopyInfo, [#rec_log_copy{}|_] = List) ->
 	logResult(logType_CopyInfo,Ret,SQL,0),
 	ok;
 
-saveLog(_, _) ->
+saveLog(Type, _) ->
+	?ERROR_OUT("no match logtype:~p", [Type]),
 	ok.
 
 saveAccountLoginLog(TableName, List) ->
 	Fun =
-		fun(#recLogAccountLogin{
+		fun({_, #recLogAccountLogin{
 			accountID = AccountID,
 			platformAccountID = PlatformAccountID,
 			platformID = PlatformID,
@@ -1042,7 +1091,7 @@ saveAccountLoginLog(TableName, List) ->
 			idfa = Idfa,
 			globalClientSetupKey = GlobalClientSetupKey,
 			time = Time
-		}, AccIn) ->
+		}}, AccIn) ->
 			VersionClientExeStr =
 				case erlang:is_integer(VersionClientExe) of
 					true -> erlang:integer_to_list(VersionClientExe);

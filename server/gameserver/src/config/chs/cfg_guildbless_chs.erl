@@ -9,7 +9,7 @@ getRow(1)->
     #guildblessCfg {
     typ = 1,
     rate = 0,
-    contribute = 139,
+    contribute = 150,
     guildresource = 88,
     guildliveness = 9,
     cost = 10000,
@@ -19,20 +19,20 @@ getRow(2)->
     #guildblessCfg {
     typ = 2,
     rate = 0,
-    contribute = 232,
+    contribute = 500,
     guildresource = 147,
     guildliveness = 15,
-    cost = 15,
+    cost = 30,
     costtype = 103
     };
 getRow(3)->
     #guildblessCfg {
     typ = 3,
     rate = 0,
-    contribute = 465,
+    contribute = 1200,
     guildresource = 295,
     guildliveness = 29,
-    cost = 50,
+    cost = 200,
     costtype = 103
     };
 getRow(_)->[].

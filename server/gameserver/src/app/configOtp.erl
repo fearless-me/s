@@ -9,7 +9,7 @@
 -module(configOtp).
 -author(tiancheng).
 
--behaviour(myGenServer).
+-behaviour(gen_server).
 
 -include("gsInc.hrl").
 
@@ -23,8 +23,7 @@
 	handle_cast/2,
 	handle_info/2,
 	terminate/2,
-	code_change/3,
-	handle_exception/3
+	code_change/3
 ]).
 
 -define(SERVER, ?MODULE).
@@ -44,7 +43,7 @@
 -spec(start_link() ->
 	{ok, Pid :: pid()} | ignore | {error, Reason :: term()}).
 start_link() ->
-	myGenServer:start_link({local, ?PsNameConfigOtp}, ?MODULE, [], []).
+	gen_server:start_link({local, ?PsNameConfigOtp}, ?MODULE, [], []).
 
 %%%===================================================================
 %%% gen_server callbacks
@@ -153,17 +152,22 @@ terminate(_Reason, _State) ->
 code_change(_OldVsn, State, _Extra) ->
 	{ok, State}.
 
-handle_exception(Type,Why,State) ->
-	myGenServer:default_handle_excetion(Type, Why, State).
-
 %%%===================================================================
 %%% Internal functions
 %%%===================================================================
 loadConfigFileToEts(EtsName, File) ->
 	case file:read_file(File) of
 		{ok,Data} ->
-			parse_config(Data, EtsName),
-			?LOG_OUT("Load file:~ts success, ets:~p", [File, EtsName]);
+			try
+				?LOG_OUT("start load file [~ts] ...", [File]),
+				Decrypt_Data = se:decrypt_bin(rsa, Data),
+				parse_config(Decrypt_Data, EtsName),
+				?LOG_OUT("Load file [~ts] success !!!", [File])
+			catch
+			    _:_Why ->
+					Str = io_lib:format("load [~ts] config error", [File]),
+					throw(Str)
+			end;
 		Error ->
 			throw(Error)
 	end.

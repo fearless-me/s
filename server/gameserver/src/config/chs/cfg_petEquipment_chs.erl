@@ -13,7 +13,7 @@ getRow(1)->
     parts = 0,
     quality = 0,
     advanced = 2,
-    baseProperty = [{138,0.7,0},{139,0.7,0}],
+    baseProperty = [{136,0.2,0},{137,0.2,0},{135,0.5,0}],
     info = "初阶骑宠护铠"
     };
 getRow(2)->
@@ -24,7 +24,7 @@ getRow(2)->
     parts = 0,
     quality = 1,
     advanced = 3,
-    baseProperty = [{138,0.7,0},{139,0.7,0}],
+    baseProperty = [{136,0.2,0},{137,0.2,0},{135,0.5,0}],
     info = "中阶骑宠护铠"
     };
 getRow(3)->
@@ -35,7 +35,7 @@ getRow(3)->
     parts = 0,
     quality = 2,
     advanced = 4,
-    baseProperty = [{138,0.7,0},{139,0.7,0}],
+    baseProperty = [{136,0.2,0},{137,0.2,0},{135,0.5,0}],
     info = "高阶骑宠护铠"
     };
 getRow(4)->
@@ -46,7 +46,7 @@ getRow(4)->
     parts = 0,
     quality = 3,
     advanced = 5,
-    baseProperty = [{138,0.7,0},{139,0.7,0}],
+    baseProperty = [{136,0.2,0},{137,0.2,0},{135,0.5,0}],
     info = "顶阶骑宠护铠"
     };
 getRow(5)->
@@ -57,7 +57,7 @@ getRow(5)->
     parts = 0,
     quality = 4,
     advanced = 0,
-    baseProperty = [{138,0.7,0},{139,0.7,0}],
+    baseProperty = [{136,0.2,0},{137,0.2,0},{135,0.5,0}],
     info = "神阶骑宠护铠"
     };
 getRow(6)->
@@ -68,7 +68,7 @@ getRow(6)->
     parts = 1,
     quality = 0,
     advanced = 7,
-    baseProperty = [{136,1,0},{137,1,0}],
+    baseProperty = [{136,0.4,0},{137,0.4,0},{138,0.65,0}],
     info = "初阶骑宠饰品"
     };
 getRow(7)->
@@ -79,7 +79,7 @@ getRow(7)->
     parts = 1,
     quality = 1,
     advanced = 8,
-    baseProperty = [{136,1,0},{137,1,0}],
+    baseProperty = [{136,0.4,0},{137,0.4,0},{138,0.65,0}],
     info = "中阶骑宠饰品"
     };
 getRow(8)->
@@ -90,7 +90,7 @@ getRow(8)->
     parts = 1,
     quality = 2,
     advanced = 9,
-    baseProperty = [{136,1,0},{137,1,0}],
+    baseProperty = [{136,0.4,0},{137,0.4,0},{138,0.65,0}],
     info = "高阶骑宠饰品"
     };
 getRow(9)->
@@ -101,7 +101,7 @@ getRow(9)->
     parts = 1,
     quality = 3,
     advanced = 10,
-    baseProperty = [{136,1,0},{137,1,0}],
+    baseProperty = [{136,0.4,0},{137,0.4,0},{138,0.65,0}],
     info = "顶阶骑宠饰品"
     };
 getRow(10)->
@@ -112,7 +112,7 @@ getRow(10)->
     parts = 1,
     quality = 4,
     advanced = 0,
-    baseProperty = [{136,1,0},{137,1,0}],
+    baseProperty = [{136,0.4,0},{137,0.4,0},{138,0.65,0}],
     info = "神阶骑宠饰品"
     };
 getRow(11)->
@@ -123,7 +123,7 @@ getRow(11)->
     parts = 2,
     quality = 0,
     advanced = 12,
-    baseProperty = [{135,0.5,0},{139,0.3,0}],
+    baseProperty = [{136,0.4,0},{137,0.4,0},{139,0.65,0}],
     info = "初阶驯兽鞭"
     };
 getRow(12)->
@@ -134,7 +134,7 @@ getRow(12)->
     parts = 2,
     quality = 1,
     advanced = 13,
-    baseProperty = [{135,0.5,0},{139,0.3,0}],
+    baseProperty = [{136,0.4,0},{137,0.4,0},{139,0.65,0}],
     info = "中阶驯兽鞭"
     };
 getRow(13)->
@@ -145,7 +145,7 @@ getRow(13)->
     parts = 2,
     quality = 2,
     advanced = 14,
-    baseProperty = [{135,0.5,0},{139,0.3,0}],
+    baseProperty = [{136,0.4,0},{137,0.4,0},{139,0.65,0}],
     info = "高阶驯兽鞭"
     };
 getRow(14)->
@@ -156,7 +156,7 @@ getRow(14)->
     parts = 2,
     quality = 3,
     advanced = 15,
-    baseProperty = [{135,0.5,0},{139,0.3,0}],
+    baseProperty = [{136,0.4,0},{137,0.4,0},{139,0.65,0}],
     info = "顶阶驯兽鞭"
     };
 getRow(15)->
@@ -167,7 +167,7 @@ getRow(15)->
     parts = 2,
     quality = 4,
     advanced = 0,
-    baseProperty = [{135,0.5,0},{139,0.3,0}],
+    baseProperty = [{136,0.4,0},{137,0.4,0},{139,0.65,0}],
     info = "神阶驯兽鞭"
     };
 getRow(16)->
@@ -178,7 +178,7 @@ getRow(16)->
     parts = 3,
     quality = 0,
     advanced = 17,
-    baseProperty = [{135,0.5,0},{138,0.3,0}],
+    baseProperty = [{135,0.5,0},{138,0.35,0},{139,0.35,0}],
     info = "初阶驯兽骑镫"
     };
 getRow(17)->
@@ -189,7 +189,7 @@ getRow(17)->
     parts = 3,
     quality = 1,
     advanced = 18,
-    baseProperty = [{135,0.5,0},{138,0.3,0}],
+    baseProperty = [{135,0.5,0},{138,0.35,0},{139,0.35,0}],
     info = "中阶驯兽骑镫"
     };
 getRow(18)->
@@ -200,7 +200,7 @@ getRow(18)->
     parts = 3,
     quality = 2,
     advanced = 19,
-    baseProperty = [{135,0.5,0},{138,0.3,0}],
+    baseProperty = [{135,0.5,0},{138,0.35,0},{139,0.35,0}],
     info = "高阶驯兽骑镫"
     };
 getRow(19)->
@@ -211,7 +211,7 @@ getRow(19)->
     parts = 3,
     quality = 3,
     advanced = 20,
-    baseProperty = [{135,0.5,0},{138,0.3,0}],
+    baseProperty = [{135,0.5,0},{138,0.35,0},{139,0.35,0}],
     info = "顶阶驯兽骑镫"
     };
 getRow(20)->
@@ -222,7 +222,7 @@ getRow(20)->
     parts = 3,
     quality = 4,
     advanced = 0,
-    baseProperty = [{135,0.5,0},{138,0.3,0}],
+    baseProperty = [{135,0.5,0},{138,0.35,0},{139,0.35,0}],
     info = "神阶驯兽骑镫"
     };
 getRow(_)->[].

@@ -9,7 +9,6 @@
 -behaviour(myGenServer).
 
 -include("playerPrivate.hrl").
--include("dbsDefine.hrl").
 -include("gsInc.hrl").
 
 -record(state,{
@@ -241,11 +240,17 @@ handle_info(dailyCounterTick, State) ->
 			psMgr:sendMsg2PS(?PsNameIdentity, identity_picUnactive, 0),
 			psMgr:sendMsg2PS(?PsNameGuild, dailyreset, 0),
 			core:sendMsgToActivity(?ActivityType_PetTerritory, petTerritory_dailyReset, 0),
-			ok;
+			erlang:send_after(?DailyCounterTick * 10, self(), dailyCounterTick);	%% 防止短时间内重复触发
+	%% 每日签到所需凌晨0点重置时间
+	%% 原本打算仅在玩家请求时判断是否需要重置时间
+	%% 但客户端依赖于同步属性进行显示，因此需要服务端主动重置
+		Hour =:= 0 andalso Minute >= 0 andalso Minute < 3 ->
+			PidList = getAllPlayerPidInfo(),
+			[psMgr:sendMsg2PS(Pid, resetPlayerDailyCounter0, {}) || Pid <- PidList],
+			erlang:send_after(?DailyCounterTick * 10, self(), dailyCounterTick);	%% 防止短时间内重复触发
 		true ->
-			skip
+			erlang:send_after(?DailyCounterTick, self(), dailyCounterTick)	%% 正常心跳
 	end,
-	erlang:send_after(?DailyCounterTick, self(), dailyCounterTick),
 	{noreply, State};
 
 %% 连上db了
@@ -295,11 +300,20 @@ handle_info({gs2MinuteStop,_FromPid,{NumSecond} },State) when NumSecond>=0 ->
 handle_info({saveOnlinePlayers,_FromPid,{}},State) ->
 	%%检查玩家心跳
 	erlang:send_after(?OnlinePlayersTime, self(), {saveOnlinePlayers,self(),{}}),
+
 	Num = playerMgrOtp:getAllPlayerNumAndModifyData(),
+	?LOG_OUT("OnlinePlayersNumber:~p", [Num]),
 	dbLog:sendSaveLogOnlinePlayer(Num),
 
+	biInterface:acuToBi(Num, ?OnlinePlayersTime),
 	%% 发消息给DBMain检查心跳是否还存活
 	psMgr:sendMsg2PS(?PsNameDBMain, checkSyncToDBIsAlive, 0),
+
+	%% 发消息给LS更新人数
+	psMgr:sendMsg2PS(?PsNameLS, gsRefreshOnlineCount, Num),
+
+	%% 发消息给chatOtp更新人数
+	psMgr:sendMsg2PS(?ChatOtp, freshOnlinePlayerNumber, Num),
 	{noreply,State};
 
 %%根据playerID给在线的玩家进程发消息
@@ -475,6 +489,21 @@ handle_info({addExpressPet, _, PlayerPetList}, State) ->
 %%	lists:foreach(Fun, PlayerPetList),
 	{noreply, State};
 
+
+%% 从别的服转发消息给当前服角色进程
+handle_info({transit, _, {MsgID, ListRoleID, Msg}}, State) ->
+	FunTransit =
+		fun(RoleID) ->
+			case core:queryOnLineRoleByRoleID(RoleID) of
+				#rec_OnlinePlayer{pid = Pid} ->
+					psMgr:sendMsg2PS(Pid, MsgID, Msg);
+				_ ->
+					skip
+			end
+		end,
+	lists:foreach(FunTransit, ListRoleID),
+	{noreply, State};
+
 handle_info(Info, State) ->
 	deal_info(Info),
 	{noreply, State}.
@@ -521,28 +550,6 @@ deal_info({login,FromPid,{Cmd,#pk_U2GS_RequestLogin{accountID = AccountID} = Log
 			end;
 		_ ->
 			createPlayerOtp(FromPid,AccountID,Cmd,Login)
-	end,
-	ok;
-
-deal_info({connectCrossSuccess,FromPid,{ServerID, ServerName}}) ->
-	?WARN_OUT("connectCrossSuccess:~p,~ts,~p", [ServerID, ServerName, FromPid]),
-	addSourceServerList(ServerID, ServerName, FromPid),
-	ok;
-
-deal_info({sendMsg2AllSource,FromPid,{OtpName, MsgID, Msg}}) ->
-	L = getSourceServerList(),
-	[psMgr:sendMsg2PS(Pid, sendDataToSourceServer, FromPid, {OtpName, MsgID, Msg})
-		|| {_, _, Pid} <- L
-	],
-	ok;
-
-deal_info({sendMsg2OneSource,FromPid,{TargetServerID, OtpName, MsgID, Msg}}) ->
-	L = getSourceServerList(),
-	case lists:keyfind(TargetServerID, 1, L) of
-		{_, _, Pid} ->
-			psMgr:sendMsg2PS(Pid, sendDataToSourceServer, FromPid, {OtpName, MsgID, Msg});
-		_ ->
-			skip
 	end,
 	ok;
 
@@ -836,23 +843,3 @@ sendGuildCopyAward(AwardIDList, OtherIDList, Plan, BossName) ->
 	lists:foreach(Fun2, OtherIDList),
 	ok.
 %%*******************军团多人副本逻辑结束**************************************%%
-setSourceServerList(List) ->
-	put('SourceServerList', List),
-	?WARN_OUT("setSourceServerList:~p", [List]),
-	List.
-getSourceServerList() ->
-	case get('SourceServerList') of
-		undefined -> [];
-		L -> L
-	end.
-addSourceServerList(ServerID, ServerName, PID) ->
-	L = getSourceServerList(),
-	NL =
-		case lists:keyfind(ServerID, 1, L) of
-			{_, _, _} ->
-				lists:keystore(ServerID, 1, L, {ServerID, ServerName, PID});
-			_ ->
-				[{ServerID, ServerName, PID} | L]
-		end,
-	setSourceServerList(NL),
-	NL.

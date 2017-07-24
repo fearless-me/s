@@ -27,7 +27,7 @@ loadVariant0() ->
 	SQL = "select * from variant0 where roleID < 1000000",
 	VariantList = dbMemCacheCommon:getDataFromDB(SQL,?MakeArg(rec_variant0)),
 	variant:initVariantFromDB(VariantList),
-	variant:variantFirstInit(),
+	variant:variantFirstInit(VariantList),
 	?LOG_OUT("global variant list len:~p",[erlang:length(VariantList)]),
 	ok.
 
@@ -54,7 +54,6 @@ getRoleAllDataFromDB(RoleID) ->
 	getBadge(RoleID),
 	getWaken(RoleID),
 	getDailyCounter(RoleID),
-	getPersonInfo(RoleID),
 	getFashion(RoleID),
 	getVariant(RoleID),
 	getBuff(RoleID),
@@ -178,11 +177,6 @@ getFashion(RoleID) ->
 	dbMemCacheCommon:getDataFromDB(SQL1,?MakeArg(rec_role_fashions)),
 	SQL2 = io_lib:format("select * from fashion_slot where roleID=~p",[RoleID]),
 	dbMemCacheCommon:getDataFromDB(SQL2,?MakeArg(rec_fashion_slot)),
-	ok.
-
-getPersonInfo(RoleID) ->
-	SQL = io_lib:format("select * from personality_info where roleID=~p",[RoleID]),
-	dbMemCacheCommon:getDataFromDB(SQL,?MakeArg(rec_personality_info)),
 	ok.
 
 getBuff(RoleID) ->

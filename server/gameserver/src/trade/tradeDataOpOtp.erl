@@ -151,6 +151,9 @@ handle_info(Info, State) ->
 							%% 检查是否有空的静态数据
 							tradeDataOpLogic:isHaveNoneStaticRow(),
 
+							%% 先立即处理一次过期的订单
+							tradeDataOpLogic:downTimeOutOrder(),
+
 							%% 检查过期订单的心跳
 							downTimeOutOrderTick();
 						_ ->
@@ -218,11 +221,22 @@ init() ->
     %release(),
 
     %% 创建RAM数据表
-    edb:createTable(?MNESIA_Trade_Silver,   [{attributes, record_info(fields, ?MNESIA_Trade_Silver)}]),
-    edb:createTable(?MNESIA_Trade_Private,  [{attributes, record_info(fields, ?MNESIA_Trade_Private)}]),
-    edb:createTable(?MNESIA_Trade_Gold,     [{attributes, record_info(fields, ?MNESIA_Trade_Gold)}]),
+    edb:createTable(?MNESIA_Trade_Gold,   [{ram_copies, [node()]}, {attributes, record_info(fields, ?MNESIA_Trade_Gold)}]),
+    edb:createTable(?MNESIA_Trade_Private,  [{ram_copies, [node()]}, {attributes, record_info(fields, ?MNESIA_Trade_Private)}]),
+    edb:createTable(?MNESIA_Trade_Diamond,     [{ram_copies, [node()]}, {attributes, record_info(fields, ?MNESIA_Trade_Diamond)}]),
 
-    mnesia:wait_for_tables([?MNESIA_Trade_Silver,?MNESIA_Trade_Private,?MNESIA_Trade_Gold], 20000),
+	%% 成交记录表
+	ets:new(tradeDealRecord,
+		[
+			named_table,
+			public,
+			duplicate_bag,
+			{keypos,#tradeDealRecord.itemID},
+			{write_concurrency, true},
+			{read_concurrency, true}
+		]),
+
+%%    mnesia:wait_for_tables([?MNESIA_Trade_Silver,?MNESIA_Trade_Private,?MNESIA_Trade_Gold], 20000),
 
     %% 表创建成功
     tradeDataOpLogic:setTradeDataInitResult(true),
@@ -234,9 +248,9 @@ init() ->
 
 %% 释放
 release() ->
-    edb:deleteTable(?MNESIA_Trade_Silver),
-    edb:deleteTable(?MNESIA_Trade_Private),
     edb:deleteTable(?MNESIA_Trade_Gold),
+    edb:deleteTable(?MNESIA_Trade_Private),
+    edb:deleteTable(?MNESIA_Trade_Diamond),
     ok.
 
 recover() ->

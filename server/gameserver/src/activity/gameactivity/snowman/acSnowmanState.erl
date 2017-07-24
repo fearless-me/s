@@ -155,68 +155,67 @@ getSnowmanNormal(GuildID) ->
 			0	%% 找不到公会取默认值0
 	end.
 
-%%% --------------------------------------------------------------------
-%% 已领取的雪人礼盒
--spec getSnowmanGift(RoleID::uint64()) -> ListIsReward::[boolean(), ...].
-getSnowmanGift(RoleID) ->
-	LastTime = variant:getPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGiftLastTime),
-	GiftState =
-	case getCfg:getCfgPStack(cfg_activity, ?ActivityType_Snowman) of
-		#activityCfg{starttime = [{0, Hour}]} ->
-			TimeNow = time:getSyncTime1970FromDBS(),
-			{{YYYY, MM, DD}, {_, _, _}} = time:convertSec2DateTime(TimeNow),
-			TimeBegin = time:convertDateTime1970ToSec({{YYYY, MM, DD}, {Hour, 0, 0}}),
-			case LastTime < TimeBegin of
-				true ->
-					0;	%% 时间陈旧，只能取默认值
-				_ ->
-					variant:getPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift)
-			end;
-		_ ->
-			?ERROR_OUT("getSnowmanGift can not find ?ActivityType_Snowman from cfg_activity"),
-			0
-	end,
-	FunCreateList =
-		fun(Bit, ListR) ->
-			case GiftState band Bit of
-				Bit ->
-					[true | ListR];
-				_ ->
-					[false | ListR]
-			end
-		end,
-	ListR = lists:foldl(FunCreateList, [], ?ListBitOfUint32),
-	lists:reverse(ListR).
--spec getSnowmanGift(RoleID::uint64(), ID::uint32()) -> IsReward::boolean().
-getSnowmanGift(RoleID, ID) when ID >= 1, ID =< 32 ->
-	lists:nth(ID, getSnowmanGift(RoleID));
-getSnowmanGift(RoleID, ID) ->
-	?ERROR_OUT("getSnowmanGift invalid ID:~p with RoleID:~p", [ID, RoleID]),
-	true.
+%%%% --------------------------------------------------------------------
+%%% 已领取的雪人礼盒
+%-spec getSnowmanGift(RoleID::uint64()) -> ListIsReward::[boolean(), ...].
+%getSnowmanGift(RoleID) ->
+%	LastTime = variant:getPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGiftLastTime),
+%	TimeBegin =
+%		case memDBCache:getSundries(?Sundries_ID_Snowman, ?Sundries_SnowmanSubID_BeginTime) of
+%			[#rec_sundries{value = TimeBegin_}] ->
+%				TimeBegin_;
+%			_ ->
+%				0
+%		end,
+%	GiftState =
+%		case LastTime < TimeBegin of
+%			true ->
+%				0;	%% 时间陈旧，只能取默认值
+%			_ ->
+%				variant:getPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift)
+%		end,
+%	FunCreateList =
+%		fun(Bit, ListR) ->
+%			case GiftState band Bit of
+%				Bit ->
+%					[true | ListR];
+%				_ ->
+%					[false | ListR]
+%			end
+%		end,
+%	ListR = lists:foldl(FunCreateList, [], ?ListBitOfUint32),
+%	lists:reverse(ListR).
+%
+%-spec getSnowmanGift(RoleID::uint64(), ID::uint32()) -> IsReward::boolean().
+%getSnowmanGift(RoleID, ID) when ID >= 1, ID =< 32 ->
+%	lists:nth(ID, getSnowmanGift(RoleID));
+%getSnowmanGift(RoleID, ID) ->
+%	?ERROR_OUT("getSnowmanGift invalid ID:~p with RoleID:~p", [ID, RoleID]),
+%	true.
 
-%%% --------------------------------------------------------------------
-%% 设置雪人礼盒状态
--spec setSnowGift(RoleID::uint64(), GiftState::uint32()) -> ok.
-setSnowGift(RoleID, GiftState) ->
-	TimeNow = time:getSyncTime1970FromDBS(),
-	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGiftLastTime, TimeNow),
-	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift, GiftState).
--spec setSnowGift(RoleID::uint64(), GiftStateBit::boolean(), ID::uint32()) -> ok.
-setSnowGift(RoleID, true, ID) when ID >= 1, ID =< 32 ->
-	TimeNow = time:getSyncTime1970FromDBS(),
-	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGiftLastTime, TimeNow),
-	GiftStateOld = variant:getPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift),
-	GiftStateNew = GiftStateOld bor lists:nth(ID, ?ListBitOfUint32),
-	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift, GiftStateNew);
-setSnowGift(RoleID, false, ID) when ID >= 1, ID =< 32 ->
-	TimeNow = time:getSyncTime1970FromDBS(),
-	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGiftLastTime, TimeNow),
-	GiftStateOld = variant:getPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift),
-	GiftStateNew = GiftStateOld band lists:nth(ID, ?ListNotBitOfUint32),
-	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift, GiftStateNew);
-setSnowGift(RoleID, GiftStateBit, ID) ->
-	?ERROR_OUT("setSnowGift invalid ID:~p with RoleID:~p GiftStateBit:~p", [ID, RoleID, GiftStateBit]),
-	ok.
+%%%% --------------------------------------------------------------------
+%%% 设置雪人礼盒状态
+%-spec setSnowGift(RoleID::uint64(), GiftState::uint32()) -> ok.
+%setSnowGift(RoleID, GiftState) ->
+%	TimeNow = time:getSyncTime1970FromDBS(),
+%	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGiftLastTime, TimeNow),
+%	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift, GiftState).
+%-spec setSnowGift(RoleID::uint64(), GiftStateBit::boolean(), ID::uint32()) -> ok.
+%setSnowGift(RoleID, true, ID) when ID >= 1, ID =< 32 ->
+%	TimeNow = time:getSyncTime1970FromDBS(),
+%	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGiftLastTime, TimeNow),
+%	GiftStateOld = variant:getPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift),
+%	GiftStateNew = GiftStateOld bor lists:nth(ID, ?ListBitOfUint32),
+%	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift, GiftStateNew);
+%setSnowGift(RoleID, false, ID) when ID >= 1, ID =< 32 ->
+%	TimeNow = time:getSyncTime1970FromDBS(),
+%	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGiftLastTime, TimeNow),
+%	GiftStateOld = variant:getPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift),
+%	GiftStateNew = GiftStateOld band lists:nth(ID, ?ListNotBitOfUint32),
+%	variant:setPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_SnowmanGift, GiftStateNew);
+%setSnowGift(RoleID, GiftStateBit, ID) ->
+%	?ERROR_OUT("setSnowGift invalid ID:~p with RoleID:~p GiftStateBit:~p", [ID, RoleID, GiftStateBit]),
+%	ok.
 
 %%% ====================================================================
 %%% 各种配置

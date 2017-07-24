@@ -705,6 +705,41 @@ getRow(100)->
     targetIdList = [],
     triggerIdList = [53,62]
     };
+getRow(101)->
+    #logicCfg {
+    id = 101,
+    conditionGropuId = [99],
+    targetIdList = [],
+    triggerIdList = [79]
+    };
+getRow(102)->
+    #logicCfg {
+    id = 102,
+    conditionGropuId = [100],
+    targetIdList = [],
+    triggerIdList = [80]
+    };
+getRow(103)->
+    #logicCfg {
+    id = 103,
+    conditionGropuId = [101],
+    targetIdList = [],
+    triggerIdList = [80]
+    };
+getRow(104)->
+    #logicCfg {
+    id = 104,
+    conditionGropuId = [102],
+    targetIdList = [],
+    triggerIdList = [5]
+    };
+getRow(105)->
+    #logicCfg {
+    id = 105,
+    conditionGropuId = [103],
+    targetIdList = [],
+    triggerIdList = [5]
+    };
 getRow(_)->[].
 
 getKeyList()->[
@@ -807,7 +842,12 @@ getKeyList()->[
     {97},
     {98},
     {99},
-    {100}
+    {100},
+    {101},
+    {102},
+    {103},
+    {104},
+    {105}
     ].
 
 get1KeyList()->[
@@ -910,6 +950,11 @@ get1KeyList()->[
     97,
     98,
     99,
-    100
+    100,
+    101,
+    102,
+    103,
+    104,
+    105
     ].
 

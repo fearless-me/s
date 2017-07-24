@@ -17,6 +17,48 @@ getRow(activeMail_GainItem)->
     stringID = activeMail_GainItem,
     chs = "激活码领取获得道具"
     };
+getRow(allplayerquestion_mail_1)->
+    #serverstringsCfg {
+    id = 405,
+    stringID = allplayerquestion_mail_1,
+    chs = "全民答题排名奖励"
+    };
+getRow(allplayerquestion_mail_2)->
+    #serverstringsCfg {
+    id = 406,
+    stringID = allplayerquestion_mail_2,
+    chs = "恭喜您在全民答题活动中获得了第{0}名的成绩，以下为您的排名奖励，请再接再厉！"
+    };
+getRow(allplayerquestion_serverstrings_1)->
+    #serverstringsCfg {
+    id = 400,
+    stringID = allplayerquestion_serverstrings_1,
+    chs = "全民答题活动即将在5分钟之后开启，快来阿克勒城参与吧！"
+    };
+getRow(allplayerquestion_serverstrings_2)->
+    #serverstringsCfg {
+    id = 401,
+    stringID = allplayerquestion_serverstrings_2,
+    chs = "全民答题活动即将在3分钟之后开启，快来阿克勒城参与吧！"
+    };
+getRow(allplayerquestion_serverstrings_3)->
+    #serverstringsCfg {
+    id = 402,
+    stringID = allplayerquestion_serverstrings_3,
+    chs = "全民答题活动即将在1分钟之后开启，快来阿克勒城参与吧！"
+    };
+getRow(allplayerquestion_serverstrings_4)->
+    #serverstringsCfg {
+    id = 403,
+    stringID = allplayerquestion_serverstrings_4,
+    chs = "全民答题活动已开启，快来阿克勒城参与吧O(∩_∩)O~~"
+    };
+getRow(allplayerquestion_serverstrings_5)->
+    #serverstringsCfg {
+    id = 404,
+    stringID = allplayerquestion_serverstrings_5,
+    chs = "活动已结束，积分排名奖励将通过邮件发放"
+    };
 getRow(answerPlayFirstAndLucky)->
     #serverstringsCfg {
     id = 108,
@@ -81,25 +123,25 @@ getRow(arena_Ladder1v1_10)->
     #serverstringsCfg {
     id = 101,
     stringID = arena_Ladder1v1_10,
-    chs = "[54ff90]{0}[-]在竞技场中无人可挡，达到[ff0000]{1} [-]连胜！"
+    chs = "[54ff90]{0}[-] 在竞技场中 无人可挡，达到[ff0000] {1} [-]连胜！"
     };
 getRow(arena_Ladder1v1_11)->
     #serverstringsCfg {
     id = 102,
     stringID = arena_Ladder1v1_11,
-    chs = "[54ff90]{0}[-] 在竞技场中万夫莫敌，达到[ff0000]{1} [-]连胜！还有谁能阻止他！！"
+    chs = "[54ff90]{0}[-] 在竞技场中 万夫莫敌，达到[ff0000] {1} [-]连胜！还有谁能阻止他！！还有谁！！！"
     };
 getRow(arena_Ladder1v1_5)->
     #serverstringsCfg {
     id = 100,
     stringID = arena_Ladder1v1_5,
-    chs = "[54ff90]{0}[-] 在竞技场中崭露头角，达到[ff0000] {1} [-]连胜"
+    chs = "[54ff90]{0}[-] 在竞技场中 崭露头角，达到[ff0000] {1} [-]连胜"
     };
 getRow(arena_Ladder1v1_King_Content)->
     #serverstringsCfg {
     id = 311,
     stringID = arena_Ladder1v1_King_Content,
-    chs = "您膜拜了一位竞技场高端选手，获得了绑定钻石奖励！"
+    chs = "勇敢的冒险者：<br>    您膜拜了一位高位选手，特此献上膜拜奖励，相信有朝一日您也能够问鼎名人堂！！<br>           ——竞技场指挥官：阿卡杜因·狮心"
     };
 getRow(arena_Ladder1v1_King_Title)->
     #serverstringsCfg {
@@ -111,13 +153,13 @@ getRow(arena_Ladder1v1_RankReward)->
     #serverstringsCfg {
     id = 103,
     stringID = arena_Ladder1v1_RankReward,
-    chs = "【竞技场】您的排名{0}，本次结算钻石{1}，累计总胜利{2}次"
+    chs = "废弃"
     };
 getRow(arena_Ladder1v1_WeekReward_Content)->
     #serverstringsCfg {
     id = 105,
     stringID = arena_Ladder1v1_WeekReward_Content,
-    chs = "今日您竞技场排位第 {0} 名，这是您的排名结算奖励。请再接再厉！"
+    chs = "伟大的冒险者：<br>    恭喜您今日竞技场排名 [54ff90]{0}[-] ，特此献上今日排名奖励，请再接再厉！！<br>           ——竞技场指挥官：阿卡杜因·狮心"
     };
 getRow(arena_Ladder1v1_WeekReward_Title)->
     #serverstringsCfg {
@@ -293,6 +335,18 @@ getRow(broadcase_self_content)->
     stringID = broadcase_self_content,
     chs = "{0}第{1}名{2}上线了！"
     };
+getRow(career_transfer_email_1)->
+    #serverstringsCfg {
+    id = 371,
+    stringID = career_transfer_email_1,
+    chs = "技能成长返还"
+    };
+getRow(career_transfer_email_2)->
+    #serverstringsCfg {
+    id = 372,
+    stringID = career_transfer_email_2,
+    chs = "转职后，原职业的技能消耗的金币全部返还。消耗的技能点已重置"
+    };
 getRow(career_transfer_success)->
     #serverstringsCfg {
     id = 348,
@@ -351,7 +405,7 @@ getRow(characters_enterexpfb)->
     #serverstringsCfg {
     id = 359,
     stringID = characters_enterexpfb,
-    chs = "你现在进入了经验升降梯！"
+    chs = "你现在进入了经验升降梯！！"
     };
 getRow(characters_entershouhu)->
     #serverstringsCfg {
@@ -359,47 +413,203 @@ getRow(characters_entershouhu)->
     stringID = characters_entershouhu,
     chs = "请保护守护目标不被打破"
     };
+getRow(characters_godess1)->
+    #serverstringsCfg {
+    id = 373,
+    stringID = characters_godess1,
+    chs = "警告：拳王来袭"
+    };
+getRow(characters_godess10)->
+    #serverstringsCfg {
+    id = 382,
+    stringID = characters_godess10,
+    chs = "警告：精灵机械师"
+    };
+getRow(characters_godess11)->
+    #serverstringsCfg {
+    id = 383,
+    stringID = characters_godess11,
+    chs = "警告：盖亚"
+    };
+getRow(characters_godess12)->
+    #serverstringsCfg {
+    id = 384,
+    stringID = characters_godess12,
+    chs = "警告：精灵原力"
+    };
+getRow(characters_godess13)->
+    #serverstringsCfg {
+    id = 385,
+    stringID = characters_godess13,
+    chs = "警告：熔火核心"
+    };
+getRow(characters_godess14)->
+    #serverstringsCfg {
+    id = 386,
+    stringID = characters_godess14,
+    chs = "警告：蜃语"
+    };
+getRow(characters_godess15)->
+    #serverstringsCfg {
+    id = 387,
+    stringID = characters_godess15,
+    chs = "警告：阿尔赛德"
+    };
+getRow(characters_godess16)->
+    #serverstringsCfg {
+    id = 388,
+    stringID = characters_godess16,
+    chs = "警告：祝福女神"
+    };
+getRow(characters_godess17)->
+    #serverstringsCfg {
+    id = 389,
+    stringID = characters_godess17,
+    chs = "警告：暗夜女神"
+    };
+getRow(characters_godess18)->
+    #serverstringsCfg {
+    id = 390,
+    stringID = characters_godess18,
+    chs = "警告：战争女神"
+    };
+getRow(characters_godess19)->
+    #serverstringsCfg {
+    id = 391,
+    stringID = characters_godess19,
+    chs = "警告：智慧女神"
+    };
+getRow(characters_godess2)->
+    #serverstringsCfg {
+    id = 374,
+    stringID = characters_godess2,
+    chs = "警告：牛酱来袭"
+    };
+getRow(characters_godess20)->
+    #serverstringsCfg {
+    id = 395,
+    stringID = characters_godess20,
+    chs = "勇士，女神的安全交给你了"
+    };
+getRow(characters_godess21)->
+    #serverstringsCfg {
+    id = 396,
+    stringID = characters_godess21,
+    chs = "勇士，女神的安全交给你了"
+    };
+getRow(characters_godess22)->
+    #serverstringsCfg {
+    id = 397,
+    stringID = characters_godess22,
+    chs = "勇士，女神的安全交给你了"
+    };
+getRow(characters_godess23)->
+    #serverstringsCfg {
+    id = 398,
+    stringID = characters_godess23,
+    chs = "勇士，女神的安全交给你了"
+    };
+getRow(characters_godess24)->
+    #serverstringsCfg {
+    id = 399,
+    stringID = characters_godess24,
+    chs = "勇士，女神的安全交给你了"
+    };
+getRow(characters_godess3)->
+    #serverstringsCfg {
+    id = 375,
+    stringID = characters_godess3,
+    chs = "警告：蛊惑者来袭"
+    };
+getRow(characters_godess4)->
+    #serverstringsCfg {
+    id = 376,
+    stringID = characters_godess4,
+    chs = "警告：拍拍来袭"
+    };
+getRow(characters_godess5)->
+    #serverstringsCfg {
+    id = 377,
+    stringID = characters_godess5,
+    chs = "警告：杜莎来袭"
+    };
+getRow(characters_godess6)->
+    #serverstringsCfg {
+    id = 378,
+    stringID = characters_godess6,
+    chs = "警告：恋人来袭"
+    };
+getRow(characters_godess7)->
+    #serverstringsCfg {
+    id = 379,
+    stringID = characters_godess7,
+    chs = "警告：星辰之力"
+    };
+getRow(characters_godess8)->
+    #serverstringsCfg {
+    id = 380,
+    stringID = characters_godess8,
+    chs = "警告：爱の光"
+    };
+getRow(characters_godess9)->
+    #serverstringsCfg {
+    id = 381,
+    stringID = characters_godess9,
+    chs = "警告：魔族公主"
+    };
 getRow(characters_startcountdown)->
     #serverstringsCfg {
     id = 361,
     stringID = characters_startcountdown,
     chs = "开始倒计时"
     };
+getRow(charmRankContent)->
+    #serverstringsCfg {
+    id = 410,
+    stringID = charmRankContent,
+    chs = "恭喜你在昨日的魅力榜结算中活动第{0}名，以下为您的排名奖励，请再接再厉！"
+    };
+getRow(charmRankTitle)->
+    #serverstringsCfg {
+    id = 409,
+    stringID = charmRankTitle,
+    chs = "魅力榜排名奖励"
+    };
 getRow(cityMonster_NetBoss)->
     #serverstringsCfg {
     id = 84,
     stringID = cityMonster_NetBoss,
-    chs = "最终首领已出现在碧空城"
+    chs = "废弃"
     };
 getRow(cityMonster_NextMonster)->
     #serverstringsCfg {
     id = 83,
     stringID = cityMonster_NextMonster,
-    chs = "下一波进攻将在 {0} 秒后到来"
+    chs = "废弃{0}"
     };
 getRow(cityMonsterAcEnd)->
     #serverstringsCfg {
     id = 82,
     stringID = cityMonsterAcEnd,
-    chs = "守卫碧空城活动结束，宝藏消失"
+    chs = "废弃"
     };
 getRow(cityMonsterAcEndItem)->
     #serverstringsCfg {
     id = 81,
     stringID = cityMonsterAcEndItem,
-    chs = "恭喜小伙伴们成功守卫碧空城，可在碧空城中心拾取宝藏"
+    chs = "废弃"
     };
 getRow(cityMonsterAcStart)->
     #serverstringsCfg {
     id = 80,
     stringID = cityMonsterAcStart,
-    chs = "守卫碧空城活动开始，可通过活动按钮便捷寻路前往"
+    chs = "废弃"
     };
 getRow(cityMonsterAcWaitStart)->
     #serverstringsCfg {
     id = 79,
     stringID = cityMonsterAcWaitStart,
-    chs = "守卫碧空城活动将在19:30正式开始，请小伙伴们准时前往碧空城！"
+    chs = "废弃"
     };
 getRow(cnText4BossTopOneNotice)->
     #serverstringsCfg {
@@ -549,61 +759,61 @@ getRow(companionMail_RewardContent)->
     #serverstringsCfg {
     id = 92,
     stringID = companionMail_RewardContent,
-    chs = "你获得了一个灵魂伙伴周算奖励"
+    chs = "废弃"
     };
 getRow(companionMail_RewardTitle)->
     #serverstringsCfg {
     id = 91,
     stringID = companionMail_RewardTitle,
-    chs = "灵魂伙伴奖励"
+    chs = "废弃"
     };
 getRow(darkness_begintips)->
     #serverstringsCfg {
     id = 186,
     stringID = darkness_begintips,
-    chs = "[54ff90]{0}[-]已经出现在[ff0000]深红熔渊[-],大家快去寻找宝物吧。"
+    chs = "[54ff90]{0}[-] 已经出现在[ff0000]深红熔渊[-],大家快去找寻宝物吧~"
     };
 getRow(darkness_bemonster)->
     #serverstringsCfg {
     id = 188,
     stringID = darkness_bemonster,
-    chs = "[54ff90]深红恶魔[-]已经降临到了[ff0000]深红熔渊[-]"
+    chs = "[54ff90]深红恶魔[-] 已经降临到 [ff0000]深红熔渊[-]"
     };
 getRow(darkness_bosstips)->
     #serverstringsCfg {
     id = 185,
     stringID = darkness_bosstips,
-    chs = "[54ff90]十分钟后[-],[54ff90]{0}[-]将携带[54ff90]{1}[-]将出现在深红熔渊,{2}[ff0000]不会攻击玩家,受到伤害1点血,满血{3}[-]"
+    chs = "[54ff90]十分钟后[-], [54ff90]{0}[-] 将携带 [54ff90]{1}[-] 将出现在深红熔渊, [54ff90]{2}[-][ff0000] 不会攻击玩家,受到伤害1点血,满血{3}[-]"
     };
 getRow(darkness_choicepowertips)->
     #serverstringsCfg {
     id = 184,
     stringID = darkness_choicepowertips,
-    chs = "您需要[54ff90]选择势力[-],才能前往深红熔渊。"
+    chs = "你需要[54ff90]选择势力[-]后,才能前往深红熔渊"
     };
 getRow(darkness_choicepowertitle)->
     #serverstringsCfg {
     id = 183,
     stringID = darkness_choicepowertitle,
-    chs = "战阶奖励"
+    chs = "深红熔渊战阶奖励"
     };
 getRow(darkness_endmonster)->
     #serverstringsCfg {
     id = 189,
     stringID = darkness_endmonster,
-    chs = "深红恶魔已被消灭，一段时间内将不会再次降临。"
+    chs = "深红恶魔已被消灭，一段时间内不会再次降临"
     };
 getRow(darkness_endtips)->
     #serverstringsCfg {
     id = 187,
     stringID = darkness_endtips,
-    chs = "[54ff90]{0}[-]击败了{1},获得[54ff90]{2}[-]"
+    chs = "[54ff90]{0}[-] 击败了 {1},获得 [54ff90]{2}[-]"
     };
 getRow(darkness_mail)->
     #serverstringsCfg {
     id = 182,
     stringID = darkness_mail,
-    chs = "昨日所在势力[54ff90]{0}[-]<br>深红熔渊势力战阶排名：[54ff90]{1}[-]<br>深红战阶：[54ff90]{2}[-]<br>"
+    chs = "所在势力：[54ff90]{0}[-]<br>势力战阶排名：[54ff90]{1}[-]<br>深红战阶：[54ff90]{2}[-]<br>"
     };
 getRow(darkness_powername1)->
     #serverstringsCfg {
@@ -621,49 +831,49 @@ getRow(darknesscoinfive)->
     #serverstringsCfg {
     id = 165,
     stringID = darknesscoinfive,
-    chs = "{0}在深红熔渊收获巨额财富，须知财不露白。"
+    chs = "[54ff90]{0}[-] 在深红熔渊收获巨额财富，须知财不露白，留心你的背后！！"
     };
 getRow(darknesscointen)->
     #serverstringsCfg {
     id = 166,
     stringID = darknesscointen,
-    chs = "{0}在深红熔渊豪取十万硬币！"
+    chs = "[54ff90]{0}[-] 在深红熔渊豪取十万深红硬币！！"
     };
 getRow(darknesskillfive)->
     #serverstringsCfg {
     id = 160,
     stringID = darknesskillfive,
-    chs = "{0}在深红熔渊连续击败"
+    chs = "牛刀小试！ [54ff90]{0}[-] 在深红熔渊连续击败5人！！"
     };
 getRow(darknesskillforty)->
     #serverstringsCfg {
     id = 164,
     stringID = darknesskillforty,
-    chs = "无法无天！{0}在深红熔渊连续击败40人！！！！大家快跑吧！"
+    chs = "无法无天！ [54ff90]{0}[-] 在深红熔渊连续击败40人！！大家快跑吧！！！"
     };
 getRow(darknesskillten)->
     #serverstringsCfg {
     id = 161,
     stringID = darknesskillten,
-    chs = "{0}在深红熔渊连续击败"
+    chs = "十步一人！ [54ff90]{0}[-] 在深红熔渊连续击败10人，达成十连斩！！"
     };
 getRow(darknesskillthirty)->
     #serverstringsCfg {
     id = 163,
     stringID = darknesskillthirty,
-    chs = "无人能挡！{0}在深红熔渊无人能挡30人！求求谁来消灭了这个大魔王吧！！！"
+    chs = "无人能挡！ [54ff90]{0}[-] 在深红熔渊连续击败30人！！求求谁来消灭了这个大魔王！！！"
     };
 getRow(darknesskilltwenty)->
     #serverstringsCfg {
     id = 162,
     stringID = darknesskilltwenty,
-    chs = "十步败一人，千里不留行。{0}在深红熔渊连续击败20人！谁快来终结他吧！"
+    chs = "流血百里！ [54ff90]{0}[-] 在深红熔渊连续击败20人！！快来终结他！！"
     };
 getRow(darknessreadyend)->
     #serverstringsCfg {
     id = 143,
     stringID = darknessreadyend,
-    chs = "深红熔渊将于10分钟后关闭，请各位注意关闭时间"
+    chs = "深红熔渊将于10分钟后关闭，请各位勇士注意时间"
     };
 getRow(darknessreadystart)->
     #serverstringsCfg {
@@ -675,7 +885,7 @@ getRow(date_link_mail)->
     #serverstringsCfg {
     id = 299,
     stringID = date_link_mail,
-    chs = "好友：{0}\n积分：{1}\n友好度奖励：{2}\n亲密度奖励：{3}\n更多奖励请查收附件"
+    chs = "好友： [54ff90]{0}[-]<br>积分： [54ff90]{1}[-]<br>友好度奖励： [54ff90]{2}[-]<br>亲密度奖励： [54ff90]{3}[-]<br>更多奖励请查收附件~<br>"
     };
 getRow(date_link_mailtittle)->
     #serverstringsCfg {
@@ -699,7 +909,7 @@ getRow(dieBroadcast)->
     #serverstringsCfg {
     id = 150,
     stringID = dieBroadcast,
-    chs = "<t=0>,,[54ff90]{0}[-]审判了邪恶至极的</t><t=0>,,[54ff90]{1}[-]，让他损失了{2}金币。大家赶紧膜拜一下！</t>"
+    chs = "<t=0>,,[54ff90]{0}[-]审判了邪恶至极的</t><t=0>,,[54ff90]{1}[-]。大家赶紧膜拜一下！</t>"
     };
 getRow(equipstronger_worldtext_inten)->
     #serverstringsCfg {
@@ -737,6 +947,12 @@ getRow(escortMonsterName)->
     stringID = escortMonsterName,
     chs = "怪物劫掠"
     };
+getRow(fashionSuit)->
+    #serverstringsCfg {
+    id = 422,
+    stringID = fashionSuit,
+    chs = "恭喜玩家{0}成功收集齐了{1}套装，还等什么，快去收集吧！"
+    };
 getRow(feastbossrefresh)->
     #serverstringsCfg {
     id = 146,
@@ -771,31 +987,31 @@ getRow(getCareer_Bravo)->
     #serverstringsCfg {
     id = 97,
     stringID = getCareer_Bravo,
-    chs = "幽影刺客1"
+    chs = "废弃"
     };
 getRow(getCareer_Knight)->
     #serverstringsCfg {
     id = 95,
     stringID = getCareer_Knight,
-    chs = "圣殿骑士"
+    chs = "废弃"
     };
 getRow(getCareer_Magician)->
     #serverstringsCfg {
     id = 96,
     stringID = getCareer_Magician,
-    chs = "龙脉法师"
+    chs = "废弃"
     };
 getRow(getCareer_Mechanic)->
     #serverstringsCfg {
     id = 99,
     stringID = getCareer_Mechanic,
-    chs = "机械师1"
+    chs = "废弃"
     };
 getRow(getCareer_SoulReaper)->
     #serverstringsCfg {
     id = 98,
     stringID = getCareer_SoulReaper,
-    chs = "灵魂魔女1"
+    chs = "废弃"
     };
 getRow(getEquipDrop_Notice)->
     #serverstringsCfg {
@@ -813,13 +1029,13 @@ getRow(getFashionNotice_female)->
     #serverstringsCfg {
     id = 297,
     stringID = getFashionNotice_female,
-    chs = "美美的<t=100>{0},{1},{2}</t>又获得了一件时装：{3}！"
+    chs = "美美的 <t=100>{0},{1},{2}</t> 获得了一件靓丽时装 [54ff90]{3}[-]"
     };
 getRow(getFashionNotice_male)->
     #serverstringsCfg {
     id = 296,
     stringID = getFashionNotice_male,
-    chs = "帅帅的<t=100>{0},{1},{2}</t>又获得了一件时装：{3}！"
+    chs = "帅帅的 <t=100>{0},{1},{2}</t> 获得了一件炫酷时装 [54ff90]{3}[-]"
     };
 getRow(getGemComposition_Notice)->
     #serverstringsCfg {
@@ -856,6 +1072,54 @@ getRow(giveGem_MailTitle)->
     id = 17,
     stringID = giveGem_MailTitle,
     chs = "纹章系统升级返还"
+    };
+getRow(giveGiftContent)->
+    #serverstringsCfg {
+    id = 408,
+    stringID = giveGiftContent,
+    chs = "玩家{0}向你赠送了{1}朵{2}，为你增加了{3}点魅力值。"
+    };
+getRow(giveGiftString1)->
+    #serverstringsCfg {
+    id = 413,
+    stringID = giveGiftString1,
+    chs = "一心一意，一见钟情。"
+    };
+getRow(giveGiftString2)->
+    #serverstringsCfg {
+    id = 414,
+    stringID = giveGiftString2,
+    chs = "地久天长，长长久久。"
+    };
+getRow(giveGiftString3)->
+    #serverstringsCfg {
+    id = 415,
+    stringID = giveGiftString3,
+    chs = "6的飞起。"
+    };
+getRow(giveGiftString4)->
+    #serverstringsCfg {
+    id = 416,
+    stringID = giveGiftString4,
+    chs = "老子有钱！"
+    };
+getRow(giveGiftString5)->
+    #serverstringsCfg {
+    id = 417,
+    stringID = giveGiftString5,
+    chs = "老子就是钱多的没地方花！"
+    };
+getRow(giveGiftTitle)->
+    #serverstringsCfg {
+    id = 407,
+    stringID = giveGiftTitle,
+    chs = "神秘的礼物"
+    };
+getRow(giveGiftVIP)->
+    #serverstringsCfg {
+    id = 418,
+    stringID = giveGiftVIP,
+    chs = "玩家{0}向玩家{1}赠送了{2}朵{3}，并留下祝福：“{4}”，真是羡慕！"
     };
 getRow(giveGoods_MailContent)->
     #serverstringsCfg {
@@ -899,11 +1163,17 @@ getRow(guild_godbless_sr_title)->
     stringID = guild_godbless_sr_title,
     chs = "女神祈福"
     };
+getRow(guild_LvUpstrings)->
+    #serverstringsCfg {
+    id = 394,
+    stringID = guild_LvUpstrings,
+    chs = "家族等级提升为{0}级！{1}设施已解锁，大家快去乘坐体验吧！"
+    };
 getRow(guild_request_notice)->
     #serverstringsCfg {
     id = 78,
     stringID = guild_request_notice,
-    chs = "{0}家族正在招贤纳士！<t=11>,[00ff00]点击查看[-],{1}</t>"
+    chs = "废弃{0}{1}"
     };
 getRow(guild_snowman_award)->
     #serverstringsCfg {
@@ -933,67 +1203,67 @@ getRow(guildBattle_ApplyStart)->
     #serverstringsCfg {
     id = 300,
     stringID = guildBattle_ApplyStart,
-    chs = "家族战报名已开启，请各位家族长报名参加。"
+    chs = "家族战场报名开启，请各位家族长报名参加。"
     };
 getRow(guildBattle_BattleEnd)->
     #serverstringsCfg {
     id = 77,
     stringID = guildBattle_BattleEnd,
-    chs = "家族联赛战结束！"
+    chs = "家族战场活动结束！"
     };
 getRow(guildBattle_BattleIng)->
     #serverstringsCfg {
     id = 76,
     stringID = guildBattle_BattleIng,
-    chs = "家族联赛进行中！今日领主究竟谁人，我们拭目以待吧！"
+    chs = "家族战场火爆进行中，今日谁主沉浮，让我们拭目以待！！"
     };
 getRow(guildBattle_BattleStart)->
     #serverstringsCfg {
     id = 301,
     stringID = guildBattle_BattleStart,
-    chs = "家族战正式开始"
+    chs = "家族战场正式开始，请各位家族勇士踊跃参加。"
     };
 getRow(guildBattle_EnemyOccupy)->
     #serverstringsCfg {
     id = 324,
     stringID = guildBattle_EnemyOccupy,
-    chs = "敌方的{0}占领了{1}旗点，勇士们快去夺回"
+    chs = "敌方阵营的 [54ff90]{0}[-] 占领了 [54ff90]{1}点[-]，勇士们快去抢夺！"
     };
 getRow(guildBattle_FailReward)->
     #serverstringsCfg {
     id = 74,
     stringID = guildBattle_FailReward,
-    chs = "胜败乃兵家常事，翌日再战！"
+    chs = "废弃"
     };
 getRow(guildBattle_NoticeBattleStart)->
     #serverstringsCfg {
     id = 75,
     stringID = guildBattle_NoticeBattleStart,
-    chs = "家族联赛即将开启，请参赛人员从家族联赛界面进入场地准备战斗！"
+    chs = "废弃"
     };
 getRow(guildBattle_WeOccupy)->
     #serverstringsCfg {
     id = 325,
     stringID = guildBattle_WeOccupy,
-    chs = "我方的{0}占领了{1}旗点，勇士们速速守护"
+    chs = "我方阵营的 [54ff90]{0}[-] 占领了 [54ff90]{1}点[-]，勇士们速速守护！"
     };
 getRow(guildBattle_WinNotice)->
     #serverstringsCfg {
     id = 71,
     stringID = guildBattle_WinNotice,
-    chs = "{0}家族势不可挡击败了他们的竞争对手{1}家族，成功获得了家族联赛战的胜利！"
+    chs = "[54ff90]{0}[-] 势不可挡击败了他的竞争对手 [54ff90]{1}[-] ，成功获得了本次家族战场的胜利！！"
     };
 getRow(guildBattle_WinReward)->
     #serverstringsCfg {
     id = 73,
     stringID = guildBattle_WinReward,
-    chs = "您的家族获得了联赛胜利，特此犒赏三军以示鼓励！"
+    chs = "废弃"
     };
 getRow(guildBattle_WinSpecialReward)->
     #serverstringsCfg {
     id = 72,
     stringID = guildBattle_WinSpecialReward,
-    chs = "因为你的英勇无畏，使你的家族获得了联赛的胜利，特此发放以下奖励"
+    chs = "废弃"
     };
 getRow(guildGrabAname)->
     #serverstringsCfg {
@@ -1305,13 +1575,13 @@ getRow(ladder1v1_better_score_context)->
     #serverstringsCfg {
     id = 265,
     stringID = ladder1v1_better_score_context,
-    chs = "恭喜您在竞技场中的排名又上升了，历史最高排名到达了{0}名，愿战争女神的荣耀照耀着你！"
+    chs = "尊敬的冒险者：<br>    恭喜您刷新了竞技场排名，历史最高排名达到 [54ff90]{0}[-] <br>    根据您本次排名上升幅度，特此献上奖励，愿战争女神的荣光庇佑您！！<br>           ——竞技场指挥官：阿卡杜因·狮心"
     };
 getRow(ladder1v1_better_score_title)->
     #serverstringsCfg {
     id = 266,
     stringID = ladder1v1_better_score_title,
-    chs = "竞技场排名奖励"
+    chs = "竞技场最高排名奖励"
     };
 getRow(loginProticalVersionMatch)->
     #serverstringsCfg {
@@ -1353,13 +1623,13 @@ getRow(loseGoods_MailContent)->
     #serverstringsCfg {
     id = 89,
     stringID = loseGoods_MailContent,
-    chs = "亲爱的玩家，因背包没有足够空间，现将你遗失的道具通过邮件补发！请注意查收。"
+    chs = "亲爱的冒险者：<br>  由于您的背包空间不足，现将遗失物品通过邮件补发！！请注意查收哦~<br>           ——《空间管理委员会》"
     };
 getRow(loseGoods_MailTitle)->
     #serverstringsCfg {
     id = 88,
     stringID = loseGoods_MailTitle,
-    chs = "丢失物品查收"
+    chs = "遗失物品补发"
     };
 getRow(lottery_award_notice_orange)->
     #serverstringsCfg {
@@ -1421,155 +1691,167 @@ getRow(mall_give_mail_title)->
     stringID = mall_give_mail_title,
     chs = "商城赠送"
     };
+getRow(mapsafetips)->
+    #serverstringsCfg {
+    id = 420,
+    stringID = mapsafetips,
+    chs = "当前处于安全区，不会受到攻击"
+    };
+getRow(mapsafewarn)->
+    #serverstringsCfg {
+    id = 421,
+    stringID = mapsafewarn,
+    chs = "当前处于非安全区，可能会受到攻击，请小心"
+    };
 getRow(marriage_B_FContentA)->
     #serverstringsCfg {
     id = 262,
     stringID = marriage_B_FContentA,
-    chs = "因您删除角色，系统已经强制解除了您的婚姻关系。"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_B_FContentB)->
     #serverstringsCfg {
     id = 264,
     stringID = marriage_B_FContentB,
-    chs = "您的伴侣已经强制离婚和您解除婚姻关系。"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_B_FTitleA)->
     #serverstringsCfg {
     id = 261,
     stringID = marriage_B_FTitleA,
-    chs = "离婚通知"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_B_FTitleB)->
     #serverstringsCfg {
     id = 263,
     stringID = marriage_B_FTitleB,
-    chs = "离婚通知"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_Boradcast)->
     #serverstringsCfg {
     id = 315,
     stringID = marriage_Boradcast,
-    chs = "{0}使用{1}向{2}求婚成功，成为本服第{3}对新人，快来祝贺吧!"
+    chs = "[54ff90]{0}[-] 使用 [ff0000]{1}[-] 向 [54ff90]{2}[-] 求婚成功，成为本服第 [ff0000]{3}[-] 对新人，大家快来祝贺他们吧！！"
     };
 getRow(marriage_C_Content)->
     #serverstringsCfg {
     id = 250,
     stringID = marriage_C_Content,
-    chs = "您的伴侣选择取消婚宴，您的婚宴已经失效。"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_C_EndMContent)->
     #serverstringsCfg {
     id = 252,
     stringID = marriage_C_EndMContent,
-    chs = "您的婚宴已经结束，恭喜你们成为正式夫妻。"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_C_EndMTitle)->
     #serverstringsCfg {
     id = 251,
     stringID = marriage_C_EndMTitle,
-    chs = "婚宴结束通知"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_C_EndUContent)->
     #serverstringsCfg {
     id = 254,
     stringID = marriage_C_EndUContent,
-    chs = "您的婚宴已经结束，您可以再次预约婚宴。"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_C_EndUTitle)->
     #serverstringsCfg {
     id = 253,
     stringID = marriage_C_EndUTitle,
-    chs = "婚宴结束通知"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_C_PayContent)->
     #serverstringsCfg {
     id = 248,
     stringID = marriage_C_PayContent,
-    chs = "您的伴侣选择取消婚宴，您的婚宴已经失效，退还您80%预约金。"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_C_PayTitle)->
     #serverstringsCfg {
     id = 247,
     stringID = marriage_C_PayTitle,
-    chs = "取消婚宴通知"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_C_SysContent)->
     #serverstringsCfg {
     id = 246,
     stringID = marriage_C_SysContent,
-    chs = "由于系统维护导致婚礼无法顺利如期举行，给您带来的不便，我们深表歉意。"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_C_SysPayContent)->
     #serverstringsCfg {
     id = 244,
     stringID = marriage_C_SysPayContent,
-    chs = "由于系统维护导致婚礼无法顺利如期举行，将您的预约金全额返还，给您带来的不便，我们深表歉意。"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_C_SysPayTitle)->
     #serverstringsCfg {
     id = 243,
     stringID = marriage_C_SysPayTitle,
-    chs = "致歉信"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_C_SysTitle)->
     #serverstringsCfg {
     id = 245,
     stringID = marriage_C_SysTitle,
-    chs = "致歉信"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_C_Title)->
     #serverstringsCfg {
     id = 249,
     stringID = marriage_C_Title,
-    chs = "取消婚宴通知"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_candy)->
     #serverstringsCfg {
     id = 259,
     stringID = marriage_candy,
-    chs = "【{0}】和【{1}】的婚宴发喜糖了，快去抢喜糖吧！"
+    chs = "旧婚姻相关，屏蔽{0}{1}"
     };
 getRow(marriage_ContentBreak)->
     #serverstringsCfg {
     id = 321,
     stringID = marriage_ContentBreak,
-    chs = "您与{0}离婚成功，成功了解除伴侣关系。再回首，往事如风。"
+    chs = "勇敢的冒险者：<br>    您与 [54ff90]{0}[-] 离婚成功，成功解除双方伴侣关系。再回首，往事如风~<br>           ——《蓝色大陆民生部》"
     };
 getRow(marriage_ContentBuild)->
     #serverstringsCfg {
     id = 319,
     stringID = marriage_ContentBuild,
-    chs = "您与{0}结婚成功，成为了本服第{1}对伴侣，可喜可贺！祝福你们成功度过七年之痒，携手白头。"
+    chs = "幸福的冒险者：<br>    您与 [54ff90]{0}[-] 结婚成功，成为本服第 [54ff90]{1}[-] 对伴侣，可喜可贺！祝福你们共携白首~<br>           ——《蓝色大陆民生部》"
     };
 getRow(marriage_ContentBuildFaild)->
     #serverstringsCfg {
     id = 317,
     stringID = marriage_ContentBuildFaild,
-    chs = "您的求婚请求被{0}残忍拒绝！天涯何处无芳草，何必非得窝边找。生命不息，求婚不止！"
+    chs = "无畏的冒险者：<br>    您的求婚请求被 [54ff90]{0}[-] 残忍拒绝并颁发给你一张 好人卡！<br>    天涯何处无芳草，何必单恋一枝花。生命不息，求婚不止！！<br>           ——《蓝色大陆民生部》"
     };
 getRow(marriage_flower)->
     #serverstringsCfg {
     id = 260,
     stringID = marriage_flower,
-    chs = "【{0}】送出鲜花朵朵！"
+    chs = "旧婚姻相关，屏蔽{0}"
     };
 getRow(marriage_free)->
     #serverstringsCfg {
     id = 258,
     stringID = marriage_free,
-    chs = "每天上线会获得增加婚戒经验的道具【星愿】，请注意查收！"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_free_title)->
     #serverstringsCfg {
     id = 257,
     stringID = marriage_free_title,
-    chs = "星愿赠送"
+    chs = "旧婚姻相关，屏蔽"
     };
 getRow(marriage_M_Marry)->
     #serverstringsCfg {
     id = 255,
     stringID = marriage_M_Marry,
-    chs = "恭喜【{0}】和【{1}】喜结连理！"
+    chs = "旧婚姻相关，屏蔽{0}{1}"
     };
 getRow(marriage_TitleBreak)->
     #serverstringsCfg {
@@ -1593,7 +1875,7 @@ getRow(marriage_WS_Invite)->
     #serverstringsCfg {
     id = 256,
     stringID = marriage_WS_Invite,
-    chs = "【{0}】和【{1}】的婚礼开始啦，快去碧空城找花童传送到婚宴现场送去祝福吧！"
+    chs = "旧婚姻相关，屏蔽{0}{1}"
     };
 getRow(mercenary)->
     #serverstringsCfg {
@@ -1606,30 +1888,6 @@ getRow(monk)->
     id = 341,
     stringID = monk,
     chs = "僧侣"
-    };
-getRow(needForSpeedAwardContext)->
-    #serverstringsCfg {
-    id = 293,
-    stringID = needForSpeedAwardContext,
-    chs = "恭喜你在港口竞速活动获得{0}名，获得大量的奖励。"
-    };
-getRow(needForSpeedAwardTitle)->
-    #serverstringsCfg {
-    id = 292,
-    stringID = needForSpeedAwardTitle,
-    chs = "港口竞速名次奖励"
-    };
-getRow(needForSpeedExitAwardContext)->
-    #serverstringsCfg {
-    id = 295,
-    stringID = needForSpeedExitAwardContext,
-    chs = "你的港口竞速比赛在半途中断了，这是活动补偿的奖励呢！"
-    };
-getRow(needForSpeedExitAwardTitle)->
-    #serverstringsCfg {
-    id = 294,
-    stringID = needForSpeedExitAwardTitle,
-    chs = "港口竞速补偿奖励"
     };
 getRow(newguildIntoGuildWar)->
     #serverstringsCfg {
@@ -1769,6 +2027,18 @@ getRow(orderRebateMailTitle)->
     stringID = orderRebateMailTitle,
     chs = "订单赠送"
     };
+getRow(pet_recycle_email)->
+    #serverstringsCfg {
+    id = 393,
+    stringID = pet_recycle_email,
+    chs = "骑宠{0}已返还了成长消耗。{1}已还原到出生状态。请查收返还的骑宠成长道具。"
+    };
+getRow(pet_recycle_email_title)->
+    #serverstringsCfg {
+    id = 392,
+    stringID = pet_recycle_email_title,
+    chs = "骑宠成长返还"
+    };
 getRow(petpvpcontent)->
     #serverstringsCfg {
     id = 170,
@@ -1816,6 +2086,30 @@ getRow(priest)->
     id = 339,
     stringID = priest,
     chs = "牧师"
+    };
+getRow(raceRewardAContent)->
+    #serverstringsCfg {
+    id = 293,
+    stringID = raceRewardAContent,
+    chs = "恭喜你在骑宠竞速活动获得{0}名，获得大量的奖励。"
+    };
+getRow(raceRewardATitle)->
+    #serverstringsCfg {
+    id = 292,
+    stringID = raceRewardATitle,
+    chs = "骑宠竞速名次奖励"
+    };
+getRow(raceRewardBContent)->
+    #serverstringsCfg {
+    id = 295,
+    stringID = raceRewardBContent,
+    chs = "你在骑宠竞速中未获得名次，特此送上福利奖励，请再接再厉！"
+    };
+getRow(raceRewardBTitle)->
+    #serverstringsCfg {
+    id = 294,
+    stringID = raceRewardBTitle,
+    chs = "骑宠竞速福利奖励"
     };
 getRow(rank_name1)->
     #serverstringsCfg {
@@ -2045,6 +2339,18 @@ getRow(square_dancing_string_7)->
     stringID = square_dancing_string_7,
     chs = "是否前往阿克勒港口活动地图？"
     };
+getRow(supplicationContent)->
+    #serverstringsCfg {
+    id = 412,
+    stringID = supplicationContent,
+    chs = "家族成员{0}向你赠送了一个{1}，请注意查收！"
+    };
+getRow(supplicationTitle)->
+    #serverstringsCfg {
+    id = 411,
+    stringID = supplicationTitle,
+    chs = "家族祈愿"
+    };
 getRow(swordsmen)->
     #serverstringsCfg {
     id = 334,
@@ -2151,19 +2457,19 @@ getRow(warriorMailContent1)->
     #serverstringsCfg {
     id = 130,
     stringID = warriorMailContent1,
-    chs = "女神禁闭室本周结算，您排名第【{0}】名，发放【{1}】."
+    chs = "尊敬的冒险者：<br>    本周你的女神禁闭室排名第 [54ff90]{0}[-] 名，发放 [54ff90]{1}[-] ，以示奖励！！"
     };
 getRow(warriorMailContent2)->
     #serverstringsCfg {
     id = 131,
     stringID = warriorMailContent2,
-    chs = "女神禁闭室本周结算，您排名50以外，请继续努力！发放【{0}】以此鼓励。"
+    chs = "勇敢的冒险者：<br>    本周你的女神禁闭室排名50名以外，请继续努力！发放 [54ff90]{0}[-] ，特此鼓励！！"
     };
 getRow(warriorMailTitle)->
     #serverstringsCfg {
     id = 132,
     stringID = warriorMailTitle,
-    chs = "女神禁闭室结算奖励"
+    chs = "女神禁闭室周奖励"
     };
 getRow(wildboss_is_dead)->
     #serverstringsCfg {
@@ -2230,6 +2536,13 @@ getRow(_)->[].
 getKeyList()->[
     {accountWelfareMailTxt},
     {activeMail_GainItem},
+    {allplayerquestion_mail_1},
+    {allplayerquestion_mail_2},
+    {allplayerquestion_serverstrings_1},
+    {allplayerquestion_serverstrings_2},
+    {allplayerquestion_serverstrings_3},
+    {allplayerquestion_serverstrings_4},
+    {allplayerquestion_serverstrings_5},
     {answerPlayFirstAndLucky},
     {answerPlayLuckyPlayers},
     {answerPlayStart},
@@ -2276,6 +2589,8 @@ getKeyList()->[
     {bribery_money_MallTitle_back},
     {bribery_money_MallTitle_get},
     {broadcase_self_content},
+    {career_transfer_email_1},
+    {career_transfer_email_2},
     {career_transfer_success},
     {carrer_warrior},
     {changeGuildNameSuccess},
@@ -2287,7 +2602,33 @@ getKeyList()->[
     {characters_countdownstart},
     {characters_enterexpfb},
     {characters_entershouhu},
+    {characters_godess1},
+    {characters_godess10},
+    {characters_godess11},
+    {characters_godess12},
+    {characters_godess13},
+    {characters_godess14},
+    {characters_godess15},
+    {characters_godess16},
+    {characters_godess17},
+    {characters_godess18},
+    {characters_godess19},
+    {characters_godess2},
+    {characters_godess20},
+    {characters_godess21},
+    {characters_godess22},
+    {characters_godess23},
+    {characters_godess24},
+    {characters_godess3},
+    {characters_godess4},
+    {characters_godess5},
+    {characters_godess6},
+    {characters_godess7},
+    {characters_godess8},
+    {characters_godess9},
     {characters_startcountdown},
+    {charmRankContent},
+    {charmRankTitle},
     {cityMonster_NetBoss},
     {cityMonster_NextMonster},
     {cityMonsterAcEnd},
@@ -2350,6 +2691,7 @@ getKeyList()->[
     {escort_Team_Start},
     {escortActivity_Start},
     {escortMonsterName},
+    {fashionSuit},
     {feastbossrefresh},
     {feastbossrereward},
     {fighter},
@@ -2370,6 +2712,14 @@ getKeyList()->[
     {giveExtGem_MailTitle},
     {giveGem_MailContent},
     {giveGem_MailTitle},
+    {giveGiftContent},
+    {giveGiftString1},
+    {giveGiftString2},
+    {giveGiftString3},
+    {giveGiftString4},
+    {giveGiftString5},
+    {giveGiftTitle},
+    {giveGiftVIP},
     {giveGoods_MailContent},
     {giveGoods_MailTitle},
     {godSworn},
@@ -2377,6 +2727,7 @@ getKeyList()->[
     {guardian},
     {guild_godbless_sr_content},
     {guild_godbless_sr_title},
+    {guild_LvUpstrings},
     {guild_request_notice},
     {guild_snowman_award},
     {guild_snowman_begin},
@@ -2464,6 +2815,8 @@ getKeyList()->[
     {maintain},
     {mall_give_mail_Content},
     {mall_give_mail_title},
+    {mapsafetips},
+    {mapsafewarn},
     {marriage_B_FContentA},
     {marriage_B_FContentB},
     {marriage_B_FTitleA},
@@ -2495,10 +2848,6 @@ getKeyList()->[
     {marriage_WS_Invite},
     {mercenary},
     {monk},
-    {needForSpeedAwardContext},
-    {needForSpeedAwardTitle},
-    {needForSpeedExitAwardContext},
-    {needForSpeedExitAwardTitle},
     {newguildIntoGuildWar},
     {newplayer_Worldlevel_MailContent},
     {newplayer_Worldlevel_MailTitle},
@@ -2522,6 +2871,8 @@ getKeyList()->[
     {opACUseMailTitle},
     {orderRebateMailContent},
     {orderRebateMailTitle},
+    {pet_recycle_email},
+    {pet_recycle_email_title},
     {petpvpcontent},
     {petpvpmailcontent},
     {petpvpmailtitle},
@@ -2530,6 +2881,10 @@ getKeyList()->[
     {playerExitGuild},
     {playerJoinGuild},
     {priest},
+    {raceRewardAContent},
+    {raceRewardATitle},
+    {raceRewardBContent},
+    {raceRewardBTitle},
     {rank_name1},
     {rank_name2},
     {rank_name4},
@@ -2568,6 +2923,8 @@ getKeyList()->[
     {square_dancing_string_5},
     {square_dancing_string_6},
     {square_dancing_string_7},
+    {supplicationContent},
+    {supplicationTitle},
     {swordsmen},
     {tendingGoods_MailContent},
     {tendingGoods_MailTitle},
@@ -2603,6 +2960,13 @@ getKeyList()->[
 get1KeyList()->[
     accountWelfareMailTxt,
     activeMail_GainItem,
+    allplayerquestion_mail_1,
+    allplayerquestion_mail_2,
+    allplayerquestion_serverstrings_1,
+    allplayerquestion_serverstrings_2,
+    allplayerquestion_serverstrings_3,
+    allplayerquestion_serverstrings_4,
+    allplayerquestion_serverstrings_5,
     answerPlayFirstAndLucky,
     answerPlayLuckyPlayers,
     answerPlayStart,
@@ -2649,6 +3013,8 @@ get1KeyList()->[
     bribery_money_MallTitle_back,
     bribery_money_MallTitle_get,
     broadcase_self_content,
+    career_transfer_email_1,
+    career_transfer_email_2,
     career_transfer_success,
     carrer_warrior,
     changeGuildNameSuccess,
@@ -2660,7 +3026,33 @@ get1KeyList()->[
     characters_countdownstart,
     characters_enterexpfb,
     characters_entershouhu,
+    characters_godess1,
+    characters_godess10,
+    characters_godess11,
+    characters_godess12,
+    characters_godess13,
+    characters_godess14,
+    characters_godess15,
+    characters_godess16,
+    characters_godess17,
+    characters_godess18,
+    characters_godess19,
+    characters_godess2,
+    characters_godess20,
+    characters_godess21,
+    characters_godess22,
+    characters_godess23,
+    characters_godess24,
+    characters_godess3,
+    characters_godess4,
+    characters_godess5,
+    characters_godess6,
+    characters_godess7,
+    characters_godess8,
+    characters_godess9,
     characters_startcountdown,
+    charmRankContent,
+    charmRankTitle,
     cityMonster_NetBoss,
     cityMonster_NextMonster,
     cityMonsterAcEnd,
@@ -2723,6 +3115,7 @@ get1KeyList()->[
     escort_Team_Start,
     escortActivity_Start,
     escortMonsterName,
+    fashionSuit,
     feastbossrefresh,
     feastbossrereward,
     fighter,
@@ -2743,6 +3136,14 @@ get1KeyList()->[
     giveExtGem_MailTitle,
     giveGem_MailContent,
     giveGem_MailTitle,
+    giveGiftContent,
+    giveGiftString1,
+    giveGiftString2,
+    giveGiftString3,
+    giveGiftString4,
+    giveGiftString5,
+    giveGiftTitle,
+    giveGiftVIP,
     giveGoods_MailContent,
     giveGoods_MailTitle,
     godSworn,
@@ -2750,6 +3151,7 @@ get1KeyList()->[
     guardian,
     guild_godbless_sr_content,
     guild_godbless_sr_title,
+    guild_LvUpstrings,
     guild_request_notice,
     guild_snowman_award,
     guild_snowman_begin,
@@ -2837,6 +3239,8 @@ get1KeyList()->[
     maintain,
     mall_give_mail_Content,
     mall_give_mail_title,
+    mapsafetips,
+    mapsafewarn,
     marriage_B_FContentA,
     marriage_B_FContentB,
     marriage_B_FTitleA,
@@ -2868,10 +3272,6 @@ get1KeyList()->[
     marriage_WS_Invite,
     mercenary,
     monk,
-    needForSpeedAwardContext,
-    needForSpeedAwardTitle,
-    needForSpeedExitAwardContext,
-    needForSpeedExitAwardTitle,
     newguildIntoGuildWar,
     newplayer_Worldlevel_MailContent,
     newplayer_Worldlevel_MailTitle,
@@ -2895,6 +3295,8 @@ get1KeyList()->[
     opACUseMailTitle,
     orderRebateMailContent,
     orderRebateMailTitle,
+    pet_recycle_email,
+    pet_recycle_email_title,
     petpvpcontent,
     petpvpmailcontent,
     petpvpmailtitle,
@@ -2903,6 +3305,10 @@ get1KeyList()->[
     playerExitGuild,
     playerJoinGuild,
     priest,
+    raceRewardAContent,
+    raceRewardATitle,
+    raceRewardBContent,
+    raceRewardBTitle,
     rank_name1,
     rank_name2,
     rank_name4,
@@ -2941,6 +3347,8 @@ get1KeyList()->[
     square_dancing_string_5,
     square_dancing_string_6,
     square_dancing_string_7,
+    supplicationContent,
+    supplicationTitle,
     swordsmen,
     tendingGoods_MailContent,
     tendingGoods_MailTitle,

@@ -24,7 +24,8 @@
 	getNewAndLast7DaysOrder/0,
 	getRechargeRebateAndTaken/0,
 	getActivityData/0,
-	getPreChargeAccount/0
+	getPreChargeAccount/0,
+	loadHomeData/0
 ]).
 
 initCSLoadPrepare() ->
@@ -47,6 +48,20 @@ initCSLoadPrepare() ->
 	emysql:prepare(stGetRechargeRebateAndTaken,"call getRechargeRebateAndTaken()"),
 
 	ok.
+
+%% 查询家园数据
+-spec loadHomeData() -> {[#rec_home{},...], [#rec_home_area{},...]}.
+loadHomeData() ->
+	SQL1 = "SELECT h.* FROM home h LEFT JOIN base_role br ON h.roleID = br.roleID WHERE br.deleteTime = '1970/1/1 0:00:00'",
+	Ret1 = emysql:execute(?GAMEDB_CONNECT_POOL, SQL1),
+	dbMemCache:logResult("loadHomeData", Ret1, SQL1),
+	Homes = emysql_util:as_record(Ret1, rec_home, record_info(fields, rec_home)),
+
+	SQL2 = "SELECT ha.* FROM home_area ha LEFT JOIN home h ON ha.homeID = h.homeID LEFT JOIN base_role br ON h.roleID = br.roleID WHERE br.deleteTime = '1970/1/1 0:00:00'",
+	Ret2 = emysql:execute(?GAMEDB_CONNECT_POOL, SQL2),
+	dbMemCache:logResult("loadHomeData area", Ret2, SQL2),
+	HomeAreas = emysql_util:as_record(Ret2, rec_home_area, record_info(fields, rec_home_area)),
+	{Homes, HomeAreas}.
 
 %% 加载军团数据
 -spec loadGuildData(PidFromCS::pid()) -> ok.

@@ -223,4 +223,23 @@
 %% 30日登录大奖
 -define(PLogTS_ThirtyDayLoginGift, 84).
 
+%% 点金手
+-define(PLogTS_MoneyTree, 85).
+
+%% 星月秘盒
+-define(PLogTS_StarMoon, 86).
+
+%% 赠礼
+-define(PLogTS_GiveGift, 87).
+
+%% 家族系统-碎片祈福
+-define(PLogTS_GuildSupplication, 88).
+
+%% 家园
+-define(PLogTS_Home, 89).
+
+%% 怪物图鉴
+-define(PLogTS_MonsterBook, 90).
+
+
 -endif.

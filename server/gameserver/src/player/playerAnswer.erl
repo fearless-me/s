@@ -9,12 +9,29 @@
 %% API functions
 %% ====================================================================
 -export([answerQuestionInit/0,
-        answerResult/2,
+        answerResult/3,
         answerResultAck/1,
         getAnswerRewardFirst/2,
-        getAnswerRewardLucky/2
+        getAnswerRewardLucky/2,
+		applyAnswer/0,
+		answer_right_addreward/1
         ]).
 
+-define(DanceLevel, 25).
+
+
+
+-spec applyAnswer() -> ok.
+applyAnswer()->
+	case isPlayerLevelCondition() of
+		true ->
+			core:sendMsgToActivity(?ActivityType_AnswerPlay, applyAnswer,
+				{playerState:getRoleID(), self(), playerState:getNetPid()});
+		_ ->
+			playerMsg:sendErrorCodeMsg(?ErrorCode_ApplyDanceFailedPlayerLevel, [?DanceLevel])
+	end,
+
+	ok.
 
 %%玩家上线获取答题信息
 -spec answerQuestionInit() -> ok.
@@ -28,11 +45,11 @@ answerQuestionInit() ->
     ok.
 
 %% 玩家答题结果
--spec answerResult(QuestionID::uint(), Answers::uint()) -> ok.
-answerResult(0, 0) ->
+-spec answerResult(QuestionID::uint(), IsRight::boolean(), Answers::string()) -> ok.
+answerResult(0,0,0) ->
 	?ERROR_OUT("error answerResult:~s", [playerState:getName()]),
 	ok;
-answerResult(QuestionID, Answers) ->
+answerResult(QuestionID, IsRight, Answers) ->
     core:sendMsgToActivity(?ActivityType_AnswerPlay,
 					   answerResult,
 					   {
@@ -40,6 +57,7 @@ answerResult(QuestionID, Answers) ->
                         playerState:getName(),
                         playerState:getLevel(),
 						QuestionID,
+						IsRight,
 						Answers
 					   }),
 	ok.
@@ -97,6 +115,22 @@ getAnswerRewardLucky(Exp,Coin) ->
     playerGameNotice:sendSystemChatByECode(?ErrorCode_CnTextAnswerRewardLucky,[round(Exp * 2), round(Coin * 2)]),
     ok.
 
+
+answer_right_addreward({RoleID, MoneyType,MoneyNum}) ->
+	case playerState:getRoleID() of
+		RoleID ->
+			 playerMoney:addCoin(
+			     MoneyType
+			     , MoneyNum
+			     , #recPLogTSMoney{
+			         reason = ?ItemSourceLuckDraw,
+			         param = [],
+			         target = ?PLogTS_PlayerSelf,
+			         source = ?PLogTS_PlayerSelf
+			     });
+		RID ->
+			?ERROR_OUT("answer__addreward self=~p, role=~p, correct=~p", [RID, RoleID, MoneyType])
+	end.
 %% ====================================================================
 %% Internal functions
 %% ====================================================================
@@ -108,3 +142,5 @@ getglobValue(Key) ->
             undefined
     end.
 
+isPlayerLevelCondition() ->
+	playerState:getLevel() >= ?DanceLevel.

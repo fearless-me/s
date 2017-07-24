@@ -38,13 +38,13 @@
 ]).
 
 %% 服务器基本配置
--define(GameServerConfig, {"GameServer.txt", ets_name_config_GameServer}).
+-define(GameServerConfig, {"GameServer.txt.enc", ets_name_config_GameServer}).
 
 %% 运维相关配置
--define(OperationsConfig, {"Operations.txt", ets_name_config_Operations}).
+-define(OperationsConfig, {"Operations.txt.enc", ets_name_config_Operations}).
 
 %% 跨服配置
--define(CrossConfig, {"Cross.txt", ets_name_config_Cross}).
+-define(CrossConfig, {"Cross.txt.enc", ets_name_config_Cross}).
 
 %% 可用配置列表，目前Cross.txt不可用
 -define(ConfigList, [?GameServerConfig, ?OperationsConfig]).

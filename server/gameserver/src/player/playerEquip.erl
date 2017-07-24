@@ -11,6 +11,7 @@
 
 -define(EachUpStar, 0).%%单次冲星
 -define(QuickUpStar, 1).%%快速冲星
+-define(AllEquipStar, 2).%%全部位冲星
 %% ====================================================================
 %% API functions
 %% ====================================================================
@@ -23,13 +24,17 @@
 	equipResolve/1,
 	sharedEquip/1,
 	getPlayerVisibleEquip/0,
-	getEquipQuality/1
+	getEquipQuality/1,
+	getEquipByType/1,
+	getRefineLevel/0,
+	getStartLevel/0
 %%	getAffixesCfg/2,
 ]).
 
 -export([
 	onEquipOn/2,
-	onEquipOff/2
+	onEquipOff/2,
+	equipChangeProp/3
 ]).
 
 %%装备精炼
@@ -45,7 +50,9 @@
 %%装备冲星
 -export([
 	initEquipStar/0,
-	equipStar/2
+	equipStar/2,
+	allEquipUpStar/2
+
 ]).
 
 %%根据角色初始化默认装备，并穿到身上
@@ -66,7 +73,7 @@ initRoleDefaultEquip() ->
 -spec makeEquip(EquipID, _Quality, BagType, IsBind) -> #recSaveEquip{}
 	when EquipID :: itemId(), _Quality :: equipQuality(), BagType :: bagType(), IsBind :: boolean().
 makeEquip(EquipID, _, BagType, IsBind) ->
-	#equipmentCfg{qualityType = Quality} = getCfg:getCfgPStack(cfg_equipment, EquipID),
+	#equipmentCfg{qualityType = Quality} = EquipCfg = getCfg:getCfgPStack(cfg_equipment, EquipID),
 	{NewQuality, RealQuality} = recalcQuality(EquipID, Quality),
 	EquipUID = uidMgr:makeItemUID(),
 	?LOG_OUT("player:~p make EquipID:~p UID:~p Quality:~p BagType:~p IsBind:~p", [playerState:getRoleID(), EquipID, EquipUID, RealQuality, BagType, IsBind]),
@@ -76,18 +83,17 @@ makeEquip(EquipID, _, BagType, IsBind) ->
 			NewQuality >= ?EquipColorTypeGreen andalso NewQuality =< ?EquipColorTypeMax ->  %%绿色装备有基础属性和附加属性
 				{
 					makeEquipBaseProp(EquipID, NewQuality, EquipUID),
-					makeEquipExtProp(EquipID, NewQuality, EquipUID)
+					#rec_equip_ext_info{equipUID = EquipUID}
 				};
 			true ->
 				%%默认为白色,装备只有基础属性
 				{
 					makeEquipBaseProp(EquipID, ?EquipColorTypeWhite, EquipUID),
-					#rec_equip_ext_info{}
+					#rec_equip_ext_info{equipUID = EquipUID}
 				}
 		end,
-	EnhanceProp = makeEquipEnahanceProp(BaseProp, NewQuality),
+	EnhanceProp = makeEquipEnahanceProp(EquipCfg, EquipUID),
 	%%这里判定并添加防御加成
-	NewEnhanceProp = addDefensiveBonusProp(EnhanceProp, ExtProp),
 	#recSaveEquip{
 		roleID = 0,
 		itemUID = EquipUID,
@@ -99,43 +105,10 @@ makeEquip(EquipID, _, BagType, IsBind) ->
 		expiredTime = 0,
 		baseProp = BaseProp,
 		extProp = ExtProp,
-		enhanceProp = NewEnhanceProp
+		enhanceProp = EnhanceProp
 	}.
 
 recalcQuality(_EquipID, Quality) -> {Quality, Quality}.
-%%	%%之前不知道特殊装备品质规则，现在只能在这里做特殊判断了
-%%	#equipmentCfg{qualityType = QualityType, uniqTierID = UniqTierID} = getCfg:getCfgPStack(cfg_equipment, EquipID),
-%%	%%这里要兼容固定属性的装备，所以需要有一个用于走流程的品质，一个用于标识实际品质的品质
-%%	case QualityType of
-%%		?EquipTypeSpecial ->
-%%			case UniqTierID > 0 of
-%%				true ->
-%%					{?EquipColorTypeOrange, ?EquipColorTypeOrange};
-%%				_ ->
-%%					{?EquipColorTypeOrange, Quality}
-%%			end;
-%%		?EquipTypeSuit ->
-%%			case UniqTierID > 0 of
-%%				true ->
-%%					{?EquipColorTypeRed, ?EquipColorTypeRed};
-%%				_ ->
-%%					{?EquipColorTypeRed, Quality}
-%%			end;
-%%		?EquipTypeSpecial1 ->
-%%			case UniqTierID > 0 of
-%%				true ->
-%%					{?EquipColorTypePurple, ?EquipColorTypePurple};
-%%				_ ->
-%%					{?EquipColorTypePurple, Quality}
-%%			end;
-%%		_ ->
-%%			case UniqTierID > 0 of
-%%				true ->
-%%					{?EquipColorTypeOrange, Quality};
-%%				_ ->
-%%					{Quality, Quality}
-%%			end
-%%	end.
 
 
 %%套装定制奖励根据ID,套装个数进行战斗奖励
@@ -178,12 +151,10 @@ equipRecastInit() ->
 			end, [], Seq),
 
 	playerPropSync:setAny(?SerProp_EquipRecastList, RecastProps),
-%%	?DEBUG_OUT("init recast prop(~p),~p", [?SerProp_EquipRecastList, RecastProps]),
 	ok.
 
 sendEquipRecastInit2Client() ->
 	List = playerPropSync:getProp(?SerProp_EquipRecastList),
-%%	?DEBUG_OUT("player(~p),~p", [playerState:getRoleID(), List]),
 	InfoList = lists:map(
 		fun(#recEquipRecast{equip_pos = Pos, recast_val = Val, props = Props, props_ext = PropsExt} = EquipRecast) ->
 			onRecastStore(EquipRecast, ?EquipOn, true),
@@ -437,7 +408,7 @@ onRecastStore(Recast, OpType, IsNotify) ->
 	#recEquipRecast{props = Props, props_ext = PropEx} = Recast,
 	MF = fun(#recRecastProp{prop_id = PropID, prop_val = PropVal}, Acc) ->
 		[{PropID, PropVal, ?PropCalcType_Add} | Acc]
-	     end,
+		 end,
 	ExtProp1 = lists:foldl(MF, [], Props),
 	ExtProp2 = lists:foldl(MF, ExtProp1, PropEx),
 	playerCalcProp:changeProp_CalcType(ExtProp2, OpType, IsNotify).
@@ -445,7 +416,7 @@ onRecastStore(Recast, OpType, IsNotify) ->
 onAddNewRecastProp(Props) ->
 	MF = fun(#recRecastProp{prop_id = PropID, prop_val = PropVal}, Acc) ->
 		[{PropID, PropVal, ?PropCalcType_Add} | Acc]
-	     end,
+		 end,
 	ExtProp = lists:foldl(MF, [], Props),
 	playerCalcProp:changeProp_CalcType(ExtProp, ?EquipOn, true).
 
@@ -537,7 +508,6 @@ dealAdvanceResult(EquipPos, PropList, LockList) ->
 			playerMsg:sendNetMsg(Msg),
 			?DEBUG_OUT("player[~p],equipPos=~p,old=~p, reserve=~p, replace=~p",
 				[playerState:getRoleID(), EquipPos, PropsExt, ReserveList, ReplaceList]),
-%%			setEquipRecastProperty(EquipPos, OldRecast#rec_equip_recast{recast_val = OldRecastVal + 1}),
 			playerState:setEquipsRecast(OldRecast#recEquipRecast{
 				recast_val = OldRecastVal, props_ext = lists:append(ReserveList, ReplaceList)}),
 			ok;
@@ -630,7 +600,7 @@ sharedEquip(EquipUIDs) ->
 						skip
 				end
 		end
-	      end,
+		  end,
 	lists:foreach(Fun, EquipUIDs),
 	ok.
 
@@ -654,7 +624,7 @@ getPlayerVisibleEquip() ->
 			_ ->
 				VisibleEquipList
 		end
-	      end,
+		  end,
 	lists:foldl(Fun, [], Bag).
 
 %%根据配置的品质分类产生具体的品质值
@@ -760,9 +730,13 @@ equipComboSkill(ComSkillID, Op) ->
 initEquipRefine() ->
 	RefineList = playerState:getEquipRefine(),
 	RefineSuitLevel = getSuitRefineLevel(RefineList),
-%%	[changePosRefineProp(PosLevel, Type, ?AddEquipProp) || {Type, PosLevel} <- RefineList],
-	[changeSuitRefineProp(Level, ?EquipOn) || Level <- lists:seq(1, RefineSuitLevel)],
+	changeSuitRefineProp(RefineSuitLevel, ?EquipOn),
 	sendRefineList(RefineList).
+
+
+getRefineLevel()->
+	RefineList = playerState:getEquipRefine(),
+	getSuitRefineLevel(RefineList).
 
 %%装备精炼
 
@@ -782,7 +756,7 @@ canEquipRefine(Type) ->
 									{false, ?ErrorCode_BagEquipRefineMaterialNotEnougth}
 							end;
 						_ ->
-							{false,?ErrorCode_BagEquipRefineHasMax}
+							{false, ?ErrorCode_BagEquipRefineHasMax}
 					end;
 				_ ->
 					{false, ?ErrorCode_BagEquipNotPlayerLevel}
@@ -791,11 +765,13 @@ canEquipRefine(Type) ->
 			{false, ?ErrorCode_BagEquipRefineTypeNotExist}
 	end.
 
-
 equipRefine(Type, IsNotify) ->
+	equipRefine(Type, true, IsNotify).
+
+equipRefine(Type, IsCalcForce, IsNotify) ->
 	case canEquipRefine(Type) of
 		{true, Lv, CList, RList} ->
-			doEquipRefine(Type, Lv, CList, RList);
+			doEquipRefine(Type, Lv, CList, RList, IsCalcForce);
 		{_, ErrorCode} when IsNotify ->
 			playerMsg:sendErrorCodeMsg(ErrorCode);
 		_ ->
@@ -804,7 +780,7 @@ equipRefine(Type, IsNotify) ->
 	ok.
 
 
-doEquipRefine(Type, Lv, CList, RList) ->
+doEquipRefine(Type, Lv, CList, RList, IsCalcForce) ->
 	equipRefineSpec(RList),
 	playerAchieve:achieveEvent(?Achieve_StrMan, [1]),
 	OldSuitLevel = getSuitRefineLevel(RList),
@@ -819,13 +795,14 @@ doEquipRefine(Type, Lv, CList, RList) ->
 			playerGameNotice:sendGameNotice(?SuitRefineLevel_Notice, CurSuitLevel, 0, 0),
 			playerAchieve:achieveEvent(?Achieve_StrongestKing, [1]),
 			playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_EquipRedefine, 1),
+			changeSuitRefineProp(OldSuitLevel, ?EquipOff),
 			changeSuitRefineProp(CurSuitLevel, ?EquipOn),
 
-			#globalsetupCfg{setpara = L} = getCfg:getCfgByKey(cfg_globalsetup, equipinten_worldtext_limit   ),
-			case lists:member(CurSuitLevel, L) of
-				true->
-					N = stringCfg:getString(equipstronger_worldtext_inten, [playerState:getName(), CurSuitLevel]),
-					core:sendBroadcastNotice(N);
+			#globalsetupCfg{setpara = RefineL} = getCfg:getCfgByKey(cfg_globalsetup, equipinten_worldtext_limit),
+			case lists:member(CurSuitLevel, RefineL) of
+				true ->
+					String = stringCfg:getString(equipstronger_worldtext_inten, [playerState:getName(), CurSuitLevel]),
+					core:sendBroadcastNotice(String);
 				_ ->
 					skip
 			end;
@@ -845,120 +822,73 @@ doEquipRefine(Type, Lv, CList, RList) ->
 	playerSave:saveRefine(Type, Lv + 1),
 	sendRefineResult(Type, Lv + 1),
 	playerSevenDayAim:updateCondition(?SevenDayAim_EquipRefine, []),
-	playerForce:calcPlayerForce(?PlayerStrForce, true).
+	if
+		IsCalcForce ->
+			playerForce:calcPlayerForce(?PlayerStrForce, true);
+		true ->
+			skip
+	end.
 
 %% 装备一键精炼
 equipRefineOneKey() ->
-	L = lists:seq(?EquipTypeStart,?EquipTypeMax),
-	lists:foreach(fun(Type) -> equipRefine(Type, false) end, L),
+	EquipTypeList = getEquipRefineOneKeyList(),
+	%% 交换精炼顺序，优先精炼武器
+	lists:foreach(fun(Type) -> equipRefine(Type, false, false) end, lists:reverse(EquipTypeList)),
+	playerForce:calcPlayerForce(?PlayerStrForce, true),
 	ok.
-%%equipRefineOneKey() ->
-%%	RList0 = playerState:getEquipRefine(),
-%%	TypeListFull = [?EquipTypeWeapon, ?EquipTypeHelmet, ?EquipTypeEarrings, ?EquipTypeArmor, ?EquipTypeNecklace, ?EquipTypeTrousers, ?EquipTypeRing, ?EquipTypeBoots],
-%%	FunFill =
-%%		fun(Type, AccIn) ->
-%%			case lists:keyfind(Type, 1, RList0) of
-%%				false ->
-%%					[{Type, 0} | AccIn];
-%%				V ->
-%%					[V | AccIn]
-%%			end
-%%		end,
-%%	RList1 = lists:foldl(FunFill, [], TypeListFull),
-%%	FunFindMin =
-%%		fun({_, Level}, LevelMin) ->
-%%			case Level < LevelMin of
-%%				true ->
-%%					Level;
-%%				_ ->
-%%					LevelMin
-%%			end
-%%		end,
-%%
-%%	LevelMax = lists:max(getCfg:get1KeyList(cfg_equipIntenLevel)),
-%%	LevelMin = lists:foldl(FunFindMin, LevelMax, RList1),
-%%	LevelRole = playerState:getLevel(),
-%%	?DEBUG_OUT("[DebugForDebugForRefine] equipRefineOneKey LevelRole(~p) LevelMin(~p) LevelMax(~p) RList1(~p)", [LevelRole, LevelMin, LevelMax, RList1]),
-%%	case LevelRole =< LevelMin of
-%%		true ->
-%%			playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipNotPlayerLevel);
-%%		_ ->
-%%			FunGetMin =
-%%				fun({Type, Level}, {RList2, RList3}) ->
-%%					case Level of
-%%						LevelMin ->
-%%							{[Type | RList2], RList3};
-%%						_ ->
-%%							{RList2, [{Type, Level} | RList3]}
-%%					end
-%%				end,
-%%			{RList2, RList3} = lists:foldl(FunGetMin, {[], []}, RList1),
-%%			case RList2 of
-%%				[] ->
-%%					playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineHasMax);
-%%				_ ->
-%%					case getCfg:getCfgByKey(cfg_equipIntenLevel, LevelMin + 1) of
-%%						#equipIntenLevelCfg{} = Cfg ->
-%%							RefineCount = erlang:length(RList2),
-%%							case checkEquipRefineOneKeyMaterial(Cfg, RefineCount) of
-%%								CList when is_list(CList) ->
-%%									equipRefineOneKey(RList2, RefineCount, RList3, LevelMin, CList, RList1),
-%%									playerSevenDays:onMissionEvent(?SevenDayMission_Event_1, RefineCount, 0);
-%%								false ->
-%%									playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineMaterialNotEnougth)
-%%							end;
-%%						_ ->
-%%							playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipRefineHasMax)
-%%					end
-%%			end
-%%	end,
-%%	ok.
-%%equipRefineOneKey(TypeList, Count, RList3, Lv, CList, RList) ->
-%%	equipRefineSpec(RList),
-%%	playerAchieve:achieveEvent(?Achieve_StrMan, [Count]),
-%%	OldSuitLevel = getSuitRefineLevel(RList),
-%%	%%目前装备跟精炼部位没有关系
-%%	FunNewRListA =
-%%		fun(TypeIn, AccIn) ->
-%%			[{TypeIn, Lv + 1} | AccIn]
-%%		end,
-%%	NewRListA = lists:foldl(FunNewRListA, [], TypeList),
-%%	NewRList = NewRListA ++ RList3,
-%%	delItem(CList, ?ItemDeleteReasonRefine),    %% 扣除资源
-%%	playerState:setEquipRefine(NewRList),
-%%	CurSuitLevel = getSuitRefineLevel(NewRList),
-%%	%%套装加成
-%%	case OldSuitLevel =:= CurSuitLevel of
-%%		false ->
-%%			playerGameNotice:sendGameNotice(?SuitRefineLevel_Notice, CurSuitLevel, 0, 0),
-%%			playerAchieve:achieveEvent(?Achieve_StrongestKing, [1]),
-%%			changeSuitRefineProp(CurSuitLevel, ?EquipOn);
-%%		_ ->
-%%			skip
-%%	end,
-%%	%%部位加成
-%%	FunRefineProp =
-%%		fun(TypeIn) ->
-%%			case getEquipByType(TypeIn) of
-%%				{true, _Equip} ->
-%%					%%部位加成
-%%					changePosRefineProp(Lv, TypeIn, ?EquipOff),
-%%					changePosRefineProp(Lv + 1, TypeIn, ?EquipOn);
-%%				_ ->
-%%					skip
-%%			end,
-%%			playerSave:saveRefine(TypeIn, Lv + 1)
-%%		end,
-%%	lists:foreach(FunRefineProp, TypeList),
-%%	%%消息
-%%	Msg = #pk_GS2U_EquipRefineResultOneKey{
-%%		code = playerState:getPlayerCode(),
-%%		typeList = TypeList,
-%%		levelOld = Lv,
-%%		levelNew = Lv + 1
-%%	},
-%%	playerMsg:sendMsgToNearPlayer(Msg, true),
-%%	playerForce:calcPlayerForce(?PlayerStrForce, true).
+
+%% 装备全部位升星
+getEquipStarOneKeyList()->
+	EquipTypeList = lists:seq(?EquipTypeStart, ?EquipTypeMax),
+	RList0 = playerState:getEquipStarList(),
+	RList1 = lists:foldl(
+		fun(Type, AccIn)->
+			case lists:keyfind(Type, #recEquipStar.pos, RList0) of
+				false ->
+					[#recEquipStar{
+						bless = 0,
+						pos = Type,
+						prog = 0,
+						star = 0
+					}| AccIn];
+				V ->
+					[V | AccIn]
+			end
+		end, [], EquipTypeList),
+	MinLevel = lists:foldl(
+		fun(#recEquipStar{pos =_Type,star = Level}, AccMinLevel)->
+			case Level < AccMinLevel of
+				true ->
+					Level;
+				_ ->
+					AccMinLevel
+			end
+		end, 999, RList1),
+	[EquipType || #recEquipStar{pos =EquipType,star = RefineLevel} <- RList1, RefineLevel =:= MinLevel].
+
+
+getEquipRefineOneKeyList()->
+	EquipTypeList = lists:seq(?EquipTypeStart, ?EquipTypeMax),
+	RList0 = playerState:getEquipRefine(),
+	RList1 = lists:foldl(
+		fun(Type, AccIn)->
+			case lists:keyfind(Type, 1, RList0) of
+				false ->
+					[{Type, 0} | AccIn];
+				V ->
+					[V | AccIn]
+			end
+		end, [], EquipTypeList),
+	MinLevel = lists:foldl(
+		fun({_Type, Level}, AccMinLevel)->
+			case Level < AccMinLevel of
+				true ->
+					Level;
+				_ ->
+					AccMinLevel
+			end
+		end, 999, RList1),
+	[EquipType || {EquipType, RefineLevel} <- RList1, RefineLevel =:= MinLevel].
 
 equipRefineSpec(RL) ->
 	PropValue = playerPropSync:getProp(?SerProp_LoadRefineFlag),
@@ -966,7 +896,7 @@ equipRefineSpec(RL) ->
 		PropValue =:= undefined orelse PropValue =:= 0 ->
 			Fun = fun({_, Lv}, Sum) ->
 				Lv + Sum
-			      end,
+				  end,
 			AllLv = lists:foldl(Fun, 0, RL),
 			SuitLv = getSuitRefineLevel(RL),
 			case AllLv of
@@ -989,10 +919,8 @@ equipRefineSpec(RL) ->
 
 -spec checkEquipRefineType(Type :: uint()) -> boolean().
 checkEquipRefineType(Type) when Type >= ?EquipTypeStart andalso Type =< ?EquipTypeMax ->
-	%%?DEBUG_OUT("[DebugForRefine] Type(~p)", [Type]),
 	true;
 checkEquipRefineType(_Type) ->
-	%%?DEBUG_OUT("[DebugForRefine] Type(~p)", [_Type]),
 	false.
 
 
@@ -1000,11 +928,11 @@ checkEquipRefineMaterial(
 	#equipIntenLevelCfg{
 		materialCost = MaterialCost,
 		materialTransform = SubCost
-}) ->
+	}) ->
 	checkEquipRefineMaterial(MaterialCost, SubCost, []).
 
 %%修改成只支持主消耗一种道具，
-checkEquipRefineMaterial([], _SubMaterial,  CostList) ->
+checkEquipRefineMaterial([], _SubMaterial, CostList) ->
 	CostList;
 checkEquipRefineMaterial([{ID, Num} | _], [], CostList) ->
 	case playerPackage:getItemNumByID(ID) >= Num of
@@ -1027,7 +955,7 @@ checkEquipRefineMaterial([{AID, ANum} | _], [{BID, BNum} | _], CostList) ->
 				true ->
 					if
 						HaveA > 0 ->
-							[{AID, HaveA},{BID, NeedB} | CostList];
+							[{AID, HaveA}, {BID, NeedB} | CostList];
 						true ->
 							[{BID, NeedB} | CostList]
 					end;
@@ -1036,31 +964,35 @@ checkEquipRefineMaterial([{AID, ANum} | _], [{BID, BNum} | _], CostList) ->
 			end
 	end.
 
--spec checkEquipRefineOneKeyMaterial(Cfg :: #equipIntenLevelCfg{}, Count :: uint()) -> false | list().
-checkEquipRefineOneKeyMaterial(#equipIntenLevelCfg{materialCost = MaterialCost}, Count) ->
-	checkEquipRefineOneKeyMaterial(MaterialCost, Count, []).
-
-checkEquipRefineOneKeyMaterial([], _Count, CostList) ->
-	CostList;
-checkEquipRefineOneKeyMaterial([{ID, Num} | List], Count, CostList) ->
-	case playerPackage:getItemNumByID(ID) >= Num * Count of
-		true ->
-			checkEquipRefineOneKeyMaterial(List, Count, [{ID, Num * Count} | CostList]);
-		_ ->
-			false
-	end.
-
 %%初始化装备冲星
 -spec initEquipStar() -> ok.
 initEquipStar() ->
 	L = playerState:getEquipStarList(),
 	Slv = getSuitUpStarLv(L),
-	[changeSuitStarProp(Lv, ?EquipOn) || Lv <- lists:seq(1, Slv)],
+	changeSuitStarProp(Slv, ?EquipOn),
 	sendEquipUpStarList(L).
+
+getStartLevel()->
+	L = playerState:getEquipStarList(),
+	getSuitUpStarLv(L).
+
+%%装备冲星
+-spec allEquipUpStar(Pos :: uint(), Type :: uint()) -> ok.
+allEquipUpStar(Pos,Type)->
+	case Type =:= ?AllEquipStar of
+		true ->
+			EquipTypeList = getEquipStarOneKeyList(),
+			%% 交换冲星顺序，优先冲星武器
+			lists:foreach(fun(Pos1) -> equipStar(Pos1, 0) end, lists:reverse(EquipTypeList));
+		_->
+			equipStar(Pos,Type)
+	end,
+	ok.
 
 %%装备冲星
 -spec equipStar(Pos :: uint(), Type :: uint()) -> ok.
 equipStar(Pos, Type) ->
+
 	Lv = playerState:getLevel(),
 	L = playerState:getEquipStarList(),
 	EquipStar =
@@ -1090,28 +1022,28 @@ equipStar(Pos, Type) ->
 			playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipStarMaxLevel)
 	end.
 
-itemB2A(0, _TransB)->
+itemB2A(0, _TransB) ->
 	0;
-itemB2A(_HaveB, 0)->
+itemB2A(_HaveB, 0) ->
 	0;
-itemB2A(HaveB, TransB)->
-	erlang:trunc(HaveB/TransB).
+itemB2A(HaveB, TransB) ->
+	erlang:trunc(HaveB / TransB).
 
-itemA2ABList(ItemA, HaveA, NeedA, 0, _HaveB, _TransB)->
+itemA2ABList(ItemA, HaveA, NeedA, 0, _HaveB, _TransB) ->
 	case HaveA >= NeedA of
 		true ->
 			[{ItemA, NeedA}];
 		_ ->
 			false %%不应该到这里
 	end;
-itemA2ABList(ItemA, HaveA, NeedA, _ItemB, _HaveB, 0)->
+itemA2ABList(ItemA, HaveA, NeedA, _ItemB, _HaveB, 0) ->
 	case HaveA >= NeedA of
 		true ->
 			[{ItemA, NeedA}];
 		_ ->
 			false  %%不应该到这里
 	end;
-itemA2ABList(ItemA, HaveA, NeedA, ItemB, HaveB, TransB)->
+itemA2ABList(ItemA, HaveA, NeedA, ItemB, HaveB, TransB) ->
 	case HaveA >= NeedA of
 		true ->
 			[{ItemA, NeedA}];
@@ -1120,10 +1052,10 @@ itemA2ABList(ItemA, HaveA, NeedA, ItemB, HaveB, TransB)->
 			LeftA = NeedA - HaveA,
 			NeedB = LeftA * TransB,
 			if
-				HaveB < NeedB->
+				HaveB < NeedB ->
 					false;%%不应该到这里
 				HaveA > 0 ->
-					[{ItemA, HaveA},{ItemB, NeedB}];
+					[{ItemA, HaveA}, {ItemB, NeedB}];
 				true ->
 					[{ItemB, NeedB}]
 			end
@@ -1177,7 +1109,7 @@ equipStar(
 	HaveA = playerPackage:getItemNumByID(ItemID),
 	HaveB = playerPackage:getItemNumByID(TItemID),
 	Num = HaveA + itemB2A(HaveB, TNumber),
-	
+
 	Coin = playerState:getCoin(?CoinTypeGold),
 	{Res, Index, ReNum, ReCoin, NewEquipStar} = equipStar(Num, Coin, 0, EquipStar, EquipStarCfg),
 	CostItemList = itemA2ABList(ItemID, HaveA, Num - ReNum, TItemID, HaveB, TNumber),
@@ -1236,7 +1168,6 @@ equipStarRes(Type, CostItemList, CostCoin, Index, Res, #recEquipStar{pos = Pos} 
 						OldSuitLv = getSuitUpStarLv(L),
 						CurSuitLv = getSuitUpStarLv(NL),
 
-						playerForce:calcPlayerForce(?PlayerEquipForce, true),
 						{OldSuitLv, CurSuitLv};
 					_ ->
 						NL = lists:keystore(Pos, #recEquipStar.pos, L, EquipStar),
@@ -1247,25 +1178,33 @@ equipStarRes(Type, CostItemList, CostCoin, Index, Res, #recEquipStar{pos = Pos} 
 				end,
 			if
 				Old =/= New ->
-					playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_EquipStar, New),
+					changeSuitStarProp(Old, ?EquipOff),
 					changeSuitStarProp(New, ?EquipOn);
 				true ->
 					skip
 			end,
+			playerTask:updateTask(?TaskSubType_System, ?TaskSubType_System_Sub_EquipStar),
+			playerForce:calcPlayerForce(?PlayerEquipForce, true),
 			if
-				Old =/= New andalso (New rem 5) =:= 0 andalso New > 0 ->
+				Old =/= New andalso New > 0 ->
 %%					%%勇士[00ff00]<t=9>[~p],[~p],【~ts】</t>[-]将全身装备冲星至[00ff00]【~ts】[-]，创造新的传奇。
-					#globalsetupCfg{setpara = L} = getCfg:getCfgByKey(cfg_globalsetup, equipstar_worldtext_limit),
-					case lists:member(New, L) of
-						true->
+					SuitBroadL =
+						case getCfg:getCfgByKey(cfg_globalsetup, equipstar_worldtext_limit) of
+							#globalsetupCfg{setpara = V} ->
+								V;
+							_ ->
+								[]
+						end,
+					case lists:member(New, SuitBroadL) of
+						true ->
 							case getCfg:getCfgByArgs(cfg_equipstar, New, Pos) of
 								#equipstarCfg{desc = Desc1} ->
 									Desc = Desc1;
 								_ ->
 									Desc = ""
 							end,
-							N = stringCfg:getString(equipstronger_, [playerState:getName(), Desc]),
-							core:sendBroadcastNotice(N);
+							String = stringCfg:getString(equipstronger_worldtext_star, [playerState:getName(), Desc]),
+							core:sendBroadcastNotice(String);
 						_ ->
 							skip
 					end;
@@ -1335,7 +1274,7 @@ eachEquipStar(
 	Num, Coin, CostNum, CostCoin
 ) when R =< Odd ->
 	{?UpStar_Lv_Succ, Index + 1, Num - CostNum, Coin - CostCoin};
-eachEquipStar( _R, _Odd, Index,
+eachEquipStar(_R, _Odd, Index,
 	Num, Coin, CostNum, CostCoin
 ) ->
 	{?UpStar_Fail, Index + 1, Num - CostNum, Coin - CostCoin}.
@@ -1365,373 +1304,59 @@ makeEquipBaseProp(EquipID, _Quality, EquipUID) ->
 		skillLevel2 = misc:rand(EquipmentCfg#equipmentCfg.minLevel2, EquipmentCfg#equipmentCfg.maxLevel2)
 	}.
 
--spec makeEquipEnahanceProp(#rec_equip_base_info{}, Quality) -> #rec_equip_enhance_info{} when
-	Quality :: equipQuality().
-makeEquipEnahanceProp(#rec_equip_base_info{equipUID = EquipUID} = BaseProp, _Quality) ->
-	EquipQuailtyRatio = 0,%getEquipQuailtyRatio(Quality), %%装备品质加成系数
+
+makeEquipEnahanceProp(#equipmentCfg{randomprop = []}, EquipUID) ->
+	#rec_equip_enhance_info{equipUID = EquipUID};
+makeEquipEnahanceProp(#equipmentCfg{randomprop = [_X, 0]}, EquipUID) ->
+	#rec_equip_enhance_info{equipUID = EquipUID};
+makeEquipEnahanceProp(#equipmentCfg{randomprop = [PoolID, N]}, EquipUID) ->
+	L1 = getCfg:get2KeyList(cfg_equipment_randomprop, PoolID),
+	L2 = lists:foldl(
+		fun(PropID, ACC)->
+			case getCfg:getCfgByArgs(cfg_equipment_randomprop, PoolID, PropID) of
+				#equipment_randompropCfg{probability = Prob} = Cfg ->
+					[{Prob, Cfg} | ACC];
+				_ ->
+					ACC
+			end
+		end, [], L1),
+	L3 = [misc:calcOddsByWeightList(L2) || _X <- lists:seq(1, N)],
+	makeEquipEnahanceProp2(EquipUID, L3);
+makeEquipEnahanceProp(_Cfg, EquipUID) ->
+	#rec_equip_enhance_info{equipUID = EquipUID}.
+
+
+makeEquipEnahanceProp2(EquipUID, [])->
+	#rec_equip_enhance_info{equipUID = EquipUID};
+makeEquipEnahanceProp2(EquipUID, CfgList)->
+	PropList = [randomEnPropVal(Cfg) || Cfg <- CfgList],
+	PropListLen = erlang:length(PropList),
+	{PropID1, PropVal1} = safeGetFromList(1, PropListLen, PropList),
+	{PropID2, PropVal2} = safeGetFromList(2, PropListLen, PropList),
+	{PropID3, PropVal3} = safeGetFromList(3, PropListLen, PropList),
+	{PropID4, PropVal4} = safeGetFromList(4, PropListLen, PropList),
+	{PropID5, PropVal5} = safeGetFromList(5, PropListLen, PropList),
 	#rec_equip_enhance_info{
-		equipUID = EquipUID,
-		propKey1 = BaseProp#rec_equip_base_info.propKey1,
-		propValue1 = BaseProp#rec_equip_base_info.propValue1 * (1 + EquipQuailtyRatio),
-		propKey2 = BaseProp#rec_equip_base_info.propKey2,
-		propValue2 = BaseProp#rec_equip_base_info.propValue2 * (1 + EquipQuailtyRatio),
-		propKey3 = BaseProp#rec_equip_base_info.propKey3,
-		propValue3 = BaseProp#rec_equip_base_info.propValue3 * (1 + EquipQuailtyRatio),
-		propKey4 = BaseProp#rec_equip_base_info.propKey4,
-		propValue4 = BaseProp#rec_equip_base_info.propValue4 * (1 + EquipQuailtyRatio),
-		propKey5 = BaseProp#rec_equip_base_info.propKey5,
-		propValue5 = BaseProp#rec_equip_base_info.propValue5 * (1 + EquipQuailtyRatio)
+		equipUID = EquipUID
+		, propKey1 = PropID1, propValue1 = PropVal1
+		, propKey2 = PropID2, propValue2 = PropVal2
+		, propKey3 = PropID3, propValue3 = PropVal3
+		, propKey4 = PropID4, propValue4 = PropVal4
+		, propKey5 = PropID5, propValue5 = PropVal5
 	}.
-%%
-%%%%获取装备附加属性指定的职业
-%%-spec getEquipAffixClass(Class :: uint()) -> uint().
-%%getEquipAffixClass(Class) ->
-%%	%%一开始就确定装备的附加属性职业
-%%	#globalsetupCfg{setpara = [Selfchance]} = getCfg:getCfgPStack(cfg_globalsetup, selfChance),
-%%	NewSelfChance = Selfchance * 100,
-%%	RandomNum = random:uniform(100),
-%%	if
-%%		Class =:= ?EquipAffixClassAll ->
-%%			if
-%%				RandomNum =< NewSelfChance ->
-%%					playerState:getCareer();
-%%				true ->
-%%					ClassList = [1, 2, 3, 4],
-%%					NewClassList = lists:delete(playerState:getCareer(), ClassList),
-%%					lists:nth(random:uniform(3), NewClassList)
-%%			end;
-%%		true ->
-%%			Class
-%%	end.
 
-%%生成装备的附加属性,EquipID装备配置表ID, Quality装备品质
--spec makeEquipExtProp(EquipID, Quality, EquipUID) -> #rec_equip_ext_info{}
-	when EquipID :: uint(), Quality :: int(), EquipUID :: uint().
-makeEquipExtProp(_EquipID, _Quality, _EquipUID) ->
-	#rec_equip_ext_info{}.
-%%	%%特殊套装要先获得指定属性
-%%	#equipmentCfg{
-%%		qualityType = Type,
-%%		class = Class
-%%	} = getCfg:getCfgPStack(cfg_equipment, EquipID),
-%%	{FrontNum, AfterNum} = selectAffixGroup(EquipID, Quality, Type),%%获得前后缀里的几前几后{1,2,0.5}->{1,2}
-%%	EquipAffixClass = getEquipAffixClass(Class),
-%%	[SpecialPropAffixes, ExcludedData] = getEspecialEquipUProperty(EquipID, EquipAffixClass),
-%%	{ResultFrontAffixes, ResultAfterAffixes} = makeEquipAffixes(SpecialPropAffixes, FrontNum, AfterNum, EquipID, ExcludedData, EquipAffixClass),%%获得前后属性列表{[{},{}...],[{},{}...]}
-%%	ResultEquipAffixes = ResultFrontAffixes ++ ResultAfterAffixes,%%[{},{},{},{}...]
-%%	#rec_equip_ext_info{
-%%		equipUID = EquipUID,
-%%		propKey1 = getEquipAffiexKey(ResultEquipAffixes, 1),
-%%		propAffixe1 = getEquipAffiexID(ResultEquipAffixes, 1),
-%%		propValue1 = getEquipExtPropAffixeValue(ResultEquipAffixes, 1),
-%%		propRecast1 = getEquipAffiexRecast(ResultEquipAffixes, 1),
-%%		calcType1 = getEquipAffiexCalcType(ResultEquipAffixes, 1),
-%%		propKey2 = getEquipAffiexKey(ResultEquipAffixes, 2),
-%%		propAffixe2 = getEquipAffiexID(ResultEquipAffixes, 2),
-%%		propValue2 = getEquipExtPropAffixeValue(ResultEquipAffixes, 2),
-%%		propRecast2 = getEquipAffiexRecast(ResultEquipAffixes, 2),
-%%		calcType2 = getEquipAffiexCalcType(ResultEquipAffixes, 2),
-%%		propKey3 = getEquipAffiexKey(ResultEquipAffixes, 3),
-%%		propAffixe3 = getEquipAffiexID(ResultEquipAffixes, 3),
-%%		propValue3 = getEquipExtPropAffixeValue(ResultEquipAffixes, 3),
-%%		propRecast3 = getEquipAffiexRecast(ResultEquipAffixes, 3),
-%%		calcType3 = getEquipAffiexCalcType(ResultEquipAffixes, 3),
-%%		propKey4 = getEquipAffiexKey(ResultEquipAffixes, 4),
-%%		propAffixe4 = getEquipAffiexID(ResultEquipAffixes, 4),
-%%		propValue4 = getEquipExtPropAffixeValue(ResultEquipAffixes, 4),
-%%		propRecast4 = getEquipAffiexRecast(ResultEquipAffixes, 4),
-%%		calcType4 = getEquipAffiexCalcType(ResultEquipAffixes, 4),
-%%		propKey5 = getEquipAffiexKey(ResultEquipAffixes, 5),
-%%		propAffixe5 = getEquipAffiexID(ResultEquipAffixes, 5),
-%%		propValue5 = getEquipExtPropAffixeValue(ResultEquipAffixes, 5),
-%%		propRecast5 = getEquipAffiexRecast(ResultEquipAffixes, 5),
-%%		calcType5 = getEquipAffiexCalcType(ResultEquipAffixes, 5),
-%%		propKey6 = getEquipAffiexKey(ResultEquipAffixes, 6),
-%%		propAffixe6 = getEquipAffiexID(ResultEquipAffixes, 6),
-%%		propValue6 = getEquipExtPropAffixeValue(ResultEquipAffixes, 6),
-%%		propRecast6 = getEquipAffiexRecast(ResultEquipAffixes, 6),
-%%		calcType6 = getEquipAffiexCalcType(ResultEquipAffixes, 6)
-%%	}.
+safeGetFromList(Index, N, _L) when Index > N orelse Index < 1->
+	{0,0};
+safeGetFromList(Index, _N, L)->
+	lists:nth(Index, L).
 
-%%-spec getEquipAffiexKey(List, Index) -> uint() when
-%%	List :: list(), Index :: uint().
-%%getEquipAffiexKey(List, Index) ->
-%%	Len = erlang:length(List),
-%%	case Len == 0 orelse Index > Len of
-%%		true ->
-%%			?EquipConfigInvalid;
-%%		false ->
-%%			#equipAffixesCfg{
-%%				propType = PropType
-%%			} = lists:nth(Index, List),
-%%			case PropType < 256 of
-%%				true ->
-%%					PropType;
-%%				_ ->
-%%					throw("equipAffixesCfg propType, out of range[0,255]")
-%%			end
-%%	end.
-%%
-%%-spec getEquipAffiexID(List, Index) -> uint() when
-%%	List :: list(), Index :: uint().
-%%getEquipAffiexID(List, Index) ->
-%%	Len = erlang:length(List),
-%%	case Len == 0 orelse Index > Len of
-%%		true ->
-%%			?EquipConfigInvalid;
-%%		false ->
-%%			#equipAffixesCfg{
-%%				affixID = AffixID
-%%			} = lists:nth(Index, List),
-%%			AffixID
-%%	end.
 
-%%-spec getEquipAffiexCalcType(List, Index) -> uint() when
-%%	List :: list(), Index :: uint().
-%%getEquipAffiexCalcType(List, Index) ->
-%%	Len = erlang:length(List),
-%%	case Len == 0 orelse Index > Len of
-%%		true ->
-%%			?EquipConfigInvalid;
-%%		false ->
-%%			#equipAffixesCfg{
-%%				mulityOrPlus = CalcType
-%%			} = lists:nth(Index, List),
-%%			CalcType
-%%	end.
-%%
-%%-spec getEquipAffiexRecast(List, Index) -> uint() when
-%%	List :: list(), Index :: uint().
-%%getEquipAffiexRecast(List, Index) ->
-%%	Len = erlang:length(List),
-%%	case Len == 0 orelse Index > Len of
-%%		true ->
-%%			?EquipPropTypeExtNeverRecast;
-%%		false ->
-%%			case lists:nth(Index, List) of
-%%				#equipAffixesCfg{affixType = ?UniEquipAffixFront} ->
-%%					?EquipPropTypeExtNeverRecast;
-%%				#equipAffixesCfg{affixType = ?UniEquipAffixAfter} ->
-%%					?EquipPropTypeExtNeverRecast;
-%%				_ ->
-%%					?EquipPropTypeExtNoRecast
-%%			end
-%%	end.
-%%
-%%-spec getEquipExtPropAffixeValue(List, Index) -> uint() when
-%%	List :: list(), Index :: uint().
-%%getEquipExtPropAffixeValue(List, Index) ->
-%%	Len = erlang:length(List),
-%%	case Len == 0 orelse Index > Len of
-%%		true ->
-%%			?EquipConfigInvalid;
-%%		false ->
-%%			#equipAffixesCfg{
-%%				dice = Dice,
-%%				max2 = Max2,
-%%				min = Min
-%%			} = lists:nth(Index, List),
-%%			randValue(Min, Max2, Dice)
-%%	end.
+randomEnPropVal(#equipment_randompropCfg{propid = PropID, min = Min, max = Max, prop_probability = PL})->
+	Diff = Max - Min,
+	L1 = [{WT,{PLO, PMO}} || {PLO, PMO, WT} <- PL],
+	{PMin, PMax} = misc:calcOddsByWeightList(L1),
+	{PropID, Min + misc:rand(erlang:trunc(Diff * PMin), erlang:trunc(Diff * PMax))/100}.
 
-%%防御加成
--spec addDefensiveBonusProp(EnhanceProp, ExtProp) -> #rec_equip_enhance_info{} when
-	EnhanceProp :: #rec_equip_enhance_info{}, ExtProp :: #rec_equip_ext_info{}.
-addDefensiveBonusProp(#rec_equip_enhance_info{} = EnhanceProp, _Ext) ->
-	EnhanceProp.
-%%	#rec_equip_ext_info{
-%%		propKey1 = PpropKey1, propValue1 = PropValue1,
-%%		propKey2 = PpropKey2, propValue2 = PropValue2,
-%%		propKey3 = PpropKey3, propValue3 = PropValue3,
-%%		propKey4 = PpropKey4, propValue4 = PropValue4,
-%%		propKey5 = PpropKey5, propValue5 = PropValue5,
-%%		propKey6 = PpropKey6, propValue6 = PropValue6
-%%	}) ->
-%%	[IsCanAddDefen, DefenValue] =
-%%		if
-%%			PpropKey1 =:= ?EquipDefensiveBonusID ->
-%%				[true, PropValue1];
-%%			PpropKey2 =:= ?EquipDefensiveBonusID ->
-%%				[true, PropValue2];
-%%			PpropKey3 =:= ?EquipDefensiveBonusID ->
-%%				[true, PropValue3];
-%%			PpropKey4 =:= ?EquipDefensiveBonusID ->
-%%				[true, PropValue4];
-%%			PpropKey5 =:= ?EquipDefensiveBonusID ->
-%%				[true, PropValue5];
-%%			PpropKey6 =:= ?EquipDefensiveBonusID ->
-%%				[true, PropValue6];
-%%			true ->
-%%				[false, 0]
-%%		end,
-%%	Fun = fun(Key, Value) ->
-%%		case lists:member(Key, ?EquipDefenList) of
-%%			true ->
-%%				Value * (1 + DefenValue);
-%%			_ ->
-%%				Value
-%%		end
-%%	      end,
-%%
-%%	if
-%%		IsCanAddDefen =:= true ->
-%%			EnhanceProp#rec_equip_enhance_info{
-%%				propValue1 = Fun(EnhanceProp#rec_equip_enhance_info.propKey1, EnhanceProp#rec_equip_enhance_info.propValue1),
-%%				propValue2 = Fun(EnhanceProp#rec_equip_enhance_info.propKey2, EnhanceProp#rec_equip_enhance_info.propValue2),
-%%				propValue3 = Fun(EnhanceProp#rec_equip_enhance_info.propKey3, EnhanceProp#rec_equip_enhance_info.propValue3),
-%%				propValue4 = Fun(EnhanceProp#rec_equip_enhance_info.propKey4, EnhanceProp#rec_equip_enhance_info.propValue4),
-%%				propValue5 = Fun(EnhanceProp#rec_equip_enhance_info.propKey5, EnhanceProp#rec_equip_enhance_info.propValue5)
-%%			};
-%%		true ->
-%%			EnhanceProp
-%%	end.
-
-%%%%根据附加属性产生规则，产生一条附加属性
-%%-spec makeEquipAffixes(SpecialAffixes, FrontNum, AfterNum, EquipID, ExcludedData, EquipAffixClass) -> {ResultFrontAffixes, ResultAfterAffixes} when
-%%	SpecialAffixes :: list(), FrontNum :: uint(), AfterNum :: uint(), EquipID :: uint(), ResultFrontAffixes :: list(), ResultAfterAffixes :: list(), ExcludedData :: list(), EquipAffixClass :: uint().
-%%makeEquipAffixes(SpecialAffixes, FrontNum, AfterNum, EquipID, ExcludedData, EquipAffixClass) ->
-%%	{NewFrontAffixes, NewAfterAffixes} = queryContentConditionAffix(EquipID, ExcludedData, EquipAffixClass),%%适合此ID装备的职业，等级，部位的前后装备列表
-%%	%%特殊装备的指定属性及前后缀+等级 列表
-%%	{SpecialFrontAffixes, SpecialAfterAffixes} = querySpecialAffix(SpecialAffixes),
-%%	%%排除特殊装备选中的属性 再进行前后缀选择
-%%	ResultFrontAffixes = randGetAffixFromAffixList(0, FrontNum, lists:subtract(NewFrontAffixes, SpecialFrontAffixes), SpecialFrontAffixes),
-%%	ResultAfterAffixes = randGetAffixFromAffixList(0, AfterNum, lists:subtract(NewAfterAffixes, SpecialAfterAffixes), SpecialAfterAffixes),
-%%	{ResultFrontAffixes, ResultAfterAffixes}.
-
-%%%%从符合条件的词缀列表中，根据权重随机取出最终使用的词缀
-%%-spec randGetAffixFromAffixList(MaxNum, MaxNum, AffixList, GetAffixList) -> [#equipAffixesCfg{}, ...]
-%%	when MaxNum :: uint(), AffixList :: [#equipAffixesCfg{}], GetAffixList :: [#equipAffixesCfg{}].
-%%randGetAffixFromAffixList(_CurMax, _MaxNum, [], GetAffixList) ->
-%%	GetAffixList;
-%%randGetAffixFromAffixList(MaxNum, MaxNum, _, GetAffixList) ->
-%%	GetAffixList;
-%%randGetAffixFromAffixList(CurNum, MaxNum, AffixList, GetedAffixList) when MaxNum > CurNum ->
-%%	Fun = fun(#equipAffixesCfg{weight = Weight} = Affix, AccIn) ->
-%%		[{Weight, Affix} | AccIn]
-%%	      end,
-%%	WeightList = lists:foldl(Fun, [], AffixList),
-%%	#equipAffixesCfg{
-%%		iD = ID,
-%%		conflict = Conflict
-%%	} = Affix = misc:calcOddsByWeightList(WeightList),
-%%	case lists:keyfind(ID, #equipAffixesCfg.iD, GetedAffixList) of
-%%		false ->
-%%			NewAffixList = lists:keydelete(ID, #equipAffixesCfg.iD, AffixList),
-%%			case Conflict =/= 0 andalso lists:keyfind(Conflict, #equipAffixesCfg.conflict, GetedAffixList) of
-%%				#equipAffixesCfg{} ->
-%%					randGetAffixFromAffixList(CurNum, MaxNum, NewAffixList, GetedAffixList);
-%%				_ ->
-%%					randGetAffixFromAffixList(CurNum + 1, MaxNum, NewAffixList, [Affix | GetedAffixList])
-%%			end;
-%%		Affix ->
-%%			NewAffixList = lists:keydelete(ID, #equipAffixesCfg.iD, AffixList),
-%%			randGetAffixFromAffixList(CurNum, MaxNum, NewAffixList, GetedAffixList)
-%%	end.
-%%
-%%%%查询符合条件的词缀列表，分别返回前缀列表和后缀列表
-%%-spec queryContentConditionAffix(EquipID, ExcludedData, EquipAffixClass) -> {FrontAffixes, AfterAffixes} when
-%%	EquipID :: uint(), ExcludedData :: list(), FrontAffixes :: list(), AfterAffixes :: list(), EquipAffixClass :: uint().
-%%queryContentConditionAffix(EquipID, ExcludedData, EquipAffixClass) ->
-%%	case getCfg:getCfgPStack(cfg_equipment, EquipID) of
-%%		#equipmentCfg{type = Type, itemLevel = CfgItemLevel, qualityType = QualityType} ->
-%%			Fun = fun({Key1, Key2}, {FrontAffixes, AfterAffixes}) ->
-%%				CfgAffix = getCfg:getCfgPStack(cfg_equipAffixes, Key1, Key2),  %%附加属性配置数据项
-%%				case CfgAffix of
-%%					#equipAffixesCfg{affixID = AffixID,
-%%						affixType = AffixType,
-%%						itemLevel = ItemLevel,
-%%						equipType = EquipType,
-%%						equipClass = EquipClass,
-%%						weight = Weight} ->
-%%						case Weight =:= 0 orelse (lists:member(AffixID, ExcludedData) =:= true) of
-%%							false ->
-%%								CheckEquipType = checkEquipPart(Type, EquipType),  %%检查装备部位
-%%								CheckEquipClass = checkEquipClass(EquipAffixClass, EquipClass), %%检查适用职业
-%%								if
-%%									CfgItemLevel >= ItemLevel andalso CheckEquipType =:= true
-%%										andalso CheckEquipClass =:= true ->
-%%										if
-%%											QualityType =:= ?EquipTypeNormal andalso AffixType =:= ?EquipAffixFront ->  %%普通装备前缀词缀
-%%												{addMaxItemLevelToAffixList(CfgAffix, FrontAffixes), AfterAffixes};
-%%											QualityType =:= ?EquipTypeNormal andalso AffixType =:= ?EquipAffixAfter ->  %%普通装备后缀词缀
-%%												{FrontAffixes, addMaxItemLevelToAffixList(CfgAffix, AfterAffixes)};
-%%											QualityType > ?EquipTypeNormal andalso AffixType =:= ?SpeEquipAffixFront ->  %%特殊装备前缀词缀
-%%												{addMaxItemLevelToAffixList(CfgAffix, FrontAffixes), AfterAffixes};
-%%											QualityType > ?EquipTypeNormal andalso AffixType =:= ?SpeEquipAffixAfter -> %%特殊装备后缀词缀
-%%												{FrontAffixes, addMaxItemLevelToAffixList(CfgAffix, AfterAffixes)};
-%%											true ->
-%%												{FrontAffixes, AfterAffixes}
-%%										end;
-%%									true ->
-%%										{FrontAffixes, AfterAffixes}
-%%								end;
-%%							true ->
-%%								{FrontAffixes, AfterAffixes}
-%%						end;
-%%					_ ->
-%%						{FrontAffixes, AfterAffixes}
-%%				end
-%%			      end,
-%%			lists:foldl(Fun, {[], []}, getCfg:getKeyList(cfg_equipAffixes));%%符合部位、职业、同ID itemLevel最大等规则的前后缀属性列表
-%%		_ ->
-%%			{[], []}
-%%	end.
-
-%%%%特殊装备指定属性
-%%-spec querySpecialAffix(SpecialAffixes :: list()) -> {list(), list()}.
-%%querySpecialAffix([]) ->
-%%	{[], []};
-%%querySpecialAffix(SpecialAffixes) ->
-%%	Fun = fun(CfgAffix, {FrontAffixes, AfterAffixes}) ->
-%%		case CfgAffix of
-%%			#equipAffixesCfg{affixType = ?SpeEquipAffixFront} ->
-%%				{addMaxItemLevelToAffixList(CfgAffix, FrontAffixes), AfterAffixes};
-%%			#equipAffixesCfg{affixType = ?UniEquipAffixFront} ->
-%%				{addMaxItemLevelToAffixList(CfgAffix, FrontAffixes), AfterAffixes};
-%%			#equipAffixesCfg{affixType = ?SpeEquipAffixAfter} ->
-%%				{FrontAffixes, addMaxItemLevelToAffixList(CfgAffix, AfterAffixes)};
-%%			#equipAffixesCfg{affixType = ?UniEquipAffixAfter} ->
-%%				{FrontAffixes, addMaxItemLevelToAffixList(CfgAffix, AfterAffixes)};
-%%			_ ->
-%%				{FrontAffixes, AfterAffixes}
-%%		end
-%%	      end,
-%%	lists:foldl(Fun, {[], []}, SpecialAffixes).
-%%
-%%%%用于套装装备属性选取，将ID相同的附加属性，ItemLevel最大的项增加到列表中
-%%-spec addMaxItemLevelToAffixList(CfgAffix, AffixList) -> [#equipAffixesCfg{}] when CfgAffix :: #equipAffixesCfg{},
-%%	AffixList :: [#equipAffixesCfg{}].
-%%addMaxItemLevelToAffixList(CfgAffix, AffixList) when erlang:is_list(AffixList) ->
-%%	case lists:keyfind(CfgAffix#equipAffixesCfg.iD, #equipAffixesCfg.iD, AffixList) of
-%%		false ->
-%%			case lists:keyfind(CfgAffix#equipAffixesCfg.affixID, #equipAffixesCfg.affixID, AffixList) of
-%%				false ->
-%%					lists:keystore(CfgAffix#equipAffixesCfg.affixID, #equipAffixesCfg.affixID, AffixList, CfgAffix);
-%%				#equipAffixesCfg{iD = ID, itemLevel = ItemLevel} when CfgAffix#equipAffixesCfg.itemLevel > ItemLevel ->
-%%					NewAffixList = lists:keydelete(ID, #equipAffixesCfg.iD, AffixList),
-%%					lists:keystore(CfgAffix#equipAffixesCfg.affixID, #equipAffixesCfg.affixID, NewAffixList, CfgAffix);
-%%				_ ->
-%%					AffixList
-%%			end;
-%%		_ ->
-%%			AffixList
-%%	end.
-
-%%%%检查装备职业
-%%-spec checkEquipClass(EquipClass, AffixClass) -> boolean()
-%%	when EquipClass :: uint(), AffixClass :: [uint(), ...].
-%%checkEquipClass(EquipClass, AffixClass) when is_list(AffixClass) ->
-%%	AllClass = lists:nth(1, AffixClass),
-%%	case AllClass =:= ?EquipAffixClassAll of
-%%		true ->
-%%			true;
-%%		false ->
-%%			lists:member(EquipClass, AffixClass)  %%装备适用职业在职业配置列表中
-%%	end;
-%%checkEquipClass(_, AffixClass) when AffixClass =:= ?EquipAffixClassAll ->
-%%	true;
-%%checkEquipClass(_, _) ->
-%%	false.
 
 %%检查默认装备职业
 checkDefaultEquipClass(PlayerClass, EquipClass) when is_list(EquipClass) ->
@@ -1740,15 +1365,6 @@ checkDefaultEquipClass(PlayerClass, EquipClass) when EquipClass =:= PlayerClass 
 	true;
 checkDefaultEquipClass(_, _) ->
 	false.
-
-%%%%检查装备部位
-%%-spec checkEquipPart(EquipPart, AffixPart) -> boolean() when EquipPart :: uint(), AffixPart :: [uint(), ...] | uint().
-%%checkEquipPart(EquipPart, AffixPart) when is_list(AffixPart) ->
-%%	lists:member(EquipPart, AffixPart);
-%%checkEquipPart(_EquipPart, AffixPart) when AffixPart =:= ?EquipAffixPartAll ->
-%%	true;
-%%checkEquipPart(_, _) ->
-%%	false.
 
 %%扣除道具
 -spec delItem(ItemList :: list(), Reason :: uint()) -> ok.
@@ -1773,161 +1389,6 @@ delItem([{ID, Num} | List], Reason) ->
 			skip
 	end,
 	delItem(List, Reason).
-%%
-%%%%根据装备颜色分类、出现几率来产生选中的词缀组合
-%%-spec selectAffixGroup(EquipID, EquipAffixColorType, Type) -> {FrontNum, AfterNum}
-%%	when EquipID :: uint(), EquipAffixColorType :: uint(), Type :: uint(), FrontNum :: uint(), AfterNum :: uint().
-%%selectAffixGroup(EquipID, EquipAffixColorType, Type) ->
-%%	AffixSplitList =
-%%		case EquipAffixColorType of
-%%			?EquipColorTypeGreen ->
-%%				convertEquipAffixConfig(?EquipAffixGreenRow);%%前后缀列表及权重
-%%			?EquipColorTypeBlue ->
-%%				convertEquipAffixConfig(?EquipAffixBlueRow);
-%%			?EquipColorTypePurple ->
-%%				case Type of
-%%					?EquipTypeNormal ->
-%%						convertEquipAffixConfig(?EquipAffixPurpleRow);
-%%					_ ->
-%%						RandCount = getEspecialEquipAffixType(EquipID),
-%%						case RandCount > 0 of
-%%							true ->
-%%								convertEquipAffixConfig(lists:nth(RandCount, ?EquipAffixOraRedAllRow));
-%%							_ ->
-%%								[]
-%%						end
-%%				end;
-%%			?EquipColorTypeOrange ->
-%%				RandCount = getEspecialEquipAffixType(EquipID),
-%%				case RandCount > 0 of
-%%					true ->
-%%						convertEquipAffixConfig(lists:nth(RandCount, ?EquipAffixOraRedAllRow));
-%%					_ ->
-%%						[]
-%%				end;
-%%			?EquipColorTypeRed ->
-%%				RandCount = getEspecialEquipAffixType(EquipID),
-%%				case RandCount > 0 of
-%%					true ->
-%%						convertEquipAffixConfig(lists:nth(RandCount, ?EquipAffixOraRedAllRow));
-%%					_ ->
-%%						[]
-%%				end
-%%		end,
-%%
-%%	if
-%%		length(AffixSplitList) > 0 ->
-%%			computeRatio(AffixSplitList);%%获得前后缀里的几前几后{1,2,0.5}->{1,2}
-%%		true ->
-%%			{0, 0}
-%%	end.
-
-%%%%获取套装和独特装生前指定属性
-%%getEspecialEquipUProperty(EquipID, EquipAffixClass) ->
-%%	case getCfg:getCfgPStack(cfg_equipment, EquipID) of
-%%		#equipmentCfg{uniqTierID = UniqTierID, itemLevel = CfgItemLevel} ->
-%%			case UniqTierID =:= undefined orelse UniqTierID =:= 0 of
-%%				true ->
-%%					[[], []];
-%%				_ ->
-%%					case getCfg:getCfgPStack(cfg_uniqTierProperty, UniqTierID) of
-%%						#uniqTierPropertyCfg{uniqAffix = UniqAffix} ->
-%%							%%在列表中每个元组里去挑选适合的属性ID列
-%%							Fun = fun(AffixIDList, [AffixRet, ExcludedDataRet]) ->
-%%								Fun1 = fun({Key1, Key2}, [AffixRet1, AffixRet2]) ->
-%%									AffixesCfg = getCfg:getCfgPStack(cfg_equipAffixes, Key1, Key2),
-%%									#equipAffixesCfg{affixID = AffixID, equipClass = EquipClass, itemLevel = ItemLevel} = AffixesCfg,
-%%									%%排除不一样的ID，选择适合等级的Affix xujian
-%%									case CfgItemLevel >= ItemLevel andalso lists:member(AffixID, AffixIDList) of
-%%										true ->
-%%											%%选择适合的职业
-%%											case lists:member(EquipAffixClass, EquipClass) orelse EquipClass =:= [0] of
-%%												true ->
-%%
-%%													[[AffixesCfg | AffixRet1], AffixRet2];
-%%												false ->
-%%													[AffixRet1, [AffixesCfg | AffixRet2]]
-%%											end;
-%%										false ->
-%%											[AffixRet1, AffixRet2]
-%%									end
-%%								       end,
-%%								case lists:foldl(Fun1, [[], []], getCfg:getKeyList(cfg_equipAffixes)) of
-%%									[[], NewAffixRet2] ->
-%%										%%先随机一个，再把所有合适的找出来
-%%										#equipAffixesCfg{affixID = AffixID2_nth} = lists:nth(random:uniform(erlang:length(NewAffixRet2)), NewAffixRet2),
-%%										Fun2 = fun(#equipAffixesCfg{affixID = AffixID2} = AffixCfg2, Ret2) ->
-%%											case AffixID2_nth =:= AffixID2 of
-%%												true ->
-%%													[AffixCfg2 | Ret2];
-%%												false ->
-%%													Ret2
-%%											end
-%%										       end,
-%%										LastAffixRet2 = lists:foldl(Fun2, [], NewAffixRet2),
-%%										[lists:append(LastAffixRet2, AffixRet), [ExcludedDataRet | AffixIDList]];%%[NewAffixRet2 | AffixRet];	%%没找到同职业的，随机选一个
-%%									[NewAffixRet3, _] ->
-%%										#equipAffixesCfg{affixID = AffixID3_nth} = lists:nth(random:uniform(erlang:length(NewAffixRet3)), NewAffixRet3),
-%%										Fun3 = fun(#equipAffixesCfg{affixID = AffixID3} = AffixCfg3, Ret3) ->
-%%											case AffixID3_nth =:= AffixID3 of
-%%												true ->
-%%													[AffixCfg3 | Ret3];
-%%												false ->
-%%													Ret3
-%%											end
-%%										       end,
-%%										LastAffixRet3 = lists:foldl(Fun3, [], NewAffixRet3),
-%%										[lists:append(LastAffixRet3, AffixRet), [ExcludedDataRet | AffixIDList]]%%[NewAffixRet1 | AffixRet]	%%有同职业的，其它的全部不要，在同职业中做随机
-%%								end
-%%							      end,
-%%							lists:foldl(Fun, [[], []], UniqAffix);
-%%						_ ->
-%%							[[], []]
-%%					end
-%%			end;
-%%		_ ->
-%%			[[], []]
-%%	end.
-
-%%%%获取套装和独特装备的词缀组合类型
-%%getEspecialEquipAffixType(EquipID) ->
-%%	case getCfg:getCfgPStack(cfg_equipment, EquipID) of
-%%		#equipmentCfg{exUniqAffix = [Min, Max]} ->
-%%			misc:rand(Min, Max);
-%%		_ ->
-%%			1
-%%	end.
-
-%%%%读取配置表数据进行转换处理
-%%-spec convertEquipAffixConfig(EquipAffixRowID) -> [#recAffixSplit{}, ...] | [] when EquipAffixRowID :: atom().
-%%convertEquipAffixConfig(EquipAffixRowID) ->
-%%	GlobalsetupCfg = getCfg:getCfgPStack(cfg_globalsetup, EquipAffixRowID),
-%%	case GlobalsetupCfg of
-%%		#globalsetupCfg{setpara = SetParaList} when erlang:is_list(SetParaList) ->
-%%			NewSetParaList = SetParaList, %%misc:string_to_term(SetParaList),
-%%			Fun = fun(AffixTuple, AffixSplits) ->
-%%				AffixSplit = #recAffixSplit{
-%%					frontNum = element(1, AffixTuple),
-%%					afterNum = element(2, AffixTuple),
-%%					ratio = element(3, AffixTuple)
-%%				},
-%%				[AffixSplit | AffixSplits]
-%%			      end,
-%%			lists:foldl(Fun, [], NewSetParaList);
-%%		_ ->
-%%			[]
-%%	end.
-
-%%%%根据词缀出现概率计算出使用的词缀组合
-%%-spec computeRatio(AffixSplitList) -> {FrontNum, AfterNum}
-%%	when AffixSplitList :: [#recAffixSplit{}], FrontNum :: uint(), AfterNum :: uint().
-%%computeRatio(AffixSplitList) ->
-%%	Fun = fun(#recAffixSplit{ratio = Odds} = Split, AccIn) when erlang:is_integer(Odds) -> %%取出配置里的此颜色的出现概率列表
-%%		[{Odds, Split} | AccIn]
-%%	      end,
-%%	RatioList = lists:foldl(Fun, [], AffixSplitList),
-%%	#recAffixSplit{frontNum = FN, afterNum = AN} = misc:calcOddsByWeightList(RatioList),
-%%	{FN, AN}.
 
 -spec getBodyEquipByBonusID(QueryTierBonusID) -> Count when
 	QueryTierBonusID :: uint(), Count :: uint().
@@ -1949,7 +1410,7 @@ getBodyEquipByBonusID(QueryTierBonusID) ->
 			false ->
 				Count
 		end
-	      end,
+		  end,
 	lists:foldl(Fun, 0, playerState:getPackage(?Item_Location_BodyEquipBag)).
 
 %%套装战斗属性的改变
@@ -2058,34 +1519,6 @@ getQualityPriceWeight(Quality) ->
 			0
 	end.
 
-%%%%获取资源品质权重
-%%-spec getSourceQualityWeight(Quality) -> {uint(), uint()} when Quality::uint().
-%%getSourceQualityWeight(Quality) ->
-%%	%%资源品质权重
-%%	case Quality of
-%%		?EquipColorTypeWhite ->
-%%			QualityPriceWeight1 = getConfigValueByName(source1_white),
-%%			QualityPriceWeight2 = getConfigValueByName(source2_white);
-%%		?EquipColorTypeGreen ->
-%%			QualityPriceWeight1 = getConfigValueByName(source1_green),
-%%			QualityPriceWeight2 = getConfigValueByName(source2_green);
-%%		?EquipColorTypeBlue ->
-%%			QualityPriceWeight1 = getConfigValueByName(source1_blue),
-%%			QualityPriceWeight2 = getConfigValueByName(source2_blue);
-%%		?EquipColorTypePurple ->
-%%			QualityPriceWeight1 = getConfigValueByName(source1_purple),
-%%			QualityPriceWeight2 = getConfigValueByName(source2_purple);
-%%		?EquipColorTypeOrange ->
-%%			QualityPriceWeight1 = getConfigValueByName(source1_orange),
-%%			QualityPriceWeight2 = getConfigValueByName(source2_orange);
-%%		?EquipColorTypeRed ->
-%%			QualityPriceWeight1 = getConfigValueByName(source1_red),
-%%			QualityPriceWeight2 = getConfigValueByName(source2_red);
-%%		_ ->
-%%			QualityPriceWeight1 = 0,
-%%			QualityPriceWeight2 = 0
-%%	end,
-%%	{QualityPriceWeight1, QualityPriceWeight2}.
 
 %%根据品质得到装备的加成系数
 -spec getEquipQuailtyRatio(Quality) -> uint() when Quality :: equipQuality().
@@ -2172,24 +1605,6 @@ visibleEquipOffBroadcast(EquipID, Type) ->
 	end,
 	ok.
 
-%%%%根据UID找到装备
-%%-spec getEquipByUID(EquipUID) -> {BagType, RetEquip} when
-%%	EquipUID :: uint(), BagType :: bagType(), RetEquip :: undefined | #recSaveEquip{}.
-%%getEquipByUID(EquipUID) ->
-%%	Equip = playerPackage:getGoodsByUID(EquipUID, ?Item_Location_BodyEquipBag),
-%%	case Equip of
-%%		#recSaveEquip{} ->
-%%			{?Item_Location_BodyEquipBag, Equip};
-%%		_ ->
-%%			NewEquip = playerPackage:getGoodsByUID(EquipUID, ?Item_Location_Equip_Bag),
-%%			case NewEquip of
-%%				#recSaveEquip{} ->
-%%					{?Item_Location_Equip_Bag, NewEquip};
-%%				_ ->
-%%					{?Item_Location_Equip_Bag, undefined}
-%%			end
-%%	end.
-
 %%根据部位找身上装备
 -spec getEquipByType(Type) -> #recSaveEquip{} when
 	Type :: uint().
@@ -2217,23 +1632,16 @@ equipResolveProcess(#recSaveEquip{itemID = EquipID, itemUID = EquipUID, quality 
 %%	case Quality >= ?EquipColorTypeBlue of
 	case Quality >= ?EquipColorTypeWhite of
 		true ->
-%%			SourecMin = getConfigValueByName(source_min),
-%%			SourecMax = getConfigValueByName(source_max),
 			%%在配置的最小值和最大值之间取随机float值，配置的最大值是1
-%%			RandValue = misc:rand(SourecMin * 10, SourecMax * 10) / 10,
 			Source1 = getEquipSourceValue(EquipID),  %%等级资源基础值
 			%%取装备的部位价格权重和等级基础价格
 			case getCfg:getCfgPStack(cfg_equipment, EquipID) of
 				#equipmentCfg{itemLevel = ItemLevel} ->
-%%					PartPriceWeight = getConfigValueByNameGroup("part", Type), %%部位价格权重
 					LevelBasePrice = getEquipBasePrice(ItemLevel);   %%等级基础价格
 				_ ->
-%%					PartPriceWeight = 0,
 					LevelBasePrice = 0
 			end,
-%%			DestroyOff = getConfigValueByName(destroyoff),
-%%			GlobalOut = getConfigValueByName(global_out),
-%%			QualityPriceWeight = getQualityPriceWeight(Quality), %%品质价格权重
+
 			%%分解价格=	等级基础价格*部位价格权重*品质价格权重*destroyoff*global_out
 			ResolvePrice = erlang:trunc(LevelBasePrice),%%erlang:round(LevelBasePrice * PartPriceWeight * QualityPriceWeight * DestroyOff * GlobalOut),
 			GoldIsEnough = playerMoney:canUseCoin(?CoinUseTypeGold, ResolvePrice),  %%玩家当前的剩余金币是否足够
@@ -2261,13 +1669,9 @@ equipResolveProcess(#recSaveEquip{itemID = EquipID, itemUID = EquipUID, quality 
 							source = ?PLogTS_PlayerSelf
 						}),
 
-%%					{QualityPriceWeight1, QualityPriceWeight2} = getSourceQualityWeight(Quality),
-					ChangePurpleEssence = Source1, %%erlang:round(Source1 * QualityPriceWeight1 * RandValue),
-%%					ChangeGoldenEssence = Source2, %%erlang:round(Source2 * QualityPriceWeight2 * RandValue),
+					ChangePurpleEssence = Source1,
 
 					%% 获得爵位加成
-%%					New_ChangePurpleEssence = playerVipInter:getDecomposeItem(ChangePurpleEssence),
-%%					New_ChangeGoldenEssence = playerVipInter:getDecomposeItem(ChangeGoldenEssence),
 					playerMoney:addCoin(?CoinTypePurpleEssence, ChangePurpleEssence,
 						#recPLogTSMoney{
 							reason = ?CoinSourceEquipResolve,
@@ -2276,16 +1680,7 @@ equipResolveProcess(#recSaveEquip{itemID = EquipID, itemUID = EquipUID, quality 
 							source = ?PLogTS_EquipResolve
 						}),%%更新玩家的紫色精华
 
-%%					playerMoney:addCoin(?CoinTypeGoldenEssence, New_ChangeGoldenEssence,
-%%						#recPLogTSMoney{
-%%							reason = ?CoinSourceEquipResolve,
-%%							param = EquipUID,
-%%							target = ?PLogTS_PlayerSelf,
-%%							source = ?PLogTS_EquipResolve
-%%						}),%%更新玩家的金色精华
-
 					[ChangePurpleEssence, 0];
-				%%playerMsg:sendErrorCodeMsg(?ErrorCode_BagEquipResolveSuccess);
 				false ->
 					ok
 			end;
@@ -2297,22 +1692,23 @@ equipResolveProcess(#recSaveEquip{itemID = EquipID, itemUID = EquipUID, quality 
 -spec getPlayerEquip() -> []|[#recEquipEnhance{}, ...].
 getPlayerEquip() ->
 	Bag = playerState:getPackage(?Item_Location_BodyEquipBag),
-	Fun = fun(Equip, EquipList) ->
-		case Equip of
-			#recSaveEquip{itemID = EquipID, enhanceProp = EnhanceProp, extProp = ExtProp} ->
-				{Type, SubType} = getEquipType(EquipID),
-				EquipEnhance = #recEquipEnhance{
-					id = EquipID,
-					type = Type,
-					subType = SubType,
-					enhanceProp = EnhanceProp,
-					extProp = ExtProp
-				},
-				[EquipEnhance | EquipList];
-			_ ->
-				EquipList
-		end
-	      end,
+	Fun =
+		fun(Equip, EquipList) ->
+			case Equip of
+				#recSaveEquip{itemID = EquipID, enhanceProp = EnhanceProp, extProp = ExtProp} ->
+					{Type, SubType} = getEquipType(EquipID),
+					EquipEnhance = #recEquipEnhance{
+						id = EquipID,
+						type = Type,
+						subType = SubType,
+						enhanceProp = EnhanceProp,
+						extProp = ExtProp
+					},
+					[EquipEnhance | EquipList];
+				_ ->
+					EquipList
+			end
+		end,
 	lists:foldl(Fun, [], Bag).
 
 %%获取装备的类型/部位和子类型,返回-1时配置有问题
@@ -2366,34 +1762,8 @@ sendVisibleEquipOffMessage(Type) ->
 	ok.
 
 -spec equipChangeProp(Equip :: #recSaveEquip{}, Operate :: ?EquipOn | ?EquipOff, IsNotify :: boolean()) -> ok.
-equipChangeProp(#recSaveEquip{
-	itemID = ItemID,
-	quality = _Quality,
-	extProp = _ExtProp,
-	baseProp = BaseProp,
-	enhanceProp = _EnhanceProp
-}, Operate, IsNotify) ->
+equipChangeProp(#recSaveEquip{itemID = ItemID, baseProp = BaseProp, enhanceProp = EnProp}, Operate, IsNotify) ->
 	playerState:setEquips(getPlayerEquip()),
-%%	#rec_equip_ext_info{
-%%		propKey1 = ExtPropKey1,
-%%		propValue1 = ExtPropValue1,
-%%		calcType1 = ExtCalcType1,
-%%		propKey2 = ExtPropKey2,
-%%		propValue2 = ExtPropValue2,
-%%		calcType2 = ExtCalcType2,
-%%		propKey3 = ExtPropKey3,
-%%		propValue3 = ExtPropValue3,
-%%		calcType3 = ExtCalcType3,
-%%		propKey4 = ExtPropKey4,
-%%		propValue4 = ExtPropValue4,
-%%		calcType4 = ExtCalcType4,
-%%		propKey5 = ExtPropKey5,
-%%		propValue5 = ExtPropValue5,
-%%		calcType5 = ExtCalcType5,
-%%		propKey6 = ExtPropKey6,
-%%		propValue6 = ExtPropValue6,
-%%		calcType6 = ExtCalcType6
-%%	} = ExtProp,
 	case getCfg:getCfgPStack(cfg_equipment, ItemID) of
 		#equipmentCfg{type = Type} ->
 			PosLevel = getPosStarLevel(Type, playerState:getEquipStarList()),
@@ -2411,7 +1781,6 @@ equipChangeProp(#recSaveEquip{
 				Operate
 			),
 
-%%			QuaRatio = getEquipQuailtyRatio(Quality),
 			#rec_equip_base_info{
 				propKey1 = K1, propValue1 = V1,
 				propKey2 = K2, propValue2 = V2,
@@ -2420,54 +1789,36 @@ equipChangeProp(#recSaveEquip{
 				propKey5 = K5, propValue5 = V5
 			} = BaseProp,
 
-			EnhanceProp1 =  [
-				{K1,V1, ?PropCalcType_Add},
-				{K2,V2, ?PropCalcType_Add},
-				{K3,V3, ?PropCalcType_Add},
-				{K4,V4, ?PropCalcType_Add},
-				{K5,V5, ?PropCalcType_Add}
+			BasePropCalc = [
+				{K1, V1, ?PropCalcType_Add},
+				{K2, V2, ?PropCalcType_Add},
+				{K3, V3, ?PropCalcType_Add},
+				{K4, V4, ?PropCalcType_Add},
+				{K5, V5, ?PropCalcType_Add}
 			],
-			
-%%			Fun =
-%%				fun(Val) ->
-%%					Val * (1 + QuaRatio)
-%%				end,
-%%			#rec_equip_enhance_info{
-%%				propKey1 = EnhancePropKey1,
-%%				propValue1 = EnhancePropValue1,
-%%				propKey2 = EnhancePropKey2,
-%%				propValue2 = EnhancePropValue2,
-%%				propKey3 = EnhancePropKey3,
-%%				propValue3 = EnhancePropValue3,
-%%				propKey4 = EnhancePropKey4,
-%%				propValue4 = EnhancePropValue4,
-%%				propKey5 = EnhancePropKey5,
-%%				propValue5 = EnhancePropValue5
-%%			} = addDefensiveBonusProp(
-%%				EnhanceProp#rec_equip_enhance_info{
-%%					propValue1 = Fun(BasePropValue1),
-%%					propValue2 = Fun(BasePropValue2),
-%%					propValue3 = Fun(BasePropValue3),
-%%					propValue4 = Fun(BasePropValue4),
-%%					propValue5 = Fun(BasePropValue5)},
-%%				ExtProp),
-%%				[{EnhancePropKey1, EnhancePropValue1, ?PropCalcType_Add},
-%%					{EnhancePropKey2, EnhancePropValue2, ?PropCalcType_Add},
-%%					{EnhancePropKey3, EnhancePropValue3, ?PropCalcType_Add},
-%%					{EnhancePropKey4, EnhancePropValue4, ?PropCalcType_Add},
-%%					{EnhancePropKey5, EnhancePropValue5, ?PropCalcType_Add}],
-%%
-%%			ExtProp1 =
-%%				[{ExtPropKey1, ExtPropValue1, ExtCalcType1},
-%%					{ExtPropKey2, ExtPropValue2, ExtCalcType2},
-%%					{ExtPropKey3, ExtPropValue3, ExtCalcType3},
-%%					{ExtPropKey4, ExtPropValue4, ExtCalcType4},
-%%					{ExtPropKey5, ExtPropValue5, ExtCalcType5},
-%%					{ExtPropKey6, ExtPropValue6, ExtCalcType6}],
+
+			#rec_equip_enhance_info{
+				propKey1 = KE1, propValue1 = VE1,
+				propKey2 = KE2, propValue2 = VE2,
+				propKey3 = KE3, propValue3 = VE3,
+				propKey4 = KE4, propValue4 = VE4,
+				propKey5 = KE5, propValue5 = VE5
+			} = EnProp,
+
+			EnhancePropCalc = [
+				{KE1, VE1, ?PropCalcType_Add},
+				{KE2, VE2, ?PropCalcType_Add},
+				{KE3, VE3, ?PropCalcType_Add},
+				{KE4, VE4, ?PropCalcType_Add},
+				{KE5, VE5, ?PropCalcType_Add}
+			],
+
 			RedefineProps = getPosRefineProp(Type),
+			GemsProps = playerGem:getEquipGemProps(Type),
+
 			playerCalcProp:changeProp_CalcType(
-				EnhanceProp1,
-				EquipStartProps ++ RedefineProps,
+				BasePropCalc,
+				EquipStartProps ++ RedefineProps ++ GemsProps ++ EnhancePropCalc,
 				Operate,
 				IsNotify
 			);
@@ -2477,36 +1828,6 @@ equipChangeProp(#recSaveEquip{
 			ok
 	end.
 
-%%getValue(ExtList, Index, Index1) ->
-%%	Len = length(ExtList),
-%%	case Len =:= 0 orelse Len < Index of
-%%		true ->
-%%			?EquipConfigInvalid;
-%%		_ ->
-%%			case lists:nth(Index, ExtList) of
-%%				{Key, Value, CalcType, IsRecast, AffixeID} ->
-%%					case Index1 of
-%%						1 ->
-%%							Key;
-%%						2 ->
-%%							Value;
-%%						3 ->
-%%							CalcType;
-%%						4 ->
-%%							IsRecast;
-%%						_ ->
-%%							AffixeID
-%%					end;
-%%				_ ->
-%%					?EquipConfigInvalid
-%%			end
-%%	end.
-
-%%
-%%-spec randValue(Min :: number(), Max :: number(), Dice :: uint()) -> number().
-%%randValue(Min, Max, Dice) ->
-%%	RandNum = random:uniform(Dice + 1),
-%%	Min + (Max - Min) * (RandNum - 1) / Dice.
 %%==========================================================================
 %%装备精炼
 %%==========================================================================
@@ -2555,7 +1876,7 @@ getPosStarLevel(Pos, L) ->
 	end.
 
 %%获取装备精炼部位属性值根据部位等级
-getPosRefineProp(Type)->
+getPosRefineProp(Type) ->
 	RList = playerState:getEquipRefine(),
 	Lv = getPosRefineLevel(Type, RList),
 	getPosRefineProp(Lv, Type).
@@ -2667,7 +1988,7 @@ sendRefineList(RefineList) ->
 			type = Type,
 			level = Level
 		}
-	      end,
+		  end,
 	Msg = #pk_GS2U_EquipRefineLevel{
 		equipRefines = lists:map(Fun, RefineList)
 	},
@@ -2700,7 +2021,7 @@ sendEquipUpStarList(L) ->
 			prog = Prog,
 			bless = Bless
 		}
-	      end,
+		  end,
 	List = lists:map(Fun, L),
 	Msg = #pk_GS2U_EquipUpStarInfoList{
 		equipUpStars = List

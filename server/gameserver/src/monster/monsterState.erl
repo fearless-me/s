@@ -78,7 +78,11 @@
 	hourseStat,
 	isConvoy,
 	isInAttackRange,
-	direction
+	direction,
+	fakeId,
+	ringBuffList,
+	magicAntiInjury,
+	physicalAntiInjury
 ]).
 
 %%删除指定Code的所有属性
@@ -290,6 +294,25 @@ setId(Code,ID) ->
 	put({id,Code},ID),
 	ok.
 
+getId2(Code)->
+	case getFakeId(Code) of
+		undefined ->
+			getId(Code);
+		V ->
+			V
+	end.
+
+-spec getFakeId(Code) -> ID | undefined when
+	Code::uint(),ID::uint().
+getFakeId(Code) ->
+	get({fakeId,Code}).
+
+-spec setFakeId(Code,ID) -> ok when
+	Code::uint(),ID::uint().
+setFakeId(Code,ID) ->
+	put({fakeId,Code},ID),
+	ok.
+
 -spec getName(Code) -> Name when
 		  Code::uint(), Name::string().
 getName(Code) ->
@@ -321,6 +344,9 @@ setCurHp(Code,Hp) when erlang:is_integer(Hp)->
 	CurHp = misc:clamp(Hp, 0, MaxHp),
 	put({curHp,Code},CurHp),
 	ok.
+
+getMaxHp(Code)->
+	MaxHp = monsterState:getBattlePropTotal(Code, ?Prop_MaxHP).
 
 -spec getCurMp(Code) -> uint() | undefined when
 		  Code::uint(). 
@@ -845,6 +871,18 @@ getBuffList(Code) ->
 			List
 	end.
 
+
+getRingBuffIDList(Code)->
+	case get({ringBuffList, Code}) of
+		undefined ->
+			[];
+		L ->
+			L
+	end.
+
+setRingBuffIDList(Code,L)->
+	put({ringBuffList, Code}, L).
+
 %%设置BUFF字典
 -spec setBuffList(Code,List) -> ok when
 		  Code   :: uint(),
@@ -899,6 +937,29 @@ getAbsorbShield(Code) ->
 		  Value :: number().
 setAbsorbShield(Code, Value) ->
 	put({absorb, Code}, Value).
+
+%%
+setMagicAntiInjury(Code, Percent)->
+	put({magicAntiInjury, Code}, Percent).
+
+getMagicAntiInjury(Code)->
+	case get({magicAntiInjury, Code}) of
+		undefined ->
+			0;
+		V ->
+			V
+	end.
+
+setPhysicalAntiInjury(Code, Percent)->
+	put({physicalAntiInjury, Code}, Percent).
+
+getPhysicalAntiInjury(Code)->
+	case get({physicalAntiInjury, Code}) of
+		undefined ->
+			0;
+		V ->
+			V
+	end.
 
 %%获取当前阵营关系
 -spec setCamp(Code, Camp) -> ok when

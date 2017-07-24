@@ -111,9 +111,9 @@ handle_msg({identity_pic_InsertMain, _Pid, {_PidFromGS, Msg}}, State)->
 	%%?DEBUG_OUT("[DebugForIdentity] identity_pic_InsertMain ~p", [Msg]),
 	dbGSDataSave:savePicData(identity_pic_InsertMain, Msg),
 	{noreply, State};
-handle_msg({identity_pic_Active, Pid, {_PidFromGS, Msg}}, State)->
+handle_msg({identity_pic_Active, _Pid, {PidFromGS, Msg}}, State)->
 	%%?DEBUG_OUT("[DebugForIdentity] identity_pic_Active ~p", [Msg]),
-	dbGSDataSave:savePicData(identity_pic_Active, {Pid, Msg}),
+	dbGSDataSave:savePicData(identity_pic_Active, {PidFromGS, Msg}),
 	{noreply, State};
 handle_msg({identity_pic_Unactive, _Pid, {_PidFromGS, Msg}}, State)->
 	%%?DEBUG_OUT("[DebugForIdentity] identity_pic_Unactive ~p", [Msg]),
@@ -127,6 +127,10 @@ handle_msg({identity_pic_Unactive, _Pid, {_PidFromGS, Msg}}, State)->
 handle_msg({identity_picWantDown, _Pid, {_PidFromGS, Msg}}, State)->
 	%%?DEBUG_OUT("[DebugForIdentity] identity_picWantDown ~p", [Msg]),
 	dbGSDataSave:savePicData(identity_picWantDown, Msg),
+	{noreply, State};
+handle_msg({friend2Cross_pic, _Pid, {PidFromGS, Msg}}, State)->
+	%%?DEBUG_OUT("[DebugForIdentity] identity_picWantDown ~p", [Msg]),
+	dbGSDataSave:savePicData(friend2Cross_pic, {PidFromGS, Msg}),
 	{noreply, State};
 %% 身份证系统 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -142,6 +146,14 @@ handle_msg({friend2_dbsave, _Pid, {_PidFromGS, Msg}}, State)->
 	lists:foreach(FunSave, Msg),
 	{noreply, State};
 %% 新版好友系统 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 跨服好友 begin
+handle_msg({friend2Cross_dbsave, _Pid, {_PidFromGS, Msg}}, State)->
+	dbGSDataSave:saveFriend2CrossData(Msg),
+	{noreply, State};
+%% 跨服好友 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -182,6 +194,15 @@ handle_msg({petTerritory_dbsave, _Pid, {_PidFromGS, Msg}}, State) ->
 	dbGSDataSave:savePetTerritoryData(Msg),
 	{noreply, State};
 %% 新版骑宠领地 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 真实dbID映射关系 begin
+handle_msg({loadMergeLog, _Pid, {_PidFromGS, _Msg}}, State) ->
+	Ret = dbGSDataLoad:loadMergeLog(),
+	psMgr:sendMsg2PS(?PublicDataMgr, loadMergeLogAck, Ret),	%% _PidFromGS是?PsNameNormalCross，为了逻辑清晰，数据返回至?PublicDataMgr
+	{noreply, State};
+%% 真实dbID映射关系 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%数据统一管理
@@ -404,6 +425,16 @@ handle_msg({loadGuildData, _Pid, {PidFromCS, Msg}}, State) ->
 	%% 加载军团数据
 	?LOG_OUT("loadGuildData [~p]",[Msg]),
 	dbCSLoad:loadGuildData(PidFromCS),
+	{noreply, State};
+
+handle_msg({loadHomeData, _Pid, {PidFromCS, _Msg}}, State) ->
+	%% 加载家园数据
+	Ret = dbCSLoad:loadHomeData(),
+	psMgr:sendMsg2PS(PidFromCS, loadHomeDataAck, Ret),
+	{noreply, State};
+
+handle_msg({saveHome, _Pid, {_PidFromCS, Data}}, State) ->
+	dbCSSave:saveHomeData(Data),
 	{noreply, State};
 
 
@@ -949,7 +980,7 @@ saveMailCreateLog(#recSaveMail{senderRoleID = SenderRoleID, toRoleID = ToRoleID}
 			attachCoin = AttachCoin,					%%附件货币值
 			time = time:getLogTimeSec()					%%时间
 		},
-	logDBPID ! {?LogType_CreateMail, MailLog},
+	psMgr:sendMsg2PS(?LogDBPID, ?LogType_CreateMail, MailLog),
 	ok.
 
 saveMallChangeLog(?LogType_MallChange, #recSaveMall{}=Mall, Type) ->
@@ -985,5 +1016,5 @@ saveMallChangeLog(?LogType_MallChange, #recSaveMall{}=Mall, Type) ->
 		state=Type,
 		changeTime=time:getUTCNowSec()
 	},
-	logDBPID ! {?LogType_MallChange, MallChangeData},
+	psMgr:sendMsg2PS(?LogDBPID, ?LogType_MallChange, MallChangeData),
 	ok.

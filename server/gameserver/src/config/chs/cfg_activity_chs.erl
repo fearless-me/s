@@ -17,7 +17,9 @@ getRow(1)->
     stage = [10],
     mapidlist = [4000],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(2)->
     #activityCfg {
@@ -31,7 +33,9 @@ getRow(2)->
     stage = [10,1190,600],
     mapidlist = [20],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(3)->
     #activityCfg {
@@ -42,24 +46,28 @@ getRow(3)->
     cycletime = 0,
     starttime = [{0,20}],
     lenghtime = 1800,
-    stage = [60,1620,120],
+    stage = [20,1660,120],
     mapidlist = [22],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(4)->
     #activityCfg {
     id = 4,
-    name = "军团战",
+    name = "家族战场",
     type = 0,
     cycletype = 3,
     cycletime = 0,
-    starttime = [{1,10},{3,10},{5,10},{6,10},{7,10}],
+    starttime = [{1,10},{3,10},{5,10},{7,10}],
     lenghtime = 37800,
     stage = [34200,1800,1800],
     mapidlist = [7002],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(5)->
     #activityCfg {
@@ -68,26 +76,30 @@ getRow(5)->
     type = 0,
     cycletype = 2,
     cycletime = 0,
-    starttime = [{0,10}],
-    lenghtime = 40000,
-    stage = [200,150,100,50,1200,60],
+    starttime = [{0,20}],
+    lenghtime = 961,
+    stage = [1,120,120,60,600,60],
     mapidlist = [8001],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(6)->
     #activityCfg {
     id = 6,
-    name = "幸运选择题",
+    name = "全民答题",
     type = 0,
-    cycletype = 0,
+    cycletype = 2,
     cycletime = 0,
-    starttime = [{0,12},{0,16},{0,19},{0,22}],
-    lenghtime = 2100,
-    stage = [1500,300,300],
+    starttime = [{0,10},{0,11},{0,12},{0,14},{0,15},{0,16},{0,17},{0,18},{0,19},{0,20},{0,21}],
+    lenghtime = 601,
+    stage = [1,120,120,60,300],
     mapidlist = [],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(7)->
     #activityCfg {
@@ -101,7 +113,9 @@ getRow(7)->
     stage = [1],
     mapidlist = [6001],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(8)->
     #activityCfg {
@@ -115,7 +129,9 @@ getRow(8)->
     stage = [],
     mapidlist = [501,502,503,504,505],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(9)->
     #activityCfg {
@@ -129,7 +145,9 @@ getRow(9)->
     stage = [],
     mapidlist = [],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(10)->
     #activityCfg {
@@ -143,7 +161,9 @@ getRow(10)->
     stage = [3300,300,900,300],
     mapidlist = [4010],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(11)->
     #activityCfg {
@@ -157,7 +177,9 @@ getRow(11)->
     stage = [1],
     mapidlist = [6016],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(12)->
     #activityCfg {
@@ -171,7 +193,9 @@ getRow(12)->
     stage = [1],
     mapidlist = [6018,6019,6020],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(13)->
     #activityCfg {
@@ -185,7 +209,9 @@ getRow(13)->
     stage = [1800,10],
     mapidlist = [6030,6031,6032,6033,6034,6035],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(14)->
     #activityCfg {
@@ -197,9 +223,11 @@ getRow(14)->
     starttime = [],
     lenghtime = 86400,
     stage = [],
-    mapidlist = [540,541],
+    mapidlist = [540,541,542,543],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(15)->
     #activityCfg {
@@ -213,21 +241,25 @@ getRow(15)->
     stage = [],
     mapidlist = [8000],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(16)->
     #activityCfg {
     id = 16,
-    name = "港口竞速",
-    type = 0,
+    name = "骑宠竞速",
+    type = 1,
     cycletype = 2,
     cycletime = 0,
     starttime = [{0,8}],
-    lenghtime = 1800,
-    stage = [],
+    lenghtime = 1530,
+    stage = [300,930],
     mapidlist = [9001],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = [5,10,1,1]
     };
 getRow(17)->
     #activityCfg {
@@ -241,7 +273,9 @@ getRow(17)->
     stage = [],
     mapidlist = [520],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(18)->
     #activityCfg {
@@ -255,21 +289,25 @@ getRow(18)->
     stage = [],
     mapidlist = [528,529,530,531],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(19)->
     #activityCfg {
     id = 19,
     name = "家族雪人",
     type = 0,
-    cycletype = 2,
+    cycletype = 3,
     cycletime = 0,
-    starttime = [{0,19}],
-    lenghtime = 3732,
-    stage = [1800,10,1800,2,120],
+    starttime = [{2,20},{4,20},{6,20}],
+    lenghtime = 1033,
+    stage = [1,10,900,2,120],
     mapidlist = [7000],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(20)->
     #activityCfg {
@@ -281,9 +319,11 @@ getRow(20)->
     starttime = [{0,0}],
     lenghtime = 86400,
     stage = [],
-    mapidlist = [550],
+    mapidlist = [],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(21)->
     #activityCfg {
@@ -297,7 +337,9 @@ getRow(21)->
     stage = [],
     mapidlist = [6000],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(22)->
     #activityCfg {
@@ -306,12 +348,14 @@ getRow(22)->
     type = 0,
     cycletype = 2,
     cycletime = 0,
-    starttime = [{0,11},{0,17}],
+    starttime = [{0,12},{0,20}],
     lenghtime = 2390,
     stage = [1500,120,120,60,590],
     mapidlist = [],
     condition = 0,
-    awardlist = []
+    awardlist = [],
+    limitApply = 2000,
+    limitGroup = []
     };
 getRow(_)->[].
 

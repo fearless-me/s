@@ -21,15 +21,17 @@
 	addHate/2,
 	killedMonster/1,
 	gainExpByKilledMonster/1,
-	dropBykilledMonster/3,
-	killedTarget/5,
+	dropByKilledMonster/4,
+	killedTarget/6,
 	treat/4,
 	addTreat/2,
 	leaveBattle/1,
 	noticeBlood/2,
 %%	getSameMapTeamMemberPid/0,
 	getAttackRoleID/1,
-	isHateTarget/1
+	isHateTarget/1,
+	canGainDropGoods/0,
+	canGainDropGoods/1
 ]).
 
 %%攻击某些目标
@@ -87,10 +89,10 @@ attack1([], _BeAttack, _SelfCode) ->
 	ok;
 attack1([{_IsRan, Code, _Times} | List], BeAttack, SelfCode) when SelfCode =:= Code ->
 	attack1(List, BeAttack, SelfCode);
-attack1([{IsRan, Code, Times} | List], BeAttack, SelfCode) ->
+attack1([{_IsRan, Code, Times} | List], BeAttack, SelfCode) ->
 	case playerSkill:getObject(Code) of
-		#recMapObject{pid = Pid} ->
-			enterBattle(Code, Pid),
+		#recMapObject{pid = Pid, level = Level} ->
+			enterBattle(Code, Level, Pid),
 			NewBeAttack = BeAttack#recBeAttack{
 				targetCode = Code,
 				times = Times
@@ -207,63 +209,73 @@ killedMonster(MonsterID) ->
 		MonsterID,
 		false
 	),
+	playerMonsterBook:killMonster(MonsterID),
 	ok.
 
 -spec gainExpByKilledMonster(MonsterID) -> ok when MonsterID :: uint().
 gainExpByKilledMonster(MonsterID) ->
-	#monsterCfg{exp = Exp} = getCfg:getCfgPStack(cfg_monster, MonsterID),
-	playerBase:addExp(Exp, ?ExpSourceKillMonster, MonsterID),
-	teamInterface:sendMsg2TeamInSameMapWithRoleID(
-		playerState:getRoleID(),
-		playerState:getMapPlayerEts(),
-		teamMemberGainExpByKilledMonster,
-		{MonsterID, Exp},
-		false
-	),
+	case canGainDropGoods() of
+		true ->
+			#monsterCfg{exp = Exp} = getCfg:getCfgPStack(cfg_monster, MonsterID),
+			playerBase:addExp(Exp, ?ExpSourceKillMonster, MonsterID),
+			teamInterface:sendMsg2TeamInSameMapWithRoleID(
+				playerState:getRoleID(),
+				playerState:getMapPlayerEts(),
+				teamMemberGainExpByKilledMonster,
+				{MonsterID, Exp},
+				false
+			);
+		_ ->
+			skip
+	end,
 	ok.
 
+-spec dropByKilledMonster(Code :: uint(), MonsterID, MonsterLevel, MapPid) -> ok
+	when MonsterID :: uint(), MonsterLevel :: uint(), MapPid :: pid().
+dropByKilledMonster(Code, MonsterID, MonsterLevel, MapPid) ->
+	case canGainDropGoods() of
+		true ->
+			%%设定玩家杀死的怪物Code，主要用于掉落系统
+			playerState:setKillMonsterCode(Code),
 
--spec dropBykilledMonster(Code :: uint(), MonsterID, MonsterLevel) -> ok
-	when MonsterID :: uint(), MonsterLevel :: uint().
-dropBykilledMonster(Code, MonsterID, MonsterLevel) ->
-	%%设定玩家杀死的怪物Code，主要用于掉落系统
-	playerState:setKillMonsterCode(Code),
+			%% 活动掉落-杀怪掉落
+			Arg = #recAcKilledMonsterArg{
+				mapID = playerState:getMapID(),
+				monsterID = MonsterID,
+				monsterLv = MonsterLevel
+			},
+			AcArg = #recOperateActivityArg{
+				roleID = playerState:getRoleID(),
+				type = ?OperateActType_KilledMonster,
+				arg = Arg,
+				pid = self(),
+				lv = playerState:getLevel()
+			},
+			AcList = activity:getOperateActCfgByType(?OperateActType_KilledMonster),
+			activity:operateActEvent(AcList, AcArg),
+			%%psMgr:sendMsg2PS(?PsNameOperateActivity, eventActivity, AcArg),
+			%% 如果是副本，获取加成掉落概率
+			OddPer = 1,
+			TeamMemberPidList = teamInterface:getTeamMemberPidListInSameMapWithRoleID(
+				playerState:getRoleID(),
+				playerState:getMapPlayerEts(),
+				false
+			),
+			TeamMemberNum = teamInterface:getTeamMemberCountWithRoleID(
+				playerState:getRoleID(), false
+			),
 
-	%% 活动掉落-杀怪掉落
-	Arg = #recAcKilledMonsterArg{
-		mapID = playerState:getMapID(),
-		monsterID = MonsterID,
-		monsterLv = MonsterLevel
-	},
-	AcArg = #recOperateActivityArg{
-		roleID = playerState:getRoleID(),
-		type = ?OperateActType_KilledMonster,
-		arg = Arg,
-		pid = self(),
-		lv = playerState:getLevel()
-	},
-	AcList = activity:getOperateActCfgByType(?OperateActType_KilledMonster),
-	activity:operateActEvent(AcList, AcArg),
-	%%psMgr:sendMsg2PS(?PsNameOperateActivity, eventActivity, AcArg),
-	%% 如果是副本，获取加成掉落概率
-	OddPer = 1,
-	TeamMemberPidList = teamInterface:getTeamMemberPidListInSameMapWithRoleID(
-		playerState:getRoleID(),
-		playerState:getMapPlayerEts(),
-		false
-	),%%getSameMapTeamMemberPid(),
-	TeamMemberNum = teamInterface:getTeamMemberCountWithRoleID(
-		playerState:getRoleID(), false
-	),%%erlang:length(TeamMemberPidList),
-
-	dropBykilledMonsterFromMonster(OddPer, MonsterID, MonsterLevel, TeamMemberPidList, TeamMemberNum),
-	dropBykilledMonsterFromMap(OddPer, MonsterID, MonsterLevel, TeamMemberPidList, TeamMemberNum),
-	%%清除玩家杀死的怪物Code
-	playerState:setKillMonsterCode(undefined),
+			dropBykilledMonsterFromMonster(OddPer, MonsterID, MonsterLevel, TeamMemberPidList, TeamMemberNum, MapPid),
+			dropBykilledMonsterFromMap(OddPer, MonsterID, MonsterLevel, TeamMemberPidList, TeamMemberNum, MapPid),
+			%%清除玩家杀死的怪物Code
+			playerState:setKillMonsterCode(undefined);
+		_ ->
+			skip
+	end,
 	ok.
 
 %%杀死怪物后，怪物本身的掉落
-dropBykilledMonsterFromMonster(OddPer, MonsterID, MonsterLevel, TeamMemberPidList, TeamMemberNum) ->
+dropBykilledMonsterFromMonster(OddPer, MonsterID, MonsterLevel, TeamMemberPidList, TeamMemberNum, MapPid) ->
 	%% 杀怪掉落
 	#monsterCfg{
 		dropList = ItemDropID,
@@ -283,11 +295,11 @@ dropBykilledMonsterFromMonster(OddPer, MonsterID, MonsterLevel, TeamMemberPidLis
 		                true ->
 			                []
 	                end,
-	dropBykilledMonster1(MonsterID, DropShip, MonsterLevel, OddPer, ItemDropID, EquipDropList, TeamMemberPidList, TeamMemberNum),
+	dropBykilledMonster1(MonsterID, DropShip, MonsterLevel, OddPer, ItemDropID, EquipDropList, TeamMemberPidList, TeamMemberNum, MapPid),
 	ok.
 
 %%杀死怪物后，地图掉落
-dropBykilledMonsterFromMap(OddPer, MonsterID, MonsterLevel, TeamMemberPidList, TeamMemberNum) ->
+dropBykilledMonsterFromMap(OddPer, MonsterID, MonsterLevel, TeamMemberPidList, TeamMemberNum, MapPid) ->
 	MapID = playerState:getMapID(),
 	%% 地图掉落
 	#mapsettingCfg{
@@ -301,36 +313,50 @@ dropBykilledMonsterFromMap(OddPer, MonsterID, MonsterLevel, TeamMemberPidList, T
 		                _ ->
 			                []
 	                end,
-	dropBykilledMonster1(MonsterID, ?MonsterDropShipFirstAttackerAndTeam, MonsterLevel, OddPer, ItemDropID, EquipDropList, TeamMemberPidList, TeamMemberNum),
+	dropBykilledMonster1(MonsterID, ?MonsterDropShipFirstAttackerAndTeam, MonsterLevel, OddPer, ItemDropID, EquipDropList, TeamMemberPidList, TeamMemberNum, MapPid),
 	ok.
 
-dropBykilledMonster1(MonsterID, DropShip, MonsterLevel, OddPer, ItemDropID, EquipDropList, TeamMemberPidList, TeamMemberNum) ->
+dropBykilledMonster1(MonsterID, DropShip, MonsterLevel, OddPer, ItemDropID, EquipDropList, TeamMemberPidList, TeamMemberNum, MapPid) ->
 %%	playerCopyMap:copyMapIsAward(playerState:getMapID())
-
 	IsAward = playerCopyMapReward:isRewardInCopyMap(),
 	%%给自己掉落普通物品
-	IsDropItem = case ItemDropID =/= 0 of
-		             true when IsAward =:= true ->
-			             playerDrop:goodsDrop(ItemDropID, OddPer, MonsterID, ?ItemSourceKillMonster),
-			             true;
-		             true ->
-			             true;
-		             false ->
-			             false
-	             end,
+	IsDropItem =
+		case ItemDropID =/= 0 of
+			true when IsAward =:= true ->
+				%% 助战状态无掉落
+				case core:isAssistCopyMapByCopyMapPID(playerState:getRoleID(), MapPid) of
+					true ->
+						skip;
+					_ ->
+						playerDrop:goodsDrop(ItemDropID, OddPer, MonsterID, ?ItemSourceKillMonster)
+				end,
+				true;
+			true ->
+				true;
+			false ->
+				false
+		end,
 	%%给自己掉落装备
-	IsDropEquip = case erlang:is_list(EquipDropList) andalso EquipDropList =/= [0] of
-		              true when IsAward =:= true ->
-			              Fun = fun(EquipDropID) ->
-				              playerDrop:equipDrop(EquipDropID, MonsterID, MonsterLevel, ?Drop_Equip_Source_ByMonster, TeamMemberNum, ?ItemSourceKillMonster)
-			                    end,
-			              lists:foreach(Fun, EquipDropList),
-			              true;
-		              true ->
-			              true;
-		              false ->
-			              false
-	              end,
+	IsDropEquip =
+		case erlang:is_list(EquipDropList) andalso EquipDropList =/= [0] of
+			true when IsAward =:= true ->
+				%% 助战状态无掉落
+				case core:isAssistCopyMapByCopyMapPID(playerState:getRoleID(), MapPid) of
+					true ->
+						skip;
+					_ ->
+						Fun =
+							fun(EquipDropID) ->
+								playerDrop:equipDrop(EquipDropID, MonsterID, MonsterLevel, ?Drop_Equip_Source_ByMonster, TeamMemberNum, ?ItemSourceKillMonster)
+							end,
+						lists:foreach(Fun, EquipDropList)
+				end,
+				true;
+			true ->
+				true;
+			false ->
+				false
+		end,
 
 	IsTeamDrop = (IsDropItem orelse IsDropEquip) andalso
 		(
@@ -343,19 +369,23 @@ dropBykilledMonster1(MonsterID, DropShip, MonsterLevel, OddPer, ItemDropID, Equi
 	case IsTeamDrop of
 		true ->
 			%%给队友发掉落消息
-			FunTeamMebmer = fun(PlayerPid) ->
-				psMgr:sendMsg2PS(PlayerPid, equipDrop,
-					#recKillMonsterDrop{
-						equipDropType = ?Drop_Equip_Source_ByMonster,
-						equipDropList = EquipDropList,
+			FunTeamMebmer =
+				fun(PlayerPid) ->
+					psMgr:sendMsg2PS(PlayerPid, equipDrop,
+						#recKillMonsterDrop{
+							equipDropType = ?Drop_Equip_Source_ByMonster,
+							equipDropList = EquipDropList,
 
-						itemDropID = ItemDropID,
-						itemDropOdd = OddPer,
+							itemDropID = ItemDropID,
+							itemDropOdd = OddPer,
 
-						monsterID = MonsterID,
-						monsterLevel = MonsterLevel,
-						teamMemberNum = TeamMemberNum})
-			                end,
+							monsterID = MonsterID,
+							monsterLevel = MonsterLevel,
+							teamMemberNum = TeamMemberNum,
+
+							mapPid = MapPid
+						})
+				end,
 			lists:foreach(FunTeamMebmer, TeamMemberPidList);
 		_ ->
 			skip
@@ -364,17 +394,18 @@ dropBykilledMonster1(MonsterID, DropShip, MonsterLevel, OddPer, ItemDropID, Equi
 
 
 %%处理玩家杀死玩家
--spec killedTarget(TargetCode, Msg, X, Y, IsBossTargetCode) -> ok when
+-spec killedTarget(TargetCode, TargetLevel, Msg, X, Y, IsBossTargetCode) -> ok when
 	TargetCode :: uint(),
+	TargetLevel :: uint(),
 	Msg :: #pk_GS2U_Dead{},
 	X :: float(),
 	Y :: float(),
 	IsBossTargetCode :: boolean().
-killedTarget(TargetCode, Msg, X, Y, IsBossTargetCode) ->
+killedTarget(TargetCode, TargetLevel, Msg, X, Y, IsBossTargetCode) ->
 	PlayerEts = playerState:getMapPlayerEts(),
 	case IsBossTargetCode of
 		false ->
-			playerRedName:addKv(false, TargetCode, 0);
+			playerRedName:addKv(false, TargetCode, TargetLevel, 0);
 		_ ->
 			ok
 	end,
@@ -583,10 +614,9 @@ calcBeAttackDamage(AttackerPid, HitResultList, #recBeAttack{} = BeAttack, IsMain
 	calcMountSta(AttackerLevel),
 	%%被攻击者技能触发
 	playerSkill:attackTriggerSkill(SkillID, HitResultList, AttackerCode, ?BeAttackTriggerSkill),
-	%%伤害反弹
-	DamageBack = 0,%%erlang:trunc(playerState:getBattlePropTotal(?Prop_thorn)),
+
 	%%处理效果
-	calcBeAttackSkillEffect(BeAttack, HitResultList, DamageList, DamageBack, IsMainTarget, OldHp),
+	calcBeAttackSkillEffect(BeAttack, HitResultList, DamageList, IsMainTarget, OldHp),
 	CurHp = playerState:getCurHp(),
 	Diff = OldHp - CurHp,
 	playerBeHurt(isStatHurt(MapID), MapID, AttackerCode, AttackerPid, AttackerId, Diff),
@@ -716,21 +746,17 @@ initTargetDamageRecord(BeAttack, HitResultList, DamageList, DamageBack) ->
 		totalDamageBack = DamageBack
 	}.
 %%处理技能效果
--spec calcBeAttackSkillEffect(BeAttack, HitResultList, DamageList, DamageBack, IsMainTarget, OldHp) -> ok when
+-spec calcBeAttackSkillEffect(BeAttack, HitResultList, DamageList, IsMainTarget, OldHp) -> ok when
 	BeAttack :: #recBeAttack{},
 	HitResultList :: list(),
 	DamageList :: list(),
-	DamageBack :: uint(),
 	IsMainTarget :: boolean(),
 	OldHp :: uint().
-calcBeAttackSkillEffect(BeAttack, HitResultList, DamageList, DamageBack, IsMainTarget, OldHp) ->
+calcBeAttackSkillEffect(BeAttack, HitResultList, DamageList, IsMainTarget, OldHp) ->
 	TargetCode = playerState:getPlayerCode(),
 
 	%%构造执行效果所需要的record
 	RecEffect = initEffectRecord(BeAttack, DamageList),
-
-	%%构造被攻击者数据
-	ATD = initTargetDamageRecord(BeAttack, HitResultList, DamageList, DamageBack),
 
 	IntervalTime = playerState:getFinalAttackIntervalTime(),
 	EffIDList = effect:getTriEffIDList(BeAttack#recBeAttack.skillID, IntervalTime),
@@ -781,7 +807,22 @@ calcBeAttackSkillEffect(BeAttack, HitResultList, DamageList, DamageBack, IsMainT
 			_ -> AttackPid
 		end,
 	%%通知攻击者执行效果,并广播伤害
+	%%构造被攻击者数据
+	DamageBack = calcBackDamage(BeAttack#recBeAttack.skillID, DiffHp),
+	ATD = initTargetDamageRecord(BeAttack, HitResultList, DamageList, DamageBack),
 	psMgr:sendMsg2PS(AttackPID, attackRes, {BeAttack#recBeAttack.attackerCode, AttackEffect, DamageMsg, RecEffect, ATD}).
+
+calcBackDamage(SkillID, AttackVal) ->
+	Percent =
+		case getCfg:getCfgPStack(cfg_skill, SkillID) of
+			#skillCfg{damageType = ?SkillDamageTypePhys} ->
+				playerState:getAntiInjury(?SkillDamageTypePhys);
+			#skillCfg{damageType = ?SkillDamageTypeMagic} ->
+				playerState:getAntiInjury(?SkillDamageTypeMagic);
+			_ ->
+				0
+		end,
+	abs(erlang:trunc(AttackVal * Percent / 100)).
 
 %%攻击者处理效果
 -spec dealAttackRes(AttackEffect, RecEffect, ATD, DamageMsg) -> ok when
@@ -885,7 +926,7 @@ calcMountSta(AttackerLevel) ->
 	end.
 %%是否忽略掉坐骑耐久度计算
 isIgnoreMountSa() ->
-	playerState:getMapID() =:= ?NeedForSpeedMapID.
+	playerState:getMapID() =:= ?CrossRaceMapID.
 %%计算击中回血和伤害回血
 -spec calcAttackRestoreHp(SN :: uint(), SkillID :: uint(), DamageList :: list()) -> number().
 calcAttackRestoreHp(SN, SkillID, DamageList) ->
@@ -899,7 +940,7 @@ calcAttackRestoreHp(_SN, _SID, _DamageList, _SN1, _SID1, HeathArg) when HeathArg
 	0;
 calcAttackRestoreHp(SN, SID, _DamageList, SN1, SID1, _HeathArg) when SID =/= SID1 orelse SN =/= SN1 ->
 	0;
-calcAttackRestoreHp(_SN, _SID, DamageList, _SN1, SID1, HeathArg) ->
+calcAttackRestoreHp(_SN, _SID, DamageList, _SN1, SID1, _HeathArg) ->
 	#skillCfg{skillType = Type} = getCfg:getCfgPStack(cfg_skill, SID1),
 	case Type =:= ?InstantSkill orelse Type =:= ?SingSkill orelse Type =:= ?GuideSkill of
 		true ->
@@ -920,18 +961,16 @@ calcAttackRestoreHp(_SN, _SID, DamageList, _SN1, SID1, HeathArg) ->
 	end.
 
 calcSkillDamageMe(BeAttack, ResList) ->
-	AbsorbValue = playerState:getAbsorbShield(),
-	CurHp = playerState:getCurHp(),
-	Code = playerState:getPlayerCode(),
-	BattleProps = playerCalcProp:getBattleProp(),
-	{NewAbsorbValue, NewHp, DamageList} = battle:calcDamage(
-		AbsorbValue
-		, CurHp
-		, Code
-		, BattleProps
-		, BeAttack
-		, ResList
-	),
+	RecDef = #recDefender{
+		code = playerState:getPlayerCode(),
+		absorbValue = playerState:getAbsorbShield(),
+		curHp = playerState:getCurHp(),
+		props = playerCalcProp:getBattleProp(),
+		status = playerState:getStatus()
+	},
+	{NewAbsorbValue, NewHp, DamageList}
+		= battle:calcDamage(RecDef, BeAttack, ResList),
+	
 	playerState:setAbsorbShield(NewAbsorbValue),
 	playerState:setCurHp(NewHp),
 	DamageList.
@@ -960,139 +999,137 @@ onDead(AttackerCode, AttackerPid, AttackerType, AttackerName, SkillID) ->
 		_ ->
 			skip
 	end,
-	case playerWing:regeneration() of
-		true ->
-			playerMap:syncPlayerToEts(),
-			ok;
-		_ ->
-			%%脱离战斗
-			leaveBattle(SelfCode),
+%%	case playerWing:regeneration() of
+%%		true ->
+%%			playerMap:syncPlayerToEts(),
+%%			ok;
+%%		_ ->
+	%%脱离战斗
+	leaveBattle(SelfCode),
 
-			case playerState:getActionStatus() of
-				?CreatureActionStatusDead ->
-					?ERROR_OUT("Player[~ts] already Dead", [playerState:getName()]),
-					skip;
-				_Status ->
-					%% 通知副本地图进程，有玩家死亡了一次；其它地图不用处理
-					MapID = playerState:getMapID(),
-					case playerScene:getMapType(MapID) of
-						?MapTypeCopyMap ->
-							case playerScene:getMapSubType(MapID) of
-								?MapSubTypeWarrior ->
-									%%先通知客户端挑战失败
-									playerMsg:sendNetMsg(#pk_GS2U_WarriorTrialSuccess{result = false}),
-									%%四秒后重置副本
-									erlang:send_after(4000, self(), {warriorTrialBeKilled, MapID});
+	case playerState:getActionStatus() of
+		?CreatureActionStatusDead ->
+			?ERROR_OUT("Player[~ts] already Dead", [playerState:getName()]),
+			skip;
+		_Status ->
+			%% 通知副本地图进程，有玩家死亡了一次；其它地图不用处理
+			MapID = playerState:getMapID(),
+			case playerScene:getMapType(MapID) of
+				?MapTypeCopyMap ->
+					case playerScene:getMapSubType(MapID) of
+						?MapSubTypeWarrior ->
+							psMgr:sendMsg2PS(self(), warriorTrialBeKilled, MapID),
+							ok;
+						_ ->
+							skip
+					end,
+					MapPid = playerState:getMapPid(),
+					psMgr:sendMsg2PS(MapPid, playerDead, {playerState:getPlayerCode(), playerState:getGroupID()});
+				_ ->
+					skip
+			end,
+			playerState:setActionStatus(?CreatureActionStatusDead),
+
+			CurHp = playerState:getCurHp(),
+			case CurHp > 0 of
+				true ->
+					%%死亡了，应该没有血了
+					?ERROR_OUT("player[~ts] onDead But Hp[~p] > 0", [playerState:getName(), CurHp]);
+				_ ->
+					skip
+			end,
+
+			%%通知玩家清除buff
+			playerBuff:delBuffOnDead(),
+
+			%%通知玩家下马
+			playerPet:petOffMount(false),
+
+			playerMap:syncPlayerToEts(),
+
+			%% 得到攻击者RoleID和姓名
+			AttackRoleID = playerBattle:getAttackRoleID(AttackerCode),
+
+			case playerState:getBattleLearnInfo() of
+				#recBattleLearn{} = BattleLearn ->
+					%% 自己死亡了
+					playerRevive:onDead(AttackerCode, AttackRoleID, AttackerName, true),
+
+					%%增加目标保护措施
+					playerBattleLearn:dealBattleLearnResult(BattleLearn, playerState:getGroupID());
+				_ ->
+					%%通知玩家清除所有宠物
+					try {
+						playerPet:clearAllPets()
+					} catch
+						_:Why ->
+							?ERROR_OUT("pet clearAllPets err playerID:~p why:~p", [playerState:getRoleID(), Why])
+					end,
+
+					%% 自己死亡了
+					playerRevive:onDead(AttackerCode, AttackRoleID, AttackerName, false),
+
+					playerGuildExpedition:playerDead(AttackerCode, AttackRoleID),
+
+					BossIDList = getCfg:get1KeyList(cfg_wildboss),
+					IsBossTargetCode = isBossTarget(BossIDList, AttackerCode),
+					case IsBossTargetCode of
+						false ->
+							playerRedName:deadPunish(AttackerCode, AttackerName, 0);
+						_ ->
+							ok
+					end,
+
+					%% 成就死亡判断
+					playerAchieve:achieveEvent(?Achieve_First_dead, [1]),
+
+					%% 死亡了，通知周围玩家
+					Msg = #pk_GS2U_Dead{
+						deadActorCode = SelfCode,
+						killerCode = AttackerCode,
+						killerName = AttackerName,
+						skillID = SkillID
+					},
+
+					%% 其它异常死亡时，直接强制死亡
+					ForceDeadMsg = #pk_GS2U_ForceDeadNow{
+						skillID = SkillID,
+						killerCode = AttackerCode,
+						killerName = AttackerName,
+						deadActorCode = SelfCode
+					},
+
+					%%通知队友
+					TeamMsg = #pk_GS2U_DeadToTeam{
+						roleID = RoleID,
+						killerCode = AttackerCode,
+						killerName = AttackerName
+					},
+					playerRevive:noticeTeam(X, Y, TeamMsg),
+
+					case misc:is_process_alive(AttackerPid) of
+						true ->
+							%% 通知攻击者，自己死亡了
+							psMgr:sendMsg2PS(AttackerPid, killedTarget, {AttackerCode, SelfCode, playerState:getLevel(), Msg, X, Y, IsBossTargetCode});
+						_ ->
+							%% 其它异常死亡
+							case AttackerCode =:= 0 andalso not erlang:is_pid(AttackerPid) of
+								true ->
+									PlayerEts = playerState:getMapPlayerEts(),
+									mapView:sendMsg2NearPlayerByPos(playerState:getMapPid(), PlayerEts, ForceDeadMsg, X, Y, playerState:getGroupID()),
+									ok;
 								_ ->
 									skip
-							end,
-							MapPid = playerState:getMapPid(),
-							psMgr:sendMsg2PS(MapPid, playerDead, {playerState:getPlayerCode(), playerState:getGroupID()});
-						_ ->
-							skip
-					end,
-					playerState:setActionStatus(?CreatureActionStatusDead),
-
-					CurHp = playerState:getCurHp(),
-					case CurHp > 0 of
-						true ->
-							%%死亡了，应该没有血了
-							?ERROR_OUT("player[~ts] onDead But Hp[~p] > 0", [playerState:getName(), CurHp]);
-						_ ->
-							skip
+							end
 					end,
 
-					%%通知玩家清除buff
-					playerBuff:delBuff(),
+					onDead(AttackerCode, AttackerType),
 
-					%%通知玩家下马
-					playerPet:petOffMount(false),
-
-					playerMap:syncPlayerToEts(),
-
-					%% 得到攻击者RoleID和姓名
-					AttackRoleID = playerBattle:getAttackRoleID(AttackerCode),
-
-					case playerState:getBattleLearnInfo() of
-						#recBattleLearn{} = BattleLearn ->
-							%% 自己死亡了
-							playerRevive:onDead(AttackerCode, AttackRoleID, AttackerName, true),
-
-							%%增加目标保护措施
-							playerBattleLearn:dealBattleLearnResult(BattleLearn, playerState:getGroupID());
-						_ ->
-							%%通知玩家清除所有宠物
-							try {
-								playerPet:clearAllPets()
-							} catch
-								_:Why ->
-									?ERROR_OUT("pet clearAllPets err playerID:~p why:~p", [playerState:getRoleID(), Why])
-							end,
-
-							%% 自己死亡了
-							playerRevive:onDead(AttackerCode, AttackRoleID, AttackerName, false),
-
-							playerGuildExpedition:playerDead(AttackerCode, AttackRoleID),
-
-							BossIDList = getCfg:get1KeyList(cfg_wildboss),
-							IsBossTargetCode = isBossTarget(BossIDList, AttackerCode),
-							case IsBossTargetCode of
-								false ->
-									playerRedName:deadPunish(AttackerCode, AttackerName, 0);
-								_ ->
-									ok
-							end,
-
-							%% 成就死亡判断
-							playerAchieve:achieveEvent(?Achieve_First_dead, [1]),
-
-							%% 死亡了，通知周围玩家
-							Msg = #pk_GS2U_Dead{
-								deadActorCode = SelfCode,
-								killerCode = AttackerCode,
-								killerName = AttackerName,
-								skillID = SkillID
-							},
-
-							%% 其它异常死亡时，直接强制死亡
-							ForceDeadMsg = #pk_GS2U_ForceDeadNow{
-								skillID = SkillID,
-								killerCode = AttackerCode,
-								killerName = AttackerName,
-								deadActorCode = SelfCode
-							},
-
-							%%通知队友
-							TeamMsg = #pk_GS2U_DeadToTeam{
-								roleID = RoleID,
-								killerCode = AttackerCode,
-								killerName = AttackerName
-							},
-							playerRevive:noticeTeam(X, Y, TeamMsg),
-
-							case misc:is_process_alive(AttackerPid) of
-								true ->
-									%% 通知攻击者，自己死亡了
-									psMgr:sendMsg2PS(AttackerPid, killedTarget, {AttackerCode, SelfCode, Msg, X, Y, IsBossTargetCode});
-								_ ->
-									%% 其它异常死亡
-									case AttackerCode =:= 0 andalso not erlang:is_pid(AttackerPid) of
-										true ->
-											PlayerEts = playerState:getMapPlayerEts(),
-											mapView:sendMsg2NearPlayerByPos(playerState:getMapPid(), PlayerEts, ForceDeadMsg, X, Y, playerState:getGroupID()),
-											ok;
-										_ ->
-											skip
-									end
-							end,
-
-							onDead(AttackerCode, AttackerType),
-
-							playerState:setKillSelfType(AttackerType),
-							ok
-					end
+					playerState:setKillSelfType(AttackerType),
+					ok
 			end
 	end.
+%%	end.
 
 -spec onDead(AttackCode :: uint(), AttackerType :: uint()) -> ok.
 onDead(AttackCode, AttackerType) ->
@@ -1203,10 +1240,7 @@ sendAttackDelPro(AttackPid, AttackType, AttackerCode) ->
 %% ====================================================================
 
 %%进入战斗,初始化仇恨值
--spec enterBattle(TCode, TPid) -> ok when
-	TCode :: uint(),
-	TPid :: pid().
-enterBattle(TCode, TPid) ->
+enterBattle(TCode, TargetLevel, TPid) ->
 	Hate = #recHate{
 		hateCode = TCode,
 		hatePid = TPid
@@ -1216,7 +1250,7 @@ enterBattle(TCode, TPid) ->
 	BossIDList = getCfg:get1KeyList(cfg_wildboss),
 	case isBossTarget(BossIDList, TCode) of
 		false ->
-			playerRedName:addKv(true, TCode, 0);
+			playerRedName:addKv(true, TargetLevel, TCode, 0);
 		_ ->
 			ok
 	end.
@@ -1383,4 +1417,15 @@ getAttackRoleID(AttackCode) ->
 			end;
 		_ ->
 			0
+	end.
+
+%% 能否获得奖励
+canGainDropGoods() ->
+	canGainDropGoods(playerState:getMapID()).
+canGainDropGoods(MapID) ->
+	case getCfg:getCfgPStack(cfg_mapsetting, MapID) of
+		#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeNormal} -> false;
+		#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeHeroCopy} -> false;
+		#mapsettingCfg{type = ?MapTypeCopyMap, subtype = ?MapSubTypeChanllengeCopy} -> false;
+		_ -> true
 	end.

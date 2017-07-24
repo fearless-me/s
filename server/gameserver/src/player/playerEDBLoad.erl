@@ -129,9 +129,6 @@ onLoadRoleData_Other(#rec_playerdata{roleID = RoleID} = Data) ->
 	printLog("onLoadAwake:~p,~p", [RoleID, time2:getTimestampMS()]),
 	onLoadAwake(RoleID),
 
-	printLog("onLoadAchieve:~p,~p", [RoleID, time2:getTimestampMS()]),
-	onLoadAchieve(RoleID),
-
 	printLog("onLoadBadge:~p,~p", [RoleID, time2:getTimestampMS()]),
 	onLoadBadge(RoleID),
 
@@ -158,9 +155,6 @@ onLoadRoleData_Other(#rec_playerdata{roleID = RoleID} = Data) ->
 
 	printLog("onLoadFashionSlot:~p,~p", [RoleID, time2:getTimestampMS()]),
 	onLoadFashionSlot(RoleID),
-
-	printLog("onLoadPersonality:~p,~p", [RoleID, time2:getTimestampMS()]),
-	onLoadPersonality(RoleID),
 
 	printLog("onLoadPlayerClock:~p,~p", [RoleID, time2:getTimestampMS()]),
 	onLoadPlayerClock(RoleID),
@@ -208,6 +202,9 @@ onLoadRoleData_Scene(#rec_playerdata{roleID = RoleID, rec_player_prop = Props}) 
 
 	printLog("onLoadPlayerTeam:~p,~p", [RoleID, time2:getTimestampMS()]),
 	onLoadPlayerTeam(RoleID),
+
+	printLog("onLoadAchieve:~p,~p", [RoleID, time2:getTimestampMS()]),
+	onLoadAchieve(RoleID),
 
 	printLog("onLoadRoleData_Scene end:~p,~p", [RoleID, time2:getTimestampMS()]),
 	ok.
@@ -406,10 +403,6 @@ onLoadFashionSlot(RoleID) ->
 	onLoadRoleDataAck(L),
 	ok.
 
-onLoadPersonality(RoleID) ->
-	List = edb:dirtyReadRecord(rec_personality_info,RoleID),
-	onLoadRoleDataAck(List),
-	ok.
 onLoadPlayerClock(RoleID) ->
 	Match = #rec_player_clock{roleID = {RoleID, _ = '_'}, _ = '_'},
 	List = edb:dirtyMatchRecord(rec_player_clock, Match),

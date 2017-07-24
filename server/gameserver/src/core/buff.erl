@@ -12,6 +12,7 @@
 %% API functions
 %% ====================================================================
 -export([
+	calcBuffEndTime/3,
 	calcProp/3,
 	initBuffData/2,
 	initBuffRec/3,
@@ -22,17 +23,173 @@
 	getBuffEffCount/2,
 	getIndexGrowthValue/2,
 	calcBuffDamageToMe/5,
-	isCalcHurt/2,
-	setParam/4
+	isCalcHurt/3,
+	setParam/4,
+	isTransformationBuff/1
 ]).
 
+-export([
+	getRingBuffTarget/7
+]).
+%% ====================================================================
+calcBuffEndTime(Level, Factor, #buffCfg{buffDuration = Duration}) ->
+	Now = time:getUTCNowMS(),
+	case Duration of
+		[0, _] ->
+			0;
+		[Duration1, AddLv] ->
+			NewDuration = trunc(Duration1 + AddLv * (Level - 1)),
+			Now + NewDuration * (1 + Factor)
+	end.
+
+%% ====================================================================
+getRingBuffTarget(
+	BuffID,
+	#recMapObject{
+		code = Code
+		, x = Tx
+		, y = Ty
+		, mapPid = MapPid
+		, groupID = GroupID
+	} = Target
+	, MapPid
+	, PlayerEts
+	, MonsterEts
+	, KillList
+	, Radius
+) ->
+	PList = mapView:getNearViewObject(MapPid, PlayerEts, ?ObjTypePlayer, {Tx, Ty}, GroupID),
+	MList = mapView:getNearViewObject(MapPid, MonsterEts, ?ObjTypeMonster, {Tx, Ty}, GroupID),
+	TargetCamp =
+		case getCfg:getCfgByArgs(cfg_buff, BuffID) of
+			#buffCfg{buffType = ?BuffTypeAdd} ->
+				?Camp_Friendly;
+			_ ->
+				?Camp_Hostile
+		end,
+	filterTarget(
+		codeMgr:getObjectTypeByCode(Code)
+		, TargetCamp
+		, Target
+		, PList
+		, MList
+		, KillList
+		, Radius
+	).
+
+filterTarget(
+	?ObjTypePlayer
+	, TargetCamp
+	, Target
+	, PlayerList
+	, MonsterList
+	, KillList
+	, Radius
+) ->
+	PL = filterPlayerTarget(TargetCamp, Target, PlayerList, KillList, Radius),
+	ML = filterTargetWithCamp(TargetCamp, Target, MonsterList, Radius),
+	PL ++ ML;
+filterTarget(
+	_AnyType
+	, TargetCamp
+	, Target
+	, PlayerList
+	, MonsterList
+	, _KillList
+	, Radius
+) ->
+	PL = filterTargetWithCamp(TargetCamp, Target, PlayerList, Radius),
+	ML = filterTargetWithCamp(TargetCamp, Target, MonsterList, Radius),
+	PL ++ ML.
+
+filterPlayerTarget(
+	TargetCamp
+	, #recMapObject{code = Code, id = ID} = Target
+	, PlayerList
+	, KillList
+	, Radius
+) ->
+	TeamInfo = teamInterface:getTeamInfoWithRoleID(ID),
+	lists:foldl(
+		fun(#recMapObject{code = ObjCode} = Obj, Acc) ->
+			if
+				ObjCode =:= Code ->
+					Acc;
+				true ->
+					case mapView:getObjectDist(Target, Obj) of
+						{ok, Dist, _, _} ->
+							case Dist =< Radius of
+								true ->
+									IsEnemy = camp:relationShip(false, TeamInfo, KillList, Target, Obj),
+									case TargetCamp of
+										?Camp_Hostile when IsEnemy ->
+											[Obj | Acc];
+										?Camp_Hostile ->
+											Acc;
+										_ when not IsEnemy ->
+											[Obj | Acc];
+										_ ->
+											Acc
+									end;
+								_ ->
+									Acc
+							end;
+						 _ ->
+							 Acc
+					end
+			end
+		end, [], PlayerList).
+
+filterTargetWithCamp(
+	TargetCamp
+	, #recMapObject{code = Code, camp = TCamp} = Target
+	, ObjectList
+	, Radius
+) ->
+	Fun =
+		fun(#recMapObject{code = ObjCode, camp = Camp} = Obj, Acc) ->
+			if
+				ObjCode =:= Code ->
+					Acc;
+				true ->
+					case mapView:getObjectDist(Target, Obj) of
+						{ok, Dist, _, _} ->
+							case Dist =< Radius of
+								true ->
+									IsEnemy =
+										case camp:getBattleCampRelationCfg(TCamp, Camp) of
+											?Camp_Hostile ->
+												true;
+											_ ->
+												false
+										end,
+									case TargetCamp of
+										?Camp_Hostile when IsEnemy ->
+											[Obj | Acc];
+										?Camp_Hostile ->
+											Acc;
+										_ when not IsEnemy ->
+											[Obj | Acc];
+										_ ->
+											Acc
+									end;
+								_ ->
+									Acc
+							end;
+						_ ->
+							Acc
+					end
+			end
+		end,
+	lists:foldl(Fun, [], ObjectList).
+%% ====================================================================
 %%判断buff是否计算伤害
-isCalcHurt(DamagePlus, DamageMultiply) ->
+isCalcHurt(DamagePlus, DamageMultiply, Status) ->
 	case DamageMultiply =:= 0 andalso DamagePlus =:= 0 of
 		true ->
 			false;
 		_ ->
-			true
+			not battle:judgeInvincible(Status)
 	end.
 %%玩家战斗过程中buff初始化
 -spec initBuffData(BuffID, SkillEffect) -> #recBuffInfo{} when
@@ -43,19 +200,9 @@ initBuffData(BuffID, #recSkillEffect{} = SkillEffect) ->
 	Level = SkillEffect#recSkillEffect.level,
 	Energy = SkillEffect#recSkillEffect.attackerEnergy,
 	BattleProp = SkillEffect#recSkillEffect.attackerProp,
-	#buffCfg
-	{
-		buffDuration = Dura,
-		durationFactor = Factor
-	} = getCfg:getCfgPStack(cfg_buff, BuffID),
-	EndTime =
-		case Dura of
-			[0, _] ->
-				0;
-			[Dura1, AddLv] ->
-				NewDura = trunc(Dura1 + AddLv * (Level - 1)),
-				Now + NewDura * (1 + getPropValue(Factor, BattleProp))
-		end,
+	BuffCfg = getCfg:getCfgPStack(cfg_buff, BuffID),
+	Factor = getPropValue(BuffCfg#buffCfg.durationFactor, BattleProp),
+	EndTime = calcBuffEndTime(Level, Factor, BuffCfg),
 	InitBaseData =
 		case SkillEffect#recSkillEffect.isCarrier of
 			#recCasterInfo{} = CasterInfo ->
@@ -177,7 +324,7 @@ initBuffRec(
 	}.
 
 
-calcBuffDamageToMe(BuffData, DefenderCode, AbsorbValue,  DefenderLevel, DefenderProps) ->
+calcBuffDamageToMe(BuffData, DefenderCode, AbsorbValue, DefenderLevel, DefenderProps) ->
 	AttackProps = BuffData#recBuffInfo.attackPropList,
 	Res = battle:beJudge(
 		BuffData#recBuffInfo.skillID
@@ -236,7 +383,7 @@ doCalcBuffDamageToMe(
 		defenderHp = 0,
 		result = R,
 		damage = DamageBase,
-		multiply =  BuffMultiply,
+		multiply = BuffMultiply,
 		plus = BuffPlus,
 		kFactor = KFactor,
 		criticalDamageFactor = CriticalDamageFactor,
@@ -513,3 +660,10 @@ getBuffEffCount(BuffID, Level) ->
 			end
 	end.
 
+%% 是否有变形BUFF
+-spec isTransformationBuff(BuffID :: uint()) -> boolean().
+isTransformationBuff(0) ->
+	false;
+isTransformationBuff(BuffID) ->
+	L = globalCfg:getTransformationBuff(),
+	lists:member(BuffID, L).

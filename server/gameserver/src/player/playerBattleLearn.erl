@@ -18,7 +18,7 @@
 	outBitMapBattleLearn/0,
 	dealBattleLearnResult/2,
 	requestBattleLearn/1,
-	toRequestBattleLearn/4,
+	toRequestBattleLearn/1,
 	responseBattleLearn/2,
 	enterBattleLearnMap/5,
 	leaveBattleLearnMap/2,
@@ -75,43 +75,54 @@ requestBattleLearn(Code) ->
 			SelfID = playerState:getRoleID(),
 			SelfNetPid = playerState:getNetPid(),
 			SelfCode = playerState:getPlayerCode(),
-			psMgr:sendMsg2PS(Pid, toRequestBattleLearn, {SelfID, SelfCode, SelfName, SelfNetPid});
+			psMgr:sendMsg2PS(Pid, toRequestBattleLearn, {SelfID, SelfCode, SelfName, self(), SelfNetPid});
 		Error ->
 			playerMsg:sendErrorCodeMsg(Error)
 	end.
 
--spec toRequestBattleLearn(TargetID::uint(), TargetCode::uint(), TargetName::string(), TargetNetPid::pid() | uint()) -> ok.
-toRequestBattleLearn(_TargetID, TargetCode, TargetName, TargetNetPid) ->
+-spec toRequestBattleLearn({TargetID::uint(), TargetCode::uint(), TargetName::string(), TargetPid::pid(), TargetNetPid::pid() | uint()}) -> ok.
+toRequestBattleLearn({_TargetID, TargetCode, TargetName, _TargetPid, TargetNetPid}) ->
 	playerMsg:sendErrorCodeMsg(TargetNetPid, ?ErrorCode_BattleLearnSendOut),
+
+	playerState:addRequestBattleLearn(TargetCode),
+
 	noticeRequestBattleLearn(TargetCode, TargetName).
 
 %%反馈切磋（同意 or 拒绝）
 -spec responseBattleLearn(Code::uint(), Result::uint()) -> ok.
 responseBattleLearn(Code, ?BattleLearnAgree) ->
-	case canRecBattleLearn(Code) of
-		{true, Pid, NetPid, Name} ->
-			%%自己先进入位面
-			case playerScene:onEnterBitGroup(getBitMap()) of
-				0 ->
-					playerMsg:sendErrorCodeMsg(?ErrorCode_BattleLearnErrorEnterBitMap);
-				GroupID ->
-					RecBattleLearn = #recBattleLearn{
-						code = Code,
-						pid = Pid,
-						name = Name,
-						netPid = NetPid,
-						hp = playerState:getCurHp(),
-						isChallenger = false
-					},
-					playerState:setBattleLearnInfo(RecBattleLearn),
-					%%通知发起切磋者进入位面
-					SelfName = playerState:getName(),
-					SelfNetPid = playerState:getNetPid(),
-					SelfCode = playerState:getPlayerCode(),
-					psMgr:sendMsg2PS(Pid, enterBattleLearnMap, {SelfCode, SelfNetPid, SelfName, GroupID})
+	L = playerState:getRequestBattleLearnList(),
+	case lists:member(Code, L) of
+		true ->
+			case canRecBattleLearn(Code) of
+				{true, Pid, NetPid, Name} ->
+					playerState:setRequestBattleLearnList([]),
+
+					%%自己先进入位面
+					case playerScene:onEnterBitGroup(getBitMap()) of
+						0 ->
+							playerMsg:sendErrorCodeMsg(?ErrorCode_BattleLearnErrorEnterBitMap);
+						GroupID ->
+							RecBattleLearn = #recBattleLearn{
+								code = Code,
+								pid = Pid,
+								name = Name,
+								netPid = NetPid,
+								hp = playerState:getCurHp(),
+								isChallenger = false
+							},
+							playerState:setBattleLearnInfo(RecBattleLearn),
+							%%通知发起切磋者进入位面
+							SelfName = playerState:getName(),
+							SelfNetPid = playerState:getNetPid(),
+							SelfCode = playerState:getPlayerCode(),
+							psMgr:sendMsg2PS(Pid, enterBattleLearnMap, {SelfCode, SelfNetPid, SelfName, GroupID})
+					end;
+				Error ->
+					playerMsg:sendErrorCodeMsg(Error)
 			end;
-		Error ->
-			playerMsg:sendErrorCodeMsg(Error)
+		_ ->
+			responseBattleLearn(Code, 0)
 	end;
 responseBattleLearn(Code, _) ->
 	PlayerEts = playerState:getMapPlayerEts(),

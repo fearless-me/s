@@ -947,7 +947,7 @@ getRow(3,107)->
     itemid = 107,
     id = 7,
     quality = 0,
-    itemprice = 175,
+    itemprice = 1750,
     pricetype = 100,
     number_d = -1,
     type = 0,

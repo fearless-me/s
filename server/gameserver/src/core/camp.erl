@@ -13,9 +13,6 @@
 
 -include("gsInc.hrl").
 
--define(Neutral,   0).
--define(Friendly,  1).
--define(Hostile,   2).
 %% ====================================================================
 %% API functions
 %% ====================================================================
@@ -27,26 +24,31 @@
 
 	getPveCampRelation/3,
 	getBattleCampRelation/2,
-	getBattleOtherCampRelation/2,
+	getBattleCampRelationCfg/2,
 	getBattleRelation/2
 ]).
 
+
+-export([
+	relationShip/5
+]).
 %%过滤目标
 -spec filterTarget(SkillID, MyTeam, KillList, SelfObject, TargetList) -> list() when
-		  SkillID :: uint(),
-          MyTeam :: #rec_team{},
-          KillList :: list(),
-          SelfObject :: #recMapObject{},
-          TargetList :: list().
+	SkillID :: uint(),
+	MyTeam :: #rec_team{},
+	KillList :: list(),
+	SelfObject :: #recMapObject{},
+	TargetList :: list().
 filterTarget(SkillID, MyTeam, KillList, SelfObject, TargetList) ->
-	Fun = fun(TargetObject) ->
-				  case isFilter(SkillID, MyTeam, KillList, SelfObject, TargetObject, true) of
-					  false ->
-						  true;
-					  _Error ->
-						  false
-				  end
-		  end,
+	Fun =
+		fun(TargetObject) ->
+			case isFilter(SkillID, MyTeam, KillList, SelfObject, TargetObject, true) of
+				false ->
+					true;
+				_Error ->
+					false
+			end
+		end,
 	countLimitFilter(SkillID, lists:filter(Fun, repeatFilter(TargetList))).
 
 isFilter(SkillID, MyTeam, KillList, #recMapObject{} = SelfObject, #recMapObject{other = Other} = TargetObject, IsCheckShip) ->
@@ -59,7 +61,7 @@ isFilter(SkillID, MyTeam, KillList, #recMapObject{} = SelfObject, #recMapObject{
 isFilter(_SkillID, _MyTeam, _KillList, _SelfObject, _, _) ->
 	?ErrorCode_UseSkillErrorTarget.
 
-isFilter1(SkillID, MyTeam, KillList, #recMapObject{groupID = SelfGroupID} = SelfObject,  #recMapObject{groupID = TargetGroupID} = TargetObject, IsCheckShip) ->
+isFilter1(SkillID, MyTeam, KillList, #recMapObject{groupID = SelfGroupID} = SelfObject, #recMapObject{groupID = TargetGroupID} = TargetObject, IsCheckShip) ->
 	case groupFilter(SelfGroupID, TargetGroupID) of
 		true ->
 			isFilter2(SkillID, MyTeam, KillList, SelfObject, TargetObject, IsCheckShip);
@@ -111,47 +113,66 @@ isFilter5(SkillID, MyTeam, KillList, SelfObject, TargetObject) ->
 
 %%buff状态过滤
 -spec statusFilter(MyTeam, SelfObject, TargetObject) -> boolean() when
-		  MyTeam :: #rec_team{},
-          SelfObject :: #recMapObject{},
-          TargetObject :: #recMapObject{}.
+	MyTeam :: #rec_team{},
+	SelfObject :: #recMapObject{},
+	TargetObject :: #recMapObject{}.
 statusFilter(MyTeam, SelfObject, TargetObject) ->
-	#recMapObject{code = MyCode,
-				  other = Other} = SelfObject,
-	#recMapObject{type = TargetType,
-				  status = TargetStaus,
-				  code = TargetCode,
-				  other = TargetOther} = TargetObject,
+	#recMapObject{
+		status = MyStatus,
+		code = MyCode,
+		other = Other} = SelfObject,
+	#recMapObject{
+		type = TargetType,
+		status = TargetStatus,
+		code = TargetCode,
+		other = TargetOther} = TargetObject,
 	MyCasterCode = getCasterCode(MyCode, Other),
 	TargetCasterCode = getCasterCode(TargetCode, TargetOther),
-	IsMyCasterOrSelf = isMyCasterOrSelf(MyCode, TargetCode, MyCasterCode, TargetCasterCode),	
-	IsMyTeamer = isMyTeamer(TargetType, TargetCasterCode, MyCasterCode, MyTeam),
+	IsMyCasterOrSelf = isMyCasterOrSelf(MyCode, TargetCode, MyCasterCode, TargetCasterCode),
+	IsMyTeam = isMyTeamer(TargetType, TargetCasterCode, MyCasterCode, MyTeam),
 	case IsMyCasterOrSelf of
 		true ->
 			true;
 		_ ->
-			case IsMyTeamer of
+			case IsMyTeam of
 				true ->
-					case misc:testBit(TargetStaus, ?CreatureSpeStautsBlur) of
-						true ->
-							false;
-						_ ->
-							true
-					end;
+					peaceEnvoyStatusFilter(
+						misc:testBit(TargetStatus, ?CreatureSpeStautsBlur),
+						MyCode,
+						TargetCode,
+						MyStatus,
+						TargetStatus
+					);
 				_ ->
-					case misc:testBit(TargetStaus,?CreatureSpeStautsBlur) orelse 
-							 misc:testBit(TargetStaus, ?CreatureSpeStautsPkProtect) of
-						true ->
-							false;
-						_ ->
-							true
-					end
+					peaceEnvoyStatusFilter(
+						misc:testBit(TargetStatus, ?CreatureSpeStautsBlur)
+							orelse misc:testBit(TargetStatus, ?CreatureSpeStautsPkProtect),
+						MyCode,
+						TargetCode,
+						MyStatus,
+						TargetStatus
+					)
 			end
 	end.
-	
+
+peaceEnvoyStatusFilter(true, _MyCode, _TargetCode, _MyStatus, _TargetStatus) ->
+	false;
+peaceEnvoyStatusFilter(false, MyCode, TargetCode, MyStatus, TargetStatus) ->
+	MyType = codeMgr:getObjectTypeByCode(MyCode),
+	TargetType = codeMgr:getObjectTypeByCode(TargetCode),
+	case (MyType =:= ?ObjTypePlayer orelse MyType =:= ?ObjTypePet)
+		andalso (TargetType =:= ?ObjTypePlayer orelse TargetType =:= ?ObjTypePet) of
+		true ->
+			(not misc:testBit(MyStatus, ?CreatureSpecStautsPeaceEnvoy))
+				andalso (not misc:testBit(TargetStatus, ?CreatureSpecStautsPeaceEnvoy));
+		_ ->
+			true
+	end.
+
 %%行为状态过滤
 -spec actionStatusFilter(ActStatus, Hp) -> boolean() when
-		  ActStatus :: uint(),
-          Hp :: uint().
+	ActStatus :: uint(),
+	Hp :: uint().
 actionStatusFilter(?CreatureActionStatusChangeMap, _) ->
 	false;
 actionStatusFilter(?CreatrueActionStatusStealth, _) ->
@@ -166,9 +187,9 @@ actionStatusFilter(ActStatus, Hp) ->
 
 %%施法距离过滤
 -spec castDistFilter(SkillID, SelfObject, TargetObject) -> boolean() when
-		  SkillID :: uint(),
-          SelfObject :: #recMapObject{},
-          TargetObject :: #recMapObject{}.
+	SkillID :: uint(),
+	SelfObject :: #recMapObject{},
+	TargetObject :: #recMapObject{}.
 castDistFilter(SkillID, SelfObject, TargetObject) ->
 	#skillCfg{ranger = Ranger} = getCfg:getCfgPStack(cfg_skill, SkillID),
 	if
@@ -176,7 +197,7 @@ castDistFilter(SkillID, SelfObject, TargetObject) ->
 			true;
 		true ->
 			case mapView:getObjectDist(TargetObject, SelfObject) of
-				{ok,Dist,_,_} ->
+				{ok, Dist, _, _} ->
 					case Dist =< Ranger of
 						true ->
 							true;
@@ -200,8 +221,8 @@ castDistFilter(SkillID, SelfObject, TargetObject) ->
 
 %%过滤不是同一分组的目标
 -spec groupFilter(SelfGroudID, TargetGroudID) -> boolean() when
-		  SelfGroudID :: uint(),
-          TargetGroudID :: uint().
+	SelfGroudID :: uint(),
+	TargetGroudID :: uint().
 groupFilter(SelfGroudID, TargetGroudID) ->
 	if
 		SelfGroudID =:= TargetGroudID ->
@@ -212,10 +233,10 @@ groupFilter(SelfGroudID, TargetGroudID) ->
 
 %%过滤载体目标
 -spec carrierFilter(Other) -> boolean() when
-		Other :: list().
+	Other :: list().
 carrierFilter(Other) when is_list(Other) ->
 	case lists:keyfind(subType, 1, Other) of
-		{subType,1} ->
+		{subType, 1} ->
 			false;
 		_ ->
 			true
@@ -223,12 +244,12 @@ carrierFilter(Other) when is_list(Other) ->
 
 %%重复目标过滤
 -spec repeatFilter(ObjectList) -> list() when
-		  ObjectList :: list().
+	ObjectList :: list().
 repeatFilter(ObjectList) ->
 	repeatFilter(ObjectList, []).
 repeatFilter([], FilterList) ->
 	FilterList;
-repeatFilter([#recMapObject{code = Code} = Object| List], FilterList) ->
+repeatFilter([#recMapObject{code = Code} = Object | List], FilterList) ->
 	case lists:keyfind(Code, #recMapObject.code, FilterList) of
 		false ->
 			repeatFilter(List, [Object | FilterList]);
@@ -240,8 +261,8 @@ repeatFilter([_ | List], FilterList) ->
 
 %%数量限制过滤
 -spec countLimitFilter(SkillID, ObjectList) -> list() when
-		 SkillID :: uint(),
-         ObjectList :: list().
+	SkillID :: uint(),
+	ObjectList :: list().
 countLimitFilter(SkillID, ObjectList) ->
 	#skillCfg{aoe = Aoe, maxEffectCount = MaxCount} = getCfg:getCfgPStack(cfg_skill, SkillID),
 	NewCount = getSkillCount(Aoe, MaxCount),
@@ -254,8 +275,8 @@ countLimitFilter(SkillID, ObjectList) ->
 
 %%获取技能最大数量
 -spec getSkillCount(Aoe, MaxCount) -> uint() when
-          Aoe :: uint(),
-          MaxCount :: uint().
+	Aoe :: uint(),
+	MaxCount :: uint().
 getSkillCount(Aoe, MaxCount) ->
 	case Aoe of
 		1 ->
@@ -265,14 +286,14 @@ getSkillCount(Aoe, MaxCount) ->
 	end.
 
 %%获取PvE阵营关系
--spec getPveCampRelation(MyCamp, TargetCamp, IsSameGuild) -> ?Neutral | ?Friendly | ?Hostile when
+-spec getPveCampRelation(MyCamp, TargetCamp, IsSameGuild) -> ?Camp_Neutral | ?Camp_Friendly | ?Camp_Hostile when
 	MyCamp :: uint(),
 	TargetCamp :: uint(),
 	IsSameGuild :: boolean().
 getPveCampRelation(MyCamp, TargetCamp, IsSameGuild) ->
 	case IsSameGuild of
 		true ->
-			?Friendly;
+			?Camp_Friendly;
 		false ->
 			CfgCamp = getCfg:getCfgByArgs(cfg_factionList, MyCamp),
 			if
@@ -283,33 +304,33 @@ getPveCampRelation(MyCamp, TargetCamp, IsSameGuild) ->
 				TargetCamp =:= ?CampMonsterEnemies ->
 					CfgCamp#factionListCfg.hostileMonster;
 				true ->
-					?Hostile
+					?Camp_Hostile
 			end
 	end.
 
 %%获取PvP阵营关系
--spec getPvpCampRelation(PkMode, IsMyTreamer, IsSameGuild, IsRedName, IsCanKill) -> ?Neutral | ?Friendly | ?Hostile when
-		  PkMode :: uint(),
-          IsMyTreamer :: boolean(),
-          IsSameGuild :: boolean(),
-          IsRedName :: boolean(),
-          IsCanKill :: boolean().
+-spec getPvpCampRelation(PkMode, IsMyTreamer, IsSameGuild, IsRedName, IsCanKill) -> ?Camp_Neutral | ?Camp_Friendly | ?Camp_Hostile when
+	PkMode :: uint(),
+	IsMyTreamer :: boolean(),
+	IsSameGuild :: boolean(),
+	IsRedName :: boolean(),
+	IsCanKill :: boolean().
 getPvpCampRelation(PkMode, IsMyTeamer, IsSameGuild, IsRedName, IsCanKill) ->
 	MyCamp = tranCamp(PkMode),
 	CfgCamp = getCfg:getCfgByArgs(cfg_factionList, MyCamp),
 	if
-		MyCamp =:= ?CampPeace orelse MyCamp =:= ?CampGeneralKill->
+		MyCamp =:= ?CampPeace orelse MyCamp =:= ?CampGeneralKill ->
 			case IsMyTeamer of
 				true ->
 					CfgCamp#factionListCfg.teamMate;
 				_ ->
 					case IsRedName of
 						true ->
-							?Hostile;
+							?Camp_Hostile;
 						_ ->
 							case IsCanKill of
 								true ->
-									?Hostile;
+									?Camp_Hostile;
 								_ ->
 									CfgCamp#factionListCfg.nonTeamMate
 							end
@@ -328,13 +349,13 @@ getPvpCampRelation(PkMode, IsMyTeamer, IsSameGuild, IsRedName, IsCanKill) ->
 					end
 			end;
 		true ->
-			?Hostile
+			?Camp_Hostile
 	end.
 
 %%获取国战阵营关系
--spec getBattleCampRelation(MyCamp, TargetCamp) -> ?Neutral | ?Friendly | ?Hostile when
-		  MyCamp :: uint(),
-          TargetCamp :: uint().
+-spec getBattleCampRelation(MyCamp, TargetCamp) -> ?Camp_Neutral | ?Camp_Friendly | ?Camp_Hostile when
+	MyCamp :: uint(),
+	TargetCamp :: uint().
 getBattleCampRelation(MyCamp, TargetCamp) ->
 	CfgCamp = getCfg:getCfgPStack(cfg_factionList, MyCamp),
 	if
@@ -343,10 +364,10 @@ getBattleCampRelation(MyCamp, TargetCamp) ->
 		TargetCamp =:= ?CampBlueBattle ->
 			CfgCamp#factionListCfg.battleBlue;
 		true ->
-			?Neutral
+			?Camp_Neutral
 	end.
 
--spec getBattleOtherCampRelation(MyCamp::uint(), TargetCamp::uint()) -> ?Neutral | ?Friendly | ?Hostile.
+-spec getBattleOtherCampRelation(MyCamp :: uint(), TargetCamp :: uint()) -> ?Camp_Neutral | ?Camp_Friendly | ?Camp_Hostile.
 getBattleOtherCampRelation(MyCamp, TargetCamp) ->
 	CfgCamp = getCfg:getCfgPStack(cfg_factionList, MyCamp),
 	if
@@ -357,21 +378,38 @@ getBattleOtherCampRelation(MyCamp, TargetCamp) ->
 		TargetCamp =:= ?CampBlueBattle ->
 			CfgCamp#factionListCfg.battleBlue;
 		true ->
-			?Neutral
+			?Camp_Neutral
+	end.
+
+getBattleCampRelationCfg(MyCamp, TargetCamp) ->
+	CfgCamp = getCfg:getCfgPStack(cfg_factionList, MyCamp),
+	if
+		TargetCamp =:= ?CampPlayer ->         
+			CfgCamp#factionListCfg.player;
+		TargetCamp =:= ?CampRedBattle ->      
+			CfgCamp#factionListCfg.battleRed;
+		TargetCamp =:= ?CampBlueBattle ->     
+			CfgCamp#factionListCfg.battleBlue;
+		TargetCamp =:= ?CampMonsterFriendly ->
+			CfgCamp#factionListCfg.alliedMonster;
+		TargetCamp =:= ?CampMonsterEnemies -> 
+			CfgCamp#factionListCfg.hostileMonster;
+		true ->
+			?Camp_Neutral
 	end.
 
 %%获取战斗关系
 -spec getBattleRelation(AttackerCamp, BeAttackerCamp) -> pvp | pve | national | other when
-		  AttackerCamp :: uint(),
-          BeAttackerCamp :: uint().
-getBattleRelation(AttackerCamp, BeAttackerCamp) -> 
+	AttackerCamp :: uint(),
+	BeAttackerCamp :: uint().
+getBattleRelation(AttackerCamp, BeAttackerCamp) ->
 	if
-		(AttackerCamp =:= ?CampRedBattle orelse AttackerCamp =:= ?CampBlueBattle) andalso 
-         (BeAttackerCamp =:= ?CampRedBattle orelse BeAttackerCamp =:= ?CampBlueBattle) ->
+		(AttackerCamp =:= ?CampRedBattle orelse AttackerCamp =:= ?CampBlueBattle) andalso
+			(BeAttackerCamp =:= ?CampRedBattle orelse BeAttackerCamp =:= ?CampBlueBattle) ->
 			national;
 		AttackerCamp =:= ?CampPlayer andalso BeAttackerCamp =:= ?CampPlayer ->
 			pvp;
-		(AttackerCamp =:= ?CampRedBattle orelse AttackerCamp =:= ?CampBlueBattle) orelse 
+		(AttackerCamp =:= ?CampRedBattle orelse AttackerCamp =:= ?CampBlueBattle) orelse
 			(BeAttackerCamp =:= ?CampRedBattle orelse BeAttackerCamp =:= ?CampBlueBattle) ->
 			other;
 		true ->
@@ -380,10 +418,10 @@ getBattleRelation(AttackerCamp, BeAttackerCamp) ->
 
 %%是否是队友
 -spec isMyTeamer(TargetType, TargetCode, MyCode, MyTeam) -> boolean() when
-	   TargetType :: uint(),
-       TargetCode :: uint(),
-       MyCode :: uint(),
-       MyTeam :: #rec_team{}.
+	TargetType :: uint(),
+	TargetCode :: uint(),
+	MyCode :: uint(),
+	MyTeam :: #rec_team{}.
 isMyTeamer(_, _, _, undefined) ->
 	false;
 isMyTeamer(TargetType, TargetCode, MyCode, MyTeam) ->
@@ -411,9 +449,9 @@ isMyTeamer([#recTeamMemberInfo{code = Code} | Members], MyCode, TargetCode) ->
 
 %%是否是同公会
 -spec isSameGuild(TargetType, TargetGuildID, MyGuildID) -> boolean() when
-         TargetType :: uint(),
-         TargetGuildID :: uint(),
-         MyGuildID :: uint().
+	TargetType :: uint(),
+	TargetGuildID :: uint(),
+	MyGuildID :: uint().
 isSameGuild(_, 0, _MyGuildID) ->
 	false;
 isSameGuild(TargetType, TargetGuildID, MyGuildID) ->
@@ -426,8 +464,8 @@ isSameGuild(TargetType, TargetGuildID, MyGuildID) ->
 
 %%是否是红名玩家
 -spec isRedName(TargetType, Status) -> boolean() when
-		  TargetType :: uint(),
-          Status :: uint().
+	TargetType :: uint(),
+	Status :: uint().
 isRedName(TargetType, Status) ->
 	case TargetType =:= ?ObjTypePlayer orelse TargetType =:= ?ObjTypePet of
 		true ->
@@ -443,41 +481,41 @@ isRedName(TargetType, Status) ->
 
 %%是否是敌人
 -spec isEnemy(BattleShip, MyCamp, TargetCamp, PkMode, IsMyTeamer, IsSameGuild, IsMyCasterOrSelf, IsRedName, IsCanKill) -> boolean() when
-		  BattleShip :: pve | pvp | national,
-          MyCamp :: uint(),
-          TargetCamp :: uint(),
-          PkMode :: uint(),
-          IsMyTeamer :: boolean(),
-          IsSameGuild :: boolean(),
-          IsMyCasterOrSelf :: boolean(),
-          IsRedName :: boolean(),
-          IsCanKill :: boolean().
+	BattleShip :: pve | pvp | national,
+	MyCamp :: uint(),
+	TargetCamp :: uint(),
+	PkMode :: uint(),
+	IsMyTeamer :: boolean(),
+	IsSameGuild :: boolean(),
+	IsMyCasterOrSelf :: boolean(),
+	IsRedName :: boolean(),
+	IsCanKill :: boolean().
 isEnemy(_, _, _, _, _, _, true, _, _) ->
 	false;
 isEnemy(pve, MyCamp, TargetCamp, _PkMode, _IsMyTeamer, IsSameGuild, _IsMyCasterOrSelf, _IsRedName, _IsCanKill) ->
 	case getPveCampRelation(MyCamp, TargetCamp, IsSameGuild) of
-		?Hostile ->
+		?Camp_Hostile ->
 			true;
 		_ ->
 			false
 	end;
 isEnemy(pvp, _MyCamp, _TargetCamp, PkMode, IsMyTeamer, IsSameGuild, _IsMyCasterOrSelf, IsRedName, IsCanKill) ->
 	case getPvpCampRelation(PkMode, IsMyTeamer, IsSameGuild, IsRedName, IsCanKill) of
-		?Hostile ->
+		?Camp_Hostile ->
 			true;
 		_ ->
 			false
 	end;
 isEnemy(national, MyCamp, TargetCamp, _PkMode, _IsMyTeamer, _IsSameGuild, _IsMyCasterOrSelf, _IsRedName, _IsCanKill) ->
 	case getBattleCampRelation(MyCamp, TargetCamp) of
-		?Hostile ->
+		?Camp_Hostile ->
 			true;
 		_ ->
 			false
 	end;
 isEnemy(other, MyCamp, TargetCamp, _PkMode, _IsMyTeamer, _IsSameGuild, _IsMyCasterOrSelf, _IsRedName, _IsCanKill) ->
 	case getBattleOtherCampRelation(MyCamp, TargetCamp) of
-		?Hostile ->
+		?Camp_Hostile ->
 			true;
 		_ ->
 			false
@@ -485,34 +523,34 @@ isEnemy(other, MyCamp, TargetCamp, _PkMode, _IsMyTeamer, _IsSameGuild, _IsMyCast
 
 %%是否是队友
 -spec isAllied(BattleShip, MyCamp, TargetCamp, PkMode, IsMyTeamer, IsSameGuild, IsMyCasterOrSelf, IsRedName, IsCanKill) -> boolean() when
-		  BattleShip :: pve | pvp | national,
-          MyCamp :: uint(),
-          TargetCamp :: uint(),
-          PkMode :: uint(),
-          IsMyTeamer :: boolean(),
-          IsSameGuild :: boolean(),
-          IsMyCasterOrSelf :: boolean(),
-          IsRedName :: boolean(),
-          IsCanKill :: boolean().
+	BattleShip :: pve | pvp | national,
+	MyCamp :: uint(),
+	TargetCamp :: uint(),
+	PkMode :: uint(),
+	IsMyTeamer :: boolean(),
+	IsSameGuild :: boolean(),
+	IsMyCasterOrSelf :: boolean(),
+	IsRedName :: boolean(),
+	IsCanKill :: boolean().
 isAllied(_, _, _, _, _, _, true, _, _) ->
 	true;
 isAllied(pve, MyCamp, TargetCamp, _PkMode, _IsMyTeamer, IsSameGuild, _IsMyCasterOrSelf, _IsRedName, _IsCanKill) ->
 	case getPveCampRelation(MyCamp, TargetCamp, IsSameGuild) of
-		?Friendly ->
+		?Camp_Friendly ->
 			true;
 		_ ->
 			false
 	end;
 isAllied(pvp, _MyCamp, _TargetCamp, PkMode, IsMyTeamer, IsSameGuild, _IsMyCasterOrSelf, IsRedName, IsCanKill) ->
 	case getPvpCampRelation(PkMode, IsMyTeamer, IsSameGuild, IsRedName, IsCanKill) of
-		?Friendly ->
+		?Camp_Friendly ->
 			true;
 		_ ->
 			false
 	end;
 isAllied(national, MyCamp, TargetCamp, _PkMode, _IsMyTeamer, _IsSameGuild, _IsMyCasterOrSelf, _IsRedName, _IsCanKill) ->
 	case getBattleCampRelation(MyCamp, TargetCamp) of
-		?Friendly ->
+		?Camp_Friendly ->
 			true;
 		_ ->
 			false
@@ -522,21 +560,21 @@ isAllied(other, _MyCamp, _TargetCamp, _PkMode, _IsMyTeamer, _IsSameGuild, _IsMyC
 
 %%是否是自己
 -spec isMySelf(MyCode, TargetCode) -> boolean() when
-		  MyCode :: uint(),
-          TargetCode :: uint().
+	MyCode :: uint(),
+	TargetCode :: uint().
 isMySelf(MyCode, TargetCode) ->
 	MyCode =:= TargetCode.
 
 %%是否是自己或者是自己主人
 -spec isMyCasterOrSelf(MyCode, TargetCode, CasterCode, TargetCasterCode) -> boolean() when
-		  MyCode :: uint(),
-          TargetCode :: uint(),
-          CasterCode :: uint(),
-		  TargetCasterCode :: uint().
+	MyCode :: uint(),
+	TargetCode :: uint(),
+	CasterCode :: uint(),
+	TargetCasterCode :: uint().
 isMyCasterOrSelf(MyCode, TargetCode, CasterCode, TargetCasterCode) ->
 	case isMySelf(MyCode, TargetCode) of
 		false ->
-			CasterCode =:= TargetCode orelse TargetCasterCode =:= MyCode 
+			CasterCode =:= TargetCode orelse TargetCasterCode =:= MyCode
 				orelse TargetCasterCode =:= CasterCode;
 		_ ->
 			true
@@ -544,7 +582,7 @@ isMyCasterOrSelf(MyCode, TargetCode, CasterCode, TargetCasterCode) ->
 
 %%杀戮模式转换阵营
 -spec tranCamp(PkMode) -> uint() when
-		  PkMode :: uint().
+	PkMode :: uint().
 tranCamp(?PlayerPeaceStatus) ->
 	?CampPeace;
 tranCamp(?PlayerSingleKillStatus) ->
@@ -554,12 +592,12 @@ tranCamp(?PlayerMutiKillStatus) ->
 
 %%根据搜索目标判断和自己关系   
 -spec checkRelationShip(SearchType, MyTeam, KillList, Object, TargetObject) -> boolean() when
-		  SearchType :: uint(),
-          MyTeam :: #rec_team{},
-          KillList :: list(),
-          Object :: #recMapObject{},
-          TargetObject :: #recMapObject{}.
-checkRelationShip(?SingleSkillMy, _,  _, #recMapObject{code = MyCode}, #recMapObject{code = TargetCode}) ->
+	SearchType :: uint(),
+	MyTeam :: #rec_team{},
+	KillList :: list(),
+	Object :: #recMapObject{},
+	TargetObject :: #recMapObject{}.
+checkRelationShip(?SingleSkillMy, _, _, #recMapObject{code = MyCode}, #recMapObject{code = TargetCode}) ->
 	isMySelf(MyCode, TargetCode);
 
 checkRelationShip(?MutiSkillCirMyTeam, MyTeam, KillList, Object, TargetObject) ->
@@ -571,23 +609,23 @@ checkRelationShip(_, MyTeam, KillList, Object, TargetObject) ->
 
 %%队友和关系判断
 -spec relationShip(Relation, MyTeam, KillList, Object, TargetObject) -> boolean() when
-		  Relation :: boolean(),
-		  MyTeam :: #rec_team{},
-          KillList :: list(),
-          Object :: #recMapObject{},
-          TargetObject :: #recMapObject{}.
+	Relation :: boolean(),
+	MyTeam :: #rec_team{},
+	KillList :: list(),
+	Object :: #recMapObject{},
+	TargetObject :: #recMapObject{}.
 relationShip(Relation, MyTeam, KillList, Object, TargetObject) ->
 	#recMapObject{code = MyCode,
-				  guild = MyGuildID,
-				  pkMode = MyPkMode,
-				  camp = MyCamp,
-				  other = Other} = Object,
+		guild = MyGuildID,
+		pkMode = MyPkMode,
+		camp = MyCamp,
+		other = Other} = Object,
 	#recMapObject{type = TargetType,
-				  status = TargetStaus,
-				  code = TargetCode,
-				  guild = TargetGuildID,
-				  camp = TargetCamp,
-				  other = TargetOther} = TargetObject,
+		status = TargetStaus,
+		code = TargetCode,
+		guild = TargetGuildID,
+		camp = TargetCamp,
+		other = TargetOther} = TargetObject,
 	MyCasterCode = getCasterCode(MyCode, Other),
 	TargetCasterCode = getCasterCode(TargetCode, TargetOther),
 	IsRedName = isRedName(TargetType, TargetStaus),
@@ -605,25 +643,25 @@ relationShip(Relation, MyTeam, KillList, Object, TargetObject) ->
 
 %%判断目标是否在杀戮列表中
 -spec isCanKill(KillList, TargetCode) -> boolean() when
-		  KillList :: list(),
-          TargetCode :: uint().
+	KillList :: list(),
+	TargetCode :: uint().
 isCanKill(KillList, TargetCode) ->
 	case lists:keyfind(TargetCode, 1, KillList) of
 		false ->
 			false;
-	 _ ->
-		 true
+		_ ->
+			true
 	end.
 
 %%获取宿主Code
 -spec getCasterCode(MyCode, List) -> uint() when
-         MyCode :: uint(),
-         List :: list().
-getCasterCode(MyCode, []) -> 
+	MyCode :: uint(),
+	List :: list().
+getCasterCode(MyCode, []) ->
 	MyCode;
 getCasterCode(_, [CasterCode]) ->
 	CasterCode;
-getCasterCode(_, [{moveStatus,_},{subType,1},{casterCode,CasterCode}]) ->
+getCasterCode(_, [{moveStatus, _}, {subType, 1}, {casterCode, CasterCode}]) ->
 	CasterCode;
 getCasterCode(MyCode, _) ->
 	MyCode.

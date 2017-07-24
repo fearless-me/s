@@ -28,6 +28,5 @@ sendMsg2DBServer(MsgID, FromPid, Msg) when erlang:is_atom(MsgID) ->
 
 %% 发消息保存日志
 -spec sendToLogDBServer(MsgID,Msg) -> ok when MsgID::atom(), Msg::term().
-sendToLogDBServer(MsgID, Msg)->
-	logDBPID ! {MsgID,Msg},
-	ok.
+sendToLogDBServer(MsgID, Msg) ->
+	gsSendMsg:sendMsg2LogDBServer(MsgID, Msg).

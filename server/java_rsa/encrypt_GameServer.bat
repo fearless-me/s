@@ -1,0 +1,1 @@
+java -jar java_rsa.jar rsa_public_key.pem GameServer.txt GameServer.txt.enc

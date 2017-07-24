@@ -22,9 +22,9 @@
 -define(UID_TYPE_Guild, 6).     %% 公会
 -define(UID_TYPE_Rune, 7).		%% 符文
 -define(UID_TYPE_Team, 8).      %% 组队
--define(UID_TYPE_Companion, 9).	%% ========原灵魂伙伴团队UID，可占用==========
+-define(UID_TYPE_CrossApply, 9).	%% 用于跨服活动的报名组
 -define(UID_TYPE_Red, 10).      %% 红包
--define(UID_TYPE_End, 10).      %% 结束值
+-define(UID_TYPE_End, 15).      %% 结束值
 -type uid_type() :: ?UID_TYPE_Start .. ?UID_TYPE_End.
 
 %%运营活动兑换道具类型
@@ -49,7 +49,9 @@
 -define(Sundries_ID_GuildExpedition, 7). % 沙盘
 -define(Sundries_ID_LotteryForTower, 8). % 金宝塔
 -define(Sundries_ID_Marriage, 9). % 姻缘系统
--define(Sundries_ID_End,9).
+-define(Sundries_ID_Anchor, 10). % 主播
+-define(Sundries_ID_GuilBoss, 11). % 家族boss
+-define(Sundries_ID_End,11).
 
 -type sundries_id() :: ?Sundries_ID_Start .. ?Sundries_ID_End.
 %%杂项数据功能ID定义区结束
@@ -716,6 +718,12 @@
 	randProps = []::[#recRuneProp{},...]      %% 随机属性列表
 }).
 
+%% 常用KV结构
+-record(recKV, {
+	k = 0	:: term(),
+	v = 0	:: term()
+}).
+
 %% 身份证系统
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 需要与DB同步的信息
@@ -742,7 +750,10 @@
 		pic1 = [],
 		pic2 = [],
 		pic3 = [],
-		sign = []
+		sign = [],
+		like = 0,
+		charm = 0,
+		gifts = []
 	}
 ).
 
@@ -760,7 +771,10 @@
 -define(IDIT_PIC3,      9).
 -define(IDIT_FACE,      10).
 -define(IDIT_SIGN,      11).
--define(IDIT_END,       11).
+-define(IDIT_LIKE,      12).	%% 点赞值
+-define(IDIT_CHARM,     13).	%% 魅力值
+-define(IDIT_GIFTS,     14).	%% 收到的赠礼
+-define(IDIT_END,       14).
 -type type_idit() :: ?IDIT_BEGIN .. ?IDIT_END.
 
 %% 身份证信息上传照片操作类型
@@ -773,6 +787,9 @@
 -define(IDDER_IsPending,    1). % 审核中
 -define(IDDER_WithoutTrial, 3). % 未过审
 -type type_idder() :: ?IDDER_NotExists | ?IDDER_IsPending | ?IDDER_WithoutTrial.
+
+%% 赠礼记录表（仅在内存）
+-define(EtsGiftHistory, pk_GiftHistory).
 
 %% 新版好友系统
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -806,6 +823,23 @@
 -define(RELATION_END,       3).
 -type type_relation() :: ?RELATION_BEGIN .. ?RELATION_END.
 
+%% 玩家之间好友相关整体关系定义
+%% 主要用于协议GS2U_Friend2WantChat_Ack、GS2U_Friend2ForLook_Ack
+%% 申请者关系可能与其它非陌生人关系重叠，此时以其它非陌生人关系为准
+%% 本地关系与跨服关系互斥，因此如果是本地申请者，则必然不是跨服好友
+-define(FRT_BEGIN,	0).
+-define(FRT_Formal,	0).	%% 本地：正式好友（双向）
+-define(FRT_Temp,	1).	%% 本地：临时好友（单向）
+-define(FRT_Black,	2).	%% 本地：黑名单（单向）
+-define(FRT_Apply,	3).	%% 本地：申请者（单向）
+-define(FRT_NoneL,	4).	%% 本地：陌生人
+-define(FRT_Cross,	5).	%% 跨服：好友（双向）
+-define(FRT_CApply,	6).	%% 跨服：申请者（单向）
+-define(FRT_Self,	7).	%% 自己
+-define(FRT_NoneC,	8).	%% 跨服：陌生人
+-define(FRT_END,	8).
+-type type_frt() :: ?FRT_BEGIN .. ?FRT_END.
+
 %% 增加亲密度原因（与姻缘系统的亲密度不同，这里应是友好度）
 -define(ClosenessAddType_BEGIN,         1).
 -define(ClosenessAddType_Chat,          1).   %% 好友聊天提升亲密度
@@ -815,7 +849,8 @@
 -define(ClosenessAddType_DateLink,      5).   %% 约会地下城消除玩法
 -define(ClosenessAddType_GM,            6).   %% GM命令
 -define(ClosenessAddType_RedEnvelope,   7).   %% 红包
--define(ClosenessAddType_END,           7).
+-define(ClosenessAddType_GiveGift,   	8).   %% 赠礼
+-define(ClosenessAddType_END,           8).
 -type type_cat() :: ?ClosenessAddType_BEGIN .. ?ClosenessAddType_END.
 %% 减少亲密度原因（与姻缘系统的亲密度不同，这里应是友好度）
 -define(ClosenessDelType_BEGIN,         255).
@@ -831,6 +866,19 @@
 	time          = 0       :: uint32()     			%% 时间戳 time2:getTimestampSec/0
 }).
 -define(EtsFriend2LBS, ets_recFriend2LBS).
+
+%% 跨服好友数据
+-record(recFriend2Cross, {
+	roleID = 0,
+	friends = [] :: [#rec_friend2_cross{}, ...],	%% 该玩家所有的跨服好友集（双向关系）
+	applys = [] :: [#rec_friend2_cross{}, ...]		%% 该玩家所有的跨服申请者集（单向关系）仅存在于内存
+}).
+-define(EtsFriend2Cross, recFriend2Cross).
+
+%% 跨服好友在线情况
+-define(WhereIs_Offline,	0).		%% 不在线
+-define(WhereIs_Normal,		1).		%% 在普通服
+-define(WhereIs_Cross,		2).		%% 在跨服
 
 %% 双角色相关的每日计数
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -891,5 +939,25 @@
 -define(EtsTerritoryPetData,		ets_TerritoryPetData).		%% 骑宠数据
 -define(EtsTerritoryHistoryAData,	ets_TerritoryHistoryAData).	%% 掠夺记录
 -define(EtsTerritoryHistoryDData,	ets_TerritoryHistoryDData).	%% 防守记录
+
+%% 真实dbID映射关系
+%%   通过UID可以计算出生成该UID的dbID（详见模块uidMgr）
+%%   但合服后会导致不是不是该服产生的UID却归属于该服
+%%      例如：2服合至1服，原2服产生的UID计算出dbID为2，但实际上已经归属于1服
+%% 注：该表维护方式如下
+%%   1.gs连接cross成功
+%%   2.gs读取本服db上的merge_log
+%%   3.计算出本服的真实dbID映射关系（没有写入ETS）
+%%   4.通知cross计算结果
+%%   5.cross汇总计算结果，得到跨服区域内完成的真实dbID映射关系（写入跨服ETS）
+%%   6.cross广播给所有gs
+%%   7.gs收到后重置该表（写入本服ETS）
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-record(recRealDBID, {
+	dbID,	%% 根据UID计算得出的dbID
+	real,	%% 根据合服日志计算出的归属dbID
+	name	%% real对应的服务器名
+}).
+-define(EtsRealDBID,	recRealDBID).
 
 -endif.

@@ -99,16 +99,16 @@ handle_info({createActivityMap, PidFrom, {MapID, CreateNumber, Data}}, State) ->
 						MapPid when erlang:is_pid(PidFrom) ->
 							[MapPid | PIDList];
 						Error ->
-							?ERROR_OUT("createHDBattleMap.createMapLine:mapid=~p,~p", [MapID, Error]),
+							?ERROR_OUT("createActivityMap.createMapLine:mapid=~p,~p", [MapID, Error]),
 							PIDList
 					end
 				end,
 			LL = lists:foldl(Fun, [], L),
-			?LOG_OUT("createHDBattleMap:mapid=~p, number=~p, from=~p, pidlist=~p", [MapID, CreateNumber, PidFrom, LL]),
+			?LOG_OUT("createActivityMap:mapid=~p, number=~p, from=~p, pidlist=~p", [MapID, CreateNumber, PidFrom, LL]),
 			psMgr:sendMsg2PS(PidFrom, createActivityMapAck, {MapID, LL, Data}),
 			ok;
 		ErrorType ->
-			?ERROR_OUT("createHDBattleMap:from=~p, mapid=~p,type=~p,number=~p", [PidFrom, MapID, ErrorType, CreateNumber])
+			?ERROR_OUT("createActivityMap:from=~p, mapid=~p,type=~p,number=~p", [PidFrom, MapID, ErrorType, CreateNumber])
 	end,
 	{noreply, State};
 
@@ -144,11 +144,6 @@ handle_info({playerLeaveMapNormal, _Pid, {RoleID, MapID, MapPid, PlayerNum}}, St
 	gameMapMgrWorkerLogic:playerLeaveMapNormal(RoleID, MapID, MapPid, PlayerNum),
 	{noreply, State};
 
-%% 组队队长发生改变
-handle_info({changeTeamLeader, _Pid, {OldLeaderID, NewLeaderID}}, State) ->
-	?ERROR_OUT("No longer transfer processing team ~p ->~p", [OldLeaderID, NewLeaderID]),
-	{noreply, State};
-
 %% 重置副本
 handle_info({resetCopyMap, PidFrom, {RoleID, TeamID, CopyMapID}}, State) ->
 	Ret = gameMapMgrWorkerLogic:resetCopyMap(RoleID, TeamID, CopyMapID),
@@ -159,16 +154,17 @@ handle_info({resetCopyMap, PidFrom, {RoleID, TeamID, CopyMapID}}, State) ->
 handle_info({playerLeaveCopyMap, _PidFrom, {RoleID, CopyMapID, MapPID} = Data}, State) ->
 	case gameMapMgrWorkerLogic:getCopyMapInfo(MapPID) of
 		#recCopyMapInfo{mapID = CopyMapID, ownerMemberIDList = OList, enteredMemberIDList = EList} = Info ->
-			case lists:member(RoleID, OList) andalso lists:member(RoleID, EList) of
-				false ->
-					?ERROR_OUT("playerLeaveCopyMap data:~p, info:~p", [Data, Info]);
-				_ ->
-					skip
-			end,
-			NewOList = lists:delete(RoleID, OList),
-			mapMgrState:setCopyMap(Info#recCopyMapInfo{ownerMemberIDList = NewOList}),
-			?LOG_OUT("player leave copymap:~p oldOwnerlist:~p newlist:~p", [Data, OList, NewOList]),
+			NewOList =
+				case lists:member(RoleID, OList) andalso lists:member(RoleID, EList) of
+					true ->
+						OList2 = lists:delete(RoleID, OList),
+						mapMgrState:setCopyMap(Info#recCopyMapInfo{ownerMemberIDList = OList2}),
+						?LOG_OUT("player leave copymap:~p oldOwnerlist:~p newlist:~p", [Data, OList, OList2]),
+						OList2;
 
+					_ ->
+						OList
+				end,
 			case NewOList of
 				[] ->
 					?LOG_OUT("the copymap no owner, resetcopymap id=~p, mappid=~p", [CopyMapID, MapPID]),
@@ -441,18 +437,19 @@ leaveMapAck({true, #recRequsetEnterMap{targetMapID = MapID, enterGuildFairground
 			checkAndSendLeaveMapAck(MapPid, Request)
 	end,
 	ok;
-leaveMapAck({true, #recRequsetEnterMap{roleID = RoleID, targetMapID = MapID, targetLine = Line} = Request}) ->
+leaveMapAck({true, #recRequsetEnterMap{roleID = RoleID, targetMapID = MapID, targetMapPID = TargetMapPid} = Request}) ->
 	case playerScene:getMapType(MapID) of
 		?MapTypeNormal ->
 			%%指定线路
-			case Line > 0 of
+			case erlang:is_pid(TargetMapPid) of
 				true ->
 					List = mapMgrState:getMapInfoByMapID(MapID),
-					case lists:keyfind(Line, #recMapInfo.line, List) of
+					case lists:keyfind(TargetMapPid, #recMapInfo.pid, List) of
 						false ->
-							?ERROR_OUT("cur line has destory:~p", [Line]);
+							?ERROR_OUT("cur line has destory:~p", [TargetMapPid]);
 						#recMapInfo{} = Info ->
-							checkAndSendLeaveMapAck(Info#recMapInfo.pid, Request)
+							MapPID = checkMapLine(MapID, RoleID, Info),
+							checkAndSendLeaveMapAck(MapPID, Request)
 					end;
 				_ ->
 					%% 进入普通地图，分配一条地图线
@@ -499,8 +496,15 @@ checkAndSendLeaveMapAck(MapPID, #recRequsetEnterMap{roleID = RoleID, rolePID = P
 	%% 这里判定是否是PID，如果是PID则一定存活
 	case erlang:is_pid(MapPID) of
 		false ->
+			ErrorCode =
+					case MapPID of
+						error ->
+							?EnterMapErrorCode_CRITIAL;
+						_ ->
+							MapPID
+					end,
 			?WARN_OUT("RoleID [~p],leaveMapAck create new mapPid failed:~p,~p",[RoleID,MapPID,Request]),
-			psMgr:sendMsg2PS(PID, requestEnterMapAck, {?EnterMapErrorCode_CRITIAL, Request});
+			psMgr:sendMsg2PS(PID, requestEnterMapAck, {ErrorCode, Request});
 		_ ->
 			?LOG_OUT("RoleID [~p],leaveMapAck OK,TMap:~p,~p,SMap:~p,~p",
 				[RoleID,MapID,MapPID,Request#recRequsetEnterMap.oldMapID,Request#recRequsetEnterMap.oldMapPID]),
@@ -666,6 +670,71 @@ createSelfCopyMap(
 					?ERROR_OUT("createSelfCopyMap:~p,~p,~p SingleID:~p", [RoleID, CopyMapID, RoleLevel, SingleID]),
 					error
 			end
+	end.
+
+%% 换线时检查线路
+%% 参照分配线路allocMapLine/3中对地图信息的验证
+%% 主要区别是，这里指定地图尝试进入，如果地图满则不要创建新的地图，而是返回进入失败
+-spec checkMapLine(MapID, RoleID, MapInfo) -> MapPid | ErrorCode when
+	MapID::uint16(), RoleID::uint64(), MapInfo::#recMapInfo{}, MapPid::pid(), ErrorCode::uint().
+checkMapLine(_MapID, _RoleID, #recMapInfo{isWaitDestroy = true}) ->
+	?ErrorCode_KingBattleNotHaveQuota;	%% 等待销毁
+checkMapLine(MapID, RoleID, #recMapInfo{isReachMaxNum = true, totalPlayerNum = TotalPlayerNum} = MapInfo) ->
+	MaxPlayerNum = getMaxNumber(MapID),
+	case MaxPlayerNum > 0 of
+		true ->
+			case TotalPlayerNum < MaxPlayerNum of
+				true ->
+					checkMapLine(MapID, RoleID, MapInfo#recMapInfo{isReachMaxNum = false});
+				_ ->
+					?ErrorCode_KingBattleNotHaveQuota	%% 线路人满，等待销毁
+			end;
+		_ ->
+			?EnterMapErrorCode_CRITIAL	%%没有相应的地图配置
+	end;
+checkMapLine(MapID, RoleID, #recMapInfo{
+	createTime = CreateTime,
+	willEnterRoleIDList = WillEnterList,
+	totalPlayerNum = TotalPlayerNum
+} = MapInfo) ->
+	MaxPlayerNum = getMaxNumber(MapID),
+	case MaxPlayerNum > 0 of
+		true ->
+			case time:getUTCNowSec() - CreateTime < ?ForbidEnterTime of
+				true ->
+					WEList =
+						case lists:member(RoleID, WillEnterList) of
+							true ->
+								WillEnterList;
+							_ ->
+								[RoleID | WillEnterList]
+						end,
+					NewMapInfo =
+						case erlang:length(WEList) + TotalPlayerNum >= MaxPlayerNum of
+							true ->
+								MapInfo#recMapInfo{
+									willEnterRoleIDList = WEList,
+									isReachMaxNum = true
+								};
+							_ ->
+								MapInfo#recMapInfo{
+									willEnterRoleIDList = WEList
+								}
+						end,
+					MapPid = MapInfo#recMapInfo.pid,
+					mapMgrState:setMapInfo(MapPid, NewMapInfo),
+					case misc:is_process_alive(MapPid) of
+						false ->
+							mapMgrState:deleteMapInfo(MapPid),
+							?ErrorCode_KingBattleNotHaveQuota;	%% 线路无效
+						_ ->
+							MapPid
+					end;
+				_ ->
+					?ErrorCode_KingBattleNotHaveQuota %% 地图生命周期将近
+			end;
+		_ ->
+			?EnterMapErrorCode_CRITIAL	%%没有相应的地图配置
 	end.
 
 %分配线路

@@ -8,13 +8,13 @@
 getRow(1)->
     #buffCfg {
     buffId = 1,
-    buffName = "盾击抗性提升",
-    buffDescribe = "抗性*+10%",
-    buffSfx = "0",
+    buffName = "增益（给友方阵营加）光环BUFF（总调用）测试",
+    buffDescribe = "类型36，光环总调用，给光环目标增加参数BUFF",
+    buffSfx = "",
     sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 14,
-    oneBuffMultiCaster = 0,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 0,
     multiBuffMultiCaster = 0,
@@ -22,36 +22,37 @@ getRow(1)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [5000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
+    buffDuration = [86400000,0],
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 36,
+    buffParam1 = 10,
+    buffParam2 = 2,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 0,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,59,0.1,0}],
     buffDeathdel = 1,
-    buffRemove = 1,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 0,
+    outSenceDel = 1,
     damFactor = 0,
     durationFactor = 0,
-    isdisplay = 0,
-    durationDisplay = 1
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(2)->
     #buffCfg {
     buffId = 2,
-    buffName = "王者圣令主动",
-    buffDescribe = "力量，敏捷，智力+15%",
-    buffSfx = "qs/ns_10064",
+    buffName = "被光环增加BUFF测试",
+    buffDescribe = "类型12，1秒内持续回血，间隔1秒",
+    buffSfx = "other/vfx_26_106",
     sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 24,
+    buffSfxSlots = 6,
+    buffICON = 124,
     oneBuffMultiCaster = 1,
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 0,
@@ -60,64 +61,68 @@ getRow(2)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [5000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
+    buffDuration = [1000,0],
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 12,
+    buffParam1 = 1,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
+    damageType = 6,
+    healProperty = 135,
     criAble = 0,
-    property = [{1,1,1,0.15,0},{1,1,2,0.15,0},{1,1,3,0.15,0}],
+    damageMultiply = [{1,0.8,0.01}],
     buffDeathdel = 1,
     buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
+    buffstore = 2,
+    outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 108,
+    durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 1,
+    durationDisplay = "1"
     };
 getRow(3)->
     #buffCfg {
     buffId = 3,
-    buffName = "圣光守护",
-    buffDescribe = "受到伤害-25%，伤害反射+5/lv。",
-    buffSfx = "0",
+    buffName = "被光环增加BUFF测试",
+    buffDescribe = "类型7，减速50%",
+    buffSfx = "other/vfx_26_106",
     sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 16,
+    buffSfxSlots = 6,
+    buffICON = 5,
     oneBuffMultiCaster = 1,
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 0,
     multiBuffMultiCaster = 0,
-    buffType = 0,
+    buffType = 1,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [15000,1000],
+    buffDuration = [1000,0],
     buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 0,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,59,0.25,0},{2,0,41,1,1},{1,0,11,5,0}],
+    property = [{1,1,157,-0.5,0}],
     buffDeathdel = 1,
     buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
+    buffstore = 2,
+    outSenceDel = 1,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 1,
+    durationDisplay = "1"
     };
 getRow(4)->
     #buffCfg {
@@ -139,6 +144,7 @@ getRow(4)->
     buffDuration = [1500,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -155,7 +161,8 @@ getRow(4)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(5)->
     #buffCfg {
@@ -177,6 +184,7 @@ getRow(5)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -193,7 +201,8 @@ getRow(5)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6)->
     #buffCfg {
@@ -215,6 +224,7 @@ getRow(6)->
     buffDuration = [4000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -230,7 +240,8 @@ getRow(6)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7)->
     #buffCfg {
@@ -252,6 +263,7 @@ getRow(7)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -267,14 +279,15 @@ getRow(7)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8)->
     #buffCfg {
     buffId = 8,
     buffName = "竞速加速自身特效",
     buffDescribe = "无敌",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 1,
@@ -289,6 +302,7 @@ getRow(8)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -304,7 +318,8 @@ getRow(8)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(9)->
     #buffCfg {
@@ -326,6 +341,7 @@ getRow(9)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -341,14 +357,15 @@ getRow(9)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10)->
     #buffCfg {
     buffId = 10,
     buffName = "熔岩护甲+伤害+触发",
     buffDescribe = "全伤害+15%，攻击速度+15%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 52,
@@ -363,6 +380,7 @@ getRow(10)->
     buffDuration = [6000,1000],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 11208,
     buffParam2 = 0,
@@ -379,14 +397,15 @@ getRow(10)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(11)->
     #buffCfg {
     buffId = 11,
     buffName = "形变",
     buffDescribe = "形变",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 12,
@@ -401,6 +420,7 @@ getRow(11)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 4,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -417,90 +437,94 @@ getRow(11)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(12)->
     #buffCfg {
     buffId = 12,
-    buffName = "寒冰护甲+防御+触发",
-    buffDescribe = "全防御+30%",
-    buffSfx = "0",
+    buffName = "被光环增加BUFF测试",
+    buffDescribe = "类型0，减少攻击属性50%",
+    buffSfx = "",
     sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 3,
+    buffSfxSlots = 6,
+    buffICON = 89,
     oneBuffMultiCaster = 1,
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 0,
     multiBuffMultiCaster = 0,
-    buffType = 0,
+    buffType = 1,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [10000,500],
+    buffDuration = [1000,0],
     buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 11207,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,60,0.15,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(13)->
-    #buffCfg {
-    buffId = 13,
-    buffName = "寒冰护甲触发-攻速跑速",
-    buffDescribe = "寒冰护甲触发-攻速",
-    buffSfx = "buff/nbuff_12",
-    sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 3,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000,0],
-    buffDelay = 0,
-    buffStart = 0,
+    buffStart = 1,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 0,
     healProperty = 0,
     criAble = 0,
-    property = [{1,0,42,-0.3,0},{1,1,157,-0.5,0}],
+    property = [{1,1,136,-0.5,0},{1,1,137,-0.5,0}],
     buffDeathdel = 1,
     buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
+    buffstore = 2,
+    outSenceDel = 1,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 1,
+    durationDisplay = "1"
+    };
+getRow(13)->
+    #buffCfg {
+    buffId = 13,
+    buffName = "物理反弹效果BUFF测试",
+    buffDescribe = "类型37，参数1为1（物理），50%比例反弹",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 57,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [86400000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 37,
+    buffParam1 = 1,
+    buffParam2 = 50,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(14)->
     #buffCfg {
     buffId = 14,
-    buffName = "冰环术冻结",
-    buffDescribe = "冻结",
-    buffSfx = "buff/nbuff_21",
+    buffName = "冻结BUFF测试",
+    buffDescribe = "类型4，冻结10秒",
+    buffSfx = "other/vfx_26_106",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 11,
@@ -512,74 +536,156 @@ getRow(14)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [5000,0],
+    buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 0,
     healProperty = 0,
     criAble = 0,
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
-    outSenceDel = 0,
+    outSenceDel = 1,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(15)->
     #buffCfg {
     buffId = 15,
-    buffName = "黎明之锤暴击",
-    buffDescribe = "暴击+1%",
-    buffSfx = "0",
+    buffName = "法术反弹效果BUFF测试",
+    buffDescribe = "类型37，参数1为2（法术），50%比例反弹",
+    buffSfx = "other/vfx_26_106",
     sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 23,
-    oneBuffMultiCaster = 0,
-    oneBuffOneCaster = 10,
+    buffSfxSlots = 6,
+    buffICON = 95,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
     multiBuffOneCaster = 0,
     multiBuffMultiCaster = 0,
     buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [5000,0],
+    buffDuration = [86400000,0],
     buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 37,
+    buffParam1 = 2,
+    buffParam2 = 50,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 0,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,35,0.01,0}],
     buffDeathdel = 1,
-    buffRemove = 1,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 0,
+    outSenceDel = 1,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(16)->
     #buffCfg {
     buffId = 16,
-    buffName = "灵魂湮灭烧能量",
-    buffDescribe = "烧能量",
-    buffSfx = "ll/ns_30042",
+    buffName = "物理&法术反弹效果BUFF测试",
+    buffDescribe = "类型37，参数1为3（物理&法术），50%比例反弹",
+    buffSfx = "other/vfx_26_106",
     sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 40,
-    oneBuffMultiCaster = 0,
+    buffSfxSlots = 6,
+    buffICON = 74,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [86400000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 37,
+    buffParam1 = 3,
+    buffParam2 = 50,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(17)->
+    #buffCfg {
+    buffId = 17,
+    buffName = "回血",
+    buffDescribe = "类型12，60秒内持续回血，间隔1秒",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 124,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [60000,0],
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 12,
+    buffParam1 = 1,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 6,
+    healProperty = 135,
+    criAble = 0,
+    damageMultiply = [{1,0.8,0.01}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(18)->
+    #buffCfg {
+    buffId = 18,
+    buffName = "减益（给敌方阵营加）光环BUFF（总调用）测试",
+    buffDescribe = "类型36，光环总调用，给光环目标增加参数BUFF",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 0,
     multiBuffMultiCaster = 0,
@@ -587,109 +693,34 @@ getRow(16)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [10000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
+    buffDuration = [86400000,0],
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 36,
+    buffParam1 = 10,
+    buffParam2 = 3,
+    buffParam3 = 12,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 0,
     healProperty = 0,
     criAble = 0,
-    property = [{1,0,11,-5,0},{1,0,13,-5,0},{1,0,15,-5,0},{1,0,17,-5,0}],
     buffDeathdel = 1,
-    buffRemove = 1,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 0,
+    outSenceDel = 1,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(17)->
-    #buffCfg {
-    buffId = 17,
-    buffName = "邪恶光环主动受伤害提高",
-    buffDescribe = "抗性-20%",
-    buffSfx = "ll/ns_30053",
-    sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 41,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [5000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,59,-0.2,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(18)->
-    #buffCfg {
-    buffId = 18,
-    buffName = "生生不息暴击攻速",
-    buffDescribe = "暴击攻速+10%,生命攻击提高50%",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [0,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,35,0.1,0},{1,1,42,0.1,0},{1,1,30,0.5,0},{1,1,31,0.5,0},{1,1,32,0.5,0},{1,1,33,0.5,0},{1,1,18,0.5,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19)->
     #buffCfg {
     buffId = 19,
     buffName = "无敌",
     buffDescribe = "无敌",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 1,
@@ -704,6 +735,7 @@ getRow(19)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 1,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -719,7 +751,8 @@ getRow(19)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(20)->
     #buffCfg {
@@ -741,6 +774,7 @@ getRow(20)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 24,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -756,7 +790,8 @@ getRow(20)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(21)->
     #buffCfg {
@@ -778,6 +813,7 @@ getRow(21)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -793,7 +829,8 @@ getRow(21)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(22)->
     #buffCfg {
@@ -815,6 +852,7 @@ getRow(22)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 24,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -830,7 +868,8 @@ getRow(22)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(23)->
     #buffCfg {
@@ -852,6 +891,7 @@ getRow(23)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -867,14 +907,15 @@ getRow(23)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(24)->
     #buffCfg {
     buffId = 24,
     buffName = "形变",
     buffDescribe = "形变",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 4,
@@ -889,6 +930,7 @@ getRow(24)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 4,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -904,7 +946,8 @@ getRow(24)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(25)->
     #buffCfg {
@@ -926,6 +969,7 @@ getRow(25)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 5,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -941,7 +985,8 @@ getRow(25)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(26)->
     #buffCfg {
@@ -963,6 +1008,7 @@ getRow(26)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 6,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -978,7 +1024,8 @@ getRow(26)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(27)->
     #buffCfg {
@@ -1000,6 +1047,7 @@ getRow(27)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1016,14 +1064,15 @@ getRow(27)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(28)->
     #buffCfg {
     buffId = 28,
     buffName = "pk保护",
     buffDescribe = "pk保护",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 14,
@@ -1038,6 +1087,7 @@ getRow(28)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 8,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1053,14 +1103,15 @@ getRow(28)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(29)->
     #buffCfg {
     buffId = 29,
     buffName = "击退",
     buffDescribe = "击退",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 9,
@@ -1075,6 +1126,7 @@ getRow(29)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 11,
     buffParam1 = 5,
     buffParam2 = 0,
@@ -1090,14 +1142,15 @@ getRow(29)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30)->
     #buffCfg {
     buffId = 30,
     buffName = "伤害转血",
     buffDescribe = "伤害转血",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -1112,6 +1165,7 @@ getRow(30)->
     buffDuration = [10000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 12,
     buffParam1 = 0.1,
     buffParam2 = 0,
@@ -1128,14 +1182,15 @@ getRow(30)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(31)->
     #buffCfg {
     buffId = 31,
     buffName = "修改生命",
     buffDescribe = "修改生命",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -1150,6 +1205,7 @@ getRow(31)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1166,14 +1222,15 @@ getRow(31)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(32)->
     #buffCfg {
     buffId = 32,
     buffName = "修改法力",
     buffDescribe = "修改法力",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -1188,6 +1245,7 @@ getRow(32)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 14,
     buffParam1 = 0.2,
     buffParam2 = 0,
@@ -1203,14 +1261,15 @@ getRow(32)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(33)->
     #buffCfg {
     buffId = 33,
     buffName = "虚化",
     buffDescribe = "虚化",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -1225,6 +1284,7 @@ getRow(33)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 15,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1240,14 +1300,15 @@ getRow(33)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(34)->
     #buffCfg {
     buffId = 34,
     buffName = "吸收盾",
     buffDescribe = "吸收盾",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -1262,6 +1323,7 @@ getRow(34)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 16,
     buffParam1 = 10,
     buffParam2 = 18,
@@ -1277,14 +1339,15 @@ getRow(34)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(35)->
     #buffCfg {
     buffId = 35,
     buffName = "护法被动技能",
     buffDescribe = "力量+100",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -1299,6 +1362,7 @@ getRow(35)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1314,14 +1378,15 @@ getRow(35)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(36)->
     #buffCfg {
     buffId = 36,
     buffName = "羁绊被动技能",
     buffDescribe = "体质+100",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -1336,6 +1401,7 @@ getRow(36)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1351,14 +1417,15 @@ getRow(36)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(37)->
     #buffCfg {
     buffId = 37,
     buffName = "信仰铠甲",
     buffDescribe = "提高防御=50%格挡率",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1373,6 +1440,7 @@ getRow(37)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 10,
     buffParam1 = 57,
     buffParam2 = 60,
@@ -1388,7 +1456,8 @@ getRow(37)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(38)->
     #buffCfg {
@@ -1410,6 +1479,7 @@ getRow(38)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 16,
     buffParam1 = 10,
     buffParam2 = 4,
@@ -1425,14 +1495,15 @@ getRow(38)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(39)->
     #buffCfg {
     buffId = 39,
     buffName = "神恩",
     buffDescribe = "非物理伤害抗性+20%，生命恢复+1%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1447,6 +1518,7 @@ getRow(39)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1463,14 +1535,15 @@ getRow(39)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40)->
     #buffCfg {
     buffId = 40,
     buffName = "盾牌大师+格挡",
     buffDescribe = "不能闪避，格挡率+20%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -1485,6 +1558,7 @@ getRow(40)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1501,14 +1575,15 @@ getRow(40)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(41)->
     #buffCfg {
     buffId = 41,
     buffName = "圣光之速",
     buffDescribe = "防御+12%，攻击速度+10%，冷却速度+10%，移动速度+0.15",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1523,6 +1598,7 @@ getRow(41)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1539,14 +1615,15 @@ getRow(41)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(42)->
     #buffCfg {
     buffId = 42,
     buffName = "辩护",
     buffDescribe = "伤害反射+50%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1561,6 +1638,7 @@ getRow(42)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1577,14 +1655,15 @@ getRow(42)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(43)->
     #buffCfg {
     buffId = 43,
     buffName = "惩戒",
     buffDescribe = "圣令技能持续时间延长",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1599,6 +1678,7 @@ getRow(43)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1615,14 +1695,15 @@ getRow(43)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(44)->
     #buffCfg {
     buffId = 44,
     buffName = "极寒之风",
     buffDescribe = "冰风暴使目标伤害抗性-10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 74,
@@ -1637,6 +1718,7 @@ getRow(44)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1652,14 +1734,15 @@ getRow(44)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(45)->
     #buffCfg {
     buffId = 45,
     buffName = "魔龙之心",
     buffDescribe = "防御-10%，所有伤害+15%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1674,6 +1757,7 @@ getRow(45)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1690,14 +1774,15 @@ getRow(45)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(46)->
     #buffCfg {
     buffId = 46,
     buffName = "冰冷血脉",
     buffDescribe = "冷却速度+20%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1712,6 +1797,7 @@ getRow(46)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1728,14 +1814,15 @@ getRow(46)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(47)->
     #buffCfg {
     buffId = 47,
     buffName = "虚空之盾",
     buffDescribe = "伤害抗性+15%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1750,6 +1837,7 @@ getRow(47)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1766,14 +1854,15 @@ getRow(47)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(48)->
     #buffCfg {
     buffId = 48,
     buffName = "秘学大师",
     buffDescribe = "秘法上限+25，秘法恢复+2.5",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1788,6 +1877,7 @@ getRow(48)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1804,14 +1894,15 @@ getRow(48)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(49)->
     #buffCfg {
     buffId = 49,
     buffName = "狂乱恶魔",
     buffDescribe = "召唤恶魔伤害+50%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1826,6 +1917,7 @@ getRow(49)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1842,14 +1934,15 @@ getRow(49)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50)->
     #buffCfg {
     buffId = 50,
     buffName = "邪恶仪式",
     buffDescribe = "亵渎，远古恶魔冷却时间缩短25%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1864,6 +1957,7 @@ getRow(50)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1880,14 +1974,15 @@ getRow(50)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(51)->
     #buffCfg {
     buffId = 51,
     buffName = "地狱坚韧",
     buffDescribe = "魔女和恶魔生命+20%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -1902,6 +1997,7 @@ getRow(51)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1918,14 +2014,15 @@ getRow(51)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(52)->
     #buffCfg {
     buffId = 52,
     buffName = "黑暗正义",
     buffDescribe = "伤害+37.5%，攻击速度-25%。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -1940,6 +2037,7 @@ getRow(52)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1956,14 +2054,15 @@ getRow(52)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(53)->
     #buffCfg {
     buffId = 53,
     buffName = "献祭",
     buffDescribe = "每死亡一个敌人，伤害+3%，持续15秒，叠加15层",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 93,
@@ -1978,6 +2077,7 @@ getRow(53)->
     buffDuration = [7000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -1994,14 +2094,15 @@ getRow(53)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(54)->
     #buffCfg {
     buffId = 54,
     buffName = "击退抓取不受控制",
     buffDescribe = "击退抓取不受控制",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -2016,6 +2117,7 @@ getRow(54)->
     buffDuration = [500,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 22,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -2031,7 +2133,8 @@ getRow(54)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(55)->
     #buffCfg {
@@ -2053,6 +2156,7 @@ getRow(55)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 100,
     buffParam2 = 0,
@@ -2069,14 +2173,15 @@ getRow(55)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(56)->
     #buffCfg {
     buffId = 56,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2091,6 +2196,7 @@ getRow(56)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3137,
     buffParam2 = 0,
@@ -2106,14 +2212,15 @@ getRow(56)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(57)->
     #buffCfg {
     buffId = 57,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火、冰器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2128,6 +2235,7 @@ getRow(57)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3137,
     buffParam2 = 3139,
@@ -2143,14 +2251,15 @@ getRow(57)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(58)->
     #buffCfg {
     buffId = 58,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火、冰、雷器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2165,6 +2274,7 @@ getRow(58)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3137,
     buffParam2 = 3139,
@@ -2180,14 +2290,15 @@ getRow(58)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(59)->
     #buffCfg {
     buffId = 59,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火、冰、雷、风器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2202,6 +2313,7 @@ getRow(59)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3137,
     buffParam2 = 3139,
@@ -2217,7 +2329,8 @@ getRow(59)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(60)->
     #buffCfg {
@@ -2239,6 +2352,7 @@ getRow(60)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 101,
     buffParam2 = 0,
@@ -2255,14 +2369,15 @@ getRow(60)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61)->
     #buffCfg {
     buffId = 61,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2277,6 +2392,7 @@ getRow(61)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3138,
     buffParam2 = 0,
@@ -2292,14 +2408,15 @@ getRow(61)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(62)->
     #buffCfg {
     buffId = 62,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火、冰器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2314,6 +2431,7 @@ getRow(62)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3138,
     buffParam2 = 3140,
@@ -2329,14 +2447,15 @@ getRow(62)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(63)->
     #buffCfg {
     buffId = 63,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火、冰、雷器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2351,6 +2470,7 @@ getRow(63)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3138,
     buffParam2 = 3140,
@@ -2366,14 +2486,15 @@ getRow(63)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(64)->
     #buffCfg {
     buffId = 64,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火、冰、雷、风器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2388,6 +2509,7 @@ getRow(64)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3138,
     buffParam2 = 3140,
@@ -2403,7 +2525,8 @@ getRow(64)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(65)->
     #buffCfg {
@@ -2425,6 +2548,7 @@ getRow(65)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 102,
     buffParam2 = 0,
@@ -2441,14 +2565,15 @@ getRow(65)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(66)->
     #buffCfg {
     buffId = 66,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2463,6 +2588,7 @@ getRow(66)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3137,
     buffParam2 = 0,
@@ -2478,14 +2604,15 @@ getRow(66)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(67)->
     #buffCfg {
     buffId = 67,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火、冰器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2500,6 +2627,7 @@ getRow(67)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3137,
     buffParam2 = 3139,
@@ -2515,14 +2643,15 @@ getRow(67)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(68)->
     #buffCfg {
     buffId = 68,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火、冰、雷器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2537,6 +2666,7 @@ getRow(68)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3137,
     buffParam2 = 3139,
@@ -2552,14 +2682,15 @@ getRow(68)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(69)->
     #buffCfg {
     buffId = 69,
     buffName = "觉醒",
     buffDescribe = "觉醒武器，获得强化火、冰、雷、风器灵效果。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2574,6 +2705,7 @@ getRow(69)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3137,
     buffParam2 = 3139,
@@ -2589,14 +2721,15 @@ getRow(69)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(70)->
     #buffCfg {
     buffId = 70,
     buffName = "完美施法",
     buffDescribe = "伤害，防御+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -2611,6 +2744,7 @@ getRow(70)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -2627,14 +2761,15 @@ getRow(70)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(71)->
     #buffCfg {
     buffId = 71,
     buffName = "亡者意志",
     buffDescribe = "伤害抗性+37.5%，节约能量+37.5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 93,
@@ -2649,6 +2784,7 @@ getRow(71)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -2665,14 +2801,15 @@ getRow(71)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(72)->
     #buffCfg {
     buffId = 72,
     buffName = "恶魔再生",
     buffDescribe = "消耗魔怒回血，受药水效果加成",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2687,6 +2824,7 @@ getRow(72)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 10,
     buffParam1 = 4,
     buffParam2 = 102,
@@ -2703,14 +2841,15 @@ getRow(72)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(73)->
     #buffCfg {
     buffId = 73,
     buffName = "乱影击不受控制",
     buffDescribe = "不受控制1.5秒",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2725,6 +2864,7 @@ getRow(73)->
     buffDuration = [1500,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 22,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -2740,14 +2880,15 @@ getRow(73)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(74)->
     #buffCfg {
     buffId = 74,
     buffName = "豁免嘲讽",
     buffDescribe = "吸引怪物攻击5秒",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -2762,6 +2903,7 @@ getRow(74)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 25,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -2777,14 +2919,15 @@ getRow(74)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(75)->
     #buffCfg {
     buffId = 75,
     buffName = "杀戮机器",
     buffDescribe = "暴击率+5%，暴击伤害+50%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2799,6 +2942,7 @@ getRow(75)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -2815,14 +2959,15 @@ getRow(75)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(76)->
     #buffCfg {
     buffId = 76,
     buffName = "刺客信条",
     buffDescribe = "生命，防御+10%，影力最大值+20",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2837,6 +2982,7 @@ getRow(76)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -2853,14 +2999,15 @@ getRow(76)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(77)->
     #buffCfg {
     buffId = 77,
     buffName = "料敌先机",
     buffDescribe = "全防御提高，相当于敏捷的30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -2875,6 +3022,7 @@ getRow(77)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 10,
     buffParam1 = 2,
     buffParam2 = 60,
@@ -2890,14 +3038,15 @@ getRow(77)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(78)->
     #buffCfg {
     buffId = 78,
     buffName = "麻痹毒药",
     buffDescribe = "目标伤害-20%，持续3秒",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -2912,6 +3061,7 @@ getRow(78)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -2928,14 +3078,15 @@ getRow(78)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(79)->
     #buffCfg {
     buffId = 79,
     buffName = "致伤毒药",
     buffDescribe = "目标伤害抗性-15%，持续6秒",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -2950,6 +3101,7 @@ getRow(79)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -2966,7 +3118,8 @@ getRow(79)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(80)->
     #buffCfg {
@@ -2988,6 +3141,7 @@ getRow(80)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3004,7 +3158,8 @@ getRow(80)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(81)->
     #buffCfg {
@@ -3026,6 +3181,7 @@ getRow(81)->
     buffDuration = [0,0],
     buffDelay = 5000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 23,
     buffParam1 = 10203,
     buffParam2 = 0,
@@ -3041,14 +3197,15 @@ getRow(81)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(82)->
     #buffCfg {
     buffId = 82,
     buffName = "王者光环被动属性",
     buffDescribe = "力量，敏捷，智力8%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 24,
@@ -3063,6 +3220,7 @@ getRow(82)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3079,7 +3237,8 @@ getRow(82)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(83)->
     #buffCfg {
@@ -3101,6 +3260,7 @@ getRow(83)->
     buffDuration = [0,0],
     buffDelay = 5000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 23,
     buffParam1 = 430,
     buffParam2 = 0,
@@ -3116,14 +3276,15 @@ getRow(83)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(84)->
     #buffCfg {
     buffId = 84,
     buffName = "邪恶光环被动属性",
     buffDescribe = "抗性-10%,伤害-10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 75,
@@ -3138,6 +3299,7 @@ getRow(84)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3154,7 +3316,8 @@ getRow(84)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(85)->
     #buffCfg {
@@ -3176,6 +3339,7 @@ getRow(85)->
     buffDuration = [0,0],
     buffDelay = 5000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 23,
     buffParam1 = 36,
     buffParam2 = 0,
@@ -3191,14 +3355,15 @@ getRow(85)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(86)->
     #buffCfg {
     buffId = 86,
     buffName = "希望光环被动属性",
     buffDescribe = "体质提高8%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 22,
@@ -3213,6 +3378,7 @@ getRow(86)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3229,14 +3395,15 @@ getRow(86)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(87)->
     #buffCfg {
     buffId = 87,
     buffName = "极寒之风冰风暴减抗性",
     buffDescribe = "抗性-10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 74,
@@ -3251,6 +3418,7 @@ getRow(87)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3267,14 +3435,15 @@ getRow(87)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(88)->
     #buffCfg {
     buffId = 88,
     buffName = "审判神圣伤害提高",
     buffDescribe = "神圣伤害+25%，永恒之光，黎明之锤冷却加速",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -3289,6 +3458,7 @@ getRow(88)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3305,7 +3475,8 @@ getRow(88)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(89)->
     #buffCfg {
@@ -3327,6 +3498,7 @@ getRow(89)->
     buffDuration = [0,0],
     buffDelay = 5000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 23,
     buffParam1 = 432,
     buffParam2 = 0,
@@ -3342,14 +3514,15 @@ getRow(89)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(90)->
     #buffCfg {
     buffId = 90,
     buffName = "暗影灵气被动属性",
     buffDescribe = "攻击速度和移动速度-20%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 40,
@@ -3364,6 +3537,7 @@ getRow(90)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3380,7 +3554,8 @@ getRow(90)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(91)->
     #buffCfg {
@@ -3402,6 +3577,7 @@ getRow(91)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3418,14 +3594,15 @@ getRow(91)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(92)->
     #buffCfg {
     buffId = 92,
     buffName = "影踪劲",
     buffDescribe = "获得持续伤害触发，移动速度+0.3",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 33,
@@ -3440,6 +3617,7 @@ getRow(92)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 12201,
     buffParam2 = 0,
@@ -3456,14 +3634,15 @@ getRow(92)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(93)->
     #buffCfg {
     buffId = 93,
     buffName = "影踪劲持续伤害",
     buffDescribe = "持续武器伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 33,
@@ -3478,6 +3657,7 @@ getRow(93)->
     buffDuration = [6000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3494,7 +3674,8 @@ getRow(93)->
     damFactor = 70,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(94)->
     #buffCfg {
@@ -3516,6 +3697,7 @@ getRow(94)->
     buffDuration = [4000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3532,14 +3714,15 @@ getRow(94)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(95)->
     #buffCfg {
     buffId = 95,
     buffName = "毒池dot伤害",
     buffDescribe = "持续暗影伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -3554,6 +3737,7 @@ getRow(95)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3570,14 +3754,15 @@ getRow(95)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(96)->
     #buffCfg {
     buffId = 96,
     buffName = "高级毒池dot伤害",
     buffDescribe = "持续暗影伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -3592,6 +3777,7 @@ getRow(96)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3608,7 +3794,8 @@ getRow(96)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(97)->
     #buffCfg {
@@ -3630,6 +3817,7 @@ getRow(97)->
     buffDuration = [4000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3645,7 +3833,8 @@ getRow(97)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(98)->
     #buffCfg {
@@ -3667,6 +3856,7 @@ getRow(98)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 16,
     buffParam1 = 10,
     buffParam2 = 18,
@@ -3682,7 +3872,8 @@ getRow(98)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(99)->
     #buffCfg {
@@ -3704,6 +3895,7 @@ getRow(99)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3720,14 +3912,15 @@ getRow(99)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(100)->
     #buffCfg {
     buffId = 100,
     buffName = "魔女战斗去能量惩罚+4",
     buffDescribe = "魔怒恢复+4",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -3742,6 +3935,7 @@ getRow(100)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3758,14 +3952,15 @@ getRow(100)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(101)->
     #buffCfg {
     buffId = 101,
     buffName = "乱影击虚化",
     buffDescribe = "虚化1.5s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -3780,6 +3975,7 @@ getRow(101)->
     buffDuration = [1500,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 15,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3795,14 +3991,15 @@ getRow(101)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(102)->
     #buffCfg {
     buffId = 102,
     buffName = "M免控1",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -3817,6 +4014,7 @@ getRow(102)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3832,14 +4030,15 @@ getRow(102)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(103)->
     #buffCfg {
     buffId = 103,
     buffName = "绝处逢生",
     buffDescribe = "伤害抗性+10%，移动速度+2",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 61,
@@ -3854,6 +4053,7 @@ getRow(103)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3870,14 +4070,15 @@ getRow(103)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(104)->
     #buffCfg {
     buffId = 104,
     buffName = "行云流水",
     buffDescribe = "能量上限+25",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -3892,6 +4093,7 @@ getRow(104)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3908,14 +4110,15 @@ getRow(104)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(105)->
     #buffCfg {
     buffId = 105,
     buffName = "迅雷之势",
     buffDescribe = "灭寂，剪切，乱影击伤害+15%*3",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 85,
@@ -3930,6 +4133,7 @@ getRow(105)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3946,14 +4150,15 @@ getRow(105)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(106)->
     #buffCfg {
     buffId = 106,
     buffName = "击退抓取不受控制",
     buffDescribe = "击退抓取不受控制",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -3968,6 +4173,7 @@ getRow(106)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 22,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -3983,14 +4189,15 @@ getRow(106)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(107)->
     #buffCfg {
     buffId = 107,
     buffName = "临时变身提伤害buff",
     buffDescribe = "全伤害+100",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -4005,6 +4212,7 @@ getRow(107)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 100,
     buffParam2 = 0,
@@ -4021,7 +4229,8 @@ getRow(107)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(108)->
     #buffCfg {
@@ -4043,6 +4252,7 @@ getRow(108)->
     buffDuration = [0,0],
     buffDelay = 2000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 13,
     buffParam1 = 2,
     buffParam2 = 0.01,
@@ -4058,14 +4268,15 @@ getRow(108)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(109)->
     #buffCfg {
     buffId = 109,
     buffName = "盾牌大师1%格挡率提高盾牌猛击1%伤害",
     buffDescribe = "1%格挡率提高盾牌猛击1%伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -4080,6 +4291,7 @@ getRow(109)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 10,
     buffParam1 = 57,
     buffParam2 = 63,
@@ -4095,14 +4307,15 @@ getRow(109)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(110)->
     #buffCfg {
     buffId = 110,
     buffName = "怪物烧能量",
     buffDescribe = "怪物烧能量",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 40,
@@ -4117,6 +4330,7 @@ getRow(110)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4133,14 +4347,15 @@ getRow(110)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(111)->
     #buffCfg {
     buffId = 111,
     buffName = "极寒之风暴击",
     buffDescribe = "释放冰风暴提高暴击率4%，叠加3层",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 74,
@@ -4155,6 +4370,7 @@ getRow(111)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4171,14 +4387,15 @@ getRow(111)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(112)->
     #buffCfg {
     buffId = 112,
     buffName = "力量卷轴Ⅰ",
     buffDescribe = "力量+30",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 101,
@@ -4193,6 +4410,7 @@ getRow(112)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4209,14 +4427,15 @@ getRow(112)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(113)->
     #buffCfg {
     buffId = 113,
     buffName = "力量卷轴Ⅱ",
     buffDescribe = "力量+80",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 102,
@@ -4231,6 +4450,7 @@ getRow(113)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4247,14 +4467,15 @@ getRow(113)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(114)->
     #buffCfg {
     buffId = 114,
     buffName = "力量卷轴Ⅲ",
     buffDescribe = "力量+150",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 103,
@@ -4269,6 +4490,7 @@ getRow(114)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4285,14 +4507,15 @@ getRow(114)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(115)->
     #buffCfg {
     buffId = 115,
     buffName = "敏捷卷轴Ⅰ",
     buffDescribe = "敏捷+30",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 104,
@@ -4307,6 +4530,7 @@ getRow(115)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4323,14 +4547,15 @@ getRow(115)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(116)->
     #buffCfg {
     buffId = 116,
     buffName = "敏捷卷轴Ⅱ",
     buffDescribe = "敏捷+80",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 105,
@@ -4345,6 +4570,7 @@ getRow(116)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4361,14 +4587,15 @@ getRow(116)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(117)->
     #buffCfg {
     buffId = 117,
     buffName = "敏捷卷轴Ⅲ",
     buffDescribe = "敏捷+150",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 106,
@@ -4383,6 +4610,7 @@ getRow(117)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4399,14 +4627,15 @@ getRow(117)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(118)->
     #buffCfg {
     buffId = 118,
     buffName = "智力卷轴Ⅰ",
     buffDescribe = "智力+30",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 107,
@@ -4421,6 +4650,7 @@ getRow(118)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4437,14 +4667,15 @@ getRow(118)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(119)->
     #buffCfg {
     buffId = 119,
     buffName = "智力卷轴Ⅱ",
     buffDescribe = "智力+80",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 108,
@@ -4459,6 +4690,7 @@ getRow(119)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4475,14 +4707,15 @@ getRow(119)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(120)->
     #buffCfg {
     buffId = 120,
     buffName = "智力卷轴Ⅲ",
     buffDescribe = "智力+150",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 109,
@@ -4497,6 +4730,7 @@ getRow(120)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4513,14 +4747,15 @@ getRow(120)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(121)->
     #buffCfg {
     buffId = 121,
     buffName = "体质卷轴Ⅰ",
     buffDescribe = "体质+30",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 110,
@@ -4535,6 +4770,7 @@ getRow(121)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4551,14 +4787,15 @@ getRow(121)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(122)->
     #buffCfg {
     buffId = 122,
     buffName = "体质卷轴Ⅱ",
     buffDescribe = "体质+80",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 111,
@@ -4573,6 +4810,7 @@ getRow(122)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4589,14 +4827,15 @@ getRow(122)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(123)->
     #buffCfg {
     buffId = 123,
     buffName = "体质卷轴Ⅲ",
     buffDescribe = "体质+150",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 112,
@@ -4611,6 +4850,7 @@ getRow(123)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4627,14 +4867,15 @@ getRow(123)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(124)->
     #buffCfg {
     buffId = 124,
     buffName = "M免控2",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -4649,6 +4890,7 @@ getRow(124)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4664,14 +4906,15 @@ getRow(124)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(125)->
     #buffCfg {
     buffId = 125,
     buffName = "持续伤害",
     buffDescribe = "持续武器伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -4686,6 +4929,7 @@ getRow(125)->
     buffDuration = [6000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4702,14 +4946,15 @@ getRow(125)->
     damFactor = 70,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(126)->
     #buffCfg {
     buffId = 126,
     buffName = "被动闪避15%",
     buffDescribe = "被动闪避15%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -4724,6 +4969,7 @@ getRow(126)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4740,14 +4986,15 @@ getRow(126)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(127)->
     #buffCfg {
     buffId = 127,
     buffName = "M免控3",
     buffDescribe = "免疫击退抓取",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -4762,6 +5009,7 @@ getRow(127)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 21,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4777,14 +5025,15 @@ getRow(127)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(128)->
     #buffCfg {
     buffId = 128,
     buffName = "死亡标记减抗性",
     buffDescribe = "伤害抗性-50%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 47,
@@ -4799,6 +5048,7 @@ getRow(128)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4815,7 +5065,8 @@ getRow(128)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(129)->
     #buffCfg {
@@ -4837,6 +5088,7 @@ getRow(129)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4853,14 +5105,15 @@ getRow(129)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(130)->
     #buffCfg {
     buffId = 130,
     buffName = "玩家不受控制",
     buffDescribe = "玩家不受控制",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -4875,6 +5128,7 @@ getRow(130)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 22,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4890,14 +5144,15 @@ getRow(130)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(131)->
     #buffCfg {
     buffId = 131,
     buffName = "玩家虚化",
     buffDescribe = "玩家虚化",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -4912,6 +5167,7 @@ getRow(131)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 15,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -4927,14 +5183,15 @@ getRow(131)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(132)->
     #buffCfg {
     buffId = 132,
     buffName = "神迹变身2",
     buffDescribe = "攻击+108，全防御+424",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -4949,6 +5206,7 @@ getRow(132)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 101,
     buffParam2 = 0,
@@ -4965,14 +5223,15 @@ getRow(132)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(133)->
     #buffCfg {
     buffId = 133,
     buffName = "神迹变身3",
     buffDescribe = "攻击+204，全防御+808",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -4987,6 +5246,7 @@ getRow(133)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 102,
     buffParam2 = 0,
@@ -5003,14 +5263,15 @@ getRow(133)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(134)->
     #buffCfg {
     buffId = 134,
     buffName = "神迹变身4",
     buffDescribe = "暴击+392，全防御+1536",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5025,6 +5286,7 @@ getRow(134)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 103,
     buffParam2 = 0,
@@ -5041,14 +5303,15 @@ getRow(134)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(135)->
     #buffCfg {
     buffId = 135,
     buffName = "神迹变身5",
     buffDescribe = "暴击+392，全防御+1536",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5063,6 +5326,7 @@ getRow(135)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 103,
     buffParam2 = 0,
@@ -5079,14 +5343,15 @@ getRow(135)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(136)->
     #buffCfg {
     buffId = 136,
     buffName = "御法者变身",
     buffDescribe = "攻击+108，全防御+424",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5101,6 +5366,7 @@ getRow(136)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 101,
     buffParam2 = 0,
@@ -5117,14 +5383,15 @@ getRow(136)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(137)->
     #buffCfg {
     buffId = 137,
     buffName = "御法者变身",
     buffDescribe = "攻击+204，全防御+808",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5139,6 +5406,7 @@ getRow(137)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 102,
     buffParam2 = 0,
@@ -5155,14 +5423,15 @@ getRow(137)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(138)->
     #buffCfg {
     buffId = 138,
     buffName = "御法者变身",
     buffDescribe = "暴击+392，全防御+1536",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5177,6 +5446,7 @@ getRow(138)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 103,
     buffParam2 = 0,
@@ -5193,14 +5463,15 @@ getRow(138)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(139)->
     #buffCfg {
     buffId = 139,
     buffName = "御法者变身",
     buffDescribe = "暴击+392，全防御+1536",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5215,6 +5486,7 @@ getRow(139)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 103,
     buffParam2 = 0,
@@ -5231,14 +5503,15 @@ getRow(139)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(140)->
     #buffCfg {
     buffId = 140,
     buffName = "死神变身",
     buffDescribe = "攻击+108，全防御+424",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5253,6 +5526,7 @@ getRow(140)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 101,
     buffParam2 = 0,
@@ -5269,14 +5543,15 @@ getRow(140)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(141)->
     #buffCfg {
     buffId = 141,
     buffName = "死神变身",
     buffDescribe = "攻击+204，全防御+808",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5291,6 +5566,7 @@ getRow(141)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 102,
     buffParam2 = 0,
@@ -5307,14 +5583,15 @@ getRow(141)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(142)->
     #buffCfg {
     buffId = 142,
     buffName = "死神变身",
     buffDescribe = "暴击+392，全防御+1536",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5329,6 +5606,7 @@ getRow(142)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 103,
     buffParam2 = 0,
@@ -5345,14 +5623,15 @@ getRow(142)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(143)->
     #buffCfg {
     buffId = 143,
     buffName = "死神变身",
     buffDescribe = "暴击+392，全防御+1536",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5367,6 +5646,7 @@ getRow(143)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 103,
     buffParam2 = 0,
@@ -5383,14 +5663,15 @@ getRow(143)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(144)->
     #buffCfg {
     buffId = 144,
     buffName = "影王变身",
     buffDescribe = "攻击+108，全防御+424",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5405,6 +5686,7 @@ getRow(144)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 101,
     buffParam2 = 0,
@@ -5421,14 +5703,15 @@ getRow(144)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(145)->
     #buffCfg {
     buffId = 145,
     buffName = "影王变身",
     buffDescribe = "攻击+204，全防御+808",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5443,6 +5726,7 @@ getRow(145)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 102,
     buffParam2 = 0,
@@ -5459,14 +5743,15 @@ getRow(145)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(146)->
     #buffCfg {
     buffId = 146,
     buffName = "影王变身",
     buffDescribe = "暴击+392，全防御+1536",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5481,6 +5766,7 @@ getRow(146)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 103,
     buffParam2 = 0,
@@ -5497,14 +5783,15 @@ getRow(146)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(147)->
     #buffCfg {
     buffId = 147,
     buffName = "影王变身",
     buffDescribe = "暴击+392，全防御+1536",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5519,6 +5806,7 @@ getRow(147)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 103,
     buffParam2 = 0,
@@ -5535,14 +5823,15 @@ getRow(147)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(148)->
     #buffCfg {
     buffId = 148,
     buffName = "传奇击中提高攻速10%",
     buffDescribe = "提高攻速10%，持续10秒",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5557,6 +5846,7 @@ getRow(148)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5573,14 +5863,15 @@ getRow(148)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(149)->
     #buffCfg {
     buffId = 149,
     buffName = "脱离切磋无敌",
     buffDescribe = "脱离切磋无敌",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 0,
@@ -5595,6 +5886,7 @@ getRow(149)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 1,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5610,14 +5902,15 @@ getRow(149)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(150)->
     #buffCfg {
     buffId = 150,
     buffName = "传奇持续物理伤害",
     buffDescribe = "传奇持续物理伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -5632,6 +5925,7 @@ getRow(150)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5648,7 +5942,8 @@ getRow(150)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(151)->
     #buffCfg {
@@ -5670,6 +5965,7 @@ getRow(151)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5686,14 +5982,15 @@ getRow(151)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(152)->
     #buffCfg {
     buffId = 152,
     buffName = "影武免控1",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5708,6 +6005,7 @@ getRow(152)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5723,14 +6021,15 @@ getRow(152)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(153)->
     #buffCfg {
     buffId = 153,
     buffName = "影武免控2",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5745,6 +6044,7 @@ getRow(153)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 21,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5760,14 +6060,15 @@ getRow(153)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(154)->
     #buffCfg {
     buffId = 154,
     buffName = "生存意志回血",
     buffDescribe = "生命恢复+3%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -5782,6 +6083,7 @@ getRow(154)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5798,14 +6100,15 @@ getRow(154)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(155)->
     #buffCfg {
     buffId = 155,
     buffName = "生存意志抗性",
     buffDescribe = "抗性*+75%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -5820,6 +6123,7 @@ getRow(155)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5836,14 +6140,15 @@ getRow(155)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(156)->
     #buffCfg {
     buffId = 156,
     buffName = "传奇击中提高暴击10%",
     buffDescribe = "提高暴击10%，持续10秒",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5858,6 +6163,7 @@ getRow(156)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5874,14 +6180,15 @@ getRow(156)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(157)->
     #buffCfg {
     buffId = 157,
     buffName = "传奇击中提高攻速15%",
     buffDescribe = "提高攻速15%，持续10秒",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5896,6 +6203,7 @@ getRow(157)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5912,14 +6220,15 @@ getRow(157)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(158)->
     #buffCfg {
     buffId = 158,
     buffName = "传奇击中提高暴击15%",
     buffDescribe = "提高暴击15%，持续10秒",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5934,6 +6243,7 @@ getRow(158)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5950,14 +6260,15 @@ getRow(158)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(159)->
     #buffCfg {
     buffId = 159,
     buffName = "被动招架10%",
     buffDescribe = "被动招架10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -5972,6 +6283,7 @@ getRow(159)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -5988,14 +6300,15 @@ getRow(159)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(160)->
     #buffCfg {
     buffId = 160,
     buffName = "被动格挡30%",
     buffDescribe = "被动格挡30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -6010,6 +6323,7 @@ getRow(160)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6026,14 +6340,15 @@ getRow(160)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(161)->
     #buffCfg {
     buffId = 161,
     buffName = "血腥爪击",
     buffDescribe = "受到治疗-10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 86,
@@ -6048,6 +6363,7 @@ getRow(161)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6064,14 +6380,15 @@ getRow(161)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(162)->
     #buffCfg {
     buffId = 162,
     buffName = "生命之种",
     buffDescribe = "生命+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 72,
@@ -6086,6 +6403,7 @@ getRow(162)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6102,14 +6420,15 @@ getRow(162)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(163)->
     #buffCfg {
     buffId = 163,
     buffName = "蛮力猛击",
     buffDescribe = "全抗性-3%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 81,
@@ -6124,6 +6443,7 @@ getRow(163)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6140,14 +6460,15 @@ getRow(163)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(164)->
     #buffCfg {
     buffId = 164,
     buffName = "洞悉弱点",
     buffDescribe = "暴击等级+50",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 41,
@@ -6162,6 +6483,7 @@ getRow(164)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6178,14 +6500,15 @@ getRow(164)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(165)->
     #buffCfg {
     buffId = 165,
     buffName = "迅疾打击",
     buffDescribe = "攻速+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 28,
@@ -6200,6 +6523,7 @@ getRow(165)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6216,14 +6540,15 @@ getRow(165)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(166)->
     #buffCfg {
     buffId = 166,
     buffName = "暴击施法",
     buffDescribe = "暴击等级+50",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 66,
@@ -6238,6 +6563,7 @@ getRow(166)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6254,14 +6580,15 @@ getRow(166)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(167)->
     #buffCfg {
     buffId = 167,
     buffName = "虚空调和",
     buffDescribe = "冷却+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 95,
@@ -6276,6 +6603,7 @@ getRow(167)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6292,14 +6620,15 @@ getRow(167)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(168)->
     #buffCfg {
     buffId = 168,
     buffName = "自然之力",
     buffDescribe = "物攻，法攻，闪避+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 57,
@@ -6314,6 +6643,7 @@ getRow(168)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6330,14 +6660,15 @@ getRow(168)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(169)->
     #buffCfg {
     buffId = 169,
     buffName = "原始坚韧",
     buffDescribe = "生命+30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -6352,6 +6683,7 @@ getRow(169)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6368,14 +6700,15 @@ getRow(169)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(170)->
     #buffCfg {
     buffId = 170,
     buffName = "野蛮防御",
     buffDescribe = "闪避招架+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -6390,6 +6723,7 @@ getRow(170)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6406,14 +6740,15 @@ getRow(170)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(171)->
     #buffCfg {
     buffId = 171,
     buffName = "狂乱",
     buffDescribe = "攻速+15%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -6428,6 +6763,7 @@ getRow(171)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6444,14 +6780,15 @@ getRow(171)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(172)->
     #buffCfg {
     buffId = 172,
     buffName = "锋利兽爪",
     buffDescribe = "暴击等级+150",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -6466,6 +6803,7 @@ getRow(172)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6482,7 +6820,8 @@ getRow(172)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(173)->
     #buffCfg {
@@ -6504,6 +6843,7 @@ getRow(173)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6520,14 +6860,15 @@ getRow(173)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(174)->
     #buffCfg {
     buffId = 174,
     buffName = "双人骑宠移速",
     buffDescribe = "移动速度+30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -6542,6 +6883,7 @@ getRow(174)->
     buffDuration = [300000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6558,14 +6900,15 @@ getRow(174)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(175)->
     #buffCfg {
     buffId = 175,
     buffName = "生存本能",
     buffDescribe = "全抗性+50%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 0,
@@ -6580,6 +6923,7 @@ getRow(175)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6596,14 +6940,15 @@ getRow(175)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(176)->
     #buffCfg {
     buffId = 176,
     buffName = "战争精英",
     buffDescribe = "伤害和受到治疗+3%，受到伤害-1.5%。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 49,
@@ -6618,6 +6963,7 @@ getRow(176)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6634,14 +6980,15 @@ getRow(176)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(177)->
     #buffCfg {
     buffId = 177,
     buffName = "毁灭打击",
     buffDescribe = "伤害-3%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 19,
@@ -6656,6 +7003,7 @@ getRow(177)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6672,14 +7020,15 @@ getRow(177)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(178)->
     #buffCfg {
     buffId = 178,
     buffName = "野性狂怒",
     buffDescribe = "生命+5%，暴击等级+50",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 50,
@@ -6694,6 +7043,7 @@ getRow(178)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6710,14 +7060,15 @@ getRow(178)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(179)->
     #buffCfg {
     buffId = 179,
     buffName = "秘能恢复",
     buffDescribe = "秘法恢复+3",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -6732,6 +7083,7 @@ getRow(179)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6748,14 +7100,15 @@ getRow(179)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(180)->
     #buffCfg {
     buffId = 180,
     buffName = "女神禁闭室玩法隐藏buff",
     buffDescribe = "物法攻+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -6770,6 +7123,7 @@ getRow(180)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6786,14 +7140,15 @@ getRow(180)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(181)->
     #buffCfg {
     buffId = 181,
     buffName = "血腥爪击Ii",
     buffDescribe = "受到治疗-10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 86,
@@ -6808,6 +7163,7 @@ getRow(181)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6824,14 +7180,15 @@ getRow(181)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(182)->
     #buffCfg {
     buffId = 182,
     buffName = "生命之种",
     buffDescribe = "生命+4%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 72,
@@ -6846,6 +7203,7 @@ getRow(182)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6862,14 +7220,15 @@ getRow(182)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(183)->
     #buffCfg {
     buffId = 183,
     buffName = "蛮力猛击",
     buffDescribe = "全抗性-3%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 81,
@@ -6884,6 +7243,7 @@ getRow(183)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6900,14 +7260,15 @@ getRow(183)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(184)->
     #buffCfg {
     buffId = 184,
     buffName = "洞悉弱点",
     buffDescribe = "暴击等级+50",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 41,
@@ -6922,6 +7283,7 @@ getRow(184)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6938,14 +7300,15 @@ getRow(184)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(185)->
     #buffCfg {
     buffId = 185,
     buffName = "迅疾打击",
     buffDescribe = "攻速+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 28,
@@ -6960,6 +7323,7 @@ getRow(185)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -6976,14 +7340,15 @@ getRow(185)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(186)->
     #buffCfg {
     buffId = 186,
     buffName = "暴击施法",
     buffDescribe = "暴击等级+40",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 66,
@@ -6998,6 +7363,7 @@ getRow(186)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7014,14 +7380,15 @@ getRow(186)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(187)->
     #buffCfg {
     buffId = 187,
     buffName = "虚空调和",
     buffDescribe = "冷却+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 95,
@@ -7036,6 +7403,7 @@ getRow(187)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7052,14 +7420,15 @@ getRow(187)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(188)->
     #buffCfg {
     buffId = 188,
     buffName = "自然之力",
     buffDescribe = "物攻，法攻，闪避+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 57,
@@ -7074,6 +7443,7 @@ getRow(188)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7090,14 +7460,15 @@ getRow(188)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(189)->
     #buffCfg {
     buffId = 189,
     buffName = "战争精英",
     buffDescribe = "伤害和受到治疗+2%，受到伤害-1.5%。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 49,
@@ -7112,6 +7483,7 @@ getRow(189)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7128,14 +7500,15 @@ getRow(189)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(190)->
     #buffCfg {
     buffId = 190,
     buffName = "毁灭打击",
     buffDescribe = "伤害吸收2%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 19,
@@ -7150,6 +7523,7 @@ getRow(190)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7166,14 +7540,15 @@ getRow(190)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(191)->
     #buffCfg {
     buffId = 191,
     buffName = "血腥爪击I",
     buffDescribe = "受到治疗-10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 86,
@@ -7188,6 +7563,7 @@ getRow(191)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7204,14 +7580,15 @@ getRow(191)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(192)->
     #buffCfg {
     buffId = 192,
     buffName = "生命之种",
     buffDescribe = "生命+3%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 72,
@@ -7226,6 +7603,7 @@ getRow(192)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7242,14 +7620,15 @@ getRow(192)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(193)->
     #buffCfg {
     buffId = 193,
     buffName = "蛮力猛击",
     buffDescribe = "全抗性-3%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 81,
@@ -7264,6 +7643,7 @@ getRow(193)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7280,14 +7660,15 @@ getRow(193)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(194)->
     #buffCfg {
     buffId = 194,
     buffName = "洞悉弱点",
     buffDescribe = "暴击等级+30",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 41,
@@ -7302,6 +7683,7 @@ getRow(194)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7318,14 +7700,15 @@ getRow(194)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(195)->
     #buffCfg {
     buffId = 195,
     buffName = "迅疾打击",
     buffDescribe = "攻速+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 28,
@@ -7340,6 +7723,7 @@ getRow(195)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7356,14 +7740,15 @@ getRow(195)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(196)->
     #buffCfg {
     buffId = 196,
     buffName = "暴击施法",
     buffDescribe = "暴击等级+30",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 66,
@@ -7378,6 +7763,7 @@ getRow(196)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7394,14 +7780,15 @@ getRow(196)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(197)->
     #buffCfg {
     buffId = 197,
     buffName = "虚空调和",
     buffDescribe = "冷却+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 95,
@@ -7416,6 +7803,7 @@ getRow(197)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7432,14 +7820,15 @@ getRow(197)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(198)->
     #buffCfg {
     buffId = 198,
     buffName = "自然之力",
     buffDescribe = "物攻，法攻，闪避+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 57,
@@ -7454,6 +7843,7 @@ getRow(198)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7470,14 +7860,15 @@ getRow(198)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(199)->
     #buffCfg {
     buffId = 199,
     buffName = "战争精英",
     buffDescribe = "伤害和受到治疗+3%，受到伤害-1.5%。",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 49,
@@ -7492,6 +7883,7 @@ getRow(199)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7508,14 +7900,15 @@ getRow(199)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(200)->
     #buffCfg {
     buffId = 200,
     buffName = "毁灭打击",
     buffDescribe = "伤害-3%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 19,
@@ -7530,6 +7923,7 @@ getRow(200)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7546,14 +7940,15 @@ getRow(200)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(201)->
     #buffCfg {
     buffId = 201,
     buffName = "变身无敌2秒",
     buffDescribe = "变身无敌2秒",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 0,
@@ -7568,6 +7963,7 @@ getRow(201)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 1,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7583,7 +7979,8 @@ getRow(201)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(202)->
     #buffCfg {
@@ -7605,6 +8002,7 @@ getRow(202)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 16,
     buffParam1 = 10,
     buffParam2 = 18,
@@ -7620,14 +8018,15 @@ getRow(202)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(203)->
     #buffCfg {
     buffId = 203,
     buffName = "盾牌大师1%格挡率提高永恒之光1%伤害",
     buffDescribe = "盾牌大师1%格挡率提高永恒之光1%伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -7642,6 +8041,7 @@ getRow(203)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 10,
     buffParam1 = 57,
     buffParam2 = 66,
@@ -7657,7 +8057,8 @@ getRow(203)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(204)->
     #buffCfg {
@@ -7679,6 +8080,7 @@ getRow(204)->
     buffDuration = [1500,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7695,7 +8097,8 @@ getRow(204)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(205)->
     #buffCfg {
@@ -7716,6 +8119,7 @@ getRow(205)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7732,7 +8136,8 @@ getRow(205)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(206)->
     #buffCfg {
@@ -7753,6 +8158,7 @@ getRow(206)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7769,7 +8175,8 @@ getRow(206)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(207)->
     #buffCfg {
@@ -7790,6 +8197,7 @@ getRow(207)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7806,7 +8214,8 @@ getRow(207)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(208)->
     #buffCfg {
@@ -7828,6 +8237,7 @@ getRow(208)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7844,7 +8254,8 @@ getRow(208)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(209)->
     #buffCfg {
@@ -7866,6 +8277,7 @@ getRow(209)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7882,7 +8294,8 @@ getRow(209)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(210)->
     #buffCfg {
@@ -7904,6 +8317,7 @@ getRow(210)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7920,7 +8334,8 @@ getRow(210)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(211)->
     #buffCfg {
@@ -7942,6 +8357,7 @@ getRow(211)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7958,7 +8374,8 @@ getRow(211)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(212)->
     #buffCfg {
@@ -7980,6 +8397,7 @@ getRow(212)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -7996,7 +8414,8 @@ getRow(212)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(213)->
     #buffCfg {
@@ -8018,6 +8437,7 @@ getRow(213)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8034,7 +8454,8 @@ getRow(213)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(214)->
     #buffCfg {
@@ -8056,6 +8477,7 @@ getRow(214)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8072,7 +8494,8 @@ getRow(214)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(215)->
     #buffCfg {
@@ -8094,6 +8517,7 @@ getRow(215)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8110,7 +8534,8 @@ getRow(215)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(216)->
     #buffCfg {
@@ -8132,6 +8557,7 @@ getRow(216)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8148,14 +8574,15 @@ getRow(216)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(217)->
     #buffCfg {
     buffId = 217,
     buffName = "战全服购买buf攻击+30%",
     buffDescribe = "伤害+30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 141,
@@ -8170,6 +8597,7 @@ getRow(217)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8186,7 +8614,8 @@ getRow(217)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(218)->
     #buffCfg {
@@ -8208,6 +8637,7 @@ getRow(218)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8223,14 +8653,15 @@ getRow(218)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(219)->
     #buffCfg {
     buffId = 219,
     buffName = "战全服购买buf生命+100%",
     buffDescribe = "生命+100%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 142,
@@ -8245,6 +8676,7 @@ getRow(219)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8261,14 +8693,15 @@ getRow(219)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(220)->
     #buffCfg {
     buffId = 220,
     buffName = "战全服购买buf移动+100%",
     buffDescribe = "移动速度+100%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 143,
@@ -8283,6 +8716,7 @@ getRow(220)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8299,14 +8733,15 @@ getRow(220)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(221)->
     #buffCfg {
     buffId = 221,
     buffName = "战全服死亡复活无敌",
     buffDescribe = "脱离切磋无敌",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 21,
@@ -8321,6 +8756,7 @@ getRow(221)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 1,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8336,14 +8772,15 @@ getRow(221)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(222)->
     #buffCfg {
     buffId = 222,
     buffName = "永久定身",
     buffDescribe = "永久定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -8358,6 +8795,7 @@ getRow(222)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 24,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8373,14 +8811,15 @@ getRow(222)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(223)->
     #buffCfg {
     buffId = 223,
     buffName = "影袭持续伤害",
     buffDescribe = "持续武器伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 32,
@@ -8395,6 +8834,7 @@ getRow(223)->
     buffDuration = [10000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8411,14 +8851,15 @@ getRow(223)->
     damFactor = 90,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(224)->
     #buffCfg {
     buffId = 224,
     buffName = "致命武力",
     buffDescribe = "主属性+2%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -8433,6 +8874,7 @@ getRow(224)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8449,14 +8891,15 @@ getRow(224)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(225)->
     #buffCfg {
     buffId = 225,
     buffName = "绝对防御",
     buffDescribe = "防御+2%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -8471,6 +8914,7 @@ getRow(225)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8487,14 +8931,15 @@ getRow(225)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(226)->
     #buffCfg {
     buffId = 226,
     buffName = "背水一战",
     buffDescribe = "伤害抗性+10%，移动速度+2",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 61,
@@ -8509,6 +8954,7 @@ getRow(226)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8525,14 +8971,15 @@ getRow(226)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(227)->
     #buffCfg {
     buffId = 227,
     buffName = "战全服购买buf攻击+15%",
     buffDescribe = "伤害+15%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 141,
@@ -8547,6 +8994,7 @@ getRow(227)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8563,14 +9011,15 @@ getRow(227)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(228)->
     #buffCfg {
     buffId = 228,
     buffName = "战全服购买buf生命+30%",
     buffDescribe = "生命+30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 142,
@@ -8585,6 +9034,7 @@ getRow(228)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8601,7 +9051,8 @@ getRow(228)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(229)->
     #buffCfg {
@@ -8623,6 +9074,7 @@ getRow(229)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8639,7 +9091,8 @@ getRow(229)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(230)->
     #buffCfg {
@@ -8661,6 +9114,7 @@ getRow(230)->
     buffDuration = [10000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8677,7 +9131,8 @@ getRow(230)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(231)->
     #buffCfg {
@@ -8699,6 +9154,7 @@ getRow(231)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8715,7 +9171,8 @@ getRow(231)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(233)->
     #buffCfg {
@@ -8737,6 +9194,7 @@ getRow(233)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8753,14 +9211,15 @@ getRow(233)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(234)->
     #buffCfg {
     buffId = 234,
     buffName = "护送buf攻击+100%",
     buffDescribe = "伤害+30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 103,
@@ -8775,6 +9234,7 @@ getRow(234)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8791,7 +9251,8 @@ getRow(234)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(235)->
     #buffCfg {
@@ -8813,6 +9274,7 @@ getRow(235)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8828,14 +9290,15 @@ getRow(235)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(236)->
     #buffCfg {
     buffId = 236,
     buffName = "护送buf生命+100%",
     buffDescribe = "生命+100%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 106,
@@ -8850,6 +9313,7 @@ getRow(236)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8866,14 +9330,15 @@ getRow(236)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(237)->
     #buffCfg {
     buffId = 237,
     buffName = "护送buf移动+100%",
     buffDescribe = "移动速度+100%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 78,
@@ -8888,6 +9353,7 @@ getRow(237)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8904,14 +9370,15 @@ getRow(237)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(238)->
     #buffCfg {
     buffId = 238,
     buffName = "劫掠buf攻击+15%",
     buffDescribe = "伤害+15%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 101,
@@ -8926,6 +9393,7 @@ getRow(238)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8942,14 +9410,15 @@ getRow(238)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(239)->
     #buffCfg {
     buffId = 239,
     buffName = "劫掠buf生命+30%",
     buffDescribe = "生命+30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 104,
@@ -8964,6 +9433,7 @@ getRow(239)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -8980,7 +9450,8 @@ getRow(239)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(240)->
     #buffCfg {
@@ -9002,6 +9473,7 @@ getRow(240)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 1,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9017,14 +9489,15 @@ getRow(240)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(241)->
     #buffCfg {
     buffId = 241,
     buffName = "护送buf移动-50%",
     buffDescribe = "移动速度-50%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 27,
@@ -9039,6 +9512,7 @@ getRow(241)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9055,14 +9529,15 @@ getRow(241)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(242)->
     #buffCfg {
     buffId = 242,
     buffName = "毒池伤害",
     buffDescribe = "持续暗影伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -9077,6 +9552,7 @@ getRow(242)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9094,14 +9570,15 @@ getRow(242)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(243)->
     #buffCfg {
     buffId = 243,
     buffName = "BOSS战需求的红名",
     buffDescribe = "BOSS战红名",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -9116,6 +9593,7 @@ getRow(243)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 11,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9131,7 +9609,8 @@ getRow(243)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(244)->
     #buffCfg {
@@ -9153,6 +9632,7 @@ getRow(244)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 5,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9168,7 +9648,8 @@ getRow(244)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(245)->
     #buffCfg {
@@ -9190,6 +9671,7 @@ getRow(245)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9206,7 +9688,8 @@ getRow(245)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(246)->
     #buffCfg {
@@ -9228,6 +9711,7 @@ getRow(246)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9243,7 +9727,8 @@ getRow(246)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(247)->
     #buffCfg {
@@ -9265,6 +9750,7 @@ getRow(247)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9281,7 +9767,8 @@ getRow(247)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(248)->
     #buffCfg {
@@ -9303,6 +9790,7 @@ getRow(248)->
     buffDuration = [3000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9319,14 +9807,15 @@ getRow(248)->
     damFactor = 70,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(249)->
     #buffCfg {
     buffId = 249,
     buffName = "战全服购买buf生命+5000%",
     buffDescribe = "生命+5000%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 142,
@@ -9341,6 +9830,7 @@ getRow(249)->
     buffDuration = [1200000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9357,14 +9847,15 @@ getRow(249)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(250)->
     #buffCfg {
     buffId = 250,
     buffName = "回血（和249配套使用）",
     buffDescribe = "回血",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -9379,6 +9870,7 @@ getRow(250)->
     buffDuration = [3000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 13,
     buffParam1 = 0,
     buffParam2 = 0.3,
@@ -9394,7 +9886,8 @@ getRow(250)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(251)->
     #buffCfg {
@@ -9416,6 +9909,7 @@ getRow(251)->
     buffDuration = [300000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9432,7 +9926,8 @@ getRow(251)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(252)->
     #buffCfg {
@@ -9454,6 +9949,7 @@ getRow(252)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9469,7 +9965,8 @@ getRow(252)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(253)->
     #buffCfg {
@@ -9491,6 +9988,7 @@ getRow(253)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9506,14 +10004,15 @@ getRow(253)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(254)->
     #buffCfg {
     buffId = 254,
     buffName = "月饼属性增加",
     buffDescribe = "力量，敏捷，智力+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 135,
@@ -9528,6 +10027,7 @@ getRow(254)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9544,14 +10044,15 @@ getRow(254)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(255)->
     #buffCfg {
     buffId = 255,
     buffName = "月饼伤害增加",
     buffDescribe = "伤害+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 82,
@@ -9566,6 +10067,7 @@ getRow(255)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9582,14 +10084,15 @@ getRow(255)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(256)->
     #buffCfg {
     buffId = 256,
     buffName = "月饼血量增加",
     buffDescribe = "生命+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 72,
@@ -9604,6 +10107,7 @@ getRow(256)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9620,14 +10124,15 @@ getRow(256)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(257)->
     #buffCfg {
     buffId = 257,
     buffName = "月饼受到伤害减少",
     buffDescribe = "受到伤害-10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 123,
@@ -9642,6 +10147,7 @@ getRow(257)->
     buffDuration = [900000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9658,14 +10164,15 @@ getRow(257)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(258)->
     #buffCfg {
     buffId = 258,
     buffName = "奥术攻击+15%",
     buffDescribe = "伤害+15%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 103,
@@ -9680,6 +10187,7 @@ getRow(258)->
     buffDuration = [1800000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9696,14 +10204,15 @@ getRow(258)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(259)->
     #buffCfg {
     buffId = 259,
     buffName = "奥术攻击+30%",
     buffDescribe = "伤害+30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 103,
@@ -9718,6 +10227,7 @@ getRow(259)->
     buffDuration = [1800000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9734,14 +10244,15 @@ getRow(259)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(260)->
     #buffCfg {
     buffId = 260,
     buffName = "奥术生命+15%",
     buffDescribe = "生命+15%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 104,
@@ -9756,6 +10267,7 @@ getRow(260)->
     buffDuration = [1800000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9772,14 +10284,15 @@ getRow(260)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(261)->
     #buffCfg {
     buffId = 261,
     buffName = "奥术生命+30%",
     buffDescribe = "生命+30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 104,
@@ -9794,6 +10307,7 @@ getRow(261)->
     buffDuration = [1800000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9810,7 +10324,8 @@ getRow(261)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(262)->
     #buffCfg {
@@ -9832,6 +10347,7 @@ getRow(262)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9848,7 +10364,8 @@ getRow(262)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(263)->
     #buffCfg {
@@ -9870,6 +10387,7 @@ getRow(263)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9886,14 +10404,15 @@ getRow(263)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(264)->
     #buffCfg {
     buffId = 264,
     buffName = "全军狂化",
     buffDescribe = "伤害+10%，持续4小时",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 158,
@@ -9908,6 +10427,7 @@ getRow(264)->
     buffDuration = [14400000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9924,14 +10444,15 @@ getRow(264)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(265)->
     #buffCfg {
     buffId = 265,
     buffName = "全军戒备",
     buffDescribe = "受到伤害减少10%，持续4小时",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 156,
@@ -9946,6 +10467,7 @@ getRow(265)->
     buffDuration = [14400000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -9962,14 +10484,15 @@ getRow(265)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(266)->
     #buffCfg {
     buffId = 266,
     buffName = "全军振奋",
     buffDescribe = "生命上限+10%，持续4小时",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 157,
@@ -9984,6 +10507,7 @@ getRow(266)->
     buffDuration = [14400000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10000,14 +10524,15 @@ getRow(266)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(290)->
     #buffCfg {
     buffId = 290,
     buffName = "抓取",
     buffDescribe = "击退抓取不受控制",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -10022,6 +10547,7 @@ getRow(290)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 24,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10037,7 +10563,8 @@ getRow(290)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(291)->
     #buffCfg {
@@ -10059,6 +10586,7 @@ getRow(291)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 6,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10074,7 +10602,8 @@ getRow(291)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(292)->
     #buffCfg {
@@ -10096,6 +10625,7 @@ getRow(292)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10111,14 +10641,15 @@ getRow(292)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(293)->
     #buffCfg {
     buffId = 293,
     buffName = "金龙形变",
     buffDescribe = "形变3秒",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 11,
@@ -10133,6 +10664,7 @@ getRow(293)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 4,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10148,7 +10680,8 @@ getRow(293)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(294)->
     #buffCfg {
@@ -10170,6 +10703,7 @@ getRow(294)->
     buffDuration = [1500,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10185,7 +10719,8 @@ getRow(294)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(295)->
     #buffCfg {
@@ -10207,6 +10742,7 @@ getRow(295)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10222,7 +10758,8 @@ getRow(295)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(296)->
     #buffCfg {
@@ -10244,6 +10781,7 @@ getRow(296)->
     buffDuration = [1500,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10259,14 +10797,15 @@ getRow(296)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(297)->
     #buffCfg {
     buffId = 297,
     buffName = "抗性降低",
     buffDescribe = "远行兽伤害抗性-30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 74,
@@ -10281,6 +10820,7 @@ getRow(297)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10297,14 +10837,15 @@ getRow(297)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(300)->
     #buffCfg {
     buffId = 300,
     buffName = "宠物生命上限白",
     buffDescribe = "宠物自身生命上限+500",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10319,6 +10860,7 @@ getRow(300)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10335,14 +10877,15 @@ getRow(300)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(301)->
     #buffCfg {
     buffId = 301,
     buffName = "宠物生命上限绿",
     buffDescribe = "宠物自身生命上限+3000",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10357,6 +10900,7 @@ getRow(301)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10373,14 +10917,15 @@ getRow(301)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(302)->
     #buffCfg {
     buffId = 302,
     buffName = "宠物生命上限蓝",
     buffDescribe = "宠物自身生命上限+6000",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10395,6 +10940,7 @@ getRow(302)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10411,14 +10957,15 @@ getRow(302)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(303)->
     #buffCfg {
     buffId = 303,
     buffName = "宠物生命上限紫",
     buffDescribe = "宠物自身生命上限+12000",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10433,6 +10980,7 @@ getRow(303)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10449,14 +10997,15 @@ getRow(303)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(304)->
     #buffCfg {
     buffId = 304,
     buffName = "宠物生命上限橙",
     buffDescribe = "宠物自身生命上限+24000",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10471,6 +11020,7 @@ getRow(304)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10487,14 +11037,15 @@ getRow(304)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(305)->
     #buffCfg {
     buffId = 305,
     buffName = "宠物物理防御白",
     buffDescribe = "宠物自身物理防御+35",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10509,6 +11060,7 @@ getRow(305)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10525,14 +11077,15 @@ getRow(305)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(306)->
     #buffCfg {
     buffId = 306,
     buffName = "宠物物理防御绿",
     buffDescribe = "宠物自身物理防御+210",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10547,6 +11100,7 @@ getRow(306)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10563,14 +11117,15 @@ getRow(306)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(307)->
     #buffCfg {
     buffId = 307,
     buffName = "宠物物理防御蓝",
     buffDescribe = "宠物自身物理防御+420",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10585,6 +11140,7 @@ getRow(307)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10601,14 +11157,15 @@ getRow(307)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(308)->
     #buffCfg {
     buffId = 308,
     buffName = "宠物物理防御紫",
     buffDescribe = "宠物自身物理防御+840",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10623,6 +11180,7 @@ getRow(308)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10639,14 +11197,15 @@ getRow(308)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(309)->
     #buffCfg {
     buffId = 309,
     buffName = "宠物物理防御橙",
     buffDescribe = "宠物自身物理防御+1680",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10661,6 +11220,7 @@ getRow(309)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10677,14 +11237,15 @@ getRow(309)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(310)->
     #buffCfg {
     buffId = 310,
     buffName = "宠物魔法防御白",
     buffDescribe = "宠物自身魔法防御+35",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10699,6 +11260,7 @@ getRow(310)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10715,14 +11277,15 @@ getRow(310)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(311)->
     #buffCfg {
     buffId = 311,
     buffName = "宠物魔法防御绿",
     buffDescribe = "宠物自身魔法防御+210",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10737,6 +11300,7 @@ getRow(311)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10753,14 +11317,15 @@ getRow(311)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(312)->
     #buffCfg {
     buffId = 312,
     buffName = "宠物魔法防御蓝",
     buffDescribe = "宠物自身魔法防御+420",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10775,6 +11340,7 @@ getRow(312)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10791,14 +11357,15 @@ getRow(312)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(313)->
     #buffCfg {
     buffId = 313,
     buffName = "宠物魔法防御紫",
     buffDescribe = "宠物自身魔法防御+840",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10813,6 +11380,7 @@ getRow(313)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10829,14 +11397,15 @@ getRow(313)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(314)->
     #buffCfg {
     buffId = 314,
     buffName = "宠物魔法防御橙",
     buffDescribe = "宠物自身魔法防御+1680",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10851,6 +11420,7 @@ getRow(314)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10867,14 +11437,15 @@ getRow(314)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(315)->
     #buffCfg {
     buffId = 315,
     buffName = "宠物物理伤害白",
     buffDescribe = "宠物自身物理伤害+1%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10889,6 +11460,7 @@ getRow(315)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10905,14 +11477,15 @@ getRow(315)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(316)->
     #buffCfg {
     buffId = 316,
     buffName = "宠物物理伤害绿",
     buffDescribe = "宠物自身物理伤害+2%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10927,6 +11500,7 @@ getRow(316)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10943,14 +11517,15 @@ getRow(316)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(317)->
     #buffCfg {
     buffId = 317,
     buffName = "宠物物理伤害蓝",
     buffDescribe = "宠物自身物理伤害+3%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -10965,6 +11540,7 @@ getRow(317)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -10981,14 +11557,15 @@ getRow(317)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(318)->
     #buffCfg {
     buffId = 318,
     buffName = "宠物物理伤害紫",
     buffDescribe = "宠物自身物理伤害+6%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11003,6 +11580,7 @@ getRow(318)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11019,14 +11597,15 @@ getRow(318)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(319)->
     #buffCfg {
     buffId = 319,
     buffName = "宠物物理伤害橙",
     buffDescribe = "宠物自身物理伤害+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11041,6 +11620,7 @@ getRow(319)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11057,14 +11637,15 @@ getRow(319)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(320)->
     #buffCfg {
     buffId = 320,
     buffName = "宠物物理伤害白",
     buffDescribe = "宠物自身物理伤害+25",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11079,6 +11660,7 @@ getRow(320)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11095,14 +11677,15 @@ getRow(320)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(321)->
     #buffCfg {
     buffId = 321,
     buffName = "宠物物理伤害绿",
     buffDescribe = "宠物自身物理伤害+150",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11117,6 +11700,7 @@ getRow(321)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11133,14 +11717,15 @@ getRow(321)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(322)->
     #buffCfg {
     buffId = 322,
     buffName = "宠物物理伤害蓝",
     buffDescribe = "宠物自身物理伤害+300",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11155,6 +11740,7 @@ getRow(322)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11171,14 +11757,15 @@ getRow(322)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(323)->
     #buffCfg {
     buffId = 323,
     buffName = "宠物物理伤害紫",
     buffDescribe = "宠物自身物理伤害+600",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11193,6 +11780,7 @@ getRow(323)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11209,14 +11797,15 @@ getRow(323)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(324)->
     #buffCfg {
     buffId = 324,
     buffName = "宠物物理伤害橙",
     buffDescribe = "宠物自身物理伤害+1200",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11231,6 +11820,7 @@ getRow(324)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11247,14 +11837,15 @@ getRow(324)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(325)->
     #buffCfg {
     buffId = 325,
     buffName = "宠物法术伤害白",
     buffDescribe = "宠物自身法术伤害+1%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11269,6 +11860,7 @@ getRow(325)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11285,14 +11877,15 @@ getRow(325)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(326)->
     #buffCfg {
     buffId = 326,
     buffName = "宠物法术伤害绿",
     buffDescribe = "宠物自身法术伤害+2%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11307,6 +11900,7 @@ getRow(326)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11323,14 +11917,15 @@ getRow(326)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(327)->
     #buffCfg {
     buffId = 327,
     buffName = "宠物法术伤害蓝",
     buffDescribe = "宠物自身法术伤害+3%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11345,6 +11940,7 @@ getRow(327)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11361,14 +11957,15 @@ getRow(327)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(328)->
     #buffCfg {
     buffId = 328,
     buffName = "宠物法术伤害紫",
     buffDescribe = "宠物自身法术伤害+6%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11383,6 +11980,7 @@ getRow(328)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11399,14 +11997,15 @@ getRow(328)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(329)->
     #buffCfg {
     buffId = 329,
     buffName = "宠物法术伤害橙",
     buffDescribe = "宠物自身法术伤害+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11421,6 +12020,7 @@ getRow(329)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11437,14 +12037,15 @@ getRow(329)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(330)->
     #buffCfg {
     buffId = 330,
     buffName = "宠物法术伤害白",
     buffDescribe = "宠物自身法术伤害+25",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11459,6 +12060,7 @@ getRow(330)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11475,14 +12077,15 @@ getRow(330)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(331)->
     #buffCfg {
     buffId = 331,
     buffName = "宠物法术伤害绿",
     buffDescribe = "宠物自身法术伤害+150",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11497,6 +12100,7 @@ getRow(331)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11513,14 +12117,15 @@ getRow(331)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(332)->
     #buffCfg {
     buffId = 332,
     buffName = "宠物法术伤害蓝",
     buffDescribe = "宠物自身法术伤害+300",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11535,6 +12140,7 @@ getRow(332)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11551,14 +12157,15 @@ getRow(332)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(333)->
     #buffCfg {
     buffId = 333,
     buffName = "宠物法术伤害紫",
     buffDescribe = "宠物自身法术伤害+600",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11573,6 +12180,7 @@ getRow(333)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11589,14 +12197,15 @@ getRow(333)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(334)->
     #buffCfg {
     buffId = 334,
     buffName = "宠物法术伤害橙",
     buffDescribe = "宠物自身法术伤害+1200",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11611,6 +12220,7 @@ getRow(334)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11627,14 +12237,15 @@ getRow(334)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(335)->
     #buffCfg {
     buffId = 335,
     buffName = "主人暴伤减免白",
     buffDescribe = "主人暴伤减免+0.02",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11649,6 +12260,7 @@ getRow(335)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11665,14 +12277,15 @@ getRow(335)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(336)->
     #buffCfg {
     buffId = 336,
     buffName = "主人暴伤减免绿",
     buffDescribe = "主人暴伤减免+0.12",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11687,6 +12300,7 @@ getRow(336)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11703,14 +12317,15 @@ getRow(336)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(337)->
     #buffCfg {
     buffId = 337,
     buffName = "主人暴伤减免蓝",
     buffDescribe = "主人暴伤减免+0.22",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11725,6 +12340,7 @@ getRow(337)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11741,14 +12357,15 @@ getRow(337)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(338)->
     #buffCfg {
     buffId = 338,
     buffName = "主人暴伤减免紫",
     buffDescribe = "主人暴伤减免+0.32",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11763,6 +12380,7 @@ getRow(338)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11779,14 +12397,15 @@ getRow(338)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(339)->
     #buffCfg {
     buffId = 339,
     buffName = "主人暴伤减免橙",
     buffDescribe = "主人暴伤减免+0.42",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11801,6 +12420,7 @@ getRow(339)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11817,14 +12437,15 @@ getRow(339)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(340)->
     #buffCfg {
     buffId = 340,
     buffName = "主人冰冻豁免白",
     buffDescribe = "主人冰冻豁免+0.01",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11839,6 +12460,7 @@ getRow(340)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11855,14 +12477,15 @@ getRow(340)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(341)->
     #buffCfg {
     buffId = 341,
     buffName = "主人冰冻豁免绿",
     buffDescribe = "主人冰冻豁免+0.06",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11877,6 +12500,7 @@ getRow(341)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11893,14 +12517,15 @@ getRow(341)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(342)->
     #buffCfg {
     buffId = 342,
     buffName = "主人冰冻豁免蓝",
     buffDescribe = "主人冰冻豁免+0.11",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11915,6 +12540,7 @@ getRow(342)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11931,14 +12557,15 @@ getRow(342)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(343)->
     #buffCfg {
     buffId = 343,
     buffName = "主人冰冻豁免紫",
     buffDescribe = "主人冰冻豁免+0.16",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11953,6 +12580,7 @@ getRow(343)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -11969,14 +12597,15 @@ getRow(343)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(344)->
     #buffCfg {
     buffId = 344,
     buffName = "主人冰冻豁免橙",
     buffDescribe = "主人冰冻豁免+0.21",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -11991,6 +12620,7 @@ getRow(344)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12007,14 +12637,15 @@ getRow(344)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(345)->
     #buffCfg {
     buffId = 345,
     buffName = "主人减速豁免白",
     buffDescribe = "主人减速豁免+0.01",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12029,6 +12660,7 @@ getRow(345)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12045,14 +12677,15 @@ getRow(345)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(346)->
     #buffCfg {
     buffId = 346,
     buffName = "主人减速豁免绿",
     buffDescribe = "主人减速豁免+0.06",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12067,6 +12700,7 @@ getRow(346)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12083,14 +12717,15 @@ getRow(346)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(347)->
     #buffCfg {
     buffId = 347,
     buffName = "主人减速豁免蓝",
     buffDescribe = "主人减速豁免+0.11",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12105,6 +12740,7 @@ getRow(347)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12121,14 +12757,15 @@ getRow(347)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(348)->
     #buffCfg {
     buffId = 348,
     buffName = "主人减速豁免紫",
     buffDescribe = "主人减速豁免+0.16",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12143,6 +12780,7 @@ getRow(348)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12159,14 +12797,15 @@ getRow(348)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(349)->
     #buffCfg {
     buffId = 349,
     buffName = "主人减速豁免橙",
     buffDescribe = "主人减速豁免+0.21",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12181,6 +12820,7 @@ getRow(349)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12197,14 +12837,15 @@ getRow(349)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(350)->
     #buffCfg {
     buffId = 350,
     buffName = "主人眩晕豁免白",
     buffDescribe = "主人眩晕豁免+0.01",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12219,6 +12860,7 @@ getRow(350)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12235,14 +12877,15 @@ getRow(350)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(351)->
     #buffCfg {
     buffId = 351,
     buffName = "主人眩晕豁免绿",
     buffDescribe = "主人眩晕豁免+0.06",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12257,6 +12900,7 @@ getRow(351)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12273,14 +12917,15 @@ getRow(351)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(352)->
     #buffCfg {
     buffId = 352,
     buffName = "主人眩晕豁免蓝",
     buffDescribe = "主人眩晕豁免+0.11",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12295,6 +12940,7 @@ getRow(352)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12311,14 +12957,15 @@ getRow(352)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(353)->
     #buffCfg {
     buffId = 353,
     buffName = "主人眩晕豁免紫",
     buffDescribe = "主人眩晕豁免+0.16",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12333,6 +12980,7 @@ getRow(353)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12349,14 +12997,15 @@ getRow(353)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(354)->
     #buffCfg {
     buffId = 354,
     buffName = "主人眩晕豁免橙",
     buffDescribe = "主人眩晕豁免+0.21",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12371,6 +13020,7 @@ getRow(354)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12387,14 +13037,15 @@ getRow(354)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(355)->
     #buffCfg {
     buffId = 355,
     buffName = "主人韧性白",
     buffDescribe = "主人韧性+1",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12409,6 +13060,7 @@ getRow(355)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12425,14 +13077,15 @@ getRow(355)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(356)->
     #buffCfg {
     buffId = 356,
     buffName = "主人韧性绿",
     buffDescribe = "主人韧性+6",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12447,6 +13100,7 @@ getRow(356)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12463,14 +13117,15 @@ getRow(356)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(357)->
     #buffCfg {
     buffId = 357,
     buffName = "主人韧性蓝",
     buffDescribe = "主人韧性+11",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12485,6 +13140,7 @@ getRow(357)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12501,14 +13157,15 @@ getRow(357)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(358)->
     #buffCfg {
     buffId = 358,
     buffName = "主人韧性紫",
     buffDescribe = "主人韧性+16",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12523,6 +13180,7 @@ getRow(358)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12539,14 +13197,15 @@ getRow(358)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(359)->
     #buffCfg {
     buffId = 359,
     buffName = "主人韧性橙",
     buffDescribe = "主人韧性+21",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -12561,6 +13220,7 @@ getRow(359)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12577,14 +13237,15 @@ getRow(359)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(369)->
     #buffCfg {
     buffId = 369,
     buffName = "攻击+10%",
     buffDescribe = "攻击+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 103,
@@ -12599,6 +13260,7 @@ getRow(369)->
     buffDuration = [600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12615,14 +13277,15 @@ getRow(369)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(370)->
     #buffCfg {
     buffId = 370,
     buffName = "攻击+15%",
     buffDescribe = "攻击+15%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 103,
@@ -12637,6 +13300,7 @@ getRow(370)->
     buffDuration = [600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12653,14 +13317,15 @@ getRow(370)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(371)->
     #buffCfg {
     buffId = 371,
     buffName = "攻击+20%",
     buffDescribe = "攻击+20%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 103,
@@ -12675,6 +13340,7 @@ getRow(371)->
     buffDuration = [600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12691,14 +13357,15 @@ getRow(371)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(372)->
     #buffCfg {
     buffId = 372,
     buffName = "攻击+30%",
     buffDescribe = "攻击+30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 103,
@@ -12713,6 +13380,7 @@ getRow(372)->
     buffDuration = [600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12729,14 +13397,15 @@ getRow(372)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(373)->
     #buffCfg {
     buffId = 373,
     buffName = "攻击+50%",
     buffDescribe = "攻击+50%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 103,
@@ -12751,6 +13420,7 @@ getRow(373)->
     buffDuration = [600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12767,14 +13437,15 @@ getRow(373)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(374)->
     #buffCfg {
     buffId = 374,
     buffName = "生命+10%",
     buffDescribe = "生命+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 104,
@@ -12789,6 +13460,7 @@ getRow(374)->
     buffDuration = [600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12805,14 +13477,15 @@ getRow(374)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(375)->
     #buffCfg {
     buffId = 375,
     buffName = "生命+15%",
     buffDescribe = "生命+15%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 104,
@@ -12827,6 +13500,7 @@ getRow(375)->
     buffDuration = [600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12843,14 +13517,15 @@ getRow(375)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(376)->
     #buffCfg {
     buffId = 376,
     buffName = "生命+20%",
     buffDescribe = "生命+20%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 104,
@@ -12865,6 +13540,7 @@ getRow(376)->
     buffDuration = [600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12881,14 +13557,15 @@ getRow(376)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(377)->
     #buffCfg {
     buffId = 377,
     buffName = "生命+30%",
     buffDescribe = "生命+30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 104,
@@ -12903,6 +13580,7 @@ getRow(377)->
     buffDuration = [600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12919,14 +13597,15 @@ getRow(377)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(378)->
     #buffCfg {
     buffId = 378,
     buffName = "生命+50%",
     buffDescribe = "生命+50%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 104,
@@ -12941,6 +13620,7 @@ getRow(378)->
     buffDuration = [600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12957,14 +13637,15 @@ getRow(378)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(400)->
     #buffCfg {
     buffId = 400,
     buffName = "远行兽攻击+8%",
     buffDescribe = "攻击+8%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 103,
@@ -12979,6 +13660,7 @@ getRow(400)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -12995,14 +13677,174 @@ getRow(400)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(401)->
+    #buffCfg {
+    buffId = 401,
+    buffName = "攻击加成",
+    buffDescribe = "物理和法术攻击力加成",
+    buffSfx = "state/vfx_28_19",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 3,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,136,0.3,0.015},{1,1,136,0.3,0.015}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(402)->
+    #buffCfg {
+    buffId = 402,
+    buffName = "防御加成",
+    buffDescribe = "物理和法术防御力加成",
+    buffSfx = "state/vfx_28_22",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 3,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,138,0.3,0.015},{1,1,139,0.3,0.015}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(403)->
+    #buffCfg {
+    buffId = 403,
+    buffName = "增强暴击",
+    buffDescribe = "暴击等级提升",
+    buffSfx = "state/vfx_28_19",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 24,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{2,0,140,0,102}],
+    buffDeathdel = 0,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(404)->
+    #buffCfg {
+    buffId = 404,
+    buffName = "持续回血",
+    buffDescribe = "5秒内总计恢复自身50%最大生命值。",
+    buffSfx = "state/vfx_28_28",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 159,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [5000,0],
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 13,
+    buffParam1 = 1,
+    buffParam2 = 0.1,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 6,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(451)->
     #buffCfg {
     buffId = 451,
     buffName = "好友攻击加成",
     buffDescribe = "造成的所有伤害+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 50,
@@ -13017,6 +13859,7 @@ getRow(451)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13033,14 +13876,15 @@ getRow(451)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(452)->
     #buffCfg {
     buffId = 452,
     buffName = "家族防御加成",
     buffDescribe = "受到的所有伤害-7%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 148,
@@ -13055,6 +13899,7 @@ getRow(452)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13071,14 +13916,1579 @@ getRow(452)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
+    };
+getRow(1000)->
+    #buffCfg {
+    buffId = 1000,
+    buffName = "BuffEffect 0模板",
+    buffDescribe = "减少攻击属性50%10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,136,-0.5,0},{1,1,137,-0.5,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1001)->
+    #buffCfg {
+    buffId = 1001,
+    buffName = "BuffEffect 0模板",
+    buffDescribe = "每秒掉血10%10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    damageMultiply = [{1,0.1,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1002)->
+    #buffCfg {
+    buffId = 1002,
+    buffName = "BuffEffect 1模板",
+    buffDescribe = "无敌10秒（所有技能伤害）（当前测试结果无效）",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 1,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1003)->
+    #buffCfg {
+    buffId = 1003,
+    buffName = "BuffEffect 2模板",
+    buffDescribe = "昏迷（眩晕）10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 2,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1004)->
+    #buffCfg {
+    buffId = 1004,
+    buffName = "BuffEffect 3模板",
+    buffDescribe = "冰冻（冻结）10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 3,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1005)->
+    #buffCfg {
+    buffId = 1005,
+    buffName = "BuffEffect 4模板",
+    buffDescribe = "形变10秒（当前测试结果无变更的模型，显空）",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 4,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1006)->
+    #buffCfg {
+    buffId = 1006,
+    buffName = "BuffEffect 5模板",
+    buffDescribe = "沉默10秒（不能使用魔法技能）",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 5,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1007)->
+    #buffCfg {
+    buffId = 1007,
+    buffName = "BuffEffect 6模板",
+    buffDescribe = "缴械10秒（不能使用需求武器的技能，skill表WeaponNeed字段）",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 6,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1008)->
+    #buffCfg {
+    buffId = 1008,
+    buffName = "BuffEffect 7模板",
+    buffDescribe = "降低速度50%10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 7,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,-0.5,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1009)->
+    #buffCfg {
+    buffId = 1009,
+    buffName = "BuffEffect 8模板",
+    buffDescribe = "pk保护10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 8,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1010)->
+    #buffCfg {
+    buffId = 1010,
+    buffName = "BuffEffect 9模板",
+    buffDescribe = "临时触发技能BUFF10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 9,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1011)->
+    #buffCfg {
+    buffId = 1011,
+    buffName = "BuffEffect 10模板",
+    buffDescribe = "1%生命提高1%物理攻击",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 10,
+    buffParam1 = 135,
+    buffParam2 = 136,
+    buffParam3 = 1,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1012)->
+    #buffCfg {
+    buffId = 1012,
+    buffName = "BuffEffect 11模板",
+    buffDescribe = "红名惩罚永久（狂怒值造成的红名惩罚机制标记用）",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 11,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1013)->
+    #buffCfg {
+    buffId = 1013,
+    buffName = "BuffEffect 12模板",
+    buffDescribe = "BUFF伤害的10%转化为生命恢复10秒，间隔1秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 12,
+    buffParam1 = 10,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 6,
+    healProperty = 136,
+    criAble = 0,
+    damageMultiply = [{1,1,0.01}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1014)->
+    #buffCfg {
+    buffId = 1014,
+    buffName = "BuffEffect 13模板",
+    buffDescribe = "每秒恢复自身10%最大生命值10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 1000,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 13,
+    buffParam1 = 1,
+    buffParam2 = 0.1,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1015)->
+    #buffCfg {
+    buffId = 1015,
+    buffName = "BuffEffect 15模板",
+    buffDescribe = "虚化10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 15,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1016)->
+    #buffCfg {
+    buffId = 1016,
+    buffName = "BuffEffect 16模板",
+    buffDescribe = "伤害吸收盾10秒，100基础整数值+获得生命值50%",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 16,
+    buffParam1 = 100,
+    buffParam2 = 135,
+    buffParam3 = 0.5,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1017)->
+    #buffCfg {
+    buffId = 1017,
+    buffName = "BuffEffect 17模板",
+    buffDescribe = "觉醒变身10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 17,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1018)->
+    #buffCfg {
+    buffId = 1018,
+    buffName = "BuffEffect 20模板",
+    buffDescribe = "免疫特定效果（昏迷,冻结,形变,沉默,缴械,减速,定身)10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 20,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1019)->
+    #buffCfg {
+    buffId = 1019,
+    buffName = "BuffEffect 21模板",
+    buffDescribe = "免疫位移效果10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 21,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1020)->
+    #buffCfg {
+    buffId = 1020,
+    buffName = "BuffEffect 22模板",
+    buffDescribe = "不受控制10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 22,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1021)->
+    #buffCfg {
+    buffId = 1021,
+    buffName = "BuffEffect 23模板",
+    buffDescribe = "暗影灵气调用。",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 5000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 23,
+    buffParam1 = 432,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1022)->
+    #buffCfg {
+    buffId = 1022,
+    buffName = "BuffEffect 24模板",
+    buffDescribe = "定身10秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 24,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1023)->
+    #buffCfg {
+    buffId = 1023,
+    buffName = "BuffEffect 25模板",
+    buffDescribe = "嘲讽（强制攻击）10秒（不能作用于角色）",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 25,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1024)->
+    #buffCfg {
+    buffId = 1024,
+    buffName = "BuffEffect 26模板",
+    buffDescribe = "自爆",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 26,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1025)->
+    #buffCfg {
+    buffId = 1025,
+    buffName = "BuffEffect 27模板",
+    buffDescribe = "霸体永久，仅防止守护类怪物受到攻击时重置守护怪物的idle动作",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 27,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1026)->
+    #buffCfg {
+    buffId = 1026,
+    buffName = "BuffEffect 28模板",
+    buffDescribe = "冥想永久，仅标记灵力冥想活动用",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 28,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1027)->
+    #buffCfg {
+    buffId = 1027,
+    buffName = "BuffEffect 30模板",
+    buffDescribe = "隐藏10秒，仅在释放女神技能时，挂饰小精灵隐藏表现（女神已废弃）",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 30,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1028)->
+    #buffCfg {
+    buffId = 1028,
+    buffName = "BuffEffect 31模板",
+    buffDescribe = "持续治疗10秒，间隔1秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 31,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1029)->
+    #buffCfg {
+    buffId = 1029,
+    buffName = "BuffEffect 32模板",
+    buffDescribe = "体型变大0.1，10秒，最大10层",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 32,
+    buffParam1 = 0.1,
+    buffParam2 = 10,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1030)->
+    #buffCfg {
+    buffId = 1030,
+    buffName = "BuffEffect 32模板",
+    buffDescribe = "体型变小0.1，10秒，最大10层",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 32,
+    buffParam1 = -0.1,
+    buffParam2 = 10,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1031)->
+    #buffCfg {
+    buffId = 1031,
+    buffName = "BuffEffect 33模板",
+    buffDescribe = "变身怪物永久",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 33,
+    buffParam1 = 1,
+    buffParam2 = 1,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1032)->
+    #buffCfg {
+    buffId = 1032,
+    buffName = "BuffEffect 33模板",
+    buffDescribe = "变身npc永久",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 33,
+    buffParam1 = 2,
+    buffParam2 = 1,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1033)->
+    #buffCfg {
+    buffId = 1033,
+    buffName = "BuffEffect 34模板",
+    buffDescribe = "仅在双人坐骑优先体验时NPC上双人坐骑副驾驶表现永久",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 34,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1034)->
+    #buffCfg {
+    buffId = 1034,
+    buffName = "BuffEffect 35模板",
+    buffDescribe = "安全区保护（不受攻击，不可攻击）永久",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 35,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1035)->
+    #buffCfg {
+    buffId = 1035,
+    buffName = "BuffEffect 36模板（buff列表需要新增类型显示）",
+    buffDescribe = "增益（给友方加，只判断总调用）光环总调用，半径10一天，间隔1秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [86400000,0],
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 36,
+    buffParam1 = 10,
+    buffParam2 = 1014,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1036)->
+    #buffCfg {
+    buffId = 1036,
+    buffName = "BuffEffect 36模板（buff列表需要新增类型显示）",
+    buffDescribe = "减益（给敌方加，只判断总调用）光环总调用，半径10一天，间隔1秒",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [86400000,0],
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 36,
+    buffParam1 = 10,
+    buffParam2 = 1001,
+    buffParam3 = 1008,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1037)->
+    #buffCfg {
+    buffId = 1037,
+    buffName = "BuffEffect 37模板（buff列表需要新增类型显示）",
+    buffDescribe = "物理伤害反弹50%10秒（只反弹实际受到伤害，且反弹伤害不计算目标防御）",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 37,
+    buffParam1 = 1,
+    buffParam2 = 50,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1038)->
+    #buffCfg {
+    buffId = 1038,
+    buffName = "BuffEffect 37模板（buff列表需要新增类型显示）",
+    buffDescribe = "法术伤害反弹50%10秒（只反弹实际受到伤害，且反弹伤害不计算目标防御）",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 37,
+    buffParam1 = 2,
+    buffParam2 = 50,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(1039)->
+    #buffCfg {
+    buffId = 1039,
+    buffName = "BuffEffect 37模板（buff列表需要新增类型显示）",
+    buffDescribe = "物理&法术伤害反弹50%10秒（只反弹实际受到伤害，且反弹伤害不计算目标防御）",
+    buffSfx = "other/vfx_26_106",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 37,
+    buffParam1 = 3,
+    buffParam2 = 50,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3200)->
     #buffCfg {
     buffId = 3200,
     buffName = "裁决者变身1",
     buffDescribe = "攻击+56，全防御+224",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13093,6 +15503,7 @@ getRow(3200)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 100,
     buffParam2 = 0,
@@ -13109,14 +15520,15 @@ getRow(3200)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3201)->
     #buffCfg {
     buffId = 3201,
     buffName = "裁决者变身2",
     buffDescribe = "攻击+108，全防御+424",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13131,6 +15543,7 @@ getRow(3201)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 100,
     buffParam2 = 0,
@@ -13147,14 +15560,15 @@ getRow(3201)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3202)->
     #buffCfg {
     buffId = 3202,
     buffName = "裁决者变身3",
     buffDescribe = "攻击+204，全防御+808",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13169,6 +15583,7 @@ getRow(3202)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 100,
     buffParam2 = 0,
@@ -13185,14 +15600,15 @@ getRow(3202)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3203)->
     #buffCfg {
     buffId = 3203,
     buffName = "裁决者变身4",
     buffDescribe = "暴击+392，全防御+1536",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13207,6 +15623,7 @@ getRow(3203)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 100,
     buffParam2 = 0,
@@ -13223,14 +15640,15 @@ getRow(3203)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3204)->
     #buffCfg {
     buffId = 3204,
     buffName = "裁决者变身5",
     buffDescribe = "暴击+392，全防御+1536",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13245,6 +15663,7 @@ getRow(3204)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 100,
     buffParam2 = 0,
@@ -13261,7 +15680,8 @@ getRow(3204)->
     damFactor = 0,
     durationFactor = 106,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3301)->
     #buffCfg {
@@ -13283,6 +15703,7 @@ getRow(3301)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13299,7 +15720,8 @@ getRow(3301)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3302)->
     #buffCfg {
@@ -13321,6 +15743,7 @@ getRow(3302)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13336,14 +15759,15 @@ getRow(3302)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3505)->
     #buffCfg {
     buffId = 3505,
     buffName = "战神之力I",
     buffDescribe = "攻击属性提升20",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13358,6 +15782,7 @@ getRow(3505)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13374,14 +15799,15 @@ getRow(3505)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3506)->
     #buffCfg {
     buffId = 3506,
     buffName = "战神之力II",
     buffDescribe = "攻击属性提升50",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13396,6 +15822,7 @@ getRow(3506)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13412,14 +15839,15 @@ getRow(3506)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3507)->
     #buffCfg {
     buffId = 3507,
     buffName = "战神之力III",
     buffDescribe = "攻击属性提升80",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13434,6 +15862,7 @@ getRow(3507)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13450,14 +15879,15 @@ getRow(3507)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3508)->
     #buffCfg {
     buffId = 3508,
     buffName = "战神之力IV",
     buffDescribe = "攻击属性提升120",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13472,6 +15902,7 @@ getRow(3508)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13488,14 +15919,15 @@ getRow(3508)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3509)->
     #buffCfg {
     buffId = 3509,
     buffName = "战神之力V",
     buffDescribe = "攻击属性提升180",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13510,6 +15942,7 @@ getRow(3509)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13526,14 +15959,15 @@ getRow(3509)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3510)->
     #buffCfg {
     buffId = 3510,
     buffName = "战神之力VI",
     buffDescribe = "攻击属性提升250",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13548,6 +15982,7 @@ getRow(3510)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13564,14 +15999,15 @@ getRow(3510)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3511)->
     #buffCfg {
     buffId = 3511,
     buffName = "战神之力VII",
     buffDescribe = "攻击属性提升350",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13586,6 +16022,7 @@ getRow(3511)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13602,14 +16039,15 @@ getRow(3511)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3512)->
     #buffCfg {
     buffId = 3512,
     buffName = "战神之力VIII",
     buffDescribe = "攻击属性提升500",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13624,6 +16062,7 @@ getRow(3512)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13640,14 +16079,15 @@ getRow(3512)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3513)->
     #buffCfg {
     buffId = 3513,
     buffName = "战神之力IX",
     buffDescribe = "攻击属性提升700",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13662,6 +16102,7 @@ getRow(3513)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13678,14 +16119,15 @@ getRow(3513)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3514)->
     #buffCfg {
     buffId = 3514,
     buffName = "战神之力X",
     buffDescribe = "攻击属性提升1000",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13700,6 +16142,7 @@ getRow(3514)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13716,14 +16159,15 @@ getRow(3514)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3515)->
     #buffCfg {
     buffId = 3515,
     buffName = "生命之力I",
     buffDescribe = "体质属性提升20",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13738,6 +16182,7 @@ getRow(3515)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13754,14 +16199,15 @@ getRow(3515)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3516)->
     #buffCfg {
     buffId = 3516,
     buffName = "生命之力II",
     buffDescribe = "体质属性提升50",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13776,6 +16222,7 @@ getRow(3516)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13792,14 +16239,15 @@ getRow(3516)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3517)->
     #buffCfg {
     buffId = 3517,
     buffName = "生命之力III",
     buffDescribe = "体质属性提升80",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13814,6 +16262,7 @@ getRow(3517)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13830,14 +16279,15 @@ getRow(3517)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3518)->
     #buffCfg {
     buffId = 3518,
     buffName = "生命之力IV",
     buffDescribe = "体质属性提升120",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13852,6 +16302,7 @@ getRow(3518)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13868,14 +16319,15 @@ getRow(3518)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3519)->
     #buffCfg {
     buffId = 3519,
     buffName = "生命之力V",
     buffDescribe = "体质属性提升180",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13890,6 +16342,7 @@ getRow(3519)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13906,14 +16359,15 @@ getRow(3519)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3520)->
     #buffCfg {
     buffId = 3520,
     buffName = "生命之力VI",
     buffDescribe = "体质属性提升250",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13928,6 +16382,7 @@ getRow(3520)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13944,14 +16399,15 @@ getRow(3520)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3521)->
     #buffCfg {
     buffId = 3521,
     buffName = "生命之力VII",
     buffDescribe = "体质属性提升350",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -13966,6 +16422,7 @@ getRow(3521)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -13982,14 +16439,15 @@ getRow(3521)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3522)->
     #buffCfg {
     buffId = 3522,
     buffName = "生命之力VIII",
     buffDescribe = "体质属性提升500",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14004,6 +16462,7 @@ getRow(3522)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14020,14 +16479,15 @@ getRow(3522)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3523)->
     #buffCfg {
     buffId = 3523,
     buffName = "生命之力IX",
     buffDescribe = "体质属性提升700",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14042,6 +16502,7 @@ getRow(3523)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14058,14 +16519,15 @@ getRow(3523)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3524)->
     #buffCfg {
     buffId = 3524,
     buffName = "生命之力X",
     buffDescribe = "体质属性提升1000",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14080,6 +16542,7 @@ getRow(3524)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14096,14 +16559,15 @@ getRow(3524)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3525)->
     #buffCfg {
     buffId = 3525,
     buffName = "坚韧之力I",
     buffDescribe = "暴伤减免提高提升2%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14118,6 +16582,7 @@ getRow(3525)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14134,14 +16599,15 @@ getRow(3525)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3526)->
     #buffCfg {
     buffId = 3526,
     buffName = "坚韧之力II",
     buffDescribe = "暴伤减免提高提升4%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14156,6 +16622,7 @@ getRow(3526)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14172,14 +16639,15 @@ getRow(3526)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3527)->
     #buffCfg {
     buffId = 3527,
     buffName = "坚韧之力III",
     buffDescribe = "暴伤减免提高提升6%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14194,6 +16662,7 @@ getRow(3527)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14210,14 +16679,15 @@ getRow(3527)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3528)->
     #buffCfg {
     buffId = 3528,
     buffName = "坚韧之力IV",
     buffDescribe = "暴伤减免提高提升8%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14232,6 +16702,7 @@ getRow(3528)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14248,14 +16719,15 @@ getRow(3528)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3529)->
     #buffCfg {
     buffId = 3529,
     buffName = "坚韧之力V",
     buffDescribe = "暴伤减免提高提升10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14270,6 +16742,7 @@ getRow(3529)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14286,14 +16759,15 @@ getRow(3529)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3530)->
     #buffCfg {
     buffId = 3530,
     buffName = "坚韧之力VI",
     buffDescribe = "暴伤减免提高提升12%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14308,6 +16782,7 @@ getRow(3530)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14324,14 +16799,15 @@ getRow(3530)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3531)->
     #buffCfg {
     buffId = 3531,
     buffName = "坚韧之力VII",
     buffDescribe = "暴伤减免提高提升14%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14346,6 +16822,7 @@ getRow(3531)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14362,14 +16839,15 @@ getRow(3531)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3532)->
     #buffCfg {
     buffId = 3532,
     buffName = "坚韧之力VIII",
     buffDescribe = "暴伤减免提高提升16%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14384,6 +16862,7 @@ getRow(3532)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14400,14 +16879,15 @@ getRow(3532)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3533)->
     #buffCfg {
     buffId = 3533,
     buffName = "坚韧之力IX",
     buffDescribe = "暴伤减免提高提升18%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14422,6 +16902,7 @@ getRow(3533)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14438,14 +16919,15 @@ getRow(3533)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3534)->
     #buffCfg {
     buffId = 3534,
     buffName = "坚韧之力X",
     buffDescribe = "暴伤减免提高提升20%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -14460,6 +16942,7 @@ getRow(3534)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14476,7 +16959,8 @@ getRow(3534)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3535)->
     #buffCfg {
@@ -14498,6 +16982,7 @@ getRow(3535)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14514,7 +16999,8 @@ getRow(3535)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3536)->
     #buffCfg {
@@ -14536,6 +17022,7 @@ getRow(3536)->
     buffDuration = [15000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14552,7 +17039,8 @@ getRow(3536)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3537)->
     #buffCfg {
@@ -14574,6 +17062,7 @@ getRow(3537)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14590,7 +17079,8 @@ getRow(3537)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3538)->
     #buffCfg {
@@ -14612,6 +17102,7 @@ getRow(3538)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14627,7 +17118,8 @@ getRow(3538)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3539)->
     #buffCfg {
@@ -14649,6 +17141,7 @@ getRow(3539)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14664,14 +17157,15 @@ getRow(3539)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3540)->
     #buffCfg {
     buffId = 3540,
     buffName = "属性增加增益",
     buffDescribe = "力量，敏捷，智力+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 135,
@@ -14686,6 +17180,7 @@ getRow(3540)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14702,14 +17197,15 @@ getRow(3540)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3541)->
     #buffCfg {
     buffId = 3541,
     buffName = "伤害增加增益",
     buffDescribe = "伤害+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 82,
@@ -14724,6 +17220,7 @@ getRow(3541)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14740,14 +17237,15 @@ getRow(3541)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3542)->
     #buffCfg {
     buffId = 3542,
     buffName = "血量增加增益",
     buffDescribe = "生命+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 72,
@@ -14762,6 +17260,7 @@ getRow(3542)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14778,14 +17277,15 @@ getRow(3542)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3543)->
     #buffCfg {
     buffId = 3543,
     buffName = "受到伤害减少",
     buffDescribe = "受到伤害-10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 123,
@@ -14800,6 +17300,7 @@ getRow(3543)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14816,14 +17317,15 @@ getRow(3543)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(3544)->
     #buffCfg {
     buffId = 3544,
     buffName = "血腥竞技场虚化保护10s",
     buffDescribe = "怪虚化1s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 14,
@@ -14838,6 +17340,7 @@ getRow(3544)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 15,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14853,14 +17356,93 @@ getRow(3544)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(5000)->
+    #buffCfg {
+    buffId = 5000,
+    buffName = "攻击清除变形",
+    buffDescribe = "攻击清除变形",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [600000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 9,
+    buffParam1 = 5000,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 0,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(5001)->
+    #buffCfg {
+    buffId = 5001,
+    buffName = "被攻击清除变形",
+    buffDescribe = "被攻击清除变形",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [600000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 9,
+    buffParam1 = 5001,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 0,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6000)->
     #buffCfg {
     buffId = 6000,
     buffName = "精灵守护",
     buffDescribe = "生命低于30%时，闪避率+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -14875,6 +17457,7 @@ getRow(6000)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14891,14 +17474,15 @@ getRow(6000)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6001)->
     #buffCfg {
     buffId = 6001,
     buffName = "大地守护I级",
     buffDescribe = "生命低于30%时，伤害抗性+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -14913,6 +17497,7 @@ getRow(6001)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14929,14 +17514,15 @@ getRow(6001)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6002)->
     #buffCfg {
     buffId = 6002,
     buffName = "海洋守护I级",
     buffDescribe = "生命低于30%时，暴击+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -14951,6 +17537,7 @@ getRow(6002)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -14967,14 +17554,15 @@ getRow(6002)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6003)->
     #buffCfg {
     buffId = 6003,
     buffName = "疾风守护I级",
     buffDescribe = "生命低于30%时，移动速度+0.2",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -14989,6 +17577,7 @@ getRow(6003)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15005,14 +17594,15 @@ getRow(6003)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6004)->
     #buffCfg {
     buffId = 6004,
     buffName = "烈焰守护I级",
     buffDescribe = "生命低于30%时，伤害+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15027,6 +17617,7 @@ getRow(6004)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15043,14 +17634,15 @@ getRow(6004)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6005)->
     #buffCfg {
     buffId = 6005,
     buffName = "生命守护I级",
     buffDescribe = "生命低于30%时，生命恢复+1%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15065,6 +17657,7 @@ getRow(6005)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15081,14 +17674,15 @@ getRow(6005)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6006)->
     #buffCfg {
     buffId = 6006,
     buffName = "嗜血守护I级",
     buffDescribe = "生命低于30%时，攻击速度+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15103,6 +17697,7 @@ getRow(6006)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15119,14 +17714,15 @@ getRow(6006)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6007)->
     #buffCfg {
     buffId = 6007,
     buffName = "虔诚守护I级",
     buffDescribe = "生命低于30%时，暴伤减免+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15141,6 +17737,7 @@ getRow(6007)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15157,14 +17754,15 @@ getRow(6007)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6008)->
     #buffCfg {
     buffId = 6008,
     buffName = "无畏守护I级",
     buffDescribe = "生命低于30%时，暴击豁免+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15179,6 +17777,7 @@ getRow(6008)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15195,14 +17794,15 @@ getRow(6008)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6009)->
     #buffCfg {
     buffId = 6009,
     buffName = "勇气守护I级",
     buffDescribe = "生命低于30%时，眩晕豁免+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15217,6 +17817,7 @@ getRow(6009)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15233,14 +17834,15 @@ getRow(6009)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6010)->
     #buffCfg {
     buffId = 6010,
     buffName = "冰霜守护I级",
     buffDescribe = "生命低于30%时，冰冻豁免+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15255,6 +17857,7 @@ getRow(6010)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15271,14 +17874,15 @@ getRow(6010)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6011)->
     #buffCfg {
     buffId = 6011,
     buffName = "大地守护II级",
     buffDescribe = "生命低于30%时，伤害抗性+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15293,6 +17897,7 @@ getRow(6011)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15309,14 +17914,15 @@ getRow(6011)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6012)->
     #buffCfg {
     buffId = 6012,
     buffName = "海洋守护II级",
     buffDescribe = "生命低于30%时，暴击+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15331,6 +17937,7 @@ getRow(6012)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15347,14 +17954,15 @@ getRow(6012)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6013)->
     #buffCfg {
     buffId = 6013,
     buffName = "疾风守护II级",
     buffDescribe = "生命低于30%时，移动速度+0.4",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15369,6 +17977,7 @@ getRow(6013)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15385,14 +17994,15 @@ getRow(6013)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6014)->
     #buffCfg {
     buffId = 6014,
     buffName = "烈焰守护II级",
     buffDescribe = "生命低于30%时，伤害+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15407,6 +18017,7 @@ getRow(6014)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15423,14 +18034,15 @@ getRow(6014)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6015)->
     #buffCfg {
     buffId = 6015,
     buffName = "生命守护II级",
     buffDescribe = "生命低于30%时，生命恢复+2%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15445,6 +18057,7 @@ getRow(6015)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15461,14 +18074,15 @@ getRow(6015)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6016)->
     #buffCfg {
     buffId = 6016,
     buffName = "嗜血守护II级",
     buffDescribe = "生命低于30%时，攻击速度+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15483,6 +18097,7 @@ getRow(6016)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15499,14 +18114,15 @@ getRow(6016)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6017)->
     #buffCfg {
     buffId = 6017,
     buffName = "虔诚守护II级",
     buffDescribe = "生命低于30%时，暴伤减免+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15521,6 +18137,7 @@ getRow(6017)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15537,14 +18154,15 @@ getRow(6017)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6018)->
     #buffCfg {
     buffId = 6018,
     buffName = "无畏守护II级",
     buffDescribe = "生命低于30%时，暴击豁免+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15559,6 +18177,7 @@ getRow(6018)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15575,14 +18194,15 @@ getRow(6018)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6019)->
     #buffCfg {
     buffId = 6019,
     buffName = "勇气守护II级",
     buffDescribe = "生命低于30%时，眩晕豁免+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15597,6 +18217,7 @@ getRow(6019)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15613,14 +18234,15 @@ getRow(6019)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(6020)->
     #buffCfg {
     buffId = 6020,
     buffName = "冰霜守护II级",
     buffDescribe = "生命低于30%时，冰冻豁免+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -15635,6 +18257,7 @@ getRow(6020)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15651,7 +18274,8 @@ getRow(6020)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7111)->
     #buffCfg {
@@ -15673,6 +18297,7 @@ getRow(7111)->
     buffDuration = [3000,0],
     buffDelay = 3000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 13,
     buffParam1 = 1,
     buffParam2 = 0.2,
@@ -15688,7 +18313,8 @@ getRow(7111)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7112)->
     #buffCfg {
@@ -15710,6 +18336,7 @@ getRow(7112)->
     buffDuration = [3000,0],
     buffDelay = 3000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 13,
     buffParam1 = 1,
     buffParam2 = 0.2125,
@@ -15725,7 +18352,8 @@ getRow(7112)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7113)->
     #buffCfg {
@@ -15747,6 +18375,7 @@ getRow(7113)->
     buffDuration = [3000,0],
     buffDelay = 3000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 13,
     buffParam1 = 1,
     buffParam2 = 0.225,
@@ -15762,7 +18391,8 @@ getRow(7113)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7114)->
     #buffCfg {
@@ -15784,6 +18414,7 @@ getRow(7114)->
     buffDuration = [3000,0],
     buffDelay = 3000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 13,
     buffParam1 = 1,
     buffParam2 = 0.2375,
@@ -15799,7 +18430,8 @@ getRow(7114)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7115)->
     #buffCfg {
@@ -15821,6 +18453,7 @@ getRow(7115)->
     buffDuration = [3000,0],
     buffDelay = 3000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 13,
     buffParam1 = 1,
     buffParam2 = 0.25,
@@ -15836,7 +18469,8 @@ getRow(7115)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7121)->
     #buffCfg {
@@ -15858,6 +18492,7 @@ getRow(7121)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15874,7 +18509,8 @@ getRow(7121)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7122)->
     #buffCfg {
@@ -15896,6 +18532,7 @@ getRow(7122)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15912,7 +18549,8 @@ getRow(7122)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7123)->
     #buffCfg {
@@ -15934,6 +18572,7 @@ getRow(7123)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15950,7 +18589,8 @@ getRow(7123)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7124)->
     #buffCfg {
@@ -15972,6 +18612,7 @@ getRow(7124)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -15988,7 +18629,8 @@ getRow(7124)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7125)->
     #buffCfg {
@@ -16010,6 +18652,7 @@ getRow(7125)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16026,7 +18669,8 @@ getRow(7125)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7131)->
     #buffCfg {
@@ -16048,6 +18692,7 @@ getRow(7131)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16064,7 +18709,8 @@ getRow(7131)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7132)->
     #buffCfg {
@@ -16086,6 +18732,7 @@ getRow(7132)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16102,7 +18749,8 @@ getRow(7132)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7133)->
     #buffCfg {
@@ -16124,6 +18772,7 @@ getRow(7133)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16140,7 +18789,8 @@ getRow(7133)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7134)->
     #buffCfg {
@@ -16162,6 +18812,7 @@ getRow(7134)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16178,7 +18829,8 @@ getRow(7134)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7135)->
     #buffCfg {
@@ -16200,6 +18852,7 @@ getRow(7135)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16216,7 +18869,8 @@ getRow(7135)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7141)->
     #buffCfg {
@@ -16238,6 +18892,7 @@ getRow(7141)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16254,7 +18909,8 @@ getRow(7141)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7142)->
     #buffCfg {
@@ -16276,6 +18932,7 @@ getRow(7142)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16292,7 +18949,8 @@ getRow(7142)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7143)->
     #buffCfg {
@@ -16314,6 +18972,7 @@ getRow(7143)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16330,7 +18989,8 @@ getRow(7143)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7144)->
     #buffCfg {
@@ -16352,6 +19012,7 @@ getRow(7144)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16368,7 +19029,8 @@ getRow(7144)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(7145)->
     #buffCfg {
@@ -16390,6 +19052,7 @@ getRow(7145)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16406,14 +19069,15 @@ getRow(7145)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8000)->
     #buffCfg {
     buffId = 8000,
     buffName = "贵族之力1级",
     buffDescribe = "攻击+50,生命+500,暴击伤害+0.01,暴伤减免+0.01",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16428,6 +19092,7 @@ getRow(8000)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16444,14 +19109,15 @@ getRow(8000)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8001)->
     #buffCfg {
     buffId = 8001,
     buffName = "贵族之力2级",
     buffDescribe = "攻击+60,生命+600,暴击伤害+0.02,暴伤减免+0.02",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16466,6 +19132,7 @@ getRow(8001)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16482,14 +19149,15 @@ getRow(8001)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8002)->
     #buffCfg {
     buffId = 8002,
     buffName = "贵族之力3级",
     buffDescribe = "攻击+80,生命+800,暴击伤害+0.03,暴伤减免+0.03",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16504,6 +19172,7 @@ getRow(8002)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16520,14 +19189,15 @@ getRow(8002)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8003)->
     #buffCfg {
     buffId = 8003,
     buffName = "贵族之力4级",
     buffDescribe = "攻击+110,生命+1100,暴击伤害+0.04,暴伤减免+0.04",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16542,6 +19212,7 @@ getRow(8003)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16558,14 +19229,15 @@ getRow(8003)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8004)->
     #buffCfg {
     buffId = 8004,
     buffName = "贵族之力5级",
     buffDescribe = "攻击+150,生命+1500,暴击伤害+0.06,暴伤减免+0.06",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16580,6 +19252,7 @@ getRow(8004)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16596,14 +19269,15 @@ getRow(8004)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8005)->
     #buffCfg {
     buffId = 8005,
     buffName = "贵族之力6级",
     buffDescribe = "攻击+200,生命+2000,暴击伤害+0.08,暴伤减免+0.08",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16618,6 +19292,7 @@ getRow(8005)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16634,14 +19309,15 @@ getRow(8005)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8006)->
     #buffCfg {
     buffId = 8006,
     buffName = "贵族之力7级",
     buffDescribe = "攻击+260,生命+2600,暴击伤害+0.1,暴伤减免+0.1",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16656,6 +19332,7 @@ getRow(8006)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16672,14 +19349,15 @@ getRow(8006)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8007)->
     #buffCfg {
     buffId = 8007,
     buffName = "贵族之力8级",
     buffDescribe = "攻击+330,生命+3300,暴击伤害+0.12,暴伤减免+0.12",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16694,6 +19372,7 @@ getRow(8007)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16710,14 +19389,15 @@ getRow(8007)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8008)->
     #buffCfg {
     buffId = 8008,
     buffName = "贵族之力9级",
     buffDescribe = "攻击+410,生命+4100,暴击伤害+0.14,暴伤减免+0.14",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16732,6 +19412,7 @@ getRow(8008)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16748,14 +19429,15 @@ getRow(8008)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8009)->
     #buffCfg {
     buffId = 8009,
     buffName = "贵族之力10级",
     buffDescribe = "攻击+500,生命+5000,暴击伤害+0.17,暴伤减免+0.17",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16770,6 +19452,7 @@ getRow(8009)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16786,14 +19469,15 @@ getRow(8009)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8010)->
     #buffCfg {
     buffId = 8010,
     buffName = "贵族之力11级",
     buffDescribe = "攻击+600,生命+6000,暴击伤害+0.2,暴伤减免+0.2",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16808,6 +19492,7 @@ getRow(8010)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16824,14 +19509,15 @@ getRow(8010)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8011)->
     #buffCfg {
     buffId = 8011,
     buffName = "贵族之力12级",
     buffDescribe = "攻击+710,生命+7100,暴击伤害+0.23,暴伤减免+0.23",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16846,6 +19532,7 @@ getRow(8011)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16862,14 +19549,15 @@ getRow(8011)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8012)->
     #buffCfg {
     buffId = 8012,
     buffName = "贵族之力13级",
     buffDescribe = "攻击+830,生命+8300,暴击伤害+0.26,暴伤减免+0.26",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16884,6 +19572,7 @@ getRow(8012)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16900,14 +19589,15 @@ getRow(8012)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8013)->
     #buffCfg {
     buffId = 8013,
     buffName = "贵族之力14级",
     buffDescribe = "攻击+960,生命+9600,暴击伤害+0.29,暴伤减免+0.29",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16922,6 +19612,7 @@ getRow(8013)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16938,14 +19629,15 @@ getRow(8013)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8014)->
     #buffCfg {
     buffId = 8014,
     buffName = "贵族之力15级",
     buffDescribe = "攻击+1100,生命+11000,暴击伤害+0.33,暴伤减免+0.33",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16960,6 +19652,7 @@ getRow(8014)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -16976,14 +19669,15 @@ getRow(8014)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8015)->
     #buffCfg {
     buffId = 8015,
     buffName = "贵族之力16级",
     buffDescribe = "攻击+1250,生命+12500,暴击伤害+0.37,暴伤减免+0.37",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -16998,6 +19692,7 @@ getRow(8015)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17014,14 +19709,15 @@ getRow(8015)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8016)->
     #buffCfg {
     buffId = 8016,
     buffName = "贵族之力17级",
     buffDescribe = "攻击+1410,生命+14100,暴击伤害+0.41,暴伤减免+0.41",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17036,6 +19732,7 @@ getRow(8016)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17052,14 +19749,15 @@ getRow(8016)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8017)->
     #buffCfg {
     buffId = 8017,
     buffName = "贵族之力18级",
     buffDescribe = "攻击+1580,生命+15800,暴击伤害+0.45,暴伤减免+0.45",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17074,6 +19772,7 @@ getRow(8017)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17090,14 +19789,15 @@ getRow(8017)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8018)->
     #buffCfg {
     buffId = 8018,
     buffName = "贵族之力19级",
     buffDescribe = "攻击+1760,生命+17600,暴击伤害+0.49,暴伤减免+0.49",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17112,6 +19812,7 @@ getRow(8018)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17128,14 +19829,15 @@ getRow(8018)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8019)->
     #buffCfg {
     buffId = 8019,
     buffName = "贵族之力20级",
     buffDescribe = "攻击+1950,生命+19500,暴击伤害+0.55,暴伤减免+0.55",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17150,6 +19852,7 @@ getRow(8019)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17166,7 +19869,8 @@ getRow(8019)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8100)->
     #buffCfg {
@@ -17188,6 +19892,7 @@ getRow(8100)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17204,7 +19909,8 @@ getRow(8100)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8101)->
     #buffCfg {
@@ -17226,6 +19932,7 @@ getRow(8101)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17242,7 +19949,8 @@ getRow(8101)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8102)->
     #buffCfg {
@@ -17264,6 +19972,7 @@ getRow(8102)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17280,7 +19989,8 @@ getRow(8102)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8103)->
     #buffCfg {
@@ -17302,6 +20012,7 @@ getRow(8103)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17318,7 +20029,8 @@ getRow(8103)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(8104)->
     #buffCfg {
@@ -17340,6 +20052,7 @@ getRow(8104)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17356,14 +20069,15 @@ getRow(8104)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10001)->
     #buffCfg {
     buffId = 10001,
     buffName = "骑士大招免控6秒",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17378,6 +20092,7 @@ getRow(10001)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17393,14 +20108,15 @@ getRow(10001)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10002)->
     #buffCfg {
     buffId = 10002,
     buffName = "骑士大招免控6秒",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17415,6 +20131,7 @@ getRow(10002)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 21,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17430,14 +20147,15 @@ getRow(10002)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10003)->
     #buffCfg {
     buffId = 10003,
     buffName = "怒炎之心10%",
     buffDescribe = "怒炎之心10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17452,6 +20170,7 @@ getRow(10003)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17468,14 +20187,15 @@ getRow(10003)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10004)->
     #buffCfg {
     buffId = 10004,
     buffName = "法师大招免控6秒",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17490,6 +20210,7 @@ getRow(10004)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17505,14 +20226,15 @@ getRow(10004)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10005)->
     #buffCfg {
     buffId = 10005,
     buffName = "法师大招免控6秒",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17527,6 +20249,7 @@ getRow(10005)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 21,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17542,14 +20265,15 @@ getRow(10005)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10006)->
     #buffCfg {
     buffId = 10006,
     buffName = "刺客先发制人",
     buffDescribe = "刺客先发制人",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17564,6 +20288,7 @@ getRow(10006)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17580,14 +20305,15 @@ getRow(10006)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10007)->
     #buffCfg {
     buffId = 10007,
     buffName = "刺客生存意志",
     buffDescribe = "刺客生存意志",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17602,6 +20328,7 @@ getRow(10007)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17618,14 +20345,15 @@ getRow(10007)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10008)->
     #buffCfg {
     buffId = 10008,
     buffName = "刺客雷霆意志",
     buffDescribe = "刺客雷霆意志",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17640,6 +20368,7 @@ getRow(10008)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17656,14 +20385,15 @@ getRow(10008)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10009)->
     #buffCfg {
     buffId = 10009,
     buffName = "魔女亡者气息免控6秒1",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17678,6 +20408,7 @@ getRow(10009)->
     buffDuration = [6000,500],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17693,14 +20424,15 @@ getRow(10009)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10010)->
     #buffCfg {
     buffId = 10010,
     buffName = "魔女亡者气息免控6秒1",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17715,6 +20447,7 @@ getRow(10010)->
     buffDuration = [6000,500],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 21,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17730,14 +20463,15 @@ getRow(10010)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10011)->
     #buffCfg {
     buffId = 10011,
     buffName = "远古恶魔伤害加成",
     buffDescribe = "远古恶魔伤害加成",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17752,6 +20486,7 @@ getRow(10011)->
     buffDuration = [10000,1000],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17768,14 +20503,15 @@ getRow(10011)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10012)->
     #buffCfg {
     buffId = 10012,
     buffName = "魔女力量5%",
     buffDescribe = "魔女力量5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17790,6 +20526,7 @@ getRow(10012)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17806,14 +20543,15 @@ getRow(10012)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10013)->
     #buffCfg {
     buffId = 10013,
     buffName = "魔女体质5%",
     buffDescribe = "魔女体质5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17828,6 +20566,7 @@ getRow(10013)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17844,14 +20583,15 @@ getRow(10013)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10014)->
     #buffCfg {
     buffId = 10014,
     buffName = "魔女防御5%",
     buffDescribe = "魔女防御5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -17866,6 +20606,7 @@ getRow(10014)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17882,7 +20623,8 @@ getRow(10014)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10015)->
     #buffCfg {
@@ -17904,6 +20646,7 @@ getRow(10015)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17919,14 +20662,15 @@ getRow(10015)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10017)->
     #buffCfg {
     buffId = 10017,
     buffName = "击退抓取不受控制",
     buffDescribe = "击退抓取不受控制",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -17941,6 +20685,7 @@ getRow(10017)->
     buffDuration = [500,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 22,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17956,14 +20701,15 @@ getRow(10017)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10018)->
     #buffCfg {
     buffId = 10018,
     buffName = "火焰喷射降低抗性",
     buffDescribe = "伤害抗性-37.5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 6,
@@ -17978,6 +20724,7 @@ getRow(10018)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -17994,7 +20741,8 @@ getRow(10018)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10019)->
     #buffCfg {
@@ -18016,6 +20764,7 @@ getRow(10019)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18032,7 +20781,8 @@ getRow(10019)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10020)->
     #buffCfg {
@@ -18054,6 +20804,7 @@ getRow(10020)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 24,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18069,14 +20820,15 @@ getRow(10020)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10022)->
     #buffCfg {
     buffId = 10022,
     buffName = "击退抓取不受控制",
     buffDescribe = "击退抓取不受控制",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1,
@@ -18091,6 +20843,7 @@ getRow(10022)->
     buffDuration = [500,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 22,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18106,7 +20859,8 @@ getRow(10022)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10023)->
     #buffCfg {
@@ -18128,6 +20882,7 @@ getRow(10023)->
     buffDuration = [10000,1000],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18144,14 +20899,15 @@ getRow(10023)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10024)->
     #buffCfg {
     buffId = 10024,
     buffName = "迅捷免控6秒1",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -18166,6 +20922,7 @@ getRow(10024)->
     buffDuration = [6000,500],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 20,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18181,14 +20938,15 @@ getRow(10024)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10025)->
     #buffCfg {
     buffId = 10025,
     buffName = "迅捷免控6秒1",
     buffDescribe = "免疫昏迷冻结形变定身",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -18203,6 +20961,7 @@ getRow(10025)->
     buffDuration = [6000,500],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 21,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18218,14 +20977,15 @@ getRow(10025)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10026)->
     #buffCfg {
     buffId = 10026,
     buffName = "嗜血光环",
     buffDescribe = "嗜血光环",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -18240,6 +21000,7 @@ getRow(10026)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18256,14 +21017,15 @@ getRow(10026)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10027)->
     #buffCfg {
     buffId = 10027,
     buffName = "杀戮意志暴击",
     buffDescribe = "伤害+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -18278,6 +21040,7 @@ getRow(10027)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18294,14 +21057,15 @@ getRow(10027)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10028)->
     #buffCfg {
     buffId = 10028,
     buffName = "杀戮意志降低目标伤害",
     buffDescribe = "每死亡一个敌人，伤害+3%，持续15秒，叠加15层",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 93,
@@ -18316,6 +21080,7 @@ getRow(10028)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18332,14 +21097,15 @@ getRow(10028)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10029)->
     #buffCfg {
     buffId = 10029,
     buffName = "力破暴击豁免",
     buffDescribe = "伤害+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -18354,6 +21120,7 @@ getRow(10029)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18370,14 +21137,15 @@ getRow(10029)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10030)->
     #buffCfg {
     buffId = 10030,
     buffName = "力破调用",
     buffDescribe = "每死亡一个敌人，伤害+3%，持续15秒，叠加15层",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 93,
@@ -18392,6 +21160,7 @@ getRow(10030)->
     buffDuration = [15000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18408,14 +21177,15 @@ getRow(10030)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10031)->
     #buffCfg {
     buffId = 10031,
     buffName = "血腥杀戮",
     buffDescribe = "伤害+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -18430,6 +21200,7 @@ getRow(10031)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18446,14 +21217,15 @@ getRow(10031)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10032)->
     #buffCfg {
     buffId = 10032,
     buffName = "重力学",
     buffDescribe = "伤害+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -18468,6 +21240,7 @@ getRow(10032)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18484,14 +21257,15 @@ getRow(10032)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(10033)->
     #buffCfg {
     buffId = 10033,
     buffName = "急速",
     buffDescribe = "伤害+10%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -18506,6 +21280,7 @@ getRow(10033)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18522,14 +21297,15 @@ getRow(10033)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(12101)->
     #buffCfg {
     buffId = 12101,
     buffName = "影踪劲",
     buffDescribe = "获得持续伤害触发，移动速度+0.3",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 33,
@@ -18544,6 +21320,7 @@ getRow(12101)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 12201,
     buffParam2 = 0,
@@ -18560,14 +21337,15 @@ getRow(12101)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(12201)->
     #buffCfg {
     buffId = 12201,
     buffName = "影踪劲持续伤害",
     buffDescribe = "持续武器伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 33,
@@ -18582,6 +21360,7 @@ getRow(12201)->
     buffDuration = [6000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18598,14 +21377,15 @@ getRow(12201)->
     damFactor = 70,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13000)->
     #buffCfg {
     buffId = 13000,
     buffName = "伤害增加增益",
     buffDescribe = "伤害+100%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 82,
@@ -18620,6 +21400,7 @@ getRow(13000)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18636,14 +21417,15 @@ getRow(13000)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13001)->
     #buffCfg {
     buffId = 13001,
     buffName = "血量增加增益",
     buffDescribe = "生命+1000%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 72,
@@ -18658,6 +21440,7 @@ getRow(13001)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18674,14 +21457,15 @@ getRow(13001)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13002)->
     #buffCfg {
     buffId = 13002,
     buffName = "受到伤害减少",
     buffDescribe = "受到伤害-100%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 123,
@@ -18696,6 +21480,7 @@ getRow(13002)->
     buffDuration = [60000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18712,14 +21497,15 @@ getRow(13002)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13003)->
     #buffCfg {
     buffId = 13003,
     buffName = "闪避提升90%",
     buffDescribe = "闪避提升90%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -18734,6 +21520,7 @@ getRow(13003)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18750,14 +21537,15 @@ getRow(13003)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13300)->
     #buffCfg {
     buffId = 13300,
     buffName = "神佑抗性",
     buffDescribe = "抗性*+75%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -18772,6 +21560,7 @@ getRow(13300)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18788,7 +21577,8 @@ getRow(13300)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13400)->
     #buffCfg {
@@ -18810,6 +21600,7 @@ getRow(13400)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 13,
     buffParam1 = 0,
     buffParam2 = 0.1,
@@ -18825,14 +21616,15 @@ getRow(13400)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13401)->
     #buffCfg {
     buffId = 13401,
     buffName = "枪械回血",
     buffDescribe = "生命恢复+5%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 80,
@@ -18847,6 +21639,7 @@ getRow(13401)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18863,14 +21656,15 @@ getRow(13401)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13500)->
     #buffCfg {
     buffId = 13500,
-    buffName = "情比金坚（生命）",
-    buffDescribe = "生命百分比被动加成",
-    buffSfx = "0",
+    buffName = "比翼连理",
+    buffDescribe = "生命被动加成",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 33,
@@ -18885,6 +21679,7 @@ getRow(13500)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18893,7 +21688,7 @@ getRow(13500)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,135,0.01,0.01}],
+    property = [{1,0,135,2000,100}],
     buffDeathdel = 0,
     buffRemove = 0,
     buffstore = 0,
@@ -18901,14 +21696,15 @@ getRow(13500)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13501)->
     #buffCfg {
     buffId = 13501,
-    buffName = "情比金坚（物攻）",
-    buffDescribe = "物攻百分比被动加成",
-    buffSfx = "0",
+    buffName = "心心相印",
+    buffDescribe = "物攻被动加成",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 94,
@@ -18923,6 +21719,7 @@ getRow(13501)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18931,7 +21728,7 @@ getRow(13501)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,136,0.01,0.01}],
+    property = [{1,0,136,150,20}],
     buffDeathdel = 0,
     buffRemove = 0,
     buffstore = 0,
@@ -18939,14 +21736,15 @@ getRow(13501)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13502)->
     #buffCfg {
     buffId = 13502,
-    buffName = "情比金坚（法攻）",
-    buffDescribe = "法攻百分比被动加成",
-    buffSfx = "0",
+    buffName = "心有灵犀",
+    buffDescribe = "法攻被动加成",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 90,
@@ -18961,6 +21759,7 @@ getRow(13502)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -18969,7 +21768,7 @@ getRow(13502)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,137,0.01,0.01}],
+    property = [{1,0,137,150,20}],
     buffDeathdel = 0,
     buffRemove = 0,
     buffstore = 0,
@@ -18977,14 +21776,15 @@ getRow(13502)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13503)->
     #buffCfg {
     buffId = 13503,
-    buffName = "情比金坚（物防）",
-    buffDescribe = "物防百分比被动加成",
-    buffSfx = "0",
+    buffName = "情比金坚",
+    buffDescribe = "物防被动加成",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 41,
@@ -18999,6 +21799,7 @@ getRow(13503)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19007,7 +21808,7 @@ getRow(13503)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,138,0.01,0.01}],
+    property = [{1,0,138,160,25}],
     buffDeathdel = 0,
     buffRemove = 0,
     buffstore = 0,
@@ -19015,14 +21816,15 @@ getRow(13503)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(13504)->
     #buffCfg {
     buffId = 13504,
-    buffName = "情比金坚（法防）",
-    buffDescribe = "法防百分比被动加成",
-    buffSfx = "0",
+    buffName = "共携白首",
+    buffDescribe = "法防被动加成",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 9,
@@ -19037,6 +21839,7 @@ getRow(13504)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19045,7 +21848,7 @@ getRow(13504)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,139,0.01,0.01}],
+    property = [{1,0,139,160,25}],
     buffDeathdel = 0,
     buffRemove = 0,
     buffstore = 0,
@@ -19053,14 +21856,966 @@ getRow(13504)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(15000)->
+    #buffCfg {
+    buffId = 15000,
+    buffName = "宾克斯的祝福",
+    buffDescribe = "宾克斯的祝福效果，速度，生命+5%",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 153,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [300000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,135,0.05,0},{1,1,157,0.05,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(15001)->
+    #buffCfg {
+    buffId = 15001,
+    buffName = "生锈的烟草",
+    buffDescribe = "烟草夹杂着铁锈味道，令人作呕，攻击-5%",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 120,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [300000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,136,-0.05,0},{1,1,137,-0.05,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(15002)->
+    #buffCfg {
+    buffId = 15002,
+    buffName = "波特卡斯的祝福",
+    buffDescribe = "波特卡斯的祝福效果，攻击+5%",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 154,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [300000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,136,0.05,0},{1,1,137,0.05,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(15003)->
+    #buffCfg {
+    buffId = 15003,
+    buffName = "极致的黑暗",
+    buffDescribe = "媲美\"仰望星空\"的极致黑暗，生命，速度-5%",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 97,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [300000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,135,-0.05,0},{1,1,157,-0.05,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(15004)->
+    #buffCfg {
+    buffId = 15004,
+    buffName = "美丽的祝福",
+    buffDescribe = "美丽的祝福效果，攻击，暴击+5%",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 81,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [300000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,136,0.05,0},{1,1,137,0.05,0},{1,1,140,0.05,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(15005)->
+    #buffCfg {
+    buffId = 15005,
+    buffName = "鬼魂的诅咒",
+    buffDescribe = "来自幽冥的憎恶，防御，生命-5%",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 36,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [300000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,135,-0.05,0},{1,1,138,-0.05,0},{1,1,139,-0.05,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(15006)->
+    #buffCfg {
+    buffId = 15006,
+    buffName = "傻姆的祝福",
+    buffDescribe = "傻姆的祝福效果，防御，生命+5%",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 49,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [300000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,135,0.05,0},{1,1,138,0.05,0},{1,1,139,0.05,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(15007)->
+    #buffCfg {
+    buffId = 15007,
+    buffName = "傻姆的手纸巾",
+    buffDescribe = "消除【鬼魂的诅咒】BUFF效果",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [1000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 9,
+    buffParam1 = 15007,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 0,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16000)->
+    #buffCfg {
+    buffId = 16000,
+    buffName = "杂技大师-持续回血",
+    buffDescribe = "杂技大师-强化治疗",
+    buffSfx = "state/vfx_28_5",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 1003,
+    oneBuffMultiCaster = 0,
+    oneBuffOneCaster = 0,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [5000,0],
+    buffDelay = 1000,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 13,
+    buffParam1 = 0,
+    buffParam2 = 0.1,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16002)->
+    #buffCfg {
+    buffId = 16002,
+    buffName = "贾斯汀比象-偶像魅力",
+    buffDescribe = "眩晕2秒",
+    buffSfx = "state/vfx_28_13",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [2000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 2,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16003)->
+    #buffCfg {
+    buffId = 16003,
+    buffName = "贾斯汀比象-回眸一笑",
+    buffDescribe = "眩晕3秒",
+    buffSfx = "state/vfx_28_13",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 2,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16004)->
+    #buffCfg {
+    buffId = 16004,
+    buffName = "杀象特-绝不原谅-加暴击",
+    buffDescribe = "提高暴击10%，持续10秒",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 129,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 10,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,0,140,0.1,0}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16007)->
+    #buffCfg {
+    buffId = 16007,
+    buffName = "机械鸟-一毛不拔",
+    buffDescribe = "BUFF触发技能：1.击飞 2.自身回血",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 9,
+    buffParam1 = 40033,
+    buffParam2 = 40034,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 0,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16008)->
+    #buffCfg {
+    buffId = 16008,
+    buffName = "机械鸟-持续回血",
+    buffDescribe = "每秒恢复0.1生命上限的血量，持续5秒",
+    buffSfx = "state/vfx_28_23",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [5000,0],
+    buffDelay = 1000,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 12,
+    buffParam1 = 1,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 6,
+    healProperty = 135,
+    criAble = 1,
+    damageMultiply = [{1,0.8,0.01}],
+    buffDeathdel = 1,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16009)->
+    #buffCfg {
+    buffId = 16009,
+    buffName = "机械鸟-定身",
+    buffDescribe = "回血过程中不可移动",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [6000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 24,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    damageMultiply = [],
+    buffDeathdel = 1,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16011)->
+    #buffCfg {
+    buffId = 16011,
+    buffName = "西瓜鲨-暂停营业",
+    buffDescribe = "BUFF触发技能：自身伤害吸收盾",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 9,
+    buffParam1 = 40043,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 0,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16012)->
+    #buffCfg {
+    buffId = 16012,
+    buffName = "西瓜鲨-暂停营业-伤害吸收盾",
+    buffDescribe = "伤害吸收盾",
+    buffSfx = "state/vfx_22_111",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 16,
+    buffParam1 = 10,
+    buffParam2 = 135,
+    buffParam3 = 0.5,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16013)->
+    #buffCfg {
+    buffId = 16013,
+    buffName = "钢铁狼-杀戮意志-加攻击",
+    buffDescribe = "提高物攻与法攻，持续3秒",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 129,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 10,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,0,136,0.1,0},{1,0,137,0.1,0}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16014)->
+    #buffCfg {
+    buffId = 16014,
+    buffName = "钢铁狼-杀戮意志-触发卸甲",
+    buffDescribe = "BUFF触发技能卸甲",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 9,
+    buffParam1 = 40052,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 0,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16015)->
+    #buffCfg {
+    buffId = 16015,
+    buffName = "钢铁狼-卸甲-降低双防",
+    buffDescribe = "防御降低",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 25,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 5,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,139,-0.16,-0.0075},{1,1,138,-0.16,-0.0075}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16016)->
+    #buffCfg {
+    buffId = 16016,
+    buffName = "雪橇犬-主人加油-持续回血",
+    buffDescribe = "持续恢复",
+    buffSfx = "state/vfx_28_23",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 22,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 1000,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 12,
+    buffParam1 = 1,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 6,
+    healProperty = 137,
+    criAble = 1,
+    damageMultiply = [{1,0.8,0.01}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16017)->
+    #buffCfg {
+    buffId = 16017,
+    buffName = "雪橇犬-主人别怕-增强双防",
+    buffSfx = "state/vfx_28_19",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 24,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [13000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,138,0.12,0.01},{1,1,139,0.12,0.01}],
+    buffDeathdel = 0,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16018)->
+    #buffCfg {
+    buffId = 16018,
+    buffName = "贝斯-镇魂曲-降低双防",
+    buffDescribe = "防御降低",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 25,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 5,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [5000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,139,-0.16,-0.0075},{1,1,138,-0.16,-0.0075}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(16019)->
+    #buffCfg {
+    buffId = 16019,
+    buffName = "贝斯-迷魂曲-降低闪避",
+    buffDescribe = "闪避降低",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 25,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 5,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [5000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,145,-0.16,-0.0075}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19000)->
     #buffCfg {
     buffId = 19000,
     buffName = "普攻",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19075,6 +22830,7 @@ getRow(19000)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19090,14 +22846,15 @@ getRow(19000)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19001)->
     #buffCfg {
     buffId = 19001,
     buffName = "烈酒冲击波",
-    buffDescribe = "昏迷2s",
-    buffSfx = "0",
+    buffDescribe = "昏迷3s",
+    buffSfx = "state/vfx_28_13",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19109,9 +22866,10 @@ getRow(19001)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [2000,0],
+    buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19127,89 +22885,15 @@ getRow(19001)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(19002)->
-    #buffCfg {
-    buffId = 19002,
-    buffName = "烈焰震荡",
-    buffDescribe = "无",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 27,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 1,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [2000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(19003)->
-    #buffCfg {
-    buffId = 19003,
-    buffName = "烈焰重击",
-    buffDescribe = "减防10s",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 27,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 1,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [10000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,138,-0.5,0},{1,1,139,-0.5,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19004)->
     #buffCfg {
     buffId = 19004,
     buffName = "普攻",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19224,6 +22908,7 @@ getRow(19004)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19239,14 +22924,15 @@ getRow(19004)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19005)->
     #buffCfg {
     buffId = 19005,
     buffName = "飞锤",
     buffDescribe = "昏迷2s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19261,6 +22947,7 @@ getRow(19005)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19276,14 +22963,15 @@ getRow(19005)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19006)->
     #buffCfg {
     buffId = 19006,
     buffName = "旋风锤",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19298,6 +22986,7 @@ getRow(19006)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19314,14 +23003,15 @@ getRow(19006)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19007)->
     #buffCfg {
     buffId = 19007,
     buffName = "熔岩重击",
     buffDescribe = "减防10s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19336,6 +23026,7 @@ getRow(19007)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19351,14 +23042,15 @@ getRow(19007)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19008)->
     #buffCfg {
     buffId = 19008,
     buffName = "普攻",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19373,6 +23065,7 @@ getRow(19008)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19388,14 +23081,15 @@ getRow(19008)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19009)->
     #buffCfg {
     buffId = 19009,
     buffName = "喷火",
     buffDescribe = "dot",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19410,6 +23104,7 @@ getRow(19009)->
     buffDuration = [10000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19426,14 +23121,15 @@ getRow(19009)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19010)->
     #buffCfg {
     buffId = 19010,
     buffName = "火焰护盾",
     buffDescribe = "加防5s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19448,6 +23144,7 @@ getRow(19010)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19464,14 +23161,15 @@ getRow(19010)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19011)->
     #buffCfg {
     buffId = 19011,
     buffName = "龙之撕咬",
     buffDescribe = "眩晕3s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19486,6 +23184,7 @@ getRow(19011)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19501,14 +23200,15 @@ getRow(19011)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19012)->
     #buffCfg {
     buffId = 19012,
     buffName = "普攻",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19523,6 +23223,7 @@ getRow(19012)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19538,17 +23239,18 @@ getRow(19012)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19013)->
     #buffCfg {
     buffId = 19013,
-    buffName = "狂野横扫",
-    buffDescribe = "无",
-    buffSfx = "0",
+    buffName = "火焰陷阱眩晕",
+    buffDescribe = "眩晕",
+    buffSfx = "state/vfx_28_13",
     sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 27,
+    buffSfxSlots = 0,
+    buffICON = 41,
     oneBuffMultiCaster = 1,
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 0,
@@ -19560,7 +23262,8 @@ getRow(19013)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
-    buffEffect = 0,
+    battlepower = 0,
+    buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
     buffParam3 = 0,
@@ -19575,57 +23278,20 @@ getRow(19013)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19014)->
     #buffCfg {
     buffId = 19014,
-    buffName = "愤怒之力",
-    buffDescribe = "降低命中，生命恢复",
-    buffSfx = "0",
+    buffName = "火焰缠身",
+    buffDescribe = "每层火焰缠身使魔防降低10%，攻击增加3%，可叠加10层。",
+    buffSfx = "state/vfx_28_2",
     sfxScal = 1,
     buffSfxSlots = 4,
-    buffICON = 27,
+    buffICON = 32,
     oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 1,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [2000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,144,-0.7,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(19015)->
-    #buffCfg {
-    buffId = 19015,
-    buffName = "撼地重击",
-    buffDescribe = "无",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 27,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
+    oneBuffOneCaster = 10,
     multiBuffOneCaster = 0,
     multiBuffMultiCaster = 0,
     buffType = 1,
@@ -19635,6 +23301,7 @@ getRow(19015)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19643,22 +23310,62 @@ getRow(19015)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,138,-0.5,0},{1,1,139,-0.5,0}],
+    property = [{1,1,139,-0.1,0},{1,1,136,0.03,0},{1,1,137,0.03,0}],
     buffDeathdel = 1,
     buffRemove = 1,
-    buffstore = 0,
+    buffstore = 1,
     outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(19015)->
+    #buffCfg {
+    buffId = 19015,
+    buffName = "灼热光环",
+    buffDescribe = "使周围敌人每秒都会承受火焰伤害，但攻击提升5%。",
+    buffSfx = "state/vfx_22_95",
+    sfxScal = 0.2,
+    buffSfxSlots = 6,
+    buffICON = 61,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [86400000,0],
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 36,
+    buffParam1 = 30,
+    buffParam2 = 190151,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19016)->
     #buffCfg {
     buffId = 19016,
     buffName = "普攻",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19673,6 +23380,7 @@ getRow(19016)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19688,14 +23396,15 @@ getRow(19016)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19017)->
     #buffCfg {
     buffId = 19017,
     buffName = "地狱连击",
     buffDescribe = "dot",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19710,6 +23419,7 @@ getRow(19017)->
     buffDuration = [10000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19726,14 +23436,15 @@ getRow(19017)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19018)->
     #buffCfg {
     buffId = 19018,
     buffName = "十字斩",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19748,6 +23459,7 @@ getRow(19018)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19763,14 +23475,15 @@ getRow(19018)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19019)->
     #buffCfg {
     buffId = 19019,
     buffName = "熔岩四射",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19785,6 +23498,7 @@ getRow(19019)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19801,14 +23515,15 @@ getRow(19019)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19020)->
     #buffCfg {
     buffId = 19020,
     buffName = "普攻",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19823,6 +23538,7 @@ getRow(19020)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19838,14 +23554,15 @@ getRow(19020)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19021)->
     #buffCfg {
     buffId = 19021,
     buffName = "旋风拳击",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19860,6 +23577,7 @@ getRow(19021)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19875,14 +23593,15 @@ getRow(19021)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19022)->
     #buffCfg {
     buffId = 19022,
     buffName = "三连击",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19897,6 +23616,7 @@ getRow(19022)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19912,14 +23632,15 @@ getRow(19022)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19023)->
     #buffCfg {
     buffId = 19023,
     buffName = "飞踢",
     buffDescribe = "眩晕3秒",
-    buffSfx = "0",
+    buffSfx = "state/vfx_28_13",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 155,
@@ -19934,6 +23655,7 @@ getRow(19023)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19949,14 +23671,15 @@ getRow(19023)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19024)->
     #buffCfg {
     buffId = 19024,
     buffName = "普攻",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -19971,6 +23694,7 @@ getRow(19024)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -19986,14 +23710,15 @@ getRow(19024)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19025)->
     #buffCfg {
     buffId = 19025,
     buffName = "水雾喷溅",
     buffDescribe = "减速2s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 171,
@@ -20008,6 +23733,7 @@ getRow(19025)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20024,51 +23750,55 @@ getRow(19025)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19026)->
     #buffCfg {
     buffId = 19026,
     buffName = "治疗",
-    buffDescribe = "无",
-    buffSfx = "0",
+    buffDescribe = "持续恢复",
+    buffSfx = "state/vfx_28_23",
     sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 27,
+    buffSfxSlots = 6,
+    buffICON = 22,
     oneBuffMultiCaster = 1,
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 0,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [2000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
+    buffDelay = 1000,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 12,
+    buffParam1 = 1,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
+    damageType = 6,
+    healProperty = 135,
+    criAble = 1,
+    damageMultiply = [{1,0.02,0}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
-    outSenceDel = 0,
+    outSenceDel = 1,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19027)->
     #buffCfg {
     buffId = 19027,
     buffName = "水花",
     buffDescribe = "减速2s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 171,
@@ -20083,6 +23813,7 @@ getRow(19027)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20099,14 +23830,15 @@ getRow(19027)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19028)->
     #buffCfg {
     buffId = 19028,
     buffName = "普攻",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -20121,6 +23853,7 @@ getRow(19028)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20136,14 +23869,15 @@ getRow(19028)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19029)->
     #buffCfg {
     buffId = 19029,
     buffName = "骨甲撞击",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -20158,6 +23892,7 @@ getRow(19029)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20173,14 +23908,15 @@ getRow(19029)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19030)->
     #buffCfg {
     buffId = 19030,
     buffName = "咆哮加防",
     buffDescribe = "加防10s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -20195,6 +23931,7 @@ getRow(19030)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20211,14 +23948,15 @@ getRow(19030)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19031)->
     #buffCfg {
     buffId = 19031,
     buffName = "咆哮",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -20233,6 +23971,7 @@ getRow(19031)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20248,14 +23987,15 @@ getRow(19031)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19032)->
     #buffCfg {
     buffId = 19032,
     buffName = "普攻",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -20270,6 +24010,7 @@ getRow(19032)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20285,14 +24026,15 @@ getRow(19032)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19033)->
     #buffCfg {
     buffId = 19033,
     buffName = "翼击",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -20307,6 +24049,7 @@ getRow(19033)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20322,14 +24065,15 @@ getRow(19033)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19034)->
     #buffCfg {
     buffId = 19034,
     buffName = "冰霜喷射",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -20344,6 +24088,7 @@ getRow(19034)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20359,14 +24104,15 @@ getRow(19034)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(19035)->
     #buffCfg {
     buffId = 19035,
     buffName = "冰霜打击",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -20381,6 +24127,7 @@ getRow(19035)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20396,7 +24143,208 @@ getRow(19035)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(20000)->
+    #buffCfg {
+    buffId = 20000,
+    buffName = "变身杂技大师",
+    buffDescribe = "变身杂技大师",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 33,
+    buffParam1 = 1,
+    buffParam2 = 22012,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    property = [],
+    buffDeathdel = 0,
+    buffRemove = 1,
+    buffstore = 1,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 1,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "变身为小葵花"
+    };
+getRow(20001)->
+    #buffCfg {
+    buffId = 20001,
+    buffName = "变身伪装",
+    buffDescribe = "任务变身mon",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 131,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 33,
+    buffParam1 = 1,
+    buffParam2 = 22011,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    property = [],
+    buffDeathdel = 0,
+    buffRemove = 1,
+    buffstore = 1,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 1,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "变身无敌2秒"
+    };
+getRow(20002)->
+    #buffCfg {
+    buffId = 20002,
+    buffName = "任务变身技能m",
+    buffDescribe = "任务变身mon",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 131,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 33,
+    buffParam1 = 1,
+    buffParam2 = 30003,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    property = [],
+    buffDeathdel = 0,
+    buffRemove = 1,
+    buffstore = 1,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 1,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "变身无敌2秒"
+    };
+getRow(20003)->
+    #buffCfg {
+    buffId = 20003,
+    buffName = "骑宠预先体验随行npc",
+    buffDescribe = "托比",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 131,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 34,
+    buffParam1 = 1130,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    property = [],
+    buffDeathdel = 0,
+    buffRemove = 1,
+    buffstore = 1,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 1,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "双人骑宠npc跟随"
+    };
+getRow(20004)->
+    #buffCfg {
+    buffId = 20004,
+    buffName = "变身魔族喽喽",
+    buffDescribe = "阿克勒平原任务变身为魔族喽喽",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 131,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 33,
+    buffParam1 = 1,
+    buffParam2 = 30050,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    property = [],
+    buffDeathdel = 0,
+    buffRemove = 1,
+    buffstore = 1,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 1,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "变身魔族喽喽"
     };
 getRow(20017)->
     #buffCfg {
@@ -20418,6 +24366,7 @@ getRow(20017)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20433,14 +24382,94 @@ getRow(20017)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(21000)->
+    #buffCfg {
+    buffId = 21000,
+    buffName = "剧情拳击胖鱼技能1，减速",
+    buffDescribe = "降低速度50%10秒",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 7,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,-0.5,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(21001)->
+    #buffCfg {
+    buffId = 21001,
+    buffName = "剧情拳击胖鱼技能2，冰冻",
+    buffDescribe = "冰冻（冻结）10秒",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 3,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 2,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30000)->
     #buffCfg {
     buffId = 30000,
     buffName = "港口竞速陷阱怪自杀",
     buffDescribe = "无",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 0,
@@ -20455,6 +24484,7 @@ getRow(30000)->
     buffDuration = [6000,0],
     buffDelay = 5000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20471,14 +24501,15 @@ getRow(30000)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30001)->
     #buffCfg {
     buffId = 30001,
     buffName = "灼烧",
     buffDescribe = "造成持续伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 149,
@@ -20493,6 +24524,7 @@ getRow(30001)->
     buffDuration = [2000,0],
     buffDelay = 2000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20509,14 +24541,15 @@ getRow(30001)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30002)->
     #buffCfg {
     buffId = 30002,
     buffName = "灼烧",
     buffDescribe = "造成持续伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 149,
@@ -20531,6 +24564,7 @@ getRow(30002)->
     buffDuration = [2000,0],
     buffDelay = 2000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20547,7 +24581,8 @@ getRow(30002)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30003)->
     #buffCfg {
@@ -20569,6 +24604,7 @@ getRow(30003)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20585,7 +24621,8 @@ getRow(30003)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30004)->
     #buffCfg {
@@ -20607,6 +24644,7 @@ getRow(30004)->
     buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20623,7 +24661,8 @@ getRow(30004)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30005)->
     #buffCfg {
@@ -20645,6 +24684,7 @@ getRow(30005)->
     buffDuration = [1000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20660,7 +24700,8 @@ getRow(30005)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30006)->
     #buffCfg {
@@ -20682,6 +24723,7 @@ getRow(30006)->
     buffDuration = [1000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20697,7 +24739,8 @@ getRow(30006)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30007)->
     #buffCfg {
@@ -20719,6 +24762,7 @@ getRow(30007)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20735,7 +24779,8 @@ getRow(30007)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30008)->
     #buffCfg {
@@ -20757,6 +24802,7 @@ getRow(30008)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20773,7 +24819,8 @@ getRow(30008)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30009)->
     #buffCfg {
@@ -20795,6 +24842,7 @@ getRow(30009)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20810,7 +24858,8 @@ getRow(30009)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30010)->
     #buffCfg {
@@ -20832,6 +24881,7 @@ getRow(30010)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20847,7 +24897,8 @@ getRow(30010)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30011)->
     #buffCfg {
@@ -20866,9 +24917,10 @@ getRow(30011)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [5000,0],
+    buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20877,7 +24929,7 @@ getRow(30011)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{2,1,136,0,37}],
+    property = [{1,1,136,0.1,0.002}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -20885,7 +24937,8 @@ getRow(30011)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30012)->
     #buffCfg {
@@ -20904,9 +24957,10 @@ getRow(30012)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [5000,0],
+    buffDuration = [8000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -20915,7 +24969,7 @@ getRow(30012)->
     damageType = 2,
     healProperty = 0,
     criAble = 0,
-    property = [{2,1,137,0,37}],
+    property = [{1,1,137,0.1,0.002}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -20923,7 +24977,8 @@ getRow(30012)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30013)->
     #buffCfg {
@@ -20945,6 +25000,7 @@ getRow(30013)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 16,
     buffParam1 = 200,
     buffParam2 = 135,
@@ -20960,7 +25016,8 @@ getRow(30013)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30014)->
     #buffCfg {
@@ -20982,6 +25039,7 @@ getRow(30014)->
     buffDuration = [10000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 12,
     buffParam1 = 0.5,
     buffParam2 = 0,
@@ -20998,7 +25056,8 @@ getRow(30014)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30015)->
     #buffCfg {
@@ -21020,6 +25079,7 @@ getRow(30015)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21036,7 +25096,8 @@ getRow(30015)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(30016)->
     #buffCfg {
@@ -21058,6 +25119,7 @@ getRow(30016)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21074,14 +25136,15 @@ getRow(30016)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(31001)->
     #buffCfg {
     buffId = 31001,
     buffName = "强化灼烧",
     buffDescribe = "造成持续伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 149,
@@ -21096,6 +25159,7 @@ getRow(31001)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21112,14 +25176,15 @@ getRow(31001)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(31002)->
     #buffCfg {
     buffId = 31002,
     buffName = "强化灼烧",
     buffDescribe = "造成持续伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 149,
@@ -21134,6 +25199,7 @@ getRow(31002)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21150,7 +25216,8 @@ getRow(31002)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(31003)->
     #buffCfg {
@@ -21172,6 +25239,7 @@ getRow(31003)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21188,7 +25256,8 @@ getRow(31003)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(31004)->
     #buffCfg {
@@ -21210,6 +25279,7 @@ getRow(31004)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21226,7 +25296,8 @@ getRow(31004)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(31005)->
     #buffCfg {
@@ -21248,6 +25319,7 @@ getRow(31005)->
     buffDuration = [1000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21263,7 +25335,8 @@ getRow(31005)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(31006)->
     #buffCfg {
@@ -21285,6 +25358,7 @@ getRow(31006)->
     buffDuration = [1000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21300,7 +25374,8 @@ getRow(31006)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(31007)->
     #buffCfg {
@@ -21322,6 +25397,7 @@ getRow(31007)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21338,7 +25414,8 @@ getRow(31007)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(31008)->
     #buffCfg {
@@ -21360,6 +25437,7 @@ getRow(31008)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21376,14 +25454,15 @@ getRow(31008)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(32111)->
     #buffCfg {
     buffId = 32111,
     buffName = "坚韧I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 84,
@@ -21398,6 +25477,7 @@ getRow(32111)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21414,14 +25494,15 @@ getRow(32111)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32112)->
     #buffCfg {
     buffId = 32112,
     buffName = "坚韧II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 84,
@@ -21436,6 +25517,7 @@ getRow(32112)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21452,14 +25534,15 @@ getRow(32112)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32113)->
     #buffCfg {
     buffId = 32113,
     buffName = "坚韧III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 84,
@@ -21474,6 +25557,7 @@ getRow(32113)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21490,14 +25574,15 @@ getRow(32113)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32114)->
     #buffCfg {
     buffId = 32114,
     buffName = "坚韧IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 84,
@@ -21512,6 +25597,7 @@ getRow(32114)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21528,14 +25614,15 @@ getRow(32114)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32115)->
     #buffCfg {
     buffId = 32115,
     buffName = "坚韧V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 84,
@@ -21550,6 +25637,7 @@ getRow(32115)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21566,14 +25654,15 @@ getRow(32115)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32211)->
     #buffCfg {
     buffId = 32211,
     buffName = "灵敏I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 16,
@@ -21588,6 +25677,7 @@ getRow(32211)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21604,14 +25694,15 @@ getRow(32211)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32212)->
     #buffCfg {
     buffId = 32212,
     buffName = "灵敏II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 16,
@@ -21626,6 +25717,7 @@ getRow(32212)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21642,14 +25734,15 @@ getRow(32212)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32213)->
     #buffCfg {
     buffId = 32213,
     buffName = "灵敏III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 16,
@@ -21664,6 +25757,7 @@ getRow(32213)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21680,14 +25774,15 @@ getRow(32213)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32214)->
     #buffCfg {
     buffId = 32214,
     buffName = "灵敏IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 16,
@@ -21702,6 +25797,7 @@ getRow(32214)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21718,14 +25814,15 @@ getRow(32214)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32215)->
     #buffCfg {
     buffId = 32215,
     buffName = "灵敏V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 16,
@@ -21740,6 +25837,7 @@ getRow(32215)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21756,14 +25854,15 @@ getRow(32215)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32311)->
     #buffCfg {
     buffId = 32311,
     buffName = "活力I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 148,
@@ -21778,6 +25877,7 @@ getRow(32311)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21794,14 +25894,15 @@ getRow(32311)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32312)->
     #buffCfg {
     buffId = 32312,
     buffName = "活力II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 148,
@@ -21816,6 +25917,7 @@ getRow(32312)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21832,14 +25934,15 @@ getRow(32312)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32313)->
     #buffCfg {
     buffId = 32313,
     buffName = "活力III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 148,
@@ -21854,6 +25957,7 @@ getRow(32313)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21870,14 +25974,15 @@ getRow(32313)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32314)->
     #buffCfg {
     buffId = 32314,
     buffName = "活力IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 148,
@@ -21892,6 +25997,7 @@ getRow(32314)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21908,14 +26014,15 @@ getRow(32314)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32315)->
     #buffCfg {
     buffId = 32315,
     buffName = "活力V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 148,
@@ -21930,6 +26037,7 @@ getRow(32315)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21946,14 +26054,15 @@ getRow(32315)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32411)->
     #buffCfg {
     buffId = 32411,
     buffName = "战意I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 75,
@@ -21968,6 +26077,7 @@ getRow(32411)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -21984,14 +26094,15 @@ getRow(32411)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32412)->
     #buffCfg {
     buffId = 32412,
     buffName = "战意II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 75,
@@ -22006,6 +26117,7 @@ getRow(32412)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22022,14 +26134,15 @@ getRow(32412)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32413)->
     #buffCfg {
     buffId = 32413,
     buffName = "战意III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 75,
@@ -22044,6 +26157,7 @@ getRow(32413)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22060,14 +26174,15 @@ getRow(32413)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32414)->
     #buffCfg {
     buffId = 32414,
     buffName = "战意IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 75,
@@ -22082,6 +26197,7 @@ getRow(32414)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22098,14 +26214,15 @@ getRow(32414)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32415)->
     #buffCfg {
     buffId = 32415,
     buffName = "战意V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 75,
@@ -22120,6 +26237,7 @@ getRow(32415)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22136,14 +26254,15 @@ getRow(32415)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32511)->
     #buffCfg {
     buffId = 32511,
     buffName = "精准I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 26,
@@ -22158,6 +26277,7 @@ getRow(32511)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22174,14 +26294,15 @@ getRow(32511)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32512)->
     #buffCfg {
     buffId = 32512,
     buffName = "精准II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 26,
@@ -22196,6 +26317,7 @@ getRow(32512)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22212,14 +26334,15 @@ getRow(32512)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32513)->
     #buffCfg {
     buffId = 32513,
     buffName = "精准III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 26,
@@ -22234,6 +26357,7 @@ getRow(32513)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22250,14 +26374,15 @@ getRow(32513)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32514)->
     #buffCfg {
     buffId = 32514,
     buffName = "精准IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 26,
@@ -22272,6 +26397,7 @@ getRow(32514)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22288,14 +26414,15 @@ getRow(32514)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32515)->
     #buffCfg {
     buffId = 32515,
     buffName = "精准V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 26,
@@ -22310,6 +26437,7 @@ getRow(32515)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22326,14 +26454,15 @@ getRow(32515)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32611)->
     #buffCfg {
     buffId = 32611,
     buffName = "怒火I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 50,
@@ -22348,6 +26477,7 @@ getRow(32611)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22364,14 +26494,15 @@ getRow(32611)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32612)->
     #buffCfg {
     buffId = 32612,
     buffName = "怒火II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 50,
@@ -22386,6 +26517,7 @@ getRow(32612)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22402,14 +26534,15 @@ getRow(32612)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32613)->
     #buffCfg {
     buffId = 32613,
     buffName = "怒火III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 50,
@@ -22424,6 +26557,7 @@ getRow(32613)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22440,14 +26574,15 @@ getRow(32613)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32614)->
     #buffCfg {
     buffId = 32614,
     buffName = "怒火IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 50,
@@ -22462,6 +26597,7 @@ getRow(32614)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22478,14 +26614,15 @@ getRow(32614)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32615)->
     #buffCfg {
     buffId = 32615,
     buffName = "怒火V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 50,
@@ -22500,6 +26637,7 @@ getRow(32615)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22516,14 +26654,15 @@ getRow(32615)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32711)->
     #buffCfg {
     buffId = 32711,
     buffName = "猛击I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 70,
@@ -22538,6 +26677,7 @@ getRow(32711)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22554,14 +26694,15 @@ getRow(32711)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32712)->
     #buffCfg {
     buffId = 32712,
     buffName = "猛击II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 70,
@@ -22576,6 +26717,7 @@ getRow(32712)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22592,14 +26734,15 @@ getRow(32712)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32713)->
     #buffCfg {
     buffId = 32713,
     buffName = "猛击III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 70,
@@ -22614,6 +26757,7 @@ getRow(32713)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22630,14 +26774,15 @@ getRow(32713)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32714)->
     #buffCfg {
     buffId = 32714,
     buffName = "猛击IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 70,
@@ -22652,6 +26797,7 @@ getRow(32714)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22668,14 +26814,15 @@ getRow(32714)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32715)->
     #buffCfg {
     buffId = 32715,
     buffName = "猛击V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 70,
@@ -22690,6 +26837,7 @@ getRow(32715)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22706,14 +26854,15 @@ getRow(32715)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32811)->
     #buffCfg {
     buffId = 32811,
     buffName = "无畏I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 37,
@@ -22728,6 +26877,7 @@ getRow(32811)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22744,14 +26894,15 @@ getRow(32811)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32812)->
     #buffCfg {
     buffId = 32812,
     buffName = "无畏II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 37,
@@ -22766,6 +26917,7 @@ getRow(32812)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22782,14 +26934,15 @@ getRow(32812)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32813)->
     #buffCfg {
     buffId = 32813,
     buffName = "无畏III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 37,
@@ -22804,6 +26957,7 @@ getRow(32813)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22820,14 +26974,15 @@ getRow(32813)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32814)->
     #buffCfg {
     buffId = 32814,
     buffName = "无畏IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 37,
@@ -22842,6 +26997,7 @@ getRow(32814)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22858,14 +27014,15 @@ getRow(32814)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32815)->
     #buffCfg {
     buffId = 32815,
     buffName = "无畏V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 37,
@@ -22880,6 +27037,7 @@ getRow(32815)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22896,14 +27054,15 @@ getRow(32815)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32911)->
     #buffCfg {
     buffId = 32911,
     buffName = "灵感I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 11,
@@ -22918,6 +27077,7 @@ getRow(32911)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22934,14 +27094,15 @@ getRow(32911)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32912)->
     #buffCfg {
     buffId = 32912,
     buffName = "灵感II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 11,
@@ -22956,6 +27117,7 @@ getRow(32912)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -22972,14 +27134,15 @@ getRow(32912)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32913)->
     #buffCfg {
     buffId = 32913,
     buffName = "灵感III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 11,
@@ -22994,6 +27157,7 @@ getRow(32913)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23010,14 +27174,15 @@ getRow(32913)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32914)->
     #buffCfg {
     buffId = 32914,
     buffName = "灵感IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 11,
@@ -23032,6 +27197,7 @@ getRow(32914)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23048,14 +27214,15 @@ getRow(32914)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(32915)->
     #buffCfg {
     buffId = 32915,
     buffName = "灵感V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 11,
@@ -23070,6 +27237,7 @@ getRow(32915)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23086,14 +27254,15 @@ getRow(32915)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33011)->
     #buffCfg {
     buffId = 33011,
     buffName = "重甲I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 63,
@@ -23108,6 +27277,7 @@ getRow(33011)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23124,14 +27294,15 @@ getRow(33011)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33012)->
     #buffCfg {
     buffId = 33012,
     buffName = "重甲II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 63,
@@ -23146,6 +27317,7 @@ getRow(33012)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23162,14 +27334,15 @@ getRow(33012)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33013)->
     #buffCfg {
     buffId = 33013,
     buffName = "重甲III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 63,
@@ -23184,6 +27357,7 @@ getRow(33013)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23200,14 +27374,15 @@ getRow(33013)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33014)->
     #buffCfg {
     buffId = 33014,
     buffName = "重甲IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 63,
@@ -23222,6 +27397,7 @@ getRow(33014)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23238,14 +27414,15 @@ getRow(33014)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33015)->
     #buffCfg {
     buffId = 33015,
     buffName = "重甲V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 63,
@@ -23260,6 +27437,7 @@ getRow(33015)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23276,14 +27454,15 @@ getRow(33015)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33111)->
     #buffCfg {
     buffId = 33111,
     buffName = "柔光I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 66,
@@ -23298,6 +27477,7 @@ getRow(33111)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23314,14 +27494,15 @@ getRow(33111)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33112)->
     #buffCfg {
     buffId = 33112,
     buffName = "柔光II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 66,
@@ -23336,6 +27517,7 @@ getRow(33112)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23352,14 +27534,15 @@ getRow(33112)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33113)->
     #buffCfg {
     buffId = 33113,
     buffName = "柔光III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 66,
@@ -23374,6 +27557,7 @@ getRow(33113)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23390,14 +27574,15 @@ getRow(33113)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33114)->
     #buffCfg {
     buffId = 33114,
     buffName = "柔光IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 66,
@@ -23412,6 +27597,7 @@ getRow(33114)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23428,14 +27614,15 @@ getRow(33114)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33115)->
     #buffCfg {
     buffId = 33115,
     buffName = "柔光V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 66,
@@ -23450,6 +27637,7 @@ getRow(33115)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23466,14 +27654,15 @@ getRow(33115)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33211)->
     #buffCfg {
     buffId = 33211,
     buffName = "铁血I",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 131,
@@ -23488,6 +27677,7 @@ getRow(33211)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23504,14 +27694,15 @@ getRow(33211)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33212)->
     #buffCfg {
     buffId = 33212,
     buffName = "铁血II",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 131,
@@ -23526,6 +27717,7 @@ getRow(33212)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23542,14 +27734,15 @@ getRow(33212)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33213)->
     #buffCfg {
     buffId = 33213,
     buffName = "铁血III",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 131,
@@ -23564,6 +27757,7 @@ getRow(33213)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23580,14 +27774,15 @@ getRow(33213)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33214)->
     #buffCfg {
     buffId = 33214,
     buffName = "铁血IV",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 131,
@@ -23602,6 +27797,7 @@ getRow(33214)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23618,14 +27814,15 @@ getRow(33214)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(33215)->
     #buffCfg {
     buffId = 33215,
     buffName = "铁血V",
     buffDescribe = "无效",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 131,
@@ -23640,6 +27837,7 @@ getRow(33215)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 1,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23656,14 +27854,15 @@ getRow(33215)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 0
+    ishaloed = 0,
+    durationDisplay = "0"
     };
 getRow(40001)->
     #buffCfg {
     buffId = 40001,
     buffName = "荼毒buff",
     buffDescribe = "使目标中毒，5s内持续掉血（每秒掉血50+30%伤害）",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 0,
     buffSfxSlots = 0,
     buffICON = 1005,
@@ -23678,6 +27877,7 @@ getRow(40001)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23695,14 +27895,15 @@ getRow(40001)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40002)->
     #buffCfg {
     buffId = 40002,
     buffName = "中毒BUFF",
     buffDescribe = "使目标中毒，5s内持续掉血（每秒掉血30%伤害）",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 0,
     buffSfxSlots = 0,
     buffICON = 1005,
@@ -23717,6 +27918,7 @@ getRow(40002)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23733,14 +27935,15 @@ getRow(40002)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40003)->
     #buffCfg {
     buffId = 40003,
     buffName = "战士加攻",
     buffDescribe = "增加目标物理攻击",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 0,
     buffSfxSlots = 0,
     buffICON = 24,
@@ -23755,6 +27958,7 @@ getRow(40003)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23771,14 +27975,15 @@ getRow(40003)->
     damFactor = 0,
     durationFactor = 30,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40004)->
     #buffCfg {
     buffId = 40004,
     buffName = "战士加防",
     buffDescribe = "增加自身防御",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 0,
     buffSfxSlots = 0,
     buffICON = 22,
@@ -23793,6 +27998,7 @@ getRow(40004)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23809,14 +28015,15 @@ getRow(40004)->
     damFactor = 0,
     durationFactor = 30,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40005)->
     #buffCfg {
     buffId = 40005,
     buffName = "龙翔斩冲锋",
     buffDescribe = "冲锋",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 0,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -23831,6 +28038,7 @@ getRow(40005)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23846,14 +28054,15 @@ getRow(40005)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40006)->
     #buffCfg {
     buffId = 40006,
     buffName = "龙翔斩击退",
     buffDescribe = "击退",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 9,
@@ -23868,6 +28077,7 @@ getRow(40006)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 11,
     buffParam1 = 5,
     buffParam2 = 0,
@@ -23883,14 +28093,15 @@ getRow(40006)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40007)->
     #buffCfg {
     buffId = 40007,
     buffName = "肩击击退",
     buffDescribe = "击退",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 9,
@@ -23905,6 +28116,7 @@ getRow(40007)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 11,
     buffParam1 = 5,
     buffParam2 = 0,
@@ -23920,14 +28132,15 @@ getRow(40007)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40008)->
     #buffCfg {
     buffId = 40008,
     buffName = "肩击概率击晕",
     buffDescribe = "昏迷2s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -23942,6 +28155,7 @@ getRow(40008)->
     buffDuration = [2000,1000],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23957,14 +28171,15 @@ getRow(40008)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40009)->
     #buffCfg {
     buffId = 40009,
     buffName = "敲击概率击晕",
     buffDescribe = "昏迷2s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -23979,6 +28194,7 @@ getRow(40009)->
     buffDuration = [2000,1000],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -23994,14 +28210,15 @@ getRow(40009)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40010)->
     #buffCfg {
     buffId = 40010,
     buffName = "暗斩概率流血",
     buffDescribe = "持续暗影伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1005,
@@ -24016,6 +28233,7 @@ getRow(40010)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24033,14 +28251,15 @@ getRow(40010)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40011)->
     #buffCfg {
     buffId = 40011,
     buffName = "快步疾走加速",
     buffDescribe = "移动速度+30%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1001,
@@ -24055,6 +28274,7 @@ getRow(40011)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24070,14 +28290,15 @@ getRow(40011)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40012)->
     #buffCfg {
     buffId = 40012,
     buffName = "弱点侦测加暴击",
     buffDescribe = "提高暴击10%，持续30秒",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 129,
@@ -24092,6 +28313,7 @@ getRow(40012)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24108,14 +28330,15 @@ getRow(40012)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40013)->
     #buffCfg {
     buffId = 40013,
     buffName = "升龙斩概率击晕",
     buffDescribe = "昏迷2s",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -24130,6 +28353,7 @@ getRow(40013)->
     buffDuration = [2000,1000],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24145,14 +28369,15 @@ getRow(40013)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40014)->
     #buffCfg {
     buffId = 40014,
     buffName = "烈风突刺概率流血",
     buffDescribe = "持续暗影伤害",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1005,
@@ -24167,6 +28392,7 @@ getRow(40014)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24184,14 +28410,15 @@ getRow(40014)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40015)->
     #buffCfg {
     buffId = 40015,
     buffName = "强力打击暴击伤害增加",
     buffDescribe = "暴击伤害+50%",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 129,
@@ -24206,6 +28433,7 @@ getRow(40015)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24222,7 +28450,8 @@ getRow(40015)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40016)->
     #buffCfg {
@@ -24244,6 +28473,7 @@ getRow(40016)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24260,7 +28490,8 @@ getRow(40016)->
     damFactor = 0,
     durationFactor = 30,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40017)->
     #buffCfg {
@@ -24282,6 +28513,7 @@ getRow(40017)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24299,7 +28531,8 @@ getRow(40017)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40018)->
     #buffCfg {
@@ -24321,6 +28554,7 @@ getRow(40018)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24337,7 +28571,8 @@ getRow(40018)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40019)->
     #buffCfg {
@@ -24359,6 +28594,7 @@ getRow(40019)->
     buffDuration = [2000,1000],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 11,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24374,7 +28610,8 @@ getRow(40019)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40020)->
     #buffCfg {
@@ -24396,6 +28633,7 @@ getRow(40020)->
     buffDuration = [6000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 1,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24411,7 +28649,8 @@ getRow(40020)->
     damFactor = 0,
     durationFactor = 6,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40021)->
     #buffCfg {
@@ -24433,6 +28672,7 @@ getRow(40021)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24448,7 +28688,8 @@ getRow(40021)->
     damFactor = 0,
     durationFactor = 3,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40022)->
     #buffCfg {
@@ -24470,6 +28711,7 @@ getRow(40022)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24486,7 +28728,8 @@ getRow(40022)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40023)->
     #buffCfg {
@@ -24508,6 +28751,7 @@ getRow(40023)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24524,7 +28768,8 @@ getRow(40023)->
     damFactor = 0,
     durationFactor = 30,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40024)->
     #buffCfg {
@@ -24546,6 +28791,7 @@ getRow(40024)->
     buffDuration = [5000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24563,7 +28809,8 @@ getRow(40024)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40025)->
     #buffCfg {
@@ -24585,6 +28832,7 @@ getRow(40025)->
     buffDuration = [1,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24600,7 +28848,8 @@ getRow(40025)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40026)->
     #buffCfg {
@@ -24622,6 +28871,7 @@ getRow(40026)->
     buffDuration = [1,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24637,7 +28887,8 @@ getRow(40026)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40027)->
     #buffCfg {
@@ -24659,6 +28910,7 @@ getRow(40027)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24675,7 +28927,8 @@ getRow(40027)->
     damFactor = 0,
     durationFactor = 30,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40028)->
     #buffCfg {
@@ -24697,6 +28950,7 @@ getRow(40028)->
     buffDuration = [1,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24713,13 +28967,14 @@ getRow(40028)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40031)->
     #buffCfg {
     buffId = 40031,
     buffName = "眩晕",
-    buffDescribe = "眩晕2秒",
+    buffDescribe = "眩晕",
     buffSfx = "state/vfx_28_13",
     sfxScal = 1,
     buffSfxSlots = 0,
@@ -24735,6 +28990,7 @@ getRow(40031)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24750,14 +29006,15 @@ getRow(40031)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40032)->
     #buffCfg {
     buffId = 40032,
     buffName = "减速",
     buffDescribe = "降低移动速度",
-    buffSfx = "state/vfx_28_12",
+    buffSfx = "state/vfx_28_18",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 1002,
@@ -24772,6 +29029,7 @@ getRow(40032)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24788,13 +29046,14 @@ getRow(40032)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40033)->
     #buffCfg {
     buffId = 40033,
     buffName = "冰冻",
-    buffDescribe = "冰冻2秒",
+    buffDescribe = "冰冻",
     buffSfx = "state/vfx_28_1",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -24810,6 +29069,7 @@ getRow(40033)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24825,13 +29085,14 @@ getRow(40033)->
     damFactor = 0,
     durationFactor = 3,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40042)->
     #buffCfg {
     buffId = 40042,
     buffName = "增强暴击",
-    buffDescribe = "暴击持续3秒",
+    buffDescribe = "增加暴击",
     buffSfx = "state/vfx_28_6",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -24847,6 +29108,7 @@ getRow(40042)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24863,7 +29125,8 @@ getRow(40042)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40043)->
     #buffCfg {
@@ -24885,6 +29148,7 @@ getRow(40043)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -24900,89 +29164,14 @@ getRow(40043)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40045)->
     #buffCfg {
     buffId = 40045,
-    buffName = "增强法攻",
-    buffDescribe = "增加魔法攻击",
-    buffSfx = "state/vfx_28_20",
-    sfxScal = 1,
-    buffSfxSlots = 6,
-    buffICON = 3,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [13000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 2,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,137,0.16,0.0075}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 5,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(40046)->
-    #buffCfg {
-    buffId = 40046,
-    buffName = "加速移动",
-    buffDescribe = "移动速度+50%",
-    buffSfx = "state/vfx_28_11",
-    sfxScal = 1,
-    buffSfxSlots = 6,
-    buffICON = 1001,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [13000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 2,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,157,0.2,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 5,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(40048)->
-    #buffCfg {
-    buffId = 40048,
-    buffName = "增强法攻",
-    buffDescribe = "增强法术攻击力",
+    buffName = "强化睿智",
+    buffDescribe = "增加物攻和法攻",
     buffSfx = "state/vfx_28_20",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -24998,6 +29187,7 @@ getRow(40048)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25006,7 +29196,7 @@ getRow(40048)->
     damageType = 2,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,137,0.18,0.01}],
+    property = [{1,1,136,0.12,0.003},{1,1,137,0.12,0.003}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -25014,13 +29204,54 @@ getRow(40048)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(40048)->
+    #buffCfg {
+    buffId = 40048,
+    buffName = "魔法师的祝福",
+    buffDescribe = "增加物攻和法攻",
+    buffSfx = "state/vfx_28_20",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 3,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [10000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 2,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,136,0.15,0.003},{1,1,137,0.15,0.003}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 5,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40049)->
     #buffCfg {
     buffId = 40049,
-    buffName = "灼烧",
-    buffDescribe = "每秒收到火焰灼烧伤害",
+    buffName = "燃焰术",
+    buffDescribe = "持续受到燃焰灼烧伤害",
     buffSfx = "state/vfx_28_2",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -25033,9 +29264,10 @@ getRow(40049)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [5000,0],
-    buffDelay = 1000,
+    buffDuration = [3000,0],
+    buffDelay = 1500,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25044,7 +29276,7 @@ getRow(40049)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    damageMultiply = [{1,1.05,0.06216}],
+    damageMultiply = [{1,0.407,0.024}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -25052,13 +29284,14 @@ getRow(40049)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40050)->
     #buffCfg {
     buffId = 40050,
     buffName = "眩晕",
-    buffDescribe = "眩晕2秒",
+    buffDescribe = "眩晕",
     buffSfx = "state/vfx_28_13",
     sfxScal = 1,
     buffSfxSlots = 0,
@@ -25074,6 +29307,7 @@ getRow(40050)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25089,13 +29323,14 @@ getRow(40050)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40051)->
     #buffCfg {
     buffId = 40051,
     buffName = "眩晕",
-    buffDescribe = "眩晕3秒",
+    buffDescribe = "眩晕",
     buffSfx = "state/vfx_28_13",
     sfxScal = 1,
     buffSfxSlots = 0,
@@ -25111,6 +29346,7 @@ getRow(40051)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25126,14 +29362,15 @@ getRow(40051)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40060)->
     #buffCfg {
     buffId = 40060,
     buffName = "中毒",
-    buffDescribe = "中毒",
-    buffSfx = "state/vfx_28_2",
+    buffDescribe = "持续受到中毒伤害",
+    buffSfx = "state/vfx_28_17",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 1005,
@@ -25145,9 +29382,10 @@ getRow(40060)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [5000,0],
+    buffDuration = [4000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25156,7 +29394,7 @@ getRow(40060)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    damageMultiply = [{1,1.4,0.03552}],
+    damageMultiply = [{1,0.186,0.011}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -25164,14 +29402,15 @@ getRow(40060)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40062)->
     #buffCfg {
     buffId = 40062,
     buffName = "减速",
     buffDescribe = "降低移动速度",
-    buffSfx = "state/vfx_28_12",
+    buffSfx = "state/vfx_28_18",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 1002,
@@ -25186,6 +29425,7 @@ getRow(40062)->
     buffDuration = [4000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25202,13 +29442,14 @@ getRow(40062)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40064)->
     #buffCfg {
     buffId = 40064,
-    buffName = "增强物攻",
-    buffDescribe = "物理攻击力提升",
+    buffName = "战士之心",
+    buffDescribe = "增加物攻和法攻",
     buffSfx = "state/vfx_28_19",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -25221,9 +29462,10 @@ getRow(40064)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [13000,0],
+    buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25232,7 +29474,7 @@ getRow(40064)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,136,0.12,0.01}],
+    property = [{1,1,136,0.15,0.003},{1,1,137,0.15,0.003}],
     buffDeathdel = 0,
     buffRemove = 1,
     buffstore = 0,
@@ -25240,13 +29482,14 @@ getRow(40064)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40065)->
     #buffCfg {
     buffId = 40065,
-    buffName = "增强物攻",
-    buffDescribe = "物理攻击力提升",
+    buffName = "强化攻击",
+    buffDescribe = "增加物攻和法攻",
     buffSfx = "state/vfx_28_19",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -25262,6 +29505,7 @@ getRow(40065)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25270,7 +29514,7 @@ getRow(40065)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,136,0.1,0.0075}],
+    property = [{1,1,136,0.12,0.003},{1,1,137,0.12,0.003}],
     buffDeathdel = 0,
     buffRemove = 1,
     buffstore = 0,
@@ -25278,13 +29522,14 @@ getRow(40065)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40067)->
     #buffCfg {
     buffId = 40067,
-    buffName = "降低物攻",
-    buffDescribe = "降低敌方5秒的物攻",
+    buffName = "盾击",
+    buffDescribe = "降低物攻和法攻",
     buffSfx = "state/vfx_28_23",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -25300,6 +29545,7 @@ getRow(40067)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25308,7 +29554,7 @@ getRow(40067)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{2,0,136,0,17}],
+    property = [{1,1,136,-0.1,0},{1,1,137,-0.1,0}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -25316,127 +29562,14 @@ getRow(40067)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(40068)->
-    #buffCfg {
-    buffId = 40068,
-    buffName = "降低法攻",
-    buffDescribe = "降低敌方5秒的法攻",
-    buffSfx = "state/vfx_28_23",
-    sfxScal = 1,
-    buffSfxSlots = 6,
-    buffICON = 24,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 1,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [5000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{2,0,137,0,17}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(40069)->
-    #buffCfg {
-    buffId = 40069,
-    buffName = "增强暴伤",
-    buffDescribe = "暴击伤害提升",
-    buffSfx = "state/vfx_28_19",
-    sfxScal = 1,
-    buffSfxSlots = 6,
-    buffICON = 24,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [10000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,142,0.2,0.02}],
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(40070)->
-    #buffCfg {
-    buffId = 40070,
-    buffName = "增强暴伤",
-    buffDescribe = "暴击伤害提升",
-    buffSfx = "state/vfx_28_19",
-    sfxScal = 1,
-    buffSfxSlots = 6,
-    buffICON = 24,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [10000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,142,0.25,0.02}],
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40071)->
     #buffCfg {
     buffId = 40071,
-    buffName = "增强暴击",
-    buffDescribe = "暴击等级提升",
+    buffName = "暗斩",
+    buffDescribe = "增加暴击",
     buffSfx = "state/vfx_28_19",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -25452,6 +29585,7 @@ getRow(40071)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25460,7 +29594,7 @@ getRow(40071)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{2,0,140,0,102}],
+    property = [{1,1,140,0.1,0}],
     buffDeathdel = 0,
     buffRemove = 1,
     buffstore = 0,
@@ -25468,13 +29602,14 @@ getRow(40071)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40072)->
     #buffCfg {
     buffId = 40072,
-    buffName = "降低法攻",
-    buffDescribe = "降低敌方5秒的法攻",
+    buffName = "心脏刺击",
+    buffDescribe = "降低法攻",
     buffSfx = "state/vfx_28_23",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -25490,6 +29625,7 @@ getRow(40072)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25498,7 +29634,7 @@ getRow(40072)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{2,0,137,0,101}],
+    property = [{1,1,137,-0.1,0}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -25506,51 +29642,14 @@ getRow(40072)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(40100)->
-    #buffCfg {
-    buffId = 40100,
-    buffName = "增强物攻",
-    buffDescribe = "物理攻击力增强",
-    buffSfx = "state/vfx_28_19",
-    sfxScal = 1,
-    buffSfxSlots = 6,
-    buffICON = 24,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [10000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{2,0,136,0,7}],
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40101)->
     #buffCfg {
     buffId = 40101,
-    buffName = "光芒灼烧",
-    buffDescribe = "7s内持续掉血（每秒掉血50+30%伤害）",
+    buffName = "圣光突刺",
+    buffDescribe = "持续受到流血伤害",
     buffSfx = "state/vfx_28_26",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -25566,6 +29665,7 @@ getRow(40101)->
     buffDuration = [3000,0],
     buffDelay = 1000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25574,7 +29674,7 @@ getRow(40101)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    damageMultiply = [{1,0.756,0.04494}],
+    damageMultiply = [{1,0.282,0.017}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -25582,13 +29682,14 @@ getRow(40101)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40102)->
     #buffCfg {
     buffId = 40102,
-    buffName = "增强物防",
-    buffDescribe = "物理防御力增强",
+    buffName = "祝福战士",
+    buffDescribe = "增加物防和魔防",
     buffSfx = "state/vfx_28_22",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -25604,6 +29705,7 @@ getRow(40102)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25612,7 +29714,7 @@ getRow(40102)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,138,0.18,0.01}],
+    property = [{1,1,138,0.3,0.007},{1,1,139,0.3,0.007}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -25620,51 +29722,14 @@ getRow(40102)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40103)->
     #buffCfg {
     buffId = 40103,
-    buffName = "增强法防",
-    buffDescribe = "法术防御力增强",
-    buffSfx = "state/vfx_28_21",
-    sfxScal = 1,
-    buffSfxSlots = 6,
-    buffICON = 3,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [10000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,139,0.18,0.01}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(40104)->
-    #buffCfg {
-    buffId = 40104,
-    buffName = "降低物防",
-    buffDescribe = "物理防御力降低",
+    buffName = "嘲讽",
+    buffDescribe = "降低物防和魔防",
     buffSfx = "state/vfx_28_23",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -25677,9 +29742,10 @@ getRow(40104)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [8000,0],
+    buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25688,7 +29754,7 @@ getRow(40104)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,138,-0.16,-0.0075}],
+    property = [{1,1,138,-0.2,-0.005},{1,1,139,-0.2,-0.005}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -25696,45 +29762,8 @@ getRow(40104)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(40105)->
-    #buffCfg {
-    buffId = 40105,
-    buffName = "降低法防",
-    buffDescribe = "法术防御力降低",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 25,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 1,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [8000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,139,-0.16,-0.0075}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40106)->
     #buffCfg {
@@ -25756,6 +29785,7 @@ getRow(40106)->
     buffDuration = [4000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25772,13 +29802,14 @@ getRow(40106)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40107)->
     #buffCfg {
     buffId = 40107,
-    buffName = "流血",
-    buffDescribe = "3s内持续掉血（每秒掉血50+30%伤害）",
+    buffName = "暗斩",
+    buffDescribe = "持续受到流血伤害",
     buffSfx = "state/vfx_28_26",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -25794,6 +29825,7 @@ getRow(40107)->
     buffDuration = [3000,0],
     buffDelay = 1000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25802,7 +29834,7 @@ getRow(40107)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    damageMultiply = [{1,0.4704,0.02814}],
+    damageMultiply = [{1,0.146,0.009}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -25810,13 +29842,14 @@ getRow(40107)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40108)->
     #buffCfg {
     buffId = 40108,
-    buffName = "加速移动",
-    buffDescribe = "提高移动速度",
+    buffName = "快速疾走",
+    buffDescribe = "提高移动速度和爆伤",
     buffSfx = "state/vfx_28_11",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -25829,9 +29862,10 @@ getRow(40108)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [13000,0],
+    buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25840,7 +29874,7 @@ getRow(40108)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,0,157,1.3,0.1}],
+    property = [{1,1,157,0.15,0.01}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 1,
@@ -25848,13 +29882,14 @@ getRow(40108)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40109)->
     #buffCfg {
     buffId = 40109,
-    buffName = "流血",
-    buffDescribe = "3s内持续掉血（每秒掉血50+30%伤害）",
+    buffName = "针刺流血",
+    buffDescribe = "持续受到流血伤害",
     buffSfx = "state/vfx_28_26",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -25870,6 +29905,7 @@ getRow(40109)->
     buffDuration = [3000,0],
     buffDelay = 1000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25878,7 +29914,7 @@ getRow(40109)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    damageMultiply = [{1,0.714,0.04242}],
+    damageMultiply = [{1,0.211,0.013}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -25886,13 +29922,14 @@ getRow(40109)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40110)->
     #buffCfg {
     buffId = 40110,
-    buffName = "降低物攻",
-    buffDescribe = "降低敌方5秒的物攻",
+    buffName = "针刺射击",
+    buffDescribe = "降低物攻",
     buffSfx = "state/vfx_28_23",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -25908,6 +29945,7 @@ getRow(40110)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25916,7 +29954,7 @@ getRow(40110)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{2,0,136,0,94}],
+    property = [{1,1,136,-0.1,0}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -25924,7 +29962,8 @@ getRow(40110)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40112)->
     #buffCfg {
@@ -25946,6 +29985,7 @@ getRow(40112)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25962,13 +30002,14 @@ getRow(40112)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40113)->
     #buffCfg {
     buffId = 40113,
-    buffName = "加速移动",
-    buffDescribe = "提高移动速度",
+    buffName = "快速疾走",
+    buffDescribe = "提供移动速度和爆伤",
     buffSfx = "state/vfx_28_11",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -25984,6 +30025,7 @@ getRow(40113)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -25992,7 +30034,7 @@ getRow(40113)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,0,157,1.8,0.1}],
+    property = [{1,1,157,0.15,0.01},{1,1,142,0.2,0.005}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 1,
@@ -26000,13 +30042,14 @@ getRow(40113)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40114)->
     #buffCfg {
     buffId = 40114,
-    buffName = "命中增强",
-    buffDescribe = "增强队友命中等级",
+    buffName = "强化视野",
+    buffDescribe = "增加命中和闪避",
     buffSfx = "state/vfx_28_24",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -26022,6 +30065,7 @@ getRow(40114)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26030,7 +30074,7 @@ getRow(40114)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,144,0.16,0.0075}],
+    property = [{1,1,144,0.3,0.007},{1,1,145,0.3,0.007}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -26038,51 +30082,14 @@ getRow(40114)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(40115)->
-    #buffCfg {
-    buffId = 40115,
-    buffName = "闪避增强",
-    buffDescribe = "增强队友闪避等级",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 165,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [10000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,145,0.16,0.0075}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40118)->
     #buffCfg {
     buffId = 40118,
-    buffName = "流血",
-    buffDescribe = "5s内持续掉血（每秒掉血50+30%伤害）",
+    buffName = "暗斩",
+    buffDescribe = "持续受到流血伤害",
     buffSfx = "state/vfx_28_26",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -26098,6 +30105,7 @@ getRow(40118)->
     buffDuration = [3000,0],
     buffDelay = 1000,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26106,7 +30114,7 @@ getRow(40118)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    damageMultiply = [{1,0.756,0.04494}],
+    damageMultiply = [{1,0.139,0.008}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -26114,13 +30122,14 @@ getRow(40118)->
     damFactor = 0,
     durationFactor = 5,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40120)->
     #buffCfg {
     buffId = 40120,
-    buffName = "命中增强",
-    buffDescribe = "命中等级提升",
+    buffName = "疾风",
+    buffDescribe = "增加命中和闪避",
     buffSfx = "state/vfx_28_24",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -26133,9 +30142,10 @@ getRow(40120)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [13000,0],
+    buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26144,7 +30154,7 @@ getRow(40120)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,144,0.16,0.0075}],
+    property = [{1,1,144,0.12,0.003},{1,1,145,0.12,0.003}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -26152,51 +30162,14 @@ getRow(40120)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(40121)->
-    #buffCfg {
-    buffId = 40121,
-    buffName = "闪避增强",
-    buffDescribe = "闪避等级提升",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 165,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [13000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,145,0.16,0.0075}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40122)->
     #buffCfg {
     buffId = 40122,
-    buffName = "暴击攻击增强",
-    buffDescribe = "暴击等级提升,攻击提升",
+    buffName = "尼达的祝福",
+    buffDescribe = "增加暴击",
     buffSfx = "state/vfx_28_19",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -26209,9 +30182,10 @@ getRow(40122)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [13000,0],
+    buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26220,7 +30194,7 @@ getRow(40122)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,140,0.16,0.0075},{2,0,136,0,100}],
+    property = [{1,1,140,0.15,0.003}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -26228,13 +30202,14 @@ getRow(40122)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40123)->
     #buffCfg {
     buffId = 40123,
-    buffName = "增强物攻",
-    buffDescribe = "物理攻击力提升",
+    buffName = "强化攻击",
+    buffDescribe = "增加物攻和法攻",
     buffSfx = "state/vfx_28_19",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -26250,6 +30225,7 @@ getRow(40123)->
     buffDuration = [10000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26258,7 +30234,7 @@ getRow(40123)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,136,0.16,0.005}],
+    property = [{1,1,136,0.1,0.005},{1,1,137,0.1,0.005}],
     buffDeathdel = 0,
     buffRemove = 1,
     buffstore = 0,
@@ -26266,14 +30242,15 @@ getRow(40123)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40124)->
     #buffCfg {
     buffId = 40124,
     buffName = "烈风术定身",
     buffDescribe = "用于防止BUG",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 0,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -26288,6 +30265,7 @@ getRow(40124)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 24,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26303,13 +30281,14 @@ getRow(40124)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40126)->
     #buffCfg {
     buffId = 40126,
     buffName = "通用虚假怪物硬值",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 0,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -26324,6 +30303,7 @@ getRow(40126)->
     buffDuration = [700,0],
     buffDelay = 0,
     buffStart = 1,
+    battlepower = 0,
     buffEffect = 3,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26339,14 +30319,15 @@ getRow(40126)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40127)->
     #buffCfg {
     buffId = 40127,
     buffName = "强制攻击",
     buffDescribe = "守卫-嘲讽-强制攻击",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 0,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -26361,6 +30342,7 @@ getRow(40127)->
     buffDuration = [20000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 25,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26376,13 +30358,14 @@ getRow(40127)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40128)->
     #buffCfg {
     buffId = 40128,
-    buffName = "降低物防",
-    buffDescribe = "物理防御力降低",
+    buffName = "局击",
+    buffDescribe = "降低物理防御",
     buffSfx = "state/vfx_28_23",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -26395,9 +30378,10 @@ getRow(40128)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [6000,0],
+    buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26406,7 +30390,7 @@ getRow(40128)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{2,0,138,0,10}],
+    property = [{1,1,136,-0.15,0}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -26414,13 +30398,14 @@ getRow(40128)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40129)->
     #buffCfg {
     buffId = 40129,
-    buffName = "增加物攻",
-    buffDescribe = "物理攻击力提升",
+    buffName = "强力射击",
+    buffDescribe = "增加物攻",
     buffSfx = "state/vfx_28_19",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -26433,9 +30418,10 @@ getRow(40129)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [6000,0],
+    buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26444,7 +30430,7 @@ getRow(40129)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{2,0,136,0,92}],
+    property = [{1,1,136,0.1,0}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -26452,13 +30438,14 @@ getRow(40129)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40130)->
     #buffCfg {
     buffId = 40130,
-    buffName = "降低物防",
-    buffDescribe = "物理防御力降低",
+    buffName = "穿透刺击",
+    buffDescribe = "降低物防",
     buffSfx = "state/vfx_28_23",
     sfxScal = 1,
     buffSfxSlots = 6,
@@ -26471,9 +30458,10 @@ getRow(40130)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [6000,0],
+    buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26482,7 +30470,7 @@ getRow(40130)->
     damageType = 1,
     healProperty = 0,
     criAble = 0,
-    property = [{2,0,138,0,87}],
+    property = [{1,1,138,-0.15,0}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -26490,7 +30478,8 @@ getRow(40130)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(40132)->
     #buffCfg {
@@ -26512,6 +30501,7 @@ getRow(40132)->
     buffDuration = [6000,0],
     buffDelay = 1000,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 12,
     buffParam1 = 1,
     buffParam2 = 0,
@@ -26528,14 +30518,94 @@ getRow(40132)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(40136)->
+    #buffCfg {
+    buffId = 40136,
+    buffName = "神圣审判",
+    buffDescribe = "持续受到神圣审判伤害",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 80,
+    oneBuffMultiCaster = 0,
+    oneBuffOneCaster = 0,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 1000,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 2,
+    healProperty = 0,
+    criAble = 0,
+    damageMultiply = [{1,0.145,0.009}],
+    buffDeathdel = 1,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 0,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(40137)->
+    #buffCfg {
+    buffId = 40137,
+    buffName = "通用闪避",
+    buffDescribe = "通用闪避",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 24,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [600,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 15,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 1,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 0,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50000)->
     #buffCfg {
     buffId = 50000,
     buffName = "守护初始（人）",
     buffDescribe = "攻击+10，生命+100",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 0,
@@ -26550,6 +30620,7 @@ getRow(50000)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26566,14 +30637,15 @@ getRow(50000)->
     damFactor = 0,
     durationFactor = 3600,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50001)->
     #buffCfg {
     buffId = 50001,
     buffName = "守护初始（镜）",
     buffDescribe = "攻击+10，生命+100",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 0,
@@ -26588,6 +30660,7 @@ getRow(50001)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26604,14 +30677,15 @@ getRow(50001)->
     damFactor = 0,
     durationFactor = 3600,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50002)->
     #buffCfg {
     buffId = 50002,
     buffName = "攻击初始（人）",
     buffDescribe = "攻击+10，生命+100",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 0,
@@ -26626,6 +30700,7 @@ getRow(50002)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26642,7 +30717,8 @@ getRow(50002)->
     damFactor = 0,
     durationFactor = 3600,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50003)->
     #buffCfg {
@@ -26664,6 +30740,7 @@ getRow(50003)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26680,7 +30757,8 @@ getRow(50003)->
     damFactor = 0,
     durationFactor = 3600,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50004)->
     #buffCfg {
@@ -26702,6 +30780,7 @@ getRow(50004)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26718,7 +30797,8 @@ getRow(50004)->
     damFactor = 0,
     durationFactor = 3600,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50005)->
     #buffCfg {
@@ -26740,6 +30820,7 @@ getRow(50005)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26756,7 +30837,8 @@ getRow(50005)->
     damFactor = 0,
     durationFactor = 3600,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50006)->
     #buffCfg {
@@ -26778,6 +30860,7 @@ getRow(50006)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26794,7 +30877,8 @@ getRow(50006)->
     damFactor = 0,
     durationFactor = 3600,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50007)->
     #buffCfg {
@@ -26816,6 +30900,7 @@ getRow(50007)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26832,7 +30917,8 @@ getRow(50007)->
     damFactor = 0,
     durationFactor = 3600,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50008)->
     #buffCfg {
@@ -26854,6 +30940,7 @@ getRow(50008)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26870,7 +30957,8 @@ getRow(50008)->
     damFactor = 0,
     durationFactor = 3600,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50009)->
     #buffCfg {
@@ -26892,6 +30980,7 @@ getRow(50009)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26908,7 +30997,8 @@ getRow(50009)->
     damFactor = 0,
     durationFactor = 3600,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(50010)->
     #buffCfg {
@@ -26930,6 +31020,7 @@ getRow(50010)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26946,7 +31037,8 @@ getRow(50010)->
     damFactor = 0,
     durationFactor = 3600,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(51000)->
     #buffCfg {
@@ -26968,6 +31060,7 @@ getRow(51000)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -26982,9 +31075,10 @@ getRow(51000)->
     buffstore = 0,
     outSenceDel = 0,
     damFactor = 0,
-    durationFactor = 5,
+    durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(51001)->
     #buffCfg {
@@ -27006,6 +31100,7 @@ getRow(51001)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27020,9 +31115,10 @@ getRow(51001)->
     buffstore = 0,
     outSenceDel = 0,
     damFactor = 0,
-    durationFactor = 5,
+    durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(51002)->
     #buffCfg {
@@ -27044,6 +31140,7 @@ getRow(51002)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27057,9 +31154,10 @@ getRow(51002)->
     buffstore = 0,
     outSenceDel = 0,
     damFactor = 0,
-    durationFactor = 5,
+    durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(51003)->
     #buffCfg {
@@ -27081,6 +31179,7 @@ getRow(51003)->
     buffDuration = [30000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 7,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27095,9 +31194,10 @@ getRow(51003)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 30,
+    durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(51004)->
     #buffCfg {
@@ -27119,6 +31219,7 @@ getRow(51004)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27132,9 +31233,10 @@ getRow(51004)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 1,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(51005)->
     #buffCfg {
@@ -27156,6 +31258,7 @@ getRow(51005)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27169,9 +31272,10 @@ getRow(51005)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 1,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(51006)->
     #buffCfg {
@@ -27193,6 +31297,7 @@ getRow(51006)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27206,9 +31311,10 @@ getRow(51006)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 1,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(51007)->
     #buffCfg {
@@ -27230,6 +31336,7 @@ getRow(51007)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27243,9 +31350,10 @@ getRow(51007)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 1,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(51008)->
     #buffCfg {
@@ -27267,6 +31375,7 @@ getRow(51008)->
     buffDuration = [1000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27280,15 +31389,172 @@ getRow(51008)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 1,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
-getRow(52000)->
+getRow(52001)->
     #buffCfg {
-    buffId = 52000,
-    buffName = "毒液减速",
-    buffDescribe = "移动速度-50%",
+    buffId = 52001,
+    buffName = "1级冰冻",
+    buffDescribe = "冰冻1.5s",
+    buffSfx = "state/vfx_28_1",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 1006,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [1500,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 3,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 2,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(52002)->
+    #buffCfg {
+    buffId = 52002,
+    buffName = "2级冰冻",
+    buffDescribe = "冰冻2s",
+    buffSfx = "state/vfx_28_1",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 1006,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [2000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 3,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 2,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(52003)->
+    #buffCfg {
+    buffId = 52003,
+    buffName = "3级冰冻",
+    buffDescribe = "冰冻2.5s",
+    buffSfx = "state/vfx_28_1",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 1006,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [2500,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 3,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 2,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(52004)->
+    #buffCfg {
+    buffId = 52004,
+    buffName = "4级冰冻",
+    buffDescribe = "冰冻3s",
+    buffSfx = "state/vfx_28_1",
+    sfxScal = 1,
+    buffSfxSlots = 6,
+    buffICON = 1006,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 3,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 2,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(52011)->
+    #buffCfg {
+    buffId = 52011,
+    buffName = "1级减速",
+    buffDescribe = "移动速度-20%",
     buffSfx = "state/vfx_28_17",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -27304,12 +31570,13 @@ getRow(52000)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
-    buffEffect = 7,
+    battlepower = 0,
+    buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 2,
     healProperty = 0,
     criAble = 0,
     property = [{1,1,157,-0.2,0}],
@@ -27320,13 +31587,14 @@ getRow(52000)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
-getRow(52001)->
+getRow(52012)->
     #buffCfg {
-    buffId = 52001,
-    buffName = "毒液减速",
-    buffDescribe = "移动速度-60%",
+    buffId = 52012,
+    buffName = "2级减速",
+    buffDescribe = "移动速度-30%",
     buffSfx = "state/vfx_28_17",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -27342,12 +31610,13 @@ getRow(52001)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
-    buffEffect = 7,
+    battlepower = 0,
+    buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 2,
     healProperty = 0,
     criAble = 0,
     property = [{1,1,157,-0.3,0}],
@@ -27358,13 +31627,14 @@ getRow(52001)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
-getRow(52002)->
+getRow(52013)->
     #buffCfg {
-    buffId = 52002,
-    buffName = "毒液减速",
-    buffDescribe = "移动速度-70%",
+    buffId = 52013,
+    buffName = "3级减速",
+    buffDescribe = "移动速度-40%",
     buffSfx = "state/vfx_28_17",
     sfxScal = 1,
     buffSfxSlots = 4,
@@ -27380,50 +31650,13 @@ getRow(52002)->
     buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
-    buffEffect = 7,
+    battlepower = 0,
+    buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,157,-0.35,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(52003)->
-    #buffCfg {
-    buffId = 52003,
-    buffName = "毒液减速",
-    buffDescribe = "移动速度-80%",
-    buffSfx = "state/vfx_28_17",
-    sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 27,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 6,
-    multiBuffMultiCaster = 6,
-    buffType = 1,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [3000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 7,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
+    damageType = 2,
     healProperty = 0,
     criAble = 0,
     property = [{1,1,157,-0.4,0}],
@@ -27434,14 +31667,15 @@ getRow(52003)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
-getRow(52004)->
+getRow(52014)->
     #buffCfg {
-    buffId = 52004,
-    buffName = "毒液减速",
+    buffId = 52014,
+    buffName = "4级减速",
     buffDescribe = "移动速度-50%",
-    buffSfx = "0",
+    buffSfx = "state/vfx_28_17",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -27449,22 +31683,23 @@ getRow(52004)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 6,
     multiBuffMultiCaster = 6,
-    buffType = 0,
+    buffType = 1,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [20000,0],
+    buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
-    buffEffect = 7,
+    battlepower = 0,
+    buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 2,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,136,0.1,0},{1,1,137,0.1,0}],
+    property = [{1,1,157,-0.5,0}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -27472,14 +31707,171 @@ getRow(52004)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
-getRow(52005)->
+getRow(52021)->
     #buffCfg {
-    buffId = 52005,
-    buffName = "毒液减速",
-    buffDescribe = "移动速度-50%",
-    buffSfx = "0",
+    buffId = 52021,
+    buffName = "1级眩晕",
+    buffDescribe = "眩晕1s",
+    buffSfx = "state/vfx_28_13",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [1000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 2,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 2,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(52022)->
+    #buffCfg {
+    buffId = 52022,
+    buffName = "2级眩晕",
+    buffDescribe = "眩晕1.5s",
+    buffSfx = "state/vfx_28_13",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [1500,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 2,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 2,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(52023)->
+    #buffCfg {
+    buffId = 52023,
+    buffName = "3级眩晕",
+    buffDescribe = "眩晕2s",
+    buffSfx = "state/vfx_28_13",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [2000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 2,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 2,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(52024)->
+    #buffCfg {
+    buffId = 52024,
+    buffName = "4级眩晕",
+    buffDescribe = "眩晕2.5s",
+    buffSfx = "state/vfx_28_13",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [2500,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 2,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 2,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(52031)->
+    #buffCfg {
+    buffId = 52031,
+    buffName = "1级沼泽减速",
+    buffDescribe = "移动速度-10%",
+    buffSfx = "state/vfx_28_17",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -27487,22 +31879,23 @@ getRow(52005)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 6,
     multiBuffMultiCaster = 6,
-    buffType = 0,
+    buffType = 1,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [20000,0],
+    buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
-    buffEffect = 7,
+    battlepower = 0,
+    buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 2,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,136,0.15,0},{1,1,137,0.15,0}],
+    property = [{1,1,157,-0.1,0}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -27510,14 +31903,15 @@ getRow(52005)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
-getRow(52006)->
+getRow(52032)->
     #buffCfg {
-    buffId = 52006,
-    buffName = "毒液减速",
-    buffDescribe = "移动速度-50%",
-    buffSfx = "0",
+    buffId = 52032,
+    buffName = "2级沼泽减速",
+    buffDescribe = "移动速度-11%",
+    buffSfx = "state/vfx_28_17",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -27525,22 +31919,23 @@ getRow(52006)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 6,
     multiBuffMultiCaster = 6,
-    buffType = 0,
+    buffType = 1,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [20000,0],
+    buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
-    buffEffect = 7,
+    battlepower = 0,
+    buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 2,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,136,0.2,0},{1,1,137,0.2,0}],
+    property = [{1,1,157,-0.11,0}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -27548,14 +31943,15 @@ getRow(52006)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
-getRow(52007)->
+getRow(52033)->
     #buffCfg {
-    buffId = 52007,
-    buffName = "毒液减速",
-    buffDescribe = "移动速度-50%",
-    buffSfx = "0",
+    buffId = 52033,
+    buffName = "3级沼泽减速",
+    buffDescribe = "移动速度-12%",
+    buffSfx = "state/vfx_28_17",
     sfxScal = 1,
     buffSfxSlots = 4,
     buffICON = 27,
@@ -27563,22 +31959,23 @@ getRow(52007)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 6,
     multiBuffMultiCaster = 6,
-    buffType = 0,
+    buffType = 1,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [20000,0],
+    buffDuration = [3000,0],
     buffDelay = 0,
     buffStart = 0,
-    buffEffect = 7,
+    battlepower = 0,
+    buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
     buffParam3 = 0,
     buffParam4 = 0,
-    damageType = 1,
+    damageType = 2,
     healProperty = 0,
     criAble = 0,
-    property = [{1,1,136,0.3,0},{1,1,137,0.3,0}],
+    property = [{1,1,157,-0.12,0}],
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
@@ -27586,14 +31983,55 @@ getRow(52007)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(52034)->
+    #buffCfg {
+    buffId = 52034,
+    buffName = "4级沼泽减速",
+    buffDescribe = "移动速度-13%",
+    buffSfx = "state/vfx_28_17",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 27,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 6,
+    multiBuffMultiCaster = 6,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 2,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,-0.13,0}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(60000)->
     #buffCfg {
     buffId = 60000,
     buffName = "灵力冥想",
     buffDescribe = "通过冥想累计获得经验值",
-    buffSfx = "state/vfx_28_32",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 6,
     buffICON = 1,
@@ -27608,6 +32046,7 @@ getRow(60000)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 28,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27623,14 +32062,15 @@ getRow(60000)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(60001)->
     #buffCfg {
     buffId = 60001,
     buffName = "准备阶段",
     buffDescribe = "准备阶段，无法行动",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -27645,6 +32085,7 @@ getRow(60001)->
     buffDuration = [5000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27660,14 +32101,15 @@ getRow(60001)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(60002)->
     #buffCfg {
     buffId = 60002,
     buffName = "1.5倍经验药水",
     buffDescribe = "提升1.5倍杀怪经验",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 57,
@@ -27682,6 +32124,7 @@ getRow(60002)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27697,14 +32140,15 @@ getRow(60002)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(60003)->
     #buffCfg {
     buffId = 60003,
     buffName = "2倍经验药水",
     buffDescribe = "提升2倍杀怪经验",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 57,
@@ -27719,6 +32163,7 @@ getRow(60003)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27734,14 +32179,15 @@ getRow(60003)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(60004)->
     #buffCfg {
     buffId = 60004,
     buffName = "3倍经验药水",
     buffDescribe = "提升3倍杀怪经验",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 57,
@@ -27756,6 +32202,7 @@ getRow(60004)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27771,14 +32218,15 @@ getRow(60004)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(60005)->
     #buffCfg {
     buffId = 60005,
     buffName = "准备阶段",
     buffDescribe = "准备阶段，无法行动",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 57,
@@ -27793,6 +32241,7 @@ getRow(60005)->
     buffDuration = [6000000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27808,14 +32257,15 @@ getRow(60005)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(60006)->
     #buffCfg {
     buffId = 60006,
     buffName = "控制女神小精灵隐藏",
     buffDescribe = "控制女神小精灵隐藏",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -27830,6 +32280,7 @@ getRow(60006)->
     buffDuration = [4000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 30,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27845,14 +32296,15 @@ getRow(60006)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(60007)->
     #buffCfg {
     buffId = 60007,
     buffName = "任务测试速度加成",
     buffDescribe = "任务测试速度加成",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -27867,6 +32319,7 @@ getRow(60007)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27883,14 +32336,15 @@ getRow(60007)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(60008)->
     #buffCfg {
     buffId = 60008,
     buffName = "火力全开",
     buffDescribe = "在首领入侵活动中伤害提升",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 131,
@@ -27902,9 +32356,10 @@ getRow(60008)->
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
-    buffDuration = [1800000,0],
+    buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -27921,7 +32376,125 @@ getRow(60008)->
     damFactor = 0,
     durationFactor = 1800,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(60009)->
+    #buffCfg {
+    buffId = 60009,
+    buffName = "变大药水",
+    buffDescribe = "体型变大！",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 57,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [600000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 32,
+    buffParam1 = 0.3,
+    buffParam2 = 3,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(60010)->
+    #buffCfg {
+    buffId = 60010,
+    buffName = "变小药水",
+    buffDescribe = "体型变小！",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 57,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [600000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 32,
+    buffParam1 = -0.2,
+    buffParam2 = 3,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 2,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(60011)->
+    #buffCfg {
+    buffId = 60011,
+    buffName = "虚化",
+    buffDescribe = "虚化",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 57,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [600000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 15,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 2,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61000)->
     #buffCfg {
@@ -27943,6 +32516,7 @@ getRow(61000)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 100,
     buffParam2 = 0,
@@ -27957,16 +32531,17 @@ getRow(61000)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 3600,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61001)->
     #buffCfg {
     buffId = 61001,
     buffName = "副本引导战士神力觉醒被动全技能",
     buffDescribe = "副本引导战士神力觉醒被动全技能",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -27981,6 +32556,7 @@ getRow(61001)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3137,
     buffParam2 = 3139,
@@ -27994,9 +32570,10 @@ getRow(61001)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 3600,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61002)->
     #buffCfg {
@@ -28018,6 +32595,7 @@ getRow(61002)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 101,
     buffParam2 = 0,
@@ -28032,16 +32610,17 @@ getRow(61002)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 3600,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61003)->
     #buffCfg {
     buffId = 61003,
     buffName = "副本引导法师神力觉醒被动全技能",
     buffDescribe = "副本引导法师神力觉醒被动全技能",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -28056,6 +32635,7 @@ getRow(61003)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3138,
     buffParam2 = 3140,
@@ -28069,9 +32649,10 @@ getRow(61003)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 3600,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61004)->
     #buffCfg {
@@ -28093,6 +32674,7 @@ getRow(61004)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 17,
     buffParam1 = 102,
     buffParam2 = 0,
@@ -28107,16 +32689,17 @@ getRow(61004)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 3600,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61005)->
     #buffCfg {
     buffId = 61005,
     buffName = "副本引导刺客神力觉醒被动全技能",
     buffDescribe = "副本引导刺客神力觉醒被动全技能",
-    buffSfx = "0",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -28131,6 +32714,7 @@ getRow(61005)->
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 9,
     buffParam1 = 3137,
     buffParam2 = 3139,
@@ -28144,800 +32728,17 @@ getRow(61005)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 3600,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
-    };
-getRow(61101)->
-    #buffCfg {
-    buffId = 61101,
-    buffName = "灼烧",
-    buffDescribe = "持续灼烧伤害",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 149,
-    oneBuffMultiCaster = 0,
-    oneBuffOneCaster = 0,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 1,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [8000,0],
-    buffDelay = 1000,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    damageMultiply = [{1,0.5,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61103)->
-    #buffCfg {
-    buffId = 61103,
-    buffName = "冰盾",
-    buffDescribe = "增加一定防御",
-    buffSfx = "soul/vfx_27_4",
-    sfxScal = 2,
-    buffSfxSlots = 6,
-    buffICON = 70,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [8000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,138,0.5,0},{1,1,139,0.5,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61105)->
-    #buffCfg {
-    buffId = 61105,
-    buffName = "闪电风暴",
-    buffDescribe = "持续眩晕效果",
-    buffSfx = "state/vfx_28_13",
-    sfxScal = 1,
-    buffSfxSlots = 4,
-    buffICON = 118,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 1,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [1000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 2,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61107)->
-    #buffCfg {
-    buffId = 61107,
-    buffName = "风刃",
-    buffDescribe = "持续减速效果",
-    buffSfx = "state/vfx_28_18",
-    sfxScal = 1,
-    buffSfxSlots = 6,
-    buffICON = 46,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 1,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [5000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,157,-0.7,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61109)->
-    #buffCfg {
-    buffId = 61109,
-    buffName = "光愈",
-    buffDescribe = "群体回血效果",
-    buffSfx = "soul/vfx_27_7",
-    sfxScal = 2,
-    buffSfxSlots = 4,
-    buffICON = 23,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [10000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61111)->
-    #buffCfg {
-    buffId = 61111,
-    buffName = "暗灭",
-    buffDescribe = "增加一定攻击",
-    buffSfx = "soul/vfx_27_8",
-    sfxScal = 2,
-    buffSfxSlots = 4,
-    buffICON = 160,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [8000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 0,
-    buffParam1 = 0,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{1,1,136,0.3,0},{1,1,137,0.3,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 0,
-    damFactor = 0,
-    durationFactor = 0,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61201)->
-    #buffCfg {
-    buffId = 61201,
-    buffName = "材料活动战士神力觉醒",
-    buffDescribe = "材料活动战士神力觉醒",
-    buffSfx = "soul/vfx_27_27",
-    sfxScal = 1,
-    buffSfxSlots = 6,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 17,
-    buffParam1 = 100,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{2,0,135,0,47},{2,0,136,0,48},{2,0,137,0,49},{2,0,138,0,50},{2,0,139,0,51}],
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 0,
-    durationDisplay = 1
-    };
-getRow(61202)->
-    #buffCfg {
-    buffId = 61202,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3137,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61203)->
-    #buffCfg {
-    buffId = 61203,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火、冰器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3137,
-    buffParam2 = 3139,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61204)->
-    #buffCfg {
-    buffId = 61204,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火、冰、雷器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3137,
-    buffParam2 = 3139,
-    buffParam3 = 3141,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61205)->
-    #buffCfg {
-    buffId = 61205,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火、冰、雷、风器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3137,
-    buffParam2 = 3139,
-    buffParam3 = 3141,
-    buffParam4 = 3143,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61206)->
-    #buffCfg {
-    buffId = 61206,
-    buffName = "材料活动法师神力觉醒",
-    buffDescribe = "材料活动法师神力觉醒",
-    buffSfx = "soul/vfx_27_29",
-    sfxScal = 1,
-    buffSfxSlots = 6,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 17,
-    buffParam1 = 101,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 2,
-    healProperty = 0,
-    criAble = 0,
-    property = [{2,0,135,0,52},{2,0,136,0,53},{2,0,137,0,54},{2,0,138,0,55},{2,0,139,0,56}],
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 0,
-    durationDisplay = 1
-    };
-getRow(61207)->
-    #buffCfg {
-    buffId = 61207,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3138,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 2,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61208)->
-    #buffCfg {
-    buffId = 61208,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火、冰器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3138,
-    buffParam2 = 3140,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 2,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61209)->
-    #buffCfg {
-    buffId = 61209,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火、冰、雷器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3138,
-    buffParam2 = 3140,
-    buffParam3 = 3142,
-    buffParam4 = 0,
-    damageType = 2,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61210)->
-    #buffCfg {
-    buffId = 61210,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火、冰、雷、风器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3138,
-    buffParam2 = 3140,
-    buffParam3 = 3142,
-    buffParam4 = 3144,
-    damageType = 2,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61211)->
-    #buffCfg {
-    buffId = 61211,
-    buffName = "材料活动刺客神力觉醒",
-    buffDescribe = "材料活动刺客神力觉醒",
-    buffSfx = "soul/vfx_27_28",
-    sfxScal = 1,
-    buffSfxSlots = 6,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 17,
-    buffParam1 = 102,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    property = [{2,0,135,0,57},{2,0,136,0,58},{2,0,137,0,59},{2,0,138,0,60},{2,0,139,0,61}],
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 0,
-    durationDisplay = 1
-    };
-getRow(61212)->
-    #buffCfg {
-    buffId = 61212,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3137,
-    buffParam2 = 0,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61213)->
-    #buffCfg {
-    buffId = 61213,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火、冰器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3137,
-    buffParam2 = 3139,
-    buffParam3 = 0,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61214)->
-    #buffCfg {
-    buffId = 61214,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火、冰、雷器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3137,
-    buffParam2 = 3139,
-    buffParam3 = 3141,
-    buffParam4 = 0,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
-    };
-getRow(61215)->
-    #buffCfg {
-    buffId = 61215,
-    buffName = "觉醒",
-    buffDescribe = "觉醒武器，获得强化火、冰、雷、风器灵效果。",
-    buffSfx = "0",
-    sfxScal = 1,
-    buffSfxSlots = 0,
-    buffICON = 0,
-    oneBuffMultiCaster = 1,
-    oneBuffOneCaster = 1,
-    multiBuffOneCaster = 0,
-    multiBuffMultiCaster = 0,
-    buffType = 0,
-    saveCheck = 0,
-    checkResult = 0,
-    resultSkill = 0,
-    buffDuration = [6000000,0],
-    buffDelay = 0,
-    buffStart = 0,
-    buffEffect = 9,
-    buffParam1 = 3137,
-    buffParam2 = 3139,
-    buffParam3 = 3141,
-    buffParam4 = 3143,
-    damageType = 1,
-    healProperty = 0,
-    criAble = 0,
-    buffDeathdel = 0,
-    buffRemove = 1,
-    buffstore = 0,
-    outSenceDel = 1,
-    damFactor = 0,
-    durationFactor = 6000,
-    isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61301)->
     #buffCfg {
     buffId = 61301,
-    buffName = "霸体（守护类怪物永久BUFF）",
-    buffDescribe = "霸体（守护类怪物永久BUFF）",
-    buffSfx = "0",
+    buffName = "霸体（守护类怪物通用，永久BUFF）",
+    buffDescribe = "霸体，防止守护类怪物受到攻击时重置守护怪物的idle动作",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 0,
@@ -28952,6 +32753,7 @@ getRow(61301)->
     buffDuration = [0,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 27,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -28965,9 +32767,10 @@ getRow(61301)->
     buffstore = 0,
     outSenceDel = 1,
     damFactor = 0,
-    durationFactor = 6000,
+    durationFactor = 0,
     isdisplay = 0,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61400)->
     #buffCfg {
@@ -28989,6 +32792,7 @@ getRow(61400)->
     buffDuration = [2000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 2,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29004,14 +32808,15 @@ getRow(61400)->
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61501)->
     #buffCfg {
     buffId = 61501,
     buffName = "头晕目眩",
     buffDescribe = "物防提升200点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29019,13 +32824,14 @@ getRow(61501)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61502,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29035,21 +32841,22 @@ getRow(61501)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,138,200,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61502)->
     #buffCfg {
     buffId = 61502,
     buffName = "头晕目眩",
     buffDescribe = "物防提升450点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29057,13 +32864,14 @@ getRow(61502)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61502,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29073,21 +32881,22 @@ getRow(61502)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,138,450,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61503)->
     #buffCfg {
     buffId = 61503,
     buffName = "头晕目眩",
     buffDescribe = "物防提升700点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29095,13 +32904,14 @@ getRow(61503)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61502,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29111,21 +32921,22 @@ getRow(61503)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,138,700,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61504)->
     #buffCfg {
     buffId = 61504,
     buffName = "头晕目眩",
     buffDescribe = "物防提升950点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29133,13 +32944,14 @@ getRow(61504)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61502,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29149,21 +32961,22 @@ getRow(61504)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,138,950,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61505)->
     #buffCfg {
     buffId = 61505,
     buffName = "头晕目眩",
     buffDescribe = "物防提升1200点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29171,13 +32984,14 @@ getRow(61505)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61502,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29187,21 +33001,22 @@ getRow(61505)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,138,1200,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61506)->
     #buffCfg {
     buffId = 61506,
     buffName = "头晕目眩",
     buffDescribe = "物防提升1450点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29209,13 +33024,14 @@ getRow(61506)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61502,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29225,21 +33041,22 @@ getRow(61506)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,138,1450,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61507)->
     #buffCfg {
     buffId = 61507,
     buffName = "头晕目眩",
     buffDescribe = "物防提升1700点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29247,13 +33064,14 @@ getRow(61507)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61502,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29263,21 +33081,22 @@ getRow(61507)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,138,1700,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61601)->
     #buffCfg {
     buffId = 61601,
     buffName = "一飞冲天",
     buffDescribe = "生命提升2000点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29285,13 +33104,14 @@ getRow(61601)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61602,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29301,21 +33121,22 @@ getRow(61601)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,135,2000,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61602)->
     #buffCfg {
     buffId = 61602,
     buffName = "一飞冲天",
     buffDescribe = "生命提升4500点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29323,13 +33144,14 @@ getRow(61602)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61602,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29339,21 +33161,22 @@ getRow(61602)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,135,4500,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61603)->
     #buffCfg {
     buffId = 61603,
     buffName = "一飞冲天",
     buffDescribe = "生命提升7000点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29361,13 +33184,14 @@ getRow(61603)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61602,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29377,21 +33201,22 @@ getRow(61603)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,135,7000,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61604)->
     #buffCfg {
     buffId = 61604,
     buffName = "一飞冲天",
     buffDescribe = "生命提升9500点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29399,13 +33224,14 @@ getRow(61604)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61602,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29415,21 +33241,22 @@ getRow(61604)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,135,9500,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61605)->
     #buffCfg {
     buffId = 61605,
     buffName = "一飞冲天",
     buffDescribe = "生命提升12000点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29437,13 +33264,14 @@ getRow(61605)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61602,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29453,21 +33281,22 @@ getRow(61605)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,135,12000,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61606)->
     #buffCfg {
     buffId = 61606,
     buffName = "一飞冲天",
     buffDescribe = "生命提升14500点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29475,13 +33304,14 @@ getRow(61606)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61602,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29491,21 +33321,22 @@ getRow(61606)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,135,14500,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61607)->
     #buffCfg {
     buffId = 61607,
     buffName = "一飞冲天",
     buffDescribe = "生命提升17000点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29513,13 +33344,14 @@ getRow(61607)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61602,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29529,21 +33361,22 @@ getRow(61607)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,135,17000,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61701)->
     #buffCfg {
     buffId = 61701,
     buffName = "摇摆摇摆",
     buffDescribe = "破甲提升80点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29551,13 +33384,14 @@ getRow(61701)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61702,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29567,21 +33401,22 @@ getRow(61701)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,146,80,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61702)->
     #buffCfg {
     buffId = 61702,
     buffName = "摇摆摇摆",
     buffDescribe = "破甲提升200点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29589,13 +33424,14 @@ getRow(61702)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61702,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29605,21 +33441,22 @@ getRow(61702)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,146,200,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61703)->
     #buffCfg {
     buffId = 61703,
     buffName = "摇摆摇摆",
     buffDescribe = "破甲提升320点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29627,13 +33464,14 @@ getRow(61703)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61702,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29643,21 +33481,22 @@ getRow(61703)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,146,320,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61704)->
     #buffCfg {
     buffId = 61704,
     buffName = "摇摆摇摆",
     buffDescribe = "破甲提升440点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29665,13 +33504,14 @@ getRow(61704)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61702,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29681,21 +33521,22 @@ getRow(61704)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,146,440,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61705)->
     #buffCfg {
     buffId = 61705,
     buffName = "摇摆摇摆",
     buffDescribe = "破甲提升560点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29703,13 +33544,14 @@ getRow(61705)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61702,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29719,21 +33561,22 @@ getRow(61705)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,146,560,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61706)->
     #buffCfg {
     buffId = 61706,
     buffName = "摇摆摇摆",
     buffDescribe = "破甲提升680点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29741,13 +33584,14 @@ getRow(61706)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61702,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29757,21 +33601,22 @@ getRow(61706)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,146,680,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61707)->
     #buffCfg {
     buffId = 61707,
     buffName = "摇摆摇摆",
     buffDescribe = "破甲提升800点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29779,13 +33624,14 @@ getRow(61707)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61702,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29795,21 +33641,22 @@ getRow(61707)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,146,800,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61801)->
     #buffCfg {
     buffId = 61801,
     buffName = "魔法感知",
     buffDescribe = "魔防提升200点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29817,13 +33664,14 @@ getRow(61801)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61802,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29833,21 +33681,22 @@ getRow(61801)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,139,200,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61802)->
     #buffCfg {
     buffId = 61802,
     buffName = "魔法感知",
     buffDescribe = "魔防提升450点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29855,13 +33704,14 @@ getRow(61802)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61802,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29871,21 +33721,22 @@ getRow(61802)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,139,450,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61803)->
     #buffCfg {
     buffId = 61803,
     buffName = "魔法感知",
     buffDescribe = "魔防提升700点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29893,13 +33744,14 @@ getRow(61803)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61802,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29909,21 +33761,22 @@ getRow(61803)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,139,700,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61804)->
     #buffCfg {
     buffId = 61804,
     buffName = "魔法感知",
     buffDescribe = "魔防提升950点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29931,13 +33784,14 @@ getRow(61804)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61802,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29947,21 +33801,22 @@ getRow(61804)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,139,950,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61805)->
     #buffCfg {
     buffId = 61805,
     buffName = "魔法感知",
     buffDescribe = "魔防提升1200点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -29969,13 +33824,14 @@ getRow(61805)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61802,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -29985,21 +33841,22 @@ getRow(61805)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,139,1200,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61806)->
     #buffCfg {
     buffId = 61806,
     buffName = "魔法感知",
     buffDescribe = "魔防提升1450点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30007,13 +33864,14 @@ getRow(61806)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61802,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30023,21 +33881,22 @@ getRow(61806)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,139,1450,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61807)->
     #buffCfg {
     buffId = 61807,
     buffName = "魔法感知",
     buffDescribe = "魔防提升1700点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30045,13 +33904,14 @@ getRow(61807)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61802,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30061,21 +33921,22 @@ getRow(61807)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,139,1700,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61901)->
     #buffCfg {
     buffId = 61901,
     buffName = "青龙祝福",
     buffDescribe = "攻击提升150点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30083,13 +33944,14 @@ getRow(61901)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61902,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30099,21 +33961,22 @@ getRow(61901)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,136,150,0},{1,0,137,150,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61902)->
     #buffCfg {
     buffId = 61902,
     buffName = "青龙祝福",
     buffDescribe = "攻击提升300点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30121,13 +33984,14 @@ getRow(61902)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61902,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30137,21 +34001,22 @@ getRow(61902)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,136,300,0},{1,0,137,300,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61903)->
     #buffCfg {
     buffId = 61903,
     buffName = "青龙祝福",
     buffDescribe = "攻击提升450点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30159,13 +34024,14 @@ getRow(61903)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61902,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30175,21 +34041,22 @@ getRow(61903)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,136,450,0},{1,0,137,450,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61904)->
     #buffCfg {
     buffId = 61904,
     buffName = "青龙祝福",
     buffDescribe = "攻击提升600点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30197,13 +34064,14 @@ getRow(61904)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61902,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30213,21 +34081,22 @@ getRow(61904)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,136,600,0},{1,0,137,600,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61905)->
     #buffCfg {
     buffId = 61905,
     buffName = "青龙祝福",
     buffDescribe = "攻击提升750点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30235,13 +34104,14 @@ getRow(61905)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61902,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30251,21 +34121,22 @@ getRow(61905)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,136,750,0},{1,0,137,750,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61906)->
     #buffCfg {
     buffId = 61906,
     buffName = "青龙祝福",
     buffDescribe = "攻击提升900点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30273,13 +34144,14 @@ getRow(61906)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61902,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30289,21 +34161,22 @@ getRow(61906)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,136,900,0},{1,0,137,900,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(61907)->
     #buffCfg {
     buffId = 61907,
     buffName = "青龙祝福",
     buffDescribe = "攻击提升1050点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30311,13 +34184,14 @@ getRow(61907)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 61902,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30327,21 +34201,22 @@ getRow(61907)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,136,1050,0},{1,0,137,1050,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(62001)->
     #buffCfg {
     buffId = 62001,
     buffName = "冷静思考",
     buffDescribe = "暴击提升180点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30349,13 +34224,14 @@ getRow(62001)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 62002,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30365,21 +34241,22 @@ getRow(62001)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,140,180,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(62002)->
     #buffCfg {
     buffId = 62002,
     buffName = "冷静思考",
     buffDescribe = "暴击提升420点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30387,13 +34264,14 @@ getRow(62002)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 62002,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30403,21 +34281,22 @@ getRow(62002)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,140,420,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(62003)->
     #buffCfg {
     buffId = 62003,
     buffName = "冷静思考",
     buffDescribe = "暴击提升660点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30425,13 +34304,14 @@ getRow(62003)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 62002,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30441,21 +34321,22 @@ getRow(62003)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,140,660,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(62004)->
     #buffCfg {
     buffId = 62004,
     buffName = "冷静思考",
     buffDescribe = "暴击提升900点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30463,13 +34344,14 @@ getRow(62004)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 62002,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30479,21 +34361,22 @@ getRow(62004)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,140,900,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(62005)->
     #buffCfg {
     buffId = 62005,
     buffName = "冷静思考",
     buffDescribe = "暴击提升1140点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30501,13 +34384,14 @@ getRow(62005)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 62002,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30517,21 +34401,22 @@ getRow(62005)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,140,1140,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(62006)->
     #buffCfg {
     buffId = 62006,
     buffName = "冷静思考",
     buffDescribe = "暴击提升1380点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30539,13 +34424,14 @@ getRow(62006)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 62002,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30555,21 +34441,22 @@ getRow(62006)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,140,1380,0}],
-    buffDeathdel = 1,
-    buffRemove = 1,
+    buffDeathdel = 0,
+    buffRemove = 0,
     buffstore = 0,
-    outSenceDel = 1,
+    outSenceDel = 0,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(62007)->
     #buffCfg {
     buffId = 62007,
     buffName = "冷静思考",
     buffDescribe = "暴击提升1620点",
-    buffSfx = "state/vfx_28_13",
+    buffSfx = "",
     sfxScal = 1,
     buffSfxSlots = 0,
     buffICON = 1003,
@@ -30577,13 +34464,14 @@ getRow(62007)->
     oneBuffOneCaster = 1,
     multiBuffOneCaster = 62002,
     multiBuffMultiCaster = 0,
-    buffType = 1,
+    buffType = 0,
     saveCheck = 0,
     checkResult = 0,
     resultSkill = 0,
     buffDuration = [3600000,0],
     buffDelay = 0,
     buffStart = 0,
+    battlepower = 0,
     buffEffect = 0,
     buffParam1 = 0,
     buffParam2 = 0,
@@ -30593,14 +34481,885 @@ getRow(62007)->
     healProperty = 0,
     criAble = 0,
     property = [{1,0,140,1620,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(62008)->
+    #buffCfg {
+    buffId = 62008,
+    buffName = "红名惩戒",
+    buffDescribe = "基础属性降低20%",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,135,-0.2,0},{1,1,136,-0.2,0},{1,1,137,-0.2,0},{1,1,138,-0.2,0},{1,1,139,-0.2,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 1,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 3600,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(62009)->
+    #buffCfg {
+    buffId = 62009,
+    buffName = "红名惩戒",
+    buffDescribe = "基础属性降低30%",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,135,-0.3,0},{1,1,136,-0.3,0},{1,1,137,-0.3,0},{1,1,138,-0.3,0},{1,1,139,-0.3,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 1,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 3600,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(62010)->
+    #buffCfg {
+    buffId = 62010,
+    buffName = "红名惩戒",
+    buffDescribe = "基础属性降低40%",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,135,-0.4,0},{1,1,136,-0.4,0},{1,1,137,-0.4,0},{1,1,138,-0.4,0},{1,1,139,-0.4,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 1,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 3600,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(62011)->
+    #buffCfg {
+    buffId = 62011,
+    buffName = "红名惩戒",
+    buffDescribe = "基础属性降低50%",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 0,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,135,-0.5,0},{1,1,136,-0.5,0},{1,1,137,-0.5,0},{1,1,138,-0.5,0},{1,1,139,-0.5,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 1,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 3600,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(62020)->
+    #buffCfg {
+    buffId = 62020,
+    buffName = "安全区保护",
+    buffDescribe = "安全区保护，不受攻击，不可攻击",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 131,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 0,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [0,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 35,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 0,
+    healProperty = 0,
+    criAble = 0,
+    property = [],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 1,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(62021)->
+    #buffCfg {
+    buffId = 62021,
+    buffName = "护送行走",
+    buffDescribe = "移动速度-50%",
+    buffSfx = "other/vfx_26_111",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 27,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 6,
+    multiBuffMultiCaster = 6,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [30000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 7,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,-0.5,0}],
+    buffDeathdel = 1,
+    buffRemove = 1,
+    buffstore = 1,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 3600,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63000)->
+    #buffCfg {
+    buffId = 63000,
+    buffName = "冰冻",
+    buffDescribe = "冰冻2s",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [2000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 3,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63001)->
+    #buffCfg {
+    buffId = 63001,
+    buffName = "强化冰冻",
+    buffDescribe = "冰冻3s",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 3,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63002)->
+    #buffCfg {
+    buffId = 63002,
+    buffName = "无敌",
+    buffDescribe = "无敌2s",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [2000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 1,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63003)->
+    #buffCfg {
+    buffId = 63003,
+    buffName = "强化无敌",
+    buffDescribe = "无敌3s",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 1,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63004)->
+    #buffCfg {
+    buffId = 63004,
+    buffName = "闪电",
+    buffDescribe = "闪电减速50%",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,-0.5,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63005)->
+    #buffCfg {
+    buffId = 63005,
+    buffName = "强化闪电",
+    buffDescribe = "闪电减速80%",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,-0.8,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63008)->
+    #buffCfg {
+    buffId = 63008,
+    buffName = "反向",
+    buffDescribe = "反向4s",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [4000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63009)->
+    #buffCfg {
+    buffId = 63009,
+    buffName = "强化反向",
+    buffDescribe = "反向8s",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [8000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63010)->
+    #buffCfg {
+    buffId = 63010,
+    buffName = "加速",
+    buffDescribe = "加速5s",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [5000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,0.5,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63011)->
+    #buffCfg {
+    buffId = 63011,
+    buffName = "强化加速",
+    buffDescribe = "加速8s",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [8000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,0.5,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63012)->
+    #buffCfg {
+    buffId = 63012,
+    buffName = "加速带",
+    buffDescribe = "加速5s",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [5000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,0.5,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63013)->
+    #buffCfg {
+    buffId = 63013,
+    buffName = "强化加速带",
+    buffDescribe = "加速8s",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [8000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,0.5,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63014)->
+    #buffCfg {
+    buffId = 63014,
+    buffName = "陷阱",
+    buffDescribe = "减速40%",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,-0.4,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(63015)->
+    #buffCfg {
+    buffId = 63015,
+    buffName = "强化陷阱",
+    buffDescribe = "减速70%",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 1003,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 0,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [3000,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    property = [{1,1,157,-0.7,0}],
+    buffDeathdel = 0,
+    buffRemove = 0,
+    buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(190022)->
+    #buffCfg {
+    buffId = 190022,
+    buffName = "烈焰重击",
+    buffDescribe = "昏迷1.5s",
+    buffSfx = "state/vfx_28_13",
+    sfxScal = 1,
+    buffSfxSlots = 4,
+    buffICON = 27,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [1500,0],
+    buffDelay = 0,
+    buffStart = 0,
+    battlepower = 0,
+    buffEffect = 2,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
     buffDeathdel = 1,
     buffRemove = 1,
     buffstore = 0,
+    outSenceDel = 0,
+    damFactor = 0,
+    durationFactor = 0,
+    isdisplay = 1,
+    ishaloed = 0,
+    durationDisplay = "1"
+    };
+getRow(190151)->
+    #buffCfg {
+    buffId = 190151,
+    buffName = "灼热光环加伤",
+    buffDescribe = "每秒都会承受火焰伤害，但攻击提升5%。",
+    buffSfx = "",
+    sfxScal = 1,
+    buffSfxSlots = 0,
+    buffICON = 61,
+    oneBuffMultiCaster = 1,
+    oneBuffOneCaster = 1,
+    multiBuffOneCaster = 0,
+    multiBuffMultiCaster = 0,
+    buffType = 1,
+    saveCheck = 0,
+    checkResult = 0,
+    resultSkill = 0,
+    buffDuration = [1000,0],
+    buffDelay = 0,
+    buffStart = 1,
+    battlepower = 0,
+    buffEffect = 0,
+    buffParam1 = 0,
+    buffParam2 = 0,
+    buffParam3 = 0,
+    buffParam4 = 0,
+    damageType = 1,
+    healProperty = 0,
+    criAble = 0,
+    damageMultiply = [{1,0.05,0}],
+    property = [{1,1,136,0.05,0},{1,1,137,0.05,0}],
+    buffDeathdel = 1,
+    buffRemove = 0,
+    buffstore = 2,
     outSenceDel = 1,
     damFactor = 0,
     durationFactor = 0,
     isdisplay = 1,
-    durationDisplay = 1
+    ishaloed = 0,
+    durationDisplay = "1"
     };
 getRow(_)->[].
 
@@ -30949,8 +35708,52 @@ getKeyList()->[
     {377},
     {378},
     {400},
+    {401},
+    {402},
+    {403},
+    {404},
     {451},
     {452},
+    {1000},
+    {1001},
+    {1002},
+    {1003},
+    {1004},
+    {1005},
+    {1006},
+    {1007},
+    {1008},
+    {1009},
+    {1010},
+    {1011},
+    {1012},
+    {1013},
+    {1014},
+    {1015},
+    {1016},
+    {1017},
+    {1018},
+    {1019},
+    {1020},
+    {1021},
+    {1022},
+    {1023},
+    {1024},
+    {1025},
+    {1026},
+    {1027},
+    {1028},
+    {1029},
+    {1030},
+    {1031},
+    {1032},
+    {1033},
+    {1034},
+    {1035},
+    {1036},
+    {1037},
+    {1038},
+    {1039},
     {3200},
     {3201},
     {3202},
@@ -30998,6 +35801,8 @@ getKeyList()->[
     {3542},
     {3543},
     {3544},
+    {5000},
+    {5001},
     {6000},
     {6001},
     {6002},
@@ -31109,10 +35914,32 @@ getKeyList()->[
     {13502},
     {13503},
     {13504},
+    {15000},
+    {15001},
+    {15002},
+    {15003},
+    {15004},
+    {15005},
+    {15006},
+    {15007},
+    {16000},
+    {16002},
+    {16003},
+    {16004},
+    {16007},
+    {16008},
+    {16009},
+    {16011},
+    {16012},
+    {16013},
+    {16014},
+    {16015},
+    {16016},
+    {16017},
+    {16018},
+    {16019},
     {19000},
     {19001},
-    {19002},
-    {19003},
     {19004},
     {19005},
     {19006},
@@ -31145,7 +35972,14 @@ getKeyList()->[
     {19033},
     {19034},
     {19035},
+    {20000},
+    {20001},
+    {20002},
+    {20003},
+    {20004},
     {20017},
+    {21000},
+    {21001},
     {30000},
     {30001},
     {30002},
@@ -31265,7 +36099,6 @@ getKeyList()->[
     {40042},
     {40043},
     {40045},
-    {40046},
     {40048},
     {40049},
     {40050},
@@ -31275,17 +36108,11 @@ getKeyList()->[
     {40064},
     {40065},
     {40067},
-    {40068},
-    {40069},
-    {40070},
     {40071},
     {40072},
-    {40100},
     {40101},
     {40102},
     {40103},
-    {40104},
-    {40105},
     {40106},
     {40107},
     {40108},
@@ -31294,10 +36121,8 @@ getKeyList()->[
     {40112},
     {40113},
     {40114},
-    {40115},
     {40118},
     {40120},
-    {40121},
     {40122},
     {40123},
     {40124},
@@ -31307,6 +36132,8 @@ getKeyList()->[
     {40129},
     {40130},
     {40132},
+    {40136},
+    {40137},
     {50000},
     {50001},
     {50002},
@@ -31327,14 +36154,22 @@ getKeyList()->[
     {51006},
     {51007},
     {51008},
-    {52000},
     {52001},
     {52002},
     {52003},
     {52004},
-    {52005},
-    {52006},
-    {52007},
+    {52011},
+    {52012},
+    {52013},
+    {52014},
+    {52021},
+    {52022},
+    {52023},
+    {52024},
+    {52031},
+    {52032},
+    {52033},
+    {52034},
     {60000},
     {60001},
     {60002},
@@ -31344,33 +36179,15 @@ getKeyList()->[
     {60006},
     {60007},
     {60008},
+    {60009},
+    {60010},
+    {60011},
     {61000},
     {61001},
     {61002},
     {61003},
     {61004},
     {61005},
-    {61101},
-    {61103},
-    {61105},
-    {61107},
-    {61109},
-    {61111},
-    {61201},
-    {61202},
-    {61203},
-    {61204},
-    {61205},
-    {61206},
-    {61207},
-    {61208},
-    {61209},
-    {61210},
-    {61211},
-    {61212},
-    {61213},
-    {61214},
-    {61215},
     {61301},
     {61400},
     {61501},
@@ -31414,7 +36231,29 @@ getKeyList()->[
     {62004},
     {62005},
     {62006},
-    {62007}
+    {62007},
+    {62008},
+    {62009},
+    {62010},
+    {62011},
+    {62020},
+    {62021},
+    {63000},
+    {63001},
+    {63002},
+    {63003},
+    {63004},
+    {63005},
+    {63008},
+    {63009},
+    {63010},
+    {63011},
+    {63012},
+    {63013},
+    {63014},
+    {63015},
+    {190022},
+    {190151}
     ].
 
 get1KeyList()->[
@@ -31762,8 +36601,52 @@ get1KeyList()->[
     377,
     378,
     400,
+    401,
+    402,
+    403,
+    404,
     451,
     452,
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019,
+    1020,
+    1021,
+    1022,
+    1023,
+    1024,
+    1025,
+    1026,
+    1027,
+    1028,
+    1029,
+    1030,
+    1031,
+    1032,
+    1033,
+    1034,
+    1035,
+    1036,
+    1037,
+    1038,
+    1039,
     3200,
     3201,
     3202,
@@ -31811,6 +36694,8 @@ get1KeyList()->[
     3542,
     3543,
     3544,
+    5000,
+    5001,
     6000,
     6001,
     6002,
@@ -31922,10 +36807,32 @@ get1KeyList()->[
     13502,
     13503,
     13504,
+    15000,
+    15001,
+    15002,
+    15003,
+    15004,
+    15005,
+    15006,
+    15007,
+    16000,
+    16002,
+    16003,
+    16004,
+    16007,
+    16008,
+    16009,
+    16011,
+    16012,
+    16013,
+    16014,
+    16015,
+    16016,
+    16017,
+    16018,
+    16019,
     19000,
     19001,
-    19002,
-    19003,
     19004,
     19005,
     19006,
@@ -31958,7 +36865,14 @@ get1KeyList()->[
     19033,
     19034,
     19035,
+    20000,
+    20001,
+    20002,
+    20003,
+    20004,
     20017,
+    21000,
+    21001,
     30000,
     30001,
     30002,
@@ -32078,7 +36992,6 @@ get1KeyList()->[
     40042,
     40043,
     40045,
-    40046,
     40048,
     40049,
     40050,
@@ -32088,17 +37001,11 @@ get1KeyList()->[
     40064,
     40065,
     40067,
-    40068,
-    40069,
-    40070,
     40071,
     40072,
-    40100,
     40101,
     40102,
     40103,
-    40104,
-    40105,
     40106,
     40107,
     40108,
@@ -32107,10 +37014,8 @@ get1KeyList()->[
     40112,
     40113,
     40114,
-    40115,
     40118,
     40120,
-    40121,
     40122,
     40123,
     40124,
@@ -32120,6 +37025,8 @@ get1KeyList()->[
     40129,
     40130,
     40132,
+    40136,
+    40137,
     50000,
     50001,
     50002,
@@ -32140,14 +37047,22 @@ get1KeyList()->[
     51006,
     51007,
     51008,
-    52000,
     52001,
     52002,
     52003,
     52004,
-    52005,
-    52006,
-    52007,
+    52011,
+    52012,
+    52013,
+    52014,
+    52021,
+    52022,
+    52023,
+    52024,
+    52031,
+    52032,
+    52033,
+    52034,
     60000,
     60001,
     60002,
@@ -32157,33 +37072,15 @@ get1KeyList()->[
     60006,
     60007,
     60008,
+    60009,
+    60010,
+    60011,
     61000,
     61001,
     61002,
     61003,
     61004,
     61005,
-    61101,
-    61103,
-    61105,
-    61107,
-    61109,
-    61111,
-    61201,
-    61202,
-    61203,
-    61204,
-    61205,
-    61206,
-    61207,
-    61208,
-    61209,
-    61210,
-    61211,
-    61212,
-    61213,
-    61214,
-    61215,
     61301,
     61400,
     61501,
@@ -32227,6 +37124,28 @@ get1KeyList()->[
     62004,
     62005,
     62006,
-    62007
+    62007,
+    62008,
+    62009,
+    62010,
+    62011,
+    62020,
+    62021,
+    63000,
+    63001,
+    63002,
+    63003,
+    63004,
+    63005,
+    63008,
+    63009,
+    63010,
+    63011,
+    63012,
+    63013,
+    63014,
+    63015,
+    190022,
+    190151
     ].
 

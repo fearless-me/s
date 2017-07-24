@@ -5,54 +5,6 @@
 -include("cfg_copymapScheduleSettle.hrl").
 -include("logger.hrl").
 
-getRow(11)->
-    #copymapScheduleSettleCfg {
-    id = 11,
-    name = "污秽大魔王",
-    killmonster = [{22029,1},{22030,1},{22030,1},{22030,1}],
-    collect = [],
-    countdown = 0,
-    task = 0,
-    play_show1 = 0,
-    play_show2 = 0,
-    iskillall = 1
-    };
-getRow(12)->
-    #copymapScheduleSettleCfg {
-    id = 12,
-    name = "乘胜追击",
-    killmonster = [{22031,1},{22032,1},{22032,1},{22032,1}],
-    collect = [],
-    countdown = 0,
-    task = 0,
-    play_show1 = 0,
-    play_show2 = 0,
-    iskillall = 1
-    };
-getRow(13)->
-    #copymapScheduleSettleCfg {
-    id = 13,
-    name = "魔族的报复",
-    killmonster = [{22033,1},{22033,1},{22033,1},{22033,1}],
-    collect = [],
-    countdown = 0,
-    task = 0,
-    play_show1 = 0,
-    play_show2 = 0,
-    iskillall = 1
-    };
-getRow(14)->
-    #copymapScheduleSettleCfg {
-    id = 14,
-    name = "伊凡首领",
-    killmonster = [{22035,1},{22036,1},{22036,1},{22036,1}],
-    collect = [],
-    countdown = 0,
-    task = 0,
-    play_show1 = 0,
-    play_show2 = 0,
-    iskillall = 1
-    };
 getRow(15)->
     #copymapScheduleSettleCfg {
     id = 15,
@@ -63,6 +15,7 @@ getRow(15)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(16)->
@@ -75,6 +28,7 @@ getRow(16)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(17)->
@@ -87,6 +41,7 @@ getRow(17)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(18)->
@@ -99,6 +54,7 @@ getRow(18)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(19)->
@@ -111,6 +67,7 @@ getRow(19)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(20)->
@@ -123,6 +80,7 @@ getRow(20)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(21)->
@@ -135,6 +93,7 @@ getRow(21)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(22)->
@@ -147,6 +106,7 @@ getRow(22)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(23)->
@@ -159,6 +119,7 @@ getRow(23)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(24)->
@@ -171,6 +132,7 @@ getRow(24)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(25)->
@@ -183,6 +145,7 @@ getRow(25)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(26)->
@@ -195,6 +158,7 @@ getRow(26)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(27)->
@@ -207,6 +171,7 @@ getRow(27)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(28)->
@@ -219,6 +184,7 @@ getRow(28)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(29)->
@@ -231,6 +197,7 @@ getRow(29)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(30)->
@@ -243,6 +210,7 @@ getRow(30)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(31)->
@@ -255,6 +223,7 @@ getRow(31)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(32)->
@@ -267,6 +236,7 @@ getRow(32)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(33)->
@@ -279,6 +249,7 @@ getRow(33)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(34)->
@@ -291,6 +262,7 @@ getRow(34)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(35)->
@@ -303,6 +275,7 @@ getRow(35)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(36)->
@@ -315,6 +288,7 @@ getRow(36)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(37)->
@@ -327,6 +301,7 @@ getRow(37)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(38)->
@@ -339,6 +314,7 @@ getRow(38)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(39)->
@@ -351,6 +327,7 @@ getRow(39)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(40)->
@@ -363,6 +340,7 @@ getRow(40)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(41)->
@@ -375,6 +353,7 @@ getRow(41)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(42)->
@@ -387,6 +366,7 @@ getRow(42)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(43)->
@@ -399,6 +379,7 @@ getRow(43)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(44)->
@@ -411,6 +392,7 @@ getRow(44)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(45)->
@@ -423,6 +405,7 @@ getRow(45)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(46)->
@@ -435,6 +418,7 @@ getRow(46)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(47)->
@@ -447,6 +431,7 @@ getRow(47)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(101)->
@@ -459,6 +444,7 @@ getRow(101)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(102)->
@@ -471,6 +457,7 @@ getRow(102)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(103)->
@@ -483,6 +470,7 @@ getRow(103)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(104)->
@@ -495,6 +483,7 @@ getRow(104)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(105)->
@@ -507,6 +496,7 @@ getRow(105)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(106)->
@@ -519,6 +509,7 @@ getRow(106)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(107)->
@@ -530,7 +521,8 @@ getRow(107)->
     countdown = 0,
     task = 0,
     play_show1 = 0,
-    play_show2 = 100,
+    play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(108)->
@@ -543,6 +535,7 @@ getRow(108)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(111)->
@@ -555,6 +548,7 @@ getRow(111)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0,
     defeatmonster = [{2113,1}]
     };
@@ -568,6 +562,7 @@ getRow(112)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0,
     defeatmonster = [{2113,1}]
     };
@@ -581,6 +576,7 @@ getRow(113)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(114)->
@@ -593,6 +589,7 @@ getRow(114)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0,
     defeatmonster = [{2118,1}]
     };
@@ -606,6 +603,7 @@ getRow(115)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0,
     defeatmonster = [{2118,1}]
     };
@@ -619,6 +617,7 @@ getRow(116)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(117)->
@@ -631,6 +630,7 @@ getRow(117)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(118)->
@@ -643,6 +643,7 @@ getRow(118)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(121)->
@@ -655,6 +656,7 @@ getRow(121)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(122)->
@@ -667,6 +669,7 @@ getRow(122)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(123)->
@@ -679,6 +682,7 @@ getRow(123)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(124)->
@@ -691,6 +695,7 @@ getRow(124)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(125)->
@@ -703,6 +708,7 @@ getRow(125)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(126)->
@@ -715,6 +721,7 @@ getRow(126)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(127)->
@@ -727,6 +734,7 @@ getRow(127)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(128)->
@@ -739,6 +747,7 @@ getRow(128)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(129)->
@@ -751,210 +760,462 @@ getRow(129)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(300)->
     #copymapScheduleSettleCfg {
     id = 300,
-    name = "小试身手",
-    killmonster = [{22000,1},{22000,1}],
-    collect = [],
-    countdown = 0,
-    task = 0,
-    play_show1 = 0,
-    play_show2 = 0,
-    iskillall = 1
-    };
-getRow(301)->
-    #copymapScheduleSettleCfg {
-    id = 301,
-    name = "小试身手",
+    name = "打败红海龟（拯救大白）",
     killmonster = [{22001,1},{22001,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
-getRow(302)->
+getRow(301)->
     #copymapScheduleSettleCfg {
-    id = 302,
-    name = "隐藏的魔族",
-    killmonster = [{22002,1},{22002,1},{22002,1}],
+    id = 301,
+    name = "打败红海龟（拯救大白）",
+    killmonster = [{22000,1},{22000,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 1
+    };
+getRow(302)->
+    #copymapScheduleSettleCfg {
+    id = 302,
+    name = "史莱姆的起床气",
+    killmonster = [{22002,2},{22031,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(303)->
     #copymapScheduleSettleCfg {
     id = 303,
-    name = "隐藏的魔族",
+    name = "击败魔灵兽1",
     killmonster = [{22003,1},{22003,1},{22003,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(304)->
     #copymapScheduleSettleCfg {
     id = 304,
-    name = "港口海盗",
-    killmonster = [{22004,1},{22004,1},{22004,1}],
+    name = "击败魔灵兽2",
+    killmonster = [{22004,1},{22004,1},{22004}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(305)->
     #copymapScheduleSettleCfg {
     id = 305,
-    name = "夏洛特的仓库",
-    killmonster = [{22005,1},{22005,1},{22005,1}],
-    collect = [],
+    name = "击败魔灵兽3",
+    killmonster = [],
+    collect = [{9000,1}],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(306)->
     #copymapScheduleSettleCfg {
     id = 306,
-    name = "哭泣的女孩",
-    killmonster = [{22007,1},{22007,1},{22007,1}],
-    collect = [],
+    name = "击败魔灵兽4",
+    killmonster = [],
+    collect = [{9001,1}],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(307)->
     #copymapScheduleSettleCfg {
     id = 307,
-    name = "勇士的愤怒",
-    killmonster = [{22017,1},{22017,1},{22018,1},{22018,1}],
+    name = "击败魔灵兽5",
+    killmonster = [{22005,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(308)->
     #copymapScheduleSettleCfg {
     id = 308,
-    name = "勇士的愤怒",
-    killmonster = [{22017,1},{22017,1},{22017,1}],
+    name = "认识丽莎",
+    killmonster = [{22009,1},{22009,1},{22009,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(309)->
     #copymapScheduleSettleCfg {
     id = 309,
-    name = "勇士的愤怒",
-    killmonster = [{22018,1},{22018,1},{22018,1}],
+    name = "哭泣的女孩",
+    killmonster = [{22012,1},{22012,1},{22012,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(310)->
     #copymapScheduleSettleCfg {
     id = 310,
-    name = "阻止安娜",
-    killmonster = [{22008,1},{22008,1},{22008,1}],
+    name = "安娜被绑架",
+    killmonster = [{22025,1},{22025,1},{22026,1},{22026,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(311)->
     #copymapScheduleSettleCfg {
     id = 311,
-    name = "真假项链",
-    killmonster = [{22015,1},{22015,1},{22015,1},{22015,1}],
+    name = "安娜被绑架",
+    killmonster = [{22027,1},{22027,1},{22027,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(312)->
     #copymapScheduleSettleCfg {
     id = 312,
     name = "安娜的家",
-    killmonster = [{22012,1},{22012,1},{22012,1},{22012,1}],
+    killmonster = [{22025,1},{22025,1},{22026,1},{22026,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(313)->
     #copymapScheduleSettleCfg {
     id = 313,
     name = "安娜的家",
-    killmonster = [{22013,1},{22013,1},{22013,1},{22013,1}],
+    killmonster = [{22027,1},{22027,1},{22027,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(314)->
     #copymapScheduleSettleCfg {
     id = 314,
-    name = "狠毒的罗撒特",
-    killmonster = [{22009,1},{22010,1},{22010,1},{22010,1}],
+    name = "获得骑宠",
+    killmonster = [{22007,1},{22007,1},{22007,1},{22007,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(315)->
     #copymapScheduleSettleCfg {
     id = 315,
-    name = "港口之战",
-    killmonster = [{22011,1},{22011,1},{22011,1},{22011,1}],
+    name = "获得骑宠",
+    killmonster = [{22016,1},{22016,1},{22016,1},{22016,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(316)->
     #copymapScheduleSettleCfg {
     id = 316,
-    name = "港口之战",
-    killmonster = [{22016,1},{22014,1},{22014,1},{22014,1}],
+    name = "获得骑宠",
+    killmonster = [{22014,1},{22014,1},{22014,1},{22014,1}],
     collect = [],
     countdown = 0,
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 1
+    };
+getRow(317)->
+    #copymapScheduleSettleCfg {
+    id = 317,
+    name = "获得骑宠",
+    killmonster = [{22013,1},{22015,1},{22015,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(318)->
+    #copymapScheduleSettleCfg {
+    id = 318,
+    name = "获得骑宠",
+    killmonster = [],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(320)->
+    #copymapScheduleSettleCfg {
+    id = 320,
+    name = "10级剧情副本",
+    killmonster = [{22019,4},{22018,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(321)->
+    #copymapScheduleSettleCfg {
+    id = 321,
+    name = "10级剧情副本",
+    killmonster = [{22018,2},{22017,3}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(322)->
+    #copymapScheduleSettleCfg {
+    id = 322,
+    name = "10级剧情副本",
+    killmonster = [{22020,2},{22022,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(323)->
+    #copymapScheduleSettleCfg {
+    id = 323,
+    name = "10级剧情副本",
+    killmonster = [{22022,1},{22021,1},{22020,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(324)->
+    #copymapScheduleSettleCfg {
+    id = 324,
+    name = "10级剧情副本",
+    killmonster = [{22022,5}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(325)->
+    #copymapScheduleSettleCfg {
+    id = 325,
+    name = "10级剧情副本",
+    killmonster = [{22023,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(326)->
+    #copymapScheduleSettleCfg {
+    id = 326,
+    name = "10级剧情副本",
+    killmonster = [{22024,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(350)->
+    #copymapScheduleSettleCfg {
+    id = 350,
+    name = "原来是灵兽",
+    killmonster = [{22202,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 1
+    };
+getRow(351)->
+    #copymapScheduleSettleCfg {
+    id = 351,
+    name = "原来是灵兽",
+    killmonster = [{22202,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 1
+    };
+getRow(354)->
+    #copymapScheduleSettleCfg {
+    id = 354,
+    name = "伊凡阻拦",
+    killmonster = [{22208,1},{22208,1},{22208,1},{22208,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 1
+    };
+getRow(355)->
+    #copymapScheduleSettleCfg {
+    id = 355,
+    name = "伊凡阻拦",
+    killmonster = [{22206,1},{22206,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 1
+    };
+getRow(356)->
+    #copymapScheduleSettleCfg {
+    id = 356,
+    name = "伊凡阻拦",
+    killmonster = [{22207,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 1
+    };
+getRow(358)->
+    #copymapScheduleSettleCfg {
+    id = 358,
+    name = "嘟嘟失常疯狂",
+    killmonster = [{22209,1},{22209,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 1
+    };
+getRow(359)->
+    #copymapScheduleSettleCfg {
+    id = 359,
+    name = "嘟嘟失常疯狂",
+    killmonster = [{22209,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 1
+    };
+getRow(362)->
+    #copymapScheduleSettleCfg {
+    id = 362,
+    name = "杰斯承认罪行",
+    killmonster = [{22212,1},{22212,1},{22212,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 1
+    };
+getRow(363)->
+    #copymapScheduleSettleCfg {
+    id = 363,
+    name = "杰斯承认罪行",
+    killmonster = [{22212,1},{22211,1},{22211,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(600)->
@@ -967,6 +1228,7 @@ getRow(600)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(950)->
@@ -979,6 +1241,7 @@ getRow(950)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(951)->
@@ -991,6 +1254,7 @@ getRow(951)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(952)->
@@ -1003,6 +1267,7 @@ getRow(952)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(953)->
@@ -1015,6 +1280,7 @@ getRow(953)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(954)->
@@ -1027,6 +1293,7 @@ getRow(954)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(955)->
@@ -1039,6 +1306,7 @@ getRow(955)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(956)->
@@ -1051,6 +1319,7 @@ getRow(956)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(957)->
@@ -1063,6 +1332,7 @@ getRow(957)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(958)->
@@ -1075,6 +1345,7 @@ getRow(958)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(959)->
@@ -1087,6 +1358,7 @@ getRow(959)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(970)->
@@ -1099,6 +1371,7 @@ getRow(970)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(971)->
@@ -1111,6 +1384,7 @@ getRow(971)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(972)->
@@ -1123,6 +1397,7 @@ getRow(972)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(973)->
@@ -1135,6 +1410,7 @@ getRow(973)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(974)->
@@ -1147,6 +1423,7 @@ getRow(974)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(975)->
@@ -1159,6 +1436,7 @@ getRow(975)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(976)->
@@ -1171,6 +1449,7 @@ getRow(976)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(977)->
@@ -1183,6 +1462,7 @@ getRow(977)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(978)->
@@ -1195,6 +1475,7 @@ getRow(978)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(979)->
@@ -1207,6 +1488,7 @@ getRow(979)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(990)->
@@ -1219,6 +1501,7 @@ getRow(990)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(991)->
@@ -1231,6 +1514,7 @@ getRow(991)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(992)->
@@ -1243,6 +1527,7 @@ getRow(992)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(993)->
@@ -1255,6 +1540,7 @@ getRow(993)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(994)->
@@ -1267,6 +1553,7 @@ getRow(994)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(995)->
@@ -1279,6 +1566,7 @@ getRow(995)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(996)->
@@ -1291,6 +1579,7 @@ getRow(996)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(997)->
@@ -1303,6 +1592,7 @@ getRow(997)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(998)->
@@ -1315,6 +1605,7 @@ getRow(998)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(999)->
@@ -1327,6 +1618,7 @@ getRow(999)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1010)->
@@ -1339,6 +1631,7 @@ getRow(1010)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1011)->
@@ -1351,6 +1644,7 @@ getRow(1011)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1012)->
@@ -1363,6 +1657,7 @@ getRow(1012)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1013)->
@@ -1375,6 +1670,7 @@ getRow(1013)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1014)->
@@ -1387,6 +1683,7 @@ getRow(1014)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1015)->
@@ -1399,6 +1696,7 @@ getRow(1015)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1016)->
@@ -1411,6 +1709,7 @@ getRow(1016)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1017)->
@@ -1423,6 +1722,7 @@ getRow(1017)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1018)->
@@ -1435,6 +1735,7 @@ getRow(1018)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1019)->
@@ -1447,6 +1748,7 @@ getRow(1019)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1030)->
@@ -1459,6 +1761,7 @@ getRow(1030)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1031)->
@@ -1471,6 +1774,7 @@ getRow(1031)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1032)->
@@ -1483,6 +1787,7 @@ getRow(1032)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1033)->
@@ -1495,6 +1800,7 @@ getRow(1033)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1034)->
@@ -1507,6 +1813,7 @@ getRow(1034)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1035)->
@@ -1519,6 +1826,7 @@ getRow(1035)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1036)->
@@ -1531,6 +1839,7 @@ getRow(1036)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1037)->
@@ -1543,6 +1852,7 @@ getRow(1037)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1038)->
@@ -1555,6 +1865,7 @@ getRow(1038)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1039)->
@@ -1567,6 +1878,7 @@ getRow(1039)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1040)->
@@ -1579,6 +1891,7 @@ getRow(1040)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1041)->
@@ -1591,6 +1904,7 @@ getRow(1041)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1042)->
@@ -1603,6 +1917,7 @@ getRow(1042)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1043)->
@@ -1615,6 +1930,7 @@ getRow(1043)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1044)->
@@ -1627,6 +1943,7 @@ getRow(1044)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1050)->
@@ -1639,6 +1956,7 @@ getRow(1050)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1051)->
@@ -1651,6 +1969,7 @@ getRow(1051)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1052)->
@@ -1663,6 +1982,7 @@ getRow(1052)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1053)->
@@ -1675,6 +1995,7 @@ getRow(1053)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1054)->
@@ -1687,6 +2008,7 @@ getRow(1054)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1055)->
@@ -1699,6 +2021,7 @@ getRow(1055)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1056)->
@@ -1711,6 +2034,7 @@ getRow(1056)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1057)->
@@ -1723,6 +2047,7 @@ getRow(1057)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1058)->
@@ -1735,6 +2060,7 @@ getRow(1058)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1059)->
@@ -1747,6 +2073,7 @@ getRow(1059)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1070)->
@@ -1759,6 +2086,7 @@ getRow(1070)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1071)->
@@ -1771,6 +2099,7 @@ getRow(1071)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1072)->
@@ -1783,6 +2112,7 @@ getRow(1072)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1073)->
@@ -1795,6 +2125,7 @@ getRow(1073)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1074)->
@@ -1807,6 +2138,7 @@ getRow(1074)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1075)->
@@ -1819,6 +2151,7 @@ getRow(1075)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1076)->
@@ -1831,6 +2164,7 @@ getRow(1076)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1077)->
@@ -1843,6 +2177,7 @@ getRow(1077)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1078)->
@@ -1855,6 +2190,7 @@ getRow(1078)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1079)->
@@ -1867,6 +2203,7 @@ getRow(1079)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1090)->
@@ -1879,6 +2216,7 @@ getRow(1090)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1091)->
@@ -1891,6 +2229,7 @@ getRow(1091)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1092)->
@@ -1903,6 +2242,7 @@ getRow(1092)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1093)->
@@ -1915,6 +2255,7 @@ getRow(1093)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1094)->
@@ -1927,6 +2268,7 @@ getRow(1094)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1095)->
@@ -1939,6 +2281,7 @@ getRow(1095)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1096)->
@@ -1951,6 +2294,7 @@ getRow(1096)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1097)->
@@ -1963,6 +2307,7 @@ getRow(1097)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1098)->
@@ -1975,6 +2320,7 @@ getRow(1098)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1099)->
@@ -1987,6 +2333,7 @@ getRow(1099)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1120)->
@@ -1999,6 +2346,7 @@ getRow(1120)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1121)->
@@ -2011,6 +2359,7 @@ getRow(1121)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1122)->
@@ -2023,6 +2372,7 @@ getRow(1122)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1123)->
@@ -2035,6 +2385,7 @@ getRow(1123)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1124)->
@@ -2047,6 +2398,7 @@ getRow(1124)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1125)->
@@ -2059,6 +2411,7 @@ getRow(1125)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1126)->
@@ -2071,6 +2424,7 @@ getRow(1126)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1127)->
@@ -2083,6 +2437,7 @@ getRow(1127)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1140)->
@@ -2095,6 +2450,7 @@ getRow(1140)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1141)->
@@ -2107,6 +2463,7 @@ getRow(1141)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1142)->
@@ -2119,6 +2476,7 @@ getRow(1142)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1143)->
@@ -2131,6 +2489,7 @@ getRow(1143)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1144)->
@@ -2143,6 +2502,7 @@ getRow(1144)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1145)->
@@ -2155,6 +2515,7 @@ getRow(1145)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1146)->
@@ -2167,6 +2528,7 @@ getRow(1146)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1147)->
@@ -2179,6 +2541,7 @@ getRow(1147)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1160)->
@@ -2191,6 +2554,7 @@ getRow(1160)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1161)->
@@ -2203,6 +2567,7 @@ getRow(1161)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1162)->
@@ -2215,6 +2580,7 @@ getRow(1162)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1163)->
@@ -2227,6 +2593,7 @@ getRow(1163)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1164)->
@@ -2239,6 +2606,7 @@ getRow(1164)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1165)->
@@ -2251,6 +2619,7 @@ getRow(1165)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1166)->
@@ -2263,6 +2632,7 @@ getRow(1166)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1167)->
@@ -2275,6 +2645,7 @@ getRow(1167)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1180)->
@@ -2287,6 +2658,7 @@ getRow(1180)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1181)->
@@ -2299,6 +2671,7 @@ getRow(1181)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1182)->
@@ -2311,6 +2684,7 @@ getRow(1182)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1183)->
@@ -2323,6 +2697,7 @@ getRow(1183)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1184)->
@@ -2335,6 +2710,7 @@ getRow(1184)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1185)->
@@ -2347,6 +2723,7 @@ getRow(1185)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1186)->
@@ -2359,6 +2736,7 @@ getRow(1186)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1187)->
@@ -2371,6 +2749,7 @@ getRow(1187)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1200)->
@@ -2383,6 +2762,7 @@ getRow(1200)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1201)->
@@ -2395,6 +2775,7 @@ getRow(1201)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1202)->
@@ -2407,6 +2788,7 @@ getRow(1202)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1203)->
@@ -2419,6 +2801,7 @@ getRow(1203)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1204)->
@@ -2431,6 +2814,7 @@ getRow(1204)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1205)->
@@ -2443,6 +2827,7 @@ getRow(1205)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1206)->
@@ -2455,6 +2840,7 @@ getRow(1206)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1207)->
@@ -2467,6 +2853,7 @@ getRow(1207)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1220)->
@@ -2479,6 +2866,7 @@ getRow(1220)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1221)->
@@ -2491,6 +2879,7 @@ getRow(1221)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1222)->
@@ -2503,6 +2892,7 @@ getRow(1222)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1223)->
@@ -2515,6 +2905,7 @@ getRow(1223)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1224)->
@@ -2527,6 +2918,7 @@ getRow(1224)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1225)->
@@ -2539,6 +2931,7 @@ getRow(1225)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1226)->
@@ -2551,6 +2944,7 @@ getRow(1226)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1227)->
@@ -2563,6 +2957,7 @@ getRow(1227)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1240)->
@@ -2575,6 +2970,7 @@ getRow(1240)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1241)->
@@ -2587,6 +2983,7 @@ getRow(1241)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1242)->
@@ -2599,6 +2996,7 @@ getRow(1242)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1243)->
@@ -2611,6 +3009,7 @@ getRow(1243)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1244)->
@@ -2623,6 +3022,7 @@ getRow(1244)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1245)->
@@ -2635,6 +3035,7 @@ getRow(1245)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1246)->
@@ -2647,6 +3048,7 @@ getRow(1246)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1247)->
@@ -2659,6 +3061,7 @@ getRow(1247)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1260)->
@@ -2671,6 +3074,7 @@ getRow(1260)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1261)->
@@ -2683,6 +3087,7 @@ getRow(1261)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1262)->
@@ -2695,6 +3100,7 @@ getRow(1262)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1263)->
@@ -2707,6 +3113,7 @@ getRow(1263)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1264)->
@@ -2719,6 +3126,7 @@ getRow(1264)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1265)->
@@ -2731,6 +3139,7 @@ getRow(1265)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1266)->
@@ -2743,6 +3152,7 @@ getRow(1266)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1267)->
@@ -2755,6 +3165,7 @@ getRow(1267)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1400)->
@@ -2767,6 +3178,7 @@ getRow(1400)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1401)->
@@ -2779,6 +3191,7 @@ getRow(1401)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1402)->
@@ -2791,6 +3204,7 @@ getRow(1402)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1403)->
@@ -2803,6 +3217,7 @@ getRow(1403)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1404)->
@@ -2815,6 +3230,7 @@ getRow(1404)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1405)->
@@ -2827,6 +3243,7 @@ getRow(1405)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1406)->
@@ -2839,6 +3256,7 @@ getRow(1406)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1407)->
@@ -2851,6 +3269,7 @@ getRow(1407)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1408)->
@@ -2863,6 +3282,7 @@ getRow(1408)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1409)->
@@ -2875,6 +3295,7 @@ getRow(1409)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1410)->
@@ -2887,6 +3308,7 @@ getRow(1410)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1420)->
@@ -2899,6 +3321,7 @@ getRow(1420)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1421)->
@@ -2911,6 +3334,7 @@ getRow(1421)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1422)->
@@ -2923,6 +3347,7 @@ getRow(1422)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1423)->
@@ -2935,6 +3360,7 @@ getRow(1423)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1424)->
@@ -2947,6 +3373,7 @@ getRow(1424)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1425)->
@@ -2959,6 +3386,7 @@ getRow(1425)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1426)->
@@ -2971,6 +3399,7 @@ getRow(1426)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1427)->
@@ -2983,6 +3412,7 @@ getRow(1427)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1428)->
@@ -2995,6 +3425,7 @@ getRow(1428)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1429)->
@@ -3007,6 +3438,7 @@ getRow(1429)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1430)->
@@ -3019,6 +3451,7 @@ getRow(1430)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1440)->
@@ -3031,6 +3464,7 @@ getRow(1440)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1441)->
@@ -3043,6 +3477,7 @@ getRow(1441)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1442)->
@@ -3055,6 +3490,7 @@ getRow(1442)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1443)->
@@ -3067,6 +3503,7 @@ getRow(1443)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1444)->
@@ -3079,6 +3516,7 @@ getRow(1444)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1445)->
@@ -3091,6 +3529,7 @@ getRow(1445)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1446)->
@@ -3103,6 +3542,7 @@ getRow(1446)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1447)->
@@ -3115,6 +3555,7 @@ getRow(1447)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1448)->
@@ -3127,6 +3568,7 @@ getRow(1448)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1449)->
@@ -3139,6 +3581,7 @@ getRow(1449)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1450)->
@@ -3151,6 +3594,7 @@ getRow(1450)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1460)->
@@ -3163,6 +3607,7 @@ getRow(1460)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1461)->
@@ -3175,6 +3620,7 @@ getRow(1461)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1462)->
@@ -3187,6 +3633,7 @@ getRow(1462)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1463)->
@@ -3199,6 +3646,7 @@ getRow(1463)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1464)->
@@ -3211,6 +3659,7 @@ getRow(1464)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1465)->
@@ -3223,6 +3672,7 @@ getRow(1465)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1466)->
@@ -3235,6 +3685,7 @@ getRow(1466)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1467)->
@@ -3247,6 +3698,7 @@ getRow(1467)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1468)->
@@ -3259,6 +3711,7 @@ getRow(1468)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1469)->
@@ -3271,6 +3724,7 @@ getRow(1469)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1470)->
@@ -3283,6 +3737,7 @@ getRow(1470)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1480)->
@@ -3295,6 +3750,7 @@ getRow(1480)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1481)->
@@ -3307,6 +3763,7 @@ getRow(1481)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1482)->
@@ -3319,6 +3776,7 @@ getRow(1482)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1483)->
@@ -3331,6 +3789,7 @@ getRow(1483)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1484)->
@@ -3343,6 +3802,7 @@ getRow(1484)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1485)->
@@ -3355,6 +3815,7 @@ getRow(1485)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1486)->
@@ -3367,6 +3828,7 @@ getRow(1486)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1487)->
@@ -3379,6 +3841,7 @@ getRow(1487)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1488)->
@@ -3391,6 +3854,7 @@ getRow(1488)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1489)->
@@ -3403,6 +3867,7 @@ getRow(1489)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1490)->
@@ -3415,6 +3880,7 @@ getRow(1490)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1510)->
@@ -3427,6 +3893,7 @@ getRow(1510)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1511)->
@@ -3439,6 +3906,7 @@ getRow(1511)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1512)->
@@ -3451,6 +3919,7 @@ getRow(1512)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1513)->
@@ -3463,6 +3932,7 @@ getRow(1513)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1514)->
@@ -3475,6 +3945,7 @@ getRow(1514)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1515)->
@@ -3487,6 +3958,7 @@ getRow(1515)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1516)->
@@ -3499,6 +3971,7 @@ getRow(1516)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1517)->
@@ -3511,6 +3984,7 @@ getRow(1517)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1518)->
@@ -3523,6 +3997,7 @@ getRow(1518)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1519)->
@@ -3535,6 +4010,7 @@ getRow(1519)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1520)->
@@ -3547,6 +4023,7 @@ getRow(1520)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1530)->
@@ -3559,6 +4036,7 @@ getRow(1530)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1531)->
@@ -3571,6 +4049,7 @@ getRow(1531)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1532)->
@@ -3583,6 +4062,7 @@ getRow(1532)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1533)->
@@ -3595,6 +4075,7 @@ getRow(1533)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1534)->
@@ -3607,6 +4088,7 @@ getRow(1534)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1535)->
@@ -3619,6 +4101,7 @@ getRow(1535)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1536)->
@@ -3631,6 +4114,7 @@ getRow(1536)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1537)->
@@ -3643,6 +4127,7 @@ getRow(1537)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1538)->
@@ -3655,6 +4140,7 @@ getRow(1538)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1539)->
@@ -3667,6 +4153,7 @@ getRow(1539)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1540)->
@@ -3679,6 +4166,7 @@ getRow(1540)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1550)->
@@ -3691,6 +4179,7 @@ getRow(1550)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1551)->
@@ -3703,6 +4192,7 @@ getRow(1551)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1552)->
@@ -3715,6 +4205,7 @@ getRow(1552)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1553)->
@@ -3727,6 +4218,7 @@ getRow(1553)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1554)->
@@ -3739,6 +4231,7 @@ getRow(1554)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1555)->
@@ -3751,6 +4244,7 @@ getRow(1555)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1556)->
@@ -3763,6 +4257,7 @@ getRow(1556)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1557)->
@@ -3775,6 +4270,7 @@ getRow(1557)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1558)->
@@ -3787,6 +4283,7 @@ getRow(1558)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1559)->
@@ -3799,6 +4296,7 @@ getRow(1559)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1560)->
@@ -3811,6 +4309,7 @@ getRow(1560)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1600)->
@@ -3823,6 +4322,7 @@ getRow(1600)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1601)->
@@ -3835,6 +4335,7 @@ getRow(1601)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1602)->
@@ -3847,6 +4348,7 @@ getRow(1602)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1603)->
@@ -3859,6 +4361,7 @@ getRow(1603)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1604)->
@@ -3871,6 +4374,7 @@ getRow(1604)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1605)->
@@ -3883,6 +4387,7 @@ getRow(1605)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1606)->
@@ -3895,6 +4400,7 @@ getRow(1606)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1607)->
@@ -3907,6 +4413,7 @@ getRow(1607)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1608)->
@@ -3919,6 +4426,7 @@ getRow(1608)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1609)->
@@ -3931,6 +4439,7 @@ getRow(1609)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1610)->
@@ -3943,6 +4452,7 @@ getRow(1610)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1611)->
@@ -3955,6 +4465,7 @@ getRow(1611)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1612)->
@@ -3967,6 +4478,7 @@ getRow(1612)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1613)->
@@ -3979,6 +4491,7 @@ getRow(1613)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1614)->
@@ -3991,6 +4504,7 @@ getRow(1614)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1620)->
@@ -4003,6 +4517,7 @@ getRow(1620)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1621)->
@@ -4015,6 +4530,7 @@ getRow(1621)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1622)->
@@ -4027,6 +4543,7 @@ getRow(1622)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1623)->
@@ -4039,6 +4556,7 @@ getRow(1623)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1624)->
@@ -4051,6 +4569,7 @@ getRow(1624)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1625)->
@@ -4063,6 +4582,7 @@ getRow(1625)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1626)->
@@ -4075,6 +4595,7 @@ getRow(1626)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1627)->
@@ -4087,6 +4608,7 @@ getRow(1627)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1628)->
@@ -4099,6 +4621,7 @@ getRow(1628)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1629)->
@@ -4111,6 +4634,7 @@ getRow(1629)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1630)->
@@ -4123,6 +4647,7 @@ getRow(1630)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1631)->
@@ -4135,6 +4660,7 @@ getRow(1631)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1632)->
@@ -4147,6 +4673,7 @@ getRow(1632)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1633)->
@@ -4159,6 +4686,7 @@ getRow(1633)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1634)->
@@ -4171,6 +4699,7 @@ getRow(1634)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1640)->
@@ -4183,6 +4712,7 @@ getRow(1640)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1641)->
@@ -4195,6 +4725,7 @@ getRow(1641)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1642)->
@@ -4207,6 +4738,7 @@ getRow(1642)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1643)->
@@ -4219,6 +4751,7 @@ getRow(1643)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1644)->
@@ -4231,6 +4764,7 @@ getRow(1644)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1645)->
@@ -4243,6 +4777,7 @@ getRow(1645)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1646)->
@@ -4255,6 +4790,7 @@ getRow(1646)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1647)->
@@ -4267,6 +4803,7 @@ getRow(1647)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1648)->
@@ -4279,6 +4816,7 @@ getRow(1648)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1649)->
@@ -4291,6 +4829,7 @@ getRow(1649)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1650)->
@@ -4303,6 +4842,7 @@ getRow(1650)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1651)->
@@ -4315,6 +4855,7 @@ getRow(1651)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1652)->
@@ -4327,6 +4868,7 @@ getRow(1652)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1653)->
@@ -4339,6 +4881,7 @@ getRow(1653)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1654)->
@@ -4351,6 +4894,7 @@ getRow(1654)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1660)->
@@ -4363,6 +4907,7 @@ getRow(1660)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1661)->
@@ -4375,6 +4920,7 @@ getRow(1661)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1662)->
@@ -4387,6 +4933,7 @@ getRow(1662)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1663)->
@@ -4399,6 +4946,7 @@ getRow(1663)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1664)->
@@ -4411,6 +4959,7 @@ getRow(1664)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1665)->
@@ -4423,6 +4972,7 @@ getRow(1665)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1666)->
@@ -4435,6 +4985,7 @@ getRow(1666)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1667)->
@@ -4447,6 +4998,7 @@ getRow(1667)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1668)->
@@ -4459,6 +5011,7 @@ getRow(1668)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1669)->
@@ -4471,6 +5024,7 @@ getRow(1669)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1670)->
@@ -4483,6 +5037,7 @@ getRow(1670)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1671)->
@@ -4495,6 +5050,7 @@ getRow(1671)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1672)->
@@ -4507,6 +5063,7 @@ getRow(1672)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1673)->
@@ -4519,6 +5076,7 @@ getRow(1673)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1674)->
@@ -4531,6 +5089,7 @@ getRow(1674)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1680)->
@@ -4543,6 +5102,7 @@ getRow(1680)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1681)->
@@ -4555,6 +5115,7 @@ getRow(1681)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1682)->
@@ -4567,6 +5128,7 @@ getRow(1682)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1683)->
@@ -4579,6 +5141,7 @@ getRow(1683)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1684)->
@@ -4591,6 +5154,7 @@ getRow(1684)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1685)->
@@ -4603,6 +5167,7 @@ getRow(1685)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1686)->
@@ -4615,6 +5180,7 @@ getRow(1686)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1687)->
@@ -4627,6 +5193,7 @@ getRow(1687)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1688)->
@@ -4639,6 +5206,7 @@ getRow(1688)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1689)->
@@ -4651,6 +5219,7 @@ getRow(1689)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1690)->
@@ -4663,6 +5232,7 @@ getRow(1690)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1691)->
@@ -4675,6 +5245,7 @@ getRow(1691)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1692)->
@@ -4687,6 +5258,7 @@ getRow(1692)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1693)->
@@ -4699,6 +5271,7 @@ getRow(1693)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1694)->
@@ -4711,6 +5284,7 @@ getRow(1694)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1700)->
@@ -4723,6 +5297,7 @@ getRow(1700)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1701)->
@@ -4735,6 +5310,7 @@ getRow(1701)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1702)->
@@ -4747,6 +5323,7 @@ getRow(1702)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1703)->
@@ -4759,6 +5336,7 @@ getRow(1703)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1704)->
@@ -4771,6 +5349,7 @@ getRow(1704)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1705)->
@@ -4783,6 +5362,7 @@ getRow(1705)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1706)->
@@ -4795,6 +5375,7 @@ getRow(1706)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1707)->
@@ -4807,6 +5388,7 @@ getRow(1707)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1708)->
@@ -4819,6 +5401,7 @@ getRow(1708)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1709)->
@@ -4831,6 +5414,7 @@ getRow(1709)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1710)->
@@ -4843,6 +5427,7 @@ getRow(1710)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1711)->
@@ -4855,6 +5440,7 @@ getRow(1711)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1712)->
@@ -4867,6 +5453,7 @@ getRow(1712)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1713)->
@@ -4879,6 +5466,7 @@ getRow(1713)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1714)->
@@ -4891,6 +5479,7 @@ getRow(1714)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1720)->
@@ -4903,6 +5492,7 @@ getRow(1720)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1721)->
@@ -4915,6 +5505,7 @@ getRow(1721)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1722)->
@@ -4927,6 +5518,7 @@ getRow(1722)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1723)->
@@ -4939,6 +5531,7 @@ getRow(1723)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1724)->
@@ -4951,6 +5544,7 @@ getRow(1724)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1725)->
@@ -4963,6 +5557,7 @@ getRow(1725)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1726)->
@@ -4975,6 +5570,7 @@ getRow(1726)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1727)->
@@ -4987,6 +5583,7 @@ getRow(1727)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1728)->
@@ -4999,6 +5596,7 @@ getRow(1728)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1729)->
@@ -5011,6 +5609,7 @@ getRow(1729)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1730)->
@@ -5023,6 +5622,7 @@ getRow(1730)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1731)->
@@ -5035,6 +5635,7 @@ getRow(1731)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1732)->
@@ -5047,6 +5648,7 @@ getRow(1732)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1733)->
@@ -5059,6 +5661,7 @@ getRow(1733)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1734)->
@@ -5071,6 +5674,7 @@ getRow(1734)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
 getRow(1740)->
@@ -5083,6 +5687,7 @@ getRow(1740)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1741)->
@@ -5095,6 +5700,7 @@ getRow(1741)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1742)->
@@ -5107,6 +5713,7 @@ getRow(1742)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1743)->
@@ -5119,6 +5726,7 @@ getRow(1743)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1744)->
@@ -5131,6 +5739,7 @@ getRow(1744)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1745)->
@@ -5143,6 +5752,7 @@ getRow(1745)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1746)->
@@ -5155,6 +5765,7 @@ getRow(1746)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1747)->
@@ -5167,6 +5778,7 @@ getRow(1747)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1748)->
@@ -5179,6 +5791,7 @@ getRow(1748)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1749)->
@@ -5191,6 +5804,7 @@ getRow(1749)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1750)->
@@ -5203,6 +5817,7 @@ getRow(1750)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1751)->
@@ -5215,6 +5830,7 @@ getRow(1751)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1752)->
@@ -5227,6 +5843,7 @@ getRow(1752)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1753)->
@@ -5239,6 +5856,7 @@ getRow(1753)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(1754)->
@@ -5251,7 +5869,398 @@ getRow(1754)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
+    };
+getRow(1800)->
+    #copymapScheduleSettleCfg {
+    id = 1800,
+    name = "史莱姆秘境",
+    killmonster = [{1200,5},{1201,5},{1202,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5000)->
+    #copymapScheduleSettleCfg {
+    id = 5000,
+    name = "大风营救1",
+    killmonster = [{30006,1},{30007,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5001)->
+    #copymapScheduleSettleCfg {
+    id = 5001,
+    name = "大风营救2",
+    killmonster = [{30008,1},{30011,5}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5002)->
+    #copymapScheduleSettleCfg {
+    id = 5002,
+    name = "绝地求生",
+    killmonster = [{30010,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5003)->
+    #copymapScheduleSettleCfg {
+    id = 5003,
+    name = "秘密潜入I",
+    killmonster = [{30009,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5004)->
+    #copymapScheduleSettleCfg {
+    id = 5004,
+    name = "魔族的围攻",
+    killmonster = [{30008,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5005)->
+    #copymapScheduleSettleCfg {
+    id = 5005,
+    name = "冲锋！！！",
+    killmonster = [{30009,3},{30010,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5006)->
+    #copymapScheduleSettleCfg {
+    id = 5006,
+    name = "被跟踪了",
+    killmonster = [{30013,5}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5007)->
+    #copymapScheduleSettleCfg {
+    id = 5007,
+    name = "空中银行",
+    killmonster = [{30014,3}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5008)->
+    #copymapScheduleSettleCfg {
+    id = 5008,
+    name = "大扫除",
+    killmonster = [{30015,5}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5009)->
+    #copymapScheduleSettleCfg {
+    id = 5009,
+    name = "寻找能量源III",
+    killmonster = [{30018,5}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5010)->
+    #copymapScheduleSettleCfg {
+    id = 5010,
+    name = "愤怒的大胖",
+    killmonster = [{30019,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5011)->
+    #copymapScheduleSettleCfg {
+    id = 5011,
+    name = "拜访异魔人",
+    killmonster = [{30020,5}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5012)->
+    #copymapScheduleSettleCfg {
+    id = 5012,
+    name = "小黄？",
+    killmonster = [{30021,5}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5013)->
+    #copymapScheduleSettleCfg {
+    id = 5013,
+    name = "放开我！",
+    killmonster = [{30023,5}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5014)->
+    #copymapScheduleSettleCfg {
+    id = 5014,
+    name = "准备战斗",
+    killmonster = [{30024,5}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5015)->
+    #copymapScheduleSettleCfg {
+    id = 5015,
+    name = "平息怨气",
+    killmonster = [{30025,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5016)->
+    #copymapScheduleSettleCfg {
+    id = 5016,
+    name = "故入歧途",
+    killmonster = [{30021,4},{30022,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5017)->
+    #copymapScheduleSettleCfg {
+    id = 5017,
+    name = "护送位面结束",
+    killmonster = [],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5020)->
+    #copymapScheduleSettleCfg {
+    id = 5020,
+    name = "空中银行",
+    killmonster = [{30035,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5050)->
+    #copymapScheduleSettleCfg {
+    id = 5050,
+    name = "集结号",
+    killmonster = [{30060,4},{30061,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5051)->
+    #copymapScheduleSettleCfg {
+    id = 5051,
+    name = "勇气考核",
+    killmonster = [{30063,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5052)->
+    #copymapScheduleSettleCfg {
+    id = 5052,
+    name = "开始行动",
+    killmonster = [{30066,4},{30067,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5053)->
+    #copymapScheduleSettleCfg {
+    id = 5053,
+    name = "一不做二不休",
+    killmonster = [{30070,4},{30069,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5054)->
+    #copymapScheduleSettleCfg {
+    id = 5054,
+    name = "各个击破I",
+    killmonster = [{30072,4},{30071,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5055)->
+    #copymapScheduleSettleCfg {
+    id = 5055,
+    name = "各个击破II",
+    killmonster = [{30072,4},{30071,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5056)->
+    #copymapScheduleSettleCfg {
+    id = 5056,
+    name = "刺客信条",
+    killmonster = [{30075,4},{30074,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5057)->
+    #copymapScheduleSettleCfg {
+    id = 5057,
+    name = "切磋取暖",
+    killmonster = [{30077,1},{30078,1},{30079,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5058)->
+    #copymapScheduleSettleCfg {
+    id = 5058,
+    name = "偷袭魔族残部I",
+    killmonster = [{30081,3},{30082,3}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(5059)->
+    #copymapScheduleSettleCfg {
+    id = 5059,
+    name = "偷袭魔族残部II",
+    killmonster = [{30081,3},{30082,3}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
     };
 getRow(20000)->
     #copymapScheduleSettleCfg {
@@ -5263,11 +6272,12 @@ getRow(20000)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 1
     };
-getRow(21000)->
+getRow(20001)->
     #copymapScheduleSettleCfg {
-    id = 21000,
+    id = 20001,
     name = "所有开始倒计时结束条件",
     killmonster = [],
     collect = [],
@@ -5275,15 +6285,1169 @@ getRow(21000)->
     task = 0,
     play_show1 = 0,
     play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21000)->
+    #copymapScheduleSettleCfg {
+    id = 21000,
+    name = "10级普通副本",
+    killmonster = [{2003,3},{2000,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21001)->
+    #copymapScheduleSettleCfg {
+    id = 21001,
+    name = "10级普通副本",
+    killmonster = [{2003,3},{2001,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21002)->
+    #copymapScheduleSettleCfg {
+    id = 21002,
+    name = "10级普通副本",
+    killmonster = [{2003,3},{2002,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21003)->
+    #copymapScheduleSettleCfg {
+    id = 21003,
+    name = "10级普通副本",
+    killmonster = [{2004,1},{2005,1},{2006,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21004)->
+    #copymapScheduleSettleCfg {
+    id = 21004,
+    name = "10级普通副本",
+    killmonster = [{2007,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21010)->
+    #copymapScheduleSettleCfg {
+    id = 21010,
+    name = "20级普通副本",
+    killmonster = [{2010,3},{2011,3}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21011)->
+    #copymapScheduleSettleCfg {
+    id = 21011,
+    name = "20级普通副本",
+    killmonster = [{2010,2},{2012,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21012)->
+    #copymapScheduleSettleCfg {
+    id = 21012,
+    name = "20级普通副本",
+    killmonster = [{2011,2},{2013,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21013)->
+    #copymapScheduleSettleCfg {
+    id = 21013,
+    name = "20级普通副本",
+    killmonster = [{2012,3},{2013,3},{2014,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21014)->
+    #copymapScheduleSettleCfg {
+    id = 21014,
+    name = "20级普通副本",
+    killmonster = [{2014,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21015)->
+    #copymapScheduleSettleCfg {
+    id = 21015,
+    name = "20级普通副本",
+    killmonster = [{2017,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21020)->
+    #copymapScheduleSettleCfg {
+    id = 21020,
+    name = "30级普通副本",
+    killmonster = [{2020,4},{2022,2},{2023,2},{2024,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21021)->
+    #copymapScheduleSettleCfg {
+    id = 21021,
+    name = "30级普通副本",
+    killmonster = [{2021,3}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21022)->
+    #copymapScheduleSettleCfg {
+    id = 21022,
+    name = "30级普通副本",
+    killmonster = [{2021,1},{2022,1},{2023,1},{2024,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21023)->
+    #copymapScheduleSettleCfg {
+    id = 21023,
+    name = "30级普通副本",
+    killmonster = [{2026,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21024)->
+    #copymapScheduleSettleCfg {
+    id = 21024,
+    name = "30级普通副本",
+    killmonster = [{2022,2},{2023,2},{2025,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21025)->
+    #copymapScheduleSettleCfg {
+    id = 21025,
+    name = "30级普通副本",
+    killmonster = [{2027,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21030)->
+    #copymapScheduleSettleCfg {
+    id = 21030,
+    name = "40级普通副本",
+    killmonster = [{2030,2},{2031,2},{2032,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21031)->
+    #copymapScheduleSettleCfg {
+    id = 21031,
+    name = "40级普通副本",
+    killmonster = [{2031,2},{2031,2},{2032,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21032)->
+    #copymapScheduleSettleCfg {
+    id = 21032,
+    name = "40级普通副本",
+    killmonster = [{2033,1},{2033,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21033)->
+    #copymapScheduleSettleCfg {
+    id = 21033,
+    name = "40级普通副本",
+    killmonster = [{2031,2},{2031,2},{2033,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21034)->
+    #copymapScheduleSettleCfg {
+    id = 21034,
+    name = "40级普通副本",
+    killmonster = [{2032,2},{2032,2},{2034,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21035)->
+    #copymapScheduleSettleCfg {
+    id = 21035,
+    name = "40级普通副本",
+    killmonster = [{2033,1},{2033,1},{2034,1},{2034,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(21036)->
+    #copymapScheduleSettleCfg {
+    id = 21036,
+    name = "40级普通副本",
+    killmonster = [{2035,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25000)->
+    #copymapScheduleSettleCfg {
+    id = 25000,
+    name = "20级英雄副本",
+    killmonster = [{2500,3},{2501,3}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25001)->
+    #copymapScheduleSettleCfg {
+    id = 25001,
+    name = "20级英雄副本",
+    killmonster = [{2500,2},{2502,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25002)->
+    #copymapScheduleSettleCfg {
+    id = 25002,
+    name = "20级英雄副本",
+    killmonster = [{2501,2},{2503,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25003)->
+    #copymapScheduleSettleCfg {
+    id = 25003,
+    name = "20级英雄副本",
+    killmonster = [{2502,3},{2503,3},{2504,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25004)->
+    #copymapScheduleSettleCfg {
+    id = 25004,
+    name = "20级英雄副本",
+    killmonster = [{2504,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25005)->
+    #copymapScheduleSettleCfg {
+    id = 25005,
+    name = "20级英雄副本",
+    killmonster = [{2507,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25010)->
+    #copymapScheduleSettleCfg {
+    id = 25010,
+    name = "30级英雄副本",
+    killmonster = [{2510,4},{2512,2},{2513,2},{2514,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25011)->
+    #copymapScheduleSettleCfg {
+    id = 25011,
+    name = "30级英雄副本",
+    killmonster = [{2511,3}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25012)->
+    #copymapScheduleSettleCfg {
+    id = 25012,
+    name = "30级英雄副本",
+    killmonster = [{2511,1},{2512,1},{2513,1},{2514,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25013)->
+    #copymapScheduleSettleCfg {
+    id = 25013,
+    name = "30级英雄副本",
+    killmonster = [{2516,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25014)->
+    #copymapScheduleSettleCfg {
+    id = 25014,
+    name = "30级英雄副本",
+    killmonster = [{2512,2},{2513,2},{2515,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25015)->
+    #copymapScheduleSettleCfg {
+    id = 25015,
+    name = "30级英雄副本",
+    killmonster = [{2517,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25020)->
+    #copymapScheduleSettleCfg {
+    id = 25020,
+    name = "40级英雄副本",
+    killmonster = [{2520,3},{2521,3},{2522,3}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25021)->
+    #copymapScheduleSettleCfg {
+    id = 25021,
+    name = "40级英雄副本",
+    killmonster = [{2521,3},{2521,3},{2522,3}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25022)->
+    #copymapScheduleSettleCfg {
+    id = 25022,
+    name = "40级英雄副本",
+    killmonster = [{2523,2},{2523,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25023)->
+    #copymapScheduleSettleCfg {
+    id = 25023,
+    name = "40级英雄副本",
+    killmonster = [{2521,3},{2521,3},{2523,3}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25024)->
+    #copymapScheduleSettleCfg {
+    id = 25024,
+    name = "40级英雄副本",
+    killmonster = [{2522,3},{2522,3},{2524,2}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25025)->
+    #copymapScheduleSettleCfg {
+    id = 25025,
+    name = "40级英雄副本",
+    killmonster = [{2523,1},{2523,1},{2524,1},{2524,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(25026)->
+    #copymapScheduleSettleCfg {
+    id = 25026,
+    name = "40级英雄副本",
+    killmonster = [{2525,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(30000)->
+    #copymapScheduleSettleCfg {
+    id = 30000,
+    name = "守护女神新手-关卡1",
+    killmonster = [{501,4},{502,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{690,1}]
+    };
+getRow(30001)->
+    #copymapScheduleSettleCfg {
+    id = 30001,
+    name = "守护女神新手-关卡2",
+    killmonster = [{503,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{690,1}]
+    };
+getRow(30003)->
+    #copymapScheduleSettleCfg {
+    id = 30003,
+    name = "守护女神新手-关卡1-boss",
+    killmonster = [{601,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{690,1}]
+    };
+getRow(30004)->
+    #copymapScheduleSettleCfg {
+    id = 30004,
+    name = "守护女神新手-关卡4",
+    killmonster = [{501,4},{502,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{690,1}]
+    };
+getRow(30005)->
+    #copymapScheduleSettleCfg {
+    id = 30005,
+    name = "守护女神新手-关卡5",
+    killmonster = [{503,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{690,1}]
+    };
+getRow(30007)->
+    #copymapScheduleSettleCfg {
+    id = 30007,
+    name = "守护女神新手-关卡2-boss",
+    killmonster = [{604,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{690,1}]
+    };
+getRow(30008)->
+    #copymapScheduleSettleCfg {
+    id = 30008,
+    name = "守护女神新手-关卡7",
+    killmonster = [{501,4},{502,4}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{690,1}]
+    };
+getRow(30009)->
+    #copymapScheduleSettleCfg {
+    id = 30009,
+    name = "守护女神新手-关卡8",
+    killmonster = [{503,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{690,1}]
+    };
+getRow(30011)->
+    #copymapScheduleSettleCfg {
+    id = 30011,
+    name = "守护女神新手-关卡3-boss",
+    killmonster = [{607,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{690,1}]
+    };
+getRow(30100)->
+    #copymapScheduleSettleCfg {
+    id = 30100,
+    name = "蟹将讨厌你",
+    killmonster = [{508,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{691,1}]
+    };
+getRow(30101)->
+    #copymapScheduleSettleCfg {
+    id = 30101,
+    name = "小鱼不爱你",
+    killmonster = [{509,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{691,1}]
+    };
+getRow(30103)->
+    #copymapScheduleSettleCfg {
+    id = 30103,
+    name = "拍拍",
+    killmonster = [{610,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{691,1}]
+    };
+getRow(30104)->
+    #copymapScheduleSettleCfg {
+    id = 30104,
+    name = "姣姣来啦",
+    killmonster = [{510,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{691,1}]
+    };
+getRow(30105)->
+    #copymapScheduleSettleCfg {
+    id = 30105,
+    name = "鳄鱼酱",
+    killmonster = [{511,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{691,1}]
+    };
+getRow(30107)->
+    #copymapScheduleSettleCfg {
+    id = 30107,
+    name = "杜莎",
+    killmonster = [{613,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{691,1}]
+    };
+getRow(30109)->
+    #copymapScheduleSettleCfg {
+    id = 30109,
+    name = "恋人的复仇",
+    killmonster = [{616,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{691,1}]
+    };
+getRow(30200)->
+    #copymapScheduleSettleCfg {
+    id = 30200,
+    name = "阿拉丁.赤",
+    killmonster = [{514,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{692,1}]
+    };
+getRow(30201)->
+    #copymapScheduleSettleCfg {
+    id = 30201,
+    name = "魔小酱",
+    killmonster = [{515,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{692,1}]
+    };
+getRow(30203)->
+    #copymapScheduleSettleCfg {
+    id = 30203,
+    name = "星辰之力",
+    killmonster = [{622,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{692,1}]
+    };
+getRow(30204)->
+    #copymapScheduleSettleCfg {
+    id = 30204,
+    name = "阿拉丁.赤",
+    killmonster = [{514,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{692,1}]
+    };
+getRow(30205)->
+    #copymapScheduleSettleCfg {
+    id = 30205,
+    name = "魔小酱",
+    killmonster = [{515,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{692,1}]
+    };
+getRow(30207)->
+    #copymapScheduleSettleCfg {
+    id = 30207,
+    name = "爱の光",
+    killmonster = [{625,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{692,1}]
+    };
+getRow(30208)->
+    #copymapScheduleSettleCfg {
+    id = 30208,
+    name = "阿拉丁.赤",
+    killmonster = [{514,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{692,1}]
+    };
+getRow(30209)->
+    #copymapScheduleSettleCfg {
+    id = 30209,
+    name = "魔小酱",
+    killmonster = [{515,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{692,1}]
+    };
+getRow(30211)->
+    #copymapScheduleSettleCfg {
+    id = 30211,
+    name = "魔族公主",
+    killmonster = [{628,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{692,1}]
+    };
+getRow(30300)->
+    #copymapScheduleSettleCfg {
+    id = 30300,
+    name = "魂香花",
+    killmonster = [{519,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{693,1}]
+    };
+getRow(30301)->
+    #copymapScheduleSettleCfg {
+    id = 30301,
+    name = "绿之精",
+    killmonster = [{520,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{693,1}]
+    };
+getRow(30303)->
+    #copymapScheduleSettleCfg {
+    id = 30303,
+    name = "精灵机械师",
+    killmonster = [{631,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{693,1}]
+    };
+getRow(30304)->
+    #copymapScheduleSettleCfg {
+    id = 30304,
+    name = "绿之精",
+    killmonster = [{520,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{693,1}]
+    };
+getRow(30305)->
+    #copymapScheduleSettleCfg {
+    id = 30305,
+    name = "精灵守卫",
+    killmonster = [{521,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{693,1}]
+    };
+getRow(30307)->
+    #copymapScheduleSettleCfg {
+    id = 30307,
+    name = "盖亚",
+    killmonster = [{634,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{693,1}]
+    };
+getRow(30309)->
+    #copymapScheduleSettleCfg {
+    id = 30309,
+    name = "精灵原力",
+    killmonster = [{637,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{693,1}]
+    };
+getRow(30400)->
+    #copymapScheduleSettleCfg {
+    id = 30400,
+    name = "桀",
+    killmonster = [{524,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{694,1}]
+    };
+getRow(30401)->
+    #copymapScheduleSettleCfg {
+    id = 30401,
+    name = "骜",
+    killmonster = [{525,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{694,1}]
+    };
+getRow(30403)->
+    #copymapScheduleSettleCfg {
+    id = 30403,
+    name = "熔火核心",
+    killmonster = [{640,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{694,1}]
+    };
+getRow(30404)->
+    #copymapScheduleSettleCfg {
+    id = 30404,
+    name = "杀铃",
+    killmonster = [{526,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{694,1}]
+    };
+getRow(30405)->
+    #copymapScheduleSettleCfg {
+    id = 30405,
+    name = "月见",
+    killmonster = [{527,9}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{694,1}]
+    };
+getRow(30407)->
+    #copymapScheduleSettleCfg {
+    id = 30407,
+    name = "蜃语",
+    killmonster = [{643,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{694,1}]
+    };
+getRow(30409)->
+    #copymapScheduleSettleCfg {
+    id = 30409,
+    name = "影.阿尔赛德",
+    killmonster = [{646,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0,
+    defeatmonster = [{694,1}]
+    };
+getRow(30501)->
+    #copymapScheduleSettleCfg {
+    id = 30501,
+    name = "真假祝福女神",
+    killmonster = [{649,1},{652,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(30503)->
+    #copymapScheduleSettleCfg {
+    id = 30503,
+    name = "真假暗夜女神",
+    killmonster = [{655,1},{658,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(30505)->
+    #copymapScheduleSettleCfg {
+    id = 30505,
+    name = "真假战争女神",
+    killmonster = [{661,1},{664,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
+    iskillall = 0
+    };
+getRow(30507)->
+    #copymapScheduleSettleCfg {
+    id = 30507,
+    name = "真假智慧女神",
+    killmonster = [{667,1},{670,1}],
+    collect = [],
+    countdown = 0,
+    task = 0,
+    play_show1 = 0,
+    play_show2 = 0,
+    cd_show2 = 0,
     iskillall = 0
     };
 getRow(_)->[].
 
 getKeyList()->[
-    {11},
-    {12},
-    {13},
-    {14},
     {15},
     {16},
     {17},
@@ -5359,6 +7523,24 @@ getKeyList()->[
     {314},
     {315},
     {316},
+    {317},
+    {318},
+    {320},
+    {321},
+    {322},
+    {323},
+    {324},
+    {325},
+    {326},
+    {350},
+    {351},
+    {354},
+    {355},
+    {356},
+    {358},
+    {359},
+    {362},
+    {363},
     {600},
     {950},
     {951},
@@ -5717,15 +7899,127 @@ getKeyList()->[
     {1752},
     {1753},
     {1754},
+    {1800},
+    {5000},
+    {5001},
+    {5002},
+    {5003},
+    {5004},
+    {5005},
+    {5006},
+    {5007},
+    {5008},
+    {5009},
+    {5010},
+    {5011},
+    {5012},
+    {5013},
+    {5014},
+    {5015},
+    {5016},
+    {5017},
+    {5020},
+    {5050},
+    {5051},
+    {5052},
+    {5053},
+    {5054},
+    {5055},
+    {5056},
+    {5057},
+    {5058},
+    {5059},
     {20000},
-    {21000}
+    {20001},
+    {21000},
+    {21001},
+    {21002},
+    {21003},
+    {21004},
+    {21010},
+    {21011},
+    {21012},
+    {21013},
+    {21014},
+    {21015},
+    {21020},
+    {21021},
+    {21022},
+    {21023},
+    {21024},
+    {21025},
+    {21030},
+    {21031},
+    {21032},
+    {21033},
+    {21034},
+    {21035},
+    {21036},
+    {25000},
+    {25001},
+    {25002},
+    {25003},
+    {25004},
+    {25005},
+    {25010},
+    {25011},
+    {25012},
+    {25013},
+    {25014},
+    {25015},
+    {25020},
+    {25021},
+    {25022},
+    {25023},
+    {25024},
+    {25025},
+    {25026},
+    {30000},
+    {30001},
+    {30003},
+    {30004},
+    {30005},
+    {30007},
+    {30008},
+    {30009},
+    {30011},
+    {30100},
+    {30101},
+    {30103},
+    {30104},
+    {30105},
+    {30107},
+    {30109},
+    {30200},
+    {30201},
+    {30203},
+    {30204},
+    {30205},
+    {30207},
+    {30208},
+    {30209},
+    {30211},
+    {30300},
+    {30301},
+    {30303},
+    {30304},
+    {30305},
+    {30307},
+    {30309},
+    {30400},
+    {30401},
+    {30403},
+    {30404},
+    {30405},
+    {30407},
+    {30409},
+    {30501},
+    {30503},
+    {30505},
+    {30507}
     ].
 
 get1KeyList()->[
-    11,
-    12,
-    13,
-    14,
     15,
     16,
     17,
@@ -5801,6 +8095,24 @@ get1KeyList()->[
     314,
     315,
     316,
+    317,
+    318,
+    320,
+    321,
+    322,
+    323,
+    324,
+    325,
+    326,
+    350,
+    351,
+    354,
+    355,
+    356,
+    358,
+    359,
+    362,
+    363,
     600,
     950,
     951,
@@ -6159,7 +8471,123 @@ get1KeyList()->[
     1752,
     1753,
     1754,
+    1800,
+    5000,
+    5001,
+    5002,
+    5003,
+    5004,
+    5005,
+    5006,
+    5007,
+    5008,
+    5009,
+    5010,
+    5011,
+    5012,
+    5013,
+    5014,
+    5015,
+    5016,
+    5017,
+    5020,
+    5050,
+    5051,
+    5052,
+    5053,
+    5054,
+    5055,
+    5056,
+    5057,
+    5058,
+    5059,
     20000,
-    21000
+    20001,
+    21000,
+    21001,
+    21002,
+    21003,
+    21004,
+    21010,
+    21011,
+    21012,
+    21013,
+    21014,
+    21015,
+    21020,
+    21021,
+    21022,
+    21023,
+    21024,
+    21025,
+    21030,
+    21031,
+    21032,
+    21033,
+    21034,
+    21035,
+    21036,
+    25000,
+    25001,
+    25002,
+    25003,
+    25004,
+    25005,
+    25010,
+    25011,
+    25012,
+    25013,
+    25014,
+    25015,
+    25020,
+    25021,
+    25022,
+    25023,
+    25024,
+    25025,
+    25026,
+    30000,
+    30001,
+    30003,
+    30004,
+    30005,
+    30007,
+    30008,
+    30009,
+    30011,
+    30100,
+    30101,
+    30103,
+    30104,
+    30105,
+    30107,
+    30109,
+    30200,
+    30201,
+    30203,
+    30204,
+    30205,
+    30207,
+    30208,
+    30209,
+    30211,
+    30300,
+    30301,
+    30303,
+    30304,
+    30305,
+    30307,
+    30309,
+    30400,
+    30401,
+    30403,
+    30404,
+    30405,
+    30407,
+    30409,
+    30501,
+    30503,
+    30505,
+    30507
     ].
 

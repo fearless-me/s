@@ -1,0 +1,1440 @@
+
+*********************************************************
+*********************************************************
+*  2017-07-24 15:52:09 gsD chs 1013 files 17 workers	*
+*********************************************************
+*********************************************************
+[2017-07-24 15:52:09] compiled cfg_tierBonus_chs.erl true 
+[2017-07-24 15:52:09] compiled socketSup.erl true 
+[2017-07-24 15:52:09] compiled cfg_ladder_1v1_rand_chs.erl true 
+[2017-07-24 15:52:09] compiled cfg_gamemapcfg5500.erl true 
+[2017-07-24 15:52:09] compiled cfg_gamemapcfg22.erl true 
+[2017-07-24 15:52:09] compiled cfg_pet_star_chs.erl true 
+[2017-07-24 15:52:10] compiled cfg_ladder_1v1_chs.erl true 
+[2017-07-24 15:52:10] compiled cfg_thirty_day_login_gift_chs.erl true 
+[2017-07-24 15:52:10] compiled cfg_pet_rebirth_chs.erl true 
+[2017-07-24 15:52:10] compiled cfg_koreangift_chs.erl true 
+[2017-07-24 15:52:10] compiled cfg_task_other_chs.erl true 
+[2017-07-24 15:52:10] compiled cfg_pet_pvp_chs.erl true 
+[2017-07-24 15:52:10] compiled cfg_knighted_level_chs.erl true 
+[2017-07-24 15:52:10] compiled cfg_gamemapcfg550.erl true 
+[2017-07-24 15:52:10] compiled cfg_task_obj_chs.erl true 
+[2017-07-24 15:52:10] compiled cfg_knightedPackage_chs.erl true 
+[2017-07-24 15:52:10] compiled cfg_task_new_chs.erl true 
+[2017-07-24 15:52:11] compiled cfg_task_group_chs.erl true 
+[2017-07-24 15:52:11] compiled cfg_pet_chs.erl true 
+[2017-07-24 15:52:11] compiled web2lsMsgActDelExchange.erl true 
+[2017-07-24 15:52:11] compiled cfg_gamemapcfg204.erl true 
+[2017-07-24 15:52:11] compiled socketStatistics.erl true 
+[2017-07-24 15:52:12] compiled cfg_gamemapcfg203.erl true 
+[2017-07-24 15:52:12] compiled cfg_petWar_chs.erl true 
+[2017-07-24 15:52:13] compiled cfg_petSkill_chs.erl true 
+[2017-07-24 15:52:13] compiled cfg_petSkillRoll_chs.erl true 
+[2017-07-24 15:52:13] compiled cfg_petrelation_chs.erl true 
+[2017-07-24 15:52:13] compiled cfg_petreborn_chs.erl true 
+[2017-07-24 15:52:13] compiled cfg_gamemapcfg541.erl true 
+[2017-07-24 15:52:14] compiled socketHandler.erl true 
+[2017-07-24 15:52:14] compiled cfg_petLevelProperty_chs.erl true 
+[2017-07-24 15:52:14] compiled cfg_petfightForce_chs.erl true 
+[2017-07-24 15:52:14] compiled web2lsMsgActAddExchange.erl true 
+[2017-07-24 15:52:14] compiled cfg_petfairy_point_chs.erl true 
+[2017-07-24 15:52:15] compiled cfg_task_chs.erl true 
+[2017-07-24 15:52:15] compiled cfg_target_chs.erl true 
+[2017-07-24 15:52:15] compiled cfg_drop_package_chs.erl true 
+[2017-07-24 15:52:15] compiled cfg_talktoplayer_chs.erl true 
+[2017-07-24 15:52:15] compiled cfg_drop_control_chs.erl true 
+[2017-07-24 15:52:15] compiled cfg_talentProp_chs.erl true 
+[2017-07-24 15:52:15] compiled cfg_gamemapcfg540.erl true 
+[2017-07-24 15:52:15] compiled cfg_petfairy_level_chs.erl true 
+[2017-07-24 15:52:15] compiled cfg_talentExp_chs.erl true 
+[2017-07-24 15:52:16] compiled cfg_petEquipment_chs.erl true 
+[2017-07-24 15:52:16] compiled cfg_sweeping_drop_chs.erl true 
+[2017-07-24 15:52:16] compiled cfg_strref_chs.erl true 
+[2017-07-24 15:52:16] compiled cfg_petEquipmentLevel_chs.erl true 
+[2017-07-24 15:52:16] compiled cfg_gamemapcfg539.erl true 
+[2017-07-24 15:52:16] compiled socketAccepter.erl true 
+[2017-07-24 15:52:16] socketAccepter.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:52:16] compiled cfg_gamemapcfg538.erl true 
+[2017-07-24 15:52:17] compiled cfg_gamemapcfg202.erl true 
+[2017-07-24 15:52:17] compiled cfg_petenhance_chs.erl true 
+[2017-07-24 15:52:17] compiled cfg_spouseskill_chs.erl true 
+[2017-07-24 15:52:17] compiled cfg_petAvatareffect_chs.erl true 
+[2017-07-24 15:52:18] compiled cfg_gamemapcfg537.erl true 
+[2017-07-24 15:52:18] compiled cfg_spiritArea_chs.erl true 
+[2017-07-24 15:52:18] compiled web2lsMsgAc.erl true 
+[2017-07-24 15:52:19] compiled cfg_per_book_chs.erl true 
+[2017-07-24 15:52:19] compiled acSnowmanState.erl true 
+[2017-07-24 15:52:19] compiled playerTalent.erl true 
+[2017-07-24 15:52:19] compiled cfg_item_chs.erl true 
+[2017-07-24 15:52:19] compiled cfg_specialinstance_chs.erl true 
+[2017-07-24 15:52:20] compiled fightCondation.erl true 
+[2017-07-24 15:52:20] compiled cfg_partner_animation_chs.erl true 
+[2017-07-24 15:52:20] compiled cfg_gamemapcfg536.erl true 
+[2017-07-24 15:52:20] compiled cfg_gamemapcfg201.erl true 
+[2017-07-24 15:52:21] compiled npcMove.erl true 
+[2017-07-24 15:52:21] compiled activityMgrOtp.erl true 
+[2017-07-24 15:52:21] activityMgrOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:52:21] compiled cfg_panelHelp_chs.erl true 
+[2017-07-24 15:52:21] compiled cfg_gamemapcfg535.erl true 
+[2017-07-24 15:52:21] compiled cfg_sourceshop_chs.erl true 
+[2017-07-24 15:52:22] compiled cfg_openbag_chs.erl true 
+[2017-07-24 15:52:22] compiled gsFuncellStringDefine.erl true 
+[2017-07-24 15:52:22] compiled cfg_itemTinker_chs.erl true 
+[2017-07-24 15:52:22] compiled playerLoad.erl true 
+[2017-07-24 15:52:22] compiled cfg_online_reward_chs.erl true 
+[2017-07-24 15:52:22] compiled cfg_itemCDandCount_chs.erl true 
+[2017-07-24 15:52:22] compiled cfg_gamemapcfg534.erl true 
+[2017-07-24 15:52:23] compiled cfg_skill_up_chs.erl true 
+[2017-07-24 15:52:23] compiled lotterySys.erl true 
+[2017-07-24 15:52:23] compiled netPacker.erl true 
+[2017-07-24 15:52:23] compiled cfg_gamemapcfg533.erl true 
+[2017-07-24 15:52:23] compiled netmsg.erl true 
+[2017-07-24 15:52:24] compiled hdBattleLogic.erl true 
+[2017-07-24 15:52:24] compiled cfg_gamemapcfg532.erl true 
+[2017-07-24 15:52:24] compiled myGenServer.erl true 
+[2017-07-24 15:52:24] compiled myEts.erl true 
+[2017-07-24 15:52:24] compiled cfg_indexGrowth_chs.erl true 
+[2017-07-24 15:52:25] compiled cfg_gamemapcfg531.erl true 
+[2017-07-24 15:52:25] compiled monitorVMOtp.erl true 
+[2017-07-24 15:52:25] compiled cfg_gamemapcfg2.erl true 
+[2017-07-24 15:52:25] compiled cfg_indexFunction_chs.erl true 
+[2017-07-24 15:52:25] compiled cfg_improvePower_chs.erl true 
+[2017-07-24 15:52:26] compiled cfg_gamemapcfg530.erl true 
+[2017-07-24 15:52:26] compiled db_recharge_otp_pool.erl true 
+[2017-07-24 15:52:26] compiled cfg_identity_zodiac_chs.erl true 
+[2017-07-24 15:52:26] compiled cfg_skill_effect_chs.erl true 
+[2017-07-24 15:52:26] compiled cfg_identity_tag_chs.erl true 
+[2017-07-24 15:52:26] compiled web2lsMsg.erl true 
+[2017-07-24 15:52:26] compiled platformTest.erl true 
+[2017-07-24 15:52:27] compiled cfg_gamemapcfg529.erl true 
+[2017-07-24 15:52:27] compiled misc.erl true 
+[2017-07-24 15:52:27] compiled cfg_identity_area_chs.erl true 
+[2017-07-24 15:52:27] compiled memDBCache.erl true 
+[2017-07-24 15:52:27] compiled md5.erl true 
+[2017-07-24 15:52:27] compiled cfg_honor_chs.erl true 
+[2017-07-24 15:52:27] compiled cfg_gamemapcfg528.erl true 
+[2017-07-24 15:52:27] compiled cfg_heraldry_chs.erl true 
+[2017-07-24 15:52:28] compiled cfg_help_chs.erl true 
+[2017-07-24 15:52:28] compiled cfg_gamemapcfg527.erl true 
+[2017-07-24 15:52:28] compiled cfg_gamemapcfg184.erl true 
+[2017-07-24 15:52:28] compiled cfg_guild_ride_chs.erl true 
+[2017-07-24 15:52:28] compiled window.erl true 
+[2017-07-24 15:52:28] compiled logSup.erl true 
+[2017-07-24 15:52:28] compiled cfg_guild_reward_chs.erl true 
+[2017-07-24 15:52:28] compiled cfg_gamemapcfg526.erl true 
+[2017-07-24 15:52:28] compiled cfg_guild_chs.erl true 
+[2017-07-24 15:52:28] compiled cfg_gamemapcfg183.erl true 
+[2017-07-24 15:52:29] compiled logger.erl false 
+[2017-07-24 15:52:29] logger.erl:80: spec for undefined function error/3
+[2017-07-24 15:52:29] logger.erl:122: spec for undefined function log/3
+[2017-07-24 15:52:29] logger.erl:153: function debug/3 undefined
+
+[2017-07-24 15:52:29] logger.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:52:29] compiled logApp.erl true 
+[2017-07-24 15:52:29] compiled cfg_guildsupplies_chs.erl true 
+[2017-07-24 15:52:29] compiled jsx_verify.erl true 
+[2017-07-24 15:52:29] compiled cfg_gamemapcfg182.erl true 
+[2017-07-24 15:52:29] compiled cfg_gamemapcfg525.erl true 
+[2017-07-24 15:52:29] compiled jsx_to_term.erl true 
+[2017-07-24 15:52:29] compiled cfg_guildsnowman_chs.erl true 
+[2017-07-24 15:52:29] compiled jsx_to_json.erl true 
+[2017-07-24 15:52:29] compiled cfg_guildsnoman_settle_chs.erl true 
+[2017-07-24 15:52:29] compiled dbRechargeOtp.erl true 
+[2017-07-24 15:52:29] dbRechargeOtp.erl:7: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:52:29] compiled funcellWebOtp.erl true 
+[2017-07-24 15:52:29] funcellWebOtp.erl:6: Warning: behaviour socketHandler undefined
+
+[2017-07-24 15:52:29] compiled cfg_gamemapcfg181.erl true 
+[2017-07-24 15:52:29] compiled platformLoginDispatcher.erl true 
+[2017-07-24 15:52:30] compiled jsx_parser.erl true 
+[2017-07-24 15:52:30] compiled cfg_gamemapcfg524.erl true 
+[2017-07-24 15:52:30] compiled jsx_encoder.erl true 
+[2017-07-24 15:52:30] compiled cfg_gamemapcfg523.erl true 
+[2017-07-24 15:52:31] compiled cfg_gamemapcfg522.erl true 
+[2017-07-24 15:52:31] compiled jsx_decoder.erl true 
+[2017-07-24 15:52:31] compiled jsx_consult.erl true 
+[2017-07-24 15:52:31] compiled jsx_config.erl true 
+[2017-07-24 15:52:31] compiled jsx.erl true 
+[2017-07-24 15:52:31] compiled json_lib.erl true 
+[2017-07-24 15:52:31] compiled cfg_gamemapcfg11.erl true 
+[2017-07-24 15:52:31] compiled cfg_gamemapcfg521.erl true 
+[2017-07-24 15:52:33] compiled platform553.erl true 
+[2017-07-24 15:52:34] compiled cfg_guildskill_chs.erl true 
+[2017-07-24 15:52:34] compiled activeCondition.erl true 
+[2017-07-24 15:52:34] compiled acSnowmanOtp.erl true 
+[2017-07-24 15:52:34] acSnowmanOtp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:52:34] compiled cfg_drop_chs.erl true 
+[2017-07-24 15:52:34] compiled activityMgrLogic.erl true 
+[2017-07-24 15:52:35] compiled cfg_guildshop_chs.erl true 
+[2017-07-24 15:52:35] compiled cfg_gamemapcfg106.erl true 
+[2017-07-24 15:52:35] compiled cfg_di_mixcost_chs.erl true 
+[2017-07-24 15:52:35] compiled cfg_gamemapcfg520.erl true 
+[2017-07-24 15:52:35] compiled cfg_guildhome_task_chs.erl true 
+[2017-07-24 15:52:35] compiled flagCleanCacheRoleID.erl true 
+[2017-07-24 15:52:35] compiled version.erl true 
+[2017-07-24 15:52:36] compiled playerStatistics.erl true 
+[2017-07-24 15:52:36] compiled monsterAttackDir.erl true 
+[2017-07-24 15:52:36] compiled getCfg.erl true 
+[2017-07-24 15:52:36] getCfg.erl:49: Warning: the guard for this clause evaluates to 'false'
+[2017-07-24 15:52:36] getCfg.erl:53: Warning: this clause cannot match because a previous clause at line 51 always matches
+
+[2017-07-24 15:52:36] compiled cfg_guildexchange_chs.erl true 
+[2017-07-24 15:52:36] compiled cfg_guildbuff_chs.erl true 
+[2017-07-24 15:52:37] compiled cfg_guildbless_schedule_chs.erl true 
+[2017-07-24 15:52:37] compiled cfg_guildbless_chs.erl true 
+[2017-07-24 15:52:37] compiled cfg_gamemapcfg105.erl true 
+[2017-07-24 15:52:38] compiled cfg_offstringlogin_chs.erl true 
+[2017-07-24 15:52:38] compiled cfg_guide_chs.erl true 
+[2017-07-24 15:52:38] compiled cfg_divine_chs.erl true 
+[2017-07-24 15:52:38] compiled cfg_gamemapcfg104.erl true 
+[2017-07-24 15:52:38] compiled playerliveness.erl true 
+[2017-07-24 15:52:38] compiled cfg_demonreward_chs.erl true 
+[2017-07-24 15:52:38] compiled cfg_demonBattleLoc_chs.erl true 
+[2017-07-24 15:52:38] compiled cfg_guideAction_chs.erl true 
+[2017-07-24 15:52:38] compiled cfg_demonBattleID_chs.erl true 
+[2017-07-24 15:52:39] compiled cfg_gorgeous_chs.erl true 
+[2017-07-24 15:52:39] compiled fx.erl true 
+[2017-07-24 15:52:39] compiled ftool.erl true 
+[2017-07-24 15:52:39] compiled cfg_defRegent_chs.erl true 
+[2017-07-24 15:52:39] compiled cfg_goldDragon_chs.erl true 
+[2017-07-24 15:52:39] compiled arenaBattleOtp.erl true 
+[2017-07-24 15:52:39] arenaBattleOtp.erl:11: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:52:39] compiled cfg_darkness_chs.erl true 
+[2017-07-24 15:52:39] compiled cfg_goddess_chs.erl true 
+[2017-07-24 15:52:39] compiled cfg_goblin_chs.erl true 
+[2017-07-24 15:52:39] compiled cfg_dailytask_chs.erl true 
+[2017-07-24 15:52:39] compiled cfg_gamemapcfg511.erl true 
+[2017-07-24 15:52:39] compiled cfg_dailyrecharge_chs.erl true 
+[2017-07-24 15:52:40] compiled cfg_dailyInterface_chs.erl true 
+[2017-07-24 15:52:40] compiled cfg_dailyActive_chs.erl true 
+[2017-07-24 15:52:40] compiled cfg_cost_chs.erl true 
+[2017-07-24 15:52:40] compiled edb.erl true 
+[2017-07-24 15:52:41] compiled config_old.erl true 
+[2017-07-24 15:52:41] config_old.erl:7: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:52:41] compiled cfg_globalsetup_chs.erl true 
+[2017-07-24 15:52:42] compiled cfg_gem_level_chs.erl true 
+[2017-07-24 15:52:42] compiled config.erl true 
+[2017-07-24 15:52:42] config.erl:7: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:52:42] compiled cfg_copymapScheduleSettle_chs.erl true 
+[2017-07-24 15:52:42] compiled backgroundGCOtp.erl true 
+[2017-07-24 15:52:42] compiled groupOtp.erl true 
+[2017-07-24 15:52:42] groupOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:52:42] compiled cfg_gamemapcfg103.erl true 
+[2017-07-24 15:52:43] compiled cfg_gamemapcfg102.erl true 
+[2017-07-24 15:52:43] compiled cfg_gemproperty_chs.erl true 
+[2017-07-24 15:52:43] compiled cfg_gembox_info_chs.erl true 
+[2017-07-24 15:52:43] compiled cfg_gamemapcfg510.erl true 
+[2017-07-24 15:52:44] compiled cfg_find_res_chs.erl true 
+[2017-07-24 15:52:44] compiled cfg_fightForce_chs.erl true 
+[2017-07-24 15:52:45] compiled cfg_fightbossActivity_chs.erl true 
+[2017-07-24 15:52:45] compiled cfg_gamemapcfg101.erl true 
+[2017-07-24 15:52:45] compiled lotteryForTowerOtp.erl true 
+[2017-07-24 15:52:45] lotteryForTowerOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:52:46] compiled cfg_fightall_chs.erl true 
+[2017-07-24 15:52:46] compiled activityCommon.erl true 
+[2017-07-24 15:52:46] compiled logDBWorkerOtp.erl true 
+[2017-07-24 15:52:46] logDBWorkerOtp.erl:6: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:52:46] compiled cfg_fashion_chs.erl true 
+[2017-07-24 15:52:47] compiled cfg_copymapScheduleInit_chs.erl true 
+[2017-07-24 15:52:47] compiled cfg_copymapScheduleCharacters_chs.erl true 
+[2017-07-24 15:52:47] compiled cfg_condition_group_chs.erl true 
+[2017-07-24 15:52:48] compiled cfg_fashionCollection_chs.erl true 
+[2017-07-24 15:52:48] compiled cfg_factionList_chs.erl true 
+[2017-07-24 15:52:48] compiled cfg_gamemapcfg1008.erl true 
+[2017-07-24 15:52:49] compiled cfg_condition_chs.erl true 
+[2017-07-24 15:52:49] compiled cfg_gamemapcfg509.erl true 
+[2017-07-24 15:52:49] compiled cfg_eventSoundCfg_chs.erl true 
+[2017-07-24 15:52:49] compiled acSnowmanLogic.erl true 
+[2017-07-24 15:52:49] acSnowmanLogic.erl:183: Warning: variable 'State' is unused
+
+[2017-07-24 15:52:49] compiled cfg_comboSkill_chs.erl true 
+[2017-07-24 15:52:49] compiled cfg_escort_monster_chs.erl true 
+[2017-07-24 15:52:49] compiled triggerState.erl true 
+[2017-07-24 15:52:49] compiled cfg_color_chs.erl true 
+[2017-07-24 15:52:49] compiled cfg_escort_event_chs.erl true 
+[2017-07-24 15:52:49] compiled playerState2.erl true 
+[2017-07-24 15:52:49] compiled cfg_collectActivity_chs.erl true 
+[2017-07-24 15:52:49] compiled cfg_chatCommon_chs.erl true 
+[2017-07-24 15:52:50] compiled cfg_chaos_chs.erl true 
+[2017-07-24 15:52:50] compiled cfg_changemaphelp_chs.erl true 
+[2017-07-24 15:52:50] compiled mapWildBoss.erl true 
+[2017-07-24 15:52:50] compiled cfg_camera_shake_chs.erl true 
+[2017-07-24 15:52:50] compiled cfg_gamemapcfg1007.erl true 
+[2017-07-24 15:52:51] compiled cfg_bussyItemTree_chs.erl true 
+[2017-07-24 15:52:51] compiled playerLimitSales.erl true 
+[2017-07-24 15:52:51] compiled cfg_eq_charge_chs.erl true 
+[2017-07-24 15:52:52] compiled cfg_equipstar_chs.erl true 
+[2017-07-24 15:52:52] compiled cfg_equipRecastRand_chs.erl true 
+[2017-07-24 15:52:52] compiled cfg_equipRecastInit_chs.erl true 
+[2017-07-24 15:52:53] compiled cfg_equipRecastAdvance_chs.erl true 
+[2017-07-24 15:52:53] compiled cfg_equipNewInten_chs.erl true 
+[2017-07-24 15:52:53] compiled cfg_gamemapcfg508.erl true 
+[2017-07-24 15:52:54] compiled cfg_gamemapcfg1006.erl true 
+[2017-07-24 15:52:55] compiled arenaBattleLogic.erl true 
+[2017-07-24 15:52:55] compiled groupBase.erl true 
+[2017-07-24 15:52:56] compiled autoCompileUpdate.erl true 
+[2017-07-24 15:52:56] compiled cfg_gamemapcfg1005.erl true 
+[2017-07-24 15:52:58] compiled cfg_gamemapcfg507.erl true 
+[2017-07-24 15:52:58] compiled cfg_gamemapcfg1004.erl true 
+[2017-07-24 15:52:59] compiled lotteryForTowerLogic.erl true 
+[2017-07-24 15:52:59] compiled cfg_gamemapcfg506.erl true 
+[2017-07-24 15:52:59] compiled cfg_buff_chs.erl true 
+[2017-07-24 15:52:59] compiled cfg_buddy_gift_chs.erl true 
+[2017-07-24 15:53:00] compiled activityOtp.erl true 
+[2017-07-24 15:53:00] activityOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:00] compiled cfg_buddy_dailytask_chs.erl true 
+[2017-07-24 15:53:00] compiled cfg_gamemapcfg1003.erl true 
+[2017-07-24 15:53:00] compiled cfg_bubbleExpression_chs.erl true 
+[2017-07-24 15:53:00] compiled cfg_bribery_money_chs.erl true 
+[2017-07-24 15:53:01] compiled cfg_bloom_chs.erl true 
+[2017-07-24 15:53:01] compiled logDBOtp.erl true 
+[2017-07-24 15:53:01] logDBOtp.erl:7: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:01] compiled cfg_bkreward_chs.erl true 
+[2017-07-24 15:53:02] compiled trigger.erl true 
+[2017-07-24 15:53:03] compiled cfg_battlePropInfo_chs.erl true 
+[2017-07-24 15:53:03] compiled acPetTerritoryState.erl true 
+[2017-07-24 15:53:05] compiled cfg_battlepower_chs.erl true 
+[2017-07-24 15:53:05] compiled playerLevelUp.erl true 
+[2017-07-24 15:53:05] compiled cfg_gamemapcfg1002.erl true 
+[2017-07-24 15:53:05] compiled cfg_basic_head_chs.erl true 
+[2017-07-24 15:53:06] compiled cfg_attributeRegent_chs.erl true 
+[2017-07-24 15:53:06] compiled cfg_gamemapcfg505.erl true 
+[2017-07-24 15:53:06] compiled mapState.erl true 
+[2017-07-24 15:53:06] compiled cfg_attedf_chs.erl true 
+[2017-07-24 15:53:06] compiled cfg_arena_chs.erl true 
+[2017-07-24 15:53:06] compiled cfg_appointment_reward_chs.erl true 
+[2017-07-24 15:53:06] compiled cfg_appointment_chs.erl true 
+[2017-07-24 15:53:06] compiled cfg_animation_chs.erl true 
+[2017-07-24 15:53:07] compiled cfg_angel_investment_chs.erl true 
+[2017-07-24 15:53:07] compiled cfg_activity_chs.erl true 
+[2017-07-24 15:53:07] compiled cfg_activitylist_chs.erl true 
+[2017-07-24 15:53:07] compiled playerState.erl true 
+[2017-07-24 15:53:07] playerState.erl:1426: Warning: variable 'TeamID' is unused
+
+[2017-07-24 15:53:07] compiled cfg_acKingBattleBuyBuff_chs.erl true 
+[2017-07-24 15:53:08] compiled netmsgWrite.erl true 
+[2017-07-24 15:53:08] compiled cfg_achievement_chs.erl true 
+[2017-07-24 15:53:08] compiled cfg_achievecollection_chs.erl true 
+[2017-07-24 15:53:08] compiled cfg_skill_chs.erl true 
+[2017-07-24 15:53:08] compiled cfg_accessresources_chs.erl true 
+[2017-07-24 15:53:08] compiled cfg_skillmoneycost_chs.erl true 
+[2017-07-24 15:53:08] compiled cfg_skillLevelParam_chs.erl true 
+[2017-07-24 15:53:09] compiled cfg_skillCDGroup_chs.erl true 
+[2017-07-24 15:53:09] compiled cfg_gamemapcfg1001.erl true 
+[2017-07-24 15:53:09] compiled cfg_skillBase_chs.erl true 
+[2017-07-24 15:53:09] compiled cfg_sixwar_monster_chs.erl true 
+[2017-07-24 15:53:09] compiled cfg_signinaward_chs.erl true 
+[2017-07-24 15:53:10] compiled gameserver_sup.erl true 
+[2017-07-24 15:53:11] compiled view.erl true 
+[2017-07-24 15:53:11] compiled cfg_equipment_chs.erl true 
+[2017-07-24 15:53:11] compiled cfg_gamemapcfg504.erl true 
+[2017-07-24 15:53:11] compiled usrOtpHandler.erl true 
+[2017-07-24 15:53:11] usrOtpHandler.erl:6: Warning: behaviour socketHandler undefined
+
+[2017-07-24 15:53:11] compiled cfg_equipmentDisplay_chs.erl true 
+[2017-07-24 15:53:11] compiled userState.erl true 
+[2017-07-24 15:53:12] compiled cfg_gamemapcfg1000.erl true 
+[2017-07-24 15:53:12] compiled cfg_equipIntensify_chs.erl true 
+[2017-07-24 15:53:12] compiled variant.erl true 
+[2017-07-24 15:53:13] compiled cfg_equipIntenLevel_chs.erl true 
+[2017-07-24 15:53:13] compiled update.erl true 
+[2017-07-24 15:53:14] compiled cfg_show2_chs.erl true 
+[2017-07-24 15:53:14] compiled clientOtp.erl true 
+[2017-07-24 15:53:14] clientOtp.erl:7: Warning: behaviour socketHandler undefined
+
+[2017-07-24 15:53:14] compiled cfg_show1_chs.erl true 
+[2017-07-24 15:53:14] compiled netmsgRead.erl true 
+[2017-07-24 15:53:14] compiled cfg_shop_deal_chs.erl true 
+[2017-07-24 15:53:15] compiled spawnLoadData.erl true 
+[2017-07-24 15:53:15] compiled cfg_gamemapcfg10.erl true 
+[2017-07-24 15:53:16] compiled netmsgCmdStr.erl true 
+[2017-07-24 15:53:16] compiled clientNetworkMsg.erl true 
+[2017-07-24 15:53:16] compiled activityLogic.erl true 
+[2017-07-24 15:53:16] compiled userSup.erl true 
+[2017-07-24 15:53:16] compiled uidMgr.erl true 
+[2017-07-24 15:53:16] compiled cfg_gamemapcfg503.erl true 
+[2017-07-24 15:53:16] compiled timerMgr.erl true 
+[2017-07-24 15:53:17] compiled treeLSSup.erl true 
+[2017-07-24 15:53:18] compiled cfg_shenqi_chs.erl true 
+[2017-07-24 15:53:18] compiled cfg_severday_task_chs.erl true 
+[2017-07-24 15:53:18] compiled acPetTerritoryOtp.erl true 
+[2017-07-24 15:53:18] acPetTerritoryOtp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:19] compiled cfg_gamemapcfg1.erl true 
+[2017-07-24 15:53:19] compiled cfg_seven_day_aim_chs.erl true 
+[2017-07-24 15:53:19] compiled time2.erl true 
+[2017-07-24 15:53:20] compiled playerLevelReward.erl true 
+[2017-07-24 15:53:20] compiled logDBCache.erl true 
+[2017-07-24 15:53:20] compiled cfg_equipdrop_chs.erl true 
+[2017-07-24 15:53:20] compiled cfg_serverstrings_chs.erl true 
+[2017-07-24 15:53:21] compiled cfg_rune_suite_chs.erl true 
+[2017-07-24 15:53:21] compiled cfg_rune_smeltcost_chs.erl true 
+[2017-07-24 15:53:21] compiled cfg_rune_randomPro_chs.erl true 
+[2017-07-24 15:53:21] compiled mapReader.erl true 
+[2017-07-24 15:53:21] compiled time.erl true 
+[2017-07-24 15:53:22] compiled cfg_gamemapcfg502.erl true 
+[2017-07-24 15:53:22] compiled clientLogic.erl true 
+[2017-07-24 15:53:22] compiled task_pool.erl true 
+[2017-07-24 15:53:22] compiled str.erl true 
+[2017-07-24 15:53:22] compiled serverSup.erl true 
+[2017-07-24 15:53:22] compiled rfc4627.erl true 
+[2017-07-24 15:53:22] compiled playerSpiritArea.erl true 
+[2017-07-24 15:53:23] compiled reloadMod.erl true 
+[2017-07-24 15:53:23] compiled psMgr.erl true 
+[2017-07-24 15:53:23] compiled gameserver_app.erl true 
+[2017-07-24 15:53:23] compiled cfg_rune_level_chs.erl true 
+[2017-07-24 15:53:23] compiled cfg_rune_compound_chs.erl true 
+[2017-07-24 15:53:24] compiled cfg_rune_chs.erl true 
+[2017-07-24 15:53:24] compiled cfg_rune_battlepower_chs.erl true 
+[2017-07-24 15:53:24] compiled cfg_rune_basePro_chs.erl true 
+[2017-07-24 15:53:25] compiled cfg_rndname_chs.erl true 
+[2017-07-24 15:53:25] compiled cfg_rift_rand_chs.erl true 
+[2017-07-24 15:53:25] compiled cfg_rift_chs.erl true 
+[2017-07-24 15:53:25] compiled cfg_removeSkillAffix_chs.erl true 
+[2017-07-24 15:53:25] compiled cfg_recharge_item_relation_chs.erl true 
+[2017-07-24 15:53:25] compiled cfg_rechargeFirst_chs.erl true 
+[2017-07-24 15:53:26] compiled cfg_rechargeFirstAD_chs.erl true 
+[2017-07-24 15:53:26] compiled cfg_rechargeActivitie_chs.erl true 
+[2017-07-24 15:53:26] compiled userOtp.erl true 
+[2017-07-24 15:53:26] userOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:26] compiled cfg_rechargeAccumulation_chs.erl true 
+[2017-07-24 15:53:26] compiled cfg_gamemapcfg501.erl true 
+[2017-07-24 15:53:26] compiled cfg_rank_chs.erl true 
+[2017-07-24 15:53:26] compiled cfg_question_chs.erl true 
+[2017-07-24 15:53:27] compiled cfg_offstringingame_chs.erl true 
+[2017-07-24 15:53:27] compiled cfg_price_chs.erl true 
+[2017-07-24 15:53:27] compiled cfg_prestige_Reward_chs.erl true 
+[2017-07-24 15:53:27] compiled treeLSOtp.erl true 
+[2017-07-24 15:53:27] treeLSOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:28] compiled cfg_object_chs.erl true 
+[2017-07-24 15:53:28] compiled skill.erl true 
+[2017-07-24 15:53:28] compiled mallOtp.erl true 
+[2017-07-24 15:53:28] mallOtp.erl:5: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:29] compiled cfg_equipAffixes_chs.erl true 
+[2017-07-24 15:53:29] compiled cfg_dungeonschallenge_chs.erl true 
+[2017-07-24 15:53:29] compiled cfg_gamemapcfg5000.erl true 
+[2017-07-24 15:53:30] compiled acPetTerritoryLogic.erl true 
+[2017-07-24 15:53:30] compiled cfg_npc_chs.erl true 
+[2017-07-24 15:53:30] compiled mapMgrState.erl true 
+[2017-07-24 15:53:31] compiled cfg_npcstore_chs.erl true 
+[2017-07-24 15:53:31] compiled mapCfgBuild.erl true 
+[2017-07-24 15:53:31] compiled cfg_npcdancer_chs.erl true 
+[2017-07-24 15:53:31] compiled playerLadder1v1.erl true 
+[2017-07-24 15:53:31] playerLadder1v1.erl:71: Warning: variable 'PropList' is unused
+
+[2017-07-24 15:53:31] compiled cfg_notification_chs.erl true 
+[2017-07-24 15:53:32] compiled cfg_newplayer_tory_chs.erl true 
+[2017-07-24 15:53:32] compiled playerNameUID.erl true 
+[2017-07-24 15:53:32] compiled cfg_newplayer_Story_chs.erl true 
+[2017-07-24 15:53:32] compiled rubbishCleanerOtp.erl true 
+[2017-07-24 15:53:32] rubbishCleanerOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:32] compiled cfg_needForSpeedWayPoint_chs.erl true 
+[2017-07-24 15:53:32] compiled cfg_needForSpeedScoreLine_chs.erl true 
+[2017-07-24 15:53:32] compiled cfg_needForSpeedRandomItem_chs.erl true 
+[2017-07-24 15:53:32] compiled cfg_needForSpeedRandomAward_chs.erl true 
+[2017-07-24 15:53:32] compiled cfg_needForSpeedItem_chs.erl true 
+[2017-07-24 15:53:32] compiled cfg_needForSpeedCollideRoadBox_chs.erl true 
+[2017-07-24 15:53:32] compiled cfg_mysterious_shop_chs.erl true 
+[2017-07-24 15:53:33] compiled cfg_mount_chs.erl true 
+[2017-07-24 15:53:33] compiled gameServer.erl true 
+[2017-07-24 15:53:33] compiled cfg_mountSkin_chs.erl true 
+[2017-07-24 15:53:33] compiled cfg_player_skills_upgrading_chs.erl true 
+[2017-07-24 15:53:33] compiled cfg_player_desc_chs.erl true 
+[2017-07-24 15:53:33] compiled cfg_monthly_signinaward_chs.erl true 
+[2017-07-24 15:53:33] compiled cfg_player_base_chs.erl true 
+[2017-07-24 15:53:33] compiled cfg_pet_territory_time_chs.erl true 
+[2017-07-24 15:53:33] compiled cfg_pet_territory_search_chs.erl true 
+[2017-07-24 15:53:33] compiled cfg_pet_territory_reward_chs.erl true 
+[2017-07-24 15:53:33] compiled cfg_monthCard_chs.erl true 
+[2017-07-24 15:53:33] compiled cfg_pet_territory_level_chs.erl true 
+[2017-07-24 15:53:34] compiled libLogDB.erl true 
+[2017-07-24 15:53:34] compiled cfg_pet_territory_force_chs.erl true 
+[2017-07-24 15:53:34] compiled cfg_pet_stronger_chs.erl true 
+[2017-07-24 15:53:34] compiled cfg_gamemapcfg500.erl true 
+[2017-07-24 15:53:35] compiled gameNotice.erl true 
+[2017-07-24 15:53:35] compiled itemUtils.erl true 
+[2017-07-24 15:53:36] compiled userNet.erl true 
+[2017-07-24 15:53:36] compiled treeGSSup.erl true 
+[2017-07-24 15:53:36] compiled stringCfg.erl true 
+[2017-07-24 15:53:37] compiled playerSkillLearn.erl true 
+[2017-07-24 15:53:38] compiled acPetBattleOtp.erl true 
+[2017-07-24 15:53:38] acPetBattleOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:39] compiled playerItemTips.erl true 
+[2017-07-24 15:53:39] compiled petbattle.erl true 
+[2017-07-24 15:53:39] compiled cfg_gamemapcfg5.erl true 
+[2017-07-24 15:53:40] compiled mallBase.erl true 
+[2017-07-24 15:53:40] compiled mapBase.erl true 
+[2017-07-24 15:53:40] compiled rubbishCleanerLogic.erl true 
+[2017-07-24 15:53:40] compiled cfg_gamemapcfg419.erl true 
+[2017-07-24 15:53:40] compiled offlineData.erl true 
+[2017-07-24 15:53:41] compiled cfg_gamemapcfg418.erl true 
+[2017-07-24 15:53:41] compiled cfg_gamemapcfg417.erl true 
+[2017-07-24 15:53:42] compiled cfg_gamemapcfg416.erl true 
+[2017-07-24 15:53:43] compiled cfg_gamemapcfg415.erl true 
+[2017-07-24 15:53:43] compiled userMgrOtp.erl true 
+[2017-07-24 15:53:43] userMgrOtp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:43] compiled cfg_gamemapcfg414.erl true 
+[2017-07-24 15:53:44] compiled friend2State.erl true 
+[2017-07-24 15:53:44] compiled identityState.erl true 
+[2017-07-24 15:53:44] compiled treeGSOtp.erl true 
+[2017-07-24 15:53:44] treeGSOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:45] compiled cfg_gamemapcfg413.erl true 
+[2017-07-24 15:53:45] compiled acPetBattleLogic.erl true 
+[2017-07-24 15:53:46] compiled userMgrLogic.erl true 
+[2017-07-24 15:53:46] compiled mainState.erl true 
+[2017-07-24 15:53:47] compiled goblinLogic.erl true 
+[2017-07-24 15:53:47] compiled awardTakenOtp.erl true 
+[2017-07-24 15:53:47] awardTakenOtp.erl:9: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:47] compiled cfg_gamemapcfg412.erl true 
+[2017-07-24 15:53:48] compiled playerItemEvent.erl true 
+[2017-07-24 15:53:48] compiled lsSubSup.erl true 
+[2017-07-24 15:53:50] compiled userLogin.erl true 
+[2017-07-24 15:53:50] compiled mapView.erl true 
+[2017-07-24 15:53:50] compiled cfg_gamemapcfg411.erl true 
+[2017-07-24 15:53:51] compiled friend2Otp.erl true 
+[2017-07-24 15:53:51] friend2Otp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:51] compiled identityOtp.erl true 
+[2017-07-24 15:53:51] identityOtp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:53:52] compiled needForSpeedTrigger.erl true 
+[2017-07-24 15:53:52] compiled cfg_gamemapcfg410.erl true 
+[2017-07-24 15:53:53] compiled ladder1v1State.erl true 
+[2017-07-24 15:53:53] compiled gatherNpcMgr.erl true 
+[2017-07-24 15:53:54] compiled playerSkill.erl true 
+[2017-07-24 15:53:54] playerSkill.erl:1384: Warning: variable 'CostEnergy' is unused
+[2017-07-24 15:53:54] playerSkill.erl:1384: Warning: variable 'CostFactor' is unused
+[2017-07-24 15:53:54] playerSkill.erl:1398: Warning: variable 'CostEnergy' is unused
+[2017-07-24 15:53:54] playerSkill.erl:1400: Warning: variable 'CurHp' is unused
+[2017-07-24 15:53:54] playerSkill.erl:1401: Warning: variable 'MaxHp' is unused
+[2017-07-24 15:53:54] playerSkill.erl:1765: Warning: variable 'CastStep' is unused
+[2017-07-24 15:53:54] playerSkill.erl:1765: Warning: variable 'CostEnergy' is unused
+[2017-07-24 15:53:54] playerSkill.erl:1765: Warning: variable 'CostFactor' is unused
+[2017-07-24 15:53:54] playerSkill.erl:1765: Warning: variable 'Times' is unused
+[2017-07-24 15:53:54] playerSkill.erl:1765: Warning: variable 'Type' is unused
+
+[2017-07-24 15:53:54] compiled lsMainOtp.erl true 
+[2017-07-24 15:53:54] lsMainOtp.erl:314: Warning: variable 'AccToken' is unused
+[2017-07-24 15:53:54] lsMainOtp.erl:314: Warning: variable 'Content' is unused
+[2017-07-24 15:53:54] lsMainOtp.erl:314: Warning: variable 'FuncellCilentID' is unused
+[2017-07-24 15:53:54] lsMainOtp.erl:314: Warning: variable 'Verifyid' is unused
+
+[2017-07-24 15:53:54] compiled cfg_gamemapcfg409.erl true 
+[2017-07-24 15:53:54] compiled playerItem.erl true 
+[2017-07-24 15:53:55] compiled gsSubSup.erl true 
+[2017-07-24 15:53:55] compiled cfg_monster_chs.erl true 
+[2017-07-24 15:53:55] compiled cfg_monstergroup_chs.erl true 
+[2017-07-24 15:53:56] compiled cfg_gamemapcfg408.erl true 
+[2017-07-24 15:53:56] compiled cfg_monsterbox_chs.erl true 
+[2017-07-24 15:53:56] compiled cfg_moneyDungeon_chs.erl true 
+[2017-07-24 15:53:56] compiled cfg_mapshadow_chs.erl true 
+[2017-07-24 15:53:56] compiled lsMainLogic.erl true 
+[2017-07-24 15:53:57] compiled userLogic.erl true 
+[2017-07-24 15:53:57] compiled userLocal.erl true 
+[2017-07-24 15:53:57] compiled mail.erl true 
+[2017-07-24 15:53:57] compiled lsSendMsg.erl true 
+[2017-07-24 15:53:57] compiled cfg_gamemapcfg407.erl true 
+[2017-07-24 15:53:57] compiled cfg_mapsetting_chs.erl true 
+[2017-07-24 15:53:58] compiled cfg_mapConvey_chs.erl true 
+[2017-07-24 15:53:58] compiled cfg_mall_chs.erl true 
+[2017-07-24 15:53:58] compiled cfg_mainmenu_FunctionOpen_chs.erl true 
+[2017-07-24 15:53:58] compiled cfg_mainMenu_chs.erl true 
+[2017-07-24 15:53:58] compiled netOtp2.erl true 
+[2017-07-24 15:53:58] netOtp2.erl:13: Warning: behaviour socketHandler undefined
+
+[2017-07-24 15:53:59] compiled cfg_lottery_ten_times_chs.erl true 
+[2017-07-24 15:53:59] compiled needForSpeedPubTarget.erl true 
+[2017-07-24 15:53:59] compiled cfg_gamemapcfg406.erl true 
+[2017-07-24 15:53:59] compiled identityLogic.erl true 
+[2017-07-24 15:53:59] compiled cfg_lottery_store_chs.erl true 
+[2017-07-24 15:53:59] compiled cfg_lottery_once_chs.erl true 
+[2017-07-24 15:54:00] compiled cfg_lottery_goblin_free_cd_chs.erl true 
+[2017-07-24 15:54:00] compiled gameMapWorldBoss.erl true 
+[2017-07-24 15:54:00] compiled cfg_lottery_chs.erl true 
+[2017-07-24 15:54:00] compiled gameMapSup.erl true 
+[2017-07-24 15:54:00] compiled ladder1v1Otp.erl true 
+[2017-07-24 15:54:00] ladder1v1Otp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:00] compiled cfg_lotteryForTower_chs.erl true 
+[2017-07-24 15:54:00] compiled cfg_logic_group_chs.erl true 
+[2017-07-24 15:54:01] compiled cfg_logic_chs.erl true 
+[2017-07-24 15:54:01] compiled cfg_level_reward_chs.erl true 
+[2017-07-24 15:54:01] compiled netOtp.erl true 
+[2017-07-24 15:54:01] netOtp.erl:13: Warning: behaviour socketHandler undefined
+
+[2017-07-24 15:54:01] compiled cfg_ladder_item_chs.erl true 
+[2017-07-24 15:54:01] compiled cfg_ladder_1v1_reward_chs.erl true 
+[2017-07-24 15:54:01] compiled friend2Logic.erl true 
+[2017-07-24 15:54:02] compiled playerSignIn.erl true 
+[2017-07-24 15:54:02] compiled tradeLoadStaticInfo.erl true 
+[2017-07-24 15:54:02] compiled cfg_gamemapcfg405.erl true 
+[2017-07-24 15:54:03] compiled playerIdentity.erl true 
+[2017-07-24 15:54:03] compiled netLogic.erl true 
+[2017-07-24 15:54:04] compiled gsSendMsg.erl true 
+[2017-07-24 15:54:04] compiled gsMainOtp.erl true 
+[2017-07-24 15:54:04] gsMainOtp.erl:6: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:05] compiled cfg_gamemapcfg404.erl true 
+[2017-07-24 15:54:05] compiled netLocal.erl true 
+[2017-07-24 15:54:05] compiled nc.erl true 
+[2017-07-24 15:54:06] compiled ums_pay_call_back_handler.erl true 
+[2017-07-24 15:54:06] compiled ranch_transport.erl true 
+[2017-07-24 15:54:06] compiled ranch_tcp.erl true 
+[2017-07-24 15:54:06] ranch_tcp.erl:16: Warning: behaviour ranch_transport undefined
+
+[2017-07-24 15:54:06] compiled ranch_sup.erl true 
+[2017-07-24 15:54:06] compiled ranch_ssl.erl true 
+[2017-07-24 15:54:06] ranch_ssl.erl:16: Warning: behaviour ranch_transport undefined
+
+[2017-07-24 15:54:06] compiled ranch_server.erl true 
+[2017-07-24 15:54:06] compiled ranch_protocol.erl true 
+[2017-07-24 15:54:06] compiled ranch_listener_sup.erl true 
+[2017-07-24 15:54:07] compiled ranch_conns_sup.erl true 
+[2017-07-24 15:54:07] compiled ranch_app.erl true 
+[2017-07-24 15:54:07] compiled needForSpeedOtp.erl true 
+[2017-07-24 15:54:07] needForSpeedOtp.erl:13: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:07] compiled ranch_acceptors_sup.erl true 
+[2017-07-24 15:54:07] compiled ranch_acceptor.erl true 
+[2017-07-24 15:54:07] compiled ranch.erl true 
+[2017-07-24 15:54:07] compiled http_server_sup.erl true 
+[2017-07-24 15:54:08] compiled friend2LBSOtp.erl true 
+[2017-07-24 15:54:08] friend2LBSOtp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:08] compiled cfg_gamemapcfg403.erl true 
+[2017-07-24 15:54:08] compiled ladder1v1Logic.erl true 
+[2017-07-24 15:54:08] ladder1v1Logic.erl:157: Warning: variable 'NetPID' is unused
+[2017-07-24 15:54:08] ladder1v1Logic.erl:789: Warning: variable 'NowTime' is unused
+[2017-07-24 15:54:08] ladder1v1Logic.erl:792: Warning: variable 'Time' is unused
+[2017-07-24 15:54:08] ladder1v1Logic.erl:886: Warning: function queryRoleForce/1 is unused
+
+[2017-07-24 15:54:08] compiled gameMapOtp.erl true 
+[2017-07-24 15:54:08] gameMapOtp.erl:7: Warning: behaviour myGenServer undefined
+[2017-07-24 15:54:08] gameMapOtp.erl:213: Warning: variable 'Rank' is unused
+
+[2017-07-24 15:54:09] compiled playerSideTask.erl true 
+[2017-07-24 15:54:10] compiled playerHolidayTask.erl true 
+[2017-07-24 15:54:10] compiled cfg_gamemapcfg402.erl true 
+[2017-07-24 15:54:11] compiled goods.erl true 
+[2017-07-24 15:54:11] compiled globalSetup.erl true 
+[2017-07-24 15:54:11] compiled gsMainLogic.erl true 
+[2017-07-24 15:54:12] compiled monsterWorldBoss.erl true 
+[2017-07-24 15:54:12] compiled http_server_app.erl true 
+[2017-07-24 15:54:13] compiled cfg_gamemapcfg401.erl true 
+[2017-07-24 15:54:13] compiled gsDBSOtp.erl true 
+[2017-07-24 15:54:13] gsDBSOtp.erl:5: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:13] compiled server_sup.erl true 
+[2017-07-24 15:54:14] compiled operationsOtp.erl true 
+[2017-07-24 15:54:14] operationsOtp.erl:12: Warning: behaviour myGenServer undefined
+[2017-07-24 15:54:14] operationsOtp.erl:281: Warning: function updateGameServerConfig/3 is unused
+[2017-07-24 15:54:14] operationsOtp.erl:296: Warning: function getEtsIndex/1 is unused
+[2017-07-24 15:54:14] operationsOtp.erl:305: Warning: function connectPool/0 is unused
+[2017-07-24 15:54:14] operationsOtp.erl:322: Warning: function closePool/0 is unused
+
+[2017-07-24 15:54:14] compiled needForSpeedLogic.erl true 
+[2017-07-24 15:54:15] compiled playerShop.erl true 
+[2017-07-24 15:54:15] playerShop.erl:526: Warning: function isPackageIdle/0 is unused
+
+[2017-07-24 15:54:15] compiled cfg_gamemapcfg400.erl true 
+[2017-07-24 15:54:16] compiled gameMapMgrWorkerOtp.erl true 
+[2017-07-24 15:54:16] gameMapMgrWorkerOtp.erl:13: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:16] compiled playerGuildWar.erl true 
+[2017-07-24 15:54:17] compiled cfg_gamemapcfg4.erl true 
+[2017-07-24 15:54:18] compiled http_pay_call_back_logic.erl true 
+[2017-07-24 15:54:18] compiled dbMainOtp.erl true 
+[2017-07-24 15:54:18] dbMainOtp.erl:6: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:18] compiled globalCfg.erl true 
+[2017-07-24 15:54:18] compiled monsterState.erl true 
+[2017-07-24 15:54:18] monsterState.erl:802: Warning: variable 'BattlePropList' is unused
+
+[2017-07-24 15:54:19] compiled dbsMsgHandler.erl true 
+[2017-07-24 15:54:19] compiled configOtp.erl true 
+[2017-07-24 15:54:19] configOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:20] compiled cfg_gamemapcfg302.erl true 
+[2017-07-24 15:54:20] compiled needForSpeedCondition.erl true 
+[2017-07-24 15:54:22] compiled libDB.erl true 
+[2017-07-24 15:54:22] compiled gameMapMgrWorkerLogic.erl true 
+[2017-07-24 15:54:23] compiled cfg_gamemapcfg301.erl true 
+[2017-07-24 15:54:23] compiled playerSevenDays.erl true 
+[2017-07-24 15:54:23] compiled playerGuildSnowman.erl true 
+[2017-07-24 15:54:23] compiled httpServerOtp.erl true 
+[2017-07-24 15:54:23] httpServerOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:23] compiled cow_spdy.erl true 
+[2017-07-24 15:54:24] compiled cow_qs.erl true 
+[2017-07-24 15:54:24] compiled mailState.erl true 
+[2017-07-24 15:54:24] compiled cow_multipart.erl true 
+[2017-07-24 15:54:25] compiled effect.erl true 
+[2017-07-24 15:54:25] compiled cow_mimetypes.erl true 
+[2017-07-24 15:54:25] compiled cow_http_te.erl true 
+[2017-07-24 15:54:25] compiled cow_http_hd.erl true 
+[2017-07-24 15:54:26] compiled cow_http.erl true 
+[2017-07-24 15:54:26] compiled cow_date.erl true 
+[2017-07-24 15:54:26] compiled cow_cookie.erl true 
+[2017-07-24 15:54:26] compiled cowboy_websocket_handler.erl true 
+[2017-07-24 15:54:26] compiled cfg_gamemapcfg3.erl true 
+[2017-07-24 15:54:26] compiled cowboy_websocket.erl true 
+[2017-07-24 15:54:26] cowboy_websocket.erl:18: Warning: behaviour cowboy_sub_protocol undefined
+
+[2017-07-24 15:54:26] compiled cowboy_sup.erl true 
+[2017-07-24 15:54:26] compiled cowboy_sub_protocol.erl true 
+[2017-07-24 15:54:26] compiled cowboy_static.erl true 
+[2017-07-24 15:54:27] compiled cowboy_spdy.erl true 
+[2017-07-24 15:54:27] compiled dbRoleDataCache.erl true 
+[2017-07-24 15:54:27] compiled config.erl true 
+[2017-07-24 15:54:27] compiled cowboy_router.erl true 
+[2017-07-24 15:54:27] cowboy_router.erl:26: Warning: behaviour cowboy_middleware undefined
+
+[2017-07-24 15:54:27] compiled cfg_gamemapcfg23.erl true 
+[2017-07-24 15:54:27] compiled dbSendMsg.erl true 
+[2017-07-24 15:54:27] compiled cowboy_rest.erl true 
+[2017-07-24 15:54:27] cowboy_rest.erl:18: Warning: behaviour cowboy_sub_protocol undefined
+
+[2017-07-24 15:54:28] compiled cowboy_req.erl true 
+[2017-07-24 15:54:28] compiled cowboy_protocol.erl true 
+[2017-07-24 15:54:28] compiled cowboy_middleware.erl true 
+[2017-07-24 15:54:28] compiled cowboy_loop_handler.erl true 
+[2017-07-24 15:54:28] compiled cowboy_http_handler.erl true 
+[2017-07-24 15:54:28] compiled needForSpeedColliderRoadBox.erl true 
+[2017-07-24 15:54:28] compiled cowboy_http.erl true 
+[2017-07-24 15:54:29] compiled cowboy_handler.erl true 
+[2017-07-24 15:54:29] cowboy_handler.erl:31: Warning: behaviour cowboy_middleware undefined
+
+[2017-07-24 15:54:29] compiled cowboy_clock.erl true 
+[2017-07-24 15:54:29] compiled cowboy_bstr.erl true 
+[2017-07-24 15:54:29] compiled cowboy_app.erl true 
+[2017-07-24 15:54:29] compiled cowboy.erl true 
+[2017-07-24 15:54:30] compiled dbOtp.erl true 
+[2017-07-24 15:54:30] dbOtp.erl:6: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:30] compiled dbMemLoadData.erl true 
+[2017-07-24 15:54:30] compiled gameMapMgrOtp.erl true 
+[2017-07-24 15:54:30] gameMapMgrOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:31] compiled mailOtp.erl true 
+[2017-07-24 15:54:31] mailOtp.erl:7: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:31] compiled monsterSkill.erl true 
+[2017-07-24 15:54:31] monsterSkill.erl:768: Warning: variable 'BattlePropList' is unused
+[2017-07-24 15:54:31] monsterSkill.erl:785: Warning: variable 'BattlePropList' is unused
+[2017-07-24 15:54:31] monsterSkill.erl:812: Warning: variable 'BattlePropList' is unused
+[2017-07-24 15:54:31] monsterSkill.erl:982: Warning: variable 'BattlePropList' is unused
+[2017-07-24 15:54:31] monsterSkill.erl:1123: Warning: variable 'BattlePropList' is unused
+
+[2017-07-24 15:54:32] compiled dbMemCacheInit.erl true 
+[2017-07-24 15:54:32] compiled playerSevenDayAim.erl true 
+[2017-07-24 15:54:32] playerSevenDayAim.erl:343: Warning: variable 'RewardCoin' is unused
+[2017-07-24 15:54:32] playerSevenDayAim.erl:369: Warning: variable 'RewardItem' is unused
+
+[2017-07-24 15:54:33] compiled operateExchangeOtp.erl true 
+[2017-07-24 15:54:33] operateExchangeOtp.erl:13: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:34] compiled dbMsg.erl true 
+[2017-07-24 15:54:34] compiled playerGuildSkillAndBuff.erl true 
+[2017-07-24 15:54:35] compiled needForSpeedAthlete.erl true 
+[2017-07-24 15:54:35] compiled gameMapMaterial.erl true 
+[2017-07-24 15:54:35] compiled guildWarPaid.erl true 
+[2017-07-24 15:54:36] compiled dbMemCacheCommon.erl true 
+[2017-07-24 15:54:37] compiled dbMgrOtp.erl true 
+[2017-07-24 15:54:37] dbMgrOtp.erl:8: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:38] compiled playerServerTest.erl true 
+[2017-07-24 15:54:38] playerServerTest.erl:194: Warning: variable 'Dist2' is unused
+[2017-07-24 15:54:38] playerServerTest.erl:194: Warning: the result of the expression is ignored (suppress the warning by assigning the expression to the _ variable)
+
+[2017-07-24 15:54:38] compiled monsterMove.erl true 
+[2017-07-24 15:54:38] compiled operateExchangeLogic.erl true 
+[2017-07-24 15:54:40] compiled playerGuildFairground.erl true 
+[2017-07-24 15:54:40] compiled acMoneyDungeonState.erl true 
+[2017-07-24 15:54:40] compiled dbLSSave.erl true 
+[2017-07-24 15:54:41] compiled guildState.erl true 
+[2017-07-24 15:54:42] compiled gameMapLogic.erl true 
+[2017-07-24 15:54:42] compiled dbMemCache.erl true 
+[2017-07-24 15:54:43] compiled dbLSLoad.erl true 
+[2017-07-24 15:54:44] compiled playerScreen.erl true 
+[2017-07-24 15:54:44] compiled operateActivityOtp.erl true 
+[2017-07-24 15:54:44] operateActivityOtp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:45] compiled monsterInterface.erl true 
+[2017-07-24 15:54:45] compiled acMoneyDungeonOtp.erl true 
+[2017-07-24 15:54:45] acMoneyDungeonOtp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:54:45] compiled playerGuildExpedition.erl true 
+[2017-07-24 15:54:46] compiled dbItemSave.erl true 
+[2017-07-24 15:54:47] compiled gameMapGuildExpedition.erl true 
+[2017-07-24 15:54:48] compiled dbLog.erl true 
+[2017-07-24 15:54:49] compiled dbGSSave.erl true 
+[2017-07-24 15:54:50] compiled libMail.erl true 
+[2017-07-24 15:54:50] compiled operateActivityLogic.erl true 
+[2017-07-24 15:54:51] compiled playerScene.erl true 
+[2017-07-24 15:54:51] compiled monsterEffect.erl true 
+[2017-07-24 15:54:51] monsterEffect.erl:420: Warning: variable 'MonsterCode' is unused
+[2017-07-24 15:54:51] monsterEffect.erl:420: Warning: variable 'Num' is unused
+[2017-07-24 15:54:51] monsterEffect.erl:420: Warning: variable 'Percent' is unused
+[2017-07-24 15:54:51] monsterEffect.erl:558: Warning: variable 'BattleProp' is unused
+[2017-07-24 15:54:51] monsterEffect.erl:558: Warning: variable 'BuffID' is unused
+[2017-07-24 15:54:51] monsterEffect.erl:558: Warning: variable 'MonsterCode' is unused
+[2017-07-24 15:54:51] monsterEffect.erl:558: Warning: variable 'Prob' is unused
+[2017-07-24 15:54:51] monsterEffect.erl:558: Warning: variable 'PropID' is unused
+[2017-07-24 15:54:51] monsterEffect.erl:558: Warning: variable 'Rec' is unused
+
+[2017-07-24 15:54:52] compiled playerGuildCopy.erl true 
+[2017-07-24 15:54:52] compiled acMoneyDungeonLogic.erl true 
+[2017-07-24 15:54:52] acMoneyDungeonLogic.erl:243: Warning: variable 'Pid' is unused
+
+[2017-07-24 15:54:52] compiled funcell.erl true 
+[2017-07-24 15:54:52] funcell.erl:67: Warning: function getLogin/1 is unused
+[2017-07-24 15:54:52] funcell.erl:227: Warning: function getAuthUrl/0 is unused
+
+[2017-07-24 15:54:53] compiled dbGSRubbishCleaner.erl true 
+[2017-07-24 15:54:54] compiled databankInit.erl true 
+[2017-07-24 15:54:54] compiled guildSkill.erl true 
+[2017-07-24 15:54:54] compiled gameMapDayNight.erl true 
+[2017-07-24 15:54:56] compiled operateActivityKilledMonsterLogic.erl true 
+[2017-07-24 15:54:56] compiled dbGSLoad.erl true 
+[2017-07-24 15:54:57] compiled acMaterialState.erl true 
+[2017-07-24 15:54:57] compiled playerGuildBattle.erl true 
+[2017-07-24 15:54:57] compiled systemMail.erl true 
+[2017-07-24 15:54:59] compiled dbGSDataSave.erl true 
+[2017-07-24 15:55:00] compiled core.erl true 
+[2017-07-24 15:55:00] compiled guildOtp.erl true 
+[2017-07-24 15:55:00] guildOtp.erl:14: Warning: behaviour myGenServer undefined
+[2017-07-24 15:55:00] guildOtp.erl:207: Warning: variable 'PidFromGS' is unused
+
+[2017-07-24 15:55:00] compiled gameMapConvoy.erl true 
+[2017-07-24 15:55:01] compiled configCheck.erl true 
+[2017-07-24 15:55:02] compiled operateActivityFeastBossLogic.erl true 
+[2017-07-24 15:55:02] compiled dbGSDataLoad.erl true 
+[2017-07-24 15:55:02] compiled acMaterialOtp.erl true 
+[2017-07-24 15:55:02] acMaterialOtp.erl:19: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:55:04] compiled lsMsgHandler.erl true 
+[2017-07-24 15:55:04] compiled loginQueueState.erl true 
+[2017-07-24 15:55:04] compiled monsterBuff.erl true 
+[2017-07-24 15:55:04] monsterBuff.erl:680: Warning: variable 'Level' is unused
+[2017-07-24 15:55:04] monsterBuff.erl:1185: Warning: variable 'B1' is unused
+[2017-07-24 15:55:04] monsterBuff.erl:1185: Warning: variable 'B2' is unused
+[2017-07-24 15:55:04] monsterBuff.erl:1185: Warning: variable 'MonsterCode' is unused
+
+[2017-07-24 15:55:06] compiled playerSave.erl true 
+[2017-07-24 15:55:06] compiled dbCSSave.erl true 
+[2017-07-24 15:55:06] compiled gameMapActivityLogic.erl true 
+[2017-07-24 15:55:06] compiled codeMgr.erl true 
+[2017-07-24 15:55:07] compiled loginQueueOtp.erl true 
+[2017-07-24 15:55:07] loginQueueOtp.erl:7: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:55:07] compiled playerGuild.erl true 
+[2017-07-24 15:55:07] playerGuild.erl:2202: Warning: variable 'ItemID' is unused
+[2017-07-24 15:55:07] playerGuild.erl:2343: Warning: variable 'ID' is unused
+
+[2017-07-24 15:55:07] compiled guildLogic.erl true 
+[2017-07-24 15:55:07] compiled operateActivityCollectItemLogic.erl true 
+[2017-07-24 15:55:08] compiled dbCSLoad.erl true 
+[2017-07-24 15:55:08] compiled mysql.erl true 
+[2017-07-24 15:55:08] compiled emysql_worker.erl true 
+[2017-07-24 15:55:08] compiled emysql_util.erl true 
+[2017-07-24 15:55:09] compiled emysql_tcp.erl true 
+[2017-07-24 15:55:09] compiled emysql_sup_mgr.erl true 
+[2017-07-24 15:55:09] compiled loginQueue.erl true 
+[2017-07-24 15:55:09] compiled emysql_sup.erl true 
+[2017-07-24 15:55:09] compiled emysql_statements.erl true 
+[2017-07-24 15:55:09] compiled emysql_pool_mgr.erl true 
+[2017-07-24 15:55:09] compiled emysql_conv.erl true 
+[2017-07-24 15:55:09] compiled emysql_conn_mgr.erl true 
+[2017-07-24 15:55:09] compiled emysql_conn.erl true 
+[2017-07-24 15:55:09] compiled emysql_auth.erl true 
+[2017-07-24 15:55:09] compiled emysql_app.erl true 
+[2017-07-24 15:55:10] compiled acMaterialLogic.erl true 
+[2017-07-24 15:55:10] compiled monsterBeset.erl true 
+[2017-07-24 15:55:10] compiled emysql.erl true 
+[2017-07-24 15:55:10] compiled publicDataMgrState.erl true 
+[2017-07-24 15:55:11] compiled gameMapAcKingBattleAll.erl true 
+[2017-07-24 15:55:11] gameMapAcKingBattleAll.erl:110: Warning: variable 'BuffCfgID' is unused
+[2017-07-24 15:55:11] gameMapAcKingBattleAll.erl:110: Warning: variable 'MonsterID' is unused
+
+[2017-07-24 15:55:12] compiled guildBattle.erl true 
+[2017-07-24 15:55:12] compiled operateActivityChargeOrUse.erl true 
+[2017-07-24 15:55:13] compiled playerGodWeapon.erl true 
+[2017-07-24 15:55:13] playerGodWeapon.erl:157: Warning: this clause cannot match because a previous clause at line 148 always matches
+
+[2017-07-24 15:55:13] compiled camp.erl true 
+[2017-07-24 15:55:13] compiled triggerLib.erl true 
+[2017-07-24 15:55:15] compiled acLSBattlefieldTrigger.erl true 
+[2017-07-24 15:55:16] compiled playerRune.erl true 
+[2017-07-24 15:55:16] compiled publicDataMgrRKILogic.erl true 
+[2017-07-24 15:55:16] compiled copyMapScheduleState.erl true 
+[2017-07-24 15:55:17] compiled acWorldBossState.erl true 
+[2017-07-24 15:55:18] compiled playerGoddess.erl true 
+[2017-07-24 15:55:18] playerGoddess.erl:56: Warning: variable 'CardID' is unused
+[2017-07-24 15:55:18] playerGoddess.erl:56: Warning: variable 'State' is unused
+[2017-07-24 15:55:18] playerGoddess.erl:294: Warning: variable 'CardID' is unused
+
+[2017-07-24 15:55:19] compiled guildBase.erl true 
+[2017-07-24 15:55:19] compiled playerTrigger.erl true 
+[2017-07-24 15:55:20] compiled monsterBattle.erl true 
+[2017-07-24 15:55:20] monsterBattle.erl:95: Warning: variable 'IsRan' is unused
+[2017-07-24 15:55:20] monsterBattle.erl:931: Warning: function isRecordDamage/2 is unused
+[2017-07-24 15:55:20] monsterBattle.erl:1159: Warning: this clause cannot match because a previous clause at line 1139 always matches
+
+[2017-07-24 15:55:20] compiled tradeDataQueryLogic.erl true 
+[2017-07-24 15:55:21] compiled publicDataMgrOtp.erl true 
+[2017-07-24 15:55:21] publicDataMgrOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:55:21] compiled playerRPView.erl true 
+[2017-07-24 15:55:21] playerRPView.erl:164: Warning: function calcRecovery/0 is unused
+
+[2017-07-24 15:55:21] compiled acLSBattlefieldOtp.erl true 
+[2017-07-24 15:55:21] acLSBattlefieldOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:55:21] compiled acWorldBossOtp.erl true 
+[2017-07-24 15:55:21] acWorldBossOtp.erl:13: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:55:22] compiled copyMapScheduleInit.erl true 
+[2017-07-24 15:55:23] compiled buff.erl true 
+[2017-07-24 15:55:23] compiled playerActionPointTrigger.erl true 
+[2017-07-24 15:55:24] compiled tradeDataOpOtp.erl true 
+[2017-07-24 15:55:24] tradeDataOpOtp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:55:25] compiled publicDataMgrLogic.erl true 
+[2017-07-24 15:55:25] compiled monsterAI.erl true 
+[2017-07-24 15:55:26] compiled acLSBattlefieldLogic.erl true 
+[2017-07-24 15:55:27] compiled acWorldBossLogic.erl true 
+[2017-07-24 15:55:27] compiled playerRobBattle.erl true 
+[2017-07-24 15:55:27] playerRobBattle.erl:215: Warning: variable 'Effects' is unused
+[2017-07-24 15:55:27] playerRobBattle.erl:215: Warning: variable 'SX' is unused
+[2017-07-24 15:55:27] playerRobBattle.erl:215: Warning: variable 'SY' is unused
+[2017-07-24 15:55:27] playerRobBattle.erl:215: Warning: variable 'TX' is unused
+[2017-07-24 15:55:27] playerRobBattle.erl:215: Warning: variable 'TY' is unused
+[2017-07-24 15:55:27] playerRobBattle.erl:317: Warning: function revertHp/0 is unused
+
+[2017-07-24 15:55:27] compiled noticeTrigger.erl true 
+[2017-07-24 15:55:28] compiled battleProp.erl true 
+[2017-07-24 15:55:28] battleProp.erl:431: Warning: function getBattlePropAddValue/2 is unused
+[2017-07-24 15:55:28] battleProp.erl:437: Warning: function getBattlePropMultiValue/2 is unused
+
+[2017-07-24 15:55:29] compiled copyMapScheduleComplete.erl true 
+[2017-07-24 15:55:30] compiled publicDataMgrLoad.erl true 
+[2017-07-24 15:55:30] compiled creatureMap.erl true 
+[2017-07-24 15:55:31] compiled playerGM.erl true 
+[2017-07-24 15:55:31] playerGM.erl:3772: Warning: variable 'Limit' is unused
+[2017-07-24 15:55:31] playerGM.erl:4176: Warning: variable 'ID' is unused
+[2017-07-24 15:55:31] playerGM.erl:4176: Warning: the result of the expression is ignored (suppress the warning by assigning the expression to the _ variable)
+
+[2017-07-24 15:55:32] compiled acLSBattlefieldCondition.erl true 
+[2017-07-24 15:55:32] compiled acSpiritAreaState.erl true 
+[2017-07-24 15:55:32] compiled monsterTrigger.erl true 
+[2017-07-24 15:55:32] compiled playerRob.erl true 
+[2017-07-24 15:55:33] compiled battle.erl true 
+[2017-07-24 15:55:34] compiled copyMapGoddess.erl true 
+[2017-07-24 15:55:34] compiled publicDataMgrLadder1v1.erl true 
+[2017-07-24 15:55:36] compiled playerGive.erl true 
+[2017-07-24 15:55:36] compiled acKingBattleTrigger.erl true 
+[2017-07-24 15:55:37] compiled acSpiritAreaOtp.erl true 
+[2017-07-24 15:55:37] acSpiritAreaOtp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:55:38] compiled mapTrigger.erl true 
+[2017-07-24 15:55:38] compiled creatureBase.erl true 
+[2017-07-24 15:55:38] compiled playerRevive.erl true 
+[2017-07-24 15:55:39] compiled area.erl true 
+[2017-07-24 15:55:40] compiled copyMapDemonBattle.erl true 
+[2017-07-24 15:55:40] copyMapDemonBattle.erl:146: Warning: variable 'Index27' is unused
+[2017-07-24 15:55:40] copyMapDemonBattle.erl:146: Warning: variable 'Index28' is unused
+[2017-07-24 15:55:40] copyMapDemonBattle.erl:159: Warning: variable 'Index33' is unused
+[2017-07-24 15:55:40] copyMapDemonBattle.erl:197: Warning: variable 'Index30' is unused
+[2017-07-24 15:55:40] copyMapDemonBattle.erl:215: Warning: variable 'DamageIndex' is unused
+
+[2017-07-24 15:55:40] compiled publicDataOtp.erl true 
+[2017-07-24 15:55:40] publicDataOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:55:43] compiled web2lsNetDispatcher.erl true 
+[2017-07-24 15:55:43] compiled acKingBattleCondition.erl true 
+[2017-07-24 15:55:43] compiled playerGather.erl true 
+[2017-07-24 15:55:43] compiled fightTrigger.erl true 
+[2017-07-24 15:55:44] compiled acSpiritAreaLogic.erl true 
+[2017-07-24 15:55:44] compiled monsterAITree.erl true 
+[2017-07-24 15:55:44] compiled activity.erl true 
+[2017-07-24 15:55:44] compiled cfg_worldlevel_exp_chs.erl true 
+[2017-07-24 15:55:44] compiled cfg_worldboss_chs.erl true 
+[2017-07-24 15:55:45] compiled cfg_wing_chs.erl true 
+[2017-07-24 15:55:45] compiled cfg_wildboss_chs.erl true 
+[2017-07-24 15:55:45] compiled cfg_welfare_chs.erl true 
+[2017-07-24 15:55:45] compiled cfg_wedding_type_flower_chs.erl true 
+[2017-07-24 15:55:45] compiled playerRedName.erl true 
+[2017-07-24 15:55:45] compiled cfg_wedding_type_firework_chs.erl true 
+[2017-07-24 15:55:45] compiled web2lsMsgSetWhiteAccountID.erl true 
+[2017-07-24 15:55:45] compiled cfg_wedding_type_chs.erl true 
+[2017-07-24 15:55:45] compiled cfg_wedding_type_candy_chs.erl true 
+[2017-07-24 15:55:46] compiled cfg_wedding_time_chs.erl true 
+[2017-07-24 15:55:46] compiled cfg_wedding_ring_chs.erl true 
+[2017-07-24 15:55:46] compiled publicDataLogic.erl true 
+[2017-07-24 15:55:46] compiled cfg_wedding_fireworkshow_chs.erl true 
+[2017-07-24 15:55:46] compiled cfg_wedding_blessing_chs.erl true 
+[2017-07-24 15:55:46] compiled cfg_weddingring_chs.erl true 
+[2017-07-24 15:55:46] compiled cfg_warriortrial_chs.erl true 
+[2017-07-24 15:55:46] compiled cfg_vip_power_chs.erl true 
+[2017-07-24 15:55:46] compiled cfg_vIP_expression_chs.erl true 
+[2017-07-24 15:55:46] compiled cfg_vIP_colour_chs.erl true 
+[2017-07-24 15:55:47] compiled cfg_vIP_color_chs.erl true 
+[2017-07-24 15:55:47] compiled cfg_userFeedbackType_chs.erl true 
+[2017-07-24 15:55:47] compiled web2lsMsgSetRoleDelFlag.erl true 
+[2017-07-24 15:55:48] compiled playerGameNotice.erl true 
+[2017-07-24 15:55:48] compiled acKingbattleAward.erl true 
+[2017-07-24 15:55:48] compiled errorCodeTrigger.erl true 
+[2017-07-24 15:55:49] compiled libBstAI.erl true 
+[2017-07-24 15:55:49] compiled cfg_uniqTierProperty_chs.erl true 
+[2017-07-24 15:55:49] compiled cfg_uiSoundCfg_chs.erl true 
+[2017-07-24 15:55:49] compiled web2lsMsgSetGSLineMaintain.erl true 
+[2017-07-24 15:55:49] compiled cfg_trigger_chs.erl true 
+[2017-07-24 15:55:49] compiled cfg_treasure_map_chs.erl true 
+[2017-07-24 15:55:49] compiled cfg_treasure_event_chs.erl true 
+[2017-07-24 15:55:49] compiled cfg_treasuremap_chs.erl true 
+[2017-07-24 15:55:50] compiled playerDataMgrState.erl true 
+[2017-07-24 15:55:50] compiled playerRedEnvelope.erl true 
+[2017-07-24 15:55:51] compiled web2lsMsgSetGMLevel.erl true 
+[2017-07-24 15:55:52] compiled cfg_transform_chs.erl true 
+[2017-07-24 15:55:53] compiled acKingBattleAllOtp.erl true 
+[2017-07-24 15:55:53] acKingBattleAllOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:55:53] compiled cfg_transformspell_chs.erl true 
+[2017-07-24 15:55:53] compiled cfg_top_award_chs.erl true 
+[2017-07-24 15:55:53] compiled activeTrigger.erl true 
+[2017-07-24 15:55:53] compiled cfg_titlesystem_chs.erl true 
+[2017-07-24 15:55:53] compiled web2lsMsgSetDenyAccountID.erl true 
+[2017-07-24 15:55:54] compiled playerDataMgrOtp.erl true 
+[2017-07-24 15:55:54] playerDataMgrOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:55:54] compiled bstTreeRE.erl true 
+[2017-07-24 15:55:54] compiled playerFriend2.erl true 
+[2017-07-24 15:55:54] playerFriend2.erl:152: Warning: asn1rt:utf8_list_to_binary/1 is deprecated and will be removed in in a future release; use unicode:characters_to_binary/1
+
+[2017-07-24 15:55:55] compiled web2lsMsgSetActivityStatus.erl true 
+[2017-07-24 15:55:55] compiled playerRecharge.erl true 
+[2017-07-24 15:55:56] compiled targetLib.erl true 
+[2017-07-24 15:55:56] compiled web2lsMsgSet4GSMange.erl true 
+[2017-07-24 15:55:57] compiled tradeDataOpLogic.erl true 
+[2017-07-24 15:55:57] compiled playerDataMgrLogic.erl true 
+[2017-07-24 15:55:58] compiled acKingBattleAllLogic.erl true 
+[2017-07-24 15:55:58] compiled web2lsMsgSendString.erl true 
+[2017-07-24 15:55:58] compiled bstTree.erl true 
+[2017-07-24 15:55:59] compiled playerForce.erl true 
+[2017-07-24 15:55:59] compiled playerRank.erl true 
+[2017-07-24 15:56:00] compiled web2lsMsgSendMail.erl true 
+[2017-07-24 15:56:00] compiled playerTargetSelfEnv.erl true 
+[2017-07-24 15:56:01] compiled playerDataMgrLoad.erl true 
+[2017-07-24 15:56:01] compiled web2lsMsgRevokeRolePay.erl true 
+[2017-07-24 15:56:02] compiled acHDBattlegroundOtp.erl true 
+[2017-07-24 15:56:02] acHDBattlegroundOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:02] compiled xml_to_erlang.erl true 
+[2017-07-24 15:56:02] compiled timeTest.erl true 
+[2017-07-24 15:56:02] compiled sort_test.erl true 
+[2017-07-24 15:56:02] compiled miscTest.erl true 
+[2017-07-24 15:56:02] compiled marriageState.erl true 
+[2017-07-24 15:56:03] compiled web2lsMsgReturnRole.erl true 
+[2017-07-24 15:56:03] compiled playerFindRes.erl true 
+[2017-07-24 15:56:03] compiled logicLib.erl true 
+[2017-07-24 15:56:04] compiled playerDataOtp.erl true 
+[2017-07-24 15:56:04] playerDataOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:04] compiled web2lsMsgReturnItem.erl true 
+[2017-07-24 15:56:05] compiled playerPropSync.erl true 
+[2017-07-24 15:56:05] compiled filterTest.erl true 
+[2017-07-24 15:56:05] compiled marriageOtp.erl true 
+[2017-07-24 15:56:05] marriageOtp.erl:14: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:06] compiled web2lsMsgRechargeRebateItem.erl true 
+[2017-07-24 15:56:07] compiled logicArguLib.erl true 
+[2017-07-24 15:56:07] compiled acHDBattlegroundLogic.erl true 
+[2017-07-24 15:56:08] compiled web2lsMsgRechargeRebateFlagClean.erl true 
+[2017-07-24 15:56:08] compiled playerFashion.erl true 
+[2017-07-24 15:56:08] compiled playerDataLogic.erl true 
+[2017-07-24 15:56:08] compiled dropTest.erl true 
+[2017-07-24 15:56:09] compiled playerPk.erl true 
+[2017-07-24 15:56:09] compiled marriageLogic.erl true 
+[2017-07-24 15:56:09] compiled web2lsMsgRechargeRebate.erl true 
+[2017-07-24 15:56:10] compiled conditionLib.erl true 
+[2017-07-24 15:56:10] compiled acGuildwarState.erl true 
+[2017-07-24 15:56:11] compiled playerExpMap.erl true 
+[2017-07-24 15:56:11] compiled daily2State.erl true 
+[2017-07-24 15:56:12] compiled cfg_gamemapcfg9005.erl true 
+[2017-07-24 15:56:12] compiled bagTest.erl true 
+[2017-07-24 15:56:12] compiled apply_test.erl true 
+[2017-07-24 15:56:12] compiled teamPrivate.erl true 
+[2017-07-24 15:56:12] compiled web2lsMsgMallGoodsSet.erl true 
+[2017-07-24 15:56:13] compiled playerPetTerritory.erl true 
+[2017-07-24 15:56:14] compiled web2lsMsgLotteryForTower.erl true 
+[2017-07-24 15:56:14] compiled timeCondition.erl true 
+[2017-07-24 15:56:14] compiled cfg_gamemapcfg9004.erl true 
+[2017-07-24 15:56:14] compiled acGuildwarOtp.erl true 
+[2017-07-24 15:56:14] acGuildwarOtp.erl:21: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:15] compiled daily2Otp.erl true 
+[2017-07-24 15:56:15] daily2Otp.erl:15: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:15] compiled playerEscort.erl true 
+[2017-07-24 15:56:15] compiled web2lsMsgLimitPushSales.erl true 
+[2017-07-24 15:56:15] compiled teamOtp.erl true 
+[2017-07-24 15:56:17] compiled cfg_gamemapcfg9003.erl true 
+[2017-07-24 15:56:17] compiled web2lsMsgKickout.erl true 
+[2017-07-24 15:56:18] compiled playerCondation.erl true 
+[2017-07-24 15:56:18] compiled cfg_gamemapcfg9002.erl true 
+[2017-07-24 15:56:18] compiled playerPetPvP.erl true 
+[2017-07-24 15:56:19] compiled daily2Logic.erl true 
+[2017-07-24 15:56:19] compiled web2lsMsgGetList4GSMange.erl true 
+[2017-07-24 15:56:19] compiled cfg_gamemapcfg9001.erl true 
+[2017-07-24 15:56:20] compiled web2lsMsgGetFunctionFlag.erl true 
+[2017-07-24 15:56:20] compiled teamLogic.erl true 
+[2017-07-24 15:56:21] compiled acGuildwarLogic.erl true 
+[2017-07-24 15:56:21] compiled cfg_gamemapcfg9000.erl true 
+[2017-07-24 15:56:22] compiled playerActionPointCondition.erl true 
+[2017-07-24 15:56:22] compiled web2lsMsgGetActivityStatus.erl true 
+[2017-07-24 15:56:23] compiled cfg_gamemapcfg9.erl true 
+[2017-07-24 15:56:23] compiled gsCrosOtp.erl true 
+[2017-07-24 15:56:23] gsCrosOtp.erl:13: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:23] compiled cfg_gamemapcfg8008.erl true 
+[2017-07-24 15:56:23] compiled playerEquip.erl true 
+[2017-07-24 15:56:23] playerEquip.erl:1040: Warning: function checkEquipRefineOneKeyMaterial/2 is unused
+[2017-07-24 15:56:23] playerEquip.erl:1043: Warning: function checkEquipRefineOneKeyMaterial/3 is unused
+
+[2017-07-24 15:56:23] compiled playerPetPvE.erl true 
+[2017-07-24 15:56:24] compiled cfg_gamemapcfg8004.erl true 
+[2017-07-24 15:56:24] compiled web2lsMsgFunctionFlag.erl true 
+[2017-07-24 15:56:25] compiled acGuildExpeditionState.erl true 
+[2017-07-24 15:56:25] compiled teamInterface.erl true 
+[2017-07-24 15:56:25] compiled cfg_gamemapcfg8003.erl true 
+[2017-07-24 15:56:25] compiled web2lsMsgDenyDeviceSet.erl true 
+[2017-07-24 15:56:25] compiled mapCondation.erl true 
+[2017-07-24 15:56:27] compiled hdBattleOtp.erl true 
+[2017-07-24 15:56:27] hdBattleOtp.erl:11: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:27] compiled cfg_gamemapcfg8002.erl true 
+[2017-07-24 15:56:27] compiled cfg_gamemapcfg8001.erl true 
+[2017-07-24 15:56:28] compiled playerEffect.erl true 
+[2017-07-24 15:56:28] playerEffect.erl:242: Warning: variable 'Num' is unused
+[2017-07-24 15:56:28] playerEffect.erl:242: Warning: variable 'Percent' is unused
+[2017-07-24 15:56:28] playerEffect.erl:277: Warning: variable 'BattleProp' is unused
+[2017-07-24 15:56:28] playerEffect.erl:277: Warning: variable 'BuffID' is unused
+[2017-07-24 15:56:28] playerEffect.erl:277: Warning: variable 'Prob' is unused
+[2017-07-24 15:56:28] playerEffect.erl:277: Warning: variable 'PropID' is unused
+[2017-07-24 15:56:28] playerEffect.erl:277: Warning: variable 'Rec' is unused
+
+[2017-07-24 15:56:28] compiled playerPetProp.erl true 
+[2017-07-24 15:56:28] compiled acGuildExpeditionOtp.erl true 
+[2017-07-24 15:56:28] acGuildExpeditionOtp.erl:17: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:29] compiled cfg_gamemapcfg8000.erl true 
+[2017-07-24 15:56:29] compiled web2lsMsgDenyChat.erl true 
+[2017-07-24 15:56:29] compiled talkdataOtp.erl true 
+[2017-07-24 15:56:29] talkdataOtp.erl:7: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:30] compiled cfg_gamemapcfg8.erl true 
+[2017-07-24 15:56:30] compiled cfg_gamemapcfg7012.erl true 
+[2017-07-24 15:56:30] compiled web2lsMsgDelNotice.erl true 
+[2017-07-24 15:56:31] compiled cfg_gamemapcfg7010.erl true 
+[2017-07-24 15:56:31] compiled playerPetDouble.erl true 
+[2017-07-24 15:56:32] compiled web2lsMsgDelLoginAward.erl true 
+[2017-07-24 15:56:33] compiled playerEDBLoad.erl true 
+[2017-07-24 15:56:33] playerEDBLoad.erl:477: Warning: variable 'RoleID' is unused
+
+[2017-07-24 15:56:33] compiled talkdataLogic.erl true 
+[2017-07-24 15:56:33] compiled redEnvelopeState.erl true 
+[2017-07-24 15:56:33] compiled web2lsMsgCommonLogic.erl true 
+[2017-07-24 15:56:34] compiled acGuildExpeditionLogic.erl true 
+[2017-07-24 15:56:35] compiled web2lsMsgClearBan.erl true 
+[2017-07-24 15:56:36] compiled cfg_gamemapcfg7002.erl true 
+[2017-07-24 15:56:36] compiled web2lsMsgCleanRoleCache.erl true 
+[2017-07-24 15:56:36] compiled redEnvelopeOtp.erl true 
+[2017-07-24 15:56:36] redEnvelopeOtp.erl:6: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:37] compiled acGuildBattleState.erl true 
+[2017-07-24 15:56:37] compiled web2lsMsgChangeRoleAccount.erl true 
+[2017-07-24 15:56:37] compiled playerDrop.erl true 
+[2017-07-24 15:56:39] compiled web2lsMsgAddXmlNotice.erl true 
+[2017-07-24 15:56:40] compiled cfg_gamemapcfg7001.erl true 
+[2017-07-24 15:56:40] compiled redEnvelopeLogic.erl true 
+[2017-07-24 15:56:40] compiled acGuildBattleOtp.erl true 
+[2017-07-24 15:56:40] acGuildBattleOtp.erl:15: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:40] compiled playerPet.erl true 
+[2017-07-24 15:56:40] playerPet.erl:182: Warning: variable 'PetID' is unused
+[2017-07-24 15:56:40] playerPet.erl:205: Warning: function getExpressPet/0 is unused
+[2017-07-24 15:56:40] playerPet.erl:209: Warning: function getExpressPet/3 is unused
+[2017-07-24 15:56:40] playerPet.erl:218: Warning: function getNoExpressPet/0 is unused
+[2017-07-24 15:56:40] playerPet.erl:223: Warning: function getNoExpressPet/2 is unused
+[2017-07-24 15:56:40] playerPet.erl:760: Warning: function getPetMaxStar/0 is unused
+[2017-07-24 15:56:40] playerPet.erl:885: Warning: variable 'Star' is unused
+[2017-07-24 15:56:40] playerPet.erl:1538: Warning: function clearTimeLimitPetAssistBattle/2 is unused
+
+[2017-07-24 15:56:40] compiled web2lsMsgAddNotice.erl true 
+[2017-07-24 15:56:41] compiled playerDate.erl true 
+[2017-07-24 15:56:41] compiled web2lsMsgAddLoginAward.erl true 
+[2017-07-24 15:56:42] compiled cfg_gamemapcfg7000.erl true 
+[2017-07-24 15:56:42] compiled cfg_gamemapcfg7.erl true 
+[2017-07-24 15:56:43] compiled cfg_gamemapcfg6000.erl true 
+[2017-07-24 15:56:43] compiled cfg_gamemapcfg6.erl true 
+[2017-07-24 15:56:43] compiled playerPersonalityInfo.erl true 
+[2017-07-24 15:56:44] compiled playerDarkness.erl true 
+[2017-07-24 15:56:44] compiled acGuildBattleLogic.erl true 
+[2017-07-24 15:56:44] compiled acExampleState.erl true 
+[2017-07-24 15:56:45] compiled rechargeRebateLogic.erl true 
+[2017-07-24 15:56:46] compiled playerDance.erl true 
+[2017-07-24 15:56:46] playerDance.erl:111: Warning: a term is constructed, but never used
+
+[2017-07-24 15:56:46] compiled acExampleOtp.erl true 
+[2017-07-24 15:56:46] acExampleOtp.erl:21: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:48] compiled rechargeOtp.erl true 
+[2017-07-24 15:56:48] rechargeOtp.erl:7: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:48] compiled acExampleLogic.erl true 
+[2017-07-24 15:56:49] compiled playerDailySignIn.erl true 
+[2017-07-24 15:56:50] compiled rechargeLogic.erl true 
+[2017-07-24 15:56:51] compiled acEscortState.erl true 
+[2017-07-24 15:56:51] compiled playerPackage.erl true 
+[2017-07-24 15:56:51] playerPackage.erl:1389: Warning: variable 'IsBind' is unused
+[2017-07-24 15:56:51] playerPackage.erl:1459: Warning: variable 'IsBind' is unused
+[2017-07-24 15:56:51] playerPackage.erl:2396: Warning: variable 'IsBind' is unused
+[2017-07-24 15:56:51] playerPackage.erl:3014: Warning: this clause cannot match because a previous clause at line 2995 always matches
+
+[2017-07-24 15:56:51] compiled playerDaily.erl true 
+[2017-07-24 15:56:52] compiled rankState.erl true 
+[2017-07-24 15:56:53] compiled acEscortOtp.erl true 
+[2017-07-24 15:56:53] acEscortOtp.erl:15: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:54] compiled playerCrosTeam.erl true 
+[2017-07-24 15:56:54] compiled playerOtp.erl true 
+[2017-07-24 15:56:54] playerOtp.erl:7: Warning: behaviour myGenServer undefined
+[2017-07-24 15:56:54] playerOtp.erl:1053: Warning: variable 'MapID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1053: Warning: variable 'TeamID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1059: Warning: variable 'BeInviteID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1059: Warning: variable 'SelfRoleID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1059: Warning: variable 'TeamID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1066: Warning: variable 'BeInvitePid' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1066: Warning: variable 'JoinSucess' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1066: Warning: variable 'TeamIDOrErrorCode' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1081: Warning: variable 'Ret' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1081: Warning: variable 'TeamID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1081: Warning: variable 'TeamType' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1096: Warning: variable 'BeInvitePid' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1096: Warning: variable 'MemberInfo' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1096: Warning: variable 'TeamType' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1100: Warning: variable 'LeaderPid' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1100: Warning: variable 'TeamID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1100: Warning: variable 'TeamType' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1104: Warning: variable 'InviterID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1104: Warning: variable 'InviterName' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1104: Warning: variable 'Pid' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1104: Warning: variable 'TeamType' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1109: Warning: variable 'JoinerID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1109: Warning: variable 'JoinerName' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1109: Warning: variable 'JoinerPid' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1109: Warning: variable 'TeamType' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1114: Warning: variable 'TeamID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1119: Warning: variable 'MemberID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1119: Warning: variable 'TeamType' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1124: Warning: variable 'KickMemberID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1124: Warning: variable 'TeamID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1124: Warning: variable 'TeamType' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1129: Warning: variable 'LeaveMemberRoleID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1129: Warning: variable 'TeamID' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1129: Warning: variable 'TeamType' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1139: Warning: variable 'BeInvitePid' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1139: Warning: variable 'MemberInfo' is unused
+[2017-07-24 15:56:54] playerOtp.erl:1293: Warning: variable 'Data' is unused
+[2017-07-24 15:56:54] playerOtp.erl:2072: Warning: variable 'RankList' is unused
+[2017-07-24 15:56:54] playerOtp.erl:2094: Warning: variable 'OneDamageValue' is unused
+
+[2017-07-24 15:56:55] compiled rankSpecial.erl true 
+[2017-07-24 15:56:56] compiled acEscortLogic.erl true 
+[2017-07-24 15:56:56] compiled playerCrossLogic.erl true 
+[2017-07-24 15:56:57] compiled playerOperateExchange.erl true 
+[2017-07-24 15:56:57] compiled rankOtp.erl true 
+[2017-07-24 15:56:57] rankOtp.erl:12: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:56:58] compiled acDateState.erl true 
+[2017-07-24 15:56:59] compiled playerOnlineReward.erl true 
+[2017-07-24 15:56:59] compiled playerCopyMapRift.erl true 
+[2017-07-24 15:57:00] compiled acDateOtp.erl true 
+[2017-07-24 15:57:00] acDateOtp.erl:15: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:57:00] compiled rankLogic.erl true 
+[2017-07-24 15:57:01] compiled playerOfflineExp.erl true 
+[2017-07-24 15:57:01] compiled playerCopyMapReward.erl true 
+[2017-07-24 15:57:02] compiled acDateLogic.erl true 
+[2017-07-24 15:57:03] compiled playerNpc.erl true 
+[2017-07-24 15:57:04] compiled rankFresh.erl true 
+[2017-07-24 15:57:04] compiled playerCopyMap.erl true 
+[2017-07-24 15:57:05] compiled playerNeedForSpeed.erl true 
+[2017-07-24 15:57:05] compiled acDateActivity_PushBox.erl true 
+[2017-07-24 15:57:05] acDateActivity_PushBox.erl:163: Warning: variable 'RoleID_A' is unused
+[2017-07-24 15:57:05] acDateActivity_PushBox.erl:206: Warning: variable 'GMMod' is unused
+[2017-07-24 15:57:05] acDateActivity_PushBox.erl:206: Warning: variable 'RoleID' is unused
+[2017-07-24 15:57:05] acDateActivity_PushBox.erl:292: Warning: variable 'Code' shadowed in 'fun'
+[2017-07-24 15:57:05] acDateActivity_PushBox.erl:374: Warning: variable 'RoleID' is unused
+[2017-07-24 15:57:05] acDateActivity_PushBox.erl:650: Warning: variable 'RecActive' is unused
+[2017-07-24 15:57:05] acDateActivity_PushBox.erl:833: Warning: function configRandBoxID/0 is unused
+[2017-07-24 15:57:05] acDateActivity_PushBox.erl:850: Warning: function configNboxEndpoint/0 is unused
+
+[2017-07-24 15:57:07] compiled playerConvoy.erl true 
+[2017-07-24 15:57:07] compiled preRechargeOtp.erl true 
+[2017-07-24 15:57:07] preRechargeOtp.erl:7: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:57:08] compiled playerMSShop.erl true 
+[2017-07-24 15:57:09] compiled playerClock.erl true 
+[2017-07-24 15:57:10] compiled preRechargeLogic.erl true 
+[2017-07-24 15:57:10] compiled acDateActivity_Link.erl true 
+[2017-07-24 15:57:10] acDateActivity_Link.erl:893: Warning: function createMatrix_Shuffle/1 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:898: Warning: function createMatrix_ShuffleR1/1 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:908: Warning: function createMatrix_ShuffleR2/3 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:930: Warning: function createMatrix_Shuffle_Check/2 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:942: Warning: function createMatrix_Shuffle_Swap/2 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:999: Warning: function createMatrix_Shuffle_IsSide/2 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:1132: Warning: function createMatrix_ResetPlayerPos/1 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:1424: Warning: variable 'NpcEts' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:1592: Warning: variable 'MapID' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:1739: Warning: variable 'TimerRefMain' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:1743: Warning: variable 'MonsterEts' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:1749: Warning: variable 'TimeEnd' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2049: Warning: variable 'Combo' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2049: Warning: variable 'MonsterEts' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2201: Warning: variable 'IsRoleA' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2201: Warning: variable 'MapPid' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2201: Warning: variable 'MonsterEts' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2205: Warning: variable 'PosA' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2206: Warning: variable 'PosB' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2207: Warning: variable 'ComboMax' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2208: Warning: variable 'Score' is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2423: Warning: function monsterUseSkill/4 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2530: Warning: function configComboBuff/0 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2585: Warning: function configMonsterID_God/0 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2587: Warning: function configMonsterID_Devil/0 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2589: Warning: function configMonsterSkillID_God/0 is unused
+[2017-07-24 15:57:10] acDateActivity_Link.erl:2591: Warning: function configMonsterSkillID_Devil/0 is unused
+
+[2017-07-24 15:57:12] compiled playerChat.erl true 
+[2017-07-24 15:57:12] compiled testVariant.erl true 
+[2017-07-24 15:57:12] compiled acDarknessState.erl true 
+[2017-07-24 15:57:13] compiled playerMsg.erl true 
+[2017-07-24 15:57:15] compiled playerWorldLevel.erl true 
+[2017-07-24 15:57:15] compiled playerCareerChange.erl true 
+[2017-07-24 15:57:16] compiled acDarknessOtp.erl true 
+[2017-07-24 15:57:16] acDarknessOtp.erl:15: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:57:16] compiled playerMove.erl true 
+[2017-07-24 15:57:18] compiled playerWorldBossWar.erl true 
+[2017-07-24 15:57:18] compiled playerCalcProp.erl true 
+[2017-07-24 15:57:19] compiled playerMonthCard.erl true 
+[2017-07-24 15:57:21] compiled playerWing.erl true 
+[2017-07-24 15:57:21] compiled playerBuy4System.erl true 
+[2017-07-24 15:57:21] compiled acDarknessLogic.erl true 
+[2017-07-24 15:57:23] compiled playerMoneyTree.erl true 
+[2017-07-24 15:57:26] compiled playerWildBoss.erl true 
+[2017-07-24 15:57:28] compiled playerMoneyDungeon.erl true 
+[2017-07-24 15:57:29] compiled acDarknessActivity.erl true 
+[2017-07-24 15:57:34] compiled playerWarriorTrial.erl true 
+[2017-07-24 15:57:34] compiled playerMoney.erl true 
+[2017-07-24 15:57:35] compiled acDanceState.erl true 
+[2017-07-24 15:57:36] compiled playerBuff.erl true 
+[2017-07-24 15:57:36] playerBuff.erl:861: Warning: variable 'Level' is unused
+[2017-07-24 15:57:36] playerBuff.erl:1331: Warning: variable 'B1' is unused
+[2017-07-24 15:57:36] playerBuff.erl:1331: Warning: variable 'B2' is unused
+
+[2017-07-24 15:57:36] compiled playerVipInter.erl true 
+[2017-07-24 15:57:37] compiled acDanceOtp.erl true 
+[2017-07-24 15:57:37] acDanceOtp.erl:15: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:57:38] compiled playerMgrOtp.erl true 
+[2017-07-24 15:57:38] playerMgrOtp.erl:9: Warning: behaviour myGenServer undefined
+[2017-07-24 15:57:38] playerMgrOtp.erl:403: Warning: variable 'TeamID' is unused
+
+[2017-07-24 15:57:40] compiled playerVip.erl true 
+[2017-07-24 15:57:40] compiled acDanceLogic.erl true 
+[2017-07-24 15:57:40] compiled playerBattleLearn.erl true 
+[2017-07-24 15:57:41] compiled playerMaterialCopy.erl true 
+[2017-07-24 15:57:43] compiled acCityMonsterOtp.erl true 
+[2017-07-24 15:57:43] acCityMonsterOtp.erl:15: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:57:43] compiled playerVariant.erl true 
+[2017-07-24 15:57:44] compiled playerBattle.erl true 
+[2017-07-24 15:57:44] playerBattle.erl:90: Warning: variable 'IsRan' is unused
+[2017-07-24 15:57:44] playerBattle.erl:902: Warning: variable 'HeathArg' is unused
+
+[2017-07-24 15:57:44] compiled playerMarriageTask.erl true 
+[2017-07-24 15:57:46] compiled playerUpdateReward.erl true 
+[2017-07-24 15:57:46] compiled acCityMonsterLogic.erl true 
+[2017-07-24 15:57:50] compiled playerBase.erl true 
+[2017-07-24 15:57:50] playerBase.erl:1233: Warning: variable 'HpPC' is unused
+[2017-07-24 15:57:50] playerBase.erl:1265: Warning: variable 'Level' is unused
+
+[2017-07-24 15:57:51] compiled playerMarriage.erl true 
+[2017-07-24 15:57:52] compiled acAnswerPlayOtp.erl true 
+[2017-07-24 15:57:52] acAnswerPlayOtp.erl:7: Warning: behaviour myGenServer undefined
+
+[2017-07-24 15:57:53] compiled playerTurnBattle.erl true 
+[2017-07-24 15:57:55] compiled playerBadge.erl true 
+[2017-07-24 15:57:56] compiled acAnswerPlayLogic.erl true 
+[2017-07-24 15:57:57] compiled playerMap.erl true 
+[2017-07-24 15:57:57] playerMap.erl:2131: Warning: function notifyTeamMemberMapID/1 is unused
+[2017-07-24 15:57:57] playerMap.erl:2131: Warning: variable 'MapID' is unused
+
+[2017-07-24 15:57:57] compiled playerAnswer.erl true 
+[2017-07-24 15:57:57] compiled playerTrade.erl true 
+[2017-07-24 15:57:59] compiled playerMall.erl true 
+[2017-07-24 15:57:59] compiled playerActivity.erl true 
+[2017-07-24 15:57:59] compiled playerTitle.erl true 
+[2017-07-24 15:58:01] compiled playerActiveCode.erl true 
+[2017-07-24 15:58:01] compiled playerThirtyDayLoginGift.erl true 
+[2017-07-24 15:58:02] compiled playerMail.erl true 
+[2017-07-24 15:58:03] compiled playerActionPoint.erl true 
+[2017-07-24 15:58:03] compiled playerTeamCopyMap.erl true 
+[2017-07-24 15:58:04] compiled playerLSBattlefield.erl true 
+[2017-07-24 15:58:05] compiled playerAcKingBattleAll.erl true 
+[2017-07-24 15:58:06] compiled playerLowCopyMapAuto.erl true 
+[2017-07-24 15:58:06] compiled playerTeam.erl true 
+[2017-07-24 15:58:08] compiled playerLotteryForTower.erl true 
+[2017-07-24 15:58:09] compiled playerTask.erl true 
+[2017-07-24 15:58:09] compiled playerAchieve.erl true 
+[2017-07-24 15:58:10] compiled playerACChargeOrUse.erl true 
+[2017-07-24 15:58:12] compiled playerLottery.erl true 
+[2017-07-24 15:58:14] compiled playerLoopTask.erl true 
+[2017-07-24 15:58:16] compiled playerLoginAward.erl true 
+[2017-07-24 15:58:17] compiled playerLogin.erl true 
+[2017-07-24 15:58:19] compiled playerLogAdd.erl true 
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+logger.erl
+[2017-07-24 15:52:29] logger.erl:80: spec for undefined function error/3
+[2017-07-24 15:52:29] logger.erl:122: spec for undefined function log/3
+[2017-07-24 15:52:29] logger.erl:153: function debug/3 undefined
+
+!!!! compile [chs,gsD] ERROR ERROR ERROR !!!*** at 2017-07-24 15:58:19  370.085 seconds 
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+

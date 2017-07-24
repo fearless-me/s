@@ -8,22 +8,22 @@
 getRow(16)->
     #pet_territory_rewardCfg {
     id = 16,
-    reward = [{240,3},{250,3}]
+    reward = [{240,3},{2002,6}]
     };
 getRow(29)->
     #pet_territory_rewardCfg {
     id = 29,
-    reward = [{240,3},{250,3}]
+    reward = [{240,4},{2002,8}]
     };
 getRow(39)->
     #pet_territory_rewardCfg {
     id = 39,
-    reward = [{241,4},{251,4}]
+    reward = [{240,5},{2002,10}]
     };
 getRow(50)->
     #pet_territory_rewardCfg {
     id = 50,
-    reward = [{241,4},{251,4}]
+    reward = [{240,6},{2002,12}]
     };
 getRow(_)->[].
 

@@ -27,8 +27,8 @@ getRow(3)->
     #conditionCfg {
     id = 3,
     module = "playerCondation",
-    method = "playerLevelGe",
-    argu = [60],
+    method = "playerLevelInterregional",
+    argu = [60,89],
     toTriggleValueKey = [],
     toTriggleValue = []
     };
@@ -192,7 +192,7 @@ getRow(21)->
     method = "currentTimeL",
     argu = [20,28,0],
     toTriggleValueKey = [1],
-    toTriggleValue = [30105]
+    toTriggleValue = [6551]
     };
 getRow(22)->
     #conditionCfg {
@@ -201,7 +201,7 @@ getRow(22)->
     method = "currentTimeG",
     argu = [20,58,0],
     toTriggleValueKey = [1],
-    toTriggleValue = [30105]
+    toTriggleValue = [6551]
     };
 getRow(23)->
     #conditionCfg {
@@ -228,7 +228,7 @@ getRow(25)->
     method = "playerLevelLe",
     argu = [39],
     toTriggleValueKey = [1],
-    toTriggleValue = [30106]
+    toTriggleValue = [6552]
     };
 getRow(26)->
     #conditionCfg {
@@ -246,7 +246,7 @@ getRow(27)->
     method = "mapFull",
     argu = [8000,50],
     toTriggleValueKey = [1],
-    toTriggleValue = [30107]
+    toTriggleValue = [6553]
     };
 getRow(28)->
     #conditionCfg {
@@ -696,7 +696,7 @@ getRow(77)->
     method = "playerDailyCountGe",
     argu = [97,0,3],
     toTriggleValueKey = [1],
-    toTriggleValue = [30111]
+    toTriggleValue = [6601]
     };
 getRow(78)->
     #conditionCfg {
@@ -714,7 +714,7 @@ getRow(79)->
     method = "playerActionPointGe",
     argu = [381],
     toTriggleValueKey = [1],
-    toTriggleValue = [30112]
+    toTriggleValue = [6602]
     };
 getRow(80)->
     #conditionCfg {
@@ -858,7 +858,7 @@ getRow(95)->
     method = "currentPlayerOffMount",
     argu = [],
     toTriggleValueKey = [1],
-    toTriggleValue = [30116]
+    toTriggleValue = [6653]
     };
 getRow(96)->
     #conditionCfg {
@@ -867,7 +867,7 @@ getRow(96)->
     method = "currentPlayerNotOnDoubbleMount",
     argu = [],
     toTriggleValueKey = [1],
-    toTriggleValue = [30116]
+    toTriggleValue = [6653]
     };
 getRow(97)->
     #conditionCfg {
@@ -876,7 +876,7 @@ getRow(97)->
     method = "playerLevelL",
     argu = [40],
     toTriggleValueKey = [1],
-    toTriggleValue = [30114]
+    toTriggleValue = [6651]
     };
 getRow(98)->
     #conditionCfg {
@@ -885,7 +885,7 @@ getRow(98)->
     method = "currentTimeG",
     argu = [23,30,0],
     toTriggleValueKey = [1],
-    toTriggleValue = [30115]
+    toTriggleValue = [6652]
     };
 getRow(99)->
     #conditionCfg {
@@ -894,7 +894,7 @@ getRow(99)->
     method = "currentTimeL",
     argu = [08,00,0],
     toTriggleValueKey = [1],
-    toTriggleValue = [30115]
+    toTriggleValue = [6652]
     };
 getRow(100)->
     #conditionCfg {
@@ -1094,6 +1094,51 @@ getRow(121)->
     toTriggleValueKey = [],
     toTriggleValue = []
     };
+getRow(122)->
+    #conditionCfg {
+    id = 122,
+    module = "playerCondation",
+    method = "playerLevelInterregional",
+    argu = [90,119],
+    toTriggleValueKey = [],
+    toTriggleValue = []
+    };
+getRow(123)->
+    #conditionCfg {
+    id = 123,
+    module = "playerCondation",
+    method = "playerLevelInterregional",
+    argu = [120,149],
+    toTriggleValueKey = [],
+    toTriggleValue = []
+    };
+getRow(124)->
+    #conditionCfg {
+    id = 124,
+    module = "playerCondation",
+    method = "playerLevelGe",
+    argu = [150],
+    toTriggleValueKey = [],
+    toTriggleValue = []
+    };
+getRow(125)->
+    #conditionCfg {
+    id = 125,
+    module = "mapCondation",
+    method = "currentMapIDInCfg",
+    argu = [509],
+    toTriggleValueKey = [],
+    toTriggleValue = []
+    };
+getRow(126)->
+    #conditionCfg {
+    id = 126,
+    module = "mapCondation",
+    method = "currentMapIDInCfg",
+    argu = [510],
+    toTriggleValueKey = [],
+    toTriggleValue = []
+    };
 getRow(_)->[].
 
 getKeyList()->[
@@ -1217,7 +1262,12 @@ getKeyList()->[
     {118},
     {119},
     {120},
-    {121}
+    {121},
+    {122},
+    {123},
+    {124},
+    {125},
+    {126}
     ].
 
 get1KeyList()->[
@@ -1341,6 +1391,11 @@ get1KeyList()->[
     118,
     119,
     120,
-    121
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
     ].
 

@@ -18,7 +18,7 @@
 	saveTradeData/1,
 	newMail/2,
 	updateMail/1,
-    deleteMail/1,
+	deleteMail/1,
 	deleteAttachMent/1,
 	saveGuildData/2,
 	saveGuildWarPaidData/2,
@@ -35,7 +35,8 @@
 	saveRechargeRebate/1,
 	cleanRechargeRebateTaken/1,
 	saveRechargeRebateTaken/2,
-    saveGuildBattleData/2
+	saveGuildBattleData/2,
+	saveHomeData/1
 ]).
 
 initCSSavePrepare() ->
@@ -45,8 +46,8 @@ initCSSavePrepare() ->
 	emysql:prepare(stUpdateMail,"call updateMail(?,?,?,?)"),
 	emysql:prepare(stDeleteMail,"call deleteMail(?)"),
 	emysql:prepare(stDelMailAttachMent,"call delMailAttachMent(?,?,?,?)"),
-	emysql:prepare(stSaveGuildInfo,"call saveGuildInfo(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"),
-	emysql:prepare(stSaveGuildMember,"call saveGuildMember(?,?,?,?,?)"),
+	emysql:prepare(stSaveGuildInfo,"call saveGuildInfo(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"),
+	emysql:prepare(stSaveGuildMember,"call saveGuildMember(?,?,?,?,?,?,?,?)"),
 	emysql:prepare(stDeleteGuildData,"call deleteGuildData(?,?)"),
 	emysql:prepare(stDelGuildBattle,"call delGuildBattle(?)"),
 	emysql:prepare(stsaveAwardTakens,"insert into role_award_takens(role_id,award_id,taken_time) values(?,?,UNIX_TIMESTAMP())"),
@@ -62,6 +63,61 @@ initCSSavePrepare() ->
 	emysql:prepare(stSaveActivityData,"call saveActivityData(?,?,?,?)"),
 	emysql:prepare(stSetRechargeRebateConf,"CALL setRechargeRebateConf(?,?,?,?,?,?,?,?,?,?,?,?)"),
 	emysql:prepare(stSetRechargeRebateTaken,"CALL setRechargeRebateTaken(?,?)"),
+	emysql:prepare(stUpdateHome,"UPDATE home h SET h.homeName = ?, h.homeLvl = ?, h.roleID = ?, h.stylish = ?, h.comfort = ?, h.popularity = ? WHERE h.homeID = ?"),
+	ok.
+
+saveHomeData(#rec_home{} = Home) ->
+	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, stUpdateHome, [
+		Home#rec_home.homeName,
+		Home#rec_home.homeLvl,
+		Home#rec_home.roleID,
+		Home#rec_home.stylish,
+		Home#rec_home.comfort,
+		Home#rec_home.popularity,
+		Home#rec_home.homeID
+	]),
+	libDB:logResult(stUpdateHome,Ret,"stUpdateHome",Home#rec_home.homeID),
+	ok;
+saveHomeData(#rec_home_area{homeID = {HomeID, AreaID}, areaID = AreaID, areaLvl = Lvl, areaData = Data}) ->
+	SQL = io_lib:format("UPDATE home_area ha SET ha.areaLvl = ~p, ha.areaData = '~ts' WHERE ha.homeID = ~p AND ha.areaID = ~p;",
+		[Lvl, Data, HomeID, AreaID]),
+	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
+	libDB:logResult("update home area",Ret,SQL,HomeID),
+	ok;
+saveHomeData({insert, #rec_home{} = Home}) ->
+	SQL = io_lib:format("INSERT INTO home(homeID, homeName, homeLvl, roleID, stylish, comfort, popularity, serverName, createtime)
+  VALUES (~p, '~ts', ~p, ~p, ~p, ~p, ~p, '~ts', ~p);", [
+		Home#rec_home.homeID,
+		Home#rec_home.homeName,
+		Home#rec_home.homeLvl,
+		Home#rec_home.roleID,
+		Home#rec_home.stylish,
+		Home#rec_home.comfort,
+		Home#rec_home.popularity,
+		Home#rec_home.serverName,
+		Home#rec_home.createtime
+	]),
+	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
+	libDB:logResult("insert home",Ret,SQL,Home#rec_home.homeID),
+	ok;
+saveHomeData({insert, [#rec_home_area{homeID = HID}|_] = List}) ->
+	Fun =
+		fun(#rec_home_area{
+			homeID = {HomeID, AreaID},
+			areaID = AreaID,
+			areaLvl = Lvl,
+			areaData = Data
+		},AccIn) ->
+			io_lib:format(",(~p,~p,~p,'~ts')", [HomeID, AreaID, Lvl, Data]) ++ AccIn
+		end,
+	[_|T] = lists:foldl(Fun,[],List),
+	SQL = io_lib:format("INSERT INTO home_area(homeID, areaID, areaLvl, areaData) VALUES ~s",[T]),
+	Ret = emysql:execute(?GAMEDB_CONNECT_POOL,SQL),
+	libDB:logResult("insert home area",Ret,SQL,HID),
+	ok;
+saveHomeData({insert, []}) -> ok;
+saveHomeData(Data) ->
+	?ERROR_OUT("no deal home data:~p", [Data]),
 	ok.
 
 %% 保存交易行数据
@@ -117,17 +173,17 @@ newMail(#recSaveMail{mailSendTime = MailSendTime, deleteTime = DeleteTime} = Mai
 	StrSendTime = time:convertSec2DateTimeStr(MailSendTime),
 	DeleteTimeStr = time:convertSec2DateTimeStr(DeleteTime),
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL,
-	                     stNewMail,
-	                     [
-		                     Mail#recSaveMail.mailID,					    %%邮件ID
-		                     StrSendTime,             					    %%邮件发送时间
-		                     Mail#recSaveMail.senderRoleID,             	%%发送者id
-		                     Mail#recSaveMail.toRoleID,				        %%接收者ID
-		                     Mail#recSaveMail.mailTitle,                	%%邮件标题
-		                     Mail#recSaveMail.mailContent,              	%%邮件内容
-		                     Mail#recSaveMail.mailSubjoinMsg,
-		                     DeleteTimeStr
-	                     ]),
+		stNewMail,
+		[
+			Mail#recSaveMail.mailID,					    %%邮件ID
+			StrSendTime,             					    %%邮件发送时间
+			Mail#recSaveMail.senderRoleID,             	%%发送者id
+			Mail#recSaveMail.toRoleID,				        %%接收者ID
+			Mail#recSaveMail.mailTitle,                	%%邮件标题
+			Mail#recSaveMail.mailContent,              	%%邮件内容
+			Mail#recSaveMail.mailSubjoinMsg,
+			DeleteTimeStr
+		]),
 	{Result1,_LeftResult} = mysql:nextResult(Ret),
 	Row = mysql:firstRow(Result1),
 	OutRet = mysql:getFieldValue(1, Row),
@@ -142,15 +198,15 @@ newMail(#recSaveMail{mailSendTime = MailSendTime, deleteTime = DeleteTime} = Mai
 					Fun = fun(#recMailAttachMent{} = Attach) ->
 						L = misc:record_to_list(Attach),
 						RetAttach = emysql:execute(?GAMEDB_CONNECT_POOL,
-						                           stNewMailAttachment,
-						                           L),
+							stNewMailAttachment,
+							L),
 						case RetAttach of
 							#ok_packet{} ->
 								ok;
 							_ ->
 								?ERROR_OUT("Save newMailAttachment Mail Result[~p][~p]",[RetAttach, L])
 						end
-					end,
+						  end,
 
 					lists:foreach(Fun, Attachmentlist)
 			end,
@@ -166,23 +222,23 @@ updateMail(#recUpdateMail{mailID = MailID, mailReadTime = ReadTime, deleteTime =
 	StrReadTime = case ReadTime of
 					  0 -> "1970/1/1 0:00:00";
 					  _ -> time:convertSec2DateTimeStr(ReadTime)
-	              end,
+				  end,
 	StrDelTime = time:convertSec2DateTimeStr(DelTime),
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL,
-	                     stUpdateMail,
-	                     [MailID,IsLocked,StrReadTime,StrDelTime]),
+		stUpdateMail,
+		[MailID,IsLocked,StrReadTime,StrDelTime]),
 	libDB:logResult(stUpdateMail,Ret,"MailID:",MailID),
 	ok.
 
 deleteMail(MailID) ->
-    Ret = emysql:execute(?GAMEDB_CONNECT_POOL, stDeleteMail, [MailID]),
-    libDB:logResult(stDeleteMail,Ret,"MailID:",MailID),
-    ok.
+	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, stDeleteMail, [MailID]),
+	libDB:logResult(stDeleteMail,Ret,"MailID:",MailID),
+	ok.
 
 deleteAttachMent(#recMailAttachMent{mailID = MailID} = Attach) ->
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL,
-	                     stDelMailAttachMent,
-	                     misc:record_to_list(Attach)),
+		stDelMailAttachMent,
+		misc:record_to_list(Attach)),
 	libDB:logResult(stDelMailAttachMent,Ret,"MailID:",MailID),
 	ok.
 
@@ -196,33 +252,37 @@ saveGuildData(_PidFromCS, #rec_guild_member{guildID = GuildID, roleID = RoleID} 
 			GuildID,
 			Member#rec_guild_member.joinTime,
 			Member#rec_guild_member.power,
-			Member#rec_guild_member.liveness
+			Member#rec_guild_member.liveness,
+			Member#rec_guild_member.itemID,
+			Member#rec_guild_member.itemM,
+			Member#rec_guild_member.itemTime
 		]),
 	libDB:logResult(stSaveGuildMember,Ret,"stSaveGuildMember",RoleID),
 	ok;
 saveGuildData(_PidFromCS, #rec_guild{} = Guild) ->
 	%% 保存工会数据
 	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, stSaveGuildInfo,
-	[
-		Guild#rec_guild.guildID,
-		Guild#rec_guild.guildName,
-		Guild#rec_guild.guildLevel,
-		Guild#rec_guild.member,
-		Guild#rec_guild.resource,
-		Guild#rec_guild.liveness,
-		Guild#rec_guild.notice,
-		Guild#rec_guild.denoter,
-		Guild#rec_guild.shopLevel,
-        Guild#rec_guild.fightForce,
-		Guild#rec_guild.createTime,
-        Guild#rec_guild.lastGuildCopyOverTime,
-        Guild#rec_guild.guildTaskTargetGuild,
-        Guild#rec_guild.guildTaskTime,
-        Guild#rec_guild.snowman,
-        Guild#rec_guild.godBless,
-        Guild#rec_guild.fastJoin,
-        Guild#rec_guild.recruit
-	]),
+		[
+			Guild#rec_guild.guildID,
+			Guild#rec_guild.guildName,
+			Guild#rec_guild.guildLevel,
+			Guild#rec_guild.member,
+			Guild#rec_guild.resource,
+			Guild#rec_guild.liveness,
+			Guild#rec_guild.notice,
+			Guild#rec_guild.denoter,
+			Guild#rec_guild.shopLevel,
+			Guild#rec_guild.fightForce,
+			Guild#rec_guild.createTime,
+			Guild#rec_guild.lastGuildCopyOverTime,
+			Guild#rec_guild.guildTaskTargetGuild,
+			Guild#rec_guild.guildTaskTime,
+			Guild#rec_guild.snowman,
+			Guild#rec_guild.godBless,
+			Guild#rec_guild.fastJoin,
+			Guild#rec_guild.recruit,
+			Guild#rec_guild.guildBossLevel
+		]),
 	libDB:logResult(stSaveGuildInfo,Ret,"stSaveGuildInfo",Guild#rec_guild.guildID),
 	ok;
 saveGuildData(_PidFromCS, #rec_guild_ride{
@@ -235,7 +295,7 @@ saveGuildData(_PidFromCS, #rec_guild_ride{
 	SQL_Delete = io_lib:format("delete from guild_ride where guildID=~w and rideID=~w", [GuildID, RideID]),
 	Ret_Delete = emysql:execute(?GAMEDB_CONNECT_POOL, SQL_Delete),
 	dbMemCache:logResult("delete guild_ride", Ret_Delete, SQL_Delete),
-	SQL_Insert = io_lib:format("insert into guild_ride values (~w,~w,~w,~w)", [GuildID, RideID, RideLevel, RideState]),
+	SQL_Insert = io_lib:format("insert into guild_ride(guildID,rideID,rideLevel,rideState) values (~w,~w,~w,~w)", [GuildID, RideID, RideLevel, RideState]),
 	Ret_Insert = emysql:execute(?GAMEDB_CONNECT_POOL, SQL_Insert),
 	dbMemCache:logResult("insert guild_ride", Ret_Insert, SQL_Insert),
 	ok;
@@ -274,15 +334,15 @@ saveGuildWarData(_PidFromCS, {Stage, Group}) ->
 	ok.
 
 saveGuildBattleData(_PidFromCS, #rec_guild_battle_paid{guildID = GuildID, applytime = Time}) ->
-    SQL = io_lib:format("INSERT INTO guild_battle_paid (guildID, applytime) VALUES (~p,~p)", [GuildID, Time]),
-    Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
-    dbMemCache:logResult("saveGuildBattleData", Ret, SQL),
-    ok;
+	SQL = io_lib:format("INSERT INTO guild_battle_paid (guildID, applytime) VALUES (~p,~p)", [GuildID, Time]),
+	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
+	dbMemCache:logResult("saveGuildBattleData", Ret, SQL),
+	ok;
 saveGuildBattleData(_PidFromCS, GuildID) ->
-    SQL = io_lib:format("DELETE FROM guild_battle_paid WHERE guildID = ~p", [GuildID]),
-    Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
-    dbMemCache:logResult("saveGuildBattleData delete", Ret, SQL),
-    ok.
+	SQL = io_lib:format("DELETE FROM guild_battle_paid WHERE guildID = ~p", [GuildID]),
+	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, SQL),
+	dbMemCache:logResult("saveGuildBattleData delete", Ret, SQL),
+	ok.
 
 %% 保存玩家领取了的活动ID,将做缓存后组合mysql语句
 saveAwardTakens(RoleID,AwardID) ->
@@ -292,47 +352,47 @@ saveAwardTakens(RoleID,AwardID) ->
 
 %%保存商城数据信息
 saveMallData(_PidFromCS, #recSaveMall{} = Mall) ->
-	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, stSaveMallInfo, 
-						  [
-						   Mall#recSaveMall.dbID, 
-						   Mall#recSaveMall.itemID, 
-						   Mall#recSaveMall.sort, 
-						   Mall#recSaveMall.type, 
-						   Mall#recSaveMall.type1, 
-						   Mall#recSaveMall.diamond, 
-						   Mall#recSaveMall.bindDiamond, 
-						   Mall#recSaveMall.useIntegral, 
-						   Mall#recSaveMall.getIntegral, 
-						   Mall#recSaveMall.limitBuy,
-						   Mall#recSaveMall.limit_day,
-						   Mall#recSaveMall.limitType,
-						   Mall#recSaveMall.limitBeginTime,
-						   Mall#recSaveMall.limitEndTime,
-						   Mall#recSaveMall.buyReset, 
-						   Mall#recSaveMall.level, 
-						   Mall#recSaveMall.recharge, 
-						   Mall#recSaveMall.isHide, 
-						   Mall#recSaveMall.beginTime, 
-						   Mall#recSaveMall.endTime, 
-						   Mall#recSaveMall.rebate, 
-						   Mall#recSaveMall.rebateBeginTime,
-						   Mall#recSaveMall.rebateEndTime,
-						   Mall#recSaveMall.showType, 
-						   Mall#recSaveMall.buySendItem, 
-						   Mall#recSaveMall.buySendNum, 
-						   Mall#recSaveMall.buySendLimit, 
-						   Mall#recSaveMall.buySendBeginTime, 
-						   Mall#recSaveMall.buySendEndTime,
-						   Mall#recSaveMall.buyDefaultNum 
-						  ]),
+	Ret = emysql:execute(?GAMEDB_CONNECT_POOL, stSaveMallInfo,
+		[
+			Mall#recSaveMall.dbID,
+			Mall#recSaveMall.itemID,
+			Mall#recSaveMall.sort,
+			Mall#recSaveMall.type,
+			Mall#recSaveMall.type1,
+			Mall#recSaveMall.diamond,
+			Mall#recSaveMall.bindDiamond,
+			Mall#recSaveMall.useIntegral,
+			Mall#recSaveMall.getIntegral,
+			Mall#recSaveMall.limitBuy,
+			Mall#recSaveMall.limit_day,
+			Mall#recSaveMall.limitType,
+			Mall#recSaveMall.limitBeginTime,
+			Mall#recSaveMall.limitEndTime,
+			Mall#recSaveMall.buyReset,
+			Mall#recSaveMall.level,
+			Mall#recSaveMall.recharge,
+			Mall#recSaveMall.isHide,
+			Mall#recSaveMall.beginTime,
+			Mall#recSaveMall.endTime,
+			Mall#recSaveMall.rebate,
+			Mall#recSaveMall.rebateBeginTime,
+			Mall#recSaveMall.rebateEndTime,
+			Mall#recSaveMall.showType,
+			Mall#recSaveMall.buySendItem,
+			Mall#recSaveMall.buySendNum,
+			Mall#recSaveMall.buySendLimit,
+			Mall#recSaveMall.buySendBeginTime,
+			Mall#recSaveMall.buySendEndTime,
+			Mall#recSaveMall.buyDefaultNum
+		]),
 	libDB:logResult(stSaveMallInfo,Ret,"saveMallData",Mall#recSaveMall.dbID),
 	ok.
 
 %%删除商城道具
 deleteMallItem( _PidFromCS, Db_id ) ->
 	_Ret = emysql:execute(?GAMEDB_CONNECT_POOL,
-	                     stDeleteMallItem,
-	                     [Db_id]),
+		stDeleteMallItem,
+		[Db_id]),
 	ok.
 
 %%保存商城限购数据信息
@@ -367,19 +427,19 @@ addOrder(RoleID, FeOrderID, CurrencyTypeBinStr, Amount, CurrencyMoney, ProviderO
 %%cs保存充值的返利活动配置
 -spec saveRechargeRebate(Row::#recSaveRechargeRebate{}) ->boolean().
 saveRechargeRebate(#recSaveRechargeRebate{
-										  id = ID,
-										  type = Type,
-										  rebateId = RebateId,
-										  beginTime = BeginTime,
-										  endTime = EndTime,
-										  arg1 = Arg1,
-										  arg2 = Arg2,
-										  arg3 = Arg3,
-										  arg4 = Arg4,
-										  arg5 = Arg5,
-										  arg6 = Arg6,
-										  arg7 = Arg7
-										 }) ->
+	id = ID,
+	type = Type,
+	rebateId = RebateId,
+	beginTime = BeginTime,
+	endTime = EndTime,
+	arg1 = Arg1,
+	arg2 = Arg2,
+	arg3 = Arg3,
+	arg4 = Arg4,
+	arg5 = Arg5,
+	arg6 = Arg6,
+	arg7 = Arg7
+}) ->
 	try
 		#ok_packet{affected_rows = Num} =
 			emysql:execute(?GAMEDB_CONNECT_POOL, stSetRechargeRebateConf,
@@ -390,9 +450,9 @@ saveRechargeRebate(#recSaveRechargeRebate{
 		case Num >= 1 of
 			true when Type=:= ?RechargeRebateFirstDouble->
 				dbMemCacheCommon:setPayDoubleConf(#rec_recharge_double_conf{
-																			rebateID  = ID,
-																			funcellPayItemID = Arg2
-																			}),
+					rebateID  = ID,
+					funcellPayItemID = Arg2
+				}),
 				true;
 			true ->
 				true;
@@ -410,8 +470,8 @@ saveRechargeRebate(#recSaveRechargeRebate{
 saveRechargeRebateTaken(RoleID,RebateID) ->
 	try
 		#ok_packet{affected_rows = Num} = emysql:execute(?GAMEDB_CONNECT_POOL, stSetRechargeRebateTaken,
-														 [RoleID,RebateID]),
-	Num >= 1
+			[RoleID,RebateID]),
+		Num >= 1
 	catch
 		_:Content ->
 			?ERROR_OUT("saveRechargeRebateTaken err[~p] args[~p]",[Content,{RoleID,RebateID}]),
@@ -423,9 +483,9 @@ saveRechargeRebateTaken(RoleID,RebateID) ->
 cleanRechargeRebateTaken(RebateID) ->
 	try
 		#ok_packet{affected_rows = Num} = emysql:execute(?GAMEDB_CONNECT_POOL, stCleanRechargeRebateTaken,
-														 [RebateID]),
-		
-		Num >= 1	
+			[RebateID]),
+
+		Num >= 1
 	catch
 		_:Content ->
 			?ERROR_OUT("cleanRechargeRebateTaken err[~p] args[~p]",[Content,{RebateID}]),
@@ -436,8 +496,8 @@ cleanRechargeRebateTaken(RebateID) ->
 -spec delPreRecharge(AccountID::integer()) ->boolean().
 delPreRecharge(AccountID) ->
 	try
-	#ok_packet{affected_rows = Num} = emysql:execute(?GAMEDB_CONNECT_POOL, stDelPreChargeAccount, [AccountID]),
-	Num >= 1
+		#ok_packet{affected_rows = Num} = emysql:execute(?GAMEDB_CONNECT_POOL, stDelPreChargeAccount, [AccountID]),
+		Num >= 1
 	catch
 		_:_ ->
 			false
@@ -474,12 +534,12 @@ saveRankData(RankType, Len, [#recSaveRank{roleID = RoleID, rankType = RankType, 
 
 saveActivityData(#rec_activity{} = Activity) ->
 	_Ret = emysql:execute(?GAMEDB_CONNECT_POOL, stSaveActivityData,
-						  [
-							  Activity#rec_activity.id,
-							  Activity#rec_activity.starttime,
-							  Activity#rec_activity.phasetime,
-							  Activity#rec_activity.phase
-						  ]),
+		[
+			Activity#rec_activity.id,
+			Activity#rec_activity.starttime,
+			Activity#rec_activity.phasetime,
+			Activity#rec_activity.phase
+		]),
 	ok.
 
 %% ====================================================================

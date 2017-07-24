@@ -15,6 +15,7 @@
 
 %% 工会成员权限
 -define(GuildMemLevel_Request, 0).      % 请求加入
+
 -define(GuildMemLevel_Normal, 1).       % 普通成员
 -define(GuildMemLevel_Admin, 2).        % 管理员，普通军官
 -define(GuildMemLevel_ViceLeader, 3).   % 副军团长
@@ -22,8 +23,6 @@
 
 %% 所有正式成员，不包含正在申请的
 -define(AllGuildMemberPower, [?GuildMemLevel_Normal, ?GuildMemLevel_Admin, ?GuildMemLevel_ViceLeader, ?GuildMemLevel_Leader]).
-
--define(GuildBattleMapID, 4001).        % 军团领地争夺战战场地图ID
 
 %% 军团领地占开始报名时间
 -define(GuildBattleApplyStartHour, ?ResetTimeHour).
@@ -50,5 +49,10 @@
     isStart = false, %% 战斗是否正式开始
     isEnd = true %% 是否结束
 }).
+
+%% 碎片祈福用于客户端刷新的失败类型#pk_GS2U_Guild_SupplicateGiveF_Ack.type
+-define(SuppGiveFailedType_NotJoinGuild,	1).
+-define(SuppGiveFailedType_InvalidTarget,	2).
+-define(SuppGiveFailedType_Enough,			3).
 
 -endif. %% Define_guild_hrl_____

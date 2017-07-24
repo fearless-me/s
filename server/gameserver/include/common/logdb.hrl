@@ -105,6 +105,14 @@
 -define(ItemSourcePetToChip, 	97).%%骑宠转换成碎片
 -define(ItemSourceSevenDayAimReward, 	98).%%七日目标领奖道具奖励
 -define(ItemSourceThirtyDayLoginGift, 	99).%%30日登录送大礼道具奖励
+-define(ItemSourcePetRecycle, 	100).%%骑宠成长返还
+-define(ItemSourceCharmRank, 	101).%%魅力排行榜奖励
+-define(ItemSourceGuildSupplication, 	102).%%家族系统-碎片祈愿-被赠
+-define(ItemSourceGuildSupplicationBack, 	103).%%家族系统-碎片祈愿-赠送失败返还
+-define(ItemSourceHomePlantOPBack, 	104).%%家园系统-种植区-操作失败返还
+-define(ItemSourceHomePlantHarvest, 	105).%%家园系统-种植区-收获
+-define(ItemSourceHomeFarmingHarvest, 	106).%%家园系统-饲养区-收获
+-define(ItemSourceCrossRace, 	107).%%跨服活动-骑宠竞速-结算奖励
 
 %%物品变更定义，范围[500,999]
 -define(ItemUseReasonPlayer, 	500).%%玩家使用消耗
@@ -148,6 +156,14 @@
 -define(ItemDeleteReasonUseSkillBook, 	541).%%使用宠物技能书
 -define(ItemDeleteReasonMarriageWantBuild, 	542).%%姻缘系统消耗-求婚
 -define(ItemDeleteReasonMarriageRingTop, 	543).%%姻缘系统消耗-突破婚戒
+-define(ItemDeleteReasonPetSkillLevelUp, 	544).%%宠物技能升级
+-define(ItemDeleteReasonGiveGift, 	545).%%赠礼消耗礼品
+-define(ItemDeleteReasonGuildSupplication, 	546).%%家族系统-碎片祈愿-赠送
+-define(ItemDeleteReasonHome, 	547).%%家园消耗
+-define(ItemDeleteReasonFashion, 	548).%%时装消耗
+-define(ItemDeleteReasonHomePlantOP, 	549).%%家园系统-种植区-操作消耗
+-define(ItemDeleteReasonPetLevelup, 	550).%%宠物升级
+-define(ItemDeleteReasonHomeFarmingOP, 	551).%%家园系统-饲养区-操作消耗
 
 %%货币来源范围[1000,2000]
 -define(CoinSourceMail, 	1001).%%邮件获得
@@ -191,6 +207,10 @@
 -define(CoinSourceResetSkill, 	1039).%%技能洗点
 -define(CoinSourceSevenDayAimReward, 	1040).%%七日目标领奖货币奖励
 -define(CoinSourceThirtyDayLoginGift, 	1041).%%30日登录送大礼货币奖励
+-define(CoinSourceGuildFairgroundRideReward, 	1042).%%家族系统-游乐场-乘坐设备额外奖励
+-define(CoinSourceGuildSupplicationReward, 	1043).%%家族系统-碎片祈愿-赠送碎片奖励
+-define(CoinSourceHomePlantOPBack, 	1044).%%家园系统-种植区-操作失败返还
+-define(CoinSourceMonsterBook, 	1045).%%怪物图鉴-货币奖励
 
 %%货币消耗范围[10001,...]
 -define(CoinUseEquipResolve, 	10001).%%装备分解消耗
@@ -262,6 +282,12 @@
 -define(CoinUseGuildFairgroundRide, 	10071).%%家族系统-游乐场-乘坐设备消耗
 -define(CoinUseMoneyTree, 	10072).%%点金手
 -define(CoinUseWorldBossInspire, 	10073).%%首领入侵,鼓舞
+-define(CoinUsePetSkillLevelUp, 	10074).%%宠物技能升级
+-define(CoinUseStarMoonBox, 	10075).%%星月秘盒使用
+-define(CoinUsePetRecycle, 	10076).%%骑宠成长返还
+-define(CoinUseHome, 	10077).%%家园消耗
+-define(CoinUseHomePlantOP, 	10078).%%家园系统-种植区-操作消耗
+-define(CoinUseGuildBossOP, 	10079).%%家族-BOSS-战
 
 %%_funcell log 需要货币类型的中文
 
@@ -283,6 +309,8 @@
 -define(ExpSourceGuildGodBless, 	15).%%家族系统-女神祈福-经验奖励
 -define(ExpSourceGuildSnowmanDonate, 	16).%%家族系统-堆雪人活动-捐献材料经验奖励
 -define(ExpSourceDanceIng, 	17).%%限时广场舞跳舞获得经验
+-define(ExpSourceHomeFarming, 	18).%%家园放养宠物经验
+-define(ExpSourceMonsterBook, 	19).%%怪物图鉴-经验奖励
 
 %%玩家经验去向
 -define(ExpOutTalentLevelUp, 	1).%%天赋升级使用

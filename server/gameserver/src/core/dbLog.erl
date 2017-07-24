@@ -275,20 +275,22 @@ sendSaveLogChangeGoods(#recLogGoodsChange{} = Rec, #recPLogTSItem{old = Old,new 
 %%fixme 这里还有使用玩家的进程字典，所以此函数只能玩家进程调用，后面来优化
 sendSaveLogChangeGoods(#recLogGoodsChange{playerID = PlayerID, accountID = AccountID, itemID = ItemID} = Rec) ->
 	%%如果是宝石以及装备则默认都需要记录日志，普通道具根据策划配置决定是否记录
-	IsNeedLog = case goods:getGoodsCfg(ItemID) of
-					#itemCfg{itemType = ?ItemTypeGem} ->
-						true;
-					#itemCfg{itemType = ?ItemTypeDiamondCard} ->
-						true;
-					#itemCfg{needSaveLog = NeedSaveLog} when NeedSaveLog =:= 1 ->
-						true;
-					#equipmentCfg{} ->
-						true;
-					#runeCfg{} ->
-						true;
-					_ ->
-						false
-				end,
+%%	IsNeedLog = case goods:getGoodsCfg(ItemID) of
+%%					#itemCfg{itemType = ?ItemTypeGem} ->
+%%						true;
+%%					#itemCfg{itemType = ?ItemTypeDiamondCard} ->
+%%						true;
+%%					#itemCfg{needSaveLog = NeedSaveLog} when NeedSaveLog =:= 1 ->
+%%						true;
+%%					#equipmentCfg{} ->
+%%						true;
+%%					#runeCfg{} ->
+%%						true;
+%%					_ ->
+%%						false
+%%				end,
+	%% 目前道具量不大，则都记录日志
+	IsNeedLog = true,
 	case IsNeedLog of
 		true ->
 			NRec1 = case PlayerID =:= undefined orelse PlayerID =:= 0 orelse AccountID =:= undefined of
@@ -391,12 +393,12 @@ sendSaveLogPlayerOffline(
 	_Name,
 	_Career,
 	_Camp,
-	_PlayerOnlineTime,
+	PlayerOnlineTime,
 	{_Fgi,_FedID,_PlatformName}
 ) ->
 	case playerState:getIsPlayer() of
 		true ->
-			sendMsg2LogDBServer(?LogType_PlayerOffline, RecLog),
+			sendMsg2LogDBServer(?LogType_PlayerOffline, RecLog#recLogPlayerOffline{time2 = PlayerOnlineTime}),
 			ok;
 		_ ->
 			skip

@@ -4,7 +4,29 @@
 -ifndef(NetmsgRecords).
 -define(NetmsgRecords,1).
 
--define(ProtoVersion,699).
+-define(ProtoVersion,766).
+
+-record(pk_DateMonsterPos,{
+	%% UInt64  CODE
+	code,
+	%% Single 移动X
+	x,
+	%% Single 移动Z
+	z
+}).
+
+%% 
+%% //------------x寻找宝箱-----------------------
+%% // 角色在任意时间进入地图时收到的初始化消息
+-define(CMD_GS2U_DateFindTreasure_Welcome_Sync,63205).
+-record(pk_GS2U_DateFindTreasure_Welcome_Sync,{
+	%% UInt16 游戏前等待时间
+	timeForBegin,
+	%% UInt16 游戏中进行时间
+	timeForEnd,
+	%% UInt16 当前游戏积分
+	score
+}).
 
 %% 
 %% // 积累连击产生的正面效果 之 立即增加分值
@@ -168,6 +190,19 @@
 }).
 
 %% 
+%% //------------泳池派对协议-----------------------
+%% // 角色在任意时间进入地图时收到的初始化消息
+-define(CMD_GS2U_DatePoolShooting_Welcome_Sync,17426).
+-record(pk_GS2U_DatePoolShooting_Welcome_Sync,{
+	%% UInt16 游戏前等待时间
+	timeForBegin,
+	%% UInt16 游戏中进行时间
+	timeForEnd,
+	%% UInt16 当前游戏积分
+	score
+}).
+
+%% 
 %% // 角色在任意时间进入地图时收到的初始化消息
 -define(CMD_GS2U_DatePushBox_GreateNPC_Sync,45541).
 -record(pk_GS2U_DatePushBox_GreateNPC_Sync,{
@@ -212,6 +247,30 @@
 }).
 
 %% 
+-define(CMD_GS2U_Date_FindTreasure_Sync,11997).
+-record(pk_GS2U_Date_FindTreasure_Sync,{
+	%% UInt16 立即获得的分值
+	score
+}).
+
+%% 
+%% // 播放动作
+-define(CMD_GS2U_Date_PlayerAnimation_Sync,52140).
+-record(pk_GS2U_Date_PlayerAnimation_Sync,{
+}).
+
+%% 
+-define(CMD_GS2U_Date_RefreshSocre_Sync,54446).
+-record(pk_GS2U_Date_RefreshSocre_Sync,{
+	%% UInt16 立即获得的分值
+	score,
+	%% Boolean 玩家A是否被击中  0，未被击中>0击中
+	hitA,
+	%% Boolean 玩家A是否被击中  0，未被击中>0击中
+	hitB
+}).
+
+%% 
 %% // 重置箱子阵的同步消息（会重置玩家坐标到初始点）
 %% //     该消息可能在游戏正式开始时创建宝石阵时收到
 %% //         也可能在所有宝石被消除后创建新的宝石阵时收到
@@ -220,6 +279,27 @@
 -record(pk_GS2U_Date_ResetBox_Sync,{
 	%% UInt32重置箱子的次数
 	refreshNum
+}).
+
+%% 
+%% // 刷新monster
+-define(CMD_GS2U_Date_ResetFindTreasure_Sync,52220).
+-record(pk_GS2U_Date_ResetFindTreasure_Sync,{
+}).
+
+%% 
+-define(CMD_GS2U_Date_ResetPoolShooting_Sync,54665).
+-record(pk_GS2U_Date_ResetPoolShooting_Sync,{
+	%% Byte 刷新水枪的 索引列表
+	listPoolShootingPosIndex
+}).
+
+%% 
+%% // Monster瞬移
+-define(CMD_GS2U_MonsterMoveSync,15746).
+-record(pk_GS2U_MonsterMoveSync,{
+	%% DateMonsterPos 所有MONSTER坐标
+	monsterPosList
 }).
 
 %% 
@@ -286,6 +366,12 @@
 	z,
 	%% Boolean箱子是否移动到指定目标 后被删除
 	isDelete
+}).
+
+%% 
+%% //     向服务器发送射击完的消息
+-define(CMD_U2GS_DateShooting_Over,2028).
+-record(pk_U2GS_DateShooting_Over,{
 }).
 
 %% 
@@ -591,6 +677,13 @@
 	dailyActivityValue
 }).
 
+-record(pk_ActivityAnswerRankData,{
+	%% String 角色名
+	name,
+	%% UInt32积分
+	value
+}).
+
 -record(pk_AngelInvestmentData,{
 	%% Boolean 今天能否领取
 	isCanGet,
@@ -846,6 +939,16 @@
 }).
 
 %% 
+%% //答题题目ID
+-define(CMD_GS2U_AllAnswerQuestion,63577).
+-record(pk_GS2U_AllAnswerQuestion,{
+	%% ByteID
+	questionID,
+	%% UInt64开始时间
+	startTime
+}).
+
+%% 
 %% // 天使投资购买
 -define(CMD_GS2U_AngelInvestmentList,8750).
 -record(pk_GS2U_AngelInvestmentList,{
@@ -871,6 +974,26 @@
 	answerNum,
 	%% Question题目列表
 	questionList
+}).
+
+%% 
+%% // 积分排名
+-define(CMD_GS2U_AnswerRank,37510).
+-record(pk_GS2U_AnswerRank,{
+	%% ActivityAnswerRankData数据列表
+	data,
+	%% Boolean是否结束活动
+	isover
+}).
+
+%% 
+%% // 报名反馈
+-define(CMD_GS2U_ApplyAnswerResult,34469).
+-record(pk_GS2U_ApplyAnswerResult,{
+	%% Byte 报名结果1成功，2失败，3已报名
+	result,
+	%% UInt64剩余开始时间
+	endTime
 }).
 
 %% 
@@ -1304,6 +1427,16 @@
 }).
 
 %% 
+%% //自己的积排名
+-define(CMD_GS2U_MyAnswerRank,56278).
+-record(pk_GS2U_MyAnswerRank,{
+	%% UInt16我的名次（进攻方）
+	ranking,
+	%% UInt32积分
+	value
+}).
+
+%% 
 %% //通知客户端boss死亡
 -define(CMD_GS2U_NoticeWildBossDead,44223).
 -record(pk_GS2U_NoticeWildBossDead,{
@@ -1358,6 +1491,34 @@
 -record(pk_GS2U_OperateExchangeAck,{
 	%% UInt32兑换ID
 	exchangeID
+}).
+
+%% 
+%% //返回玩家答题
+-define(CMD_GS2U_PlayerAnswer,8335).
+-record(pk_GS2U_PlayerAnswer,{
+	%% UInt64玩家roleID
+	roleID,
+	%% UInt32题目ID
+	questionID,
+	%% Boolean是否正取
+	isright,
+	%% String答案
+	answers,
+	%% UInt321,第一个答对，2，第二个答对，其他0；
+	isFirstAnser,
+	%% String玩家名字
+	roleName,
+	%% Byte等级
+	level,
+	%% UInt32职业
+	career,
+	%% Byte性别
+	sex,
+	%% Byte种族
+	race,
+	%% Int32头像
+	head
 }).
 
 %% 
@@ -1464,6 +1625,18 @@
 	bossID,
 	%% UInt32 剩余时间
 	syFreshTime
+}).
+
+%% 
+%% // 发送面板需要展示的数据
+-define(CMD_GS2U_SendAnswerData,50072).
+-record(pk_GS2U_SendAnswerData,{
+	%% ByteID
+	questionID,
+	%% UInt64开始时间
+	endTime,
+	%% ActivityAnswerRankData数据列表
+	data
 }).
 
 %% 
@@ -1672,6 +1845,15 @@
 }).
 
 %% 
+%% //----------全名答题--------
+%% // 全名答题报名
+-define(CMD_U2GS_ApplyAnswer,52878).
+-record(pk_U2GS_ApplyAnswer,{
+	%% Byte 1当前在区域中，2不在区域
+	type
+}).
+
+%% 
 %% // 报名广场舞
 -define(CMD_U2GS_ApplyDance,8651).
 -record(pk_U2GS_ApplyDance,{
@@ -1713,6 +1895,12 @@
 %% // 请求黑暗之地排行榜
 -define(CMD_U2GS_DarknessRank,48307).
 -record(pk_U2GS_DarknessRank,{
+}).
+
+%% 
+%% //玩家主动申请 答题数据
+-define(CMD_U2GS_GetAnswerScore,34500).
+-record(pk_U2GS_GetAnswerScore,{
 }).
 
 %% 
@@ -1819,6 +2007,18 @@
 %% //刷新运营兑换活动面板
 -define(CMD_U2GS_OperateExchangeRefresh,27754).
 -record(pk_U2GS_OperateExchangeRefresh,{
+}).
+
+%% 
+%% //玩家答题
+-define(CMD_U2GS_PlayerAnswer,30017).
+-record(pk_U2GS_PlayerAnswer,{
+	%% UInt32题目ID
+	questionID,
+	%% Boolean是否正取
+	isright,
+	%% String答案
+	answers
 }).
 
 %% 
@@ -2285,6 +2485,13 @@
 	propValue
 }).
 
+-record(pk_EquipGemInfo,{
+	%% UInt16 装备部位
+	equipPos,
+	%% GemEmbedInfo
+	gemList
+}).
+
 -record(pk_EquipItemInfo,{
 	%% UInt32物品ID
 	itemID,
@@ -2428,6 +2635,21 @@
 }).
 
 %% 
+-define(CMD_GS2U_EquipGemInfoUpdate,38946).
+-record(pk_GS2U_EquipGemInfoUpdate,{
+	%% EquipGemInfo
+	equipGemInfo
+}).
+
+%% 
+%% //宝石数据初始化
+-define(CMD_GS2U_EquipGemInfos,10850).
+-record(pk_GS2U_EquipGemInfos,{
+	%% EquipGemInfo
+	equipGemInfos
+}).
+
+%% 
 %% // 更新一个装备位的重铸属性
 -define(CMD_GS2U_EquipRecastInfo,6004).
 -record(pk_GS2U_EquipRecastInfo,{
@@ -2535,14 +2757,6 @@
 }).
 
 %% 
-%% // 玩家获得印象
--define(CMD_GS2U_GainImpression,43944).
--record(pk_GS2U_GainImpression,{
-	%% ImpressionInfo
-	impression
-}).
-
-%% 
 %% // 玩家获得点赞
 -define(CMD_GS2U_GainPraise,26975).
 -record(pk_GS2U_GainPraise,{
@@ -2581,6 +2795,8 @@
 }).
 
 %% 
+%% //远程玩家信息查看结果，身份证
+%% //返回GS2U_Identity_Ack
 %% //分解装备返回得到的精华总数
 -define(CMD_GS2U_GetEssenceNum,34792).
 -record(pk_GS2U_GetEssenceNum,{
@@ -2640,16 +2856,60 @@
 }).
 
 %% 
-%% //远程玩家信息查看结果
+%% //远程玩家信息查看结果，时装
+-define(CMD_GS2U_LookRPInfo_Fashion,29456).
+-record(pk_GS2U_LookRPInfo_Fashion,{
+	%% UInt64角色ID
+	roleID,
+	%% RPView_FashionInfo 返回时装列表
+	datas,
+	%% UInt32 已经激活的套装列表
+	activeFashionSuitList
+}).
+
+%% 
+%% //远程玩家信息查看结果，婚姻
+-define(CMD_GS2U_LookRPInfo_Marriage,14014).
+-record(pk_GS2U_LookRPInfo_Marriage,{
+	%% UInt64 角色ID
+	roleID,
+	%% UInt64 配偶角色ID（无配偶时为0）
+	id,
+	%% String 配偶角色姓名
+	name,
+	%% Byte 配偶性别
+	sex,
+	%% UInt32 结婚时间（服务器同步时间，自1970-01-01至今的秒数）
+	weddingDay,
+	%% UInt32 亲密度
+	closeness
+}).
+
+%% 
+%% //远程玩家信息查看结果，宠物
+-define(CMD_GS2U_LookRPInfo_Pet,11943).
+-record(pk_GS2U_LookRPInfo_Pet,{
+	%% UInt64角色ID
+	roleID,
+	%% RPView_PetBaseInfo 助战及上的所有宠物
+	petInfoList,
+	%% RPView_AssistBattleInfo 助战信息
+	infoList
+}).
+
+%% 
+%% //远程玩家信息查看结果，角色
 -define(CMD_GS2U_LookRPInfo_Result,3869).
 -record(pk_GS2U_LookRPInfo_Result,{
 	%% UInt64角色ID
 	roleID,
+	%% String角色名
+	roleName,
 	%% UInt32角色职业
 	career,
-	%% SByte 种族
+	%% SByte种族
 	race,
-	%% SByte 性别
+	%% SByte性别
 	sex,
 	%% UInt32
 	head,
@@ -2659,42 +2919,22 @@
 	roleForce,
 	%% Byte荣誉装备等级
 	equipHonorLevel,
-	%% Byte1:觉醒  2:宝石  3:坐骑
-	activePart,
-	%% String公会名
+	%% String家族名
 	guildName,
-	%% Byte玩家公会职位
-	guileLevel,
-	%% Int16爵位等级
-	vipLevel,
 	%% Int32玩家杀戮值	
 	playerKillValue,
 	%% Int32翅膀等级
 	wingLevel,
-	%% Int32跨服竞技场积分
-	arenaVal,
-	%% UInt32玩家称号列表
-	titleList,
 	%% Single战斗属性列表
 	propValues,
 	%% EquipItemInfo装备信息
 	equips,
-	%% LookGemInfo宝石信息
-	gemInfo,
 	%% UInt32穿在身上的时装
 	fashionList,
-	%% LookWakeInfo觉醒信息
-	wakeInfo,
-	%% LookGodWeaponInfo神器信息
-	weaponInfo,
-	%% LookPetInfo查看宠物信息
-	petInfo,
 	%% EquipRefineLevel玩家部位强化等级
 	equipRefines,
 	%% EquipStarLevel玩家装备升星等级
-	equipStar,
-	%% PlayerPersonalityInfo玩家个性信息
-	personalityInfo
+	equipStar
 }).
 
 %% 
@@ -2769,29 +3009,6 @@
 }).
 
 %% 
--define(CMD_GS2U_SendPlayerPersonalityInfo,7267).
--record(pk_GS2U_SendPlayerPersonalityInfo,{
-	%% Byte类型
-	type,
-	%% UInt32赞数量
-	praiseNum,
-	%% String生日
-	birthday,
-	%% String地址
-	location,
-	%% String星座
-	starSign,
-	%% String签名
-	sign,
-	%% String标签
-	tags,
-	%% ImpressionInfo印象信息
-	impressions,
-	%% UInt64被禁止传照片的时间，没被禁传0
-	forbiddenTime
-}).
-
-%% 
 %% // 上传照片结果
 -define(CMD_GS2U_UpLoadingPhotoResult,3498).
 -record(pk_GS2U_UpLoadingPhotoResult,{
@@ -2822,21 +3039,10 @@
 }).
 
 -record(pk_GemEmbedInfo,{
-	%% UInt64宝石UID
-	gemUID,
+	%% UInt64宝石ID
+	gemID,
 	%% Byte宝石镶嵌部位编号
 	slot
-}).
-
--record(pk_ImpressionInfo,{
-	%% UInt16编号
-	uid,
-	%% UInt64评价的朋友ID
-	friendID,
-	%% UInt32以分钟为单位
-	time,
-	%% String印象
-	impression
 }).
 
 -record(pk_LookGemInfo,{
@@ -2943,21 +3149,44 @@
 	number
 }).
 
--record(pk_PlayerPersonalityInfo,{
-	%% UInt32赞数量
-	praiseNum,
-	%% String生日
-	birthday,
-	%% String地址
-	location,
-	%% String星座
-	starSign,
-	%% String签名
-	sign,
-	%% String标签
-	tags,
-	%% ImpressionInfo印象信息
-	impressions
+-record(pk_RPView_AddProp,{
+	%% Byte
+	prop,
+	%% Single
+	value
+}).
+
+-record(pk_RPView_AssistBattleInfo,{
+	%% UInt16宠物ID
+	petID,
+	%% Byte位置
+	slot
+}).
+
+-record(pk_RPView_FashionInfo,{
+	%% UInt32 时装ID
+	fashionID,
+	%% UInt32 剩余时间 小于等于0：过期 大于0：对应的秒数
+	time
+}).
+
+-record(pk_RPView_PetBaseInfo,{
+	%% UInt16宠物ID
+	petID,
+	%% Byte宠物星阶
+	petStar,
+	%% Byte宠物是否出战 0:休息(非助战) 1:休息(助战)2:出战（非召唤）3:出战（召唤）
+	status,
+	%% String宠物名字
+	petName,
+	%% Byte宠物转生
+	petRaw,
+	%% RPView_AddProp宠物属性
+	petProps,
+	%% UInt64宠物战斗力
+	petForce,
+	%% UInt32宠物提升次数
+	upCount
 }).
 
 -record(pk_RecastPosInfo,{
@@ -3088,6 +3317,12 @@
 }).
 
 %% 
+%% //装备全部位升星
+-define(CMD_U2GS_EquipUpStarOneKey,51276).
+-record(pk_U2GS_EquipUpStarOneKey,{
+}).
+
+%% 
 %% //宝石合成
 -define(CMD_U2GS_GemEmbedMake,36466).
 -record(pk_U2GS_GemEmbedMake,{
@@ -3128,6 +3363,20 @@
 }).
 
 %% 
+%% //宝石拆卸
+-define(CMD_U2GS_GemOperate,26795).
+-record(pk_U2GS_GemOperate,{
+	%% UInt16 1 : 宝石升级 ； 2： 宝石镶嵌 ； 3：宝石卸载
+	opType,
+	%% UInt16 装备部位
+	equipPos,
+	%% Byte 宝石孔位
+	gemPos,
+	%% UInt64 参数 目前就opType = 2 使用，镶嵌宝石的GUID
+	params
+}).
+
+%% 
 %% //成长装备(荣誉等级)
 -define(CMD_U2GS_HonorLevel,45460).
 -record(pk_U2GS_HonorLevel,{
@@ -3148,7 +3397,9 @@
 -define(CMD_U2GS_LookRPInfo_Request,11113).
 -record(pk_U2GS_LookRPInfo_Request,{
 	%% UInt64角色ID
-	roleID
+	roleID,
+	%% Byte查看远程类型:1角色，2时装，3宠物，4婚姻，5身份证;查看身份证返回GS2U_Identity_Ack
+	view_type
 }).
 
 %% 
@@ -4021,7 +4272,9 @@
 	%% Byte 当前波次，为0时表示开始前等待
 	wave,
 	%% Byte 0波次间隔等待；1波次进行中
-	state
+	state,
+	%% Boolean 是否处于助战状态
+	isAssist
 }).
 
 %% 
@@ -4052,8 +4305,10 @@
 	show2ID,
 	%% UInt64 所在分组ID
 	groupID,
-	%% UInt32 所处进度ID（对应配置copymapScheduleInit.id）
-	scheduleID
+	%% UInt32 所处进度ID（对应配置copymapScheduleInit或copymapScheduleSettle的id）
+	scheduleID,
+	%% Boolean true对应copymapScheduleInit;false对应copymapScheduleSettle
+	isInit
 }).
 
 %% 
@@ -4208,6 +4463,14 @@
 }).
 
 %% 
+%% // 衣帽间升级成功
+-define(CMD_GS2U_FashionRoomLevelUp,62056).
+-record(pk_GS2U_FashionRoomLevelUp,{
+	%% UInt32
+	roomLevel
+}).
+
+%% 
 %% // 激活套装
 -define(CMD_U2GS_ActiveFashionSuit,1581).
 -record(pk_U2GS_ActiveFashionSuit,{
@@ -4223,10 +4486,16 @@
 -record(pk_U2GS_BuyFashion,{
 	%% UInt32 时装ID
 	fashionID,
-	%% UInt32 购买时间, 单位：秒
+	%% UInt32 购买时间, 0: 永久 > 0：时限时装 单位：秒
 	time,
-	%% Byte 是否购买永久标示 0: 非永久 1：永久
+	%% Byte（废弃）
 	type
+}).
+
+%% 
+%% // 衣帽间升级
+-define(CMD_U2GS_FashionRoomLevelUp,53770).
+-record(pk_U2GS_FashionRoomLevelUp,{
 }).
 
 %% 
@@ -4268,6 +4537,8 @@
 	timeLastInteractive,
 	%% UInt32 赞
 	like,
+	%% UInt32 魅力
+	charm,
 	%% Boolean 当日是否向该好友点赞
 	isGiveLike,
 	%% Boolean 当日该好友是否给我点赞
@@ -4276,6 +4547,35 @@
 	isMarried,
 	%% Single 距离
 	distance
+}).
+
+-record(pk_Friend2InfoCross,{
+	%% UInt64 角色ID
+	id,
+	%% String 姓名
+	name,
+	%% String 所在服名
+	server,
+	%% UInt16 等级
+	level,
+	%% UInt32 职业
+	career,
+	%% Byte 种族
+	race,
+	%% Byte 性别
+	sex,
+	%% Int32 头
+	head,
+	%% Byte 自定义头像MD5(16byte)
+	face,
+	%% UInt32 达成指定关系的时间
+	timeRelation,
+	%% UInt32 最后一次在线的时间
+	timeLastOnline,
+	%% UInt32 最后一次交互的时间
+	timeLastInteractive,
+	%% Byte 0不在线 1在普通服 2在跨服
+	whereis
 }).
 
 -record(pk_Friend2InfoFormal,{
@@ -4393,6 +4693,65 @@
 }).
 
 %% 
+%% // 拒绝跨服好友申请，或同意跨服好友申请却失败时，仅向B反馈跨服申请者列表变化
+-define(CMD_GS2U_Friend2CrossAdd2Failed_Ack,35704).
+-record(pk_GS2U_Friend2CrossAdd2Failed_Ack,{
+	%% UInt32 6130拒绝成功 6127已经是好友 6131好友列表满 6132对方好友列表满 6133同步数据校正
+	reason,
+	%% UInt64
+	listDel
+}).
+
+%% 
+%% // 同意跨服好友申请并成功时，向双方反馈跨服好友列表变化（B需要自行处理跨服申请者列表变化）
+-define(CMD_GS2U_Friend2CrossAdd2_Ack,46911).
+-record(pk_GS2U_Friend2CrossAdd2_Ack,{
+	%% Friend2InfoCross A会收到B的信息，B会收到A的信息
+	info
+}).
+
+%% 
+%% // ErrorCode反馈A申请成功
+%% // 向B推送跨服申请者列表变化
+-define(CMD_GS2U_Friend2CrossAdd_Sync,12497).
+-record(pk_GS2U_Friend2CrossAdd_Sync,{
+	%% Friend2InfoCross 新的申请者信息
+	info,
+	%% UInt64 因为列表长度限制需要删除的申请者ID
+	listDel
+}).
+
+%% 
+%% // 反馈完整的列表
+-define(CMD_GS2U_Friend2CrossAll_Sync,15409).
+-record(pk_GS2U_Friend2CrossAll_Sync,{
+	%% Byte 0跨服好友列表 1跨服申请者列表
+	type,
+	%% Friend2InfoCross 全列表
+	listAll
+}).
+
+%% 
+%% // 反馈删除成功
+-define(CMD_GS2U_Friend2CrossDel_Ack,25297).
+-record(pk_GS2U_Friend2CrossDel_Ack,{
+	%% UInt64 角色ID
+	id,
+	%% Boolean 是否是数据同步校正（非用户主动操作）
+	isFix
+}).
+
+%% 
+%% // 上线（登录跨服或登录普通服）时同步跨服好友列表与跨服申请者列表
+-define(CMD_GS2U_Friend2CrossInit_Sync,46970).
+-record(pk_GS2U_Friend2CrossInit_Sync,{
+	%% Friend2InfoCross 跨服好友列表
+	listCross,
+	%% Friend2InfoCross 跨服申请者列表
+	listApply
+}).
+
+%% 
 %% // 查看信息面板辅助信息反馈
 -define(CMD_GS2U_Friend2ForLook_Ack,40418).
 -record(pk_GS2U_Friend2ForLook_Ack,{
@@ -4400,14 +4759,16 @@
 	id,
 	%% String 角色名
 	name,
-	%% Byte 0正式好友1临时好友2黑名单3申请列表4陌生人
+	%% Byte 0正式好友1临时好友2黑名单3申请列表4陌生人5跨服好友
 	relation,
 	%% UInt32 收到的赞
 	like,
 	%% Boolean 是否已点赞
 	isGiveLike,
 	%% UInt16 等级
-	level
+	level,
+	%% UInt32 魅力值
+	charm
 }).
 
 %% 
@@ -4546,7 +4907,7 @@
 	id,
 	%% Friend2InfoBase 仅当目标角色为陌生人时有效
 	info,
-	%% Byte 0正式好友1临时好友2黑名单4陌生人
+	%% Byte 0正式好友1临时好友2黑名单4陌生人5跨服好友
 	relation,
 	%% UInt16 总量，相关列表总长度
 	count,
@@ -4671,6 +5032,46 @@
 }).
 
 %% 
+%% // B同意或拒绝跨服好友申请
+%% // 另：若此时B使用U2GS_Friend2CrossAdd_Request请求添加A为好友，则等价于同意
+-define(CMD_U2GS_Friend2CrossAdd2_Request,2927).
+-record(pk_U2GS_Friend2CrossAdd2_Request,{
+	%% UInt64 角色ID，该值为0表示一键拒绝所有
+	id,
+	%% Boolean 是否同意
+	isAgreed
+}).
+
+%% 
+%% /////////////////////////////////////////////////////////////////////////////////////
+%% // 添加好友
+%% // A向B请求添加好友
+-define(CMD_U2GS_Friend2CrossAdd_Request,5495).
+-record(pk_U2GS_Friend2CrossAdd_Request,{
+	%% UInt64 角色ID
+	id
+}).
+
+%% 
+%% // 请求完整的列表
+-define(CMD_U2GS_Friend2CrossAll_Request,44695).
+-record(pk_U2GS_Friend2CrossAll_Request,{
+	%% Byte 0跨服好友列表 1跨服申请者列表
+	type
+}).
+
+%% 
+%% /////////////////////////////////////////////////////////////////////////////////////
+%% // 删除好友
+%% // A请求删除好友B
+%% // 等价于A删除角色
+-define(CMD_U2GS_Friend2CrossDel_Request,48565).
+-record(pk_U2GS_Friend2CrossDel_Request,{
+	%% UInt64 角色ID
+	id
+}).
+
+%% 
 %% /////////////////////////////////////////////////////////////////////////////////////
 %% // 删除好友请求
 -define(CMD_U2GS_Friend2Del_Request,38445).
@@ -4721,6 +5122,7 @@
 }).
 
 %% 
+%% // 反馈数据4，若relation=5，客户端本地必然有缓存的跨服好友数据，不需要额外的数据发放
 %% /////////////////////////////////////////////////////////////////////////////////////
 %% // 查询好友列表请求（求婚界面）
 -define(CMD_U2GS_Friend2FormalForMarriage_Request,55870).
@@ -4770,7 +5172,9 @@
 	%% Byte 指定具体性别
 	sex,
 	%% Boolean 是否按照就近距离进行排序
-	isNear
+	isNear,
+	%% Boolean 是否是定时推送推荐好友，是否的区别在于反馈的数量不同
+	isPush
 }).
 
 %% 
@@ -4945,7 +5349,7 @@
 -record(pk_GS2U_BiddingGuildMsg,{
 	%% BiddingGuild
 	list,
-	%% UInt32 自己军团当前物资
+	%% UInt32 自己家族当前物资
 	resorce
 }).
 
@@ -4976,7 +5380,7 @@
 }).
 
 %% 
-%% // 捐献成功军团改变，只发给捐献者
+%% // 捐献成功家族改变，只发给捐献者
 -define(CMD_GS2U_DonateSuccess,18308).
 -record(pk_GS2U_DonateSuccess,{
 	%% UInt64 公会唯一ID
@@ -5063,7 +5467,7 @@
 -record(pk_GS2U_GivePower,{
 	%% UInt64 目标角色ID
 	targetRoleID,
-	%% Byte 权限:0请求加入，1普通成员，2管理员，3副军团长，9军团长
+	%% Byte 权限:0请求加入，1普通成员，2管理员，3副家族长，9家族长
 	guileLevel
 }).
 
@@ -5107,7 +5511,7 @@
 }).
 
 %% 
-%% // 当前场景参战的军团列表
+%% // 当前场景参战的家族列表
 -define(CMD_GS2U_GuildIDList,17944).
 -record(pk_GS2U_GuildIDList,{
 	%% GuildIDList
@@ -5132,24 +5536,24 @@
 -record(pk_GS2U_GuildOpResult,{
 	%% UInt64
 	roleCode,
-	%% Byte 1创建军团
+	%% Byte 1创建家族
 	opType,
 	%% Boolean
 	opResult
 }).
 
 %% 
-%% // 返回军团技能结果
+%% // 返回家族技能结果
 -define(CMD_GS2U_GuildSkill,13522).
 -record(pk_GS2U_GuildSkill,{
-	%% GuildSkill 当前已经研究出来的军团列表
+	%% GuildSkill 当前已经研究出来的家族列表
 	skill,
-	%% GuildSkill 自己已经学习的军团技能列表
+	%% GuildSkill 自己已经学习的家族技能列表
 	selfskill
 }).
 
 %% 
-%% // 军团任务列表
+%% // 家族任务列表
 -define(CMD_GS2U_GuildTask,29256).
 -record(pk_GS2U_GuildTask,{
 	%% GuildTask 包含刺探与巡逻任务
@@ -5300,6 +5704,14 @@
 }).
 
 %% 
+%% // 反馈祈愿界面请求列表（未加入家族时忽略）
+-define(CMD_GS2U_Guild_OpenSupplication_Ack,33889).
+-record(pk_GS2U_Guild_OpenSupplication_Ack,{
+	%% Supplication
+	listInfo
+}).
+
+%% 
 %% // 购买反馈，用于客户端得到一个明确的消息以刷新界面
 -define(CMD_GS2U_Guild_ShopBuy_Ack,58426).
 -record(pk_GS2U_Guild_ShopBuy_Ack,{
@@ -5396,6 +5808,44 @@
 }).
 
 %% 
+%% // 赠送碎片失败
+%% // 特别用于客户端刷新界面
+-define(CMD_GS2U_Guild_SupplicateGiveF_Ack,24617).
+-record(pk_GS2U_Guild_SupplicateGiveF_Ack,{
+	%% Byte 1自己不在家族；2对方与自家家族不同；3对方M值满
+	type,
+	%% UInt64 对方角色ID
+	tarRoleID
+}).
+
+%% 
+-define(CMD_GS2U_Guild_SupplicateGive_Ack,6325).
+-record(pk_GS2U_Guild_SupplicateGive_Ack,{
+	%% SuppHistory2 单条记录
+	history,
+	%% NameTable2 名称表
+	nameTables
+}).
+
+%% 
+%% // 上线时同步赠送碎片记录
+-define(CMD_GS2U_Guild_SupplicateGive_Sync,32759).
+-record(pk_GS2U_Guild_SupplicateGive_Sync,{
+	%% SuppHistory2 多条记录
+	listHistory,
+	%% NameTable2 名称表
+	nameTables
+}).
+
+%% 
+%% // 发布祈愿成功（失败时返回ErrorCode）
+-define(CMD_GS2U_Guild_Supplicate_Ack,38660).
+-record(pk_GS2U_Guild_Supplicate_Ack,{
+	%% UInt16
+	itemID
+}).
+
+%% 
 %% // 弹劾信息
 -define(CMD_GS2U_ImpeachInfo,63767).
 -record(pk_GS2U_ImpeachInfo,{
@@ -5422,15 +5872,17 @@
 }).
 
 %% 
-%% // 旗帜拥有者发生改变
+%% // 战场相关信息发生改变
 -define(CMD_GS2U_OccupyOwnerChange,27260).
 -record(pk_GS2U_OccupyOwnerChange,{
-	%% UInt64 拥有者军团ID
-	ownerID,
-	%% UInt64 对手军团ID
-	targetID,
-	%% OccupyOwner
-	infos
+	%% UInt32 剩余时间，秒
+	remainSec,
+	%% OccupyGuildInfo
+	owner,
+	%% OccupyGuildInfo
+	target,
+	%% GuildBattlePlayerInfo 只发一部分和玩家自己
+	playerInfos
 }).
 
 %% 
@@ -5453,7 +5905,7 @@
 	guildName,
 	%% Byte 公会等级
 	guildLevel,
-	%% UInt32 军团总战力
+	%% UInt32 家族总战力
 	fightForce,
 	%% UInt32 公会成员个数
 	memberNumber,
@@ -5465,9 +5917,9 @@
 	liveness,
 	%% String 公告
 	notice,
-	%% Byte 军团标志
+	%% Byte 家族标志
 	denoter,
-	%% Byte 军团商店等级
+	%% Byte 家族商店等级
 	shopLevel,
 	%% UInt32 申请列表(官员以上才能查看)
 	requestJoinNum,
@@ -5505,7 +5957,7 @@
 }).
 
 %% 
-%% // 刷新军团属性
+%% // 刷新家族属性
 -define(CMD_GS2U_RefreshGuildProp,40691).
 -record(pk_GS2U_RefreshGuildProp,{
 	%% UInt64 公会唯一ID
@@ -5559,17 +6011,17 @@
 }).
 
 %% 
-%% // 军团商店升级
+%% // 家族商店升级
 -define(CMD_GS2U_ShopUpgrade,8934).
 -record(pk_GS2U_ShopUpgrade,{
 	%% UInt64
 	guildID,
-	%% Byte 军团商店升级
+	%% Byte 家族商店升级
 	shopLevel
 }).
 
 %% 
-%% // 军团升级反馈
+%% // 家族升级反馈
 -define(CMD_GS2U_Upgrade_Ack,41766).
 -record(pk_GS2U_Upgrade_Ack,{
 	%% UInt64
@@ -5602,17 +6054,21 @@
 	guildName,
 	%% Byte 公会等级
 	guildLevel,
-	%% UInt32 军团总战力
+	%% UInt32 家族总战力
 	fightForce,
 	%% String 会长姓名
 	leaderName,
 	%% UInt64 会长id
 	leaderRoleID,
-	%% Byte 军团标志
+	%% Byte 家族标志
 	denoter
 }).
 
 -record(pk_GuildBattlePlayerInfo,{
+	%% UInt64
+	guildID,
+	%% Byte 名次
+	rank,
 	%% UInt64
 	roleID,
 	%% String
@@ -5668,9 +6124,9 @@
 	guildName,
 	%% Byte 公会等级
 	guildLevel,
-	%% Byte 军团标志
+	%% Byte 家族标志
 	denoter,
-	%% UInt32 军团总战力
+	%% UInt32 家族总战力
 	fightForce,
 	%% UInt32 公会成员个数
 	memberNumber,
@@ -5702,7 +6158,15 @@
 	%% Byte Vip等级
 	vipLevel,
 	%% UInt16 玩家等级
-	playerLevel
+	playerLevel,
+	%% UInt32 职业
+	career,
+	%% Byte 种族
+	race,
+	%% Byte 性别
+	sex,
+	%% Int32 头
+	head
 }).
 
 -record(pk_GuildSkill,{
@@ -5817,11 +6281,24 @@
 	itemNumber
 }).
 
--record(pk_OccupyOwner,{
-	%% UInt32 旗帜ID，采集物ID
-	occupyID,
-	%% UInt64 拥有者军团ID
-	ownerID
+-record(pk_NameTable2,{
+	%% UInt64 角色ID
+	id,
+	%% String 角色名
+	name
+}).
+
+-record(pk_OccupyGuildInfo,{
+	%% UInt64
+	guildID,
+	%% String
+	guildName,
+	%% UInt32 拥有的旗帜ID列表，及采集物ID列表
+	occupyIDs,
+	%% UInt32 总积分
+	allPoint,
+	%% Byte 家族标志
+	denoter
 }).
 
 -record(pk_PebbleState,{
@@ -5857,8 +6334,63 @@
 	time
 }).
 
+-record(pk_SuppHistory,{
+	%% UInt32 时间戳
+	time,
+	%% UInt64 赠送者角色ID
+	roleID,
+	%% UInt64 被赠送目标角色ID
+	tarRoleID,
+	%% UInt16 赠送道具ID
+	itemID,
+	%% UInt16 最新M值
+	itemM
+}).
+
+-record(pk_SuppHistory2,{
+	%% UInt32 职业
+	career,
+	%% SByte 种族
+	race,
+	%% SByte 性别
+	sex,
+	%% Int32 系统头像（自定义头像使用其它接口获取）
+	head,
+	%% Int32 角色等级
+	level,
+	%% SuppHistory 记录1
+	history
+}).
+
+-record(pk_Supplication,{
+	%% UInt64 角色唯一ID
+	roleID,
+	%% UInt64 角色Code，如果不在线，code为0
+	roleCode,
+	%% String 角色名
+	roleName,
+	%% Byte 角色在公会中的职位
+	roleGuildLevel,
+	%% UInt32 职业
+	career,
+	%% SByte 种族
+	race,
+	%% SByte 性别
+	sex,
+	%% Int32 系统头像（自定义头像使用其它接口获取）
+	head,
+	%% Int32 角色等级
+	level,
+	%% UInt16 祈愿道具ID
+	itemID,
+	%% UInt16 祈愿道具M值：玩家本次祈福获得的碎片量
+	itemM,
+	%% Boolean 当日是否已经赠送过了（如果是自己则恒为true）
+	isGive
+}).
+
 %% 
-%% // 接取军团驻地任务
+%% // 接取家族驻地任务
 %% // 待废弃
 -define(CMD_U2GS_AcceptGuildTask,39014).
 -record(pk_U2GS_AcceptGuildTask,{
@@ -5882,7 +6414,7 @@
 %% // 出价，出价错误返回errorcode，成功返回GS2U_BiddingGuildMsg
 -define(CMD_U2GS_Bidding,16097).
 -record(pk_U2GS_Bidding,{
-	%% UInt64 目标军团ID，如果位置没有被占领，则为自己军团
+	%% UInt64 目标家族ID，如果位置没有被占领，则为自己家族
 	guildID
 }).
 
@@ -5934,9 +6466,9 @@
 -record(pk_U2GS_CreateGuild,{
 	%% String 公会名(guild_name_max_length)
 	guildName,
-	%% Byte 军团标志
+	%% Byte 家族标志
 	denoter,
-	%% String 军团公告
+	%% String 家族公告
 	guildNotice
 }).
 
@@ -5959,7 +6491,7 @@
 }).
 
 %% 
-%% // 军团捐献(金钱)
+%% // 家族捐献(金钱)
 -define(CMD_U2GS_DonateMoney,52751).
 -record(pk_U2GS_DonateMoney,{
 	%% Byte 金钱类型,1(非绑金币),3(非绑钻石)
@@ -5969,13 +6501,13 @@
 }).
 
 %% 
-%% // 进入军团战
+%% // 进入家族战
 -define(CMD_U2GS_EnterGuildBattle,53913).
 -record(pk_U2GS_EnterGuildBattle,{
 }).
 
 %% 
-%% // 进入军团驻地
+%% // 进入家族驻地
 %% // 待废弃
 -define(CMD_U2GS_EnterGuildHome,15968).
 -record(pk_U2GS_EnterGuildHome,{
@@ -6007,7 +6539,7 @@
 }).
 
 %% 
-%% // 领取军团津贴
+%% // 领取家族津贴
 -define(CMD_U2GS_GetGuildPrize,44491).
 -record(pk_U2GS_GetGuildPrize,{
 }).
@@ -6026,7 +6558,7 @@
 -record(pk_U2GS_GivePower,{
 	%% UInt64 目标角色ID
 	targetRoleID,
-	%% Byte 权限:0请求加入，1普通成员，2管理员，3副军团长，9军团长
+	%% Byte 权限:0请求加入，1普通成员，2管理员，3副家族长，9家族长
 	guileLevel
 }).
 
@@ -6040,7 +6572,7 @@
 }).
 
 %% 
-%% // 打军团战报名界面
+%% // 打家族战报名界面
 -define(CMD_U2GS_GuildBattleApply,61033).
 -record(pk_U2GS_GuildBattleApply,{
 }).
@@ -6054,7 +6586,7 @@
 }).
 
 %% 
-%% // 领取军团工资
+%% // 领取家族工资
 %% // 待废弃
 -define(CMD_U2GS_GuildReward,2800).
 -record(pk_U2GS_GuildReward,{
@@ -6074,7 +6606,7 @@
 
 %% 
 %% /////////////////////////////////////////////////////////////////////////////////////
-%% // 游乐场（取代旧有的军团驻地）
+%% // 游乐场（取代旧有的家族驻地）
 %% // 进入游乐场请求
 -define(CMD_U2GS_Guild_FairgroundEnter_Request,52175).
 -record(pk_U2GS_Guild_FairgroundEnter_Request,{
@@ -6148,6 +6680,12 @@
 }).
 
 %% 
+%% // 打开祈愿界面请求列表
+-define(CMD_U2GS_Guild_OpenSupplication_Request,54177).
+-record(pk_U2GS_Guild_OpenSupplication_Request,{
+}).
+
+%% 
 %% /////////////////////////////////////////////////////////////////////////////////////
 %% // 家族商店
 %% // 购买请求
@@ -6188,6 +6726,24 @@
 }).
 
 %% 
+%% // 赠送碎片
+-define(CMD_U2GS_Guild_SupplicateGive_Request,55653).
+-record(pk_U2GS_Guild_SupplicateGive_Request,{
+	%% UInt64
+	roleID,
+	%% UInt16
+	itemID
+}).
+
+%% 
+%% // 发布祈愿
+-define(CMD_U2GS_Guild_Supplicate_Request,24068).
+-record(pk_U2GS_Guild_Supplicate_Request,{
+	%% UInt16
+	itemID
+}).
+
+%% 
 %% // 弹劾团长
 -define(CMD_U2GS_ImpeachCreater,33039).
 -record(pk_U2GS_ImpeachCreater,{
@@ -6216,7 +6772,7 @@
 }).
 
 %% 
-%% // 打开军团商店
+%% // 打开家族商店
 -define(CMD_U2GS_OpenGuildShop,54933).
 -record(pk_U2GS_OpenGuildShop,{
 }).
@@ -6272,13 +6828,13 @@
 }).
 
 %% 
-%% // 中途请求军团战比赛信息
+%% // 中途请求家族战比赛信息
 -define(CMD_U2GS_RequestGuildBattleResult,5879).
 -record(pk_U2GS_RequestGuildBattleResult,{
 }).
 
 %% 
-%% // 打开军团福利BUFF界面
+%% // 打开家族福利BUFF界面
 -define(CMD_U2GS_RequestGuildBuff,18969).
 -record(pk_U2GS_RequestGuildBuff,{
 }).
@@ -6293,21 +6849,21 @@
 }).
 
 %% 
-%% // 打开军团技能界面
+%% // 打开家族技能界面
 -define(CMD_U2GS_RequestGuildSkill,29591).
 -record(pk_U2GS_RequestGuildSkill,{
 }).
 
 %% 
-%% // 打开军团任务界面，请求军团任务列表，返回GS2U_GuildTask
+%% // 打开家族任务界面，请求家族任务列表，返回GS2U_GuildTask
 %% // 待废弃
 -define(CMD_U2GS_RequestGuildTask,1519).
 -record(pk_U2GS_RequestGuildTask,{
 }).
 
 %% 
-%% // ----------------------------------------------军团争霸－城战----------------------------------------------
-%% // 请求竞价军团列表与自己军团信息和分组信息
+%% // ----------------------------------------------家族争霸－城战----------------------------------------------
+%% // 请求竞价家族列表与自己家族信息和分组信息
 -define(CMD_U2GS_RequestGuildWar,19922).
 -record(pk_U2GS_RequestGuildWar,{
 }).
@@ -6343,7 +6899,7 @@
 }).
 
 %% 
-%% // 军团商店升级
+%% // 家族商店升级
 -define(CMD_U2GS_ShopUpgrade,620).
 -record(pk_U2GS_ShopUpgrade,{
 	%% UInt64
@@ -6379,7 +6935,7 @@
 }).
 
 %% 
-%% // 军团升级
+%% // 家族升级
 -define(CMD_U2GS_Upgrade,25266).
 -record(pk_U2GS_Upgrade,{
 	%% UInt64
@@ -6404,6 +6960,404 @@
 	confId
 }).
 
+-record(pk_FarmingPet,{
+	%% UInt16
+	petID,
+	%% UInt16 累计时间  分
+	deltaTime,
+	%% UInt64当前服务器时间 1970 年 秒
+	time,
+	%% UInt16最后一次放入时长
+	lastdeltaTime
+}).
+
+%% 
+%% // 单独刷新区域信息
+-define(CMD_GS2U_FreshHomeAreaInfo,2716).
+-record(pk_GS2U_FreshHomeAreaInfo,{
+	%% UInt64
+	homeID,
+	%% HomeArea 开放的区域
+	areas
+}).
+
+%% 
+%% // 单独刷新家园易变信息
+-define(CMD_GS2U_FreshHomeInfo,36627).
+-record(pk_GS2U_FreshHomeInfo,{
+	%% UInt64
+	homeID,
+	%% String
+	homeName,
+	%% UInt32 华丽度
+	stylish,
+	%% UInt32 舒适度
+	comfort,
+	%% UInt32 家园等级
+	homeLvl,
+	%% UInt32 人气值
+	popularity
+}).
+
+%% 
+%% // 进食结果
+-define(CMD_GS2U_GetPetFoodResults_Sync,24863).
+-record(pk_GS2U_GetPetFoodResults_Sync,{
+	%% Byte 1，成功，2次数已满，3资源数量不足
+	result,
+	%% UInt16
+	petID,
+	%% UInt16 获得道具
+	itemID,
+	%% Byte 数量
+	num
+}).
+
+%% 
+%% // 饲养区宠物ID
+-define(CMD_GS2U_HomeFarming_Sync,8353).
+-record(pk_GS2U_HomeFarming_Sync,{
+	%% FarmingPet
+	petList
+}).
+
+%% 
+%% // 家园信息
+-define(CMD_GS2U_HomeInfo,33825).
+-record(pk_GS2U_HomeInfo,{
+	%% UInt64 家园ID，按位存储，10位DBID，10位地区ID，12位段ID，16位号ID
+	homeID,
+	%% String 为空则表示默认名字，由客户端自行拼接
+	homeName,
+	%% String 服务器名字
+	serverName,
+	%% UInt64 家园拥有者ID
+	ownerID,
+	%% String 名字
+	ownerName,
+	%% UInt64 同居者，配偶ID
+	mateID,
+	%% String 配偶名字
+	mateName,
+	%% UInt32 华丽度
+	stylish,
+	%% UInt32 舒适度
+	comfort,
+	%% UInt32 家园等级
+	homeLvl,
+	%% UInt32 人气值
+	popularity,
+	%% UInt64 左邻ID
+	leftID,
+	%% String 名字
+	leftName,
+	%% UInt64 右舍ID
+	rightID,
+	%% String 名字
+	rightName,
+	%% HomeArea 开放的区域
+	areas
+}).
+
+%% 
+-define(CMD_GS2U_HomePlantOperate_Ack,44514).
+-record(pk_GS2U_HomePlantOperate_Ack,{
+	%% UInt64 操作者角色ID
+	roleID,
+	%% Byte 操作类型
+	operateType,
+	%% UInt32 操作成功时为0，否则是ErrorCode
+	reason,
+	%% Plant 刷新作物属性
+	plant
+}).
+
+%% 
+-define(CMD_GS2U_HomePlant_Sync,61986).
+-record(pk_GS2U_HomePlant_Sync,{
+	%% Plant
+	listPlant
+}).
+
+%% 
+%% // 返回家园可拜访列表
+-define(CMD_GS2U_HomeVisitList,59190).
+-record(pk_GS2U_HomeVisitList,{
+	%% UInt16 总条数
+	allnumber,
+	%% Byte 当前页数
+	paga,
+	%% HomeVisit列表
+	visits
+}).
+
+%% 
+%% // 取出结果
+-define(CMD_GS2U_PutOutPetFarmingResults_Sync,15080).
+-record(pk_GS2U_PutOutPetFarmingResults_Sync,{
+	%% Byte 1，成功，2失败
+	result,
+	%% UInt16
+	petID,
+	%% UInt16获得经验
+	exp,
+	%% UInt16放置了的时间，分钟为单位
+	minutes
+}).
+
+%% 
+%% // 饲养区放置宠物的结果
+-define(CMD_GS2U_PutPetInFarmingResults_Sync,25191).
+-record(pk_GS2U_PutPetInFarmingResults_Sync,{
+	%% Byte 1，成功，2超过当前最大放置数量
+	result,
+	%% FarmingPet
+	petFarming
+}).
+
+%% 
+%% // 返回拜访记录
+-define(CMD_GS2U_VisitRecord,29792).
+-record(pk_GS2U_VisitRecord,{
+	%% VisitRecord 拜访记录
+	lists
+}).
+
+-record(pk_HomeArea,{
+	%% UInt64
+	homeID,
+	%% UInt32 房屋区域ID，1居所，2庭院，3饲养区，4种植区A，5温泉，6篝火区，7许愿池，8种植区B，9种植区C
+	areaID,
+	%% UInt32 区域等级
+	areaLvl
+}).
+
+-record(pk_HomeVisit,{
+	%% UInt64
+	roleID,
+	%% String
+	roleName,
+	%% UInt32 玩家等级
+	level,
+	%% UInt64
+	homeID,
+	%% Int32 亲密度，非好友为-1
+	closeness,
+	%% Byte 自定义头像MD5(16byte)
+	face
+}).
+
+-record(pk_Plant,{
+	%% UInt64
+	homeID,
+	%% Byte 4种植区A，8种植区B，9种植区C
+	areaType,
+	%% Byte 种植点（每个种植区有多个种植点，从1开始）
+	pos,
+	%% UInt16 作物ID，对应配置表plant.id
+	id,
+	%% UInt32 种植时间
+	time,
+	%% Byte 健康值
+	health,
+	%% Byte 当日浇水次数
+	wateringCount,
+	%% UInt32 最后浇水时间
+	wateringTime,
+	%% Byte 当日施肥次数
+	compostCount,
+	%% Byte 最后施肥时间
+	compostTime,
+	%% Boolean 是否处于虫害状态
+	isPestis
+}).
+
+%% 
+%% // 修改家园名字
+-define(CMD_U2GS_ChangeHomeName,33104).
+-record(pk_U2GS_ChangeHomeName,{
+	%% UInt64
+	homeID,
+	%% String
+	homeName
+}).
+
+%% 
+%% // -> client to server
+%% // <- server to client
+%% // <-> client & server
+%% //目前支持以下几种数据类型：
+%% // bool,vector,string,float double
+%% // int8,int16,int32,int,int64,
+%% // uint8,uint16,uint32,uint,uint64
+%% // 请求创建家园，创建成功，返回GS2U_HomeInfo
+-define(CMD_U2GS_CreateHome,45029).
+-record(pk_U2GS_CreateHome,{
+	%% UInt32 玩家选择的区域ID，home.xlsx中的id
+	adminAreaID
+}).
+
+%% 
+%% // 请求进入家园
+-define(CMD_U2GS_EnterHome,2529).
+-record(pk_U2GS_EnterHome,{
+	%% UInt64 进入家园
+	roleID,
+	%% Byte 进入标志，1进入居所，2进入庭院
+	flag
+}).
+
+%% 
+%% // 进食！
+-define(CMD_U2GS_GetPetFood,8929).
+-record(pk_U2GS_GetPetFood,{
+	%% UInt64
+	homeID,
+	%% UInt16
+	petID,
+	%% UInt16 可能消耗的道具ID
+	itemID,
+	%% Byte 3饲养区	
+	areaType
+}).
+
+%% 
+%% // 种植区_各种操作
+%% // 操作类型：
+%% // 1.种植，需要消耗道具；
+%% // 2.清除；
+%% // 3.收获；
+%% // 4.浇水；
+%% // 5.施肥，需要消耗道具；
+%% // 6.除虫
+-define(CMD_U2GS_HomePlantOperate_Request,51650).
+-record(pk_U2GS_HomePlantOperate_Request,{
+	%% UInt64
+	homeID,
+	%% Byte 4种植区A，8种植区B，9种植区C
+	areaType,
+	%% Byte 种植点（每个种植区有多个种植点，从1开始）
+	pos,
+	%% Byte 操作类型
+	operateType,
+	%% UInt16 可能消耗的道具ID
+	itemID
+}).
+
+%% 
+%% // 请求家园可拜访列表
+-define(CMD_U2GS_HomeVisit,29314).
+-record(pk_U2GS_HomeVisit,{
+	%% Byte 请求好友的页数，为0表示请求邻居
+	paga,
+	%% Byte 请求好友的每页个数
+	number
+}).
+
+%% 
+%% // 取出宠物
+-define(CMD_U2GS_PutOutPetFarming,50410).
+-record(pk_U2GS_PutOutPetFarming,{
+	%% UInt64
+	homeID,
+	%% UInt16
+	petID,
+	%% Byte 3饲养区	
+	areaType
+}).
+
+%% 
+%% // 放置宠物进饲养区
+-define(CMD_U2GS_PutPetInFarming,32301).
+-record(pk_U2GS_PutPetInFarming,{
+	%% UInt64
+	homeID,
+	%% UInt16
+	petID,
+	%% Byte 3饲养区
+	areaType
+}).
+
+%% 
+%% // 请求家园信息
+-define(CMD_U2GS_RequestHomeInfo,56926).
+-record(pk_U2GS_RequestHomeInfo,{
+	%% UInt64 主人ID
+	roleID
+}).
+
+%% 
+%% // 请求拜访记录
+-define(CMD_U2GS_RequestVisitRecord,2847).
+-record(pk_U2GS_RequestVisitRecord,{
+}).
+
+%% 
+%% // 升级房屋
+-define(CMD_U2GS_UpgradeHomeArea,43370).
+-record(pk_U2GS_UpgradeHomeArea,{
+	%% UInt64
+	homeID,
+	%% Byte 房屋区域ID，1居所，2庭院，3饲养区，4种植区A，5温泉，6篝火区，7许愿池，8种植区B，9种植区C
+	areaID
+}).
+
+-record(pk_VisitRecord,{
+	%% UInt64
+	roleID,
+	%% String
+	roleName,
+	%% Byte 关系类型：1好友，2伴侣男，3伴侣女，4陌生人
+	relationType,
+	%% Byte 操作记录：1拜访，2收菜，3...
+	opType,
+	%% UInt32
+	opParam1,
+	%% UInt32
+	opParam2,
+	%% UInt32
+	opParam3,
+	%% UInt64 时间戳
+	timestamp
+}).
+
+%% 
+%% // 上线同步最近的赠礼记录
+-define(CMD_GS2U_GiftHistory_Sync,14570).
+-record(pk_GS2U_GiftHistory_Sync,{
+	%% GiftHistory 多条记录
+	listHistory,
+	%% NameTable 名称表
+	nameTables,
+	%% UInt16 已收到的道具ID组
+	listItemID,
+	%% UInt16 道具ID组对应的道具数量
+	listItemCount
+}).
+
+%% 
+-define(CMD_GS2U_Gift_Ack,58086).
+-record(pk_GS2U_Gift_Ack,{
+	%% GiftHistory 单条记录
+	history,
+	%% NameTable 名称表
+	nameTables
+}).
+
+%% 
+%% // 同步魅力值变化
+-define(CMD_GS2U_IdentityCharm_Sync,24221).
+-record(pk_GS2U_IdentityCharm_Sync,{
+	%% UInt64 操作者
+	roleID,
+	%% UInt64 被操作者
+	tarRoleID,
+	%% UInt32 变化值
+	valueUpdate,
+	%% UInt32 新值
+	valueNew
+}).
+
 %% 
 %% // 反馈编辑相册信息
 -define(CMD_GS2U_IdentityEditPic_Ack,50360).
@@ -6421,9 +7375,39 @@
 }).
 
 %% 
+%% // 同步点赞值变化
+-define(CMD_GS2U_IdentityLike_Sync,38117).
+-record(pk_GS2U_IdentityLike_Sync,{
+	%% UInt64 操作者
+	roleID,
+	%% UInt64 被操作者
+	tarRoleID,
+	%% UInt32 变化值
+	valueUpdate,
+	%% UInt32 新值
+	valueNew
+}).
+
+%% 
 %% // 反馈下载图片请求_数据
 -define(CMD_GS2U_IdentityPicDownloadData_Ack,15156).
 -record(pk_GS2U_IdentityPicDownloadData_Ack,{
+	%% Byte 图片MD5(16byte)
+	md5,
+	%% UInt32 数据尺寸（单位字节）
+	size,
+	%% UInt16 数据划分段数
+	count,
+	%% UInt16 数据段索引
+	index,
+	%% Byte 数据
+	data
+}).
+
+%% 
+%% // 推送图片数据
+-define(CMD_GS2U_IdentityPicDownloadData_Sync,1988).
+-record(pk_GS2U_IdentityPicDownloadData_Sync,{
 	%% Byte 图片MD5(16byte)
 	md5,
 	%% UInt32 数据尺寸（单位字节）
@@ -6478,6 +7462,8 @@
 	vipLv,
 	%% UInt32 赞
 	like,
+	%% UInt32 魅力值
+	charm,
 	%% Boolean 当日是否向该角色点赞
 	isGiveLike,
 	%% String 家族名
@@ -6510,9 +7496,33 @@
 	idi_listPic
 }).
 
+-record(pk_GiftHistory,{
+	%% UInt64 内部算法使用序号，为了使用统一的数据结构就放在这里，客户端可使用该序号作为排序
+	index,
+	%% UInt32 时间戳
+	time,
+	%% UInt64 赠送者角色ID
+	roleID,
+	%% UInt64 赠送目标角色ID
+	tarRoleID,
+	%% UInt16 赠送道具ID
+	itemID,
+	%% UInt16 赠送道具数量
+	itemCount,
+	%% UInt32 魅力值变化量
+	charmUpdate
+}).
+
 -record(pk_MD5,{
 	%% Byte
 	md5
+}).
+
+-record(pk_NameTable,{
+	%% UInt64 角色ID
+	id,
+	%% String 角色名
+	name
 }).
 
 -record(pk_RoleHeadPic,{
@@ -6604,6 +7614,21 @@
 }).
 
 %% 
+%% /////////////////////////////////////////////////////////////////////////////////////
+%% // 赠礼
+-define(CMD_U2GS_Gift_Request,34470).
+-record(pk_U2GS_Gift_Request,{
+	%% UInt64 赠送目标角色ID
+	tarRoleID,
+	%% UInt16 赠送道具ID
+	itemID,
+	%% UInt16 赠送道具数量
+	itemCount,
+	%% String 祝福语（为空时使用默认祝福语）（赠送数量不足的话是无法发送走马灯的）
+	content
+}).
+
+%% 
 %% // 添加标签
 -define(CMD_U2GS_IdentityEditTagAdd_Request,45833).
 -record(pk_U2GS_IdentityEditTagAdd_Request,{
@@ -6625,7 +7650,9 @@
 -define(CMD_U2GS_IdentityPicDownloadBegin_Request,59335).
 -record(pk_U2GS_IdentityPicDownloadBegin_Request,{
 	%% Byte 图片MD5(16byte)
-	md5
+	md5,
+	%% UInt64 如果目标图片是跨服数据，则需要传递目标图片相关的角色ID，否则置为0
+	id
 }).
 
 %% 
@@ -6944,6 +7971,16 @@
 -record(pk_U2GS_RequestMysteriousShop,{
 }).
 
+%% 
+%% //使用物品
+-define(CMD_U2GS_UseStarMoonBox,23711).
+-record(pk_U2GS_UseStarMoonBox,{
+	%% UInt64物品UID
+	itemUID,
+	%% UInt16本次使用个数
+	useNum
+}).
+
 -record(pk_UseItemCD,{
 	%% UInt16 道具组ID
 	itemGroupID,
@@ -7068,6 +8105,18 @@
 }).
 
 %% 
+%% // 一健提取返回结果
+-define(CMD_GS2U_GetMailItemAll,19689).
+-record(pk_GS2U_GetMailItemAll,{
+	%% UInt16 成功一次性提取的邮件封数
+	number,
+	%% MailItemAll
+	items,
+	%% MailCoin
+	coins
+}).
+
+%% 
 %% // 服务器回复锁定邮件
 -define(CMD_GS2U_LockMail,8814).
 -record(pk_GS2U_LockMail,{
@@ -7165,6 +8214,13 @@
 	isBind
 }).
 
+-record(pk_MailItemAll,{
+	%% UInt32道具编号ID
+	itemID,
+	%% UInt32堆叠个数
+	itemNumber
+}).
+
 %% 
 %% // 客户端删除所有已读且无附件的邮件
 -define(CMD_U2GS_DeleteAllReadMail,23877).
@@ -7195,6 +8251,12 @@
 	mailID,
 	%% UInt64 附件中的道具UID
 	itemUID
+}).
+
+%% 
+%% // 一健提取
+-define(CMD_U2GS_GetMailItemAll,64363).
+-record(pk_U2GS_GetMailItemAll,{
 }).
 
 %% 
@@ -7320,6 +8382,8 @@
 	lefttime,
 	%% Int32限购剩余数
 	leftcount,
+	%% Int32限购数
+	leftcountMax,
 	%% Int32排序号
 	sortNumber,
 	%% SByte打折				default:100
@@ -7778,6 +8842,14 @@
 }).
 
 %% 
+%% // 删除宠物
+-define(CMD_GS2U_DeletePet,22924).
+-record(pk_GS2U_DeletePet,{
+	%% UInt16
+	petID
+}).
+
+%% 
 %% // 双人坐骑邀请
 -define(CMD_GS2U_DoublePetMountInvite,59136).
 -record(pk_GS2U_DoublePetMountInvite,{
@@ -7927,6 +8999,18 @@
 }).
 
 %% 
+%% // 宠物升级成功
+-define(CMD_GS2U_PetLevelUp,40620).
+-record(pk_GS2U_PetLevelUp,{
+	%% UInt16
+	petID,
+	%% UInt16
+	petLevel,
+	%% UInt32
+	petExp
+}).
+
+%% 
 %% //扫荡结果
 -define(CMD_GS2U_PetPveSweepAck,17437).
 -record(pk_GS2U_PetPveSweepAck,{
@@ -8053,6 +9137,14 @@
 }).
 
 %% 
+%% // 重置宠物ACK
+-define(CMD_GS2U_ResetPetAck,24481).
+-record(pk_GS2U_ResetPetAck,{
+	%% UInt16宠物ID
+	petID
+}).
+
+%% 
 %% // 20170324需求补充及变更
 %% // 领地战斗心跳
 -define(CMD_GS2U_TerritoryBattle_Tick_Sync,48052).
@@ -8120,6 +9212,16 @@
 }).
 
 %% 
+%% // 刷新宠物技能数据
+-define(CMD_GS2U_UpdatePetSkill,51975).
+-record(pk_GS2U_UpdatePetSkill,{
+	%% UInt16宠物ID
+	petID,
+	%% PetSkillBaseInfo
+	skillInfo
+}).
+
+%% 
 %% //更新宠物状态
 -define(CMD_GS2U_UpdatePetStatus,62688).
 -record(pk_GS2U_UpdatePetStatus,{
@@ -8177,7 +9279,13 @@
 	%% AddProp宠物属性
 	petProps,
 	%% UInt64宠物战斗力
-	petForce
+	petForce,
+	%% UInt32宠物提升次数
+	upCount,
+	%% UInt32宠物等级
+	petLevel,
+	%% UInt32宠物经验
+	petExp
 }).
 
 -record(pk_PetEquipInfo,{
@@ -8437,6 +9545,18 @@
 }).
 
 %% 
+%% // 宠物升级
+-define(CMD_U2GS_PetLevelUp,7694).
+-record(pk_U2GS_PetLevelUp,{
+	%% UInt16
+	petID,
+	%% UInt64物品UID
+	itemUID,
+	%% UInt16本次使用个数
+	useNum
+}).
+
+%% 
 %% // 扫荡
 -define(CMD_U2GS_PetPveSweep,6146).
 -record(pk_U2GS_PetPveSweep,{
@@ -8452,6 +9572,18 @@
 	petID,
 	%% UInt16技能ID列表
 	skillIDs
+}).
+
+%% 
+%% // 宠物技能升级或者解锁
+-define(CMD_U2GS_PetSkillOperate,31172).
+-record(pk_U2GS_PetSkillOperate,{
+	%% UInt16 1解锁；2升级
+	operationType,
+	%% UInt16宠物ID
+	petID,
+	%% UInt16宠物技能ID
+	petSkillId
 }).
 
 %% 
@@ -8526,6 +9658,14 @@
 %% // 领取奖励 
 -define(CMD_U2GS_RequstReward,62009).
 -record(pk_U2GS_RequstReward,{
+}).
+
+%% 
+%% // 重置宠物
+-define(CMD_U2GS_ResetPet,19867).
+-record(pk_U2GS_ResetPet,{
+	%% UInt16宠物ID
+	petID
 }).
 
 %% 
@@ -8686,6 +9826,27 @@
 	curNumber,
 	%% UInt16 总的需要完成的个数
 	allNumber
+}).
+
+-record(pk_CrossRoleBase,{
+	%% UInt64 角色ID
+	id,
+	%% String 姓名
+	name,
+	%% String 所在服名
+	server,
+	%% UInt16 等级
+	level,
+	%% UInt32 职业
+	career,
+	%% Byte 种族
+	race,
+	%% Byte 性别
+	sex,
+	%% Int32 头
+	head,
+	%% Byte 自定义头像MD5(16byte)
+	face
 }).
 
 %% 
@@ -8932,6 +10093,8 @@
 	goldReward,
 	%% UInt32 经验奖励
 	expReward,
+	%% Boolean 是否助战
+	isAssist,
 	%% CopyMapDropItem 掉落列表
 	dropItems
 }).
@@ -9120,8 +10283,12 @@
 	petID,
 	%% UInt64双人坐骑对方的Code （0 表示没有）	
 	otherCode,
-	%% String服务器名称
+	%% String 当前服名
 	servername,
+	%% String 归属服名
+	myServerName,
+	%% Boolean 是否在跨服
+	isInCross,
 	%% Byte玩家Pk状态
 	pkMode,
 	%% UInt64玩家召唤的宠物code列表
@@ -9202,6 +10369,8 @@
 	maxChapter,
 	%% UInt16 完成关卡
 	finishChapter,
+	%% Boolean 是否助战
+	isAssist,
 	%% CopyMapDropItem 掉落列表
 	dropItems
 }).
@@ -9244,6 +10413,8 @@
 -record(pk_GS2U_MoneyTreeAck,{
 	%% UInt32金币总数
 	totalMoney,
+	%% UInt32宝箱金币
+	boxMoney,
 	%% UInt16倍数
 	rate
 }).
@@ -9256,6 +10427,48 @@
 	totalMoney,
 	%% UInt16倍数
 	rate
+}).
+
+%% 
+%% // 拍照、击杀怪物，导致可以解锁、领奖
+%% // 此时服务端通知客户端，以便红点显示
+%% // 通知的时机有2种：1.角色上线时（没有则不发送）；2.条件刚刚达成时
+-define(CMD_GS2U_MonsterBookNeed_Sync,27745).
+-record(pk_GS2U_MonsterBookNeed_Sync,{
+	%% UInt16 可以解锁的怪物ID集
+	listUnlockID,
+	%% UInt16 可以领奖的怪物ID集
+	listRewardID
+}).
+
+%% 
+-define(CMD_GS2U_MonsterBookReward_Ack,46584).
+-record(pk_GS2U_MonsterBookReward_Ack,{
+	%% UInt16 怪物ID
+	id
+}).
+
+%% 
+-define(CMD_GS2U_MonsterBookSnap_Ack,19083).
+-record(pk_GS2U_MonsterBookSnap_Ack,{
+	%% UInt16 怪物ID
+	id
+}).
+
+%% 
+-define(CMD_GS2U_MonsterBookUnlock_Ack,32613).
+-record(pk_GS2U_MonsterBookUnlock_Ack,{
+	%% UInt16 怪物ID
+	id
+}).
+
+%% 
+-define(CMD_GS2U_MonsterBook_Ack,59793).
+-record(pk_GS2U_MonsterBook_Ack,{
+	%% UInt16 已经去过的普通地图
+	listMapID,
+	%% MonsterBook 图鉴数据
+	listMonster
 }).
 
 %% 
@@ -9414,20 +10627,6 @@
 	obj_type,
 	%% ObjBrief 对象列表
 	objs
-}).
-
-%% 
-%% // 购买，上架，下架，拒绝购买等的操作结果
--define(CMD_GS2U_OpTradeResult,58764).
--record(pk_GS2U_OpTradeResult,{
-	%% Byte 类型，1铜币交易,2元宝交易,3指定交易
-	tradeClass,
-	%% UInt64 订单ID
-	orderID,
-	%% Byte 结果
-	result,
-	%% Byte 操作码
-	opCode
 }).
 
 %% 
@@ -9616,39 +10815,90 @@
 }).
 
 %% 
-%% // 查询交易行的订单列表
--define(CMD_GS2U_QueryTrade,7448).
--record(pk_GS2U_QueryTrade,{
-	%% Byte 操作码
-	opCode,
-	%% Byte 排序方式,0无序,1升序,2降序
-	sortType,
-	%% Byte 对什么排序，1品质，2等级，3剩余时间，4出售人，5售价
-	sortIndex,
-	%% UInt32 第几页
-	pageNumber,
-	%% UInt64 当前时间
-	nowTime,
-	%% QueryTradeList 结果列表
-	queryTradeList
+%% // 上线初始化报名状态（没有报名则没有这个消息
+-define(CMD_GS2U_RaceApplyInfo_Sync,61535).
+-record(pk_GS2U_RaceApplyInfo_Sync,{
+	%% RaceTeamBase
+	info
 }).
 
 %% 
-%% // 本次查询的订单记录信息
--define(CMD_GS2U_QueryTradeInfo,23698).
--record(pk_GS2U_QueryTradeInfo,{
-	%% Byte 操作码
-	opCode,
-	%% Byte 查询类型，1铜币交易,2元宝交易,3指定交易
-	tradeClass,
-	%% Byte 道具类型, 1为装备道具equip，2为普通道具item
-	itemClass,
-	%% SByte 道具主类型,为空不过滤
-	itemTypeList,
-	%% SByte 道具子类型,不过滤为-1
-	itemSubType,
-	%% Int32 总共有多少条记录
-	allNumber
+%% // 报名成功反馈
+%% // 所有相关角色会收到该消息
+-define(CMD_GS2U_RaceApply_Ack,8451).
+-record(pk_GS2U_RaceApply_Ack,{
+	%% RaceTeamBase
+	info
+}).
+
+%% 
+%% // 取消报名成功反馈
+%% // 所有相关角色会收到该消息
+-define(CMD_GS2U_RaceCancel_Ack,15285).
+-record(pk_GS2U_RaceCancel_Ack,{
+	%% CrossRoleBase 取消者信息
+	role
+}).
+
+%% 
+%% // 角色弃赛时通知队友
+-define(CMD_GS2U_RaceMapGiveUp_Sync,56427).
+-record(pk_GS2U_RaceMapGiveUp_Sync,{
+	%% Boolean 是否已经冲过终点
+	isComplete,
+	%% Byte 弃赛原因：0没有入场；1离开地图；2掉线；3下马
+	reason,
+	%% CrossRoleBase 弃赛者信息
+	role
+}).
+
+%% 
+%% // 活动地图内广播：刷新道具情况
+-define(CMD_GS2U_RaceMapItem_Sync,22340).
+-record(pk_GS2U_RaceMapItem_Sync,{
+	%% UInt64 报名组ID
+	applyID,
+	%% UInt64 谁
+	roleID,
+	%% Boolean 获得还是使用
+	getOrUse,
+	%% Byte 虚拟道具ID 对应配置race_item.id
+	itemID,
+	%% RaceTeamItem 刷新最新道具情况
+	item
+}).
+
+%% 
+%% // 活动地图内广播：刷新里程碑变动
+-define(CMD_GS2U_RaceMapMilestone_Sync,42481).
+-record(pk_GS2U_RaceMapMilestone_Sync,{
+	%% UInt64 报名组ID
+	applyID,
+	%% RaceTeamSort
+	sort
+}).
+
+%% 
+%% // 活动地图内广播：阶段切换
+-define(CMD_GS2U_RaceMapState_Sync,43248).
+-record(pk_GS2U_RaceMapState_Sync,{
+	%% Byte 0普通模式 1双倍道具 2强化道具 3加速模式 4混乱模式
+	type,
+	%% Byte 1准备倒计时 2比赛中 3已有角色冲过终点 4结算倒计时
+	state,
+	%% UInt16 本阶段剩余时间
+	sec,
+	%% RaceTeamEx 全信息更新
+	info
+}).
+
+%% 
+%% // 下次活动模式
+%% // 角色上线时同步，活动结束后可能同步
+-define(CMD_GS2U_RaceType_Sync,64455).
+-record(pk_GS2U_RaceType_Sync,{
+	%% Byte 0普通模式 1双倍道具 2强化道具 3加速模式 4混乱模式
+	type
 }).
 
 %% 
@@ -9787,6 +11037,17 @@
 -record(pk_GS2U_SessionKey,{
 	%% String
 	key
+}).
+
+%% 
+%% // 30日登录大奖 end
+%% ////////////////////////////////////////////////////////////
+%% // 实时语音 女主播 begin
+%% ////////////////////////////////////////////////////////////
+-define(CMD_GS2U_SetUpAnchor,54142).
+-record(pk_GS2U_SetUpAnchor,{
+	%% Int64 主播ID
+	args
 }).
 
 %% 
@@ -9973,7 +11234,9 @@
 -define(CMD_GS2U_action_point_info,27166).
 -record(pk_GS2U_action_point_info,{
 	%% UInt32
-	value
+	value,
+	%% UInt32
+	lastUpdateUtcTime
 }).
 
 %% 
@@ -10187,6 +11450,19 @@
 	value
 }).
 
+-record(pk_MonsterBook,{
+	%% UInt16 怪物ID
+	id,
+	%% UInt32 击杀数量
+	kill,
+	%% Boolean 是否拍照
+	isSnap,
+	%% Boolean 是否解锁
+	isUnlock,
+	%% Boolean 是否领奖
+	isReward
+}).
+
 -record(pk_NoticeInfo,{
 	%% Int64公告id
 	id,
@@ -10269,33 +11545,44 @@
 	value
 }).
 
--record(pk_QueryTradeList,{
-	%% UInt64 订单ID
-	orderID,
-	%% UInt64 出售者原装备唯一ID
-	itemUID,
-	%% UInt32 道具编号ID
-	itemID,
-	%% String 出售者角色姓名
-	roleName,
-	%% Byte 出售类型,1铜币交易,2元宝交易,3指定交易
-	sellType,
-	%% UInt64 上架时间s
-	putTime,
-	%% UInt64 下架时间s
-	downTime,
-	%% UInt32 银币(铜币)
-	silver,
-	%% UInt32 金币(元宝)
-	gold,
-	%% String 指定卖给谁
-	destRoleName,
-	%% Byte 品质
-	quality,
-	%% Byte 道具等级
-	itemLevel,
-	%% UInt32 堆叠数量
-	pileCount
+-record(pk_RaceTeamBase,{
+	%% UInt64 报名组ID
+	applyID,
+	%% UInt64 报名组队长角色ID
+	leaderID,
+	%% CrossRoleBase 成员角色信息
+	members,
+	%% UInt16 骑宠ID
+	petID
+}).
+
+-record(pk_RaceTeamEx,{
+	%% UInt64 等价于base.applyID，此处方便算法上查找
+	applyID,
+	%% RaceTeamBase
+	base,
+	%% RaceTeamItem
+	item,
+	%% RaceTeamSort
+	sort,
+	%% UInt64 弃赛者角色ID（为0时表示尚未弃赛
+	giveUpID
+}).
+
+-record(pk_RaceTeamItem,{
+	%% Byte 1号角色的道具
+	listItemIDA,
+	%% Byte 2号角色的道具
+	listItemIDB
+}).
+
+-record(pk_RaceTeamSort,{
+	%% Byte 完成圈数
+	laps,
+	%% Byte 最后碰触到的有效里程碑
+	milestone,
+	%% UInt64 最后碰触到有效里程碑的时间（从1970-01-01开始计算的本地时间，单位毫秒
+	time
 }).
 
 -record(pk_RechargeDoubleConf,{
@@ -10321,6 +11608,12 @@
 	roleID,
 	%% String
 	name,
+	%% String 当前服名
+	servername,
+	%% String 归属服名
+	myServerName,
+	%% Boolean 是否在跨服
+	isInCross,
 	%% Single
 	x,
 	%% Single
@@ -10532,18 +11825,6 @@
 }).
 
 %% 
-%% // 下架
--define(CMD_U2GS_DownTrade,17148).
--record(pk_U2GS_DownTrade,{
-	%% Byte 类型，1铜币交易,2元宝交易,3指定交易
-	tradeClass,
-	%% UInt64 订单ID
-	orderID,
-	%% Byte 操作码
-	opCode
-}).
-
-%% 
 %% // 进入活动或者玩法
 -define(CMD_U2GS_EnterActiveMap,17012).
 -record(pk_U2GS_EnterActiveMap,{
@@ -10677,6 +11958,40 @@
 }).
 
 %% 
+%% // 怪物图鉴_领奖（失败时返回ErrorCode）
+-define(CMD_U2GS_MonsterBookReward_Request,3772).
+-record(pk_U2GS_MonsterBookReward_Request,{
+	%% UInt16 怪物ID
+	id
+}).
+
+%% 
+%% // 怪物图鉴_拍照（失败时返回ErrorCode）
+-define(CMD_U2GS_MonsterBookSnap_Request,58895).
+-record(pk_U2GS_MonsterBookSnap_Request,{
+	%% UInt16 怪物ID
+	id
+}).
+
+%% 
+%% // 怪物图鉴_解锁（失败时返回ErrorCode）
+-define(CMD_U2GS_MonsterBookUnlock_Request,22905).
+-record(pk_U2GS_MonsterBookUnlock_Request,{
+	%% UInt16 怪物ID
+	id
+}).
+
+%% 
+%% // 实时语音 女主播 end
+%% ////////////////////////////////////////////////////////////
+%% ////////////////////////////////////////////////////////////
+%% // 怪物图鉴 begin
+%% // 请求怪物图鉴数据
+-define(CMD_U2GS_MonsterBook_Request,4373).
+-record(pk_U2GS_MonsterBook_Request,{
+}).
+
+%% 
 %% //月卡 领取礼品事件
 -define(CMD_U2GS_MonthCardGettingEvent,23872).
 -record(pk_U2GS_MonthCardGettingEvent,{
@@ -10742,16 +12057,6 @@
 }).
 
 %% 
-%% // 跟据上一次查询结果，查询下一页
--define(CMD_U2GS_NextResult,58438).
--record(pk_U2GS_NextResult,{
-	%% UInt32 查询第几页
-	pageNumber,
-	%% Byte 操作码
-	opCode
-}).
-
-%% 
 %% //请求公告列表，
 -define(CMD_U2GS_NoticeRequest,45265).
 -record(pk_U2GS_NoticeRequest,{
@@ -10784,54 +12089,6 @@
 }).
 
 %% 
-%% // 上架
--define(CMD_U2GS_PutTrade,54355).
--record(pk_U2GS_PutTrade,{
-	%% Byte 类型，1铜币交易,2元宝交易,3指定交易
-	tradeClass,
-	%% UInt64 出售者原装备唯一ID
-	itemUID,
-	%% UInt32 道具编号ID
-	itemID,
-	%% UInt16 出售道具个数
-	sellNumber,
-	%% Byte 出售时长(单位小时)
-	sellTime,
-	%% UInt32 银币(铜币)
-	silver,
-	%% UInt32 金币(元宝)
-	gold,
-	%% String 指定卖给谁
-	destRoleName,
-	%% Byte 操作码
-	opCode
-}).
-
-%% 
-%% // 首次打开界面，获取最新上架记录
--define(CMD_U2GS_QueryNewestTrade,42964).
--record(pk_U2GS_QueryNewestTrade,{
-	%% Byte 查询类型，1铜币交易,2元宝交易,3指定交易
-	tradeClass,
-	%% Byte 需要查询最新记录的条数
-	getNumber,
-	%% Byte 每一页显示的条数，-1表示一次性取所有的记录
-	oneNumber,
-	%% Byte 操作码
-	opCode
-}).
-
-%% 
-%% // 查询自己的交易订单
--define(CMD_U2GS_QuerySelfTrade,45970).
--record(pk_U2GS_QuerySelfTrade,{
-	%% Byte 查询类型，1铜币交易,2元宝交易,3指定交易，0查询所有自己的订单
-	tradeClass,
-	%% Byte 操作码
-	opCode
-}).
-
-%% 
 %% // 查询对象
 -define(CMD_U2GS_QueryTargetObject,34006).
 -record(pk_U2GS_QueryTargetObject,{
@@ -10840,29 +12097,25 @@
 }).
 
 %% 
-%% // 查询交易行的订单列表
--define(CMD_U2GS_QueryTrade,40058).
--record(pk_U2GS_QueryTrade,{
-	%% Byte 查询类型，1铜币交易,2元宝交易,3指定交易
-	tradeClass,
-	%% Byte 道具类型, 1为装备道具equip，2为普通道具item
-	itemClass,
-	%% SByte 道具主类型列表,不过滤为空
-	itemTypeList,
-	%% SByte 道具子类型,不过滤为-1
-	itemSubType,
-	%% String 指定的道具ID的名称列表（每项均是全匹配）
-	itemList,
-	%% SByte min lvl,不过滤为-1
-	itemLvlMin,
-	%% SByte max lvl,不过滤为-1
-	itemLvlMax,
-	%% SByte 道具职业,不过滤为-1，0表示所有职业可用的装备
-	itemProfession,
-	%% Byte 每一页显示的条数，-1表示一次性取所有的记录
-	oneNumber,
-	%% Byte 操作码
-	opCode
+%% // 报名请求
+%% // 客户端主动请求
+%% // 对于双人坐骑主人已在马上报名，邀请乘客上马后，乘客自动发起请求
+-define(CMD_U2GS_RaceApply_Request,1335).
+-record(pk_U2GS_RaceApply_Request,{
+}).
+
+%% 
+%% // 取消报名请求
+-define(CMD_U2GS_RaceCancel_Request,6869).
+-record(pk_U2GS_RaceCancel_Request,{
+}).
+
+%% 
+%% // 活动地图内广播：使用道具请求
+-define(CMD_U2GS_RaceMapItem_Request,29928).
+-record(pk_U2GS_RaceMapItem_Request,{
+	%% Byte 对应配置race_item.id
+	itemID
 }).
 
 %% 
@@ -11020,20 +12273,6 @@
 }).
 
 %% 
-%% // 排序
--define(CMD_U2GS_ResultSort,30881).
--record(pk_U2GS_ResultSort,{
-	%% Byte 对什么排序，1品质，2等级，3剩余时间，4出售人，5售价
-	sortIndex,
-	%% UInt32 排序后获取第几页
-	pageNumber,
-	%% Byte 排序方式,0无序,1升序,2降序
-	sortType,
-	%% Byte 操作码
-	opCode
-}).
-
-%% 
 -define(CMD_U2GS_SelPlayerEnterGame,56497).
 -record(pk_U2GS_SelPlayerEnterGame,{
 	%% UInt64
@@ -11101,35 +12340,21 @@
 }).
 
 %% 
+%% //瞬间移动，成功返回pk_GS2U_TransferNewPos
+-define(CMD_U2GS_Telesport,19472).
+-record(pk_U2GS_Telesport,{
+	%% Single新的坐标
+	x,
+	%% Single新的坐标
+	y
+}).
+
+%% 
 %% // 领取奖励
 -define(CMD_U2GS_ThirtyDayLoginGift_Request,16721).
 -record(pk_U2GS_ThirtyDayLoginGift_Request,{
 	%% UInt16 如同配置表thirty_day_login_gift.id
 	id
-}).
-
-%% 
-%% // 购买
--define(CMD_U2GS_TradeBuy,8360).
--record(pk_U2GS_TradeBuy,{
-	%% Byte 类型，1铜币交易,2元宝交易,3指定交易
-	tradeClass,
-	%% UInt64 订单ID
-	orderID,
-	%% Byte 操作码
-	opCode
-}).
-
-%% 
-%% // 拒绝购买
--define(CMD_U2GS_TradeRefuse,49450).
--record(pk_U2GS_TradeRefuse,{
-	%% Byte 类型，1铜币交易,2元宝交易,3指定交易
-	tradeClass,
-	%% UInt64 订单ID
-	orderID,
-	%% Byte 操作码
-	opCode
 }).
 
 %% 
@@ -11229,6 +12454,10 @@
 }).
 
 %% 
+%% // 跨服骑宠竞速 end
+%% //////////////////////////////////////////////////////////////
+%% //////////////////////////////////////////////////////////////
+%% //////////////////////////////////////////////////////////////
 %% // 保存新手引导进度
 -define(CMD_U2GS_save_current_guide_id,39509).
 -record(pk_U2GS_save_current_guide_id,{
@@ -11472,7 +12701,17 @@
 	%% Int64 排行榜数值3
 	rankValue3,
 	%% TitleData 排行榜中玩家的称号
-	title
+	title,
+	%% UInt32 职业
+	career,
+	%% SByte 种族
+	race,
+	%% SByte 性别
+	sex,
+	%% Int32 系统头像（自定义头像使用其它接口获取）
+	head,
+	%% Int32 角色等级
+	level
 }).
 
 -record(pk_TitleData,{
@@ -12485,6 +13724,14 @@
 }).
 
 %% 
+%% //触发任务buff
+-define(CMD_U2GS_TriggerTaskBuff,25874).
+-record(pk_U2GS_TriggerTaskBuff,{
+	%% Int32
+	taskID
+}).
+
+%% 
 %% //使用物品请求
 -define(CMD_U2GS_UseItemObj,53415).
 -record(pk_U2GS_UseItemObj,{
@@ -12766,6 +14013,8 @@
 %% // 相关的提示将会通过errorcode来提示
 -define(CMD_GS2U_TeamReset,10754).
 -record(pk_GS2U_TeamReset,{
+	%% Int32 0 初始化, 1 T;2退队
+	reason
 }).
 
 %% 
@@ -12929,6 +14178,8 @@
 	groupID,
 	%% UInt64 线ID
 	mapInstanceID,
+	%% UInt16 助战地图ID
+	assistMapID,
 	%% Single x坐标
 	x,
 	%% Single y坐标
@@ -12962,6 +14213,8 @@
 	actionPoint,
 	%% UInt64
 	force,
+	%% UInt16 助战地图ID
+	assistMapID,
 	%% Single x坐标
 	x,
 	%% Single y坐标
@@ -12995,7 +14248,9 @@
 	%% Int32 头
 	head,
 	%% UInt64
-	force
+	force,
+	%% UInt64 帮会ID
+	guildID
 }).
 
 -record(pk_TeamSnapshot,{
@@ -13144,6 +14399,310 @@
 	operatedID,
 	%% UInt64
 	param1
+}).
+
+-record(pk_DealRecord,{
+	%% UInt32 道具编号ID
+	itemID,
+	%% Byte 出售类型,1金币交易,2钻石交易,3指定交易
+	sellType,
+	%% Byte 1购买，2出售
+	buyorsell,
+	%% UInt64 成交时间s
+	dealTime,
+	%% UInt32 金币
+	gold,
+	%% UInt32 钻石
+	diamond,
+	%% UInt32 税
+	tax
+}).
+
+%% 
+%% // 返回成交记录
+-define(CMD_GS2U_DealRecord,52921).
+-record(pk_GS2U_DealRecord,{
+	%% Byte 操作码
+	opCode,
+	%% UInt32 总条数
+	number,
+	%% DealRecord 结果列表
+	dealRecord
+}).
+
+%% 
+%% // 购买，上架，下架，拒绝购买等的操作结果
+-define(CMD_GS2U_OpTradeResult,58764).
+-record(pk_GS2U_OpTradeResult,{
+	%% Byte 类型，1金币交易,2钻石交易,3指定交易
+	tradeClass,
+	%% UInt64 订单ID
+	orderID,
+	%% Byte 结果
+	result,
+	%% Byte 操作码
+	opCode
+}).
+
+%% 
+%% // 查询交易行的订单列表
+-define(CMD_GS2U_QueryTrade,7448).
+-record(pk_GS2U_QueryTrade,{
+	%% Byte 操作码
+	opCode,
+	%% Byte 排序方式,0无序,1升序,2降序
+	sortType,
+	%% Byte 对什么排序，1品质，2等级，3剩余时间，4出售人，5售价，6单价
+	sortIndex,
+	%% UInt32 第几页
+	pageNumber,
+	%% UInt64 当前时间
+	nowTime,
+	%% QueryTradeList 结果列表
+	queryTradeList
+}).
+
+%% 
+%% // 本次查询的订单记录信息
+-define(CMD_GS2U_QueryTradeInfo,23698).
+-record(pk_GS2U_QueryTradeInfo,{
+	%% Byte 操作码
+	opCode,
+	%% Byte 查询类型，1金币交易,2钻石交易,3指定交易
+	tradeClass,
+	%% Byte 道具类型, 1为装备道具equip，2为普通道具item
+	itemClass,
+	%% SByte 道具主类型,为空不过滤
+	itemTypeList,
+	%% SByte 道具子类型,不过滤为-1
+	itemSubType,
+	%% Int32 总共有多少条记录
+	allNumber
+}).
+
+%% 
+%% // 返回上架参考
+-define(CMD_GS2U_ReferenceItem,2856).
+-record(pk_GS2U_ReferenceItem,{
+	%% Byte 查询类型，1金币交易,2钻石交易,3指定交易
+	tradeClass,
+	%% ReferenceItem 参考列表
+	referenceItems,
+	%% ReferenceItem 最近成交(停服后清空)
+	referenceItem
+}).
+
+-record(pk_QueryTradeList,{
+	%% UInt64 订单ID
+	orderID,
+	%% UInt64 出售者原装备唯一ID
+	itemUID,
+	%% UInt32 道具编号ID
+	itemID,
+	%% String 出售者角色姓名
+	roleName,
+	%% Byte 出售类型,1金币交易,2钻石交易,3指定交易
+	sellType,
+	%% UInt64 上架时间s
+	putTime,
+	%% UInt64 下架时间s
+	downTime,
+	%% UInt32 金币
+	gold,
+	%% UInt32 钻石
+	diamond,
+	%% String 指定卖给谁
+	destRoleName,
+	%% Byte 品质
+	quality,
+	%% Byte 道具等级
+	itemLevel,
+	%% UInt32 堆叠数量
+	pileCount
+}).
+
+-record(pk_ReferenceItem,{
+	%% UInt32 道具编号ID
+	itemID,
+	%% UInt16 出售道具个数
+	sellNumber,
+	%% UInt32 金币
+	gold,
+	%% UInt32 钻石
+	diamond
+}).
+
+%% 
+%% // 下架
+-define(CMD_U2GS_DownTrade,17148).
+-record(pk_U2GS_DownTrade,{
+	%% Byte 类型，1金币交易,2钻石交易,3指定交易
+	tradeClass,
+	%% UInt64 订单ID
+	orderID,
+	%% Byte 操作码
+	opCode
+}).
+
+%% 
+%% // 跟据上一次查询结果，查询下一页
+-define(CMD_U2GS_NextResult,58438).
+-record(pk_U2GS_NextResult,{
+	%% UInt32 查询第几页
+	pageNumber,
+	%% Byte 操作码
+	opCode
+}).
+
+%% 
+%% // 上架
+-define(CMD_U2GS_PutTrade,54355).
+-record(pk_U2GS_PutTrade,{
+	%% Byte 类型，1金币交易,2钻石交易,3指定交易
+	tradeClass,
+	%% UInt64 出售者原装备唯一ID
+	itemUID,
+	%% UInt32 道具编号ID
+	itemID,
+	%% UInt16 出售道具个数
+	sellNumber,
+	%% Byte 出售时长(单位小时)
+	sellTime,
+	%% UInt32 金币
+	gold,
+	%% UInt32 钻石
+	diamond,
+	%% String 指定卖给谁
+	destRoleName,
+	%% Byte 操作码
+	opCode
+}).
+
+%% 
+%% // 首次打开界面，获取最新上架记录
+-define(CMD_U2GS_QueryNewestTrade,42964).
+-record(pk_U2GS_QueryNewestTrade,{
+	%% Byte 查询类型，1金币交易,2钻石交易,3指定交易
+	tradeClass,
+	%% Byte 需要查询最新记录的条数
+	getNumber,
+	%% SByte 每一页显示的条数，-1表示一次性取所有的记录
+	oneNumber,
+	%% Byte 操作码
+	opCode
+}).
+
+%% 
+%% // 查询自己的交易订单
+-define(CMD_U2GS_QuerySelfTrade,45970).
+-record(pk_U2GS_QuerySelfTrade,{
+	%% Byte 查询类型，1金币交易,2钻石交易,3指定交易，0查询所有自己的订单
+	tradeClass,
+	%% Byte 操作码
+	opCode
+}).
+
+%% 
+%% // 查询交易行的订单列表
+-define(CMD_U2GS_QueryTrade,40058).
+-record(pk_U2GS_QueryTrade,{
+	%% Byte 查询类型，1金币交易,2钻石交易,3指定交易
+	tradeClass,
+	%% Byte 道具类型, 1为装备道具equip，2为普通道具item
+	itemClass,
+	%% SByte 道具主类型列表,不过滤为空
+	itemTypeList,
+	%% SByte 道具子类型,不过滤为-1
+	itemSubType,
+	%% String 指定的道具ID的名称列表（每项均是全匹配）
+	itemList,
+	%% Int16 职业，不过滤为-1
+	career,
+	%% SByte min lvl,不过滤为-1
+	itemLvlMin,
+	%% SByte max lvl,不过滤为-1
+	itemLvlMax,
+	%% SByte 品质过滤,不过滤为-1
+	itemQuality,
+	%% SByte 每一页显示的条数，-1表示一次性取所有的记录
+	oneNumber,
+	%% Byte 操作码
+	opCode
+}).
+
+%% 
+%% // -> client to server
+%% // <- server to client
+%% // <-> client & server
+%% //目前支持以下几种数据类型：
+%% // bool,vector,string,float double
+%% // int8,int16,int32,int,int64,
+%% // uint8,uint16,uint32,uint,uint64
+%% ///////////////////////////////////////////////////////////////////////
+%% // 注，因LUNA策划修改功能，以下所有协议
+%% // tradeClass 交易类型，1金币交易，保留但屏蔽相关功能
+%% // itemClass 道具类型，1为装备道具equip，保留但屏蔽相关功能
+%% // sortIndex 新增6单价排序
+%% ///////////////////////////////////////////////////////////////////////
+%% // 请求商品参考价
+-define(CMD_U2GS_ReferenceItem,16796).
+-record(pk_U2GS_ReferenceItem,{
+	%% Byte 查询类型，1金币交易,2钻石交易,3指定交易
+	tradeClass,
+	%% UInt32 道具编号ID
+	itemID,
+	%% UInt16 请求个数
+	requestNumber
+}).
+
+%% 
+%% // 请求成交记录
+-define(CMD_U2GS_RequestDealRecord,3454).
+-record(pk_U2GS_RequestDealRecord,{
+	%% SByte 查询条数，-1表示一次性取所有的记录
+	oneNumber,
+	%% Byte 当前页数
+	pageNumber,
+	%% Byte 操作码
+	opCode
+}).
+
+%% 
+%% // 排序
+-define(CMD_U2GS_ResultSort,30881).
+-record(pk_U2GS_ResultSort,{
+	%% Byte 对什么排序，1品质，2等级，3剩余时间，4出售人，5售价，6单价
+	sortIndex,
+	%% UInt32 排序后获取第几页
+	pageNumber,
+	%% Byte 排序方式,0无序,1升序,2降序
+	sortType,
+	%% Byte 操作码
+	opCode
+}).
+
+%% 
+%% // 购买
+-define(CMD_U2GS_TradeBuy,8360).
+-record(pk_U2GS_TradeBuy,{
+	%% Byte 类型，1金币交易,2钻石交易,3指定交易
+	tradeClass,
+	%% UInt64 订单ID
+	orderID,
+	%% Byte 操作码
+	opCode
+}).
+
+%% 
+%% // 拒绝购买
+-define(CMD_U2GS_TradeRefuse,49450).
+-record(pk_U2GS_TradeRefuse,{
+	%% Byte 类型，1金币交易,2钻石交易,3指定交易
+	tradeClass,
+	%% UInt64 订单ID
+	orderID,
+	%% Byte 操作码
+	opCode
 }).
 
 %% 

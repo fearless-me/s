@@ -8,6 +8,10 @@
 -include("setupLang.hrl").
 -define(CreateRoleNameLenMin, 3).     %% 俄罗斯创建角色的名字最小长度
 -define(CreateRoleNameLenMax, 24).     %% 俄罗斯创建角色的名字最大长度
+-define(DateActiveID_Link,  1).
+-define(DateActiveID_PushBox,  2).
+-define(DateActiveID_PoolParty,  3).
+-define(DateActiveID_FindTreasure,  4).
 %%-define(RUSCreateRoleNameLenMax , 28).     %% 俄罗斯创建角色的名字最大长度
 %% ====================================================================
 %% API functions
@@ -30,6 +34,10 @@
 -export([
 	onDeleteRoleDone/2,%%请注意会被多进程调用
 	printTestLog/3
+]).
+
+-export([
+	accLoginDayAll/0	%% 累计登录天数
 ]).
 
 %向数据库请求角色列表
@@ -266,6 +274,7 @@ onCreateRoleAck({RoleID, BaseRole, #pk_U2GS_RequestCreatePlayer{name = Name, car
 			playerState:setName(Name),
 			playerState:setMapID(globalCfg:getStartMap()),
 			playerBase:setLevel(1, false),
+			playerState:setInitHpFromDB(playerState:getMaxHp()),
 			playerPet:initPetEquip(),
 			%%playerPetPvE:initPetPveSys(),
 			playerEquip:initRoleDefaultEquip(),  %%初始角色默认装备
@@ -383,6 +392,9 @@ onDeleteRoleDone(AccountID, #recDeleteRoleAck{
 
 	%% 删除好友数据
 	playerFriend2:deleteRole(RoleID),
+
+	%% 删除身份证相关数据
+	playerIdentity:deleteRole(RoleID),
 
 	%% 删除他的天梯数据
 	playerLadder1v1:deleteRole(RoleID),
@@ -660,8 +672,6 @@ onLoadRoleDataAck([H | _] = List) ->
 				playerFashion:initFashionSlot(List);
 			#rec_variant0{} ->
 				playerVariant:reloadAllPlayerVariant(List);
-			#rec_personality_info{} ->
-				playerLoad:initPersonalityFromDB(List);
 			#rec_player_prop{} ->
 				playerPropSync:loadPlayerPropList(List);
 			#rec_player_clock{} ->
@@ -745,7 +755,8 @@ loadRoleData(#rec_base_role{
 					globalCfg:getStartMap()
 			end,
 
-	?LOG_OUT("self[~p] loadRoleData begin playerid[~p] playername[~s] MapID[~p] X[~p] Y[~p]", [self(), RoleID, RoleName, MapID, X, Y]),
+	?LOG_OUT("self[~p] loadRoleData begin playerid[~p] playername[~s] MapID[~p] X[~p] Y[~p], Hp[~p/~p]",
+		[self(), RoleID, RoleName, MapID, X, Y, playerState:getCurHp(), playerState:getMaxHp()]),
 
 	%%首先初始化玩家基础数据
 	playerBase:init(RoleID, Career, Race, Sex, Head),
@@ -912,6 +923,31 @@ tryToOnlineEnterMap(MapID, X, Y) when erlang:is_float(X), erlang:is_float(Y) ->
 								?ActivityType_Darkness,
 								tryToOnlineEnterMap_darkness,
 								{playerState:getRoleID(), MapID, {MapID, X, Y}, {OldMapID, OldX, OldY}});
+
+						SubType =:= ?MapSubTypeDate ->
+							%% 约会地下城_消消乐
+							core:sendMsgToActivity(
+								?ActivityType_Date,
+								tryToOnlineEnterMap_dateLink_prepare,
+								{playerState:getRoleID(), MapID,?DateActiveID_Link, {MapID, X, Y}, {OldMapID, OldX, OldY}});
+						SubType =:= ?MapSubTypeDatebox ->
+							%% 约会地下城_推箱子
+							core:sendMsgToActivity(
+								?ActivityType_Date,
+								tryToOnlineEnterMap_dateLink_prepare,
+								{playerState:getRoleID(), MapID, ?DateActiveID_PushBox,{MapID, X, Y}, {OldMapID, OldX, OldY}});
+						SubType =:= ?MapSubTypeDatePoolParty ->
+							%% 约会地下城_泳池派对
+							core:sendMsgToActivity(
+								?ActivityType_Date,
+								tryToOnlineEnterMap_dateLink_prepare,
+								{playerState:getRoleID(), MapID, ?DateActiveID_PoolParty, {MapID, X, Y}, {OldMapID, OldX, OldY}});
+						SubType =:= ?MapSubTypeDateFindTreasure ->
+							%% 约会地下城_寻宝
+							core:sendMsgToActivity(
+								?ActivityType_Date,
+								tryToOnlineEnterMap_dateLink_prepare,
+								{playerState:getRoleID(), MapID,?DateActiveID_FindTreasure, {MapID, X, Y}, {OldMapID, OldX, OldY}});
 						true ->
 							%% 在活动地图上线，回到普通地图去
 							playerScene:onRequestEnterMap(OldMapID, OldX, OldY)
@@ -980,28 +1016,14 @@ checkName(Name) when erlang:is_list(Name) ->
 	case Count >= LenMin andalso Count =< LenMax of
 		true ->
 			%%名字必须大于等于2个字节且小于等于24个字节
-			checkChar(Name);
+			misc:checkChar(Name);
 		_ ->
 			false
 	end;
 checkName(_) ->
 	false.
 
--spec checkChar(String) -> boolean()
-	when String :: string().
-checkChar([]) ->
-	true;
-checkChar([H | T]) ->
-	if
-		H < 33 ->
-			false;
-		H =:= 39 -> %% "
-			false;
-		H =:= 34 ->    %% '
-			false;
-		true ->
-			checkChar(T)
-	end.
+
 canChangeName(RoleID) ->
 	CanRename = case edb:dirtyReadRecord(rec_ext_role, RoleID) of
 					[#rec_ext_role{canRename = CR}] ->
@@ -1126,3 +1148,18 @@ checkAccountNetAndPPidIsSelf(AccountID) ->
 	end,
 	ok.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%-------------------------------------------------------------------
+%% 累计登录天数
+-spec accLoginDayAll() -> no_return().
+accLoginDayAll() ->
+	Daily = playerDaily:getDailyCounter(?DailyType_Login, 0),
+	playerDaily:incDailyCounter(?DailyType_Login, 0),
+	case Daily > 0 of
+		true ->
+			skip;
+		_ ->
+			RoleID = playerState:getRoleID(),
+			DayCount = variant:getPlayerVariant(RoleID, ?Setting_PlayerVarReadOnly_AccLoginDayAll),
+			playerVariant:setPlayerVariant(?Setting_PlayerVarReadOnly_AccLoginDayAll, DayCount + 1)
+	end.

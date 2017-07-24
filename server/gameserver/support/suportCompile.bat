@@ -1,6 +1,6 @@
 @echo off
-L:
-cd \server\gameserver
+C:
+cd ../
 echo (a)build_log_define (b)quit (c) build_mapcfg (d)build_db_record
 choice /C abcd
 if errorlevel 4 goto nul3

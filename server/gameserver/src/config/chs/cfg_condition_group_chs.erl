@@ -51,7 +51,7 @@ getRow(8)->
     #condition_groupCfg {
     id = 8,
     type = 3,
-    conditionIDList = [6,7]
+    conditionIDList = [6,7,104,105]
     };
 getRow(9)->
     #condition_groupCfg {
@@ -587,6 +587,48 @@ getRow(98)->
     type = 1,
     conditionIDList = [121]
     };
+getRow(99)->
+    #condition_groupCfg {
+    id = 99,
+    type = 1,
+    conditionIDList = [122,4]
+    };
+getRow(100)->
+    #condition_groupCfg {
+    id = 100,
+    type = 1,
+    conditionIDList = [123,4]
+    };
+getRow(101)->
+    #condition_groupCfg {
+    id = 101,
+    type = 1,
+    conditionIDList = [124,4]
+    };
+getRow(102)->
+    #condition_groupCfg {
+    id = 102,
+    type = 1,
+    conditionIDList = [125,4]
+    };
+getRow(103)->
+    #condition_groupCfg {
+    id = 103,
+    type = 1,
+    conditionIDList = [126,4]
+    };
+getRow(104)->
+    #condition_groupCfg {
+    id = 104,
+    type = 1,
+    conditionIDList = [125,5]
+    };
+getRow(105)->
+    #condition_groupCfg {
+    id = 105,
+    type = 1,
+    conditionIDList = [126,5]
+    };
 getRow(_)->[].
 
 getKeyList()->[
@@ -686,7 +728,14 @@ getKeyList()->[
     {95},
     {96},
     {97},
-    {98}
+    {98},
+    {99},
+    {100},
+    {101},
+    {102},
+    {103},
+    {104},
+    {105}
     ].
 
 get1KeyList()->[
@@ -786,6 +835,13 @@ get1KeyList()->[
     95,
     96,
     97,
-    98
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105
     ].
 

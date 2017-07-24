@@ -65,7 +65,15 @@
 	fastJoin_Set/2,				%% 设置允许快速加入的战力条件
 	fastJoin/0,					%% 快速加入请求
 	oneKeyRecruit/0,			%% 发布招募
-	oneKeyRecruitAck/0			%% 发布招募
+	oneKeyRecruitAck/0,			%% 发布招募
+
+	%% 碎片祈愿
+	suppList/0,					%% 打开祈愿界面请求列表
+	suppSupp/1,					%% 发布祈愿
+	suppGive/2,					%% 赠送碎片
+	suppGiveAck/1,				%% 赠送碎片操作反馈
+	suppCheck/2,				%% 检查祈愿是否有效
+	suppGetParam/1				%% 获取碎片N值及赠送奖励数据
 ]).
 
 %% 模块调用接口
@@ -136,6 +144,7 @@ init() ->
 
 	exchange_refresh_all(),
 	playerGuildSnowman:init(),
+	suppInit(),
 
 	ok.
 
@@ -726,7 +735,7 @@ sendGuildMemberListToClient(Page) ->
 			SubList = lists:sublist(MemberList, (Page - 1) * ?GuildMemberPageNumber + 1, ?GuildMemberPageNumber),
 			Fun =
 				fun(#rec_guild_member{roleID = RoleID} = Member) ->
-					{Code, Name, Lvl, _Career, VipLv, Combat, OfflineTime} = queryPlayerInfo(RoleID),
+					{Code, Name, Lvl, Career, VipLv, Combat, OfflineTime, Race, Sex, Head} = queryPlayerInfo(RoleID),
 
 
 					#pk_GuildMemberInfo{
@@ -738,7 +747,11 @@ sendGuildMemberListToClient(Page) ->
 						combatNum      = Combat,
 						offlineTime    = OfflineTime,
 						vipLevel       = VipLv,
-						playerLevel    = Lvl
+						playerLevel    = Lvl,
+						career = Career,
+						race = Race,
+						sex = Sex,
+						head = Head
 					}
 				end,
 			InfoList = lists:map(Fun, SubList),
@@ -757,7 +770,7 @@ requestJoinGuildList() ->
 			{#rec_guild{} = _Guild, [#rec_guild_member{} | _] = _MemberList, RequestList} = playerState:getGuildInfo(),
 			Fun =
 				fun(#rec_guild_apply{roleID = RoleID} = Member) ->
-					{Code, Name, Lvl, _Career, VipLv, Combat, _OfflineTime} = queryPlayerInfo(RoleID),
+					{Code, Name, Lvl, _Career, VipLv, Combat, _OfflineTime, _Race, _Sex, _Head} = queryPlayerInfo(RoleID),
 					#pk_GuildApplyMemberInfo{
 						roleID         = RoleID,
 						roleCode       = Code,
@@ -812,7 +825,11 @@ recruitPlayer(TargetCode) when erlang:is_integer(TargetCode) ->
 										combatNum      = playerPropSync:getProp(?SerProp_PlayerHistoryForce),
 										offlineTime    = 0,
 										vipLevel       = playerState:getVip(),
-										playerLevel    = playerState:getLevel()
+										playerLevel    = playerState:getLevel(),
+										career			= playerState:getCareer(),
+										race			= playerState:getRace(),
+										sex				= playerState:getSex(),
+										head			= playerState:getHead()
 									},
 									psMgr:sendMsg2PS(PlayerPid, recruitPlayer, {R, SR, self()});
 								_ ->
@@ -1722,16 +1739,17 @@ getOnlineNetPidList(_)  -> [].
 queryPlayerInfo(RoleID) ->
 	case core:queryRoleKeyInfoByRoleID(RoleID) of
 		{} ->
-			{0, "", 0, ?Career_10_Warrior, 0, 0, 0};
+			{0, "", 0, ?Career_10_Warrior, 0, 0, 0, 0, 0, 0};
 		#?RoleKeyRec{roleName = Name, career = Career, level = Lvl, vipLv = VipLv, reputation = Reputation,
-			maxForce = Maxforce, lastUpdateTime = LastUpdateTime, offlineTime = OfflineTime} ->
+			maxForce = Maxforce, lastUpdateTime = LastUpdateTime, offlineTime = OfflineTime,
+			race = Race, sex = Sex, head = Head} ->
 			Code = case core:queryOnLineRoleByRoleID(RoleID) of
 					   #rec_OnlinePlayer{code = C} -> C;
 					   _ -> 0
 				   end,
 			VipLvAdjust = mp_getOfflineVipLevel(Code, VipLv, Reputation),
 			OffLineSeconds = offlineSeconds(Code, LastUpdateTime, OfflineTime),
-			{Code, Name, Lvl, Career, VipLvAdjust, Maxforce, OffLineSeconds}
+			{Code, Name, Lvl, Career, VipLvAdjust, Maxforce, OffLineSeconds, Race, Sex, Head}
 	end.
 
 mp_getOfflineVipLevel(Code, CurVipLv, Reputation) ->
@@ -2055,16 +2073,25 @@ godBless_Schedule_Reward(ID) ->
 		0 ->
 			%% 没有加入家族
 			playerMsg:sendNetMsg(?ErrorCode_GuildNotJoin);
-		_ ->
+		GuildID ->
 			%% 验证ID是否有效
 			case getCfg:getCfgPStack(cfg_guildbless_schedule, ID) of
-				#guildbless_scheduleCfg{} = Cfg ->
-					%% 是否已经领取
-					case godBless_Schedule_Reward_check(ID) of
-						false ->
-							godBless_Schedule_Reward_mail(Cfg);
+				#guildbless_scheduleCfg{schedule = ScheduleAim} = Cfg ->
+					%% 补充验证是否已经达到祈福进度
+					case ets:lookup(rec_guild, GuildID) of
+						[#rec_guild{godBless = Schedule}] when Schedule >= ScheduleAim ->
+							%% 是否已经领取
+							case godBless_Schedule_Reward_check(ID) of
+								false ->
+									%godBless_Schedule_Reward_mail(Cfg),
+									godBless_Schedule_Reward_coin(Cfg),
+									playerMsg:sendErrorCodeMsg(?ErrorCode_SystemGettingSuccess),
+									playerMsg:sendNetMsg(#pk_GS2U_Guild_GodBless_Schedule_Reward_Ack{id = ID});
+								_ ->
+									playerMsg:sendErrorCodeMsg(?ErrorCode_GuildGodBlessScheduleAlreadyGet)
+							end;
 						_ ->
-							playerMsg:sendErrorCodeMsg(?ErrorCode_GuildGodBlessScheduleAlreadyGet)
+							playerMsg:sendErrorCodeMsg(?ErrorCode_SystemGettingFailed)
 					end;
 				_ ->
 					skip
@@ -2100,34 +2127,61 @@ godBless_Schedule_Reward_check(ID) ->
 	end,
 	IsFind.
 
-%% 邮件发奖
-godBless_Schedule_Reward_mail(#guildbless_scheduleCfg{id = ID, itemID = ItemID}) ->
-	%% 发奖
-	case getCfg:getCfgPStack(cfg_item, ItemID) of
-		#itemCfg{} ->
-			RoleID = playerState:getRoleID(),
-			case playerMail:createMailGoods(ItemID, 1, true, 0, RoleID, ?ItemSourceGuildGodblessSchedule) of
-				[#recMailItem{}|_] = MailItemList ->
-					Title = stringCfg:getString(guild_godbless_sr_title),
-					Content = stringCfg:getString(guild_godbless_sr_content),
-					mail:sendSystemMail(RoleID, Title, Content, MailItemList, "");
-				_ ->
-					?ERROR_OUT("godBless_Schedule_Reward_mail FunMail can not create mail goods ItemID:~p RoleID:~p", [ItemID, RoleID])
-			end
-	end,
-	%% 同步的进度
-	godBless_Schedule(),
-	%% 通知客户端已领取
-	playerMsg:sendNetMsg(#pk_GS2U_Guild_GodBless_Schedule_Reward_Ack{id = ID}),
-	ok.
+%%% 邮件发奖
+%godBless_Schedule_Reward_mail(#guildbless_scheduleCfg{itemID = undefined}) ->
+%	skip;
+%godBless_Schedule_Reward_mail(#guildbless_scheduleCfg{itemID = 0}) ->
+%	skip;
+%godBless_Schedule_Reward_mail(#guildbless_scheduleCfg{id = ID, itemID = ItemID}) ->
+%	%% 发奖
+%	case getCfg:getCfgPStack(cfg_item, ItemID) of
+%		#itemCfg{} ->
+%			RoleID = playerState:getRoleID(),
+%			case playerMail:createMailGoods(ItemID, 1, true, 0, RoleID, ?ItemSourceGuildGodblessSchedule) of
+%				[#recMailItem{}|_] = MailItemList ->
+%					Title = stringCfg:getString(guild_godbless_sr_title),
+%					Content = stringCfg:getString(guild_godbless_sr_content),
+%					mail:sendSystemMail(RoleID, Title, Content, MailItemList, "");
+%				_ ->
+%					?ERROR_OUT("godBless_Schedule_Reward_mail FunMail can not create mail goods ItemID:~p RoleID:~p", [ItemID, RoleID])
+%			end
+%	end,
+%	%% 同步的进度
+%	godBless_Schedule(),
+%	%% 通知客户端已领取
+%	playerMsg:sendNetMsg(#pk_GS2U_Guild_GodBless_Schedule_Reward_Ack{id = ID}),
+%	ok.
+
+%% 货币奖励
+godBless_Schedule_Reward_coin(#guildbless_scheduleCfg{coin = []}) ->
+	skip;
+godBless_Schedule_Reward_coin(#guildbless_scheduleCfg{coin = "[]"}) ->
+	skip;
+godBless_Schedule_Reward_coin(#guildbless_scheduleCfg{coin = undefined}) ->
+	skip;
+godBless_Schedule_Reward_coin(#guildbless_scheduleCfg{id = ID, coin = CoinList}) when erlang:is_list(CoinList) ->
+	godBless_Schedule_Reward_coin(CoinList, ID);
+godBless_Schedule_Reward_coin(#guildbless_scheduleCfg{id = ID, coin = Coin}) ->
+	RoleID = playerState:getRoleID(),
+	?ERROR_OUT("godBless_Schedule_Reward_coin coin:~w is invalid when id:~w RoleID:~w", [Coin, ID, RoleID]).
+godBless_Schedule_Reward_coin([], _ID) ->
+	ok;
+godBless_Schedule_Reward_coin([{CoinType, CoinNum} | T], ID) ->
+	GuildID = playerState:getGuildID(),
+	playerMoney:addCoin(CoinType, CoinNum,
+		#recPLogTSMoney{reason = ?CoinSourceGuildContri, param = GuildID, target = ?PLogTS_PlayerSelf, source = ?PLogTS_Guild}),
+	godBless_Schedule_Reward_coin(T, ID);
+godBless_Schedule_Reward_coin([Invalid | T], ID) ->
+	RoleID = playerState:getRoleID(),
+	?ERROR_OUT("godBless_Schedule_Reward_coin coin:~w is invalid when id:~w RoleID:~w", [Invalid, ID, RoleID]),
+	godBless_Schedule_Reward_coin(T, ID).
 
 %% 输入时间（来源于time:getSyncTimeFromDBS/0）是否为当日的时间（凌晨4点开始算当日）
 -spec isToday(Time::uint32()) -> boolean().
+isToday(0) ->
+	false;
 isToday(Time) ->
-	TimeNow = time:getSyncTimeFromDBS(),
-	{YMD, _} = time2:convertSecToDateTime(TimeNow),
-	TimeBegin = calendar:datetime_to_gregorian_seconds({YMD, {4, 0, 0}}),
-	Time >= TimeBegin andalso Time < TimeBegin + 86400.
+	core:timeIsOnDay(Time + ?SECS_FROM_0_TO_1970).
 
 %%% ====================================================================
 %%% 家族商店
@@ -2763,3 +2817,341 @@ oneKeyRecruitAck() ->
 			skip
 	end,
 	ok.
+
+
+%%%-------------------------------------------------------------------
+% 打开祈愿界面请求列表
+-spec suppList() -> no_return().
+suppList() ->
+	case playerState:getGuildID() of
+		0 ->
+			?ERROR_CODE(?ErrorCode_GuildNotJoin);
+		GuildID ->
+			RoleID = playerState:getRoleID(),
+			ListMember = getGuildMember(GuildID),
+			ListSupp = suppList(ListMember, RoleID, []),
+			{List1, List2} = suppList_split(ListSupp, [], []),
+			ListSort1 = lists:sort(fun suppList_sort/2, List1),
+			ListSort2 = lists:sort(fun suppList_sort/2, List2),
+			playerMsg:sendNetMsg(#pk_GS2U_Guild_OpenSupplication_Ack{listInfo = ListSort1 ++ ListSort2})
+	end.
+
+%% 将#rec_guild_member{}列表转换为#pk_Supplication{}列表
+-spec suppList(ListMember::[#rec_guild_member{}, ...], RoleID::uint64(), Acc::[#pk_Supplication{}, ...]) -> Result::[#pk_Supplication{}, ...].
+suppList([], _RoleID, Acc) ->
+	Acc;
+suppList([#rec_guild_member{itemID = 0} | T], RoleID, Acc) ->
+	suppList(T, RoleID, Acc);	%% 未发布祈愿
+suppList([#rec_guild_member{roleID = RoleID, power = Power, itemID = ItemID, itemM = ItemM, itemTime = ItemTime} | T], RoleID, Acc) ->
+	case suppCheck(ItemTime, ItemID) of
+		false ->
+			suppList(T, RoleID, Acc);	%% 无效的祈愿
+		_ ->
+			Ret = #pk_Supplication{
+				roleID = RoleID,
+				roleCode = playerState:getPlayerCode(),
+				roleName = playerState:getName(),
+				roleGuildLevel = Power,
+				career = playerState:getCareer(),
+				race = playerState:getRace(),
+				sex = playerState:getSex(),
+				head = playerState:getHead(),
+				level = playerState:getLevel(),
+				itemID = ItemID,
+				itemM = ItemM,
+				isGive = true
+			},
+			suppList(T, RoleID, [Ret | Acc])
+	end;
+suppList([#rec_guild_member{roleID = TarRoleID, power = Power, itemID = ItemID, itemM = ItemM, itemTime = ItemTime} | T], RoleID, Acc) ->
+	case suppCheck(ItemTime, ItemID) of
+		false ->
+			suppList(T, RoleID, Acc);	%% 无效的祈愿
+		_ ->
+			case core:queryRoleKeyInfoByRoleID(TarRoleID) of
+				#?RoleKeyRec{roleName = Name, career = Career, race = Race, sex = Sex, head = Head, level = Level} ->
+					Code = case core:queryOnLineRoleByRoleID(TarRoleID) of
+							   #rec_OnlinePlayer{code = Code_} ->
+								   Code_;
+							   _ ->
+								   0
+						   end,
+					Ret = #pk_Supplication{
+						roleID = TarRoleID,
+						roleCode = Code,
+						roleName = Name,
+						roleGuildLevel = Power,
+						career = Career,
+						race = Race,
+						sex = Sex,
+						head = Head,
+						level = Level,
+						itemID = ItemID,
+						itemM = ItemM,
+						isGive = daily2State:queryDaily2(RoleID, TarRoleID, ?Daily2Type_S_GuildSupplication) > 0
+					},
+					suppList(T, RoleID, [Ret | Acc]);
+				_ ->
+					?ERROR_OUT("can not find ~w from core:queryRoleKeyInfoByRoleID/1", [TarRoleID]),
+					suppList(T, RoleID, Acc)
+			end
+	end.
+
+%% 排序：
+%% 1.M<N的情况优先于M>=N的情况
+%% 2.职位高者优先
+-spec suppList_split(ListSupp, Acc1, Acc2) -> {Result1, Result2} when
+	ListSupp :: [#pk_Supplication{}, ...],
+	Acc1 :: [#pk_Supplication{}, ...],
+	Acc2 :: [#pk_Supplication{}, ...],
+	Result1 :: [#pk_Supplication{}, ...],
+	Result2 :: [#pk_Supplication{}, ...].
+suppList_split([], Acc1, Acc2) ->
+	{Acc1, Acc2};
+suppList_split([#pk_Supplication{itemID = ID, itemM = M} = Supp | T], Acc1, Acc2) ->
+	case suppGetParam(ID) of
+		{_, N, _, _} when erlang:is_integer(N), M < N ->
+			suppList_split(T, [Supp | Acc1], Acc2);
+		_ ->
+			suppList_split(T, Acc1, [Supp | Acc2])
+	end.
+-spec suppList_sort(#pk_Supplication{}, #pk_Supplication{}) -> boolean().
+suppList_sort(#pk_Supplication{roleGuildLevel = L1}, #pk_Supplication{roleGuildLevel = L2}) ->
+	L1 > L2.
+
+%%%-------------------------------------------------------------------
+% 发布祈愿
+-spec suppSupp(ItemID::uint16()) -> no_return().
+suppSupp(ItemID) ->
+	case playerState:getGuildID() of
+		0 ->
+			?ERROR_CODE(?ErrorCode_GuildNotJoin);
+		GuildID ->
+			case playerDaily:getDailyCounter(?DailyType_GuildSupplication, 0) of
+				0 ->
+					TimeNow = time:getSyncTimeFromDBS(),
+					case suppCheck(TimeNow, ItemID) of
+						false ->
+							?ERROR_CODE(?ErrorCode_GuildSupp_InvalidItem);
+						_ ->
+							playerDaily:incDailyCounter(?DailyType_GuildSupplication, 0),
+							psMgr:sendMsg2PS(?PsNameGuild, guild_suppSupp, {GuildID, playerState:getRoleID(), ItemID})
+					end;
+				_ ->
+					?ERROR_CODE(?ErrorCode_GuildSupp_AlreadyHave)
+			end
+	end.
+
+%%%-------------------------------------------------------------------
+% 赠送碎片
+-spec suppGive(TarRoleID::uint64(), ItemID::uint16()) -> no_return().
+suppGive(TarRoleID, ItemID) ->
+	case playerState:getGuildID() of
+		0 ->
+			playerMsg:sendNetMsg(#pk_GS2U_Guild_SupplicateGiveF_Ack{type = ?SuppGiveFailedType_NotJoinGuild, tarRoleID = TarRoleID}),
+			?ERROR_CODE(?ErrorCode_GuildNotJoin);
+		GuildID ->
+			case playerState:getRoleID() of
+				TarRoleID ->
+					?ERROR_CODE(?ErrorCode_GuildSupp_InvalidTar);
+				RoleID ->
+					case daily2State:queryDaily2(RoleID, TarRoleID, ?Daily2Type_S_GuildSupplication) of
+						0 ->
+							case ets:lookup(rec_guild_member, TarRoleID) of
+								[#rec_guild_member{guildID = GuildID, itemID = ItemID,	%% 此处GuildID与ItemID必须匹配
+									itemTime = ItemTime, itemM = M}] ->
+									case suppCheck(ItemTime, ItemID) of
+										false ->
+											playerMsg:sendNetMsg(#pk_GS2U_Guild_SupplicateGiveF_Ack{type = ?SuppGiveFailedType_InvalidTarget, tarRoleID = TarRoleID}),
+											?ERROR_CODE(?ErrorCode_GuildSupp_Refuse);	%% 无效的祈愿
+										_ ->
+											case suppGetParam(ItemID) of
+												{_, N, _, _} when erlang:is_integer(N), M < N ->
+													case playerPackage:getGoodsByID(ItemID, ?Item_Location_Pieces_Bag) of
+														0 ->
+															?ERROR_CODE(?ErrorCode_ActExchange_ItemNotEnough);
+														ItemCountOld ->
+															suppGiveDo(GuildID, RoleID, TarRoleID, ItemID, ItemCountOld)
+													end;
+												_ ->
+													playerMsg:sendNetMsg(#pk_GS2U_Guild_SupplicateGiveF_Ack{type = ?SuppGiveFailedType_Enough, tarRoleID = TarRoleID}),
+													?ERROR_CODE(?ErrorCode_GuildSupp_Enough)
+											end
+									end;
+								_ ->
+									playerMsg:sendNetMsg(#pk_GS2U_Guild_SupplicateGiveF_Ack{type = ?SuppGiveFailedType_InvalidTarget, tarRoleID = TarRoleID}),
+									?ERROR_CODE(?ErrorCode_GuildSupp_InvalidTar)
+							end;
+						_ ->
+							?ERROR_CODE(?ErrorCode_GuildSupp_AlreadyGive)
+					end
+			end
+	end.
+
+suppGiveDo(GuildID, RoleID, TarRoleID, ItemID, ItemCountOld) ->
+	%% 计数
+	daily2Logic:saveDaily2({RoleID, TarRoleID, ?Daily2Type_S_GuildSupplication, 1}),
+	%% 扣除道具
+	PLog = #recPLogTSItem{
+		old = 1,
+		change = -1,
+		target = ?PLogTS_GuildSupplication,
+		source = ?PLogTS_PlayerSelf,
+		changReason = ?ItemDeleteReasonGuildSupplication,
+		reasonParam = TarRoleID
+	},
+	case playerPackage:delGoodsByID(?Item_Location_Pieces_Bag, ItemID, 1, PLog) of
+		true ->
+			%% 向公共进程请求赠送
+			psMgr:sendMsg2PS(?PsNameGuild, guild_suppGive, {GuildID, RoleID, TarRoleID, ItemID});
+		_ ->
+			?ERROR_OUT(
+				"playerPackage:delGoodsByID/4 failed oldItemCount:~w wantDelItemCount:~w newItemCount:~w roleID:~w",
+				[ItemCountOld, 1, playerPackage:getItemNumByID(ItemID), RoleID]
+			),
+			?ERROR_CODE(?ErrorCode_ActExchange_ItemNotEnough)
+	end.
+
+%%%-------------------------------------------------------------------
+% 上线时初始化祈愿记录
+-spec suppInit() -> no_return().
+suppInit() ->
+	RoleID = playerState:getRoleID(),
+	ListHistory = suppInit_history(RoleID),
+	ListHistory2 = suppInit_history2(ListHistory, [], RoleID),
+	ListID = suppInit_listID(ListHistory2, [], RoleID),
+	ListName = suppInit_name(ListID, []),
+	Msg =
+		#pk_GS2U_Guild_SupplicateGive_Sync{
+			listHistory = ListHistory2,
+			nameTables = ListName
+		},
+	playerMsg:sendNetMsg(Msg).
+
+suppInit_history(RoleID) ->
+	Q = ets:fun2ms(
+		fun (#pk_SuppHistory{roleID = IDA, tarRoleID = IDB} = R)
+			when IDA =:= RoleID; IDB =:= RoleID ->
+			R
+		end
+	),
+	ets:select(?EtsSuppHistory, Q).
+suppInit_history2([], Acc, _RoleID) ->
+	Acc;
+suppInit_history2([#pk_SuppHistory{roleID = RoleID, tarRoleID = TarRoleID} = Rec | T], Acc, RoleID) ->
+	case suppInit_history2_make(TarRoleID, Rec) of
+		#pk_SuppHistory2{} = History ->
+			suppInit_history2(T, [History | Acc], RoleID);
+		_ ->
+			suppInit_history2(T, Acc, RoleID)	%% 此处角色已丢失，忽略
+	end;
+suppInit_history2([#pk_SuppHistory{roleID = TarRoleID, tarRoleID = RoleID} = Rec | T], Acc, RoleID) ->
+	case suppInit_history2_make(TarRoleID, Rec) of
+		#pk_SuppHistory2{} = History ->
+			suppInit_history2(T, [History | Acc], RoleID);
+		_ ->
+			suppInit_history2(T, Acc, RoleID)	%% 此处角色已丢失，忽略
+	end.
+suppInit_history2_make(ID, Rec) ->
+	case core:queryRoleKeyInfoByRoleID(ID) of
+		#?RoleKeyRec{career = Career, race = Race, sex = Sex, head = Head, level = Level} ->
+			#pk_SuppHistory2{
+				career = Career,
+				race = Race,
+				sex = Sex,
+				head = Head,
+				level = Level,
+				history = Rec
+			};
+		_ ->
+			skip
+	end.
+suppInit_listID([], Acc, RoleID) ->
+	lists:usort([RoleID | Acc]);
+suppInit_listID([#pk_SuppHistory2{history = #pk_SuppHistory{roleID = RoleID, tarRoleID = IDB}} | T], Acc, RoleID) ->
+	suppInit_listID(T, [IDB | Acc], RoleID);
+suppInit_listID([#pk_SuppHistory2{history = #pk_SuppHistory{roleID = IDA, tarRoleID = RoleID}} | T], Acc, RoleID) ->
+	suppInit_listID(T, [IDA | Acc], RoleID).
+suppInit_name([], Acc) ->
+	Acc;
+suppInit_name([H | T], Acc) ->
+	Name = playerNameUID:getPlayerNameByUID(H),
+	suppInit_name(T, [#pk_NameTable2{id = H, name = Name} | Acc]).
+
+%%%-------------------------------------------------------------------
+%% 检查祈愿是否有效
+%% 1.祈愿时间必须是今日
+%% 2.祈愿道具必须有效
+-spec suppCheck(ItemTime::uint32(), ItemID::uint16()) -> false | #itemCfg{}.
+suppCheck(0, _ItemID) ->
+	false;
+suppCheck(_ItemTime, 0) ->
+	false;
+suppCheck(ItemTime, ItemID) ->
+	case getCfg:getCfgByKey(cfg_item, ItemID) of
+		#itemCfg{itemType = ?ItemTypePieces} = Cfg ->
+			case core:timeIsOnDay(ItemTime + ?SECS_FROM_0_TO_1970) of
+				true ->
+					Cfg;
+				_ ->
+					false
+			end;
+		_ ->
+			false
+	end.
+
+%%%-------------------------------------------------------------------
+% 赠送碎片操作反馈
+-spec suppGiveAck({RoleID::uint64(), TarRoleID::uint64(), ItemID::uint16(), ErrorCode::uint32()}) -> no_return().
+
+% 成功：添加赠送奖励
+suppGiveAck({_RoleID, _TarRoleID, ItemID, 0}) ->
+	case suppGetParam(ItemID) of
+		{_, _, T, C} ->
+			PLog = #recPLogTSMoney{
+				reason = ?CoinSourceGuildSupplicationReward,
+				param = ItemID,
+				target = ?PLogTS_PlayerSelf,
+				source = ?PLogTS_GuildSupplication
+			},
+			playerMoney:addCoin(T, C, PLog);
+		_ ->
+			skip
+	end;
+
+% 失败：重置计数并返还道具
+suppGiveAck({RoleID, TarRoleID, ItemID, ErrorCode}) ->
+	playerMsg:sendErrorCodeMsg(ErrorCode),
+	daily2Logic:saveDaily2({RoleID, TarRoleID, ?Daily2Type_S_GuildSupplication, 0}),
+	PLog = #recPLogTSItem{
+		old = 0,
+		new = 1,
+		change = 1,
+		target = ?PLogTS_PlayerSelf,
+		source = ?PLogTS_GuildSupplication,
+		changReason = ?ItemSourceGuildSupplicationBack,
+		reasonParam = TarRoleID
+	},
+	playerPackage:addGoodsAndMail(ItemID, 1, true, 0, PLog).
+
+%%%-------------------------------------------------------------------
+% 获取碎片N值及赠送奖励数据
+-spec suppGetParam(ItemID::uint16()) -> {Q::uint(), N::uint(), MoneyType::coinType(), MoneyCount::uint()}|false.
+suppGetParam(ItemID) ->
+	case getCfg:getCfgPStack(cfg_item, ItemID) of
+		#itemCfg{itemType = ?ItemTypePieces, quality = Q} ->
+			case getCfg:getCfgPStack(cfg_globalsetup, guild_wish_confine) of
+				#globalsetupCfg{setpara = L} ->	%% L :: [{品质,N值,货币类型,货币数量},...]
+					case lists:keyfind(Q, 1, L) of
+						false ->
+							?ERROR_OUT("can not find Q:~w from globalsetup.guild_wish_confine:~w", [Q, L]),
+							false;
+						{Q, _N, _T, _C} = R ->
+							R
+					end;
+				_ ->
+					false
+			end;
+		_ ->
+			false
+	end.

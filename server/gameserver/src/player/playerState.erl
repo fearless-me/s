@@ -461,8 +461,7 @@ setPos(X,Y) when erlang:is_float(X) andalso erlang:is_float(Y) ->
 			put(playerPos,{X,Y}),
 			playerMap:syncChangePos(SX,SY,X,Y,false);
 		_ ->
-			put(playerPos,{X,Y}),
-			ok
+			put(playerPos,{X,Y})
 	end,
 	ok;
 setPos(X,Y) when erlang:is_integer(X) orelse erlang:is_integer(Y) ->
@@ -472,13 +471,7 @@ setPos(X,Y) when erlang:is_integer(X) orelse erlang:is_integer(Y) ->
 -spec setPosOnly(X, Y) -> ok when
 	X :: float(), Y :: float().
 setPosOnly(X,Y) when erlang:is_float(X) andalso erlang:is_float(Y) ->
-	case getPos() of
-		{SX,SY} when SX =/= X orelse SY =/= Y->
-			put(playerPos,{X,Y});
-		_ ->
-			put(playerPos,{X,Y}),
-			ok
-	end,
+	put(playerPos,{X,Y}),
 	ok.
 
 -spec setCopyMapScoreDict(Dict::etsTab()) -> ok.
@@ -774,26 +767,6 @@ getCurHp() ->
 		   Hp :: number().
 setCurHp(Hp) when erlang:is_float(Hp) andalso Hp >= 0.0 ->
 	setCurHp(erlang:trunc(Hp));
-%% 
-%% setCurHp(Hp) when erlang:is_integer(Hp) ->
-%% 	case playerState:getActionStatus() of
-%% 		?CreatureActionStatusDead ->
-%% 			%%为了得到堆栈信息，这里需要抛出一个异常
-%% 			try
-%% 				throw(error)
-%% 			catch
-%% 				_:_ ->
-%% 					?ERROR_OUT("player[~ts] is dead,can not set hp,Stack[~p]",
-%% 					           [playerState:getName(),
-%% 					            erlang:get_stacktrace()])
-%% 			end;
-%% 		_ ->
-%% 			MaxHp = erlang:trunc(getBattlePropTotal(?Prop_MaxHP)),
-%% 			CurHp = misc:clamp(Hp, 0, MaxHp),
-%% 			put('PlayerCurHp', CurHp)
-%% 	end,
-%% 	ok.
-
 setCurHp(Hp) when erlang:is_integer(Hp), Hp >= 0 ->
 	case playerState:getActionStatus() of
 		?CreatureActionStatusDead ->
@@ -815,7 +788,16 @@ setCurHp(Hp) when erlang:is_integer(Hp), Hp >= 0 ->
 %%设置玩家从数据库中初始化的血量
 -spec setInitHpFromDB(Hp) -> ok when Hp::uint().
 setInitHpFromDB(Hp) when erlang:is_integer(Hp), Hp > 0 ->
-	put(playerCurHp, Hp).
+	put(playerCurHp, Hp),
+	put(playerInitHpFromDB, Hp).
+
+getInitHpFromDB()->
+	case get(playerInitHpFromDB) of
+		undefined ->
+			1;
+		V ->
+			V
+	end.
 
 -spec setRebornHp(Hp) -> ok when Hp::uint().
 setRebornHp(Hp) when erlang:is_integer(Hp), Hp > 0 ->
@@ -1409,55 +1391,6 @@ setUseExtPluginStartTime(Time) ->
 -spec getTeamID() -> TeamID when TeamID::uint().
 getTeamID() ->
 	teamInterface:getTeamID(playerState:getRoleID()).
-%%	getTeamID(?PlayerTeamTypeNormal).
-
--spec getTeamID(Type) -> TeamID when Type::uint(), TeamID::uint().
-getTeamID(Type) when Type >= ?PlayerTeamTypeMin andalso Type =<?PlayerTeamTypeMax ->
-	case get({teamID,Type}) of
-       undefined ->
-		   0;
-		TeamID ->
-			TeamID
-	end.
-
-%% 设置角色队伍ID
--spec setTeamID(TeamID) -> OldVal::uint() | undefined when
-	TeamID::uint().
-setTeamID(TeamID) -> ok.
-%%	setTeamID(TeamID, ?PlayerTeamTypeNormal).
-
--spec setTeamID(TeamID, Type) -> OldVal::uint() | undefined when
-		  TeamID::uint(),
-		  Type::uint().
-setTeamID(TeamID, Type) when Type >= ?PlayerTeamTypeMin andalso Type =<?PlayerTeamTypeMax ->
-	OldTeamID = getTeamID(Type),
-	case OldTeamID =/= TeamID andalso Type =:= ?PlayerTeamTypeNormal of
-		true ->
-			%% 普通队伍有改变
-			?DEBUG_OUT("setTeamID:~s,~p,[~p -> ~p]", [getName(), self(), OldTeamID, TeamID]),
-			playerPropSync:setInt64(?PubProp_TeamID, TeamID);
-		_ ->
-			skip
-	end,
-	put({teamID, Type}, TeamID).
-
-%% 清除队伍ID
--spec delTeamID(Type::uint()) -> ok.
-delTeamID(Type) when Type >= ?PlayerTeamTypeMin andalso Type =<?PlayerTeamTypeMax ->
-	setTeamID(0, Type),
-	ok.
-
-%% 删除队伍信息（删除后才能进行删除队伍ID操作）
-%% 此步骤会把队伍信息全部删掉
--spec delTeamInfo(Type::uint()) -> ok.
-delTeamInfo(Type) when Type >= ?PlayerTeamTypeMin andalso Type =<?PlayerTeamTypeMax ->
-%%	case playerState:getTeamID(Type) of
-%%		TeamID when erlang:is_integer(TeamID) andalso TeamID > 0 ->
-%%			ets:delete(?TABLE_TeamInfo, TeamID);
-%%		_ ->
-%%			skip
-%%	end,
-	ok.
 %% 发送普通队伍队友位置信息的缓存
 -spec setIsOpenMapPanel(Flag::boolean()) -> OldVal::boolean()| undefined.
 setIsOpenMapPanel(Flag) ->
@@ -1469,18 +1402,6 @@ getIsOpenMapPanel() ->
 			false;
 		Flag ->
 			Flag
-	end.
-%% 上次发起快速组队时间
--spec setQuickTeamStartTime(Time::uint64()) -> OldVal::uint64()| undefined.
-setQuickTeamStartTime(Time) ->
-	put(quickTeamCD, Time).
--spec getQuickTeamStartTime() -> Val::uint64().
-getQuickTeamStartTime() ->
-	case get(quickTeamCD) of
-		undefined ->
-			0;
-		Time ->
-			Time
 	end.
 %% ======================================================================
 %% ======================================================================
@@ -1521,6 +1442,17 @@ getPetForce() ->
 			0;
 		Force ->
 			Force
+	end.
+
+setLevelUpPetID(PetID)->
+	put(curLevelUpPet, PetID).
+
+getLevelUpPetID()->
+	case get(curLevelUpPet) of
+		undefined ->
+			0;
+		PetID ->
+			PetID
 	end.
 
 %%获取玩家当前召唤宠物信息(包含召唤的人民币宠物和魔法召唤宠物)
@@ -1936,6 +1868,18 @@ setDelSlotSkillList(L) when erlang:is_list(L) ->
 	ok.
 
 
+getRingBuffIDList()->
+	case get(ringBuffList) of
+		undefined ->
+			[];
+		L ->
+			L
+	end.
+
+setRingBuffIDList(L)->
+	put(ringBuffList, L).
+
+
 %%获取BUFF列表
 -spec getBuffList() -> list() | undefined.
 getBuffList() ->
@@ -2046,22 +1990,6 @@ getLastSortBagTime(BagType) ->
 		  OldVal :: uint().
 setLastSortBagTime(BagType, SortTime) ->
 	put({sortBagTime, BagType}, SortTime).
-%% 获取上次附近队伍请求时间
--spec getLastNearByTeamRequestTime() -> uint().
-getLastNearByTeamRequestTime() ->
-	case get(lastNearByTeamRequestTime) of
-		undefined ->
-			0;
-		N ->
-			N
-	end.
-
-%% 设置附近队伍请求时间
--spec setLastNearByTeamRequestTime(Time) -> OldTime | undefined when
-		  Time :: uint(),
-		  OldTime :: uint().
-setLastNearByTeamRequestTime(Time) ->
-	put(lastNearByTeamRequestTime, Time).
 
 %% 获取上次获取商城列表的时间
 -spec getLastItemListAtMall() -> uint().
@@ -2509,6 +2437,17 @@ getAbsorbShield() ->
 setAbsorbShield(Value) ->
 	put(absorb, Value).
 
+setAntiInjury(Type, Percent)->
+	put({antiInjury, Type}, Percent).
+
+getAntiInjury(Type)->
+	case get({antiInjury, Type}) of
+		undefined ->
+			0;
+		V ->
+			V
+	end.
+
 %%设置玩家已参与活动的ID
 -spec setAwardTakens(AwardIDList) ->ok when
 		  AwardIDList::[AwardID::integer() , ...] | [].
@@ -2739,6 +2678,20 @@ getBattleLearnRequestTime() ->
 			0;
 		Time ->
 			Time
+	end.
+
+setRequestBattleLearnList(List) ->
+	put('RequestBattleLearnList', List).
+getRequestBattleLearnList() ->
+	case get('RequestBattleLearnList') of
+		undefined -> [];
+		L -> L
+	end.
+addRequestBattleLearn(Code) ->
+	L = getRequestBattleLearnList(),
+	case lists:member(Code, L) of
+		true -> skip;
+		_ -> setRequestBattleLearnList([Code | L])
 	end.
 
 %%设置玩家切磋信息
@@ -3289,21 +3242,6 @@ getGuildMaxOnlineTimeCD() ->
         Time ->
             Time
     end.
-%%个人信息
--spec setPersonalityInfo(Info::#rec_personality_info{}) -> ok.
-setPersonalityInfo(Info) ->
-	put(personalityInfo, Info),
-	ok.
--spec getPersonalityInfo() -> #rec_personality_info{}.
-getPersonalityInfo() ->
-	case get(personalityInfo) of
-		undefined ->
-			NewPI = #rec_personality_info{roleID = playerState:getRoleID(),photoData = []},
-			playerState:setPersonalityInfo(NewPI),
-			NewPI;
-		PI ->
-			PI
-	end.
 
 %%设置玩家世界等级经验加成值
 -spec setWorldLevelExp(ExpUp :: number()) -> ok.
@@ -3378,31 +3316,6 @@ setWingExpAccPerItemUse(Value) ->
 	put(wingExpAccPerItemUse,Value).
 
 
-%%setWingLevel(Level) ->
-%%	put(wingLevel,Level).
-%%getWingLevel() ->
-%%	case get(wingLevel) of
-%%		undefined ->0;
-%%		Val ->Val
-%%	end.
-
-%%setWingExp(Exp) ->
-%%	put(wingExp,Exp).
-%%getWingExp() ->
-%%	case get(wingExp) of
-%%		undefined ->0;
-%%		Val ->Val
-%%	end.
-%%玩家跨服组队信息
-
--spec getCrosTeamInfo() -> list().
-getCrosTeamInfo() ->
-	case get(crosTeamInfo) of
-		undefined ->
-			[];
-		L ->
-			L
-	end.
 
 -spec setCrosTeamInfo(L::list()) -> ok.
 setCrosTeamInfo(L) ->
@@ -3470,6 +3383,8 @@ getHostRealName() ->
 		undefined ->"";
 		Val ->Val
 	end.
+
+
 
 %% ====================================================================
 %% Internal functions

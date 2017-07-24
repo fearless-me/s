@@ -223,7 +223,7 @@ getFriend2OnlineListRoleIDNear() ->
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% 七日目标
-%% 上线初始化之前不接受条件更新
+%% 上线初始化之前条件更新不发送消息
 setSevenDayAimIsInit(Is) ->
     put('SevenDayAimIsInit', Is).
 getSevenDayAimIsInit() ->
@@ -233,3 +233,19 @@ getSevenDayAimIsInit() ->
         Is ->
             Is
     end.
+
+%%%-------------------------------------------------------------------
+% 跨服报名缓存
+setCrossApply(0) ->
+	erase(crossApply);
+setCrossApply(#recCrossApply{} = Apply) ->
+	put(crossApply, Apply).
+getCrossApply() ->
+	get(crossApply).
+
+%%%-------------------------------------------------------------------
+% 骑宠竞速，司机报名后来了乘客，需要重新报名，这里记录下取消报名的报名组ID，收到取消报名的反馈后再执行报名
+setRaceCrossApplyID(ID) ->
+	put(raceCrossApplyID, ID).
+getRaceCrossApplyID() ->
+	get(raceCrossApplyID).

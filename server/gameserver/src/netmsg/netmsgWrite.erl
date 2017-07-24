@@ -28,6 +28,18 @@
 
 -export([packNetMsg/1]).
 
+%GENERATED from file:Date.h => GS2U_DateFindTreasure_Welcome_Sync
+packNetMsg(#pk_GS2U_DateFindTreasure_Welcome_Sync{} = P) ->
+	Bin_timeForBegin = binary_write_uint16( P#pk_GS2U_DateFindTreasure_Welcome_Sync.timeForBegin ),
+	Bin_timeForEnd = binary_write_uint16( P#pk_GS2U_DateFindTreasure_Welcome_Sync.timeForEnd ),
+	Bin_score = binary_write_uint16( P#pk_GS2U_DateFindTreasure_Welcome_Sync.score ),
+	[
+		<<?CMD_GS2U_DateFindTreasure_Welcome_Sync:16/little>>,
+		Bin_timeForBegin,
+		Bin_timeForEnd,
+		Bin_score
+	];
+
 %GENERATED from file:Date.h => GS2U_DateLink_BuffAddScore_Sync
 packNetMsg(#pk_GS2U_DateLink_BuffAddScore_Sync{} = P) ->
 	Bin_score = binary_write_uint16( P#pk_GS2U_DateLink_BuffAddScore_Sync.score ),
@@ -184,6 +196,18 @@ packNetMsg(#pk_GS2U_DateLink_Welcome_Sync{} = P) ->
 		Bin_resetCD
 	];
 
+%GENERATED from file:Date.h => GS2U_DatePoolShooting_Welcome_Sync
+packNetMsg(#pk_GS2U_DatePoolShooting_Welcome_Sync{} = P) ->
+	Bin_timeForBegin = binary_write_uint16( P#pk_GS2U_DatePoolShooting_Welcome_Sync.timeForBegin ),
+	Bin_timeForEnd = binary_write_uint16( P#pk_GS2U_DatePoolShooting_Welcome_Sync.timeForEnd ),
+	Bin_score = binary_write_uint16( P#pk_GS2U_DatePoolShooting_Welcome_Sync.score ),
+	[
+		<<?CMD_GS2U_DatePoolShooting_Welcome_Sync:16/little>>,
+		Bin_timeForBegin,
+		Bin_timeForEnd,
+		Bin_score
+	];
+
 %GENERATED from file:Date.h => GS2U_DatePushBox_GreateNPC_Sync
 packNetMsg(#pk_GS2U_DatePushBox_GreateNPC_Sync{} = P) ->
 	Bin_code = binary_write_uint64( P#pk_GS2U_DatePushBox_GreateNPC_Sync.code ),
@@ -228,12 +252,62 @@ packNetMsg(#pk_GS2U_DatePushBox_Welcome_Sync{} = P) ->
 		Bin_listGemMatrix
 	];
 
+%GENERATED from file:Date.h => GS2U_Date_FindTreasure_Sync
+packNetMsg(#pk_GS2U_Date_FindTreasure_Sync{} = P) ->
+	Bin_score = binary_write_uint16( P#pk_GS2U_Date_FindTreasure_Sync.score ),
+	[
+		<<?CMD_GS2U_Date_FindTreasure_Sync:16/little>>,
+		Bin_score
+	];
+
+%GENERATED from file:Date.h => GS2U_Date_PlayerAnimation_Sync
+packNetMsg(#pk_GS2U_Date_PlayerAnimation_Sync{}) ->
+	[
+		<<?CMD_GS2U_Date_PlayerAnimation_Sync:16/little>>
+
+	];
+
+%GENERATED from file:Date.h => GS2U_Date_RefreshSocre_Sync
+packNetMsg(#pk_GS2U_Date_RefreshSocre_Sync{} = P) ->
+	Bin_score = binary_write_uint16( P#pk_GS2U_Date_RefreshSocre_Sync.score ),
+	Bin_hitA = binary_write_bool( P#pk_GS2U_Date_RefreshSocre_Sync.hitA ),
+	Bin_hitB = binary_write_bool( P#pk_GS2U_Date_RefreshSocre_Sync.hitB ),
+	[
+		<<?CMD_GS2U_Date_RefreshSocre_Sync:16/little>>,
+		Bin_score,
+		Bin_hitA,
+		Bin_hitB
+	];
+
 %GENERATED from file:Date.h => GS2U_Date_ResetBox_Sync
 packNetMsg(#pk_GS2U_Date_ResetBox_Sync{} = P) ->
 	Bin_refreshNum = binary_write_uint( P#pk_GS2U_Date_ResetBox_Sync.refreshNum ),
 	[
 		<<?CMD_GS2U_Date_ResetBox_Sync:16/little>>,
 		Bin_refreshNum
+	];
+
+%GENERATED from file:Date.h => GS2U_Date_ResetFindTreasure_Sync
+packNetMsg(#pk_GS2U_Date_ResetFindTreasure_Sync{}) ->
+	[
+		<<?CMD_GS2U_Date_ResetFindTreasure_Sync:16/little>>
+
+	];
+
+%GENERATED from file:Date.h => GS2U_Date_ResetPoolShooting_Sync
+packNetMsg(#pk_GS2U_Date_ResetPoolShooting_Sync{} = P) ->
+	Bin_listPoolShootingPosIndex = binary_write_array(P#pk_GS2U_Date_ResetPoolShooting_Sync.listPoolShootingPosIndex, fun(X) -> binary_write_uint8( X ) end),
+	[
+		<<?CMD_GS2U_Date_ResetPoolShooting_Sync:16/little>>,
+		Bin_listPoolShootingPosIndex
+	];
+
+%GENERATED from file:Date.h => GS2U_MonsterMoveSync
+packNetMsg(#pk_GS2U_MonsterMoveSync{} = P) ->
+	Bin_monsterPosList = binary_write_array(P#pk_GS2U_MonsterMoveSync.monsterPosList, fun(X) -> writeDateMonsterPos( X ) end),
+	[
+		<<?CMD_GS2U_MonsterMoveSync:16/little>>,
+		Bin_monsterPosList
 	];
 
 %GENERATED from file:Date.h => U2GS_DateEnter_Request
@@ -284,6 +358,13 @@ packNetMsg(#pk_U2GS_DatePushBox_Request{} = P) ->
 		Bin_x,
 		Bin_z,
 		Bin_isDelete
+	];
+
+%GENERATED from file:Date.h => U2GS_DateShooting_Over
+packNetMsg(#pk_U2GS_DateShooting_Over{}) ->
+	[
+		<<?CMD_U2GS_DateShooting_Over:16/little>>
+
 	];
 
 %GENERATED from file:LS2User.h => GS2U_ChangeLineResponse
@@ -606,6 +687,16 @@ packNetMsg(#pk_GS2U_AddArenaTeamMemberRequest{} = P) ->
 		Bin_name
 	];
 
+%GENERATED from file:activity.h => GS2U_AllAnswerQuestion
+packNetMsg(#pk_GS2U_AllAnswerQuestion{} = P) ->
+	Bin_questionID = binary_write_uint8( P#pk_GS2U_AllAnswerQuestion.questionID ),
+	Bin_startTime = binary_write_uint64( P#pk_GS2U_AllAnswerQuestion.startTime ),
+	[
+		<<?CMD_GS2U_AllAnswerQuestion:16/little>>,
+		Bin_questionID,
+		Bin_startTime
+	];
+
 %GENERATED from file:activity.h => GS2U_AngelInvestmentList
 packNetMsg(#pk_GS2U_AngelInvestmentList{} = P) ->
 	Bin_lists = binary_write_array(P#pk_GS2U_AngelInvestmentList.lists, fun(X) -> writeAngelInvestmentData( X ) end),
@@ -632,6 +723,26 @@ packNetMsg(#pk_GS2U_AnswerQuestion{} = P) ->
 		Bin_startTime,
 		Bin_answerNum,
 		Bin_questionList
+	];
+
+%GENERATED from file:activity.h => GS2U_AnswerRank
+packNetMsg(#pk_GS2U_AnswerRank{} = P) ->
+	Bin_data = binary_write_array(P#pk_GS2U_AnswerRank.data, fun(X) -> writeActivityAnswerRankData( X ) end),
+	Bin_isover = binary_write_bool( P#pk_GS2U_AnswerRank.isover ),
+	[
+		<<?CMD_GS2U_AnswerRank:16/little>>,
+		Bin_data,
+		Bin_isover
+	];
+
+%GENERATED from file:activity.h => GS2U_ApplyAnswerResult
+packNetMsg(#pk_GS2U_ApplyAnswerResult{} = P) ->
+	Bin_result = binary_write_uint8( P#pk_GS2U_ApplyAnswerResult.result ),
+	Bin_endTime = binary_write_uint64( P#pk_GS2U_ApplyAnswerResult.endTime ),
+	[
+		<<?CMD_GS2U_ApplyAnswerResult:16/little>>,
+		Bin_result,
+		Bin_endTime
 	];
 
 %GENERATED from file:activity.h => GS2U_ArenaBattleList
@@ -1071,6 +1182,16 @@ packNetMsg(#pk_GS2U_MarrorInfoAck{} = P) ->
 		Bin_declaration
 	];
 
+%GENERATED from file:activity.h => GS2U_MyAnswerRank
+packNetMsg(#pk_GS2U_MyAnswerRank{} = P) ->
+	Bin_ranking = binary_write_uint16( P#pk_GS2U_MyAnswerRank.ranking ),
+	Bin_value = binary_write_uint( P#pk_GS2U_MyAnswerRank.value ),
+	[
+		<<?CMD_GS2U_MyAnswerRank:16/little>>,
+		Bin_ranking,
+		Bin_value
+	];
+
 %GENERATED from file:activity.h => GS2U_NoticeWildBossDead
 packNetMsg(#pk_GS2U_NoticeWildBossDead{} = P) ->
 	Bin_info = writeWildBossInfo( P#pk_GS2U_NoticeWildBossDead.info ),
@@ -1127,6 +1248,34 @@ packNetMsg(#pk_GS2U_OperateExchangeAck{} = P) ->
 	[
 		<<?CMD_GS2U_OperateExchangeAck:16/little>>,
 		Bin_exchangeID
+	];
+
+%GENERATED from file:activity.h => GS2U_PlayerAnswer
+packNetMsg(#pk_GS2U_PlayerAnswer{} = P) ->
+	Bin_roleID = binary_write_uint64( P#pk_GS2U_PlayerAnswer.roleID ),
+	Bin_questionID = binary_write_uint( P#pk_GS2U_PlayerAnswer.questionID ),
+	Bin_isright = binary_write_bool( P#pk_GS2U_PlayerAnswer.isright ),
+	Bin_answers = binary_write_string( P#pk_GS2U_PlayerAnswer.answers ),
+	Bin_isFirstAnser = binary_write_uint( P#pk_GS2U_PlayerAnswer.isFirstAnser ),
+	Bin_roleName = binary_write_string( P#pk_GS2U_PlayerAnswer.roleName ),
+	Bin_level = binary_write_uint8( P#pk_GS2U_PlayerAnswer.level ),
+	Bin_career = binary_write_uint( P#pk_GS2U_PlayerAnswer.career ),
+	Bin_sex = binary_write_uint8( P#pk_GS2U_PlayerAnswer.sex ),
+	Bin_race = binary_write_uint8( P#pk_GS2U_PlayerAnswer.race ),
+	Bin_head = binary_write_int( P#pk_GS2U_PlayerAnswer.head ),
+	[
+		<<?CMD_GS2U_PlayerAnswer:16/little>>,
+		Bin_roleID,
+		Bin_questionID,
+		Bin_isright,
+		Bin_answers,
+		Bin_isFirstAnser,
+		Bin_roleName,
+		Bin_level,
+		Bin_career,
+		Bin_sex,
+		Bin_race,
+		Bin_head
 	];
 
 %GENERATED from file:activity.h => GS2U_PlayerAnswerInfo
@@ -1237,6 +1386,18 @@ packNetMsg(#pk_GS2U_SelfDarkness{} = P) ->
 		Bin_syFreshTime
 	];
 
+%GENERATED from file:activity.h => GS2U_SendAnswerData
+packNetMsg(#pk_GS2U_SendAnswerData{} = P) ->
+	Bin_questionID = binary_write_uint8( P#pk_GS2U_SendAnswerData.questionID ),
+	Bin_endTime = binary_write_uint64( P#pk_GS2U_SendAnswerData.endTime ),
+	Bin_data = binary_write_array(P#pk_GS2U_SendAnswerData.data, fun(X) -> writeActivityAnswerRankData( X ) end),
+	[
+		<<?CMD_GS2U_SendAnswerData:16/little>>,
+		Bin_questionID,
+		Bin_endTime,
+		Bin_data
+	];
+
 %GENERATED from file:activity.h => GS2U_SevenMissionDataList
 packNetMsg(#pk_GS2U_SevenMissionDataList{} = P) ->
 	Bin_days = binary_write_uint8( P#pk_GS2U_SevenMissionDataList.days ),
@@ -1336,6 +1497,14 @@ packNetMsg(#pk_U2GS_AngelInvestmentGet{} = P) ->
 		Bin_id
 	];
 
+%GENERATED from file:activity.h => U2GS_ApplyAnswer
+packNetMsg(#pk_U2GS_ApplyAnswer{} = P) ->
+	Bin_type = binary_write_uint8( P#pk_U2GS_ApplyAnswer.type ),
+	[
+		<<?CMD_U2GS_ApplyAnswer:16/little>>,
+		Bin_type
+	];
+
 %GENERATED from file:activity.h => U2GS_ApplyDance
 packNetMsg(#pk_U2GS_ApplyDance{} = P) ->
 	Bin_type = binary_write_uint8( P#pk_U2GS_ApplyDance.type ),
@@ -1380,6 +1549,13 @@ packNetMsg(#pk_U2GS_DanceArea{} = P) ->
 packNetMsg(#pk_U2GS_DarknessRank{}) ->
 	[
 		<<?CMD_U2GS_DarknessRank:16/little>>
+
+	];
+
+%GENERATED from file:activity.h => U2GS_GetAnswerScore
+packNetMsg(#pk_U2GS_GetAnswerScore{}) ->
+	[
+		<<?CMD_U2GS_GetAnswerScore:16/little>>
 
 	];
 
@@ -1499,6 +1675,18 @@ packNetMsg(#pk_U2GS_OperateExchangeRefresh{}) ->
 	[
 		<<?CMD_U2GS_OperateExchangeRefresh:16/little>>
 
+	];
+
+%GENERATED from file:activity.h => U2GS_PlayerAnswer
+packNetMsg(#pk_U2GS_PlayerAnswer{} = P) ->
+	Bin_questionID = binary_write_uint( P#pk_U2GS_PlayerAnswer.questionID ),
+	Bin_isright = binary_write_bool( P#pk_U2GS_PlayerAnswer.isright ),
+	Bin_answers = binary_write_string( P#pk_U2GS_PlayerAnswer.answers ),
+	[
+		<<?CMD_U2GS_PlayerAnswer:16/little>>,
+		Bin_questionID,
+		Bin_isright,
+		Bin_answers
 	];
 
 %GENERATED from file:activity.h => U2GS_PlayerAnswerQuestion
@@ -1929,6 +2117,22 @@ packNetMsg(#pk_GS2U_EquipEnhancedProp{} = P) ->
 		Bin_price
 	];
 
+%GENERATED from file:bag.h => GS2U_EquipGemInfoUpdate
+packNetMsg(#pk_GS2U_EquipGemInfoUpdate{} = P) ->
+	Bin_equipGemInfo = writeEquipGemInfo( P#pk_GS2U_EquipGemInfoUpdate.equipGemInfo ),
+	[
+		<<?CMD_GS2U_EquipGemInfoUpdate:16/little>>,
+		Bin_equipGemInfo
+	];
+
+%GENERATED from file:bag.h => GS2U_EquipGemInfos
+packNetMsg(#pk_GS2U_EquipGemInfos{} = P) ->
+	Bin_equipGemInfos = binary_write_array(P#pk_GS2U_EquipGemInfos.equipGemInfos, fun(X) -> writeEquipGemInfo( X ) end),
+	[
+		<<?CMD_GS2U_EquipGemInfos:16/little>>,
+		Bin_equipGemInfos
+	];
+
 %GENERATED from file:bag.h => GS2U_EquipRecastInfo
 packNetMsg(#pk_GS2U_EquipRecastInfo{} = P) ->
 	Bin_recastInfo = writeRecastPosInfo( P#pk_GS2U_EquipRecastInfo.recastInfo ),
@@ -2037,14 +2241,6 @@ packNetMsg(#pk_GS2U_Forbidden_Load_Photo{} = P) ->
 		Bin_forbiddenTime
 	];
 
-%GENERATED from file:bag.h => GS2U_GainImpression
-packNetMsg(#pk_GS2U_GainImpression{} = P) ->
-	Bin_impression = writeImpressionInfo( P#pk_GS2U_GainImpression.impression ),
-	[
-		<<?CMD_GS2U_GainImpression:16/little>>,
-		Bin_impression
-	];
-
 %GENERATED from file:bag.h => GS2U_GainPraise
 packNetMsg(#pk_GS2U_GainPraise{}) ->
 	[
@@ -2144,9 +2340,52 @@ packNetMsg(#pk_GS2U_LockGoods{} = P) ->
 		Bin_isLocked
 	];
 
+%GENERATED from file:bag.h => GS2U_LookRPInfo_Fashion
+packNetMsg(#pk_GS2U_LookRPInfo_Fashion{} = P) ->
+	Bin_roleID = binary_write_uint64( P#pk_GS2U_LookRPInfo_Fashion.roleID ),
+	Bin_datas = binary_write_array(P#pk_GS2U_LookRPInfo_Fashion.datas, fun(X) -> writeRPView_FashionInfo( X ) end),
+	Bin_activeFashionSuitList = binary_write_array(P#pk_GS2U_LookRPInfo_Fashion.activeFashionSuitList, fun(X) -> binary_write_uint( X ) end),
+	[
+		<<?CMD_GS2U_LookRPInfo_Fashion:16/little>>,
+		Bin_roleID,
+		Bin_datas,
+		Bin_activeFashionSuitList
+	];
+
+%GENERATED from file:bag.h => GS2U_LookRPInfo_Marriage
+packNetMsg(#pk_GS2U_LookRPInfo_Marriage{} = P) ->
+	Bin_roleID = binary_write_uint64( P#pk_GS2U_LookRPInfo_Marriage.roleID ),
+	Bin_id = binary_write_uint64( P#pk_GS2U_LookRPInfo_Marriage.id ),
+	Bin_name = binary_write_string( P#pk_GS2U_LookRPInfo_Marriage.name ),
+	Bin_sex = binary_write_uint8( P#pk_GS2U_LookRPInfo_Marriage.sex ),
+	Bin_weddingDay = binary_write_uint( P#pk_GS2U_LookRPInfo_Marriage.weddingDay ),
+	Bin_closeness = binary_write_uint( P#pk_GS2U_LookRPInfo_Marriage.closeness ),
+	[
+		<<?CMD_GS2U_LookRPInfo_Marriage:16/little>>,
+		Bin_roleID,
+		Bin_id,
+		Bin_name,
+		Bin_sex,
+		Bin_weddingDay,
+		Bin_closeness
+	];
+
+%GENERATED from file:bag.h => GS2U_LookRPInfo_Pet
+packNetMsg(#pk_GS2U_LookRPInfo_Pet{} = P) ->
+	Bin_roleID = binary_write_uint64( P#pk_GS2U_LookRPInfo_Pet.roleID ),
+	Bin_petInfoList = binary_write_array(P#pk_GS2U_LookRPInfo_Pet.petInfoList, fun(X) -> writeRPView_PetBaseInfo( X ) end),
+	Bin_infoList = binary_write_array(P#pk_GS2U_LookRPInfo_Pet.infoList, fun(X) -> writeRPView_AssistBattleInfo( X ) end),
+	[
+		<<?CMD_GS2U_LookRPInfo_Pet:16/little>>,
+		Bin_roleID,
+		Bin_petInfoList,
+		Bin_infoList
+	];
+
 %GENERATED from file:bag.h => GS2U_LookRPInfo_Result
 packNetMsg(#pk_GS2U_LookRPInfo_Result{} = P) ->
 	Bin_roleID = binary_write_uint64( P#pk_GS2U_LookRPInfo_Result.roleID ),
+	Bin_roleName = binary_write_string( P#pk_GS2U_LookRPInfo_Result.roleName ),
 	Bin_career = binary_write_uint( P#pk_GS2U_LookRPInfo_Result.career ),
 	Bin_race = binary_write_int8( P#pk_GS2U_LookRPInfo_Result.race ),
 	Bin_sex = binary_write_int8( P#pk_GS2U_LookRPInfo_Result.sex ),
@@ -2154,27 +2393,18 @@ packNetMsg(#pk_GS2U_LookRPInfo_Result{} = P) ->
 	Bin_level = binary_write_uint8( P#pk_GS2U_LookRPInfo_Result.level ),
 	Bin_roleForce = binary_write_uint( P#pk_GS2U_LookRPInfo_Result.roleForce ),
 	Bin_equipHonorLevel = binary_write_uint8( P#pk_GS2U_LookRPInfo_Result.equipHonorLevel ),
-	Bin_activePart = binary_write_uint8( P#pk_GS2U_LookRPInfo_Result.activePart ),
 	Bin_guildName = binary_write_string( P#pk_GS2U_LookRPInfo_Result.guildName ),
-	Bin_guileLevel = binary_write_uint8( P#pk_GS2U_LookRPInfo_Result.guileLevel ),
-	Bin_vipLevel = binary_write_int16( P#pk_GS2U_LookRPInfo_Result.vipLevel ),
 	Bin_playerKillValue = binary_write_int( P#pk_GS2U_LookRPInfo_Result.playerKillValue ),
 	Bin_wingLevel = binary_write_int( P#pk_GS2U_LookRPInfo_Result.wingLevel ),
-	Bin_arenaVal = binary_write_int( P#pk_GS2U_LookRPInfo_Result.arenaVal ),
-	Bin_titleList = binary_write_array(P#pk_GS2U_LookRPInfo_Result.titleList, fun(X) -> binary_write_uint( X ) end),
 	Bin_propValues = binary_write_array(P#pk_GS2U_LookRPInfo_Result.propValues, fun(X) -> binary_write_float( X ) end),
 	Bin_equips = binary_write_array(P#pk_GS2U_LookRPInfo_Result.equips, fun(X) -> writeEquipItemInfo( X ) end),
-	Bin_gemInfo = binary_write_array(P#pk_GS2U_LookRPInfo_Result.gemInfo, fun(X) -> writeLookGemInfo( X ) end),
 	Bin_fashionList = binary_write_array(P#pk_GS2U_LookRPInfo_Result.fashionList, fun(X) -> binary_write_uint( X ) end),
-	Bin_wakeInfo = binary_write_array(P#pk_GS2U_LookRPInfo_Result.wakeInfo, fun(X) -> writeLookWakeInfo( X ) end),
-	Bin_weaponInfo = binary_write_array(P#pk_GS2U_LookRPInfo_Result.weaponInfo, fun(X) -> writeLookGodWeaponInfo( X ) end),
-	Bin_petInfo = writeLookPetInfo( P#pk_GS2U_LookRPInfo_Result.petInfo ),
 	Bin_equipRefines = binary_write_array(P#pk_GS2U_LookRPInfo_Result.equipRefines, fun(X) -> writeEquipRefineLevel( X ) end),
 	Bin_equipStar = binary_write_array(P#pk_GS2U_LookRPInfo_Result.equipStar, fun(X) -> writeEquipStarLevel( X ) end),
-	Bin_personalityInfo = writePlayerPersonalityInfo( P#pk_GS2U_LookRPInfo_Result.personalityInfo ),
 	[
 		<<?CMD_GS2U_LookRPInfo_Result:16/little>>,
 		Bin_roleID,
+		Bin_roleName,
 		Bin_career,
 		Bin_race,
 		Bin_sex,
@@ -2182,24 +2412,14 @@ packNetMsg(#pk_GS2U_LookRPInfo_Result{} = P) ->
 		Bin_level,
 		Bin_roleForce,
 		Bin_equipHonorLevel,
-		Bin_activePart,
 		Bin_guildName,
-		Bin_guileLevel,
-		Bin_vipLevel,
 		Bin_playerKillValue,
 		Bin_wingLevel,
-		Bin_arenaVal,
-		Bin_titleList,
 		Bin_propValues,
 		Bin_equips,
-		Bin_gemInfo,
 		Bin_fashionList,
-		Bin_wakeInfo,
-		Bin_weaponInfo,
-		Bin_petInfo,
 		Bin_equipRefines,
-		Bin_equipStar,
-		Bin_personalityInfo
+		Bin_equipStar
 	];
 
 %GENERATED from file:bag.h => GS2U_PlayerExtenInfo
@@ -2276,30 +2496,6 @@ packNetMsg(#pk_GS2U_ResourceExchangeList{} = P) ->
 	[
 		<<?CMD_GS2U_ResourceExchangeList:16/little>>,
 		Bin_resources
-	];
-
-%GENERATED from file:bag.h => GS2U_SendPlayerPersonalityInfo
-packNetMsg(#pk_GS2U_SendPlayerPersonalityInfo{} = P) ->
-	Bin_type = binary_write_uint8( P#pk_GS2U_SendPlayerPersonalityInfo.type ),
-	Bin_praiseNum = binary_write_uint( P#pk_GS2U_SendPlayerPersonalityInfo.praiseNum ),
-	Bin_birthday = binary_write_string( P#pk_GS2U_SendPlayerPersonalityInfo.birthday ),
-	Bin_location = binary_write_string( P#pk_GS2U_SendPlayerPersonalityInfo.location ),
-	Bin_starSign = binary_write_string( P#pk_GS2U_SendPlayerPersonalityInfo.starSign ),
-	Bin_sign = binary_write_string( P#pk_GS2U_SendPlayerPersonalityInfo.sign ),
-	Bin_tags = binary_write_array(P#pk_GS2U_SendPlayerPersonalityInfo.tags, fun(X) -> binary_write_string( X ) end),
-	Bin_impressions = binary_write_array(P#pk_GS2U_SendPlayerPersonalityInfo.impressions, fun(X) -> writeImpressionInfo( X ) end),
-	Bin_forbiddenTime = binary_write_uint64( P#pk_GS2U_SendPlayerPersonalityInfo.forbiddenTime ),
-	[
-		<<?CMD_GS2U_SendPlayerPersonalityInfo:16/little>>,
-		Bin_type,
-		Bin_praiseNum,
-		Bin_birthday,
-		Bin_location,
-		Bin_starSign,
-		Bin_sign,
-		Bin_tags,
-		Bin_impressions,
-		Bin_forbiddenTime
 	];
 
 %GENERATED from file:bag.h => GS2U_UpLoadingPhotoResult
@@ -2437,6 +2633,13 @@ packNetMsg(#pk_U2GS_EquipUpStar{} = P) ->
 		Bin_type
 	];
 
+%GENERATED from file:bag.h => U2GS_EquipUpStarOneKey
+packNetMsg(#pk_U2GS_EquipUpStarOneKey{}) ->
+	[
+		<<?CMD_U2GS_EquipUpStarOneKey:16/little>>
+
+	];
+
 %GENERATED from file:bag.h => U2GS_GemEmbedMake
 packNetMsg(#pk_U2GS_GemEmbedMake{} = P) ->
 	Bin_id = binary_write_uint( P#pk_U2GS_GemEmbedMake.id ),
@@ -2477,6 +2680,20 @@ packNetMsg(#pk_U2GS_GemEmbedOn{} = P) ->
 		Bin_gemEmbedInfoList
 	];
 
+%GENERATED from file:bag.h => U2GS_GemOperate
+packNetMsg(#pk_U2GS_GemOperate{} = P) ->
+	Bin_opType = binary_write_uint16( P#pk_U2GS_GemOperate.opType ),
+	Bin_equipPos = binary_write_uint16( P#pk_U2GS_GemOperate.equipPos ),
+	Bin_gemPos = binary_write_uint8( P#pk_U2GS_GemOperate.gemPos ),
+	Bin_params = binary_write_uint64( P#pk_U2GS_GemOperate.params ),
+	[
+		<<?CMD_U2GS_GemOperate:16/little>>,
+		Bin_opType,
+		Bin_equipPos,
+		Bin_gemPos,
+		Bin_params
+	];
+
 %GENERATED from file:bag.h => U2GS_HonorLevel
 packNetMsg(#pk_U2GS_HonorLevel{}) ->
 	[
@@ -2497,9 +2714,11 @@ packNetMsg(#pk_U2GS_LockGoods{} = P) ->
 %GENERATED from file:bag.h => U2GS_LookRPInfo_Request
 packNetMsg(#pk_U2GS_LookRPInfo_Request{} = P) ->
 	Bin_roleID = binary_write_uint64( P#pk_U2GS_LookRPInfo_Request.roleID ),
+	Bin_view_type = binary_write_uint8( P#pk_U2GS_LookRPInfo_Request.view_type ),
 	[
 		<<?CMD_U2GS_LookRPInfo_Request:16/little>>,
-		Bin_roleID
+		Bin_roleID,
+		Bin_view_type
 	];
 
 %GENERATED from file:bag.h => U2GS_PlayerExtenInfo
@@ -3274,12 +3493,14 @@ packNetMsg(#pk_GS2U_SpiritArea_Tick_Sync{} = P) ->
 	Bin_timeAll = binary_write_uint( P#pk_GS2U_SpiritArea_Tick_Sync.timeAll ),
 	Bin_wave = binary_write_uint8( P#pk_GS2U_SpiritArea_Tick_Sync.wave ),
 	Bin_state = binary_write_uint8( P#pk_GS2U_SpiritArea_Tick_Sync.state ),
+	Bin_isAssist = binary_write_bool( P#pk_GS2U_SpiritArea_Tick_Sync.isAssist ),
 	[
 		<<?CMD_GS2U_SpiritArea_Tick_Sync:16/little>>,
 		Bin_time,
 		Bin_timeAll,
 		Bin_wave,
-		Bin_state
+		Bin_state,
+		Bin_isAssist
 	];
 
 %GENERATED from file:copy.h => GS2U_SpiritArea_Wake_Sync
@@ -3304,12 +3525,14 @@ packNetMsg(#pk_U2GS2U_CopyMapScheduleShow2{} = P) ->
 	Bin_show2ID = binary_write_uint16( P#pk_U2GS2U_CopyMapScheduleShow2.show2ID ),
 	Bin_groupID = binary_write_uint64( P#pk_U2GS2U_CopyMapScheduleShow2.groupID ),
 	Bin_scheduleID = binary_write_uint( P#pk_U2GS2U_CopyMapScheduleShow2.scheduleID ),
+	Bin_isInit = binary_write_bool( P#pk_U2GS2U_CopyMapScheduleShow2.isInit ),
 	[
 		<<?CMD_U2GS2U_CopyMapScheduleShow2:16/little>>,
 		Bin_mapID,
 		Bin_show2ID,
 		Bin_groupID,
-		Bin_scheduleID
+		Bin_scheduleID,
+		Bin_isInit
 	];
 
 %GENERATED from file:copy.h => U2GS_CopyMapSchedulePlayAnimationOver
@@ -3434,6 +3657,14 @@ packNetMsg(#pk_GS2U_FashionResult{} = P) ->
 		Bin_value
 	];
 
+%GENERATED from file:fashion.h => GS2U_FashionRoomLevelUp
+packNetMsg(#pk_GS2U_FashionRoomLevelUp{} = P) ->
+	Bin_roomLevel = binary_write_uint( P#pk_GS2U_FashionRoomLevelUp.roomLevel ),
+	[
+		<<?CMD_GS2U_FashionRoomLevelUp:16/little>>,
+		Bin_roomLevel
+	];
+
 %GENERATED from file:fashion.h => U2GS_ActiveFashionSuit
 packNetMsg(#pk_U2GS_ActiveFashionSuit{} = P) ->
 	Bin_flag = binary_write_bool( P#pk_U2GS_ActiveFashionSuit.flag ),
@@ -3454,6 +3685,13 @@ packNetMsg(#pk_U2GS_BuyFashion{} = P) ->
 		Bin_fashionID,
 		Bin_time,
 		Bin_type
+	];
+
+%GENERATED from file:fashion.h => U2GS_FashionRoomLevelUp
+packNetMsg(#pk_U2GS_FashionRoomLevelUp{}) ->
+	[
+		<<?CMD_U2GS_FashionRoomLevelUp:16/little>>
+
 	];
 
 %GENERATED from file:fashion.h => U2GS_IsDisplayFashion
@@ -3552,6 +3790,64 @@ packNetMsg(#pk_GS2U_Friend2ClosenessChange_Sync{} = P) ->
 		Bin_closeness
 	];
 
+%GENERATED from file:friend.h => GS2U_Friend2CrossAdd2Failed_Ack
+packNetMsg(#pk_GS2U_Friend2CrossAdd2Failed_Ack{} = P) ->
+	Bin_reason = binary_write_uint( P#pk_GS2U_Friend2CrossAdd2Failed_Ack.reason ),
+	Bin_listDel = binary_write_array(P#pk_GS2U_Friend2CrossAdd2Failed_Ack.listDel, fun(X) -> binary_write_uint64( X ) end),
+	[
+		<<?CMD_GS2U_Friend2CrossAdd2Failed_Ack:16/little>>,
+		Bin_reason,
+		Bin_listDel
+	];
+
+%GENERATED from file:friend.h => GS2U_Friend2CrossAdd2_Ack
+packNetMsg(#pk_GS2U_Friend2CrossAdd2_Ack{} = P) ->
+	Bin_info = writeFriend2InfoCross( P#pk_GS2U_Friend2CrossAdd2_Ack.info ),
+	[
+		<<?CMD_GS2U_Friend2CrossAdd2_Ack:16/little>>,
+		Bin_info
+	];
+
+%GENERATED from file:friend.h => GS2U_Friend2CrossAdd_Sync
+packNetMsg(#pk_GS2U_Friend2CrossAdd_Sync{} = P) ->
+	Bin_info = writeFriend2InfoCross( P#pk_GS2U_Friend2CrossAdd_Sync.info ),
+	Bin_listDel = binary_write_array(P#pk_GS2U_Friend2CrossAdd_Sync.listDel, fun(X) -> binary_write_uint64( X ) end),
+	[
+		<<?CMD_GS2U_Friend2CrossAdd_Sync:16/little>>,
+		Bin_info,
+		Bin_listDel
+	];
+
+%GENERATED from file:friend.h => GS2U_Friend2CrossAll_Sync
+packNetMsg(#pk_GS2U_Friend2CrossAll_Sync{} = P) ->
+	Bin_type = binary_write_uint8( P#pk_GS2U_Friend2CrossAll_Sync.type ),
+	Bin_listAll = binary_write_array(P#pk_GS2U_Friend2CrossAll_Sync.listAll, fun(X) -> writeFriend2InfoCross( X ) end),
+	[
+		<<?CMD_GS2U_Friend2CrossAll_Sync:16/little>>,
+		Bin_type,
+		Bin_listAll
+	];
+
+%GENERATED from file:friend.h => GS2U_Friend2CrossDel_Ack
+packNetMsg(#pk_GS2U_Friend2CrossDel_Ack{} = P) ->
+	Bin_id = binary_write_uint64( P#pk_GS2U_Friend2CrossDel_Ack.id ),
+	Bin_isFix = binary_write_bool( P#pk_GS2U_Friend2CrossDel_Ack.isFix ),
+	[
+		<<?CMD_GS2U_Friend2CrossDel_Ack:16/little>>,
+		Bin_id,
+		Bin_isFix
+	];
+
+%GENERATED from file:friend.h => GS2U_Friend2CrossInit_Sync
+packNetMsg(#pk_GS2U_Friend2CrossInit_Sync{} = P) ->
+	Bin_listCross = binary_write_array(P#pk_GS2U_Friend2CrossInit_Sync.listCross, fun(X) -> writeFriend2InfoCross( X ) end),
+	Bin_listApply = binary_write_array(P#pk_GS2U_Friend2CrossInit_Sync.listApply, fun(X) -> writeFriend2InfoCross( X ) end),
+	[
+		<<?CMD_GS2U_Friend2CrossInit_Sync:16/little>>,
+		Bin_listCross,
+		Bin_listApply
+	];
+
 %GENERATED from file:friend.h => GS2U_Friend2ForLook_Ack
 packNetMsg(#pk_GS2U_Friend2ForLook_Ack{} = P) ->
 	Bin_id = binary_write_uint64( P#pk_GS2U_Friend2ForLook_Ack.id ),
@@ -3560,6 +3856,7 @@ packNetMsg(#pk_GS2U_Friend2ForLook_Ack{} = P) ->
 	Bin_like = binary_write_uint( P#pk_GS2U_Friend2ForLook_Ack.like ),
 	Bin_isGiveLike = binary_write_bool( P#pk_GS2U_Friend2ForLook_Ack.isGiveLike ),
 	Bin_level = binary_write_uint16( P#pk_GS2U_Friend2ForLook_Ack.level ),
+	Bin_charm = binary_write_uint( P#pk_GS2U_Friend2ForLook_Ack.charm ),
 	[
 		<<?CMD_GS2U_Friend2ForLook_Ack:16/little>>,
 		Bin_id,
@@ -3567,7 +3864,8 @@ packNetMsg(#pk_GS2U_Friend2ForLook_Ack{} = P) ->
 		Bin_relation,
 		Bin_like,
 		Bin_isGiveLike,
-		Bin_level
+		Bin_level,
+		Bin_charm
 	];
 
 %GENERATED from file:friend.h => GS2U_Friend2FormalChatVoice_AckR
@@ -3824,6 +4122,40 @@ packNetMsg(#pk_U2GS_Friend2Black_Request{} = P) ->
 		Bin_page
 	];
 
+%GENERATED from file:friend.h => U2GS_Friend2CrossAdd2_Request
+packNetMsg(#pk_U2GS_Friend2CrossAdd2_Request{} = P) ->
+	Bin_id = binary_write_uint64( P#pk_U2GS_Friend2CrossAdd2_Request.id ),
+	Bin_isAgreed = binary_write_bool( P#pk_U2GS_Friend2CrossAdd2_Request.isAgreed ),
+	[
+		<<?CMD_U2GS_Friend2CrossAdd2_Request:16/little>>,
+		Bin_id,
+		Bin_isAgreed
+	];
+
+%GENERATED from file:friend.h => U2GS_Friend2CrossAdd_Request
+packNetMsg(#pk_U2GS_Friend2CrossAdd_Request{} = P) ->
+	Bin_id = binary_write_uint64( P#pk_U2GS_Friend2CrossAdd_Request.id ),
+	[
+		<<?CMD_U2GS_Friend2CrossAdd_Request:16/little>>,
+		Bin_id
+	];
+
+%GENERATED from file:friend.h => U2GS_Friend2CrossAll_Request
+packNetMsg(#pk_U2GS_Friend2CrossAll_Request{} = P) ->
+	Bin_type = binary_write_uint8( P#pk_U2GS_Friend2CrossAll_Request.type ),
+	[
+		<<?CMD_U2GS_Friend2CrossAll_Request:16/little>>,
+		Bin_type
+	];
+
+%GENERATED from file:friend.h => U2GS_Friend2CrossDel_Request
+packNetMsg(#pk_U2GS_Friend2CrossDel_Request{} = P) ->
+	Bin_id = binary_write_uint64( P#pk_U2GS_Friend2CrossDel_Request.id ),
+	[
+		<<?CMD_U2GS_Friend2CrossDel_Request:16/little>>,
+		Bin_id
+	];
+
 %GENERATED from file:friend.h => U2GS_Friend2Del_Request
 packNetMsg(#pk_U2GS_Friend2Del_Request{} = P) ->
 	Bin_id = binary_write_uint64( P#pk_U2GS_Friend2Del_Request.id ),
@@ -3910,10 +4242,12 @@ packNetMsg(#pk_U2GS_Friend2LBS_Request{} = P) ->
 packNetMsg(#pk_U2GS_Friend2Recommend_Request{} = P) ->
 	Bin_sex = binary_write_uint8( P#pk_U2GS_Friend2Recommend_Request.sex ),
 	Bin_isNear = binary_write_bool( P#pk_U2GS_Friend2Recommend_Request.isNear ),
+	Bin_isPush = binary_write_bool( P#pk_U2GS_Friend2Recommend_Request.isPush ),
 	[
 		<<?CMD_U2GS_Friend2Recommend_Request:16/little>>,
 		Bin_sex,
-		Bin_isNear
+		Bin_isNear,
+		Bin_isPush
 	];
 
 %GENERATED from file:friend.h => U2GS_Friend2Search_Request
@@ -4360,6 +4694,14 @@ packNetMsg(#pk_GS2U_Guild_GodBless_Schedule_Sync{} = P) ->
 		Bin_listID
 	];
 
+%GENERATED from file:guild.h => GS2U_Guild_OpenSupplication_Ack
+packNetMsg(#pk_GS2U_Guild_OpenSupplication_Ack{} = P) ->
+	Bin_listInfo = binary_write_array(P#pk_GS2U_Guild_OpenSupplication_Ack.listInfo, fun(X) -> writeSupplication( X ) end),
+	[
+		<<?CMD_GS2U_Guild_OpenSupplication_Ack:16/little>>,
+		Bin_listInfo
+	];
+
 %GENERATED from file:guild.h => GS2U_Guild_ShopBuy_Ack
 packNetMsg(#pk_GS2U_Guild_ShopBuy_Ack{} = P) ->
 	Bin_id = binary_write_uint( P#pk_GS2U_Guild_ShopBuy_Ack.id ),
@@ -4445,6 +4787,44 @@ packNetMsg(#pk_GS2U_Guild_SnowmanSnowman_Sync{} = P) ->
 		Bin_listResSnowman
 	];
 
+%GENERATED from file:guild.h => GS2U_Guild_SupplicateGiveF_Ack
+packNetMsg(#pk_GS2U_Guild_SupplicateGiveF_Ack{} = P) ->
+	Bin_type = binary_write_uint8( P#pk_GS2U_Guild_SupplicateGiveF_Ack.type ),
+	Bin_tarRoleID = binary_write_uint64( P#pk_GS2U_Guild_SupplicateGiveF_Ack.tarRoleID ),
+	[
+		<<?CMD_GS2U_Guild_SupplicateGiveF_Ack:16/little>>,
+		Bin_type,
+		Bin_tarRoleID
+	];
+
+%GENERATED from file:guild.h => GS2U_Guild_SupplicateGive_Ack
+packNetMsg(#pk_GS2U_Guild_SupplicateGive_Ack{} = P) ->
+	Bin_history = writeSuppHistory2( P#pk_GS2U_Guild_SupplicateGive_Ack.history ),
+	Bin_nameTables = binary_write_array(P#pk_GS2U_Guild_SupplicateGive_Ack.nameTables, fun(X) -> writeNameTable2( X ) end),
+	[
+		<<?CMD_GS2U_Guild_SupplicateGive_Ack:16/little>>,
+		Bin_history,
+		Bin_nameTables
+	];
+
+%GENERATED from file:guild.h => GS2U_Guild_SupplicateGive_Sync
+packNetMsg(#pk_GS2U_Guild_SupplicateGive_Sync{} = P) ->
+	Bin_listHistory = binary_write_array(P#pk_GS2U_Guild_SupplicateGive_Sync.listHistory, fun(X) -> writeSuppHistory2( X ) end),
+	Bin_nameTables = binary_write_array(P#pk_GS2U_Guild_SupplicateGive_Sync.nameTables, fun(X) -> writeNameTable2( X ) end),
+	[
+		<<?CMD_GS2U_Guild_SupplicateGive_Sync:16/little>>,
+		Bin_listHistory,
+		Bin_nameTables
+	];
+
+%GENERATED from file:guild.h => GS2U_Guild_Supplicate_Ack
+packNetMsg(#pk_GS2U_Guild_Supplicate_Ack{} = P) ->
+	Bin_itemID = binary_write_uint16( P#pk_GS2U_Guild_Supplicate_Ack.itemID ),
+	[
+		<<?CMD_GS2U_Guild_Supplicate_Ack:16/little>>,
+		Bin_itemID
+	];
+
 %GENERATED from file:guild.h => GS2U_ImpeachInfo
 packNetMsg(#pk_GS2U_ImpeachInfo{} = P) ->
 	Bin_canImpeach = binary_write_uint8( P#pk_GS2U_ImpeachInfo.canImpeach ),
@@ -4471,14 +4851,16 @@ packNetMsg(#pk_GS2U_JoinGuild_Sync{} = P) ->
 
 %GENERATED from file:guild.h => GS2U_OccupyOwnerChange
 packNetMsg(#pk_GS2U_OccupyOwnerChange{} = P) ->
-	Bin_ownerID = binary_write_uint64( P#pk_GS2U_OccupyOwnerChange.ownerID ),
-	Bin_targetID = binary_write_uint64( P#pk_GS2U_OccupyOwnerChange.targetID ),
-	Bin_infos = binary_write_array(P#pk_GS2U_OccupyOwnerChange.infos, fun(X) -> writeOccupyOwner( X ) end),
+	Bin_remainSec = binary_write_uint( P#pk_GS2U_OccupyOwnerChange.remainSec ),
+	Bin_owner = writeOccupyGuildInfo( P#pk_GS2U_OccupyOwnerChange.owner ),
+	Bin_target = writeOccupyGuildInfo( P#pk_GS2U_OccupyOwnerChange.target ),
+	Bin_playerInfos = binary_write_array(P#pk_GS2U_OccupyOwnerChange.playerInfos, fun(X) -> writeGuildBattlePlayerInfo( X ) end),
 	[
 		<<?CMD_GS2U_OccupyOwnerChange:16/little>>,
-		Bin_ownerID,
-		Bin_targetID,
-		Bin_infos
+		Bin_remainSec,
+		Bin_owner,
+		Bin_target,
+		Bin_playerInfos
 	];
 
 %GENERATED from file:guild.h => GS2U_OneKeyRecruit_Ack
@@ -4908,6 +5290,13 @@ packNetMsg(#pk_U2GS_Guild_GodBless_Schedule_Reward_Request{} = P) ->
 		Bin_id
 	];
 
+%GENERATED from file:guild.h => U2GS_Guild_OpenSupplication_Request
+packNetMsg(#pk_U2GS_Guild_OpenSupplication_Request{}) ->
+	[
+		<<?CMD_U2GS_Guild_OpenSupplication_Request:16/little>>
+
+	];
+
 %GENERATED from file:guild.h => U2GS_Guild_ShopBuy_Request
 packNetMsg(#pk_U2GS_Guild_ShopBuy_Request{} = P) ->
 	Bin_id = binary_write_uint( P#pk_U2GS_Guild_ShopBuy_Request.id ),
@@ -4941,6 +5330,24 @@ packNetMsg(#pk_U2GS_Guild_SnowmanReward_Request{} = P) ->
 	[
 		<<?CMD_U2GS_Guild_SnowmanReward_Request:16/little>>,
 		Bin_id
+	];
+
+%GENERATED from file:guild.h => U2GS_Guild_SupplicateGive_Request
+packNetMsg(#pk_U2GS_Guild_SupplicateGive_Request{} = P) ->
+	Bin_roleID = binary_write_uint64( P#pk_U2GS_Guild_SupplicateGive_Request.roleID ),
+	Bin_itemID = binary_write_uint16( P#pk_U2GS_Guild_SupplicateGive_Request.itemID ),
+	[
+		<<?CMD_U2GS_Guild_SupplicateGive_Request:16/little>>,
+		Bin_roleID,
+		Bin_itemID
+	];
+
+%GENERATED from file:guild.h => U2GS_Guild_Supplicate_Request
+packNetMsg(#pk_U2GS_Guild_Supplicate_Request{} = P) ->
+	Bin_itemID = binary_write_uint16( P#pk_U2GS_Guild_Supplicate_Request.itemID ),
+	[
+		<<?CMD_U2GS_Guild_Supplicate_Request:16/little>>,
+		Bin_itemID
 	];
 
 %GENERATED from file:guild.h => U2GS_ImpeachCreater
@@ -5169,6 +5576,315 @@ packNetMsg(#pk_U2GS_getGuildBuff{} = P) ->
 		Bin_confId
 	];
 
+%GENERATED from file:home.h => GS2U_FreshHomeAreaInfo
+packNetMsg(#pk_GS2U_FreshHomeAreaInfo{} = P) ->
+	Bin_homeID = binary_write_uint64( P#pk_GS2U_FreshHomeAreaInfo.homeID ),
+	Bin_areas = binary_write_array(P#pk_GS2U_FreshHomeAreaInfo.areas, fun(X) -> writeHomeArea( X ) end),
+	[
+		<<?CMD_GS2U_FreshHomeAreaInfo:16/little>>,
+		Bin_homeID,
+		Bin_areas
+	];
+
+%GENERATED from file:home.h => GS2U_FreshHomeInfo
+packNetMsg(#pk_GS2U_FreshHomeInfo{} = P) ->
+	Bin_homeID = binary_write_uint64( P#pk_GS2U_FreshHomeInfo.homeID ),
+	Bin_homeName = binary_write_string( P#pk_GS2U_FreshHomeInfo.homeName ),
+	Bin_stylish = binary_write_uint( P#pk_GS2U_FreshHomeInfo.stylish ),
+	Bin_comfort = binary_write_uint( P#pk_GS2U_FreshHomeInfo.comfort ),
+	Bin_homeLvl = binary_write_uint( P#pk_GS2U_FreshHomeInfo.homeLvl ),
+	Bin_popularity = binary_write_uint( P#pk_GS2U_FreshHomeInfo.popularity ),
+	[
+		<<?CMD_GS2U_FreshHomeInfo:16/little>>,
+		Bin_homeID,
+		Bin_homeName,
+		Bin_stylish,
+		Bin_comfort,
+		Bin_homeLvl,
+		Bin_popularity
+	];
+
+%GENERATED from file:home.h => GS2U_GetPetFoodResults_Sync
+packNetMsg(#pk_GS2U_GetPetFoodResults_Sync{} = P) ->
+	Bin_result = binary_write_uint8( P#pk_GS2U_GetPetFoodResults_Sync.result ),
+	Bin_petID = binary_write_uint16( P#pk_GS2U_GetPetFoodResults_Sync.petID ),
+	Bin_itemID = binary_write_uint16( P#pk_GS2U_GetPetFoodResults_Sync.itemID ),
+	Bin_num = binary_write_uint8( P#pk_GS2U_GetPetFoodResults_Sync.num ),
+	[
+		<<?CMD_GS2U_GetPetFoodResults_Sync:16/little>>,
+		Bin_result,
+		Bin_petID,
+		Bin_itemID,
+		Bin_num
+	];
+
+%GENERATED from file:home.h => GS2U_HomeFarming_Sync
+packNetMsg(#pk_GS2U_HomeFarming_Sync{} = P) ->
+	Bin_petList = binary_write_array(P#pk_GS2U_HomeFarming_Sync.petList, fun(X) -> writeFarmingPet( X ) end),
+	[
+		<<?CMD_GS2U_HomeFarming_Sync:16/little>>,
+		Bin_petList
+	];
+
+%GENERATED from file:home.h => GS2U_HomeInfo
+packNetMsg(#pk_GS2U_HomeInfo{} = P) ->
+	Bin_homeID = binary_write_uint64( P#pk_GS2U_HomeInfo.homeID ),
+	Bin_homeName = binary_write_string( P#pk_GS2U_HomeInfo.homeName ),
+	Bin_serverName = binary_write_string( P#pk_GS2U_HomeInfo.serverName ),
+	Bin_ownerID = binary_write_uint64( P#pk_GS2U_HomeInfo.ownerID ),
+	Bin_ownerName = binary_write_string( P#pk_GS2U_HomeInfo.ownerName ),
+	Bin_mateID = binary_write_uint64( P#pk_GS2U_HomeInfo.mateID ),
+	Bin_mateName = binary_write_string( P#pk_GS2U_HomeInfo.mateName ),
+	Bin_stylish = binary_write_uint( P#pk_GS2U_HomeInfo.stylish ),
+	Bin_comfort = binary_write_uint( P#pk_GS2U_HomeInfo.comfort ),
+	Bin_homeLvl = binary_write_uint( P#pk_GS2U_HomeInfo.homeLvl ),
+	Bin_popularity = binary_write_uint( P#pk_GS2U_HomeInfo.popularity ),
+	Bin_leftID = binary_write_uint64( P#pk_GS2U_HomeInfo.leftID ),
+	Bin_leftName = binary_write_string( P#pk_GS2U_HomeInfo.leftName ),
+	Bin_rightID = binary_write_uint64( P#pk_GS2U_HomeInfo.rightID ),
+	Bin_rightName = binary_write_string( P#pk_GS2U_HomeInfo.rightName ),
+	Bin_areas = binary_write_array(P#pk_GS2U_HomeInfo.areas, fun(X) -> writeHomeArea( X ) end),
+	[
+		<<?CMD_GS2U_HomeInfo:16/little>>,
+		Bin_homeID,
+		Bin_homeName,
+		Bin_serverName,
+		Bin_ownerID,
+		Bin_ownerName,
+		Bin_mateID,
+		Bin_mateName,
+		Bin_stylish,
+		Bin_comfort,
+		Bin_homeLvl,
+		Bin_popularity,
+		Bin_leftID,
+		Bin_leftName,
+		Bin_rightID,
+		Bin_rightName,
+		Bin_areas
+	];
+
+%GENERATED from file:home.h => GS2U_HomePlantOperate_Ack
+packNetMsg(#pk_GS2U_HomePlantOperate_Ack{} = P) ->
+	Bin_roleID = binary_write_uint64( P#pk_GS2U_HomePlantOperate_Ack.roleID ),
+	Bin_operateType = binary_write_uint8( P#pk_GS2U_HomePlantOperate_Ack.operateType ),
+	Bin_reason = binary_write_uint( P#pk_GS2U_HomePlantOperate_Ack.reason ),
+	Bin_plant = writePlant( P#pk_GS2U_HomePlantOperate_Ack.plant ),
+	[
+		<<?CMD_GS2U_HomePlantOperate_Ack:16/little>>,
+		Bin_roleID,
+		Bin_operateType,
+		Bin_reason,
+		Bin_plant
+	];
+
+%GENERATED from file:home.h => GS2U_HomePlant_Sync
+packNetMsg(#pk_GS2U_HomePlant_Sync{} = P) ->
+	Bin_listPlant = binary_write_array(P#pk_GS2U_HomePlant_Sync.listPlant, fun(X) -> writePlant( X ) end),
+	[
+		<<?CMD_GS2U_HomePlant_Sync:16/little>>,
+		Bin_listPlant
+	];
+
+%GENERATED from file:home.h => GS2U_HomeVisitList
+packNetMsg(#pk_GS2U_HomeVisitList{} = P) ->
+	Bin_allnumber = binary_write_uint16( P#pk_GS2U_HomeVisitList.allnumber ),
+	Bin_paga = binary_write_uint8( P#pk_GS2U_HomeVisitList.paga ),
+	Bin_visits = binary_write_array(P#pk_GS2U_HomeVisitList.visits, fun(X) -> writeHomeVisit( X ) end),
+	[
+		<<?CMD_GS2U_HomeVisitList:16/little>>,
+		Bin_allnumber,
+		Bin_paga,
+		Bin_visits
+	];
+
+%GENERATED from file:home.h => GS2U_PutOutPetFarmingResults_Sync
+packNetMsg(#pk_GS2U_PutOutPetFarmingResults_Sync{} = P) ->
+	Bin_result = binary_write_uint8( P#pk_GS2U_PutOutPetFarmingResults_Sync.result ),
+	Bin_petID = binary_write_uint16( P#pk_GS2U_PutOutPetFarmingResults_Sync.petID ),
+	Bin_exp = binary_write_uint16( P#pk_GS2U_PutOutPetFarmingResults_Sync.exp ),
+	Bin_minutes = binary_write_uint16( P#pk_GS2U_PutOutPetFarmingResults_Sync.minutes ),
+	[
+		<<?CMD_GS2U_PutOutPetFarmingResults_Sync:16/little>>,
+		Bin_result,
+		Bin_petID,
+		Bin_exp,
+		Bin_minutes
+	];
+
+%GENERATED from file:home.h => GS2U_PutPetInFarmingResults_Sync
+packNetMsg(#pk_GS2U_PutPetInFarmingResults_Sync{} = P) ->
+	Bin_result = binary_write_uint8( P#pk_GS2U_PutPetInFarmingResults_Sync.result ),
+	Bin_petFarming = writeFarmingPet( P#pk_GS2U_PutPetInFarmingResults_Sync.petFarming ),
+	[
+		<<?CMD_GS2U_PutPetInFarmingResults_Sync:16/little>>,
+		Bin_result,
+		Bin_petFarming
+	];
+
+%GENERATED from file:home.h => GS2U_VisitRecord
+packNetMsg(#pk_GS2U_VisitRecord{} = P) ->
+	Bin_lists = binary_write_array(P#pk_GS2U_VisitRecord.lists, fun(X) -> writeVisitRecord( X ) end),
+	[
+		<<?CMD_GS2U_VisitRecord:16/little>>,
+		Bin_lists
+	];
+
+%GENERATED from file:home.h => U2GS_ChangeHomeName
+packNetMsg(#pk_U2GS_ChangeHomeName{} = P) ->
+	Bin_homeID = binary_write_uint64( P#pk_U2GS_ChangeHomeName.homeID ),
+	Bin_homeName = binary_write_string( P#pk_U2GS_ChangeHomeName.homeName ),
+	[
+		<<?CMD_U2GS_ChangeHomeName:16/little>>,
+		Bin_homeID,
+		Bin_homeName
+	];
+
+%GENERATED from file:home.h => U2GS_CreateHome
+packNetMsg(#pk_U2GS_CreateHome{} = P) ->
+	Bin_adminAreaID = binary_write_uint( P#pk_U2GS_CreateHome.adminAreaID ),
+	[
+		<<?CMD_U2GS_CreateHome:16/little>>,
+		Bin_adminAreaID
+	];
+
+%GENERATED from file:home.h => U2GS_EnterHome
+packNetMsg(#pk_U2GS_EnterHome{} = P) ->
+	Bin_roleID = binary_write_uint64( P#pk_U2GS_EnterHome.roleID ),
+	Bin_flag = binary_write_uint8( P#pk_U2GS_EnterHome.flag ),
+	[
+		<<?CMD_U2GS_EnterHome:16/little>>,
+		Bin_roleID,
+		Bin_flag
+	];
+
+%GENERATED from file:home.h => U2GS_GetPetFood
+packNetMsg(#pk_U2GS_GetPetFood{} = P) ->
+	Bin_homeID = binary_write_uint64( P#pk_U2GS_GetPetFood.homeID ),
+	Bin_petID = binary_write_uint16( P#pk_U2GS_GetPetFood.petID ),
+	Bin_itemID = binary_write_uint16( P#pk_U2GS_GetPetFood.itemID ),
+	Bin_areaType = binary_write_uint8( P#pk_U2GS_GetPetFood.areaType ),
+	[
+		<<?CMD_U2GS_GetPetFood:16/little>>,
+		Bin_homeID,
+		Bin_petID,
+		Bin_itemID,
+		Bin_areaType
+	];
+
+%GENERATED from file:home.h => U2GS_HomePlantOperate_Request
+packNetMsg(#pk_U2GS_HomePlantOperate_Request{} = P) ->
+	Bin_homeID = binary_write_uint64( P#pk_U2GS_HomePlantOperate_Request.homeID ),
+	Bin_areaType = binary_write_uint8( P#pk_U2GS_HomePlantOperate_Request.areaType ),
+	Bin_pos = binary_write_uint8( P#pk_U2GS_HomePlantOperate_Request.pos ),
+	Bin_operateType = binary_write_uint8( P#pk_U2GS_HomePlantOperate_Request.operateType ),
+	Bin_itemID = binary_write_uint16( P#pk_U2GS_HomePlantOperate_Request.itemID ),
+	[
+		<<?CMD_U2GS_HomePlantOperate_Request:16/little>>,
+		Bin_homeID,
+		Bin_areaType,
+		Bin_pos,
+		Bin_operateType,
+		Bin_itemID
+	];
+
+%GENERATED from file:home.h => U2GS_HomeVisit
+packNetMsg(#pk_U2GS_HomeVisit{} = P) ->
+	Bin_paga = binary_write_uint8( P#pk_U2GS_HomeVisit.paga ),
+	Bin_number = binary_write_uint8( P#pk_U2GS_HomeVisit.number ),
+	[
+		<<?CMD_U2GS_HomeVisit:16/little>>,
+		Bin_paga,
+		Bin_number
+	];
+
+%GENERATED from file:home.h => U2GS_PutOutPetFarming
+packNetMsg(#pk_U2GS_PutOutPetFarming{} = P) ->
+	Bin_homeID = binary_write_uint64( P#pk_U2GS_PutOutPetFarming.homeID ),
+	Bin_petID = binary_write_uint16( P#pk_U2GS_PutOutPetFarming.petID ),
+	Bin_areaType = binary_write_uint8( P#pk_U2GS_PutOutPetFarming.areaType ),
+	[
+		<<?CMD_U2GS_PutOutPetFarming:16/little>>,
+		Bin_homeID,
+		Bin_petID,
+		Bin_areaType
+	];
+
+%GENERATED from file:home.h => U2GS_PutPetInFarming
+packNetMsg(#pk_U2GS_PutPetInFarming{} = P) ->
+	Bin_homeID = binary_write_uint64( P#pk_U2GS_PutPetInFarming.homeID ),
+	Bin_petID = binary_write_uint16( P#pk_U2GS_PutPetInFarming.petID ),
+	Bin_areaType = binary_write_uint8( P#pk_U2GS_PutPetInFarming.areaType ),
+	[
+		<<?CMD_U2GS_PutPetInFarming:16/little>>,
+		Bin_homeID,
+		Bin_petID,
+		Bin_areaType
+	];
+
+%GENERATED from file:home.h => U2GS_RequestHomeInfo
+packNetMsg(#pk_U2GS_RequestHomeInfo{} = P) ->
+	Bin_roleID = binary_write_uint64( P#pk_U2GS_RequestHomeInfo.roleID ),
+	[
+		<<?CMD_U2GS_RequestHomeInfo:16/little>>,
+		Bin_roleID
+	];
+
+%GENERATED from file:home.h => U2GS_RequestVisitRecord
+packNetMsg(#pk_U2GS_RequestVisitRecord{}) ->
+	[
+		<<?CMD_U2GS_RequestVisitRecord:16/little>>
+
+	];
+
+%GENERATED from file:home.h => U2GS_UpgradeHomeArea
+packNetMsg(#pk_U2GS_UpgradeHomeArea{} = P) ->
+	Bin_homeID = binary_write_uint64( P#pk_U2GS_UpgradeHomeArea.homeID ),
+	Bin_areaID = binary_write_uint8( P#pk_U2GS_UpgradeHomeArea.areaID ),
+	[
+		<<?CMD_U2GS_UpgradeHomeArea:16/little>>,
+		Bin_homeID,
+		Bin_areaID
+	];
+
+%GENERATED from file:identity.h => GS2U_GiftHistory_Sync
+packNetMsg(#pk_GS2U_GiftHistory_Sync{} = P) ->
+	Bin_listHistory = binary_write_array(P#pk_GS2U_GiftHistory_Sync.listHistory, fun(X) -> writeGiftHistory( X ) end),
+	Bin_nameTables = binary_write_array(P#pk_GS2U_GiftHistory_Sync.nameTables, fun(X) -> writeNameTable( X ) end),
+	Bin_listItemID = binary_write_array(P#pk_GS2U_GiftHistory_Sync.listItemID, fun(X) -> binary_write_uint16( X ) end),
+	Bin_listItemCount = binary_write_array(P#pk_GS2U_GiftHistory_Sync.listItemCount, fun(X) -> binary_write_uint16( X ) end),
+	[
+		<<?CMD_GS2U_GiftHistory_Sync:16/little>>,
+		Bin_listHistory,
+		Bin_nameTables,
+		Bin_listItemID,
+		Bin_listItemCount
+	];
+
+%GENERATED from file:identity.h => GS2U_Gift_Ack
+packNetMsg(#pk_GS2U_Gift_Ack{} = P) ->
+	Bin_history = writeGiftHistory( P#pk_GS2U_Gift_Ack.history ),
+	Bin_nameTables = binary_write_array(P#pk_GS2U_Gift_Ack.nameTables, fun(X) -> writeNameTable( X ) end),
+	[
+		<<?CMD_GS2U_Gift_Ack:16/little>>,
+		Bin_history,
+		Bin_nameTables
+	];
+
+%GENERATED from file:identity.h => GS2U_IdentityCharm_Sync
+packNetMsg(#pk_GS2U_IdentityCharm_Sync{} = P) ->
+	Bin_roleID = binary_write_uint64( P#pk_GS2U_IdentityCharm_Sync.roleID ),
+	Bin_tarRoleID = binary_write_uint64( P#pk_GS2U_IdentityCharm_Sync.tarRoleID ),
+	Bin_valueUpdate = binary_write_uint( P#pk_GS2U_IdentityCharm_Sync.valueUpdate ),
+	Bin_valueNew = binary_write_uint( P#pk_GS2U_IdentityCharm_Sync.valueNew ),
+	[
+		<<?CMD_GS2U_IdentityCharm_Sync:16/little>>,
+		Bin_roleID,
+		Bin_tarRoleID,
+		Bin_valueUpdate,
+		Bin_valueNew
+	];
+
 %GENERATED from file:identity.h => GS2U_IdentityEditPic_Ack
 packNetMsg(#pk_GS2U_IdentityEditPic_Ack{} = P) ->
 	Bin_idi_listPic = binary_write_array(P#pk_GS2U_IdentityEditPic_Ack.idi_listPic, fun(X) -> writeMD5( X ) end),
@@ -5185,6 +5901,20 @@ packNetMsg(#pk_GS2U_IdentityEditTag_Ack{} = P) ->
 		Bin_idi_listTag
 	];
 
+%GENERATED from file:identity.h => GS2U_IdentityLike_Sync
+packNetMsg(#pk_GS2U_IdentityLike_Sync{} = P) ->
+	Bin_roleID = binary_write_uint64( P#pk_GS2U_IdentityLike_Sync.roleID ),
+	Bin_tarRoleID = binary_write_uint64( P#pk_GS2U_IdentityLike_Sync.tarRoleID ),
+	Bin_valueUpdate = binary_write_uint( P#pk_GS2U_IdentityLike_Sync.valueUpdate ),
+	Bin_valueNew = binary_write_uint( P#pk_GS2U_IdentityLike_Sync.valueNew ),
+	[
+		<<?CMD_GS2U_IdentityLike_Sync:16/little>>,
+		Bin_roleID,
+		Bin_tarRoleID,
+		Bin_valueUpdate,
+		Bin_valueNew
+	];
+
 %GENERATED from file:identity.h => GS2U_IdentityPicDownloadData_Ack
 packNetMsg(#pk_GS2U_IdentityPicDownloadData_Ack{} = P) ->
 	Bin_md5 = binary_write_array(P#pk_GS2U_IdentityPicDownloadData_Ack.md5, fun(X) -> binary_write_uint8( X ) end),
@@ -5194,6 +5924,22 @@ packNetMsg(#pk_GS2U_IdentityPicDownloadData_Ack{} = P) ->
 	Bin_data = binary_write_array(P#pk_GS2U_IdentityPicDownloadData_Ack.data, fun(X) -> binary_write_uint8( X ) end),
 	[
 		<<?CMD_GS2U_IdentityPicDownloadData_Ack:16/little>>,
+		Bin_md5,
+		Bin_size,
+		Bin_count,
+		Bin_index,
+		Bin_data
+	];
+
+%GENERATED from file:identity.h => GS2U_IdentityPicDownloadData_Sync
+packNetMsg(#pk_GS2U_IdentityPicDownloadData_Sync{} = P) ->
+	Bin_md5 = binary_write_array(P#pk_GS2U_IdentityPicDownloadData_Sync.md5, fun(X) -> binary_write_uint8( X ) end),
+	Bin_size = binary_write_uint( P#pk_GS2U_IdentityPicDownloadData_Sync.size ),
+	Bin_count = binary_write_uint16( P#pk_GS2U_IdentityPicDownloadData_Sync.count ),
+	Bin_index = binary_write_uint16( P#pk_GS2U_IdentityPicDownloadData_Sync.index ),
+	Bin_data = binary_write_array(P#pk_GS2U_IdentityPicDownloadData_Sync.data, fun(X) -> binary_write_uint8( X ) end),
+	[
+		<<?CMD_GS2U_IdentityPicDownloadData_Sync:16/little>>,
 		Bin_md5,
 		Bin_size,
 		Bin_count,
@@ -5232,6 +5978,7 @@ packNetMsg(#pk_GS2U_Identity_Ack{} = P) ->
 	Bin_sex = binary_write_uint8( P#pk_GS2U_Identity_Ack.sex ),
 	Bin_vipLv = binary_write_uint8( P#pk_GS2U_Identity_Ack.vipLv ),
 	Bin_like = binary_write_uint( P#pk_GS2U_Identity_Ack.like ),
+	Bin_charm = binary_write_uint( P#pk_GS2U_Identity_Ack.charm ),
 	Bin_isGiveLike = binary_write_bool( P#pk_GS2U_Identity_Ack.isGiveLike ),
 	Bin_familyName = binary_write_string( P#pk_GS2U_Identity_Ack.familyName ),
 	Bin_idi_age = binary_write_uint8( P#pk_GS2U_Identity_Ack.idi_age ),
@@ -5258,6 +6005,7 @@ packNetMsg(#pk_GS2U_Identity_Ack{} = P) ->
 		Bin_sex,
 		Bin_vipLv,
 		Bin_like,
+		Bin_charm,
 		Bin_isGiveLike,
 		Bin_familyName,
 		Bin_idi_age,
@@ -5353,6 +6101,20 @@ packNetMsg(#pk_U2GS2U_RequestRoleHeadPic{} = P) ->
 		Bin_heads
 	];
 
+%GENERATED from file:identity.h => U2GS_Gift_Request
+packNetMsg(#pk_U2GS_Gift_Request{} = P) ->
+	Bin_tarRoleID = binary_write_uint64( P#pk_U2GS_Gift_Request.tarRoleID ),
+	Bin_itemID = binary_write_uint16( P#pk_U2GS_Gift_Request.itemID ),
+	Bin_itemCount = binary_write_uint16( P#pk_U2GS_Gift_Request.itemCount ),
+	Bin_content = binary_write_string( P#pk_U2GS_Gift_Request.content ),
+	[
+		<<?CMD_U2GS_Gift_Request:16/little>>,
+		Bin_tarRoleID,
+		Bin_itemID,
+		Bin_itemCount,
+		Bin_content
+	];
+
 %GENERATED from file:identity.h => U2GS_IdentityEditTagAdd_Request
 packNetMsg(#pk_U2GS_IdentityEditTagAdd_Request{} = P) ->
 	Bin_idi_listTag = binary_write_array(P#pk_U2GS_IdentityEditTagAdd_Request.idi_listTag, fun(X) -> binary_write_uint8( X ) end),
@@ -5372,9 +6134,11 @@ packNetMsg(#pk_U2GS_IdentityEditTagDel_Request{} = P) ->
 %GENERATED from file:identity.h => U2GS_IdentityPicDownloadBegin_Request
 packNetMsg(#pk_U2GS_IdentityPicDownloadBegin_Request{} = P) ->
 	Bin_md5 = binary_write_array(P#pk_U2GS_IdentityPicDownloadBegin_Request.md5, fun(X) -> binary_write_uint8( X ) end),
+	Bin_id = binary_write_uint64( P#pk_U2GS_IdentityPicDownloadBegin_Request.id ),
 	[
 		<<?CMD_U2GS_IdentityPicDownloadBegin_Request:16/little>>,
-		Bin_md5
+		Bin_md5,
+		Bin_id
 	];
 
 %GENERATED from file:identity.h => U2GS_IdentityPicDownloadContinue_Request
@@ -5640,6 +6404,16 @@ packNetMsg(#pk_U2GS_RequestMysteriousShop{}) ->
 
 	];
 
+%GENERATED from file:item.h => U2GS_UseStarMoonBox
+packNetMsg(#pk_U2GS_UseStarMoonBox{} = P) ->
+	Bin_itemUID = binary_write_uint64( P#pk_U2GS_UseStarMoonBox.itemUID ),
+	Bin_useNum = binary_write_uint16( P#pk_U2GS_UseStarMoonBox.useNum ),
+	[
+		<<?CMD_U2GS_UseStarMoonBox:16/little>>,
+		Bin_itemUID,
+		Bin_useNum
+	];
+
 %GENERATED from file:luckycoin.h => GS2U_GainLuckyCoin
 packNetMsg(#pk_GS2U_GainLuckyCoin{} = P) ->
 	Bin_gainLuckyCoinInfo = writeGainLuckyCoinInfo( P#pk_GS2U_GainLuckyCoin.gainLuckyCoinInfo ),
@@ -5741,6 +6515,18 @@ packNetMsg(#pk_GS2U_DeleteMail{} = P) ->
 		Bin_mailID
 	];
 
+%GENERATED from file:mail.h => GS2U_GetMailItemAll
+packNetMsg(#pk_GS2U_GetMailItemAll{} = P) ->
+	Bin_number = binary_write_uint16( P#pk_GS2U_GetMailItemAll.number ),
+	Bin_items = binary_write_array(P#pk_GS2U_GetMailItemAll.items, fun(X) -> writeMailItemAll( X ) end),
+	Bin_coins = binary_write_array(P#pk_GS2U_GetMailItemAll.coins, fun(X) -> writeMailCoin( X ) end),
+	[
+		<<?CMD_GS2U_GetMailItemAll:16/little>>,
+		Bin_number,
+		Bin_items,
+		Bin_coins
+	];
+
 %GENERATED from file:mail.h => GS2U_LockMail
 packNetMsg(#pk_GS2U_LockMail{} = P) ->
 	Bin_ret = writeretMailOpt( P#pk_GS2U_LockMail.ret ),
@@ -5814,6 +6600,13 @@ packNetMsg(#pk_U2GS_GetMailItem{} = P) ->
 		<<?CMD_U2GS_GetMailItem:16/little>>,
 		Bin_mailID,
 		Bin_itemUID
+	];
+
+%GENERATED from file:mail.h => U2GS_GetMailItemAll
+packNetMsg(#pk_U2GS_GetMailItemAll{}) ->
+	[
+		<<?CMD_U2GS_GetMailItemAll:16/little>>
+
 	];
 
 %GENERATED from file:mail.h => U2GS_LockMail
@@ -6287,6 +7080,14 @@ packNetMsg(#pk_GS2U_BuyPowerInfo{} = P) ->
 		Bin_curCount
 	];
 
+%GENERATED from file:pet.h => GS2U_DeletePet
+packNetMsg(#pk_GS2U_DeletePet{} = P) ->
+	Bin_petID = binary_write_uint16( P#pk_GS2U_DeletePet.petID ),
+	[
+		<<?CMD_GS2U_DeletePet:16/little>>,
+		Bin_petID
+	];
+
 %GENERATED from file:pet.h => GS2U_DoublePetMountInvite
 packNetMsg(#pk_GS2U_DoublePetMountInvite{} = P) ->
 	Bin_petID = binary_write_uint16( P#pk_GS2U_DoublePetMountInvite.petID ),
@@ -6437,6 +7238,18 @@ packNetMsg(#pk_GS2U_PetInfoList{} = P) ->
 		Bin_petInfoList
 	];
 
+%GENERATED from file:pet.h => GS2U_PetLevelUp
+packNetMsg(#pk_GS2U_PetLevelUp{} = P) ->
+	Bin_petID = binary_write_uint16( P#pk_GS2U_PetLevelUp.petID ),
+	Bin_petLevel = binary_write_uint16( P#pk_GS2U_PetLevelUp.petLevel ),
+	Bin_petExp = binary_write_uint( P#pk_GS2U_PetLevelUp.petExp ),
+	[
+		<<?CMD_GS2U_PetLevelUp:16/little>>,
+		Bin_petID,
+		Bin_petLevel,
+		Bin_petExp
+	];
+
 %GENERATED from file:pet.h => GS2U_PetPveSweepAck
 packNetMsg(#pk_GS2U_PetPveSweepAck{} = P) ->
 	Bin_sweepList = binary_write_array(P#pk_GS2U_PetPveSweepAck.sweepList, fun(X) -> writePveSweep( X ) end),
@@ -6566,6 +7379,14 @@ packNetMsg(#pk_GS2U_RawPetResult{} = P) ->
 		Bin_curRaw
 	];
 
+%GENERATED from file:pet.h => GS2U_ResetPetAck
+packNetMsg(#pk_GS2U_ResetPetAck{} = P) ->
+	Bin_petID = binary_write_uint16( P#pk_GS2U_ResetPetAck.petID ),
+	[
+		<<?CMD_GS2U_ResetPetAck:16/little>>,
+		Bin_petID
+	];
+
 %GENERATED from file:pet.h => GS2U_TerritoryBattle_Tick_Sync
 packNetMsg(#pk_GS2U_TerritoryBattle_Tick_Sync{} = P) ->
 	Bin_time = binary_write_uint( P#pk_GS2U_TerritoryBattle_Tick_Sync.time ),
@@ -6633,6 +7454,16 @@ packNetMsg(#pk_GS2U_UpdateCatalogList{} = P) ->
 	[
 		<<?CMD_GS2U_UpdateCatalogList:16/little>>,
 		Bin_catalogList
+	];
+
+%GENERATED from file:pet.h => GS2U_UpdatePetSkill
+packNetMsg(#pk_GS2U_UpdatePetSkill{} = P) ->
+	Bin_petID = binary_write_uint16( P#pk_GS2U_UpdatePetSkill.petID ),
+	Bin_skillInfo = writePetSkillBaseInfo( P#pk_GS2U_UpdatePetSkill.skillInfo ),
+	[
+		<<?CMD_GS2U_UpdatePetSkill:16/little>>,
+		Bin_petID,
+		Bin_skillInfo
 	];
 
 %GENERATED from file:pet.h => GS2U_UpdatePetStatus
@@ -6800,6 +7631,18 @@ packNetMsg(#pk_U2GS_PetDisapear{} = P) ->
 		Bin_code
 	];
 
+%GENERATED from file:pet.h => U2GS_PetLevelUp
+packNetMsg(#pk_U2GS_PetLevelUp{} = P) ->
+	Bin_petID = binary_write_uint16( P#pk_U2GS_PetLevelUp.petID ),
+	Bin_itemUID = binary_write_uint64( P#pk_U2GS_PetLevelUp.itemUID ),
+	Bin_useNum = binary_write_uint16( P#pk_U2GS_PetLevelUp.useNum ),
+	[
+		<<?CMD_U2GS_PetLevelUp:16/little>>,
+		Bin_petID,
+		Bin_itemUID,
+		Bin_useNum
+	];
+
 %GENERATED from file:pet.h => U2GS_PetPveSweep
 packNetMsg(#pk_U2GS_PetPveSweep{} = P) ->
 	Bin_id = binary_write_uint16( P#pk_U2GS_PetPveSweep.id ),
@@ -6816,6 +7659,18 @@ packNetMsg(#pk_U2GS_PetSkillCast{} = P) ->
 		<<?CMD_U2GS_PetSkillCast:16/little>>,
 		Bin_petID,
 		Bin_skillIDs
+	];
+
+%GENERATED from file:pet.h => U2GS_PetSkillOperate
+packNetMsg(#pk_U2GS_PetSkillOperate{} = P) ->
+	Bin_operationType = binary_write_uint16( P#pk_U2GS_PetSkillOperate.operationType ),
+	Bin_petID = binary_write_uint16( P#pk_U2GS_PetSkillOperate.petID ),
+	Bin_petSkillId = binary_write_uint16( P#pk_U2GS_PetSkillOperate.petSkillId ),
+	[
+		<<?CMD_U2GS_PetSkillOperate:16/little>>,
+		Bin_operationType,
+		Bin_petID,
+		Bin_petSkillId
 	];
 
 %GENERATED from file:pet.h => U2GS_PetStr
@@ -6896,6 +7751,14 @@ packNetMsg(#pk_U2GS_RequstReward{}) ->
 	[
 		<<?CMD_U2GS_RequstReward:16/little>>
 
+	];
+
+%GENERATED from file:pet.h => U2GS_ResetPet
+packNetMsg(#pk_U2GS_ResetPet{} = P) ->
+	Bin_petID = binary_write_uint16( P#pk_U2GS_ResetPet.petID ),
+	[
+		<<?CMD_U2GS_ResetPet:16/little>>,
+		Bin_petID
 	];
 
 %GENERATED from file:pet.h => U2GS_ShowMountPet
@@ -7238,6 +8101,7 @@ packNetMsg(#pk_GS2U_CopyMapResult{} = P) ->
 	Bin_second = binary_write_uint16( P#pk_GS2U_CopyMapResult.second ),
 	Bin_goldReward = binary_write_uint( P#pk_GS2U_CopyMapResult.goldReward ),
 	Bin_expReward = binary_write_uint( P#pk_GS2U_CopyMapResult.expReward ),
+	Bin_isAssist = binary_write_bool( P#pk_GS2U_CopyMapResult.isAssist ),
 	Bin_dropItems = binary_write_array(P#pk_GS2U_CopyMapResult.dropItems, fun(X) -> writeCopyMapDropItem( X ) end),
 	[
 		<<?CMD_GS2U_CopyMapResult:16/little>>,
@@ -7245,6 +8109,7 @@ packNetMsg(#pk_GS2U_CopyMapResult{} = P) ->
 		Bin_second,
 		Bin_goldReward,
 		Bin_expReward,
+		Bin_isAssist,
 		Bin_dropItems
 	];
 
@@ -7422,6 +8287,8 @@ packNetMsg(#pk_GS2U_LookInfoPlayer{} = P) ->
 	Bin_petID = binary_write_uint16( P#pk_GS2U_LookInfoPlayer.petID ),
 	Bin_otherCode = binary_write_uint64( P#pk_GS2U_LookInfoPlayer.otherCode ),
 	Bin_servername = binary_write_string( P#pk_GS2U_LookInfoPlayer.servername ),
+	Bin_myServerName = binary_write_string( P#pk_GS2U_LookInfoPlayer.myServerName ),
+	Bin_isInCross = binary_write_bool( P#pk_GS2U_LookInfoPlayer.isInCross ),
 	Bin_pkMode = binary_write_uint8( P#pk_GS2U_LookInfoPlayer.pkMode ),
 	Bin_pet_list = binary_write_array(P#pk_GS2U_LookInfoPlayer.pet_list, fun(X) -> binary_write_uint64( X ) end),
 	Bin_move_list = binary_write_array(P#pk_GS2U_LookInfoPlayer.move_list, fun(X) -> writePosInfo( X ) end),
@@ -7446,6 +8313,8 @@ packNetMsg(#pk_GS2U_LookInfoPlayer{} = P) ->
 		Bin_petID,
 		Bin_otherCode,
 		Bin_servername,
+		Bin_myServerName,
+		Bin_isInCross,
 		Bin_pkMode,
 		Bin_pet_list,
 		Bin_move_list,
@@ -7513,6 +8382,7 @@ packNetMsg(#pk_GS2U_MaterialCopyMapResult{} = P) ->
 	Bin_expReward = binary_write_uint( P#pk_GS2U_MaterialCopyMapResult.expReward ),
 	Bin_maxChapter = binary_write_uint16( P#pk_GS2U_MaterialCopyMapResult.maxChapter ),
 	Bin_finishChapter = binary_write_uint16( P#pk_GS2U_MaterialCopyMapResult.finishChapter ),
+	Bin_isAssist = binary_write_bool( P#pk_GS2U_MaterialCopyMapResult.isAssist ),
 	Bin_dropItems = binary_write_array(P#pk_GS2U_MaterialCopyMapResult.dropItems, fun(X) -> writeCopyMapDropItem( X ) end),
 	[
 		<<?CMD_GS2U_MaterialCopyMapResult:16/little>>,
@@ -7523,6 +8393,7 @@ packNetMsg(#pk_GS2U_MaterialCopyMapResult{} = P) ->
 		Bin_expReward,
 		Bin_maxChapter,
 		Bin_finishChapter,
+		Bin_isAssist,
 		Bin_dropItems
 	];
 
@@ -7563,10 +8434,12 @@ packNetMsg(#pk_GS2U_MoneyDungeonCopyMapResult{} = P) ->
 %GENERATED from file:player.h => GS2U_MoneyTreeAck
 packNetMsg(#pk_GS2U_MoneyTreeAck{} = P) ->
 	Bin_totalMoney = binary_write_uint( P#pk_GS2U_MoneyTreeAck.totalMoney ),
+	Bin_boxMoney = binary_write_uint( P#pk_GS2U_MoneyTreeAck.boxMoney ),
 	Bin_rate = binary_write_uint16( P#pk_GS2U_MoneyTreeAck.rate ),
 	[
 		<<?CMD_GS2U_MoneyTreeAck:16/little>>,
 		Bin_totalMoney,
+		Bin_boxMoney,
 		Bin_rate
 	];
 
@@ -7578,6 +8451,50 @@ packNetMsg(#pk_GS2U_MoneyTreeBox{} = P) ->
 		<<?CMD_GS2U_MoneyTreeBox:16/little>>,
 		Bin_totalMoney,
 		Bin_rate
+	];
+
+%GENERATED from file:player.h => GS2U_MonsterBookNeed_Sync
+packNetMsg(#pk_GS2U_MonsterBookNeed_Sync{} = P) ->
+	Bin_listUnlockID = binary_write_array(P#pk_GS2U_MonsterBookNeed_Sync.listUnlockID, fun(X) -> binary_write_uint16( X ) end),
+	Bin_listRewardID = binary_write_array(P#pk_GS2U_MonsterBookNeed_Sync.listRewardID, fun(X) -> binary_write_uint16( X ) end),
+	[
+		<<?CMD_GS2U_MonsterBookNeed_Sync:16/little>>,
+		Bin_listUnlockID,
+		Bin_listRewardID
+	];
+
+%GENERATED from file:player.h => GS2U_MonsterBookReward_Ack
+packNetMsg(#pk_GS2U_MonsterBookReward_Ack{} = P) ->
+	Bin_id = binary_write_uint16( P#pk_GS2U_MonsterBookReward_Ack.id ),
+	[
+		<<?CMD_GS2U_MonsterBookReward_Ack:16/little>>,
+		Bin_id
+	];
+
+%GENERATED from file:player.h => GS2U_MonsterBookSnap_Ack
+packNetMsg(#pk_GS2U_MonsterBookSnap_Ack{} = P) ->
+	Bin_id = binary_write_uint16( P#pk_GS2U_MonsterBookSnap_Ack.id ),
+	[
+		<<?CMD_GS2U_MonsterBookSnap_Ack:16/little>>,
+		Bin_id
+	];
+
+%GENERATED from file:player.h => GS2U_MonsterBookUnlock_Ack
+packNetMsg(#pk_GS2U_MonsterBookUnlock_Ack{} = P) ->
+	Bin_id = binary_write_uint16( P#pk_GS2U_MonsterBookUnlock_Ack.id ),
+	[
+		<<?CMD_GS2U_MonsterBookUnlock_Ack:16/little>>,
+		Bin_id
+	];
+
+%GENERATED from file:player.h => GS2U_MonsterBook_Ack
+packNetMsg(#pk_GS2U_MonsterBook_Ack{} = P) ->
+	Bin_listMapID = binary_write_array(P#pk_GS2U_MonsterBook_Ack.listMapID, fun(X) -> binary_write_uint16( X ) end),
+	Bin_listMonster = binary_write_array(P#pk_GS2U_MonsterBook_Ack.listMonster, fun(X) -> writeMonsterBook( X ) end),
+	[
+		<<?CMD_GS2U_MonsterBook_Ack:16/little>>,
+		Bin_listMapID,
+		Bin_listMonster
 	];
 
 %GENERATED from file:player.h => GS2U_MonsterList
@@ -7740,20 +8657,6 @@ packNetMsg(#pk_GS2U_ObjBrief{} = P) ->
 		<<?CMD_GS2U_ObjBrief:16/little>>,
 		Bin_obj_type,
 		Bin_objs
-	];
-
-%GENERATED from file:player.h => GS2U_OpTradeResult
-packNetMsg(#pk_GS2U_OpTradeResult{} = P) ->
-	Bin_tradeClass = binary_write_uint8( P#pk_GS2U_OpTradeResult.tradeClass ),
-	Bin_orderID = binary_write_uint64( P#pk_GS2U_OpTradeResult.orderID ),
-	Bin_result = binary_write_uint8( P#pk_GS2U_OpTradeResult.result ),
-	Bin_opCode = binary_write_uint8( P#pk_GS2U_OpTradeResult.opCode ),
-	[
-		<<?CMD_GS2U_OpTradeResult:16/little>>,
-		Bin_tradeClass,
-		Bin_orderID,
-		Bin_result,
-		Bin_opCode
 	];
 
 %GENERATED from file:player.h => GS2U_PetList
@@ -7949,40 +8852,88 @@ packNetMsg(#pk_GS2U_PushInfo{} = P) ->
 		Bin_endTime
 	];
 
-%GENERATED from file:player.h => GS2U_QueryTrade
-packNetMsg(#pk_GS2U_QueryTrade{} = P) ->
-	Bin_opCode = binary_write_uint8( P#pk_GS2U_QueryTrade.opCode ),
-	Bin_sortType = binary_write_uint8( P#pk_GS2U_QueryTrade.sortType ),
-	Bin_sortIndex = binary_write_uint8( P#pk_GS2U_QueryTrade.sortIndex ),
-	Bin_pageNumber = binary_write_uint( P#pk_GS2U_QueryTrade.pageNumber ),
-	Bin_nowTime = binary_write_uint64( P#pk_GS2U_QueryTrade.nowTime ),
-	Bin_queryTradeList = binary_write_array(P#pk_GS2U_QueryTrade.queryTradeList, fun(X) -> writeQueryTradeList( X ) end),
+%GENERATED from file:player.h => GS2U_RaceApplyInfo_Sync
+packNetMsg(#pk_GS2U_RaceApplyInfo_Sync{} = P) ->
+	Bin_info = writeRaceTeamBase( P#pk_GS2U_RaceApplyInfo_Sync.info ),
 	[
-		<<?CMD_GS2U_QueryTrade:16/little>>,
-		Bin_opCode,
-		Bin_sortType,
-		Bin_sortIndex,
-		Bin_pageNumber,
-		Bin_nowTime,
-		Bin_queryTradeList
+		<<?CMD_GS2U_RaceApplyInfo_Sync:16/little>>,
+		Bin_info
 	];
 
-%GENERATED from file:player.h => GS2U_QueryTradeInfo
-packNetMsg(#pk_GS2U_QueryTradeInfo{} = P) ->
-	Bin_opCode = binary_write_uint8( P#pk_GS2U_QueryTradeInfo.opCode ),
-	Bin_tradeClass = binary_write_uint8( P#pk_GS2U_QueryTradeInfo.tradeClass ),
-	Bin_itemClass = binary_write_uint8( P#pk_GS2U_QueryTradeInfo.itemClass ),
-	Bin_itemTypeList = binary_write_array(P#pk_GS2U_QueryTradeInfo.itemTypeList, fun(X) -> binary_write_int8( X ) end),
-	Bin_itemSubType = binary_write_int8( P#pk_GS2U_QueryTradeInfo.itemSubType ),
-	Bin_allNumber = binary_write_int( P#pk_GS2U_QueryTradeInfo.allNumber ),
+%GENERATED from file:player.h => GS2U_RaceApply_Ack
+packNetMsg(#pk_GS2U_RaceApply_Ack{} = P) ->
+	Bin_info = writeRaceTeamBase( P#pk_GS2U_RaceApply_Ack.info ),
 	[
-		<<?CMD_GS2U_QueryTradeInfo:16/little>>,
-		Bin_opCode,
-		Bin_tradeClass,
-		Bin_itemClass,
-		Bin_itemTypeList,
-		Bin_itemSubType,
-		Bin_allNumber
+		<<?CMD_GS2U_RaceApply_Ack:16/little>>,
+		Bin_info
+	];
+
+%GENERATED from file:player.h => GS2U_RaceCancel_Ack
+packNetMsg(#pk_GS2U_RaceCancel_Ack{} = P) ->
+	Bin_role = writeCrossRoleBase( P#pk_GS2U_RaceCancel_Ack.role ),
+	[
+		<<?CMD_GS2U_RaceCancel_Ack:16/little>>,
+		Bin_role
+	];
+
+%GENERATED from file:player.h => GS2U_RaceMapGiveUp_Sync
+packNetMsg(#pk_GS2U_RaceMapGiveUp_Sync{} = P) ->
+	Bin_isComplete = binary_write_bool( P#pk_GS2U_RaceMapGiveUp_Sync.isComplete ),
+	Bin_reason = binary_write_uint8( P#pk_GS2U_RaceMapGiveUp_Sync.reason ),
+	Bin_role = writeCrossRoleBase( P#pk_GS2U_RaceMapGiveUp_Sync.role ),
+	[
+		<<?CMD_GS2U_RaceMapGiveUp_Sync:16/little>>,
+		Bin_isComplete,
+		Bin_reason,
+		Bin_role
+	];
+
+%GENERATED from file:player.h => GS2U_RaceMapItem_Sync
+packNetMsg(#pk_GS2U_RaceMapItem_Sync{} = P) ->
+	Bin_applyID = binary_write_uint64( P#pk_GS2U_RaceMapItem_Sync.applyID ),
+	Bin_roleID = binary_write_uint64( P#pk_GS2U_RaceMapItem_Sync.roleID ),
+	Bin_getOrUse = binary_write_bool( P#pk_GS2U_RaceMapItem_Sync.getOrUse ),
+	Bin_itemID = binary_write_uint8( P#pk_GS2U_RaceMapItem_Sync.itemID ),
+	Bin_item = writeRaceTeamItem( P#pk_GS2U_RaceMapItem_Sync.item ),
+	[
+		<<?CMD_GS2U_RaceMapItem_Sync:16/little>>,
+		Bin_applyID,
+		Bin_roleID,
+		Bin_getOrUse,
+		Bin_itemID,
+		Bin_item
+	];
+
+%GENERATED from file:player.h => GS2U_RaceMapMilestone_Sync
+packNetMsg(#pk_GS2U_RaceMapMilestone_Sync{} = P) ->
+	Bin_applyID = binary_write_uint64( P#pk_GS2U_RaceMapMilestone_Sync.applyID ),
+	Bin_sort = writeRaceTeamSort( P#pk_GS2U_RaceMapMilestone_Sync.sort ),
+	[
+		<<?CMD_GS2U_RaceMapMilestone_Sync:16/little>>,
+		Bin_applyID,
+		Bin_sort
+	];
+
+%GENERATED from file:player.h => GS2U_RaceMapState_Sync
+packNetMsg(#pk_GS2U_RaceMapState_Sync{} = P) ->
+	Bin_type = binary_write_uint8( P#pk_GS2U_RaceMapState_Sync.type ),
+	Bin_state = binary_write_uint8( P#pk_GS2U_RaceMapState_Sync.state ),
+	Bin_sec = binary_write_uint16( P#pk_GS2U_RaceMapState_Sync.sec ),
+	Bin_info = binary_write_array(P#pk_GS2U_RaceMapState_Sync.info, fun(X) -> writeRaceTeamEx( X ) end),
+	[
+		<<?CMD_GS2U_RaceMapState_Sync:16/little>>,
+		Bin_type,
+		Bin_state,
+		Bin_sec,
+		Bin_info
+	];
+
+%GENERATED from file:player.h => GS2U_RaceType_Sync
+packNetMsg(#pk_GS2U_RaceType_Sync{} = P) ->
+	Bin_type = binary_write_uint8( P#pk_GS2U_RaceType_Sync.type ),
+	[
+		<<?CMD_GS2U_RaceType_Sync:16/little>>,
+		Bin_type
 	];
 
 %GENERATED from file:player.h => GS2U_ReceivePlayerLevelRewardResult
@@ -8120,6 +9071,14 @@ packNetMsg(#pk_GS2U_SessionKey{} = P) ->
 	[
 		<<?CMD_GS2U_SessionKey:16/little>>,
 		Bin_key
+	];
+
+%GENERATED from file:player.h => GS2U_SetUpAnchor
+packNetMsg(#pk_GS2U_SetUpAnchor{} = P) ->
+	Bin_args = binary_write_array(P#pk_GS2U_SetUpAnchor.args, fun(X) -> binary_write_int64( X ) end),
+	[
+		<<?CMD_GS2U_SetUpAnchor:16/little>>,
+		Bin_args
 	];
 
 %GENERATED from file:player.h => GS2U_SevenDayAimReward_Ack
@@ -8307,9 +9266,11 @@ packNetMsg(#pk_GS2U_XmlNoticeResponse{} = P) ->
 %GENERATED from file:player.h => GS2U_action_point_info
 packNetMsg(#pk_GS2U_action_point_info{} = P) ->
 	Bin_value = binary_write_uint( P#pk_GS2U_action_point_info.value ),
+	Bin_lastUpdateUtcTime = binary_write_uint( P#pk_GS2U_action_point_info.lastUpdateUtcTime ),
 	[
 		<<?CMD_GS2U_action_point_info:16/little>>,
-		Bin_value
+		Bin_value,
+		Bin_lastUpdateUtcTime
 	];
 
 %GENERATED from file:player.h => GS2U_copy_map_destory_time
@@ -8567,18 +9528,6 @@ packNetMsg(#pk_U2GS_DigTransferMap{} = P) ->
 		Bin_waypointName
 	];
 
-%GENERATED from file:player.h => U2GS_DownTrade
-packNetMsg(#pk_U2GS_DownTrade{} = P) ->
-	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_DownTrade.tradeClass ),
-	Bin_orderID = binary_write_uint64( P#pk_U2GS_DownTrade.orderID ),
-	Bin_opCode = binary_write_uint8( P#pk_U2GS_DownTrade.opCode ),
-	[
-		<<?CMD_U2GS_DownTrade:16/little>>,
-		Bin_tradeClass,
-		Bin_orderID,
-		Bin_opCode
-	];
-
 %GENERATED from file:player.h => U2GS_EnterActiveMap
 packNetMsg(#pk_U2GS_EnterActiveMap{} = P) ->
 	Bin_npcCode = binary_write_uint64( P#pk_U2GS_EnterActiveMap.npcCode ),
@@ -8723,6 +9672,37 @@ packNetMsg(#pk_U2GS_MoneyTree{}) ->
 
 	];
 
+%GENERATED from file:player.h => U2GS_MonsterBookReward_Request
+packNetMsg(#pk_U2GS_MonsterBookReward_Request{} = P) ->
+	Bin_id = binary_write_uint16( P#pk_U2GS_MonsterBookReward_Request.id ),
+	[
+		<<?CMD_U2GS_MonsterBookReward_Request:16/little>>,
+		Bin_id
+	];
+
+%GENERATED from file:player.h => U2GS_MonsterBookSnap_Request
+packNetMsg(#pk_U2GS_MonsterBookSnap_Request{} = P) ->
+	Bin_id = binary_write_uint16( P#pk_U2GS_MonsterBookSnap_Request.id ),
+	[
+		<<?CMD_U2GS_MonsterBookSnap_Request:16/little>>,
+		Bin_id
+	];
+
+%GENERATED from file:player.h => U2GS_MonsterBookUnlock_Request
+packNetMsg(#pk_U2GS_MonsterBookUnlock_Request{} = P) ->
+	Bin_id = binary_write_uint16( P#pk_U2GS_MonsterBookUnlock_Request.id ),
+	[
+		<<?CMD_U2GS_MonsterBookUnlock_Request:16/little>>,
+		Bin_id
+	];
+
+%GENERATED from file:player.h => U2GS_MonsterBook_Request
+packNetMsg(#pk_U2GS_MonsterBook_Request{}) ->
+	[
+		<<?CMD_U2GS_MonsterBook_Request:16/little>>
+
+	];
+
 %GENERATED from file:player.h => U2GS_MonthCardGettingEvent
 packNetMsg(#pk_U2GS_MonthCardGettingEvent{} = P) ->
 	Bin_type = binary_write_uint( P#pk_U2GS_MonthCardGettingEvent.type ),
@@ -8792,16 +9772,6 @@ packNetMsg(#pk_U2GS_NeedForSpeedUseItem{} = P) ->
 		Bin_targetRoleIDList
 	];
 
-%GENERATED from file:player.h => U2GS_NextResult
-packNetMsg(#pk_U2GS_NextResult{} = P) ->
-	Bin_pageNumber = binary_write_uint( P#pk_U2GS_NextResult.pageNumber ),
-	Bin_opCode = binary_write_uint8( P#pk_U2GS_NextResult.opCode ),
-	[
-		<<?CMD_U2GS_NextResult:16/little>>,
-		Bin_pageNumber,
-		Bin_opCode
-	];
-
 %GENERATED from file:player.h => U2GS_NoticeRequest
 packNetMsg(#pk_U2GS_NoticeRequest{} = P) ->
 	Bin_md5 = binary_write_string( P#pk_U2GS_NoticeRequest.md5 ),
@@ -8835,54 +9805,6 @@ packNetMsg(#pk_U2GS_PlotDialogueEnd{}) ->
 
 	];
 
-%GENERATED from file:player.h => U2GS_PutTrade
-packNetMsg(#pk_U2GS_PutTrade{} = P) ->
-	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_PutTrade.tradeClass ),
-	Bin_itemUID = binary_write_uint64( P#pk_U2GS_PutTrade.itemUID ),
-	Bin_itemID = binary_write_uint( P#pk_U2GS_PutTrade.itemID ),
-	Bin_sellNumber = binary_write_uint16( P#pk_U2GS_PutTrade.sellNumber ),
-	Bin_sellTime = binary_write_uint8( P#pk_U2GS_PutTrade.sellTime ),
-	Bin_silver = binary_write_uint( P#pk_U2GS_PutTrade.silver ),
-	Bin_gold = binary_write_uint( P#pk_U2GS_PutTrade.gold ),
-	Bin_destRoleName = binary_write_string( P#pk_U2GS_PutTrade.destRoleName ),
-	Bin_opCode = binary_write_uint8( P#pk_U2GS_PutTrade.opCode ),
-	[
-		<<?CMD_U2GS_PutTrade:16/little>>,
-		Bin_tradeClass,
-		Bin_itemUID,
-		Bin_itemID,
-		Bin_sellNumber,
-		Bin_sellTime,
-		Bin_silver,
-		Bin_gold,
-		Bin_destRoleName,
-		Bin_opCode
-	];
-
-%GENERATED from file:player.h => U2GS_QueryNewestTrade
-packNetMsg(#pk_U2GS_QueryNewestTrade{} = P) ->
-	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_QueryNewestTrade.tradeClass ),
-	Bin_getNumber = binary_write_uint8( P#pk_U2GS_QueryNewestTrade.getNumber ),
-	Bin_oneNumber = binary_write_uint8( P#pk_U2GS_QueryNewestTrade.oneNumber ),
-	Bin_opCode = binary_write_uint8( P#pk_U2GS_QueryNewestTrade.opCode ),
-	[
-		<<?CMD_U2GS_QueryNewestTrade:16/little>>,
-		Bin_tradeClass,
-		Bin_getNumber,
-		Bin_oneNumber,
-		Bin_opCode
-	];
-
-%GENERATED from file:player.h => U2GS_QuerySelfTrade
-packNetMsg(#pk_U2GS_QuerySelfTrade{} = P) ->
-	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_QuerySelfTrade.tradeClass ),
-	Bin_opCode = binary_write_uint8( P#pk_U2GS_QuerySelfTrade.opCode ),
-	[
-		<<?CMD_U2GS_QuerySelfTrade:16/little>>,
-		Bin_tradeClass,
-		Bin_opCode
-	];
-
 %GENERATED from file:player.h => U2GS_QueryTargetObject
 packNetMsg(#pk_U2GS_QueryTargetObject{} = P) ->
 	Bin_targetCode = binary_write_uint64( P#pk_U2GS_QueryTargetObject.targetCode ),
@@ -8891,30 +9813,26 @@ packNetMsg(#pk_U2GS_QueryTargetObject{} = P) ->
 		Bin_targetCode
 	];
 
-%GENERATED from file:player.h => U2GS_QueryTrade
-packNetMsg(#pk_U2GS_QueryTrade{} = P) ->
-	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_QueryTrade.tradeClass ),
-	Bin_itemClass = binary_write_uint8( P#pk_U2GS_QueryTrade.itemClass ),
-	Bin_itemTypeList = binary_write_array(P#pk_U2GS_QueryTrade.itemTypeList, fun(X) -> binary_write_int8( X ) end),
-	Bin_itemSubType = binary_write_int8( P#pk_U2GS_QueryTrade.itemSubType ),
-	Bin_itemList = binary_write_array(P#pk_U2GS_QueryTrade.itemList, fun(X) -> binary_write_string( X ) end),
-	Bin_itemLvlMin = binary_write_int8( P#pk_U2GS_QueryTrade.itemLvlMin ),
-	Bin_itemLvlMax = binary_write_int8( P#pk_U2GS_QueryTrade.itemLvlMax ),
-	Bin_itemProfession = binary_write_int8( P#pk_U2GS_QueryTrade.itemProfession ),
-	Bin_oneNumber = binary_write_uint8( P#pk_U2GS_QueryTrade.oneNumber ),
-	Bin_opCode = binary_write_uint8( P#pk_U2GS_QueryTrade.opCode ),
+%GENERATED from file:player.h => U2GS_RaceApply_Request
+packNetMsg(#pk_U2GS_RaceApply_Request{}) ->
 	[
-		<<?CMD_U2GS_QueryTrade:16/little>>,
-		Bin_tradeClass,
-		Bin_itemClass,
-		Bin_itemTypeList,
-		Bin_itemSubType,
-		Bin_itemList,
-		Bin_itemLvlMin,
-		Bin_itemLvlMax,
-		Bin_itemProfession,
-		Bin_oneNumber,
-		Bin_opCode
+		<<?CMD_U2GS_RaceApply_Request:16/little>>
+
+	];
+
+%GENERATED from file:player.h => U2GS_RaceCancel_Request
+packNetMsg(#pk_U2GS_RaceCancel_Request{}) ->
+	[
+		<<?CMD_U2GS_RaceCancel_Request:16/little>>
+
+	];
+
+%GENERATED from file:player.h => U2GS_RaceMapItem_Request
+packNetMsg(#pk_U2GS_RaceMapItem_Request{} = P) ->
+	Bin_itemID = binary_write_uint8( P#pk_U2GS_RaceMapItem_Request.itemID ),
+	[
+		<<?CMD_U2GS_RaceMapItem_Request:16/little>>,
+		Bin_itemID
 	];
 
 %GENERATED from file:player.h => U2GS_RecClientEvent
@@ -9078,20 +9996,6 @@ packNetMsg(#pk_U2GS_ResetPosToRevivePt{}) ->
 
 	];
 
-%GENERATED from file:player.h => U2GS_ResultSort
-packNetMsg(#pk_U2GS_ResultSort{} = P) ->
-	Bin_sortIndex = binary_write_uint8( P#pk_U2GS_ResultSort.sortIndex ),
-	Bin_pageNumber = binary_write_uint( P#pk_U2GS_ResultSort.pageNumber ),
-	Bin_sortType = binary_write_uint8( P#pk_U2GS_ResultSort.sortType ),
-	Bin_opCode = binary_write_uint8( P#pk_U2GS_ResultSort.opCode ),
-	[
-		<<?CMD_U2GS_ResultSort:16/little>>,
-		Bin_sortIndex,
-		Bin_pageNumber,
-		Bin_sortType,
-		Bin_opCode
-	];
-
 %GENERATED from file:player.h => U2GS_SelPlayerEnterGame
 packNetMsg(#pk_U2GS_SelPlayerEnterGame{} = P) ->
 	Bin_roleID = binary_write_uint64( P#pk_U2GS_SelPlayerEnterGame.roleID ),
@@ -9162,36 +10066,22 @@ packNetMsg(#pk_U2GS_StopMove{} = P) ->
 		Bin_posY
 	];
 
+%GENERATED from file:player.h => U2GS_Telesport
+packNetMsg(#pk_U2GS_Telesport{} = P) ->
+	Bin_x = binary_write_float( P#pk_U2GS_Telesport.x ),
+	Bin_y = binary_write_float( P#pk_U2GS_Telesport.y ),
+	[
+		<<?CMD_U2GS_Telesport:16/little>>,
+		Bin_x,
+		Bin_y
+	];
+
 %GENERATED from file:player.h => U2GS_ThirtyDayLoginGift_Request
 packNetMsg(#pk_U2GS_ThirtyDayLoginGift_Request{} = P) ->
 	Bin_id = binary_write_uint16( P#pk_U2GS_ThirtyDayLoginGift_Request.id ),
 	[
 		<<?CMD_U2GS_ThirtyDayLoginGift_Request:16/little>>,
 		Bin_id
-	];
-
-%GENERATED from file:player.h => U2GS_TradeBuy
-packNetMsg(#pk_U2GS_TradeBuy{} = P) ->
-	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_TradeBuy.tradeClass ),
-	Bin_orderID = binary_write_uint64( P#pk_U2GS_TradeBuy.orderID ),
-	Bin_opCode = binary_write_uint8( P#pk_U2GS_TradeBuy.opCode ),
-	[
-		<<?CMD_U2GS_TradeBuy:16/little>>,
-		Bin_tradeClass,
-		Bin_orderID,
-		Bin_opCode
-	];
-
-%GENERATED from file:player.h => U2GS_TradeRefuse
-packNetMsg(#pk_U2GS_TradeRefuse{} = P) ->
-	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_TradeRefuse.tradeClass ),
-	Bin_orderID = binary_write_uint64( P#pk_U2GS_TradeRefuse.orderID ),
-	Bin_opCode = binary_write_uint8( P#pk_U2GS_TradeRefuse.opCode ),
-	[
-		<<?CMD_U2GS_TradeRefuse:16/little>>,
-		Bin_tradeClass,
-		Bin_orderID,
-		Bin_opCode
 	];
 
 %GENERATED from file:player.h => U2GS_Transfer2NewPos
@@ -10181,6 +11071,14 @@ packNetMsg(#pk_U2GS_TalkToNpc{} = P) ->
 		Bin_code
 	];
 
+%GENERATED from file:task.h => U2GS_TriggerTaskBuff
+packNetMsg(#pk_U2GS_TriggerTaskBuff{} = P) ->
+	Bin_taskID = binary_write_int( P#pk_U2GS_TriggerTaskBuff.taskID ),
+	[
+		<<?CMD_U2GS_TriggerTaskBuff:16/little>>,
+		Bin_taskID
+	];
+
 %GENERATED from file:task.h => U2GS_UseItemObj
 packNetMsg(#pk_U2GS_UseItemObj{} = P) ->
 	Bin_code = binary_write_uint64( P#pk_U2GS_UseItemObj.code ),
@@ -10427,10 +11325,11 @@ packNetMsg(#pk_GS2U_TeamMemberOnlineState{} = P) ->
 	];
 
 %GENERATED from file:team.h => GS2U_TeamReset
-packNetMsg(#pk_GS2U_TeamReset{}) ->
+packNetMsg(#pk_GS2U_TeamReset{} = P) ->
+	Bin_reason = binary_write_int( P#pk_GS2U_TeamReset.reason ),
 	[
-		<<?CMD_GS2U_TeamReset:16/little>>
-
+		<<?CMD_GS2U_TeamReset:16/little>>,
+		Bin_reason
 	];
 
 %GENERATED from file:team.h => GS2U_TeammateLeave
@@ -10622,6 +11521,240 @@ packNetMsg(#pk_U2GS_TeamOp{} = P) ->
 		Bin_param1
 	];
 
+%GENERATED from file:trade.h => GS2U_DealRecord
+packNetMsg(#pk_GS2U_DealRecord{} = P) ->
+	Bin_opCode = binary_write_uint8( P#pk_GS2U_DealRecord.opCode ),
+	Bin_number = binary_write_uint( P#pk_GS2U_DealRecord.number ),
+	Bin_dealRecord = binary_write_array(P#pk_GS2U_DealRecord.dealRecord, fun(X) -> writeDealRecord( X ) end),
+	[
+		<<?CMD_GS2U_DealRecord:16/little>>,
+		Bin_opCode,
+		Bin_number,
+		Bin_dealRecord
+	];
+
+%GENERATED from file:trade.h => GS2U_OpTradeResult
+packNetMsg(#pk_GS2U_OpTradeResult{} = P) ->
+	Bin_tradeClass = binary_write_uint8( P#pk_GS2U_OpTradeResult.tradeClass ),
+	Bin_orderID = binary_write_uint64( P#pk_GS2U_OpTradeResult.orderID ),
+	Bin_result = binary_write_uint8( P#pk_GS2U_OpTradeResult.result ),
+	Bin_opCode = binary_write_uint8( P#pk_GS2U_OpTradeResult.opCode ),
+	[
+		<<?CMD_GS2U_OpTradeResult:16/little>>,
+		Bin_tradeClass,
+		Bin_orderID,
+		Bin_result,
+		Bin_opCode
+	];
+
+%GENERATED from file:trade.h => GS2U_QueryTrade
+packNetMsg(#pk_GS2U_QueryTrade{} = P) ->
+	Bin_opCode = binary_write_uint8( P#pk_GS2U_QueryTrade.opCode ),
+	Bin_sortType = binary_write_uint8( P#pk_GS2U_QueryTrade.sortType ),
+	Bin_sortIndex = binary_write_uint8( P#pk_GS2U_QueryTrade.sortIndex ),
+	Bin_pageNumber = binary_write_uint( P#pk_GS2U_QueryTrade.pageNumber ),
+	Bin_nowTime = binary_write_uint64( P#pk_GS2U_QueryTrade.nowTime ),
+	Bin_queryTradeList = binary_write_array(P#pk_GS2U_QueryTrade.queryTradeList, fun(X) -> writeQueryTradeList( X ) end),
+	[
+		<<?CMD_GS2U_QueryTrade:16/little>>,
+		Bin_opCode,
+		Bin_sortType,
+		Bin_sortIndex,
+		Bin_pageNumber,
+		Bin_nowTime,
+		Bin_queryTradeList
+	];
+
+%GENERATED from file:trade.h => GS2U_QueryTradeInfo
+packNetMsg(#pk_GS2U_QueryTradeInfo{} = P) ->
+	Bin_opCode = binary_write_uint8( P#pk_GS2U_QueryTradeInfo.opCode ),
+	Bin_tradeClass = binary_write_uint8( P#pk_GS2U_QueryTradeInfo.tradeClass ),
+	Bin_itemClass = binary_write_uint8( P#pk_GS2U_QueryTradeInfo.itemClass ),
+	Bin_itemTypeList = binary_write_array(P#pk_GS2U_QueryTradeInfo.itemTypeList, fun(X) -> binary_write_int8( X ) end),
+	Bin_itemSubType = binary_write_int8( P#pk_GS2U_QueryTradeInfo.itemSubType ),
+	Bin_allNumber = binary_write_int( P#pk_GS2U_QueryTradeInfo.allNumber ),
+	[
+		<<?CMD_GS2U_QueryTradeInfo:16/little>>,
+		Bin_opCode,
+		Bin_tradeClass,
+		Bin_itemClass,
+		Bin_itemTypeList,
+		Bin_itemSubType,
+		Bin_allNumber
+	];
+
+%GENERATED from file:trade.h => GS2U_ReferenceItem
+packNetMsg(#pk_GS2U_ReferenceItem{} = P) ->
+	Bin_tradeClass = binary_write_uint8( P#pk_GS2U_ReferenceItem.tradeClass ),
+	Bin_referenceItems = binary_write_array(P#pk_GS2U_ReferenceItem.referenceItems, fun(X) -> writeReferenceItem( X ) end),
+	Bin_referenceItem = writeReferenceItem( P#pk_GS2U_ReferenceItem.referenceItem ),
+	[
+		<<?CMD_GS2U_ReferenceItem:16/little>>,
+		Bin_tradeClass,
+		Bin_referenceItems,
+		Bin_referenceItem
+	];
+
+%GENERATED from file:trade.h => U2GS_DownTrade
+packNetMsg(#pk_U2GS_DownTrade{} = P) ->
+	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_DownTrade.tradeClass ),
+	Bin_orderID = binary_write_uint64( P#pk_U2GS_DownTrade.orderID ),
+	Bin_opCode = binary_write_uint8( P#pk_U2GS_DownTrade.opCode ),
+	[
+		<<?CMD_U2GS_DownTrade:16/little>>,
+		Bin_tradeClass,
+		Bin_orderID,
+		Bin_opCode
+	];
+
+%GENERATED from file:trade.h => U2GS_NextResult
+packNetMsg(#pk_U2GS_NextResult{} = P) ->
+	Bin_pageNumber = binary_write_uint( P#pk_U2GS_NextResult.pageNumber ),
+	Bin_opCode = binary_write_uint8( P#pk_U2GS_NextResult.opCode ),
+	[
+		<<?CMD_U2GS_NextResult:16/little>>,
+		Bin_pageNumber,
+		Bin_opCode
+	];
+
+%GENERATED from file:trade.h => U2GS_PutTrade
+packNetMsg(#pk_U2GS_PutTrade{} = P) ->
+	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_PutTrade.tradeClass ),
+	Bin_itemUID = binary_write_uint64( P#pk_U2GS_PutTrade.itemUID ),
+	Bin_itemID = binary_write_uint( P#pk_U2GS_PutTrade.itemID ),
+	Bin_sellNumber = binary_write_uint16( P#pk_U2GS_PutTrade.sellNumber ),
+	Bin_sellTime = binary_write_uint8( P#pk_U2GS_PutTrade.sellTime ),
+	Bin_gold = binary_write_uint( P#pk_U2GS_PutTrade.gold ),
+	Bin_diamond = binary_write_uint( P#pk_U2GS_PutTrade.diamond ),
+	Bin_destRoleName = binary_write_string( P#pk_U2GS_PutTrade.destRoleName ),
+	Bin_opCode = binary_write_uint8( P#pk_U2GS_PutTrade.opCode ),
+	[
+		<<?CMD_U2GS_PutTrade:16/little>>,
+		Bin_tradeClass,
+		Bin_itemUID,
+		Bin_itemID,
+		Bin_sellNumber,
+		Bin_sellTime,
+		Bin_gold,
+		Bin_diamond,
+		Bin_destRoleName,
+		Bin_opCode
+	];
+
+%GENERATED from file:trade.h => U2GS_QueryNewestTrade
+packNetMsg(#pk_U2GS_QueryNewestTrade{} = P) ->
+	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_QueryNewestTrade.tradeClass ),
+	Bin_getNumber = binary_write_uint8( P#pk_U2GS_QueryNewestTrade.getNumber ),
+	Bin_oneNumber = binary_write_int8( P#pk_U2GS_QueryNewestTrade.oneNumber ),
+	Bin_opCode = binary_write_uint8( P#pk_U2GS_QueryNewestTrade.opCode ),
+	[
+		<<?CMD_U2GS_QueryNewestTrade:16/little>>,
+		Bin_tradeClass,
+		Bin_getNumber,
+		Bin_oneNumber,
+		Bin_opCode
+	];
+
+%GENERATED from file:trade.h => U2GS_QuerySelfTrade
+packNetMsg(#pk_U2GS_QuerySelfTrade{} = P) ->
+	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_QuerySelfTrade.tradeClass ),
+	Bin_opCode = binary_write_uint8( P#pk_U2GS_QuerySelfTrade.opCode ),
+	[
+		<<?CMD_U2GS_QuerySelfTrade:16/little>>,
+		Bin_tradeClass,
+		Bin_opCode
+	];
+
+%GENERATED from file:trade.h => U2GS_QueryTrade
+packNetMsg(#pk_U2GS_QueryTrade{} = P) ->
+	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_QueryTrade.tradeClass ),
+	Bin_itemClass = binary_write_uint8( P#pk_U2GS_QueryTrade.itemClass ),
+	Bin_itemTypeList = binary_write_array(P#pk_U2GS_QueryTrade.itemTypeList, fun(X) -> binary_write_int8( X ) end),
+	Bin_itemSubType = binary_write_int8( P#pk_U2GS_QueryTrade.itemSubType ),
+	Bin_itemList = binary_write_array(P#pk_U2GS_QueryTrade.itemList, fun(X) -> binary_write_string( X ) end),
+	Bin_career = binary_write_int16( P#pk_U2GS_QueryTrade.career ),
+	Bin_itemLvlMin = binary_write_int8( P#pk_U2GS_QueryTrade.itemLvlMin ),
+	Bin_itemLvlMax = binary_write_int8( P#pk_U2GS_QueryTrade.itemLvlMax ),
+	Bin_itemQuality = binary_write_int8( P#pk_U2GS_QueryTrade.itemQuality ),
+	Bin_oneNumber = binary_write_int8( P#pk_U2GS_QueryTrade.oneNumber ),
+	Bin_opCode = binary_write_uint8( P#pk_U2GS_QueryTrade.opCode ),
+	[
+		<<?CMD_U2GS_QueryTrade:16/little>>,
+		Bin_tradeClass,
+		Bin_itemClass,
+		Bin_itemTypeList,
+		Bin_itemSubType,
+		Bin_itemList,
+		Bin_career,
+		Bin_itemLvlMin,
+		Bin_itemLvlMax,
+		Bin_itemQuality,
+		Bin_oneNumber,
+		Bin_opCode
+	];
+
+%GENERATED from file:trade.h => U2GS_ReferenceItem
+packNetMsg(#pk_U2GS_ReferenceItem{} = P) ->
+	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_ReferenceItem.tradeClass ),
+	Bin_itemID = binary_write_uint( P#pk_U2GS_ReferenceItem.itemID ),
+	Bin_requestNumber = binary_write_uint16( P#pk_U2GS_ReferenceItem.requestNumber ),
+	[
+		<<?CMD_U2GS_ReferenceItem:16/little>>,
+		Bin_tradeClass,
+		Bin_itemID,
+		Bin_requestNumber
+	];
+
+%GENERATED from file:trade.h => U2GS_RequestDealRecord
+packNetMsg(#pk_U2GS_RequestDealRecord{} = P) ->
+	Bin_oneNumber = binary_write_int8( P#pk_U2GS_RequestDealRecord.oneNumber ),
+	Bin_pageNumber = binary_write_uint8( P#pk_U2GS_RequestDealRecord.pageNumber ),
+	Bin_opCode = binary_write_uint8( P#pk_U2GS_RequestDealRecord.opCode ),
+	[
+		<<?CMD_U2GS_RequestDealRecord:16/little>>,
+		Bin_oneNumber,
+		Bin_pageNumber,
+		Bin_opCode
+	];
+
+%GENERATED from file:trade.h => U2GS_ResultSort
+packNetMsg(#pk_U2GS_ResultSort{} = P) ->
+	Bin_sortIndex = binary_write_uint8( P#pk_U2GS_ResultSort.sortIndex ),
+	Bin_pageNumber = binary_write_uint( P#pk_U2GS_ResultSort.pageNumber ),
+	Bin_sortType = binary_write_uint8( P#pk_U2GS_ResultSort.sortType ),
+	Bin_opCode = binary_write_uint8( P#pk_U2GS_ResultSort.opCode ),
+	[
+		<<?CMD_U2GS_ResultSort:16/little>>,
+		Bin_sortIndex,
+		Bin_pageNumber,
+		Bin_sortType,
+		Bin_opCode
+	];
+
+%GENERATED from file:trade.h => U2GS_TradeBuy
+packNetMsg(#pk_U2GS_TradeBuy{} = P) ->
+	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_TradeBuy.tradeClass ),
+	Bin_orderID = binary_write_uint64( P#pk_U2GS_TradeBuy.orderID ),
+	Bin_opCode = binary_write_uint8( P#pk_U2GS_TradeBuy.opCode ),
+	[
+		<<?CMD_U2GS_TradeBuy:16/little>>,
+		Bin_tradeClass,
+		Bin_orderID,
+		Bin_opCode
+	];
+
+%GENERATED from file:trade.h => U2GS_TradeRefuse
+packNetMsg(#pk_U2GS_TradeRefuse{} = P) ->
+	Bin_tradeClass = binary_write_uint8( P#pk_U2GS_TradeRefuse.tradeClass ),
+	Bin_orderID = binary_write_uint64( P#pk_U2GS_TradeRefuse.orderID ),
+	Bin_opCode = binary_write_uint8( P#pk_U2GS_TradeRefuse.opCode ),
+	[
+		<<?CMD_U2GS_TradeRefuse:16/little>>,
+		Bin_tradeClass,
+		Bin_orderID,
+		Bin_opCode
+	];
+
 %GENERATED from file:wake.h => GS2U_GoddessActiveSkill
 packNetMsg(#pk_GS2U_GoddessActiveSkill{} = P) ->
 	Bin_skillID = binary_write_uint( P#pk_GS2U_GoddessActiveSkill.skillID ),
@@ -10785,6 +11918,16 @@ packNetMsg(#pk_U2GS_WarriorTrialInit{}) ->
 packNetMsg(_) -> 
 noMatch.
 
+%GENERATED from file:Date.h => DateMonsterPos
+writeDateMonsterPos( #pk_DateMonsterPos{} = P ) ->
+	Bin_code = binary_write_uint64( P#pk_DateMonsterPos.code ),
+	Bin_x = binary_write_float( P#pk_DateMonsterPos.x ),
+	Bin_z = binary_write_float( P#pk_DateMonsterPos.z ),
+	[
+		Bin_code,
+		Bin_x,
+		Bin_z	].
+
 %GENERATED from file:LS2User.h => GameServerInfo
 writeGameServerInfo( #pk_GameServerInfo{} = P ) ->
 	Bin_lineid = binary_write_int16( P#pk_GameServerInfo.lineid ),
@@ -10834,6 +11977,14 @@ writeTitleInfo( #pk_TitleInfo{} = P ) ->
 	[
 		Bin_titleID,
 		Bin_endTime	].
+
+%GENERATED from file:activity.h => ActivityAnswerRankData
+writeActivityAnswerRankData( #pk_ActivityAnswerRankData{} = P ) ->
+	Bin_name = binary_write_string( P#pk_ActivityAnswerRankData.name ),
+	Bin_value = binary_write_uint( P#pk_ActivityAnswerRankData.value ),
+	[
+		Bin_name,
+		Bin_value	].
 
 %GENERATED from file:activity.h => AngelInvestmentData
 writeAngelInvestmentData( #pk_AngelInvestmentData{} = P ) ->
@@ -11271,6 +12422,14 @@ writeEquipEnhancedProp( #pk_EquipEnhancedProp{} = P ) ->
 		Bin_propKey,
 		Bin_propValue	].
 
+%GENERATED from file:bag.h => EquipGemInfo
+writeEquipGemInfo( #pk_EquipGemInfo{} = P ) ->
+	Bin_equipPos = binary_write_uint16( P#pk_EquipGemInfo.equipPos ),
+	Bin_gemList = binary_write_array(P#pk_EquipGemInfo.gemList, fun(X) -> writeGemEmbedInfo( X ) end),
+	[
+		Bin_equipPos,
+		Bin_gemList	].
+
 %GENERATED from file:bag.h => EquipItemInfo
 writeEquipItemInfo( #pk_EquipItemInfo{} = P ) ->
 	Bin_itemID = binary_write_uint( P#pk_EquipItemInfo.itemID ),
@@ -11351,23 +12510,11 @@ writeExchangeResource( #pk_ExchangeResource{} = P ) ->
 
 %GENERATED from file:bag.h => GemEmbedInfo
 writeGemEmbedInfo( #pk_GemEmbedInfo{} = P ) ->
-	Bin_gemUID = binary_write_uint64( P#pk_GemEmbedInfo.gemUID ),
+	Bin_gemID = binary_write_uint64( P#pk_GemEmbedInfo.gemID ),
 	Bin_slot = binary_write_uint8( P#pk_GemEmbedInfo.slot ),
 	[
-		Bin_gemUID,
+		Bin_gemID,
 		Bin_slot	].
-
-%GENERATED from file:bag.h => ImpressionInfo
-writeImpressionInfo( #pk_ImpressionInfo{} = P ) ->
-	Bin_uid = binary_write_uint16( P#pk_ImpressionInfo.uid ),
-	Bin_friendID = binary_write_uint64( P#pk_ImpressionInfo.friendID ),
-	Bin_time = binary_write_uint( P#pk_ImpressionInfo.time ),
-	Bin_impression = binary_write_string( P#pk_ImpressionInfo.impression ),
-	[
-		Bin_uid,
-		Bin_friendID,
-		Bin_time,
-		Bin_impression	].
 
 %GENERATED from file:bag.h => LookGemInfo
 writeLookGemInfo( #pk_LookGemInfo{} = P ) ->
@@ -11459,23 +12606,49 @@ writePayItemOfExchange( #pk_PayItemOfExchange{} = P ) ->
 		Bin_item,
 		Bin_number	].
 
-%GENERATED from file:bag.h => PlayerPersonalityInfo
-writePlayerPersonalityInfo( #pk_PlayerPersonalityInfo{} = P ) ->
-	Bin_praiseNum = binary_write_uint( P#pk_PlayerPersonalityInfo.praiseNum ),
-	Bin_birthday = binary_write_string( P#pk_PlayerPersonalityInfo.birthday ),
-	Bin_location = binary_write_string( P#pk_PlayerPersonalityInfo.location ),
-	Bin_starSign = binary_write_string( P#pk_PlayerPersonalityInfo.starSign ),
-	Bin_sign = binary_write_string( P#pk_PlayerPersonalityInfo.sign ),
-	Bin_tags = binary_write_array(P#pk_PlayerPersonalityInfo.tags, fun(X) -> binary_write_string( X ) end),
-	Bin_impressions = binary_write_array(P#pk_PlayerPersonalityInfo.impressions, fun(X) -> writeImpressionInfo( X ) end),
+%GENERATED from file:bag.h => RPView_AddProp
+writeRPView_AddProp( #pk_RPView_AddProp{} = P ) ->
+	Bin_prop = binary_write_uint8( P#pk_RPView_AddProp.prop ),
+	Bin_value = binary_write_float( P#pk_RPView_AddProp.value ),
 	[
-		Bin_praiseNum,
-		Bin_birthday,
-		Bin_location,
-		Bin_starSign,
-		Bin_sign,
-		Bin_tags,
-		Bin_impressions	].
+		Bin_prop,
+		Bin_value	].
+
+%GENERATED from file:bag.h => RPView_AssistBattleInfo
+writeRPView_AssistBattleInfo( #pk_RPView_AssistBattleInfo{} = P ) ->
+	Bin_petID = binary_write_uint16( P#pk_RPView_AssistBattleInfo.petID ),
+	Bin_slot = binary_write_uint8( P#pk_RPView_AssistBattleInfo.slot ),
+	[
+		Bin_petID,
+		Bin_slot	].
+
+%GENERATED from file:bag.h => RPView_FashionInfo
+writeRPView_FashionInfo( #pk_RPView_FashionInfo{} = P ) ->
+	Bin_fashionID = binary_write_uint( P#pk_RPView_FashionInfo.fashionID ),
+	Bin_time = binary_write_uint( P#pk_RPView_FashionInfo.time ),
+	[
+		Bin_fashionID,
+		Bin_time	].
+
+%GENERATED from file:bag.h => RPView_PetBaseInfo
+writeRPView_PetBaseInfo( #pk_RPView_PetBaseInfo{} = P ) ->
+	Bin_petID = binary_write_uint16( P#pk_RPView_PetBaseInfo.petID ),
+	Bin_petStar = binary_write_uint8( P#pk_RPView_PetBaseInfo.petStar ),
+	Bin_status = binary_write_uint8( P#pk_RPView_PetBaseInfo.status ),
+	Bin_petName = binary_write_string( P#pk_RPView_PetBaseInfo.petName ),
+	Bin_petRaw = binary_write_uint8( P#pk_RPView_PetBaseInfo.petRaw ),
+	Bin_petProps = binary_write_array(P#pk_RPView_PetBaseInfo.petProps, fun(X) -> writeRPView_AddProp( X ) end),
+	Bin_petForce = binary_write_uint64( P#pk_RPView_PetBaseInfo.petForce ),
+	Bin_upCount = binary_write_uint( P#pk_RPView_PetBaseInfo.upCount ),
+	[
+		Bin_petID,
+		Bin_petStar,
+		Bin_status,
+		Bin_petName,
+		Bin_petRaw,
+		Bin_petProps,
+		Bin_petForce,
+		Bin_upCount	].
 
 %GENERATED from file:bag.h => RecastPosInfo
 writeRecastPosInfo( #pk_RecastPosInfo{} = P ) ->
@@ -11673,6 +12846,7 @@ writeFriend2InfoBase( #pk_Friend2InfoBase{} = P ) ->
 	Bin_timeLastOnline = binary_write_uint( P#pk_Friend2InfoBase.timeLastOnline ),
 	Bin_timeLastInteractive = binary_write_uint( P#pk_Friend2InfoBase.timeLastInteractive ),
 	Bin_like = binary_write_uint( P#pk_Friend2InfoBase.like ),
+	Bin_charm = binary_write_uint( P#pk_Friend2InfoBase.charm ),
 	Bin_isGiveLike = binary_write_bool( P#pk_Friend2InfoBase.isGiveLike ),
 	Bin_isBeGiveLike = binary_write_bool( P#pk_Friend2InfoBase.isBeGiveLike ),
 	Bin_isMarried = binary_write_bool( P#pk_Friend2InfoBase.isMarried ),
@@ -11688,10 +12862,41 @@ writeFriend2InfoBase( #pk_Friend2InfoBase{} = P ) ->
 		Bin_timeLastOnline,
 		Bin_timeLastInteractive,
 		Bin_like,
+		Bin_charm,
 		Bin_isGiveLike,
 		Bin_isBeGiveLike,
 		Bin_isMarried,
 		Bin_distance	].
+
+%GENERATED from file:friend.h => Friend2InfoCross
+writeFriend2InfoCross( #pk_Friend2InfoCross{} = P ) ->
+	Bin_id = binary_write_uint64( P#pk_Friend2InfoCross.id ),
+	Bin_name = binary_write_string( P#pk_Friend2InfoCross.name ),
+	Bin_server = binary_write_string( P#pk_Friend2InfoCross.server ),
+	Bin_level = binary_write_uint16( P#pk_Friend2InfoCross.level ),
+	Bin_career = binary_write_uint( P#pk_Friend2InfoCross.career ),
+	Bin_race = binary_write_uint8( P#pk_Friend2InfoCross.race ),
+	Bin_sex = binary_write_uint8( P#pk_Friend2InfoCross.sex ),
+	Bin_head = binary_write_int( P#pk_Friend2InfoCross.head ),
+	Bin_face = binary_write_array(P#pk_Friend2InfoCross.face, fun(X) -> binary_write_uint8( X ) end),
+	Bin_timeRelation = binary_write_uint( P#pk_Friend2InfoCross.timeRelation ),
+	Bin_timeLastOnline = binary_write_uint( P#pk_Friend2InfoCross.timeLastOnline ),
+	Bin_timeLastInteractive = binary_write_uint( P#pk_Friend2InfoCross.timeLastInteractive ),
+	Bin_whereis = binary_write_uint8( P#pk_Friend2InfoCross.whereis ),
+	[
+		Bin_id,
+		Bin_name,
+		Bin_server,
+		Bin_level,
+		Bin_career,
+		Bin_race,
+		Bin_sex,
+		Bin_head,
+		Bin_face,
+		Bin_timeRelation,
+		Bin_timeLastOnline,
+		Bin_timeLastInteractive,
+		Bin_whereis	].
 
 %GENERATED from file:friend.h => Friend2InfoFormal
 writeFriend2InfoFormal( #pk_Friend2InfoFormal{} = P ) ->
@@ -11847,10 +13052,14 @@ writeGuildBattleInfo( #pk_GuildBattleInfo{} = P ) ->
 
 %GENERATED from file:guild.h => GuildBattlePlayerInfo
 writeGuildBattlePlayerInfo( #pk_GuildBattlePlayerInfo{} = P ) ->
+	Bin_guildID = binary_write_uint64( P#pk_GuildBattlePlayerInfo.guildID ),
+	Bin_rank = binary_write_uint8( P#pk_GuildBattlePlayerInfo.rank ),
 	Bin_roleID = binary_write_uint64( P#pk_GuildBattlePlayerInfo.roleID ),
 	Bin_roleName = binary_write_string( P#pk_GuildBattlePlayerInfo.roleName ),
 	Bin_point = binary_write_uint( P#pk_GuildBattlePlayerInfo.point ),
 	[
+		Bin_guildID,
+		Bin_rank,
 		Bin_roleID,
 		Bin_roleName,
 		Bin_point	].
@@ -11934,6 +13143,10 @@ writeGuildMemberInfo( #pk_GuildMemberInfo{} = P ) ->
 	Bin_offlineTime = binary_write_uint64( P#pk_GuildMemberInfo.offlineTime ),
 	Bin_vipLevel = binary_write_uint8( P#pk_GuildMemberInfo.vipLevel ),
 	Bin_playerLevel = binary_write_uint16( P#pk_GuildMemberInfo.playerLevel ),
+	Bin_career = binary_write_uint( P#pk_GuildMemberInfo.career ),
+	Bin_race = binary_write_uint8( P#pk_GuildMemberInfo.race ),
+	Bin_sex = binary_write_uint8( P#pk_GuildMemberInfo.sex ),
+	Bin_head = binary_write_int( P#pk_GuildMemberInfo.head ),
 	[
 		Bin_roleID,
 		Bin_roleCode,
@@ -11943,7 +13156,11 @@ writeGuildMemberInfo( #pk_GuildMemberInfo{} = P ) ->
 		Bin_combatNum,
 		Bin_offlineTime,
 		Bin_vipLevel,
-		Bin_playerLevel	].
+		Bin_playerLevel,
+		Bin_career,
+		Bin_race,
+		Bin_sex,
+		Bin_head	].
 
 %GENERATED from file:guild.h => GuildSkill
 writeGuildSkill( #pk_GuildSkill{} = P ) ->
@@ -12065,13 +13282,27 @@ writeGuildWarReward_item( #pk_GuildWarReward_item{} = P ) ->
 		Bin_itemID,
 		Bin_itemNumber	].
 
-%GENERATED from file:guild.h => OccupyOwner
-writeOccupyOwner( #pk_OccupyOwner{} = P ) ->
-	Bin_occupyID = binary_write_uint( P#pk_OccupyOwner.occupyID ),
-	Bin_ownerID = binary_write_uint64( P#pk_OccupyOwner.ownerID ),
+%GENERATED from file:guild.h => NameTable2
+writeNameTable2( #pk_NameTable2{} = P ) ->
+	Bin_id = binary_write_uint64( P#pk_NameTable2.id ),
+	Bin_name = binary_write_string( P#pk_NameTable2.name ),
 	[
-		Bin_occupyID,
-		Bin_ownerID	].
+		Bin_id,
+		Bin_name	].
+
+%GENERATED from file:guild.h => OccupyGuildInfo
+writeOccupyGuildInfo( #pk_OccupyGuildInfo{} = P ) ->
+	Bin_guildID = binary_write_uint64( P#pk_OccupyGuildInfo.guildID ),
+	Bin_guildName = binary_write_string( P#pk_OccupyGuildInfo.guildName ),
+	Bin_occupyIDs = binary_write_array(P#pk_OccupyGuildInfo.occupyIDs, fun(X) -> binary_write_uint( X ) end),
+	Bin_allPoint = binary_write_uint( P#pk_OccupyGuildInfo.allPoint ),
+	Bin_denoter = binary_write_uint8( P#pk_OccupyGuildInfo.denoter ),
+	[
+		Bin_guildID,
+		Bin_guildName,
+		Bin_occupyIDs,
+		Bin_allPoint,
+		Bin_denoter	].
 
 %GENERATED from file:guild.h => PebbleState
 writePebbleState( #pk_PebbleState{} = P ) ->
@@ -12109,11 +13340,179 @@ writeRideRole( #pk_RideRole{} = P ) ->
 		Bin_seatID,
 		Bin_time	].
 
+%GENERATED from file:guild.h => SuppHistory
+writeSuppHistory( #pk_SuppHistory{} = P ) ->
+	Bin_time = binary_write_uint( P#pk_SuppHistory.time ),
+	Bin_roleID = binary_write_uint64( P#pk_SuppHistory.roleID ),
+	Bin_tarRoleID = binary_write_uint64( P#pk_SuppHistory.tarRoleID ),
+	Bin_itemID = binary_write_uint16( P#pk_SuppHistory.itemID ),
+	Bin_itemM = binary_write_uint16( P#pk_SuppHistory.itemM ),
+	[
+		Bin_time,
+		Bin_roleID,
+		Bin_tarRoleID,
+		Bin_itemID,
+		Bin_itemM	].
+
+%GENERATED from file:guild.h => SuppHistory2
+writeSuppHistory2( #pk_SuppHistory2{} = P ) ->
+	Bin_career = binary_write_uint( P#pk_SuppHistory2.career ),
+	Bin_race = binary_write_int8( P#pk_SuppHistory2.race ),
+	Bin_sex = binary_write_int8( P#pk_SuppHistory2.sex ),
+	Bin_head = binary_write_int( P#pk_SuppHistory2.head ),
+	Bin_level = binary_write_int( P#pk_SuppHistory2.level ),
+	Bin_history = writeSuppHistory( P#pk_SuppHistory2.history ),
+	[
+		Bin_career,
+		Bin_race,
+		Bin_sex,
+		Bin_head,
+		Bin_level,
+		Bin_history	].
+
+%GENERATED from file:guild.h => Supplication
+writeSupplication( #pk_Supplication{} = P ) ->
+	Bin_roleID = binary_write_uint64( P#pk_Supplication.roleID ),
+	Bin_roleCode = binary_write_uint64( P#pk_Supplication.roleCode ),
+	Bin_roleName = binary_write_string( P#pk_Supplication.roleName ),
+	Bin_roleGuildLevel = binary_write_uint8( P#pk_Supplication.roleGuildLevel ),
+	Bin_career = binary_write_uint( P#pk_Supplication.career ),
+	Bin_race = binary_write_int8( P#pk_Supplication.race ),
+	Bin_sex = binary_write_int8( P#pk_Supplication.sex ),
+	Bin_head = binary_write_int( P#pk_Supplication.head ),
+	Bin_level = binary_write_int( P#pk_Supplication.level ),
+	Bin_itemID = binary_write_uint16( P#pk_Supplication.itemID ),
+	Bin_itemM = binary_write_uint16( P#pk_Supplication.itemM ),
+	Bin_isGive = binary_write_bool( P#pk_Supplication.isGive ),
+	[
+		Bin_roleID,
+		Bin_roleCode,
+		Bin_roleName,
+		Bin_roleGuildLevel,
+		Bin_career,
+		Bin_race,
+		Bin_sex,
+		Bin_head,
+		Bin_level,
+		Bin_itemID,
+		Bin_itemM,
+		Bin_isGive	].
+
+%GENERATED from file:home.h => FarmingPet
+writeFarmingPet( #pk_FarmingPet{} = P ) ->
+	Bin_petID = binary_write_uint16( P#pk_FarmingPet.petID ),
+	Bin_deltaTime = binary_write_uint16( P#pk_FarmingPet.deltaTime ),
+	Bin_time = binary_write_uint64( P#pk_FarmingPet.time ),
+	Bin_lastdeltaTime = binary_write_uint16( P#pk_FarmingPet.lastdeltaTime ),
+	[
+		Bin_petID,
+		Bin_deltaTime,
+		Bin_time,
+		Bin_lastdeltaTime	].
+
+%GENERATED from file:home.h => HomeArea
+writeHomeArea( #pk_HomeArea{} = P ) ->
+	Bin_homeID = binary_write_uint64( P#pk_HomeArea.homeID ),
+	Bin_areaID = binary_write_uint( P#pk_HomeArea.areaID ),
+	Bin_areaLvl = binary_write_uint( P#pk_HomeArea.areaLvl ),
+	[
+		Bin_homeID,
+		Bin_areaID,
+		Bin_areaLvl	].
+
+%GENERATED from file:home.h => HomeVisit
+writeHomeVisit( #pk_HomeVisit{} = P ) ->
+	Bin_roleID = binary_write_uint64( P#pk_HomeVisit.roleID ),
+	Bin_roleName = binary_write_string( P#pk_HomeVisit.roleName ),
+	Bin_level = binary_write_uint( P#pk_HomeVisit.level ),
+	Bin_homeID = binary_write_uint64( P#pk_HomeVisit.homeID ),
+	Bin_closeness = binary_write_int( P#pk_HomeVisit.closeness ),
+	Bin_face = binary_write_array(P#pk_HomeVisit.face, fun(X) -> binary_write_uint8( X ) end),
+	[
+		Bin_roleID,
+		Bin_roleName,
+		Bin_level,
+		Bin_homeID,
+		Bin_closeness,
+		Bin_face	].
+
+%GENERATED from file:home.h => Plant
+writePlant( #pk_Plant{} = P ) ->
+	Bin_homeID = binary_write_uint64( P#pk_Plant.homeID ),
+	Bin_areaType = binary_write_uint8( P#pk_Plant.areaType ),
+	Bin_pos = binary_write_uint8( P#pk_Plant.pos ),
+	Bin_id = binary_write_uint16( P#pk_Plant.id ),
+	Bin_time = binary_write_uint( P#pk_Plant.time ),
+	Bin_health = binary_write_uint8( P#pk_Plant.health ),
+	Bin_wateringCount = binary_write_uint8( P#pk_Plant.wateringCount ),
+	Bin_wateringTime = binary_write_uint( P#pk_Plant.wateringTime ),
+	Bin_compostCount = binary_write_uint8( P#pk_Plant.compostCount ),
+	Bin_compostTime = binary_write_uint8( P#pk_Plant.compostTime ),
+	Bin_isPestis = binary_write_bool( P#pk_Plant.isPestis ),
+	[
+		Bin_homeID,
+		Bin_areaType,
+		Bin_pos,
+		Bin_id,
+		Bin_time,
+		Bin_health,
+		Bin_wateringCount,
+		Bin_wateringTime,
+		Bin_compostCount,
+		Bin_compostTime,
+		Bin_isPestis	].
+
+%GENERATED from file:home.h => VisitRecord
+writeVisitRecord( #pk_VisitRecord{} = P ) ->
+	Bin_roleID = binary_write_uint64( P#pk_VisitRecord.roleID ),
+	Bin_roleName = binary_write_string( P#pk_VisitRecord.roleName ),
+	Bin_relationType = binary_write_uint8( P#pk_VisitRecord.relationType ),
+	Bin_opType = binary_write_uint8( P#pk_VisitRecord.opType ),
+	Bin_opParam1 = binary_write_uint( P#pk_VisitRecord.opParam1 ),
+	Bin_opParam2 = binary_write_uint( P#pk_VisitRecord.opParam2 ),
+	Bin_opParam3 = binary_write_uint( P#pk_VisitRecord.opParam3 ),
+	Bin_timestamp = binary_write_uint64( P#pk_VisitRecord.timestamp ),
+	[
+		Bin_roleID,
+		Bin_roleName,
+		Bin_relationType,
+		Bin_opType,
+		Bin_opParam1,
+		Bin_opParam2,
+		Bin_opParam3,
+		Bin_timestamp	].
+
+%GENERATED from file:identity.h => GiftHistory
+writeGiftHistory( #pk_GiftHistory{} = P ) ->
+	Bin_index = binary_write_uint64( P#pk_GiftHistory.index ),
+	Bin_time = binary_write_uint( P#pk_GiftHistory.time ),
+	Bin_roleID = binary_write_uint64( P#pk_GiftHistory.roleID ),
+	Bin_tarRoleID = binary_write_uint64( P#pk_GiftHistory.tarRoleID ),
+	Bin_itemID = binary_write_uint16( P#pk_GiftHistory.itemID ),
+	Bin_itemCount = binary_write_uint16( P#pk_GiftHistory.itemCount ),
+	Bin_charmUpdate = binary_write_uint( P#pk_GiftHistory.charmUpdate ),
+	[
+		Bin_index,
+		Bin_time,
+		Bin_roleID,
+		Bin_tarRoleID,
+		Bin_itemID,
+		Bin_itemCount,
+		Bin_charmUpdate	].
+
 %GENERATED from file:identity.h => MD5
 writeMD5( #pk_MD5{} = P ) ->
 	Bin_md5 = binary_write_array(P#pk_MD5.md5, fun(X) -> binary_write_uint8( X ) end),
 	[
 		Bin_md5	].
+
+%GENERATED from file:identity.h => NameTable
+writeNameTable( #pk_NameTable{} = P ) ->
+	Bin_id = binary_write_uint64( P#pk_NameTable.id ),
+	Bin_name = binary_write_string( P#pk_NameTable.name ),
+	[
+		Bin_id,
+		Bin_name	].
 
 %GENERATED from file:identity.h => RoleHeadPic
 writeRoleHeadPic( #pk_RoleHeadPic{} = P ) ->
@@ -12283,6 +13682,14 @@ writeMailItem( #pk_MailItem{} = P ) ->
 		Bin_quality,
 		Bin_isBind	].
 
+%GENERATED from file:mail.h => MailItemAll
+writeMailItemAll( #pk_MailItemAll{} = P ) ->
+	Bin_itemID = binary_write_uint( P#pk_MailItemAll.itemID ),
+	Bin_itemNumber = binary_write_uint( P#pk_MailItemAll.itemNumber ),
+	[
+		Bin_itemID,
+		Bin_itemNumber	].
+
 %GENERATED from file:mail.h => retMailOpt
 writeretMailOpt( #pk_retMailOpt{} = P ) ->
 	Bin_mailID = binary_write_uint64( P#pk_retMailOpt.mailID ),
@@ -12304,6 +13711,7 @@ writeMallInfo( #pk_MallInfo{} = P ) ->
 	Bin_get_integral = binary_write_int( P#pk_MallInfo.get_integral ),
 	Bin_lefttime = binary_write_int( P#pk_MallInfo.lefttime ),
 	Bin_leftcount = binary_write_int( P#pk_MallInfo.leftcount ),
+	Bin_leftcountMax = binary_write_int( P#pk_MallInfo.leftcountMax ),
 	Bin_sortNumber = binary_write_int( P#pk_MallInfo.sortNumber ),
 	Bin_rebate = binary_write_int8( P#pk_MallInfo.rebate ),
 	Bin_showtype = binary_write_int8( P#pk_MallInfo.showtype ),
@@ -12320,6 +13728,7 @@ writeMallInfo( #pk_MallInfo{} = P ) ->
 		Bin_get_integral,
 		Bin_lefttime,
 		Bin_leftcount,
+		Bin_leftcountMax,
 		Bin_sortNumber,
 		Bin_rebate,
 		Bin_showtype,
@@ -12388,6 +13797,9 @@ writePetBaseInfo( #pk_PetBaseInfo{} = P ) ->
 	Bin_petTime = binary_write_uint64( P#pk_PetBaseInfo.petTime ),
 	Bin_petProps = binary_write_array(P#pk_PetBaseInfo.petProps, fun(X) -> writeAddProp( X ) end),
 	Bin_petForce = binary_write_uint64( P#pk_PetBaseInfo.petForce ),
+	Bin_upCount = binary_write_uint( P#pk_PetBaseInfo.upCount ),
+	Bin_petLevel = binary_write_uint( P#pk_PetBaseInfo.petLevel ),
+	Bin_petExp = binary_write_uint( P#pk_PetBaseInfo.petExp ),
 	[
 		Bin_petID,
 		Bin_petStar,
@@ -12397,7 +13809,10 @@ writePetBaseInfo( #pk_PetBaseInfo{} = P ) ->
 		Bin_petRaw,
 		Bin_petTime,
 		Bin_petProps,
-		Bin_petForce	].
+		Bin_petForce,
+		Bin_upCount,
+		Bin_petLevel,
+		Bin_petExp	].
 
 %GENERATED from file:pet.h => PetEquipInfo
 writePetEquipInfo( #pk_PetEquipInfo{} = P ) ->
@@ -12617,6 +14032,28 @@ writeCopyObj( #pk_CopyObj{} = P ) ->
 		Bin_curNumber,
 		Bin_allNumber	].
 
+%GENERATED from file:player.h => CrossRoleBase
+writeCrossRoleBase( #pk_CrossRoleBase{} = P ) ->
+	Bin_id = binary_write_uint64( P#pk_CrossRoleBase.id ),
+	Bin_name = binary_write_string( P#pk_CrossRoleBase.name ),
+	Bin_server = binary_write_string( P#pk_CrossRoleBase.server ),
+	Bin_level = binary_write_uint16( P#pk_CrossRoleBase.level ),
+	Bin_career = binary_write_uint( P#pk_CrossRoleBase.career ),
+	Bin_race = binary_write_uint8( P#pk_CrossRoleBase.race ),
+	Bin_sex = binary_write_uint8( P#pk_CrossRoleBase.sex ),
+	Bin_head = binary_write_int( P#pk_CrossRoleBase.head ),
+	Bin_face = binary_write_array(P#pk_CrossRoleBase.face, fun(X) -> binary_write_uint8( X ) end),
+	[
+		Bin_id,
+		Bin_name,
+		Bin_server,
+		Bin_level,
+		Bin_career,
+		Bin_race,
+		Bin_sex,
+		Bin_head,
+		Bin_face	].
+
 %GENERATED from file:player.h => LookInfoMonster
 writeLookInfoMonster( #pk_LookInfoMonster{} = P ) ->
 	Bin_code = binary_write_uint64( P#pk_LookInfoMonster.code ),
@@ -12741,6 +14178,20 @@ writeMoneyInit( #pk_MoneyInit{} = P ) ->
 		Bin_moneyType,
 		Bin_value	].
 
+%GENERATED from file:player.h => MonsterBook
+writeMonsterBook( #pk_MonsterBook{} = P ) ->
+	Bin_id = binary_write_uint16( P#pk_MonsterBook.id ),
+	Bin_kill = binary_write_uint( P#pk_MonsterBook.kill ),
+	Bin_isSnap = binary_write_bool( P#pk_MonsterBook.isSnap ),
+	Bin_isUnlock = binary_write_bool( P#pk_MonsterBook.isUnlock ),
+	Bin_isReward = binary_write_bool( P#pk_MonsterBook.isReward ),
+	[
+		Bin_id,
+		Bin_kill,
+		Bin_isSnap,
+		Bin_isUnlock,
+		Bin_isReward	].
+
 %GENERATED from file:player.h => NoticeInfo
 writeNoticeInfo( #pk_NoticeInfo{} = P ) ->
 	Bin_id = binary_write_int64( P#pk_NoticeInfo.id ),
@@ -12823,35 +14274,49 @@ writePropString( #pk_PropString{} = P ) ->
 		Bin_index,
 		Bin_value	].
 
-%GENERATED from file:player.h => QueryTradeList
-writeQueryTradeList( #pk_QueryTradeList{} = P ) ->
-	Bin_orderID = binary_write_uint64( P#pk_QueryTradeList.orderID ),
-	Bin_itemUID = binary_write_uint64( P#pk_QueryTradeList.itemUID ),
-	Bin_itemID = binary_write_uint( P#pk_QueryTradeList.itemID ),
-	Bin_roleName = binary_write_string( P#pk_QueryTradeList.roleName ),
-	Bin_sellType = binary_write_uint8( P#pk_QueryTradeList.sellType ),
-	Bin_putTime = binary_write_uint64( P#pk_QueryTradeList.putTime ),
-	Bin_downTime = binary_write_uint64( P#pk_QueryTradeList.downTime ),
-	Bin_silver = binary_write_uint( P#pk_QueryTradeList.silver ),
-	Bin_gold = binary_write_uint( P#pk_QueryTradeList.gold ),
-	Bin_destRoleName = binary_write_string( P#pk_QueryTradeList.destRoleName ),
-	Bin_quality = binary_write_uint8( P#pk_QueryTradeList.quality ),
-	Bin_itemLevel = binary_write_uint8( P#pk_QueryTradeList.itemLevel ),
-	Bin_pileCount = binary_write_uint( P#pk_QueryTradeList.pileCount ),
+%GENERATED from file:player.h => RaceTeamBase
+writeRaceTeamBase( #pk_RaceTeamBase{} = P ) ->
+	Bin_applyID = binary_write_uint64( P#pk_RaceTeamBase.applyID ),
+	Bin_leaderID = binary_write_uint64( P#pk_RaceTeamBase.leaderID ),
+	Bin_members = binary_write_array(P#pk_RaceTeamBase.members, fun(X) -> writeCrossRoleBase( X ) end),
+	Bin_petID = binary_write_uint16( P#pk_RaceTeamBase.petID ),
 	[
-		Bin_orderID,
-		Bin_itemUID,
-		Bin_itemID,
-		Bin_roleName,
-		Bin_sellType,
-		Bin_putTime,
-		Bin_downTime,
-		Bin_silver,
-		Bin_gold,
-		Bin_destRoleName,
-		Bin_quality,
-		Bin_itemLevel,
-		Bin_pileCount	].
+		Bin_applyID,
+		Bin_leaderID,
+		Bin_members,
+		Bin_petID	].
+
+%GENERATED from file:player.h => RaceTeamEx
+writeRaceTeamEx( #pk_RaceTeamEx{} = P ) ->
+	Bin_applyID = binary_write_uint64( P#pk_RaceTeamEx.applyID ),
+	Bin_base = writeRaceTeamBase( P#pk_RaceTeamEx.base ),
+	Bin_item = writeRaceTeamItem( P#pk_RaceTeamEx.item ),
+	Bin_sort = writeRaceTeamSort( P#pk_RaceTeamEx.sort ),
+	Bin_giveUpID = binary_write_uint64( P#pk_RaceTeamEx.giveUpID ),
+	[
+		Bin_applyID,
+		Bin_base,
+		Bin_item,
+		Bin_sort,
+		Bin_giveUpID	].
+
+%GENERATED from file:player.h => RaceTeamItem
+writeRaceTeamItem( #pk_RaceTeamItem{} = P ) ->
+	Bin_listItemIDA = binary_write_array(P#pk_RaceTeamItem.listItemIDA, fun(X) -> binary_write_uint8( X ) end),
+	Bin_listItemIDB = binary_write_array(P#pk_RaceTeamItem.listItemIDB, fun(X) -> binary_write_uint8( X ) end),
+	[
+		Bin_listItemIDA,
+		Bin_listItemIDB	].
+
+%GENERATED from file:player.h => RaceTeamSort
+writeRaceTeamSort( #pk_RaceTeamSort{} = P ) ->
+	Bin_laps = binary_write_uint8( P#pk_RaceTeamSort.laps ),
+	Bin_milestone = binary_write_uint8( P#pk_RaceTeamSort.milestone ),
+	Bin_time = binary_write_uint64( P#pk_RaceTeamSort.time ),
+	[
+		Bin_laps,
+		Bin_milestone,
+		Bin_time	].
 
 %GENERATED from file:player.h => RechargeDoubleConf
 writeRechargeDoubleConf( #pk_RechargeDoubleConf{} = P ) ->
@@ -12876,6 +14341,9 @@ writeRoleBaseInfo( #pk_RoleBaseInfo{} = P ) ->
 	Bin_code = binary_write_uint64( P#pk_RoleBaseInfo.code ),
 	Bin_roleID = binary_write_uint64( P#pk_RoleBaseInfo.roleID ),
 	Bin_name = binary_write_string( P#pk_RoleBaseInfo.name ),
+	Bin_servername = binary_write_string( P#pk_RoleBaseInfo.servername ),
+	Bin_myServerName = binary_write_string( P#pk_RoleBaseInfo.myServerName ),
+	Bin_isInCross = binary_write_bool( P#pk_RoleBaseInfo.isInCross ),
 	Bin_x = binary_write_float( P#pk_RoleBaseInfo.x ),
 	Bin_y = binary_write_float( P#pk_RoleBaseInfo.y ),
 	Bin_head = binary_write_uint( P#pk_RoleBaseInfo.head ),
@@ -12902,6 +14370,9 @@ writeRoleBaseInfo( #pk_RoleBaseInfo{} = P ) ->
 		Bin_code,
 		Bin_roleID,
 		Bin_name,
+		Bin_servername,
+		Bin_myServerName,
+		Bin_isInCross,
 		Bin_x,
 		Bin_y,
 		Bin_head,
@@ -13114,6 +14585,11 @@ writeRankInfo( #pk_RankInfo{} = P ) ->
 	Bin_rankValue2 = binary_write_int64( P#pk_RankInfo.rankValue2 ),
 	Bin_rankValue3 = binary_write_int64( P#pk_RankInfo.rankValue3 ),
 	Bin_title = writeTitleData( P#pk_RankInfo.title ),
+	Bin_career = binary_write_uint( P#pk_RankInfo.career ),
+	Bin_race = binary_write_int8( P#pk_RankInfo.race ),
+	Bin_sex = binary_write_int8( P#pk_RankInfo.sex ),
+	Bin_head = binary_write_int( P#pk_RankInfo.head ),
+	Bin_level = binary_write_int( P#pk_RankInfo.level ),
 	[
 		Bin_rankSort,
 		Bin_rankSortC,
@@ -13123,7 +14599,12 @@ writeRankInfo( #pk_RankInfo{} = P ) ->
 		Bin_rankValue1,
 		Bin_rankValue2,
 		Bin_rankValue3,
-		Bin_title	].
+		Bin_title,
+		Bin_career,
+		Bin_race,
+		Bin_sex,
+		Bin_head,
+		Bin_level	].
 
 %GENERATED from file:rank.h => TitleData
 writeTitleData( #pk_TitleData{} = P ) ->
@@ -13478,6 +14959,7 @@ writeTeamMemberInfo( #pk_TeamMemberInfo{} = P ) ->
 	Bin_mapID = binary_write_uint16( P#pk_TeamMemberInfo.mapID ),
 	Bin_groupID = binary_write_uint( P#pk_TeamMemberInfo.groupID ),
 	Bin_mapInstanceID = binary_write_uint64( P#pk_TeamMemberInfo.mapInstanceID ),
+	Bin_assistMapID = binary_write_uint16( P#pk_TeamMemberInfo.assistMapID ),
 	Bin_x = binary_write_float( P#pk_TeamMemberInfo.x ),
 	Bin_y = binary_write_float( P#pk_TeamMemberInfo.y ),
 	Bin_customInfo = binary_write_string( P#pk_TeamMemberInfo.customInfo ),
@@ -13499,6 +14981,7 @@ writeTeamMemberInfo( #pk_TeamMemberInfo{} = P ) ->
 		Bin_mapID,
 		Bin_groupID,
 		Bin_mapInstanceID,
+		Bin_assistMapID,
 		Bin_x,
 		Bin_y,
 		Bin_customInfo,
@@ -13517,6 +15000,7 @@ writeTeamMemberInfoEx( #pk_TeamMemberInfoEx{} = P ) ->
 	Bin_copyMapLeftCount = binary_write_uint16( P#pk_TeamMemberInfoEx.copyMapLeftCount ),
 	Bin_actionPoint = binary_write_uint( P#pk_TeamMemberInfoEx.actionPoint ),
 	Bin_force = binary_write_uint64( P#pk_TeamMemberInfoEx.force ),
+	Bin_assistMapID = binary_write_uint16( P#pk_TeamMemberInfoEx.assistMapID ),
 	Bin_x = binary_write_float( P#pk_TeamMemberInfoEx.x ),
 	Bin_y = binary_write_float( P#pk_TeamMemberInfoEx.y ),
 	[
@@ -13530,6 +15014,7 @@ writeTeamMemberInfoEx( #pk_TeamMemberInfoEx{} = P ) ->
 		Bin_copyMapLeftCount,
 		Bin_actionPoint,
 		Bin_force,
+		Bin_assistMapID,
 		Bin_x,
 		Bin_y	].
 
@@ -13554,6 +15039,7 @@ writeTeamMemberSnapshot( #pk_TeamMemberSnapshot{} = P ) ->
 	Bin_sex = binary_write_uint8( P#pk_TeamMemberSnapshot.sex ),
 	Bin_head = binary_write_int( P#pk_TeamMemberSnapshot.head ),
 	Bin_force = binary_write_uint64( P#pk_TeamMemberSnapshot.force ),
+	Bin_guildID = binary_write_uint64( P#pk_TeamMemberSnapshot.guildID ),
 	[
 		Bin_playerID,
 		Bin_code,
@@ -13563,7 +15049,8 @@ writeTeamMemberSnapshot( #pk_TeamMemberSnapshot{} = P ) ->
 		Bin_race,
 		Bin_sex,
 		Bin_head,
-		Bin_force	].
+		Bin_force,
+		Bin_guildID	].
 
 %GENERATED from file:team.h => TeamSnapshot
 writeTeamSnapshot( #pk_TeamSnapshot{} = P ) ->
@@ -13572,6 +15059,66 @@ writeTeamSnapshot( #pk_TeamSnapshot{} = P ) ->
 	[
 		Bin_base,
 		Bin_members	].
+
+%GENERATED from file:trade.h => DealRecord
+writeDealRecord( #pk_DealRecord{} = P ) ->
+	Bin_itemID = binary_write_uint( P#pk_DealRecord.itemID ),
+	Bin_sellType = binary_write_uint8( P#pk_DealRecord.sellType ),
+	Bin_buyorsell = binary_write_uint8( P#pk_DealRecord.buyorsell ),
+	Bin_dealTime = binary_write_uint64( P#pk_DealRecord.dealTime ),
+	Bin_gold = binary_write_uint( P#pk_DealRecord.gold ),
+	Bin_diamond = binary_write_uint( P#pk_DealRecord.diamond ),
+	Bin_tax = binary_write_uint( P#pk_DealRecord.tax ),
+	[
+		Bin_itemID,
+		Bin_sellType,
+		Bin_buyorsell,
+		Bin_dealTime,
+		Bin_gold,
+		Bin_diamond,
+		Bin_tax	].
+
+%GENERATED from file:trade.h => QueryTradeList
+writeQueryTradeList( #pk_QueryTradeList{} = P ) ->
+	Bin_orderID = binary_write_uint64( P#pk_QueryTradeList.orderID ),
+	Bin_itemUID = binary_write_uint64( P#pk_QueryTradeList.itemUID ),
+	Bin_itemID = binary_write_uint( P#pk_QueryTradeList.itemID ),
+	Bin_roleName = binary_write_string( P#pk_QueryTradeList.roleName ),
+	Bin_sellType = binary_write_uint8( P#pk_QueryTradeList.sellType ),
+	Bin_putTime = binary_write_uint64( P#pk_QueryTradeList.putTime ),
+	Bin_downTime = binary_write_uint64( P#pk_QueryTradeList.downTime ),
+	Bin_gold = binary_write_uint( P#pk_QueryTradeList.gold ),
+	Bin_diamond = binary_write_uint( P#pk_QueryTradeList.diamond ),
+	Bin_destRoleName = binary_write_string( P#pk_QueryTradeList.destRoleName ),
+	Bin_quality = binary_write_uint8( P#pk_QueryTradeList.quality ),
+	Bin_itemLevel = binary_write_uint8( P#pk_QueryTradeList.itemLevel ),
+	Bin_pileCount = binary_write_uint( P#pk_QueryTradeList.pileCount ),
+	[
+		Bin_orderID,
+		Bin_itemUID,
+		Bin_itemID,
+		Bin_roleName,
+		Bin_sellType,
+		Bin_putTime,
+		Bin_downTime,
+		Bin_gold,
+		Bin_diamond,
+		Bin_destRoleName,
+		Bin_quality,
+		Bin_itemLevel,
+		Bin_pileCount	].
+
+%GENERATED from file:trade.h => ReferenceItem
+writeReferenceItem( #pk_ReferenceItem{} = P ) ->
+	Bin_itemID = binary_write_uint( P#pk_ReferenceItem.itemID ),
+	Bin_sellNumber = binary_write_uint16( P#pk_ReferenceItem.sellNumber ),
+	Bin_gold = binary_write_uint( P#pk_ReferenceItem.gold ),
+	Bin_diamond = binary_write_uint( P#pk_ReferenceItem.diamond ),
+	[
+		Bin_itemID,
+		Bin_sellNumber,
+		Bin_gold,
+		Bin_diamond	].
 
 %GENERATED from file:wake.h => WakeInfo
 writeWakeInfo( #pk_WakeInfo{} = P ) ->

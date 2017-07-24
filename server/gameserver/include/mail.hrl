@@ -15,6 +15,7 @@
 -define(MAIL_DEL_DELAY,4).	%%过期自动删除邮件
 -define(MAIL_LOCK,5).	    %%锁定邮件
 -define(MAIL_GET_COIN,6).	%%获取货币
+-define(MAIL_OPEN_AUTO,7).	%%一健提取的时候，自动读取邮件
 
 %% 系统帐号ID
 -define(SystemID, 0).

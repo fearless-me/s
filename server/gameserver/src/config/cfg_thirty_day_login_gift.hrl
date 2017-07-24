@@ -33,6 +33,12 @@
         %%: 物品道具奖励id
         rewards,
 
+        %%: admin:
+        %%: 0装备
+        %%: 1骑宠
+        %%: 2NPC
+        %%: 3时装
+        %%: 4monster
         modelType,
 
         %%: 王轶俊:

@@ -222,7 +222,8 @@ logPsInfo() ->
 	ok.
 
 logSortByMQueue(PPList) ->
-	List = lists:keysort(4,PPList),
+	List = lists:reverse(lists:keysort(4,PPList)),
+	List2 = lists:reverse(lists:sublist(List, 15)),
 	Fun =
 		fun({Pid,RegName,Red,MQL,Mem,{M,F,A}},{N,AccIn}) ->
 			case N =< 0 of
@@ -233,11 +234,12 @@ logSortByMQueue(PPList) ->
 						[N,Pid,RegName,Red,MQL,mem2str(Mem),M,F,A]) ++ AccIn}
 			end
 		end,
-	{_,Str} = misc:mapAccList(List, {15,[]}, Fun),
+	{_,Str} = misc:mapAccList(List2, {15,[]}, Fun),
 	Str.
 
 logSortByMem(PPList) ->
-	List = lists:keysort(5,PPList),
+	List = lists:reverse(lists:keysort(5,PPList)),
+	List2 = lists:reverse(lists:sublist(List, 15)),
 	Fun =
 		fun({Pid,RegName,Red,MQL,Mem,{M,F,A}},{N,AccIn}) ->
 			case N =< 0 of
@@ -248,7 +250,7 @@ logSortByMem(PPList) ->
 						[N,Pid,RegName,Red,MQL,mem2str(Mem),M,F,A]) ++ AccIn}
 			end
 		end,
-	{_,Str} = misc:mapAccList(List, {15,[]}, Fun),
+	{_,Str} = misc:mapAccList(List2, {15,[]}, Fun),
 	Str.
 
 process_info_items(P) ->

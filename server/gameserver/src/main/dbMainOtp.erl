@@ -122,7 +122,7 @@ handle_info({checkSyncToDBIsAlive, _Pid, _}, State) ->
 					setSaveToDBLastTime(),
 
 					%% 重启心跳
-					timer:send_after(?SyncToDBInterval,self(),syncToDB);
+					erlang:send_after(?SyncToDBInterval,self(),syncToDB);
 				_ ->
 					skip
 			end;
@@ -146,7 +146,7 @@ handle_info(syncToDB,State) ->
 	end,
 
 	%% 心跳
-	timer:send_after(?SyncToDBInterval,self(),syncToDB),
+	erlang:send_after(?SyncToDBInterval,self(),syncToDB),
 	{noreply,State};
 
 handle_info({initCache,_Pid,{}},State) ->
@@ -178,7 +178,7 @@ handle_info(tickLoadDataInterval, State) ->
 			%% DBS所有数据处理完毕
 			syncDBData(?DBSLoadData_AllEnd),
 
-			timer:send_after(?SyncToDBInterval,self(),syncToDB),
+			erlang:send_after(?SyncToDBInterval,self(),syncToDB),
 			ok;
 		_ ->
 			?DEBUG_OUT("tickLoadDataInterval:~w", [List]),
@@ -373,9 +373,9 @@ getDBInfo() ->
 	}] = emysql_util:as_record(Result, rec_db_info, record_info(fields, rec_db_info)),
 
 	%% 先校验ADBID与DBID与运维的是否对应
-	case config:getOperationsInt("ADBID", 0) of
+	case config:getInt("ADBID", 0) of
 		ADBID ->
-			case config:getOperationsInt("DBID", 0) of
+			case config:getInt("DBID", 0) of
 				DBID ->
 					ServerName = erlang:binary_to_list(Name),
 

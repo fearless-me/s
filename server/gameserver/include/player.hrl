@@ -4,6 +4,7 @@
 
 -include("db.hrl").
 -include("char.hrl").
+-include("modeOpen.hrl").
 
 -export_type([
 	dailyType/0,
@@ -50,21 +51,21 @@
 -define(DailyType_BuyItemNumber, 13).		%%每日购买某种道具次数
 -define(DailyType_EnterCopyMap_Vip, 14). 	%% 爵位进入副本的优惠次数，优先使用优惠次数
 -define(DailyType_HDBattleGetHonor, 15). 	%% 混沌战场每日获得的荣誉值
--define(DailyType_AddImpresstion, 16). 		%% 给其他玩家添加印象
--define(DailyType_AddPraise, 17). 			%% 给其他玩家点赞
--define(DailyType_ReportPhoto, 18). 		%% 举报其他玩家的照片
+-define(DailyType_GuildSupplication, 16). 	%% 家族系统-碎片祈愿
+-define(DailyType_AutoRecommend, 17). 		%% 推送推荐好友计数
+-define(DailyType_DanceExp, 18). 			%% 跳舞累积的经验
 -define(DailyType_CollectItemTimes, 19). 	%% 每日采集指定对象的次数
 -define(DailyType_WorldBossInSpire, 20).	%% 首领入侵鼓舞次数
 -define(DailyType_SideTaskFlag, 21).        %% 支线任务
--define(DailyType_CompanionTask, 22).		%% ===============[已废弃，可改名占用]=============
+-define(DailyType_Login, 22).				%% 每日登录计数（如果在线状态下跨越凌晨4点则置为1）
 -define(DailyType_MonthCard, 23).			%% 月卡到期提醒
 -define(DailyType_WarriorTrial, 24).		%% 勇士试炼每日进度
 -define(DailyType_MallDaily, 25).			%% 商城玩家每日限购
--define(DailyType_OldRecharge, 26).			%% ===============[已废弃，可改名占用]=============
+-define(DailyType_GuildRideGetContribute, 26).			%% 家族-游乐场-每日通过设施获得的贡献
 -define(DailyType_Ladder1v1, 27).			%% 天梯1v1类型的每日计数
 -define(DailyType_HornNum, 28).             %% 小喇叭聊天每日计数
 -define(DailyType_LoopTaskNum, 29).			%% 环任务每日计数
--define(DailyType_GainReport, 30).			%% 被举报每日计数
+-define(DailyType_GainReport, 30).			%% ===============[已废弃，可改名占用]=============
 -define(DailyType_AddPraise4Marror, 31). 	%% 给王者雕像点赞
 -define(DailyType_PetPvePurc,		32).	%% 宠物远征体力购买计数器
 -define(DailyType_Lottery,		33).	    %% 占卜，抽奖
@@ -74,7 +75,7 @@
 -define(DailyType_MallDailySend, 37).		%% 商城玩家每日限赠送上限
 -define(DailyType_BroadCastKv,	38).		%% 每天杀戮值广播次数
 -define(DailyType_GuildBuff,	39).		%% 军团BUFF领取次数
--define(DailyType_GuildHomeTask,    40).	%% ===============[已废弃，可改名占用]=============
+-define(DailyType_KillMonsterExp,    40).	%% 每日杀怪经验
 -define(DailyType_HolidayTask,		41).	%%节日活动计算器id = 1 春节活动
 -define(DailyType_LimitSalesBuy,	42).	%%限时购买限购次数
 -define(DailyType_CrosRewardNum,	43).	%%每天领奖次数
@@ -107,7 +108,12 @@
 -define(DailyType_BuyCopyMap_Number,106).			%%每日购买进副本次数
 -define(DailyType_BuyCopyMapGroup_Number,107).		%%每日购买进副本组次数
 -define(DailyType_Date_PushBox,108).		%%约会地下城之推箱子：每日参与活动的次数
--define(DailyType_Max,109).
+-define(DailyType_Date_PoolParty,109).		%%约会地下城之泳池派对：每日参与活动的次数
+-define(DailyType_Date_FindTreasure,110).		%%约会地下城之寻找宝箱：每日参与活动的次数
+-define(DailyType_Home_PetFarming,111).		%%家园，宠物养殖
+-define(DailyType_Home_PutPetFarmingTime,112).		%%家园，宠物养殖
+-define(DailyType_Guild_Boss_BuffTime,113).		%%家族BOSS 购买 BUFF次数
+-define(DailyType_Max,113).
 
 -type dailyType() :: ?DailyType_Min .. ?DailyType_Max.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -255,7 +261,8 @@
 	itemDropOdd,			%%普通物品掉落几率
 	monsterID,				%%怪物ID
 	monsterLevel, 			%%怪物等级
-	teamMemberNum 			%%队伍成员数
+	teamMemberNum, 			%%队伍成员数
+	mapPid					%% 掉落地图pid，用于判断是否为助战
 }).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -272,7 +279,8 @@
 -define(Daily2Type_S_Friend2GainAP,                   1).   %% 每日接受体力次数
 -define(Daily2Type_S_Friend2Like,                     2).   %% 每日点赞次数
 -define(Daily2Type_S_RedEnvelope,                     3).   %% 每日向好友赠送红包次数
--define(Daily2Type_S_Max,                             3).
+-define(Daily2Type_S_GuildSupplication,               4).   %% 每日向家族成员赠送碎片次数
+-define(Daily2Type_S_Max,                             4).
 -type daily2TypeS() :: ?Daily2Type_S_Min .. ?Daily2Type_S_Max.
 
 %% 共有计数类型 Common 不能热更
@@ -300,6 +308,7 @@
 -define(SevenDayAim_CopyMap,		1).		%% 完成指定副本 ?SerProp_SevenDayAim_CopyMap								对应配置格式===>	[地图ID]
 -define(SevenDayAim_WarriorTrial,	2).		%% 勇者荣耀通过第N层 ?SerProp_SevenDayAim_WarriorTrial						对应配置格式===>	[层数]
 -define(SevenDayAim_ProtectGod,		3).		%% 守护女神通过第N波 ?SerProp_SevenDayAim_ProtectGod						对应配置格式===>	[波数]
+-define(SevenDayAim_Material,		4).		%% 材料副本/元素保卫战通过指定地图ID ?SerProp_SevenDayAim_Material			对应配置格式===>	[地图ID]
 -define(SevenDayAim_RoleLevel,		101).	%% 角色达到指定等级（客户端本地获取）											对应配置格式===>	[角色等级]
 -define(SevenDayAim_PetCount,		102).	%% 指定品质（等于）的骑宠达到指定数量（客户端本地获取）							对应配置格式===>	[骑宠品质, 骑宠数量] 品质为-1时表示不限品质
 -define(SevenDayAim_FashionCount,	103).	%% 拥有时装达到指定数量 ?SerProp_SevenDayAim_FashionCount					对应配置格式===>	[时装数量]
@@ -310,9 +319,9 @@
 -define(SevenDayAim_EquipRefine,	202).	%% 满足精炼要求（大于等于）的装备（槽位）达到指定数量（客户端本地获取）				对应配置格式===>	[精炼要求, 装备（槽位）数量]
 -define(SevenDayAim_GemLevel,		203).	%% 满足等级要求（大于等于）的纹章镶嵌达到指定数量（纹章系统重新开发中，此处暂不支持）
 -define(SevenDayAim_GemMaster,		204).	%% 满足等级要求（大于等于）的纹章大师达到指定数量（纹章系统重新开发中，此处暂不支持）
--define(SevenDayAim_WingLevel,		205).	%% 翅膀达到指定阶级（客户端本地获取）											对应配置格式===>	[翅膀阶级]
+-define(SevenDayAim_WingLevel,		205).	%% 翅膀达到指定等级（客户端本地获取）											对应配置格式===>	[翅膀等级]
 -define(SevenDayAim_GodWeapon,		206).	%% 满足等级要求（大于等于）的器灵达到指定数量（客户端本地获取）						对应配置格式===>	[等级要求, 器灵数量]
--define(SevenDayAim_PetStar,		207).	%% 满足星级要求（大于等于）的骑宠达到指定数量（客户端本地获取）						对应配置格式===>	[星级要求, 骑宠数量]
+-define(SevenDayAim_PetStar,		207).	%% 满足星级要求（大于等于）的骑宠达到指定数量（客户端本地获取）						对应配置格式===>	[星级要求, 骑宠数量] 实际星级为面板显示星级-1
 -define(SevenDayAim_PetTurn,		208).	%% 满足转生要求（大于等于）的骑宠达到指定数量（客户端本地获取）						对应配置格式===>	[转生要求, 骑宠数量]
 -define(SevenDayAim_PetAdd,			209).	%% 满足提升要求（大于等于）的骑宠达到指定数量 ?SerProp_SevenDayAim_PetAdd		对应配置格式===>	[提升（次数）要求, 骑宠数量]
 -type sevenDayAim() :: uint().	%% 策划要求上述数值不连续，故用uint()代替
@@ -321,6 +330,7 @@
 	?SevenDayAim_CopyMap,
 	?SevenDayAim_WarriorTrial,
 	?SevenDayAim_ProtectGod,
+	?SevenDayAim_Material,
 	?SevenDayAim_RoleLevel,
 	?SevenDayAim_PetCount,
 	?SevenDayAim_FashionCount,

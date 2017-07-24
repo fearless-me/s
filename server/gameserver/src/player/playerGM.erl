@@ -27,6 +27,11 @@
 	crack/0
 ]).
 
+%% 不需要启动客户端可直接拼装执行的命令
+-export([
+	startac/1
+]).
+
 %%一级GM指令，只能是使用查询类的，不会修改服务器内容的GM指令
 -define(GMCmdList1,
 	[
@@ -54,10 +59,12 @@
 		{"testuid", fun testuid/1, "testuid Type", "测试指定类型的UID"},
 		{"qn", fun qn/1, "qn [Key]", "查询在线人数，也可以查询1玩家，2宠物，3怪物，4召唤怪物，5载体的数量"},
 		{"qn2", fun qn2/1, "qn2 [Key]", "查询当前场景的在线人数"},
-		{"openkqq", fun openkqq/1, "openkqq name", "打开空气墙"},
+		{"openkq", fun openkq/1, "openkq name", "打开空气墙"},
+		{"closekq", fun closekq/1, "closekq name", "关闭空气墙"},
 		{"querymonster", fun querymonster/1, "querymonster GroupID", "查询指定分级的怪物"},
 		{"queryobj", fun queryobj/1, "queryobj RoleID", "查询指定角色ID的信息"},
 		{"query", fun query/1, "query Value", "查询目标的属性值，0查看选中目标的属性，1查看自己的属性"},
+		{"querycross", fun querycross/1, "querycross", "查询当前所在跨服信息"},
 		{"requesthdbattle", fun requesthdbattle/1, "requesthdbattle", "请求加入混沌战场"},
 		{"queryguild1", fun queryguild1/1, "queryguild1", "查询军团列表"},
 		{"queryguild2", fun queryguild2/1, "queryguild2", "在服务器以调试信息打印查询军团列表结果"},
@@ -76,7 +83,8 @@
 		{"resetpb", fun resetpb/1, "resetpb", "重置双人坐骑状态"},
 		{"petab", fun petab/1, "petass", "骑宠助战"},
 		{"fashionsuit", fun fashionSuit/1, "fashionsuit", "激活时装套装"},
-		{"resetskill", fun resetSkill/1, "resetskill", "重置技能"}
+		{"resetskill", fun resetSkill/1, "resetskill", "重置技能"},
+		{"bss", fun bss/1, "bss", "广播"}
 %% 		{"uplv_guild_tec_skill",				fun uplv_guild_tec_skill/1,					"uplv_guild_tec_skill","升级工会技能" },
 %% 		{"use_guild_feast",					fun use_guild_feast/1,						"use_guild_feast","工会宴席" },
 %% 		{"drink_guild_wine",				fun drink_guild_wine/1,					"drink_guild_bottle","喝酒" },
@@ -188,16 +196,19 @@
 		{"setlevel", fun setlevel/1, "setlevel Level", "设置等级"},
 		{"sethp", fun sethp/1, "sethp hp", "设置血量"},
 		{"addtask", fun addtask/1, "addtask TaskID", "接受任务"},
+		{"resettask", fun resettask/1, "resettask TaskID", "重置任务"},
 		{"getalltask", fun getalltask/1, "getalltask", "查看已接受的任务ID"},
 		{"submittask", fun submittask/1, "submittask TaskID", "提交任务"},
 		{"submittask2", fun submittask2/1, "submittask TaskID", "提交任务"},
 		{"submittaskall", fun submitTaskAll/1, "submittaskall TaskID", "提交所有任务"},
 		{"wakeup", fun wakeup/1, "wakeup", "开启女神功能，旧有的觉醒技能挪到了器灵（原神器）系统"},
 		{"newmail", fun newmail/1, "newmail ToRoleName Title Content MailNum", "邮件相关GM命令"},
+		{"getmailitemall", fun getmailitemall/1, "getmailitemall", "提取所有附件"},
 		{"newsysmail", fun newsysmail/1, "newsysmail ToRoleName Title ItemUID1 ItemID1 ItemUID2 ItemID2 MoneyNumber", "发送一封系统邮件"},
 		{"maildiamond", fun maildiamond/1, "maildiamond number", "邮件给全服的人发送非绑定钻石"},
 		{"enterguildhome", fun enterguildhome/1, "enterguildhome targetGuildID", "进入目标军团驻地"},
 		{"useguildride", fun useguildride/1, "useguildride ID type", "使用游乐场设施 ID：设施ID type：1使用；2取消使用；3升级"},
+		{"pitguildride", fun pitguildride/1, "pitguildride", "检修游乐场设施 模拟凌晨4点对设备进行检修"},
 		%{"clearguildtask", fun clearguildtask/1, "clearguildtask", "清空放弃任务CD"},
 		%{"printguildtask", fun printguildtask/1, "printguildtask", "打印自己的任务列表"},
 		%{"updateguildtask", fun updateguildtask/1, "updateguildtask", "更新一个任务，仅采集与杀怪"},
@@ -224,7 +235,9 @@
 		{"tt2", fun tt2/1, "tt2", "无敌"},
 		{"addequip", fun addequip/1, "addequip level", "添加符合自身职业的装备到背包 指定等级"},
 		{"addpet", fun addpet/1, "addpet", "提供类似于tt得到的骑宠"},
+		{"querypet", fun querypet/1, "querypet petID", "查询骑宠属性(DEBUG打印)，看是否符合面板数据，无参时查询当前出战骑宠，成功返回ok，没有时返回none"},
 		{"robottt", fun robottt/1, "robottt", "机器人用的无敌"},
+		{"robotitem", fun robotitem/1, "robotitem", "机器人道具测试"},
 		{"addrob", fun addrob/1, "addrob", "添加一个机器人"},
 		{"queryrob", fun queryrob/1, "queryrob", "查询机器人"},
 		{"crack", fun crack/1, "crack", "开所有功能"},
@@ -260,6 +273,7 @@
 		{"entercross", fun entercross/1, "entercross", "进入离开跨服"},
 		{"clearpetraw", fun clearpetraw/1, "clearpetraw", "清除宠物转生"},
 		{"liveness", fun liveness/1, "liveness", "完成活跃项目"},
+		{"changemonsterpos", fun changemonsterpos/1, "changemonsterpos", "changemonsterpos"},
 		{"openslot", fun openslot/1, "openslot", "开启所有格子"},
 		{"clearitem", fun clearitem/1, "clearitem", "清除所有道具"},
 		{"clearmail", fun clearmail/1, "clearmail", "无条件删除所有邮件"},
@@ -303,7 +317,8 @@
 		{"signin_reward", fun signin_reward/1, "signin_reward", "领奖"},
 		{"signin_seven", fun signin_seven/1, "signin_seven", "七日签到"},
 
-		{"sevendayaim", fun sevendayaim/1, "sevendayaim", "七日目标"},
+		{"sevendayaim", fun sevendayaim/1, "sevendayaim ID", "七日目标 模拟领奖"},
+		{"sevendayaim2", fun sevendayaim2/1, "sevendayaim2 ID", "七日目标 查询进度"},
 		{"thirtydaylogingift", fun thirtydaylogingift/1, "thirtydaylogingift", "30日登录大礼包"},
 
 		%% 签到模块GM指令 end
@@ -321,10 +336,19 @@
 		{"cc", fun cc/1, "cc", "转职"},
 		{"run_method", fun run_method/1, "run_method", "运行服务器指定模块的函数"},
 		{"ladder1v1", fun ladder1v1/1, "ladder1v1", "执行竞技场测试"},
+		{"createhome", fun createhome/1, "createhome", "创建家园"},
+		{"enterhome", fun enterhome/1, "enterhome", "进入家园"},
+		{"homeup", fun homeup/1, "homeup", "家园升级"},
+		{"addstylish", fun addstylish/1, "addstylish", "增加华丽度"},
+		{"addcomfort", fun addcomfort/1, "addcomfort", "增加舒适度"},
+		{"addpopularity", fun addpopularity/1, "addpopularity", "增加人气"},
 		%% 副本系统GM指令
 		{"buyactioncount", fun buyactioncount/1, "buyActionCount CopyMapID", "购买副本次数"},
 		{"cleanladder1v1", fun cleanladder1v1/1, "cleanladder1v1", "清空竞技场进入次数和购买次数"},
-		{"cleancopycount", fun cleancopycount/1, "cleancopycount CopyMapID", "清空副本已经进入次数和购买次数"}
+		{"cleancopycount", fun cleancopycount/1, "cleancopycount CopyMapID", "清空副本已经进入次数和购买次数"},
+		%% 女主播设置
+		{"setupanchor", fun setupAnchor/1, "setupAnchor", "主播ID 列表"}
+		%% 地图类GM指令 end
 	]).
 
 %%55级GM指令，程序内部GM指令，不外提供
@@ -356,6 +380,22 @@
 		{"sa_enter", fun sa_enter/1, "sa_enter", "sa_enter"},
 		{"sp_skill", fun sp_skill/1, "sp_skill", "sp_skill"},
 
+
+		{"ss_q", fun ss_q/1, "ss_q", "查询当前地图有哪些线"},
+		{"ss_t", fun ss_t/1, "ss_t id", "切换地图线"},
+
+		{"homeplant", fun homeplant/1, "homeplant pos opType itemID", "家园种植区操作 [种植点, 操作类型, 可能的道具ID]"},
+		{"homeplanthelp", fun homeplanthelp/1, "homeplanthelp pos State isPestis health", "家园种植区指定作物各种状态 State[1幼苗2发育3成熟4枯萎]"},
+		{"homeplantquery", fun homeplantquery/1, "homeplantquery pos", "家园种植区 查询对应种植点作物状态"},
+
+		{"mb1", fun mb1/1, "mb1 type monsterID", "怪物图鉴_模拟客户端操作 type[1上线初始化 2请求全数据 3拍照 4解锁 5领奖] monsterID仅3、4、5需要"},
+		{"mb2", fun mb2/1, "mb2 type id", "怪物图鉴_查询目标状态 type[1查询怪物状态 2查询地图状态] id[怪物ID或者地图ID]"},
+		{"mb3", fun mb3/1, "mb3 monsterID type value", "怪物图鉴_设置目标怪物状态（强制设置，没有后续通知等操作） type[1是否拍照 2是否解锁 3是否领奖 4击杀数量] value 1表示是，0表示否，数量任意"},
+
+		{"race1", fun race1/1, "race1 type itemID", "跨服骑宠竞速_模拟客户端操作 type[1报名 2取消报名 3使用道具] itemID[仅在type为3时有效cfg_race_item.id]"},
+		{"race2", fun race2/1, "race2", "跨服骑宠竞速_强制开启活动 慎用，不合理使用会导致逻辑错乱"},
+		{"race3", fun race3/1, "race3 gatherID", "跨服骑宠竞速_触发采集物 gatherID[cfg_object.id]"},
+
 		%% 符文系统GM指令 begin
 		{"rune_addexp", fun rune_addexp/1, "", ""}, %% 调试用
 		%% 符文系统GM指令 end
@@ -372,11 +412,24 @@
 		{"identity_edit", fun identity_edit/1, "", ""}, %% 调试用
 		%% 身份证系统GM指令 end
 
+		{"gg", fun gg/1, "", ""}, %% 调试用
+		{"pg1", fun pg1/1, "", ""}, %% 调试用
+		{"pg2", fun pg2/1, "", ""}, %% 调试用
+
 		%% 新版好友系统GM指令 begin
 		{"friend2_add", fun friend2_add/1, "", ""}, %% 调试用
 		{"friend2_del", fun friend2_del/1, "", ""}, %% 调试用
 		{"friend2_exop", fun friend2_exop/1, "", ""}, %% 调试用
 		%% 新版好友系统GM指令 end
+
+		%% 跨服好友系统GM指令 begin
+		{"cf_add1", fun cf_add1/1, "", ""}, %% 调试用
+		{"cf_add2", fun cf_add2/1, "", ""}, %% 调试用
+		{"cf_del1", fun cf_del1/1, "", ""}, %% 调试用
+		{"cf_del2", fun cf_del2/1, "", ""}, %% 调试用
+		{"cf_chat", fun cf_chat/1, "", ""}, %% 调试用
+		{"cf_face", fun cf_face/1, "", ""}, %% 调试用
+		%% 跨服好友系统GM指令 end
 
 		%% 姻缘系统GM指令 begin
 		{"marriage_resetsr", fun marriage_resetsr/1, "marriage_resetsr", "重置夫妻技能和婚戒的属性，便于测试"},
@@ -400,6 +453,8 @@
 		{"map_useskill", fun map_useskill/1, "map_useskill codeA codeB skillID", ""},  %% 调试用
 		{"map_syncgrid", fun map_syncgrid/1, "map_syncgrid", "同步格子信息"}  %% 调试用
 		%% 地图类GM指令 end
+
+
 	]).
 
 -spec execGM(String) -> boolean() when
@@ -440,6 +495,7 @@ execGM(String) ->
 							false ->
 								io_lib:format("~p", [Result])
 						end,
+					?WARN_OUT("result:~ts", [Str]),
 					playerChat:onSystemChatMsg(Str)
 			end,
 
@@ -867,6 +923,11 @@ cleanladder1v1(Params) when erlang:length(Params) == 0 ->
 	playerDaily:reduceDailyCounter(?DailyType_Ladder1v1, 3, playerDaily:getDailyCounter(?DailyType_Ladder1v1, 3)),
 	ok.
 
+setupAnchor(Params) when erlang:length(Params) >= 1 ->
+
+	playerAnchor:setupAnchor(Params),
+	ok.
+
 recharge(Params) ->
 	[SValue1 | _Other1] = Params,
 %%	[SValue2|_Other2] = _Other1,
@@ -1149,7 +1210,11 @@ splititem(Params) when erlang:length(Params) >= 2 ->
 		changReason = ?ItemSourceGM,
 		reasonParam = 0
 	},
-	playerPackage:splitItem(GoodsUID, Num, true, Plog),
+	ItemID = case edb:readRecord(rec_item, GoodsUID) of
+				 [#rec_item{itemID = ID}] -> ID;
+				 _ -> 0
+			 end,
+	playerPackage:splitItem(GoodsUID, ItemID, Num, true, Plog),
 	ok.
 
 %%接受任务
@@ -1157,6 +1222,12 @@ addtask(Params) when erlang:length(Params) >= 1 ->
 	[SzTaskID | _] = Params,
 	{TaskID, _Rest} = string:to_integer(SzTaskID),
 	playerTask:acceptTask(TaskID, 0),
+	ok.
+
+resettask(Params) when erlang:length(Params) >= 1 ->
+	[SzTaskID | _] = Params,
+	{TaskID, _Rest} = string:to_integer(SzTaskID),
+	playerTask:resetTask(TaskID),
 	ok.
 
 getalltask(_) ->
@@ -1197,7 +1268,7 @@ submitTaskAll(Params) when erlang:length(Params) >= 1 ->
 	ok.
 %%开启觉醒功能
 wakeup(_Params) ->
-	playerGoddess:gmWakeUp(),
+%%	playerGoddess:gmWakeUp(),
 	ok.
 
 %% 查询交易行订单
@@ -1213,7 +1284,7 @@ querytrade(Params) when erlang:length(Params) >= 3 ->
 		itemList = [],
 		itemLvlMin = -1,
 		itemLvlMax = -1,
-		itemProfession = -1,
+		itemQuality = -1,
 		oneNumber = string_to_integer(SValue3)
 	},
 	playerTrade:queryTrade(R),
@@ -1357,8 +1428,8 @@ puttrade(Params) when erlang:length(Params) >= 8 ->
 		itemID = string_to_integer(SValue3),
 		sellNumber = 233,
 		sellTime = string_to_integer(SValue4),
-		silver = string_to_integer(SValue5),
-		gold = string_to_integer(SValue6),
+		gold = string_to_integer(SValue5),
+		diamond = string_to_integer(SValue6),
 		destRoleName = SValue7,
 		opCode = string_to_integer(SValue8)
 	},
@@ -1458,6 +1529,10 @@ querymail(Params) when erlang:length(Params) >= 1 ->
 	MailID = string_to_integer(SValue1),
 	Ret = playerMail:queryMail(MailID),
 	?DEBUG_OUT("queryMail:~p", [Ret]),
+	ok.
+
+getmailitemall(_Params) ->
+	playerMail:getMailItemAll(),
 	ok.
 
 queryallmail(Params) when erlang:length(Params) >= 0 ->
@@ -1596,12 +1671,14 @@ qn2(Params) when erlang:length(Params) =:= 0 ->
 	io_lib:format("Scene Player Count:~p", [Size]).
 
 %% 打开空气墙
-openkqq(Params) ->
+openkq(Params) ->
 	Msg =
 		case Params of
 			[SValue1 | _Other1] ->
+				?DEBUG_OUT("openkq:~ts", [SValue1]),
 				#pk_GS2U_BlockStatusChange{changes = [#pk_BlockStatusChange{blockName = SValue1, blockStatus = ?BlockNpc_Open}]};
 			_ ->
+				?DEBUG_OUT("openkq all d1~d10"),
 				#pk_GS2U_BlockStatusChange{
 					changes = [
 						#pk_BlockStatusChange{blockName = "d1", blockStatus = ?BlockNpc_Open},
@@ -1614,6 +1691,33 @@ openkqq(Params) ->
 						#pk_BlockStatusChange{blockName = "d8", blockStatus = ?BlockNpc_Open},
 						#pk_BlockStatusChange{blockName = "d9", blockStatus = ?BlockNpc_Open},
 						#pk_BlockStatusChange{blockName = "d10", blockStatus = ?BlockNpc_Open}
+					]
+				}
+		end,
+	playerMsg:sendNetMsg(Msg),
+	ok.
+
+%% 关闭空气墙
+closekq(Params) ->
+	Msg =
+		case Params of
+			[SValue1 | _Other1] ->
+				?DEBUG_OUT("closekq:~ts", [SValue1]),
+				#pk_GS2U_BlockStatusChange{changes = [#pk_BlockStatusChange{blockName = SValue1, blockStatus = ?BlockNpc_Close}]};
+			_ ->
+				?DEBUG_OUT("closekq all d1~d10"),
+				#pk_GS2U_BlockStatusChange{
+					changes = [
+						#pk_BlockStatusChange{blockName = "d1", blockStatus = ?BlockNpc_Close},
+						#pk_BlockStatusChange{blockName = "d2", blockStatus = ?BlockNpc_Close},
+						#pk_BlockStatusChange{blockName = "d3", blockStatus = ?BlockNpc_Close},
+						#pk_BlockStatusChange{blockName = "d4", blockStatus = ?BlockNpc_Close},
+						#pk_BlockStatusChange{blockName = "d5", blockStatus = ?BlockNpc_Close},
+						#pk_BlockStatusChange{blockName = "d6", blockStatus = ?BlockNpc_Close},
+						#pk_BlockStatusChange{blockName = "d7", blockStatus = ?BlockNpc_Close},
+						#pk_BlockStatusChange{blockName = "d8", blockStatus = ?BlockNpc_Close},
+						#pk_BlockStatusChange{blockName = "d9", blockStatus = ?BlockNpc_Close},
+						#pk_BlockStatusChange{blockName = "d10", blockStatus = ?BlockNpc_Close}
 					]
 				}
 		end,
@@ -1643,9 +1747,15 @@ queryobj(Params) when erlang:length(Params) >= 1 ->
 	RoleID = string_to_integer(SValue1),
 	case RoleID > 0 of
 		true ->
-			playerRPView:gm_QueryObjByRoleID(RoleID);
+			case core:queryOnLineRoleByRoleID(RoleID) of
+				#rec_OnlinePlayer{accountID = AID, code = Code, roleID = ID} ->
+					io_lib:format("queryobj success:accountID=~p, playerCode=~p, playerName=~ts, playerId=~p",
+						[AID, Code, playerNameUID:getPlayerNameByUID(ID), ID]);
+				_ ->
+					io_lib:format("queryobj failed:~p", [RoleID])
+			end;
 		_ ->
-			skip
+			"queryobj failed"
 	end.
 
 %% 查询目标的属性值
@@ -1766,6 +1876,20 @@ query(Params) when erlang:length(Params) >= 1 ->
 			"notFound other"
 	end.
 
+%% 查询当前所在跨服信息
+querycross(_) ->
+	case core:isCross() of
+		true ->
+			MapPid = playerState:getMapPid(),
+			MapLine = playerState:getMapLine(),
+			MapID = playerState:getMapID(),
+			Count = ets:info(playerState:getMapPlayerEts(), size),
+			?DEBUG_OUT("[DebugForCross] querycross ~w", [{MapID, MapLine, MapPid, Count}]),
+			{MapID, MapLine, MapPid, Count};
+		_ ->
+			normal
+	end.
+
 %% 设置自己的属性值
 setgroupid(Params) when erlang:length(Params) >= 1 ->
 	[SValue1 | _Other1] = Params,
@@ -1864,7 +1988,7 @@ arenamatch(Params) when erlang:length(Params) >= 1 ->
 	ok.
 
 acreward(Params) when erlang:length(Params) >= 0 ->
-	gsCrosOtp:dealWeekRewardToHd(),
+	gsCrosLogic:dealWeekRewardToHd(),
 	ok.
 
 entercrosserver(Params) when erlang:length(Params) >= 0 ->
@@ -1893,7 +2017,7 @@ ss(Params) when erlang:length(Params) >= 1 ->
 		#mapsettingCfg{type = ?MapTypeCopyMap} ->
 			playerCopyMap:resetCopyMap(Value),
 			%% 延时两秒钟进入副本
-			erlang:send_after(5000, self(), {gm_delayEnterCopyMap, Value}),
+			erlang:send_after(2000, self(), {gm_delayEnterCopyMap, Value}),
 			ok;
 		#mapsettingCfg{type = ?MapTypeBitplane, belongto = BelongTo} ->
 			case playerState:getMapID() =:= BelongTo of
@@ -1993,8 +2117,9 @@ startac(Params) when erlang:length(Params) >= 2 ->
 		phasetime = 0,
 		phase = ActivityPhase
 	},
+	?ERROR_OUT("~p startac down:~p, restart", [ ActivityType, ActivityPhase]),
 	psMgr:sendMsg2PS(?PsNameActivity, gm_start_activity, self(), {ActivityType, ActivityPhase}),
-	psMgr:sendMsg2PS(?PsNameActivityMgr, activityChangeMsg, [R]),
+	psMgr:sendMsg2PS(?PsNameActivityMgr, activityChangeMsg, R),
 	"startactivity ok".
 
 %% 创建一个混沌战场
@@ -2736,6 +2861,10 @@ useguildride(Params) when erlang:length(Params) >= 2 ->
 	[P2 | _] = T1,
 	playerGuildFairground:onUseRide(erlang:list_to_integer(P1), erlang:list_to_integer(P2)).
 
+%% 检修游乐场设施
+pitguildride(_Params) ->
+	psMgr:sendMsg2PS(?PsNameGuild, guildFairground_pit, 0).
+
 %%% 清空放弃任务CD
 %clearguildtask(Params) when erlang:length(Params) >= 0 ->
 %	RoleID = playerState:getRoleID(),
@@ -3004,7 +3133,7 @@ crack() ->
 	crack2(),
 
 	%%开启觉醒功能
-	playerGoddess:gmWakeUp(),
+%%	playerGoddess:gmWakeUp(),
 	ok.
 
 crack2() ->
@@ -3077,7 +3206,8 @@ tt(Params) when erlang:length(Params) >= 0 ->
 		end,
 
 	%% 角色等级
-	execGMCmd("setlevel", ["45"]),
+	MaxLevel = globalCfg:getPlayerMaxLevel(),
+	execGMCmd("setlevel", [erlang:integer_to_list(MaxLevel)]),
 
 	%% 翅膀
 	FunAddItem(4303, 4305, 1, 999),	%% 星石、月亮石、太阳石
@@ -3270,6 +3400,55 @@ addpet(_) ->
 	FunAddItem(1851, 1859, 1, 1),			%% 骑宠小队1
 	ok.
 
+querypet([]) ->
+	FunFind =
+		fun
+			(#recPetInfo{pet_status = Status, pet_id = ID}, {_, _}) when Status >= ?PetState_Battle_Show ->
+				{true, ID};
+			(_, Acc) ->
+				Acc
+		end,
+	case misc:foldlEx(FunFind, {false, 0}, playerState:getPets()) of
+		{true, PetID} ->
+			P = playerPetProp:getPetProps(PetID),
+			FunForce =
+				fun
+					(#recPetInfo{pet_force = F, pet_id = ID}, {_, _}) ->
+						case ID =:= PetID of
+							true ->
+								{true, F};
+							_ ->
+								{false, 0}
+						end
+				end,
+			{_, F} = misc:foldlEx(FunForce, {false, 0}, playerState:getPets()),
+			?DEBUG_OUT("[DebugForPetTerritory] ID:~wF:~w~n~p", [PetID, F, P]),
+			ok;
+		_ ->
+			none
+	end;
+querypet(Params) ->
+	[PetIDStr | _] = Params,
+	PetID = string_to_integer(PetIDStr),
+	case playerPetProp:getPetProps(PetID) of
+		[] ->
+			none;
+		P ->
+			FunForce =
+				fun
+					(#recPetInfo{pet_force = F, pet_id = ID}, {_, _}) ->
+						case ID =:= PetID of
+							true ->
+								{true, F};
+							_ ->
+								{false, 0}
+						end
+				end,
+			{_, F} = misc:foldlEx(FunForce, {false, 0}, playerState:getPets()),
+			?DEBUG_OUT("[DebugForPetTerritory] ID:~wF:~w~n~p", [PetID, F, P]),
+			ok
+	end.
+
 addrob(Params) when erlang:length(Params) >= 0 ->
 	RoleID = playerState:getRoleID(),
 	Pid = playerRob:createRob(RoleID),
@@ -3329,6 +3508,36 @@ robottt(Params) when erlang:length(Params) >= 0 ->
 	execGMCmd("adddef", ["100000000"]),
 	execGMCmd("addspeed", ["20"]),
 	ok.
+
+robotitem(Params) when erlang:length(Params) >= 3 ->
+	[SValue1 | Other1] = Params,
+	[SValue2 | Other2] = Other1,
+	[SValue3 | _Other3] = Other2,
+	ItemID = string_to_integer(SValue1),
+	ItemNumber = string_to_integer(SValue2),
+	OpType = string_to_integer(SValue3),
+	case OpType of
+		1 ->
+			%% 创建
+			PLog = #recPLogTSItem{
+				old = 0,
+				new = 1,
+				change = 1,
+				target = ?PLogTS_System,
+				source = ?PLogTS_PlayerSelf,
+				gold = 0,
+				goldtype = 0,
+				changReason = 0,
+				reasonParam = 1313
+			},
+			playerPackage:addGoodsAndMail(ItemID, ItemNumber, true, 0, PLog);
+		2 ->
+			%% 使用
+			playerPackage:useItemByID(ItemID, ItemNumber, false)
+	end,
+	ok.
+
+
 %%-endif.
 
 %% 设置地图允许进入最大人数限制(仅测试用)
@@ -3559,9 +3768,9 @@ addexp(Params) when erlang:length(Params) >= 1 ->
 
 %%增加翅膀经验
 addwingexp(Params) when erlang:length(Params) >= 1 ->
-	[SValue1 | _Other1] = Params,
-	Exp = string_to_integer(SValue1),
-	playerWing:useWingItem(1, 0, Exp, Exp),
+%%	[SValue1 | _Other1] = Params,
+%%	Exp = string_to_integer(SValue1),
+%%	playerWing:useWingItem(1, 0, Exp, Exp),
 	ok.
 %%增加经验
 settalentflag(Params) when erlang:length(Params) >= 1 ->
@@ -3761,6 +3970,17 @@ clearpetraw(Params) when erlang:length(Params) >= 2 ->
 	playerPet:gmDelPetTurnRaw(ID, R),
 	ok.
 
+changemonsterpos(Params) when erlang:length(Params) >= 2 ->
+	[XS | Other0] = Params,
+	[YS | _Other1] = Other0,
+	X = string_to_integer(XS),
+	Y = string_to_integer(YS),
+	Code = playerState:getSelectTargetCode(),
+	psMgr:sendMsg2PS(playerState:getMapPid(), tickUpdateMonsterPos, {Code, X, Y}),
+	Msg = #pk_GS2U_MonsterMoveSync{monsterPosList = [#pk_DateMonsterPos{code = Code, x = X, z = Y}]},
+	playerMsg:sendNetMsg(Msg),
+	ok.
+
 liveness(Params) when erlang:length(Params) >= 1 ->
 	[LivenessIDStr | _Other] = Params,
 	LivenessID = string_to_integer(LivenessIDStr),
@@ -3769,7 +3989,7 @@ liveness(Params) when erlang:length(Params) >= 1 ->
 			playerliveness:addTotalLivenessValue(LivenessID);
 		_ ->
 			case getCfg:getCfgPStack(cfg_dailyActive, LivenessID) of
-				#dailyActiveCfg{limit = Limit} ->
+				#dailyActiveCfg{limit = _Limit} ->
 					playerliveness:onFinishLiveness(LivenessID, 1);
 				_ ->
 					"error liveness ID"
@@ -4166,15 +4386,41 @@ signin_seven(Params) ->
 	ok.
 
 sevendayaim(Params) ->
+	[P1 | T1] = Params,
+	ID = erlang:list_to_integer(P1),
+	case T1 of
+		[] ->
+			playerSevenDayAim:reward(ID);
+		_ ->
+			L1 = playerPropSync:getProp(?SerProp_SevenDayAimAlreadyReward),
+			FunDelete =
+				fun
+					(V, R) when V =:= ID ->
+						R;
+					(V, R) ->
+						[V | R]
+				end,
+			L2 = lists:foldl(FunDelete, [], L1),
+			playerPropSync:setAny(?SerProp_SevenDayAimAlreadyReward, L2)
+	end,
+	ok.
+
+sevendayaim2([]) ->
+	TimeNowUTC = time:getSyncTime1970FromDBS(),
+	Date = time:convertSec2DateTime(TimeNowUTC),
+	TimeBeginOfDay = time:getDayBeginSeconds(Date) + ?ResetTimeHour * 3600 - ?SECS_FROM_0_TO_1970,
+	TimeBeginWill = TimeBeginOfDay - 3600 * 24 * 6,
+	playerPropSync:setInt(?SerProp_SevenDayAimTimeBegin, TimeBeginWill);
+
+sevendayaim2(Params) ->
 	[P1 | _] = Params,
 	ID = erlang:list_to_integer(P1),
-	playerSevenDayAim:reward(ID),
-	ok.
+	playerSevenDayAim:queryForGM(ID).
 
 thirtydaylogingift(Params) ->
 	[P1 | _] = Params,
 	ID = erlang:list_to_integer(P1),
-	%playerThirtyDayLoginGift:reward(ID),
+	playerThirtyDayLoginGift:reward(ID),
 	ok.
 
 % 查询 0查询领地信息；2查询掠夺记录；3查询防守记录
@@ -4360,7 +4606,7 @@ marriage_build(Params) ->
 						[] ->
 							playerMarriage:wantBuild(TargetRoleID, erlang:list_to_integer(ItemIDString), []);
 						_ ->
-							playerMarriage:build({TargetRoleID, true})
+							playerMarriage:build({TargetRoleID, gm})
 					end;
 				_ ->
 					?ERROR_OUT("marriage_build invalid Target! can not select yourself!")
@@ -4445,7 +4691,7 @@ marriage_accept(_Params) ->
 	playerMarriageTask:acceptTask().
 
 marriage_submit(_Params) ->
-	playerMarriageTask:submitTask().
+	playerMarriageTask:leaderSubmitTask(0).
 
 marriage_resettask([]) ->
 	playerMarriageTask:resetTask(false);
@@ -4475,6 +4721,155 @@ sp_skill(_) ->
 		_ ->
 			skip
 	end.
+
+ss_q(_Params) ->
+	playerScene:ss_q().
+ss_t(Params) when erlang:length(Params) >= 1 ->
+	[P1_ | _] = Params,
+	P1 = erlang:list_to_integer(P1_),
+	playerScene:ss_t(P1).
+
+homeplant(Params) when erlang:length(Params) >= 2 ->
+	% 1.解析参数
+	[P1_ | T1] = Params,
+	[P2_ | T2] = T1,
+	P1 = erlang:list_to_integer(P1_),		% Pos 种植点
+	P2 = erlang:list_to_integer(P2_),		% OpType 操作类型
+	P3 =
+		case T2 of
+			[] ->
+				0;
+			[P3_ | _] ->
+				erlang:list_to_integer(P3_)	% ItemID 可能的道具ID
+		end,
+	% 2.查找当前角色所在家园数据
+	MapPid = playerState:getMapPid(),
+	case homeInterface:queryHomeMapForGM(MapPid) of
+		{0, _} ->
+			skip;	%% 不在家园中
+		{HomeID, 2} ->	%% 在庭院
+			playerHomePlant:msg(#pk_U2GS_HomePlantOperate_Request{
+				homeID = HomeID,
+				areaType = 4,	%% 对种植区A操作
+				pos = P1,
+				operateType = P2,
+				itemID = P3
+			});
+		_ ->
+			skip	%% 不在庭院中
+	end.
+
+homeplanthelp(Params) when erlang:length(Params) >= 2 ->
+	% 1.解析参数
+	[P1_ | T1] = Params,
+	[P2_ | T2] = T1,
+	P1 = erlang:list_to_integer(P1_),		% Pos 种植点
+	P2 = erlang:list_to_integer(P2_),		% State 1幼苗2发育3成熟4枯萎
+	{P3, P4} =								% IsPestis 是否虫害； Health 健康值
+		case T2 of
+			[] ->
+				{0, 100};
+			[P3_ | []] ->
+				{erlang:list_to_integer(P3_), 100};
+			[P3_ | [P4_ | _]] ->
+				{erlang:list_to_integer(P3_), erlang:list_to_integer(P4_)}
+		end,
+	% 2.查找当前角色所在家园数据
+	MapPid = playerState:getMapPid(),
+	case homeInterface:queryHomeMapForGM(MapPid) of
+		{0, _} ->
+			skip;	%% 不在家园中
+		{HomeID, 2} ->	%% 在庭院
+			playerHomePlant:gmUpdatePlant({{HomeID, 4, P1}, P2, P3, P4});
+		_ ->
+			skip	%% 不在庭院中
+	end.
+
+%% 家园种植区 查询对应种植点作物状态
+homeplantquery(Params) when erlang:length(Params) >= 1 ->
+	[P1_ | _T1] = Params,
+	P1 = erlang:list_to_integer(P1_),		% Pos 种植点
+	MapPid = playerState:getMapPid(),
+	case homeInterface:queryHomeMapForGM(MapPid) of
+		{0, _} ->
+			skip;	%% 不在家园中
+		{HomeID, 2} ->	%% 在庭院
+			playerHomePlant:gmQueryPlant({HomeID, 4, P1});
+		_ ->
+			skip	%% 不在庭院中
+	end.
+
+%% 怪物图鉴_模拟客户端操作
+%% type[1上线初始化 2请求全数据 3拍照 4解锁 5领奖] monsterID仅3、4、5需要
+mb1(Params) when erlang:length(Params) >= 1 ->
+	[P1_ | T1] = Params,
+	P2 =
+		case T1 of
+			[] ->
+				0;
+			[P2_ | _] ->
+				erlang:list_to_integer(P2_)
+		end,
+	case erlang:list_to_integer(P1_) of
+		1 -> playerMonsterBook:init();
+		2 -> playerMonsterBook:msg(#pk_U2GS_MonsterBook_Request{});
+		3 -> playerMonsterBook:msg(#pk_U2GS_MonsterBookSnap_Request{id = P2});
+		4 -> playerMonsterBook:msg(#pk_U2GS_MonsterBookUnlock_Request{id = P2});
+		5 -> playerMonsterBook:msg(#pk_U2GS_MonsterBookReward_Request{id = P2});
+		_ ->
+			skip
+	end.
+
+%% 怪物图鉴_查询目标状态
+%% type[1查询怪物配置 2查询怪物状态 1查询地图配置 2查询地图状态] id[怪物ID或者地图ID]
+mb2(Params) when erlang:length(Params) >= 2 ->
+	[P1_ | T1] = Params,
+	[P2_ | _] = T1,
+	P1 = erlang:list_to_integer(P1_),
+	P2 = erlang:list_to_integer(P2_),
+	playerMonsterBook:gmQuery(P1, P2).
+
+%% 怪物图鉴_设置目标怪物状态（强制设置，没有后续通知等操作）
+%% monsterID type[1是否拍照 2是否解锁 3是否领奖 4击杀数量] value 1表示是，0表示否，数量任意
+mb3(Params) when erlang:length(Params) >= 3 ->
+	[P1_ | T1] = Params,
+	[P2_ | T2] = T1,
+	[P3_ | _] = T2,
+	P1 = erlang:list_to_integer(P1_),
+	P2 = erlang:list_to_integer(P2_),
+	P3 = erlang:list_to_integer(P3_),
+	playerMonsterBook:gmSetMonster(P1, P2, P3).
+
+%% 跨服骑宠竞速_模拟客户端操作
+%% type[1报名 2取消报名 3使用道具] itemID[仅在type为3时有效cfg_race_item.id]
+race1(Params) when erlang:length(Params) >= 1 ->
+	[P1_ | T1] = Params,
+	case erlang:list_to_integer(P1_) of
+		1 ->
+			playerRace:msg(#pk_U2GS_RaceApply_Request{});
+		2 ->
+			playerRace:msg(#pk_U2GS_RaceCancel_Request{});
+		3 ->
+			[P2_ | _T2] = T1,
+			P2 = erlang:list_to_integer(P2_),
+			playerRace:msg(#pk_U2GS_RaceMapItem_Request{itemID = P2});
+		_ ->
+			skip
+	end.
+
+%% 跨服骑宠竞速_强制开启活动
+%% 慎用，不合理使用会导致逻辑错乱
+race2(_Params) ->
+	activity:setActivitySwitch(?ActivityType_CrossRace, true),	%% 首先在本服将开关打开
+	startac( ["16", "1"]),										%% 在本服开启报名阶段
+	core:sendMsgToActivityMgrCross(gm, race2).					%% 通知跨服开启活动
+
+%% 跨服骑宠竞速_触发采集物
+%% gatherID[cfg_object.id]
+race3(Params) when erlang:length(Params) >= 1 ->
+	[P1_ | _T1] = Params,
+	P1 = erlang:list_to_integer(P1_),
+	playerRace:gatherSuccess(P1).
 
 identity_edit(Params) ->
 	{P1, P2, P3} =
@@ -4513,10 +4908,40 @@ identity_edit(Params) ->
 			playerIdentity:editIdentity(P1, {P2, P3});
 		?IDIT_LOCATION ->
 			playerIdentity:editIdentity(P1, {P2, P3});
-		?IDIT_TAGS ->
-			playerIdentity:editIdentity(P1, P2);
 		_ ->
 			error
+	end.
+
+gg(Params) when erlang:length(Params) >= 1 ->
+	case getSelectRoleID() of
+		0 ->
+			skip;
+		ID ->
+			[P1 | T] = Params,
+			P2Real =
+				case T of
+					[] ->
+						1;
+					[P2 | _] ->
+						erlang:list_to_integer(P2)
+				end,
+			playerIdentity:giveGift(ID, erlang:list_to_integer(P1), P2Real, []),
+			ok
+	end.
+
+pg1(Params) when erlang:length(Params) >= 1 ->
+	[P1 | _] = Params,
+	playerGuild:suppSupp(erlang:list_to_integer(P1)),
+	ok.
+
+pg2(Params) when erlang:length(Params) >= 1 ->
+	case getSelectRoleID() of
+		0 ->
+			skip;
+		ID ->
+			[P1 | _] = Params,
+			playerGuild:suppGive(ID, erlang:list_to_integer(P1)),
+			ok
 	end.
 
 friend2_add(Params) ->
@@ -4529,7 +4954,7 @@ friend2_add(Params) ->
 		1 ->
 			playerFriend2:addTemp(ID);
 		2 ->
-			playerFriend2:ban(ID);
+			playerFriend2:ban(ID, false);
 		_ ->
 			error
 	end.
@@ -4554,6 +4979,73 @@ friend2_exop(Params) ->
 	TargetCode = playerState:getSelectTargetCode(),
 	#rec_OnlinePlayer{roleID = ID} = playerMgrOtp:getOnlinePlayerInfoByCode(TargetCode),
 	playerFriend2:formalOP(ID, erlang:list_to_integer(P1)).
+
+
+cf_add1(_Params) ->
+	case getSelectRoleID() of
+		0 ->
+			skip;
+		ID ->
+			playerFriend2Cross:add(ID),
+			ok
+	end.
+cf_add2(_Params) ->
+	case getSelectRoleID() of
+		0 ->
+			skip;
+		ID ->
+			playerFriend2Cross:add2(ID, true),
+			ok
+	end.
+cf_del1(_Params) ->
+	case getSelectRoleID() of
+		0 ->
+			skip;
+		ID ->
+			playerFriend2Cross:del(ID),
+			ok
+	end.
+cf_del2(_Params) ->
+	case getSelectRoleID() of
+		0 ->
+			playerFriend2Cross:add2(0, false),
+			ok;
+		ID ->
+			playerFriend2Cross:add2(ID, false),
+			ok
+	end.
+cf_chat(_Params) ->
+	case getSelectRoleID() of
+		0 ->
+			skip;
+		ID ->
+			Msg = #pk_U2GS_Friend2FormalChat_Request{
+				receiverID = ID,
+				content = erlang:binary_to_list(unicode:characters_to_binary("跨服好友测试聊天内容")),
+				time = time:getSyncUTCTimeFromDBS()
+			},
+			playerFriend2:chat(Msg),
+			ok
+	end.
+cf_face(_Params) ->
+	case getSelectRoleID() of
+		0 ->
+			skip;
+		ID ->
+			case core:queryRoleKeyInfoByRoleID(ID) of
+				#?RoleKeyRec{
+					face = []
+				} ->
+					skip;
+				#?RoleKeyRec{
+					face = Face
+				} ->
+					?DEBUG_OUT("[DebugForCross] face ~w", [ID]),
+					playerIdentity:picDownloadBegin({Face, ID});
+				_ ->
+					skip
+			end
+	end.
 
 rune_addexp(Params) ->
 	[P1 | T] = Params,
@@ -4785,6 +5277,29 @@ ladder1v1(_) ->
 	playerLadder1v1:rankSortRiseAward(2001, 1712).
 %%	playerLadder1v1:rankSortRiseAward(2500,2300).
 
+createhome([Param]) ->
+	AdminAreaID = string_to_integer(Param),
+	playerHome:createHome(AdminAreaID).
+
+enterhome([Param]) ->
+	Flag = string_to_integer(Param),
+	playerHome:enterHome(Flag).
+
+homeup(Param) ->
+	Lvl = case Param of
+			  [LvlS] -> string_to_integer(LvlS);
+			  _ -> 0
+		  end,
+	playerHome:gm_homeup(Lvl).
+addstylish([Param]) ->
+	V = string_to_integer(Param),
+	playerHome:addStylish(V).
+addcomfort([Param]) ->
+	V = string_to_integer(Param),
+	playerHome:addComfort(V).
+addpopularity([Param]) ->
+	V = string_to_integer(Param),
+	playerHome:addPopularity(V).
 
 getactionpoint(_) ->
 	playerActionPoint:getActionPoint().
@@ -4835,6 +5350,12 @@ fashionSuit(A) ->
 resetSkill(_) ->
 	playerSkillLearn:resetSkill().
 
+bss(A) ->
+	[Key | Params] = A,
+	Text = stringCfg:getString(list_to_atom(Key), Params) ,
+	core:sendBroadcastNotice(Text).
+
+
 cc(A) ->
 	[NewCareer | _] = A,
 	playerCareerChange:change(list_to_integer(NewCareer)).
@@ -4853,6 +5374,23 @@ skipSkill(A)->
 	[Flag | _] = A,
 	playerState:setSkipSkillCheck(misc:convertBoolFromInt(list_to_integer(Flag))).
 
+
+
+
+-spec getSelectRoleID() -> uint64().
+getSelectRoleID() ->
+	TargetCode = playerState:getSelectTargetCode(),
+	case codeMgr:getObjectTypeByCode(TargetCode) of
+		?ObjTypePlayer ->
+			case playerMgrOtp:getOnlinePlayerInfoByCode(TargetCode) of
+				#rec_OnlinePlayer{roleID = TargetRoleID} ->
+					TargetRoleID;
+				_ ->
+					0
+			end;
+		_ ->
+			0
+	end.
 
 
 

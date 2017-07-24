@@ -10,6 +10,7 @@
 -author("tiancheng").
 
 -include("guildPrivate.hrl").
+-include("cfg_guild_ride.hrl").
 
 %% API
 -export([
@@ -27,25 +28,30 @@
 	getGuildLvlByExp/1,
 	getOnlinePidList/1,
 	getGuildLeaderRoleID/1,
-    getGuildMember/1,
+	getGuildMember/1,
 	getGuildMember/2,
 	deleteGuild/1,
 	guildRankFreshSuccess/1,
 	getGuildLevelMaxNumber/2,
 	targetGuildIsDelete/1,
 	sendMail/8,
-    updateGuildMemberAndForce/3,
-    checkGuildIsDelete/0,
-    repairGuildData/0,
-    checkrepairGuildData/0,
+	updateGuildMemberAndForce/3,
+	checkGuildIsDelete/0,
+	repairGuildData/0,
+	checkrepairGuildData/0,
 	getGuildMemberByRoleID/1,
 	getGuildNameByRoleID/1,
 
-	useRide/2,				%% 游乐场_使用设施
-	useRide_time/1,			%% 游乐场_计时消息
-	tickForFairground/0,	%% 游乐场_长心跳
-	freshRide/1,			%% 刷新游乐场设施
-	maintainRide/0			%% 游乐场_维护
+	useRide/2,                %% 游乐场_使用设施
+	useRide_time/1,            %% 游乐场_计时消息
+	tickForFairground/0,    %% 游乐场_长心跳
+	freshRide/1,            %% 游乐场_刷新游乐场设施
+	maintainRide/0,            %% 游乐场_维护
+	tryOpenRide/2,            %% 游乐场_家族升级时尝试开放等级为0的设施
+
+	suppSupp/1,                %% 碎片祈愿_发布祈愿
+	suppGive/1,                %% 碎片祈愿_赠送碎片
+	getGuildDenoter/1
 ]).
 
 %% 去掉已经超时的申请列表
@@ -88,146 +94,147 @@ deleteTimeOutRequestRole() ->
 %% 检查并修复军团数据(如果数据未改变，则最大60分钟检查一次，如果有改变，根据改变的军团多少逐渐递减，时间最小为1分钟)
 -spec checkrepairGuildData() -> ok.
 checkrepairGuildData() ->
-    NT = time:getUTCNowSec(),
-    {LT, DiffMinute} = guildState:getNextCheckGuildDataTime(),
-    case NT - LT >= DiffMinute * 60 of
-        true ->
-            {_GuildNumber, ChangeNumber} = repairGuildData(),
-            NewDiff =
-                case ChangeNumber =:= 0 of
-                    true -> erlang:min(DiffMinute + 1, 60);
-                    _ -> erlang:max(DiffMinute - 1, 1)
-                end,
-            guildState:setNextCheckGuildDataTime({NT, NewDiff}),
-            ok;
-        _ ->
-            skip
-    end,
-    ok.
+	NT = time:getUTCNowSec(),
+	{LT, DiffMinute} = guildState:getNextCheckGuildDataTime(),
+	case NT - LT >= DiffMinute * 60 of
+		true ->
+			{_GuildNumber, ChangeNumber} = repairGuildData(),
+			NewDiff =
+				case ChangeNumber =:= 0 of
+					true -> erlang:min(DiffMinute + 1, 60);
+					_ -> erlang:max(DiffMinute - 1, 1)
+				end,
+			guildState:setNextCheckGuildDataTime({NT, NewDiff}),
+			ok;
+		_ ->
+			skip
+	end,
+	ok.
 
 %% 修复军团数据
 -spec repairGuildData() -> {GuildNumber::uint(), ChangeNumber::uint()}.
 repairGuildData() ->
-    ?LOG_OUT("repairGuildData start..."),
-    FMember =
-        fun(#rec_guild_member{roleID = RoleID}, {Num, Force}) ->
-            PlayerForce = core:queryPlayerMaxForce(RoleID),
-            {Num + 1, Force + PlayerForce}
-        end,
-    FGuild =
-        fun(#rec_guild{guildID = GuildID} = Guild, {GuildNum, ChangeNum}) ->
-            MemberList = getGuildMember(GuildID),
-            {Number, AllForce} = lists:foldl(FMember, {0, 0}, MemberList),
+	?LOG_OUT("repairGuildData start..."),
+	FMember =
+		fun(#rec_guild_member{roleID = RoleID}, {Num, Force}) ->
+			PlayerForce = core:queryPlayerMaxForce(RoleID),
+			{Num + 1, Force + PlayerForce}
+		end,
+	FGuild =
+		fun(#rec_guild{guildID = GuildID} = Guild, {GuildNum, ChangeNum}) ->
+			MemberList = getGuildMember(GuildID),
+			{Number, AllForce} = lists:foldl(FMember, {0, 0}, MemberList),
 
-            NewGuild = Guild#rec_guild{member = Number, fightForce = AllForce},
-            NewChange =
-                case NewGuild =:= Guild of
-                    true ->
-                        ChangeNum;
-                    _ ->
-                        ?LOG_OUT("guild change:~p", [GuildID]),
-                        ets:update_element(rec_guild, GuildID,
-                            [
-                                {#rec_guild.member, NewGuild#rec_guild.member},
-                                {#rec_guild.fightForce, NewGuild#rec_guild.fightForce}
-                            ]),
-                        saveToMySql(NewGuild),
-                        ChangeNum + 1
-                end,
-            {GuildNum + 1, NewChange}
-        end,
-    {GuildNumber, ChangeNumber} = ets:foldl(FGuild, {0, 0}, rec_guild),
-    ?LOG_OUT("repairGuildData end, repair num [~p/~p]", [ChangeNumber, GuildNumber]),
-    {GuildNumber, ChangeNumber}.
+			NewGuild = Guild#rec_guild{member = Number, fightForce = AllForce},
+			NewChange =
+				case NewGuild =:= Guild of
+					true ->
+						ChangeNum;
+					_ ->
+						?LOG_OUT("guild change:~p", [GuildID]),
+						ets:update_element(rec_guild, GuildID,
+										   [
+											   {#rec_guild.member, NewGuild#rec_guild.member},
+											   {#rec_guild.fightForce, NewGuild#rec_guild.fightForce}
+										   ]),
+						saveToMySql(NewGuild),
+						ChangeNum + 1
+				end,
+			{GuildNum + 1, NewChange}
+		end,
+	{GuildNumber, ChangeNumber} = ets:foldl(FGuild, {0, 0}, rec_guild),
+	?LOG_OUT("repairGuildData end, repair num [~p/~p]", [ChangeNumber, GuildNumber]),
+	{GuildNumber, ChangeNumber}.
 
 %% 检查军团是否需要解散
 -spec checkGuildIsDelete() -> ok.
 checkGuildIsDelete() ->
-    case getCfg:getCfgByKey(cfg_globalsetup, guild_member_latelylogintime) of
-        #globalsetupCfg{setpara = [CDS]} ->
-            LatelyTimeList = guildState:getGuildUpdateTime(),
-            NowTime = time:getSyncTime1970FromDBS(),
-            F =
-                fun(#rec_guild{guildID = GuildID}, AccList) ->
-                    NeedVerification =
-                        case lists:keyfind(GuildID, 1, LatelyTimeList) of
-                            {GuildID, LatelyUpdateTime} ->
-                                case NowTime - LatelyUpdateTime >= CDS of
-                                    true ->
-                                        true;
-                                    _ ->
-                                        {GuildID, LatelyUpdateTime}
-                                end;
-                            _ ->
-                                true
-                        end,
+	case getCfg:getCfgByKey(cfg_globalsetup, guild_member_latelylogintime) of
+		#globalsetupCfg{setpara = [CDS]} ->
+			LatelyTimeList = guildState:getGuildUpdateTime(),
+			NowTime = time:getSyncTime1970FromDBS(),
+			F =
+				fun(#rec_guild{guildID = GuildID}, AccList) ->
+					NeedVerification =
+						case lists:keyfind(GuildID, 1, LatelyTimeList) of
+							{GuildID, LatelyUpdateTime} ->
+								case NowTime - LatelyUpdateTime >= CDS of
+									true ->
+										true;
+									_ ->
+										{GuildID, LatelyUpdateTime}
+								end;
+							_ ->
+								true
+						end,
 
-                    case NeedVerification of
-                        true ->
-                            LUTime = getGuildMemberLatelyUpdateTime(GuildID),
-                            case NowTime - LUTime >= CDS of
-                                true ->
-                                    guildBase:onDeleteGuild(GuildID, ?DeleteGuildReason_BD),
-                                    AccList;
-                                _ ->
-                                    [{GuildID, LUTime} | AccList]
-                            end;
-                        V ->
-                            [V | AccList]
-                    end
-                end,
-            NewLatelyTimeList = ets:foldl(F, [], rec_guild),
-            guildState:setGuildUpdateTime(NewLatelyTimeList);
-        _ ->
-            ?ERROR_OUT("checkGuildIsDelete not config:guild_member_latelylogintime"),
-            skip
-    end,
-    ok.
+					case NeedVerification of
+						true ->
+							LUTime = getGuildMemberLatelyUpdateTime(GuildID),
+							case NowTime - LUTime >= CDS of
+								true ->
+									?LOG_OUT("checkGuildIsDelete guildID:~w LUTime:~w will onDeleteGuild", [GuildID, LUTime]),
+									guildBase:onDeleteGuild(GuildID, ?DeleteGuildReason_BD),
+									AccList;
+								_ ->
+									[{GuildID, LUTime} | AccList]
+							end;
+						V ->
+							[V | AccList]
+					end
+				end,
+			NewLatelyTimeList = ets:foldl(F, [], rec_guild),
+			guildState:setGuildUpdateTime(NewLatelyTimeList);
+		_ ->
+			?ERROR_OUT("checkGuildIsDelete not config:guild_member_latelylogintime"),
+			skip
+	end,
+	ok.
 
 %% 获取所有成员中，最近的一次更新时间
 getGuildMemberLatelyUpdateTime(GuildID) ->
-    L = getGuildMember(GuildID),
-    F =
-        fun(#rec_guild_member{roleID = RoleID}, LatelyTime) ->
-            case core:queryRoleKeyInfoByRoleID(RoleID) of
-                #?RoleKeyRec{lastUpdateTime = UT} when UT > LatelyTime ->
-                    UT;
-                _ ->
-                    LatelyTime
-            end
-        end,
-    lists:foldl(F, 0, L).
+	L = getGuildMember(GuildID),
+	F =
+		fun(#rec_guild_member{roleID = RoleID}, LatelyTime) ->
+			case core:queryRoleKeyInfoByRoleID(RoleID) of
+				#?RoleKeyRec{lastUpdateTime = UT} when UT > LatelyTime ->
+					UT;
+				_ ->
+					LatelyTime
+			end
+		end,
+	lists:foldl(F, 0, L).
 
 %% 更新军团人数和战斗力
 updateGuildMemberAndForce(GuildID, RoleID, IsAdd) ->
-    case ets:lookup(rec_guild, GuildID) of
-        [#rec_guild{member = Member, fightForce = Force} = Guild] ->
-            PlayerForce = core:queryPlayerMaxForce(RoleID),
-            case IsAdd of
-                true ->
-                    ets:update_element(rec_guild, GuildID, [{#rec_guild.member, Member+1},{#rec_guild.fightForce,PlayerForce+Force}]),
-                    saveToMySql(Guild#rec_guild{member = Member+1, fightForce = PlayerForce+Force}),
-                    ok;
-                _ ->
-                    ets:update_element(rec_guild, GuildID, [{#rec_guild.member, Member-1},{#rec_guild.fightForce,Force-PlayerForce}]),
-                    saveToMySql(Guild#rec_guild{member = Member-1, fightForce = Force-PlayerForce}),
-                    ok
-            end;
-        _ ->
-            skip
-    end,
-    ok.
+	case ets:lookup(rec_guild, GuildID) of
+		[#rec_guild{member = Member, fightForce = Force} = Guild] ->
+			PlayerForce = core:queryPlayerMaxForce(RoleID),
+			case IsAdd of
+				true ->
+					ets:update_element(rec_guild, GuildID, [{#rec_guild.member, Member+1},{#rec_guild.fightForce,PlayerForce+Force}]),
+					saveToMySql(Guild#rec_guild{member = Member+1, fightForce = PlayerForce+Force}),
+					ok;
+				_ ->
+					ets:update_element(rec_guild, GuildID, [{#rec_guild.member, Member-1},{#rec_guild.fightForce,Force-PlayerForce}]),
+					saveToMySql(Guild#rec_guild{member = Member-1, fightForce = Force-PlayerForce}),
+					ok
+			end;
+		_ ->
+			skip
+	end,
+	ok.
 
 %% 能否创建工会
 -spec canCreateGuild(RoleID::uint(), GuildName::list()) -> boolean().
 canCreateGuild(RoleID, GuildName) ->
-    case ets:lookup(rec_guild_member, RoleID) of
-        [] ->
-            MS = ets:fun2ms(fun(G) when G#rec_guild.guildName =:= GuildName -> G end),
-            ets:select(rec_guild, MS) =:= [];
-        _ ->
-            false
-    end.
+	case ets:lookup(rec_guild_member, RoleID) of
+		[] ->
+			MS = ets:fun2ms(fun(G) when G#rec_guild.guildName =:= GuildName -> G end),
+			ets:select(rec_guild, MS) =:= [];
+		_ ->
+			false
+	end.
 
 %% 更新到数据库
 -spec saveToMySql(Msg::tuple()) -> ok.
@@ -263,36 +270,36 @@ binaryStringToList(Other) ->
 %% 判断能否加入工会
 -spec canJoinGuild(GuildID::uint(), RoleID::uint()) -> boolean().
 canJoinGuild(GuildID, RoleID) ->
-    case ets:lookup(rec_guild_member, RoleID) of
-        [#rec_guild_member{}] ->
-            %% 已经加入，且是正式成员
-            false;
-        _ ->
-            case ets:lookup(rec_guild, GuildID) of
-                [#rec_guild{guildLevel = Lvl}] ->
-                    %% 先更新公会总人数
-                    Num = erlang:length(getGuildMember(GuildID)),
+	case ets:lookup(rec_guild_member, RoleID) of
+		[#rec_guild_member{}] ->
+			%% 已经加入，且是正式成员
+			false;
+		_ ->
+			case ets:lookup(rec_guild, GuildID) of
+				[#rec_guild{guildLevel = Lvl}] ->
+					%% 先更新公会总人数
+					Num = erlang:length(getGuildMember(GuildID)),
 
-                    %% 判断工会是否达到最大人数
-                    #guildCfg{member_number = MaxNum} = getCfg:getCfgPStack(cfg_guild, Lvl),
-                    Num < MaxNum;
-                _ ->
-                    false
-            end
-    end.
+					%% 判断工会是否达到最大人数
+					#guildCfg{member_number = MaxNum} = getCfg:getCfgPStack(cfg_guild, Lvl),
+					Num < MaxNum;
+				_ ->
+					false
+			end
+	end.
 
 %% 删除申请者
 -spec deleteRequestRole(GuildID::uint(), RoleID::uint()) -> boolean().
 deleteRequestRole(GuildID, RoleID) ->
 	case ets:lookup(rec_guild_apply, RoleID) of
 		[#rec_guild_apply{}|_] = List ->
-            case lists:keyfind(GuildID, #rec_guild_apply.guildID, List) of
-                #rec_guild_apply{} = Apply ->
-                    ets:delete_object(rec_guild_apply, Apply),
-                    true;
-                _ ->
-                    false
-            end;
+			case lists:keyfind(GuildID, #rec_guild_apply.guildID, List) of
+				#rec_guild_apply{} = Apply ->
+					ets:delete_object(rec_guild_apply, Apply),
+					true;
+				_ ->
+					false
+			end;
 		_ ->
 			false
 	end.
@@ -300,17 +307,17 @@ deleteRequestRole(GuildID, RoleID) ->
 %% 查询角色所在的帮派信息(确定角色是帮派的正式成员才能查出)
 -spec queryRoleGuildInfo(RoleID::uint()) -> {#rec_guild{}, #rec_guild_member{}} | false.
 queryRoleGuildInfo(RoleID) ->
-    case ets:lookup(rec_guild_member, RoleID) of
-        [#rec_guild_member{guildID = GuildID} = Member] ->
-            case ets:lookup(rec_guild, GuildID) of
-                [#rec_guild{} = Guild] ->
-                    {Guild, Member};
-                _ ->
-                    false
-            end;
-        _ ->
-            false
-    end.
+	case ets:lookup(rec_guild_member, RoleID) of
+		[#rec_guild_member{guildID = GuildID} = Member] ->
+			case ets:lookup(rec_guild, GuildID) of
+				[#rec_guild{} = Guild] ->
+					{Guild, Member};
+				_ ->
+					false
+			end;
+		_ ->
+			false
+	end.
 
 %% 查询成员的权限
 -spec getGuildPower(GuildID::uint(), RoleID::uint()) -> integer().
@@ -333,6 +340,16 @@ getGuildName(GuildID) when erlang:is_integer(GuildID) andalso GuildID > 0 ->
 			""
 	end;
 getGuildName(_GuildID) -> "".
+
+%% 获取军团标志
+-spec getGuildDenoter(GuildID::uint64()) -> uint().
+getGuildDenoter(GuildID) ->
+	case ets:lookup(rec_guild, GuildID) of
+		[#rec_guild{denoter = D}] ->
+			D;
+		_ ->
+			0
+	end.
 
 %% 能否增加某个职位的人数
 -spec canAddGuildLevel(GuildID::uint(), Lvl::uint()) -> boolean().
@@ -376,7 +393,7 @@ getGuildLvlByExp(Exp) when erlang:is_integer(Exp) ->
 			Fun = fun(Lvl) ->
 				#guildCfg{need_res = NextExp} = getCfg:getCfgPStack(cfg_guild, Lvl),
 				Exp < NextExp
-			end,
+				  end,
 			[NowLvl|_] = lists:filter(Fun, L),
 			NowLvl;
 		_ -> MaxLvl
@@ -416,7 +433,7 @@ guildRankFreshSuccess({_RankNumber, GuildRankList}) ->
 		[#rec_guild{} = Guild] ->
 			%% 只有一个军团，这个驻地任务没法展开咯
 			NewGuild = Guild#rec_guild{guildTaskTargetGuild = 0, guildTaskTime = 0},
-            ets:insert(rec_guild, NewGuild),
+			ets:insert(rec_guild, NewGuild),
 			saveToMySql(NewGuild),
 			ok;
 		Guilds ->
@@ -459,18 +476,18 @@ getOnlinePidList(GuildID) ->
 -spec getGuildLeaderRoleID(GuildID::uint64()) -> RoleID::uint64().
 getGuildLeaderRoleID(GuildID) ->
 	case getGuildMember(GuildID, [?GuildMemLevel_Leader]) of
-        [#rec_guild_member{roleID = RoleID}|_] -> RoleID;
-        _ -> 0
-    end.
+		[#rec_guild_member{roleID = RoleID}|_] -> RoleID;
+		_ -> 0
+	end.
 
 %% 获取目标军团的成员
 -spec getGuildMember(GuildID :: uint64()) -> [#rec_guild_member{}, ...].
 getGuildMember(GuildID) ->
-    MS = ets:fun2ms(fun(Member) when Member#rec_guild_member.guildID =:= GuildID -> Member end),
-    ets:select(rec_guild_member, MS).
+	MS = ets:fun2ms(fun(Member) when Member#rec_guild_member.guildID =:= GuildID -> Member end),
+	ets:select(rec_guild_member, MS).
 getGuildMember(GuildID, LvlList) ->
-    MemberList = getGuildMember(GuildID),
-    lists:filter(fun(#rec_guild_member{power = Lvl}) -> lists:member(Lvl, LvlList) end, MemberList).
+	MemberList = getGuildMember(GuildID),
+	lists:filter(fun(#rec_guild_member{power = Lvl}) -> lists:member(Lvl, LvlList) end, MemberList).
 
 dealRankGuild(_AllGuildRankList, []) ->
 	ok;
@@ -488,14 +505,14 @@ dealRankGuildTarget(AllGuildRankList, [GuildID], _) ->
 	TargetGuildID = getTargetGuildID(GuildRankList2),
 	[#rec_guild{} = Guild] = ets:lookup(rec_guild, GuildID),
 	NewGuild = Guild#rec_guild{guildTaskTargetGuild = TargetGuildID, guildTaskTime = time:getSyncTime1970FromDBS()},
-    ets:insert(rec_guild, NewGuild),
+	ets:insert(rec_guild, NewGuild),
 	saveToMySql(NewGuild),
 	ok;
 dealRankGuildTarget(AllGuildRankList, [GuildID | RightList], Number) ->
 	TargetGuildID = getTargetGuildID(RightList),
 	[#rec_guild{} = Guild] = ets:lookup(rec_guild, GuildID),
 	NewGuild = Guild#rec_guild{guildTaskTargetGuild = TargetGuildID, guildTaskTime = time:getSyncTime1970FromDBS()},
-    ets:insert(rec_guild, NewGuild),
+	ets:insert(rec_guild, NewGuild),
 	saveToMySql(NewGuild),
 	dealRankGuildTarget(AllGuildRankList, RightList ++ [GuildID], Number - 1).
 
@@ -520,7 +537,7 @@ dealNotRankGuild(AllGuildIDs, OutGuildIDs) ->
 					TargetGuildID = lists:nth(Rand, AllGuildIDs2),
 					[#rec_guild{} = Guild] = ets:lookup(rec_guild, GuildID),
 					NewGuild = Guild#rec_guild{guildTaskTargetGuild = TargetGuildID, guildTaskTime = NowTime},
-                    ets:insert(rec_guild, NewGuild),
+					ets:insert(rec_guild, NewGuild),
 					saveToMySql(NewGuild),
 					ok
 				end,
@@ -564,7 +581,7 @@ sendMail(ToRoleID, Title, Content, ItemID, ItemNumber, IsBind, Reason,MailSubjoi
 			mail:sendSystemMail(ToRoleID, Title, Content, MailItemList, MailSubjoinMsg);
 		_ ->
 			?ERROR_OUT("~p, role=~p, item=~p,num=~p, reason=~p",
-				[?MODULE, ToRoleID,  ItemID, ItemNumber,Reason]),
+					   [?MODULE, ToRoleID,  ItemID, ItemNumber,Reason]),
 			skip
 	end,
 	ok.
@@ -687,16 +704,16 @@ useRideUp(
 	#recGuildRideParam{
 		guildID = GuildID,
 		cfg =
-			#guild_rideCfg{
-				playerMax = PlayerMax,
-				timeMin = TimeMin,
-				timeMax = TimeMax
-			},
+		#guild_rideCfg{
+			playerMax = PlayerMax,
+			timeMin = TimeMin,
+			timeMax = TimeMax
+		},
 		ride =
-			#rec_guild_ride{
-				rideLevel = RideLevel,
-				rideState = RideState
-			},
+		#rec_guild_ride{
+			rideLevel = RideLevel,
+			rideState = RideState
+		},
 		listUser = ListUser
 	}
 ) ->
@@ -725,13 +742,13 @@ useRideUp(
 		#recGuildRideUser{
 			roleID = RoleID,
 			role =
-				#pk_RideRole{
-					roleID = RoleID,
-					guildID = GuildID,
-					rideID = RideID,
-					seatID = SeatID,
-					time = TimeNow
-				},
+			#pk_RideRole{
+				roleID = RoleID,
+				guildID = GuildID,
+				rideID = RideID,
+				seatID = SeatID,
+				time = TimeNow
+			},
 			timeRef = TimeRef
 		},
 	ets:insert(?EtsGuildRideUser, GuildRideUser),
@@ -757,15 +774,15 @@ useRideDown(
 	#recGuildRideParam{
 		guildID = GuildID,
 		cfg =
-			#guild_rideCfg{
-				timeMin = TimeMin,
-				buffID = BuffID
-			},
+		#guild_rideCfg{
+			timeMin = TimeMin,
+			buffID = BuffID
+		},
 		ride =
-			#rec_guild_ride{
-				rideLevel = RideLevel,
-				rideState = RideState
-			}
+		#rec_guild_ride{
+			rideLevel = RideLevel,
+			rideState = RideState
+		}
 	}
 ) ->
 	%% 获取乘客信息
@@ -779,7 +796,8 @@ useRideDown(
 				true ->
 					case core:queryOnLineRoleByRoleID(RoleID) of
 						#rec_OnlinePlayer{pid = Pid} ->
-							psMgr:sendMsg2PS(Pid, guildFairground_rideBuff, BuffID);
+							%% 离开设施时满足添加BUFF条件，需要添加额外奖励
+							psMgr:sendMsg2PS(Pid, guildFairground_rideBuff, {BuffID, TimeCost, RideID, RideLevel});
 						_ ->
 							skip
 					end;
@@ -877,6 +895,7 @@ useRide_time({RoleID, GuildID, RideID, SeatID, TimeMax}) ->
 	} = getCfg:getCfgPStack(cfg_guild_ride, RideID, RideLevel),
 	case core:queryOnLineRoleByRoleID(RoleID) of
 		#rec_OnlinePlayer{pid = Pid} ->
+			%% 仅满足最小时间添加BUFF，没离开设施，不添加额外奖励
 			psMgr:sendMsg2PS(Pid, guildFairground_rideBuff, BuffID);
 		_ ->
 			skip
@@ -900,15 +919,15 @@ tickForFairground() ->
 	useRideDownF(ListRideWillSave),
 	ok.
 -spec tickForFairground_guild(
-	ListGuildRideIn::[#recGuildRide{}, ...],
-	ListRideWillSaveAcc::[#rec_guild_ride{}, ...],
-	ListGuildRideWillUpdateAcc::[#recGuildRide{}, ...],
-	TimeMark::uint()
-) ->
-	{
-		ListRideWillSaveOut::[#rec_guild_ride{}, ...],
-		ListGuildRideWillUpdateOut::[#recGuildRide{}, ...]
-	}.
+								 ListGuildRideIn::[#recGuildRide{}, ...],
+								 ListRideWillSaveAcc::[#rec_guild_ride{}, ...],
+								 ListGuildRideWillUpdateAcc::[#recGuildRide{}, ...],
+								 TimeMark::uint()
+							 ) ->
+								 {
+									 ListRideWillSaveOut::[#rec_guild_ride{}, ...],
+									 ListGuildRideWillUpdateOut::[#recGuildRide{}, ...]
+								 }.
 tickForFairground_guild([], ListRideWillSaveAcc, ListGuildRideWillUpdateAcc, _TimeMark) ->
 	{ListRideWillSaveAcc, ListGuildRideWillUpdateAcc};
 tickForFairground_guild(
@@ -930,17 +949,24 @@ tickForFairground_guild(
 			tickForFairground_guild(T, ListRideWillSaveAcc, ListGuildRideWillUpdateAcc, TimeMark)
 	end.
 -spec tickForFairground_ride(
-	ListRideIn::[#rec_guild_ride{}, ...],
-	ListRideWillSaveAcc::[#rec_guild_ride{}, ...],
-	ListRideAcc::[#rec_guild_ride{}, ...],
-	TimeMark::uint()
-) ->
-	{
-		ListRideWillSaveAccNew::[#rec_guild_ride{}, ...],
-		ListRideOut::[#rec_guild_ride{}, ...]
-	}.
+								ListRideIn::[#rec_guild_ride{}, ...],
+								ListRideWillSaveAcc::[#rec_guild_ride{}, ...],
+								ListRideAcc::[#rec_guild_ride{}, ...],
+								TimeMark::uint()
+							) ->
+								{
+									ListRideWillSaveAccNew::[#rec_guild_ride{}, ...],
+									ListRideOut::[#rec_guild_ride{}, ...]
+								}.
 tickForFairground_ride([], ListRideWillSaveAcc, ListRideAcc, _TimeMark) ->
 	{ListRideWillSaveAcc, lists:reverse(ListRideAcc)};
+tickForFairground_ride(
+	[#rec_guild_ride{rideLevel = 0} = H | T],
+	ListRideWillSaveAcc,
+	ListRideAcc,
+	TimeMark
+) ->
+	tickForFairground_ride(T, ListRideWillSaveAcc, [H | ListRideAcc], TimeMark);
 tickForFairground_ride(
 	[#rec_guild_ride{rideState = ?RideState_Maintain} = H | T],
 	ListRideWillSaveAcc,
@@ -962,7 +988,7 @@ tickForFairground_ride(
 			HNew = H#rec_guild_ride{rideState = RideStateNew},
 
 			?LOG_OUT("tick guild=~p, ride=~p, level=~p state=~p -> ~p",
-				[H#rec_guild_ride.guildID, RideID, RideLevel, H#rec_guild_ride.rideState, RideStateNew]),
+					 [H#rec_guild_ride.guildID, RideID, RideLevel, H#rec_guild_ride.rideState, RideStateNew]),
 
 			tickForFairground_ride(T, [HNew | ListRideWillSaveAcc], [HNew | ListRideAcc], TimeMark)
 	end.
@@ -1020,17 +1046,17 @@ maintainRide() ->
 	useRideDownF(ListRideWillSave),
 	ok.
 -spec maintainRide_guild(
-	ResChanged :: boolean(),
-	ListGuildRideIn::[#recGuildRide{}, ...],
-	ListRideWillSaveAcc::[#rec_guild_ride{}, ...],
-	ListGuildRideWillUpdateAcc::[#recGuildRide{}, ...],
-	ListGuildWillSaveAcc::[#rec_guild{}, ...]
-) ->
-	{
-		ListRideWillSaveOut::[#rec_guild_ride{}, ...],
-		ListGuildRideWillUpdateOut::[#recGuildRide{}, ...],
-		ListGuildWillSaveOut::[#rec_guild{}, ...]
-	}.
+							ResChanged :: boolean(),
+							ListGuildRideIn::[#recGuildRide{}, ...],
+							ListRideWillSaveAcc::[#rec_guild_ride{}, ...],
+							ListGuildRideWillUpdateAcc::[#recGuildRide{}, ...],
+							ListGuildWillSaveAcc::[#rec_guild{}, ...]
+						) ->
+							{
+								ListRideWillSaveOut::[#rec_guild_ride{}, ...],
+								ListGuildRideWillUpdateOut::[#recGuildRide{}, ...],
+								ListGuildWillSaveOut::[#rec_guild{}, ...]
+							}.
 maintainRide_guild(_ResChanged, [], ListRideWillSaveAcc, ListGuildRideWillUpdateAcc, ListGuildWillSaveAcc) ->
 	{ListRideWillSaveAcc, ListGuildRideWillUpdateAcc, ListGuildWillSaveAcc};
 maintainRide_guild(
@@ -1056,19 +1082,27 @@ sortRide(#rec_guild_ride{rideID = RID1}, #rec_guild_ride{rideID = RID2}) ->
 	RID1 < RID2.
 
 -spec maintainRide_ride(
-	ResChanged :: boolean(),
-	ListRideIn::[#rec_guild_ride{}, ...],
-	ListRideWillSaveAcc::[#rec_guild_ride{}, ...],
-	ListRideAcc::[#rec_guild_ride{}, ...],
-	GuildAcc::#rec_guild{}
-) ->
-	{
-		ListRideWillSaveAccNew::[#rec_guild_ride{}, ...],
-		ListRideOut::[#rec_guild_ride{}, ...],
-		GuildOut::#rec_guild{}
-	}.
+						   ResChanged :: boolean(),
+						   ListRideIn::[#rec_guild_ride{}, ...],
+						   ListRideWillSaveAcc::[#rec_guild_ride{}, ...],
+						   ListRideAcc::[#rec_guild_ride{}, ...],
+						   GuildAcc::#rec_guild{}
+					   ) ->
+						   {
+							   ListRideWillSaveAccNew::[#rec_guild_ride{}, ...],
+							   ListRideOut::[#rec_guild_ride{}, ...],
+							   GuildOut::#rec_guild{}
+						   }.
 maintainRide_ride(_ResChanged, [], ListRideWillSaveAcc, ListRideAcc, GuildAcc) ->
 	{ListRideWillSaveAcc, lists:reverse(ListRideAcc), GuildAcc};
+maintainRide_ride(
+	ResChanged,
+	[#rec_guild_ride{rideLevel = 0} = H | T],
+	ListRideWillSaveAcc,
+	ListRideAcc,
+	Guild
+) ->
+	maintainRide_ride(ResChanged, T, ListRideWillSaveAcc, [H | ListRideAcc], Guild);
 maintainRide_ride(
 	ResChanged,
 	[#rec_guild_ride{rideState = ?RideState_Maintain, rideID = RideID, rideLevel = RideLevel} = H | T],
@@ -1090,7 +1124,7 @@ maintainRide_ride(
 					HNew = H#rec_guild_ride{rideState = RideStateNew},
 
 					?LOG_OUT("maintainRide guild=~p, ride=~p, level=~p state=~p -> ~p",
-						[Guild#rec_guild.guildID, RideID, RideLevel, ?RideState_Maintain, RideStateNew]),
+							 [Guild#rec_guild.guildID, RideID, RideLevel, ?RideState_Maintain, RideStateNew]),
 
 					GuildNew = Guild#rec_guild{resource = Res - NeedRes},
 					maintainRide_ride(ResChanged, T, ListRideWillSaveAcc, [HNew | ListRideAcc], GuildNew);
@@ -1125,7 +1159,7 @@ maintainRide_ride(
 					HNew = H#rec_guild_ride{rideState = ?RideState_Maintain},
 
 					?LOG_OUT("maintainRide not guild=~p, ride=~p, level=~p state=~p -> ~p",
-						[Guild#rec_guild.guildID, RideID, RideLevel, H#rec_guild_ride.rideState, ?RideState_Maintain]),
+							 [Guild#rec_guild.guildID, RideID, RideLevel, H#rec_guild_ride.rideState, ?RideState_Maintain]),
 
 					maintainRide_ride(ResChanged, T, [HNew | ListRideWillSaveAcc], [HNew | ListRideAcc], Guild)
 			end;
@@ -1140,7 +1174,7 @@ useRideDownF([]) ->
 	ok;
 useRideDownF([#rec_guild_ride{rideState = ?RideState_Open} | T]) ->
 	useRideDownF(T);
-useRideDownF([#rec_guild_ride{guildID = GuildID, rideID = RideID, rideLevel = RideLevel, rideState = RideState} | T]) ->
+useRideDownF([#rec_guild_ride{guildID = GuildID, rideID = RideID, rideLevel = RideLevel, rideState = RideState} = GuildRide | T]) ->
 	ListUser = playerGuildFairground:queryRideUser(GuildID, RideID),
 	Ride =
 		#pk_Ride{
@@ -1151,16 +1185,17 @@ useRideDownF([#rec_guild_ride{guildID = GuildID, rideID = RideID, rideLevel = Ri
 	#guild_rideCfg{
 		buffID = BuffID
 	} = getCfg:getCfgPStack(cfg_guild_ride, RideID, RideLevel),
-	useRideDownF_user(ListUser, Ride, BuffID),
+	useRideDownF_user(ListUser, Ride, GuildRide, BuffID),
 	useRideDownF(T).
--spec useRideDownF_user(ListRideUser::[#recGuildRideUser{}, ...], Ride::#pk_Ride{}, BuffID::uint32()) -> ok.
-useRideDownF_user([], _Ride, _BuffID) ->
+-spec useRideDownF_user(ListRideUser::[#recGuildRideUser{}, ...], Ride::#pk_Ride{}, GuildRide::#rec_guild_ride{}, BuffID::uint32()) -> ok.
+useRideDownF_user([], _Ride, _GuildRide, _BuffID) ->
 	ok;
-useRideDownF_user([#recGuildRideUser{roleID = RoleID, role = Role, timeRef = TimeRef} | T], Ride, BuffID) ->
+useRideDownF_user([#recGuildRideUser{roleID = RoleID, role = Role, timeRef = TimeRef} | T], Ride, GuildRide, BuffID) ->
 	%% 添加BUFF
 	case core:queryOnLineRoleByRoleID(RoleID) of
 		#rec_OnlinePlayer{pid = Pid} ->
-			psMgr:sendMsg2PS(Pid, guildFairground_rideBuff, BuffID);
+			%% 离开设施时满足添加BUFF条件，需要添加额外奖励
+			psMgr:sendMsg2PS(Pid, guildFairground_rideBuff, {BuffID, time:getSyncTimeFromDBS() - Role#pk_RideRole.time, Ride#pk_Ride.id, Ride#pk_Ride.level});
 		_ ->
 			skip
 	end,
@@ -1168,5 +1203,214 @@ useRideDownF_user([#recGuildRideUser{roleID = RoleID, role = Role, timeRef = Tim
 	erlang:cancel_timer(TimeRef),
 	ets:delete(?EtsGuildRideUser, RoleID),
 	%% 通知当前地图所有角色
-	useRideNotice(Ride, Role, ?RideUseType_Down, Ride#rec_guild_ride.guildID, undefined),
-	useRideDownF_user(T, Ride, BuffID).
+	useRideNotice(Ride, Role, ?RideUseType_Down, GuildRide#rec_guild_ride.guildID, undefined),
+	useRideDownF_user(T, Ride, GuildRide, BuffID).
+
+%% 家族升级导致等级0的设施可能解锁
+-spec tryOpenRide(GuildID::uint64(), GuildLevel::uint()) -> no_return().
+tryOpenRide(GuildID, GuildLevel) ->
+	?DEBUG_OUT("[DebugForFFF]"),
+	#recGuildRide{listRide = ListRide} =
+		guildState:queryGuildRide(GuildID),
+	{ListRideUpdateEts, ListRideUpdateDB} =
+		tryOpenRide(GuildID, GuildLevel, ListRide, [], []),
+	ets:update_element(?EtsGuildRide, GuildID, {#recGuildRide.listRide, ListRideUpdateEts}),
+	case ListRideUpdateDB of
+		[] ->
+			skip;
+		_ ->
+			gsSendMsg:sendMsg2DBServer(saveGuildData, 0, ListRideUpdateDB)
+	end,
+	tryOpenRide_notice2guild(GuildID).
+
+-spec tryOpenRide(
+					 GuildID::uint64(),
+					 GuildLevel::uint(),
+					 ListRideIn::[#rec_guild_ride{}, ...],
+					 ListRideUpdateEtsAcc::[#rec_guild_ride{}, ...],
+					 ListRideUpdateDBAcc::[#rec_guild_ride{}, ...]
+				 ) ->
+					 {
+						 ListRideUpdateEts::[#rec_guild_ride{}, ...],
+						 ListRideUpdateDB::[#rec_guild_ride{}, ...]
+					 }.
+tryOpenRide(_GuildID, _GuildLevel, [], ListRideUpdateEtsAcc, ListRideUpdateDBAcc) ->
+	?DEBUG_OUT("[DebugForFFF]"),
+	{ListRideUpdateEtsAcc, ListRideUpdateDBAcc};
+tryOpenRide(GuildID, GuildLevel, [Ride = #rec_guild_ride{rideID = RideID, rideLevel = 0} | T], ListRideUpdateEtsAcc, ListRideUpdateDBAcc) ->
+	?DEBUG_OUT("[DebugForFFF]"),
+	case getCfg:getCfgByKey(cfg_guild_ride, RideID, 1) of
+		#guild_rideCfg{open = OpenLevel, name = RideName}
+			when erlang:is_integer(OpenLevel), GuildLevel >= OpenLevel ->
+			RideNew = Ride#rec_guild_ride{
+				rideLevel = 1,
+				rideState = ?RideState_Open
+			},
+			tryOpenRide_notice2guild(GuildID, GuildLevel, RideName),
+			tryOpenRide(GuildID, GuildLevel, T, [RideNew | ListRideUpdateEtsAcc], [RideNew | ListRideUpdateDBAcc]);
+		_ ->
+			tryOpenRide(GuildID, GuildLevel, T, [Ride | ListRideUpdateEtsAcc], ListRideUpdateDBAcc)
+	end;
+tryOpenRide(GuildID, GuildLevel, [Ride | T], ListRideUpdateEtsAcc, ListRideUpdateDBAcc) ->
+	tryOpenRide(GuildID, GuildLevel, T, [Ride | ListRideUpdateEtsAcc], ListRideUpdateDBAcc).
+
+%% 通知家族成员
+tryOpenRide_notice2guild(GuildID, GuildLevel, RideName) ->
+	?DEBUG_OUT("[DebugForFFF]"),
+	Content = stringCfg:getString(guild_LvUpstrings, [GuildLevel, RideName]),
+	MS = ets:fun2ms(fun(Guild) when Guild#rec_guild_member.guildID =:= GuildID -> Guild#rec_guild_member.roleID end),
+	ListRoleID = ets:select(rec_guild_member, MS),
+	tryOpenRide_notice2guild(ListRoleID, Content).
+tryOpenRide_notice2guild([], _Content) ->
+	?DEBUG_OUT("[DebugForFFF]"),
+	ok;
+tryOpenRide_notice2guild([RoleID | T], Content) ->
+	?DEBUG_OUT("[DebugForFFF]"),
+	case core:queryOnLineRoleByRoleID(RoleID) of
+		#rec_OnlinePlayer{netPid = NetPid} ->
+			core:sendBroadcastNotice(Content, NetPid);
+		_ ->
+			skip
+	end,
+	tryOpenRide_notice2guild(T, Content).
+
+%% 通知游乐场中的人
+tryOpenRide_notice2guild(GuildID) ->
+	?DEBUG_OUT("[DebugForFFF]"),
+	case ets:lookup(?EtsGuildFairground, GuildID) of
+		[#recGuildFairground{playerEts = PlayerEts}] ->
+			FunNotice =
+				fun(#recMapObject{pid = Pid}, _) ->
+					psMgr:sendMsg2PS(Pid, guildFairground_rideRefresh, GuildID)
+				end,
+			ets:foldl(FunNotice, 0, PlayerEts);
+		_ ->
+			skip
+	end.
+
+%%%-------------------------------------------------------------------
+% 发布祈愿
+-spec suppSupp({GuildID::uint64(), RoleID::uint64(), ItemID::uint16()}) -> no_return().
+suppSupp({GuildID, RoleID, ItemID}) ->
+	case ets:lookup(rec_guild_member, RoleID) of
+		[#rec_guild_member{guildID = GuildID} = Rec] ->
+			TimeNow = time:getSyncTimeFromDBS(),
+			RecNew = Rec#rec_guild_member{itemID = ItemID, itemM = 0, itemTime = TimeNow},
+			Update = [
+						 {#rec_guild_member.itemID, ItemID},
+						 {#rec_guild_member.itemM, 0},
+						 {#rec_guild_member.itemTime, TimeNow}
+					 ],
+			ets:update_element(rec_guild_member, RoleID, Update),
+			guildLogic:saveToMySql(RecNew),
+			case core:queryOnLineRoleByRoleID(RoleID) of
+				#rec_OnlinePlayer{netPid = NetPid} ->
+					Msg = #pk_GS2U_Guild_Supplicate_Ack{
+						itemID = ItemID
+					},
+					playerMsg:sendNetMsg(NetPid, Msg);
+				_ ->
+					skip
+			end;
+		_ ->
+			skip
+	end.
+
+%%%-------------------------------------------------------------------
+% 赠送碎片
+-spec suppGive({GuildID::uint64(), RoleID::uint64(), TarRoleID::uint64(), ItemID::uint16()}) -> no_return().
+suppGive({GuildID, RoleID, TarRoleID, ItemID}) ->
+	NetPid = core:queryOnLineRoleByRoleID(RoleID),
+	case ets:lookup(rec_guild_member, RoleID) of
+		[#rec_guild_member{guildID = GuildID}] ->	%% 自己的家族ID匹配
+			case ets:lookup(rec_guild_member, TarRoleID) of
+				[#rec_guild_member{guildID = GuildID, itemM = MOld, itemID = ItemID, itemTime = ItemTime} = Rec] ->	%% 对方家族ID的匹配、祈愿道具的匹配
+					case playerGuild:suppCheck(ItemTime, ItemID) of
+						false ->
+							playerMsg:sendNetMsg(NetPid, #pk_GS2U_Guild_SupplicateGiveF_Ack{type = ?SuppGiveFailedType_InvalidTarget, tarRoleID = TarRoleID}),
+							suppGiveFailed(RoleID, TarRoleID, ItemID, ?ErrorCode_GuildSupp_Refuse);
+						#itemCfg{name = ItemName} ->
+							case playerGuild:suppGetParam(ItemID) of
+								{_, N, _, _} when erlang:is_integer(N), MOld < N ->
+									suppGiveSuccess(RoleID, TarRoleID, ItemID, MOld, Rec, ItemName);
+								_ ->
+									playerMsg:sendNetMsg(NetPid, #pk_GS2U_Guild_SupplicateGiveF_Ack{type = ?SuppGiveFailedType_Enough, tarRoleID = TarRoleID}),
+									suppGiveFailed(RoleID, TarRoleID, ItemID, ?ErrorCode_GuildSupp_Enough)
+							end
+					end;
+				_ ->
+					playerMsg:sendNetMsg(NetPid, #pk_GS2U_Guild_SupplicateGiveF_Ack{type = ?SuppGiveFailedType_InvalidTarget, tarRoleID = TarRoleID}),
+					suppGiveFailed(RoleID, TarRoleID, ItemID, ?ErrorCode_GuildSupp_InvalidTar)
+			end;
+		_ ->
+			playerMsg:sendNetMsg(NetPid, #pk_GS2U_Guild_SupplicateGiveF_Ack{type = ?SuppGiveFailedType_NotJoinGuild, tarRoleID = TarRoleID}),
+			suppGiveFailed(RoleID, TarRoleID, ItemID, ?ErrorCode_GuildSupp_InvalidTar)
+	end.
+
+% 成功，执行赠送
+suppGiveSuccess(RoleID, TarRoleID, ItemID, MOld, Rec, ItemName) ->
+	%% 赠送
+	MNew = MOld + 1,
+	RecNew = Rec#rec_guild_member{itemM = MNew},
+	ets:update_element(rec_guild_member, TarRoleID, {#rec_guild_member.itemM, MNew}),
+	guildLogic:saveToMySql(RecNew),
+	suppGive_mail(RoleID, TarRoleID, ItemID, ItemName),
+	%% 历史记录
+	TimeNow = time:getSyncTimeFromDBS(),
+	History = #pk_SuppHistory{
+		time = TimeNow,
+		roleID = RoleID,
+		tarRoleID = TarRoleID,
+		itemID = ItemID,
+		itemM = MNew
+	},
+	ets:insert(?EtsSuppHistory, History),
+	%% 反馈双方（如果在线）
+	RoleName = playerNameUID:getPlayerNameByUID(RoleID),
+	TarRoleName = playerNameUID:getPlayerNameByUID(TarRoleID),
+	NameTables = [#pk_NameTable2{id = RoleID, name = RoleName}, #pk_NameTable2{id = TarRoleID, name = TarRoleName}],
+	#?RoleKeyRec{career = Career, race = Race, sex = Sex, head = Head, level = Level} =
+		core:queryRoleKeyInfoByRoleID(TarRoleID),
+	Msg = #pk_GS2U_Guild_SupplicateGive_Ack{
+		history = #pk_SuppHistory2{
+			career = Career,
+			race = Race,
+			sex = Sex,
+			head = Head,
+			level = Level,
+			history = History
+		},
+		nameTables = NameTables
+	},
+	case core:queryOnLineRoleByRoleID(RoleID) of
+		#rec_OnlinePlayer{pid = Pid, netPid = NetPidA} ->
+			%% 反馈角色进程添加赠送奖励
+			psMgr:sendMsg2PS(Pid, guild_suppGiveAck, {RoleID, TarRoleID, ItemID, 0}),
+			playerMsg:sendNetMsg(NetPidA, Msg);
+		_ ->
+			skip
+	end,
+	case core:queryOnLineRoleByRoleID(TarRoleID) of
+		#rec_OnlinePlayer{netPid = NetPidB} ->
+			playerMsg:sendNetMsg(NetPidB, Msg);
+		_ ->
+			skip
+	end.
+
+% 失败，反馈角色进程修复数据
+suppGiveFailed(RoleID, TarRoleID, ItemID, ErrorCode) ->
+	case core:queryOnLineRoleByRoleID(RoleID) of
+		#rec_OnlinePlayer{pid = Pid} ->
+			psMgr:sendMsg2PS(Pid, guild_suppGiveAck, {RoleID, TarRoleID, ItemID, ErrorCode});
+		_ ->
+			skip
+	end.
+
+%% 邮件发送碎片
+-spec suppGive_mail(RoleID::uint64(), TarRoleID::uint64(), ItemID::uint16(), ItemName::string()) -> no_return().
+suppGive_mail(RoleID, TarRoleID, ItemID, ItemName) ->
+	MailTitle = stringCfg:getString(supplicationTitle),
+	RoleName = playerNameUID:getPlayerNameByUID(RoleID),
+	MailContent = stringCfg:getString(supplicationContent, [RoleName, ItemName]),
+	MailItemList = playerMail:createMailGoods(ItemID, 1, true, 0, TarRoleID, ?ItemSourceGuildSupplication),
+	mail:sendSystemMail(TarRoleID, MailTitle, MailContent, MailItemList, []).

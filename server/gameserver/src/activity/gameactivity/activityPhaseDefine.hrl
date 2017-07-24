@@ -16,8 +16,10 @@
 
 %% 答题活动 ActivityType_AnswerPlay
 -define(ActivityPhase_AnswerPlay_1, 1). % 进入整点时间
--define(ActivityPhase_AnswerPlay_2, 2). % 准备开始
--define(ActivityPhase_AnswerPlay_3, 3). % 开始
+-define(ActivityPhase_AnswerPlay_2, 2). % 跑马灯第一次公告
+-define(ActivityPhase_AnswerPlay_3, 3). % 跑马灯第二次公告
+-define(ActivityPhase_AnswerPlay_4, 4). % 跑马灯第3次公告
+-define(ActivityPhase_AnswerPlay_5, 5). % 开始
 
 %% 守卫碧空城 ActivityType_CityMonster
 -define(ActivityPhase_CityMonster_1, 1). % 进入整点时间
@@ -59,9 +61,6 @@
 %% 军团沙盘
 -define(ActivityType_GuildExpedition_1, 1).% 正式开始
 -define(ActivityType_GuildExpedition_2, 2).% 结算阶段
-
-%% 姻缘_结婚现场（婚宴场地） ActivityType_WeddingSite
--define(ActivityType_WeddingSite_1, 1).   % 正式开始
 
 %% 广场舞
 -define(ActivityType_Dance_1, 1).	%% 到达开时整点时间

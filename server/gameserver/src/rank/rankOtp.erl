@@ -66,8 +66,8 @@ init([]) ->
     ?LOG_OUT("init..."),
 
 	%% 创建RAM数据表
-	edb:createTable(recPlayerRank, [{type, bag}, {attributes, record_info(fields, recPlayerRank)}]),
-	mnesia:wait_for_tables([recPlayerRank], 20000),
+	edb:createTable(recPlayerRank, [{type, bag}, {ram_copies, [node()]}, {attributes, record_info(fields, recPlayerRank)}]),
+%%	mnesia:wait_for_tables([recPlayerRank], 20000),
 
     rankState:setRankIsLoadSuccess(false),
 

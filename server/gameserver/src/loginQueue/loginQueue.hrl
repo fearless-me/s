@@ -14,7 +14,8 @@
 
 -record(state, {
 	loginQueue,
-	canLoginNum = 0
+	curNum = 0,
+	maxNum = 0
 }).
 
 -endif.

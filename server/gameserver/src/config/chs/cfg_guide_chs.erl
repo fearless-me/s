@@ -21,7 +21,7 @@ getRow(1001)->
     next = 1002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击任务追踪",
     beizhu = "【主界面模块】操作任务（点击任务追踪）",
     colse = 0
@@ -42,7 +42,7 @@ getRow(1003)->
     next = 1004,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击背包",
     beizhu = "【主界面模块】武器替换（点击背包）",
     colse = 0
@@ -63,7 +63,7 @@ getRow(1004)->
     next = 1005,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击武器",
     beizhu = "【主界面模块】武器替换（点击武器）",
     colse = 0
@@ -84,7 +84,7 @@ getRow(1005)->
     next = 1006,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击使用",
     beizhu = "【主界面模块】武器替换（装备武器）",
     colse = 0
@@ -105,7 +105,7 @@ getRow(1006)->
     next = 1007,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭界面",
     beizhu = "【主界面模块】武器替换（关闭背包界面）",
     colse = 0
@@ -126,7 +126,7 @@ getRow(2000)->
     next = 2001,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点开福利界面",
     beizhu = "【福利领奖】一次领奖（打开领奖界面）",
     colse = 0
@@ -147,7 +147,7 @@ getRow(2001)->
     next = 2002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击等级分页",
     beizhu = "【福利领奖】一次领奖（打开等级领奖）",
     colse = 0
@@ -168,7 +168,7 @@ getRow(2002)->
     next = 2003,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击领取",
     beizhu = "【福利领奖】一次领奖（点击领奖）",
     colse = 0
@@ -189,7 +189,7 @@ getRow(2003)->
     next = 2004,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击在线分页",
     beizhu = "【福利领奖】一次在线领奖（点击在线按钮）",
     colse = 0
@@ -210,7 +210,7 @@ getRow(2004)->
     next = 2005,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击领奖",
     beizhu = "【福利领奖】一次在线领奖（领奖按钮）",
     colse = 0
@@ -231,7 +231,7 @@ getRow(2005)->
     next = 4000,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭领奖界面",
     beizhu = "【福利领奖】一次在线领奖（关闭领奖界面）",
     colse = 0
@@ -252,7 +252,7 @@ getRow(2006)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "打开领奖按钮",
     beizhu = "【福利领奖】二次领奖（打开领奖界面）",
     colse = 0
@@ -273,7 +273,7 @@ getRow(2007)->
     next = 2007,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击每日分页",
     beizhu = "【福利领奖】二次领奖（打开每日签到）",
     colse = 0
@@ -294,7 +294,7 @@ getRow(2008)->
     next = 2008,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击领奖",
     beizhu = "【福利领奖】二次领奖（领取每日奖励）",
     colse = 0
@@ -315,7 +315,7 @@ getRow(2009)->
     next = 2009,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击七日分页",
     beizhu = "【福利领奖】二次领奖（打开七日签到）",
     colse = 0
@@ -336,7 +336,7 @@ getRow(2010)->
     next = 2010,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击领奖",
     beizhu = "【福利领奖】二次领奖（领取七日奖励）",
     colse = 0
@@ -357,7 +357,7 @@ getRow(2011)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭奖励界面",
     beizhu = "【福利领奖】二次领奖（关闭领奖界面）",
     colse = 0
@@ -378,7 +378,7 @@ getRow(2012)->
     next = 2013,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点开福利界面",
     beizhu = "【福利领奖】三次领奖（打开领奖界面）",
     colse = 0
@@ -399,7 +399,7 @@ getRow(2013)->
     next = 2014,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击等级领奖",
     beizhu = "【福利领奖】三次领奖（打开等级领奖）",
     colse = 0
@@ -420,7 +420,7 @@ getRow(2014)->
     next = 2015,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击领奖",
     beizhu = "【福利领奖】三次领奖（领取等级领奖）",
     colse = 0
@@ -441,7 +441,7 @@ getRow(2015)->
     next = 6000,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭奖励界面",
     beizhu = "【福利领奖】三次领奖（关闭领奖界面）",
     colse = 0
@@ -462,7 +462,7 @@ getRow(2016)->
     next = 2017,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "打开福利界面",
     beizhu = "【福利领奖】四次领奖（打开领奖界面）",
     colse = 0
@@ -483,7 +483,7 @@ getRow(2017)->
     next = 2018,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击等级分页",
     beizhu = "【福利领奖】四次领奖（打开等级领奖）",
     colse = 0
@@ -504,7 +504,7 @@ getRow(2018)->
     next = 2019,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击领奖",
     beizhu = "【福利领奖】四次领奖（领取等级领奖）",
     colse = 0
@@ -525,7 +525,7 @@ getRow(2019)->
     next = 10011,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭福利界面",
     beizhu = "【福利领奖】四次领奖（关闭领奖界面）",
     colse = 0
@@ -546,7 +546,7 @@ getRow(3000)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击技能",
     beizhu = "【技能模块】战斗引导（点击技能）",
     colse = 0
@@ -567,7 +567,7 @@ getRow(3001)->
     next = 3002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "呼出角色界面",
     beizhu = "【技能模块】2次技能引导（呼出角色界面）",
     colse = 0
@@ -588,7 +588,7 @@ getRow(3002)->
     next = 3003,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击技能分页",
     beizhu = "【技能模块】2次技能引导（呼出技能界面）",
     colse = 0
@@ -609,7 +609,7 @@ getRow(3003)->
     next = 3004,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "选中第二个技能",
     beizhu = "【技能模块】2次技能引导（点击第2个技能）",
     colse = 0
@@ -630,7 +630,7 @@ getRow(3004)->
     next = 3005,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击升级",
     beizhu = "【技能模块】2次技能引导（点击升级按钮）",
     colse = 0
@@ -651,7 +651,7 @@ getRow(3005)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭技能界面",
     beizhu = "【技能模块】2次技能引导（关闭技能界面）",
     colse = 0
@@ -672,7 +672,7 @@ getRow(3006)->
     next = 3007,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "呼出角色界面",
     beizhu = "【技能模块】3次技能引导（呼出角色界面）",
     colse = 0
@@ -693,7 +693,7 @@ getRow(3007)->
     next = 3008,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "呼出技能界面",
     beizhu = "【技能模块】3次技能引导（呼出技能界面）",
     colse = 0
@@ -714,7 +714,7 @@ getRow(3008)->
     next = 3009,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "选择1技能",
     beizhu = "【技能模块】3次技能引导（点击第1个技能）",
     colse = 0
@@ -735,7 +735,7 @@ getRow(3009)->
     next = 3010,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击升级",
     beizhu = "【技能模块】3次技能引导（点击升级按钮）",
     colse = 0
@@ -756,7 +756,7 @@ getRow(3010)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭技能界面",
     beizhu = "【技能模块】3次技能引导（关闭技能界面）",
     colse = 0
@@ -777,7 +777,7 @@ getRow(4000)->
     next = 4001,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击功能扩展按钮",
     beizhu = "【女神模块】女神操作1（呼出功能扩展）",
     colse = 0
@@ -798,7 +798,7 @@ getRow(4001)->
     next = 4002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击女神按钮",
     beizhu = "【女神模块】女神操作1（呼出女神界面）",
     colse = 0
@@ -819,7 +819,7 @@ getRow(4002)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭界面",
     beizhu = "【女神模块】女神操作1（关闭女神界面）",
     colse = 0
@@ -840,7 +840,7 @@ getRow(4003)->
     next = 4004,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击功能扩展按钮",
     beizhu = "【女神模块】女神升级1（呼出功能扩展）",
     colse = 0
@@ -861,7 +861,7 @@ getRow(4004)->
     next = 4005,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击女神按钮",
     beizhu = "【女神模块】女神升级1（呼出女神界面）",
     colse = 0
@@ -882,7 +882,7 @@ getRow(4005)->
     next = 4006,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击升级",
     beizhu = "【女神模块】女神升级1（点击升级）",
     colse = 0
@@ -903,7 +903,7 @@ getRow(4006)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击关闭",
     beizhu = "【女神模块】女神升级1（关闭女神界面）",
     colse = 0
@@ -924,7 +924,7 @@ getRow(5000)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击头像",
     beizhu = "【强化模块】装备精炼1（呼出角色界面）",
     colse = 0
@@ -945,7 +945,7 @@ getRow(5001)->
     next = 5002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "选择强化分页",
     beizhu = "【强化模块】装备精炼1（呼出强化界面）",
     colse = 0
@@ -966,7 +966,7 @@ getRow(5002)->
     next = 5003,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "选中胸甲",
     beizhu = "【强化模块】装备精炼1（点击胸甲按钮）",
     colse = 0
@@ -987,7 +987,7 @@ getRow(5003)->
     next = 5004,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击精炼按钮",
     beizhu = "【强化模块】装备精炼1（点击精炼按钮）",
     colse = 0
@@ -1008,7 +1008,7 @@ getRow(5004)->
     next = 5005,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "引导总结",
     beizhu = "【强化模块】装备精炼1（引导总结）",
     colse = 0
@@ -1029,7 +1029,7 @@ getRow(6000)->
     next = 6001,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击功能扩展按钮",
     beizhu = "【器灵模块】器灵激活（呼出功能扩展）",
     colse = 0
@@ -1050,7 +1050,7 @@ getRow(6001)->
     next = 6002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击器灵按钮",
     beizhu = "【器灵模块】器灵激活（呼出器灵界面）",
     colse = 0
@@ -1071,7 +1071,7 @@ getRow(6002)->
     next = 6003,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击激活按钮",
     beizhu = "【器灵模块】器灵激活（点击激活按钮）",
     colse = 0
@@ -1092,7 +1092,7 @@ getRow(6003)->
     next = 7000,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭器灵界面",
     beizhu = "【器灵模块】器灵激活（关闭器灵界面）",
     colse = 0
@@ -1113,7 +1113,7 @@ getRow(7000)->
     next = 7001,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击功能扩展按钮",
     beizhu = "【成就模块】成就达成（呼出功能扩展）",
     colse = 0
@@ -1134,7 +1134,7 @@ getRow(7001)->
     next = 7002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击成就按钮",
     beizhu = "【成就模块】成就达成（呼出成就界面）",
     colse = 0
@@ -1155,7 +1155,7 @@ getRow(7002)->
     next = 7003,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击领取按钮",
     beizhu = "【成就模块】成就达成（点击成就领奖）",
     colse = 0
@@ -1176,7 +1176,7 @@ getRow(7003)->
     next = 3006,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击关闭按钮",
     beizhu = "【成就模块】成就达成（关闭成就界面）",
     colse = 0
@@ -1197,7 +1197,7 @@ getRow(8000)->
     next = 8001,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击副本按钮",
     beizhu = "【副本模块】副本引导（呼出副本界面）",
     colse = 0
@@ -1218,7 +1218,7 @@ getRow(8001)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击进入按钮",
     beizhu = "【副本模块】副本引导（点击进入按钮）",
     colse = 0
@@ -1239,7 +1239,7 @@ getRow(9000)->
     next = 9001,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击功能扩展按钮",
     beizhu = "【兑换模块】兑换引导（呼出功能扩展）",
     colse = 0
@@ -1260,7 +1260,7 @@ getRow(9001)->
     next = 9002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击兑换按钮",
     beizhu = "【兑换模块】兑换引导（呼出兑换界面）",
     colse = 0
@@ -1281,7 +1281,7 @@ getRow(9002)->
     next = 9003,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击骑宠道具兑换",
     beizhu = "【兑换模块】兑换引导（选择道具）",
     colse = 0
@@ -1302,7 +1302,7 @@ getRow(9003)->
     next = 9003,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击骑宠道具兑换",
     beizhu = "【兑换模块】兑换引导（点击兑换）",
     colse = 0
@@ -1323,7 +1323,7 @@ getRow(9004)->
     next = 10005,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭兑换界面",
     beizhu = "【兑换模块】兑换引导（关闭兑换界面）",
     colse = 0
@@ -1344,7 +1344,7 @@ getRow(10000)->
     next = 10001,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击背包按钮",
     beizhu = "【骑宠模块】骑宠使用（点击背包按钮）",
     colse = 0
@@ -1365,7 +1365,7 @@ getRow(10001)->
     next = 10002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击骑宠分页",
     beizhu = "【骑宠模块】骑宠使用（点击骑宠分页）",
     colse = 0
@@ -1380,13 +1380,13 @@ getRow(10002)->
     uiAndItem = 1,
     parameter_3 = "Characterpanel",
     parameter_4 = "Sprite",
-    parameter_5 = "0",
+    parameter_5 = "",
     finish_type = 1,
     finish_parameter = 0,
     next = 10003,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "选中骑宠",
     beizhu = "【骑宠模块】骑宠使用（点击骑宠道具）",
     colse = 0
@@ -1407,7 +1407,7 @@ getRow(10003)->
     next = 10004,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击tps使用",
     beizhu = "【骑宠模块】骑宠使用（点击道具使用）",
     colse = 0
@@ -1428,7 +1428,7 @@ getRow(10004)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭背包界面",
     beizhu = "【骑宠模块】骑宠使用（关闭背包界面）",
     colse = 0
@@ -1449,7 +1449,7 @@ getRow(10005)->
     next = 10006,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击功能扩展按钮",
     beizhu = "【骑宠模块】骑宠升星（呼出功能扩展）",
     colse = 0
@@ -1470,7 +1470,7 @@ getRow(10006)->
     next = 10007,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击骑宠",
     beizhu = "【骑宠模块】骑宠升星（呼出骑宠界面）",
     colse = 0
@@ -1491,7 +1491,7 @@ getRow(10007)->
     next = 10008,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击培养",
     beizhu = "【骑宠模块】骑宠升星（点击培养按钮）",
     colse = 0
@@ -1512,7 +1512,7 @@ getRow(10008)->
     next = 10009,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击升星",
     beizhu = "【骑宠模块】骑宠升星（点击升星按钮）",
     colse = 0
@@ -1533,7 +1533,7 @@ getRow(10009)->
     next = 10010,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭培养",
     beizhu = "【骑宠模块】骑宠升星（关闭培养界面）",
     colse = 0
@@ -1554,7 +1554,7 @@ getRow(10010)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭骑宠界面",
     beizhu = "【骑宠模块】骑宠升星（关闭骑宠界面）",
     colse = 0
@@ -1575,7 +1575,7 @@ getRow(10011)->
     next = 10012,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击功能扩展按钮",
     beizhu = "【骑宠模块】骑宠转生（呼出功能扩展）",
     colse = 0
@@ -1596,7 +1596,7 @@ getRow(10012)->
     next = 10013,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击骑宠",
     beizhu = "【骑宠模块】骑宠转生（呼出骑宠界面）",
     colse = 0
@@ -1617,7 +1617,7 @@ getRow(10013)->
     next = 10014,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击培养",
     beizhu = "【骑宠模块】骑宠转生（点击培养按钮）",
     colse = 0
@@ -1638,7 +1638,7 @@ getRow(10014)->
     next = 10015,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击转生",
     beizhu = "【骑宠模块】骑宠转生（点击转生按钮）",
     colse = 0
@@ -1659,7 +1659,7 @@ getRow(10015)->
     next = 10016,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭培养",
     beizhu = "【骑宠模块】骑宠转生（关闭培养界面）",
     colse = 0
@@ -1680,7 +1680,7 @@ getRow(10016)->
     next = 11000,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭骑宠界面",
     beizhu = "【骑宠模块】骑宠转生（关闭骑宠界面）",
     colse = 0
@@ -1701,7 +1701,7 @@ getRow(10017)->
     next = 10018,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击功能扩展按钮",
     beizhu = "【骑宠模块】骑宠装备（呼出功能扩展）",
     colse = 0
@@ -1722,7 +1722,7 @@ getRow(10018)->
     next = 10019,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击骑宠",
     beizhu = "【骑宠模块】骑宠装备（呼出骑宠界面）",
     colse = 0
@@ -1743,7 +1743,7 @@ getRow(10019)->
     next = 10020,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击装备",
     beizhu = "【骑宠模块】骑宠装备（点击装备按钮）",
     colse = 0
@@ -1764,7 +1764,7 @@ getRow(10020)->
     next = 10021,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "点击升级按钮",
     beizhu = "【骑宠模块】骑宠装备（点击升级按钮）",
     colse = 0
@@ -1785,7 +1785,7 @@ getRow(10021)->
     next = 10022,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭装备界面",
     beizhu = "【骑宠模块】骑宠装备（关闭装备界面）",
     colse = 0
@@ -1806,7 +1806,7 @@ getRow(10022)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "关闭骑宠界面",
     beizhu = "【骑宠模块】骑宠装备（关闭骑宠界面）",
     colse = 0
@@ -1825,7 +1825,7 @@ getRow(11000)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【飞按钮】宝藏按钮",
     beizhu = "【飞按钮】宝藏按钮",
     colse = 0
@@ -1844,7 +1844,7 @@ getRow(11001)->
     next = 12000,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【飞按钮】翅膀按钮",
     beizhu = "【飞按钮】翅膀按钮",
     colse = 0
@@ -1863,7 +1863,7 @@ getRow(11002)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【飞按钮】副本按钮",
     beizhu = "【飞按钮】副本按钮",
     colse = 0
@@ -1882,7 +1882,7 @@ getRow(11003)->
     next = 13000,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【飞按钮】纹章按钮",
     beizhu = "【飞按钮】纹章按钮",
     colse = 0
@@ -1901,7 +1901,7 @@ getRow(11004)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【飞按钮】交易按钮",
     beizhu = "【飞按钮】交易按钮",
     colse = 0
@@ -1920,7 +1920,7 @@ getRow(11005)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【飞按钮】好友按钮",
     beizhu = "【飞按钮】好友按钮",
     colse = 0
@@ -1939,7 +1939,7 @@ getRow(11006)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【飞按钮】队伍按钮",
     beizhu = "【飞按钮】队伍按钮",
     colse = 0
@@ -1958,7 +1958,7 @@ getRow(11007)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【飞按钮】军团按钮",
     beizhu = "【飞按钮】军团按钮",
     colse = 0
@@ -1977,7 +1977,7 @@ getRow(11008)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【飞按钮】排行榜按钮",
     beizhu = "【飞按钮】排行榜按钮",
     colse = 0
@@ -1996,7 +1996,7 @@ getRow(11009)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【飞按钮】战力提升",
     beizhu = "【飞按钮】战力提升",
     colse = 0
@@ -2015,7 +2015,7 @@ getRow(11010)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【飞按钮】符文按钮",
     beizhu = "【飞按钮】符文按钮",
     colse = 0
@@ -2036,7 +2036,7 @@ getRow(12000)->
     next = 12001,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【翅膀】翅膀引导1(呼出扩展栏)",
     beizhu = "【翅膀】翅膀引导1(呼出扩展栏)",
     colse = 0
@@ -2057,7 +2057,7 @@ getRow(12001)->
     next = 12002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【翅膀】翅膀引导1(呼出翅膀界面)",
     beizhu = "【翅膀】翅膀引导1(呼出翅膀界面)",
     colse = 0
@@ -2078,7 +2078,7 @@ getRow(12002)->
     next = 12003,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【翅膀】翅膀引导1(外观展示)",
     beizhu = "【翅膀】翅膀引导1(外观展示)",
     colse = 0
@@ -2099,7 +2099,7 @@ getRow(12003)->
     next = 12004,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【翅膀】翅膀引导1(成长道具)",
     beizhu = "【翅膀】翅膀引导1(成长道具)",
     colse = 0
@@ -2120,7 +2120,7 @@ getRow(12004)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【翅膀】翅膀引导1(关闭)",
     beizhu = "【翅膀】翅膀引导1(关闭)",
     colse = 0
@@ -2141,7 +2141,7 @@ getRow(13000)->
     next = 13001,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【纹章】纹章引导1(呼出扩展栏)",
     beizhu = "【纹章】纹章引导1(呼出扩展栏)",
     colse = 0
@@ -2162,7 +2162,7 @@ getRow(13001)->
     next = 13002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【纹章】纹章引导1(呼出纹章界面)",
     beizhu = "【纹章】纹章引导1(呼出纹章界面)",
     colse = 0
@@ -2183,7 +2183,7 @@ getRow(13002)->
     next = 13003,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【纹章】纹章引导1(点击一键镶嵌)",
     beizhu = "【纹章】纹章引导1(点击一键镶嵌)",
     colse = 0
@@ -2204,7 +2204,7 @@ getRow(13003)->
     next = 13004,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【纹章】纹章引导1(点击合成分页)",
     beizhu = "【纹章】纹章引导1(点击合成分页)",
     colse = 0
@@ -2225,7 +2225,7 @@ getRow(13004)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【纹章】纹章引导1(关闭)",
     beizhu = "【纹章】纹章引导1(关闭)",
     colse = 0
@@ -2246,7 +2246,7 @@ getRow(14000)->
     next = 14001,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【时装】时装引导1(点开角色面板)",
     beizhu = "【时装】时装引导1(点开角色面板)",
     colse = 0
@@ -2267,7 +2267,7 @@ getRow(14001)->
     next = 14002,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【时装】时装引导1(选择时装分页)",
     beizhu = "【时装】时装引导1(选择时装分页)",
     colse = 0
@@ -2288,7 +2288,7 @@ getRow(14002)->
     next = 14003,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【时装】时装引导1(点击外观)",
     beizhu = "【时装】时装引导1(点击外观)",
     colse = 0
@@ -2309,7 +2309,7 @@ getRow(14003)->
     next = 0,
     pull_over = 0,
     time = 2,
-    help_text = 0,
+    help_text = "",
     help_text2 = "【时装】时装引导1(关闭界面)",
     beizhu = "【时装】时装引导1(关闭界面)",
     colse = 0

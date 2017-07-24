@@ -50,4 +50,7 @@
 %% 照片数量
 -define(CountPics,  3).
 
+%% 赠礼记录表（?EtsGiftHistory）记录最大数量
+-define(GIFT_HISTORY_COUNT_MAX, 10000).
+
 -endif. %% Hrl_identityPrivate__hrl___

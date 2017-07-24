@@ -678,8 +678,10 @@ checkItemCanPay(ItemID,Num) when ItemID<0, erlang:is_integer(Num),erlang:abs(Ite
 	%%itemID为负数，表示绝对值的货币类型(配置的金币)优先使用绑定金币，绑定金币不足再使用非绑定金币
 	GoldenEssence = playerState:getCoin(?CoinTypeGold),
 	GoldenEssence >= Num;
-checkItemCanPay(ItemID,Num) when ItemID<0 andalso erlang:is_integer(Num)andalso (erlang:abs(ItemID) =:= ?CoinTypeDiamond orelse erlang:abs(ItemID) =:= ?CoinTypeBindDiamond )->
-	%%itemID为负数，表示绝对值的货币类型(配置的金币)优先使用绑定金币，绑定金币不足再使用非绑定金币
+checkItemCanPay(ItemID,Num) when ItemID<0 andalso erlang:is_integer(Num) andalso erlang:abs(ItemID) =:= ?CoinTypeDiamond ->
+	GoldenEssence = playerState:getCoin(?CoinTypeDiamond),
+	GoldenEssence >= Num;
+checkItemCanPay(ItemID,Num) when ItemID<0 andalso erlang:is_integer(Num) andalso erlang:abs(ItemID) =:= ?CoinTypeBindDiamond ->
 	GoldenEssence = playerState:getCoin(?CoinTypeBindDiamond) + playerState:getCoin(?CoinTypeDiamond),
 	GoldenEssence >= Num;
 checkItemCanPay(ItemID,Num) when ItemID<0, erlang:is_integer(Num)->
@@ -700,7 +702,11 @@ deductItem(PayItemID,Num,ItemID) when PayItemID<0,erlang:is_integer(Num),erlang:
 	%%PayItemID为负数，表示绝对值的货币类型
 	playerMoney:decCoin(?CoinTypeGold, Num,
 		#recPLogTSMoney{reason=?CoinUseEquipExchange,param=ItemID,target=?PLogTS_Shop,source=?PLogTS_PlayerSelf});
-deductItem(PayItemID,Num,ItemID) when PayItemID<0,erlang:is_integer(Num),(erlang:abs(PayItemID) =:= ?CoinTypeDiamond orelse erlang:abs(PayItemID) =:= ?CoinTypeBindDiamond) ->
+deductItem(PayItemID,Num,ItemID) when PayItemID<0,erlang:is_integer(Num),erlang:abs(PayItemID) =:= ?CoinTypeDiamond ->
+	%%PayItemID为负数，表示绝对值的货币类型
+	playerMoney:useCoin(?CoinUseTypeDiamondJustNotBind, Num,
+		#recPLogTSMoney{reason=?CoinUseEquipExchange,param=ItemID,target=?PLogTS_Shop,source=?PLogTS_PlayerSelf});
+deductItem(PayItemID,Num,ItemID) when PayItemID<0,erlang:is_integer(Num),erlang:abs(PayItemID) =:= ?CoinTypeBindDiamond ->
 	%%PayItemID为负数，表示绝对值的货币类型
 	playerMoney:useCoin(?CoinUseTypeDiamond, Num,
 		#recPLogTSMoney{reason=?CoinUseEquipExchange,param=ItemID,target=?PLogTS_Shop,source=?PLogTS_PlayerSelf});

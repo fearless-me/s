@@ -173,6 +173,7 @@ requestRevive2(Type) ->
 	MapID = playerState:getMapIDGroup(),
 
 	{Sx, Sy} = playerState:getPos(),
+
 	{Normal_Tx, Normal_Ty} =
 		case getCfg:getCfgPStack(cfg_mapsetting, MapID) of
 			#mapsettingCfg{type = ?MapTypeBitplane} ->
@@ -197,31 +198,45 @@ requestRevive2(Type) ->
 			%% 原地复活
 			requestRevive3(MapID, Sx, Sy, HPPer_Cost);
 		_ ->
-			%% 运镖
-			Condition1 = playerEscort:escortReviveAndConsume(MapID),
-			case Condition1 of
-				{Tx, Ty} -> requestRevive3(MapID, Tx, Ty, HPPer_Normal);
-				leaveEscortMap ->
-					requestRevive3(MapID, Normal_Tx, Normal_Ty, HPPer_Normal),
-					timer:sleep(800),
-					playerCopyMap:leaveCopyMap();
+			case playerGuildBattle:getRevivePos() of
+				{X1, Y1} ->
+					%% 军团战死亡
+					requestRevive3(MapID, X1, Y1, HPPer_Normal);
 				_ ->
-					%% 巅峰对决
-					Condition2 = playerGuildWar:getRevivePos(MapID),
-					case Condition2 of
-						{TTX, TTY} ->
-							requestRevive3(MapID, TTX, TTY, HPPer_Normal);
+					case playerDarkness:getRevivePos(MapID) of
+						{X2, Y2} ->
+							%% 深红溶渊死亡
+							requestRevive3(MapID, X2, Y2, HPPer_Normal);
 						_ ->
-							%% 黑暗之地
-							Condition3 = playerDarkness:getRevivePos(MapID),
-							case Condition3 of
-								{TTTX, TTTY} ->
-									requestRevive3(MapID, TTTX, TTTY, HPPer_Normal);
-								_ ->
-									requestRevive3(MapID, Normal_Tx, Normal_Ty, HPPer_Normal)
-							end
+							%% 其它普通死亡
+							requestRevive3(MapID, Normal_Tx, Normal_Ty, HPPer_Normal)
 					end
 			end
+%%			%% 运镖
+%%			Condition1 = playerEscort:escortReviveAndConsume(MapID),
+%%			case Condition1 of
+%%				{Tx, Ty} -> requestRevive3(MapID, Tx, Ty, HPPer_Normal);
+%%				leaveEscortMap ->
+%%					requestRevive3(MapID, Normal_Tx, Normal_Ty, HPPer_Normal),
+%%					timer:sleep(800),
+%%					playerCopyMap:leaveCopyMap();
+%%				_ ->
+%%					%% 巅峰对决
+%%					Condition2 = playerGuildWar:getRevivePos(MapID),
+%%					case Condition2 of
+%%						{TTX, TTY} ->
+%%							requestRevive3(MapID, TTX, TTY, HPPer_Normal);
+%%						_ ->
+%%							%% 黑暗之地
+%%							Condition3 = playerDarkness:getRevivePos(MapID),
+%%							case Condition3 of
+%%								{TTTX, TTTY} ->
+%%									requestRevive3(MapID, TTTX, TTTY, HPPer_Normal);
+%%								_ ->
+%%									requestRevive3(MapID, Normal_Tx, Normal_Ty, HPPer_Normal)
+%%							end
+%%					end
+%%			end
 	end,
 	true.
 

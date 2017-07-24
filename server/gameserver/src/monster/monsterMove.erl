@@ -22,6 +22,7 @@
 	moveToTarget/1,
 	moveToConvoy/1,
 	moveTo/3,
+	moveToInfos/4,
 	shiftTo/1,
 	notifyMonsterSpeedToClient/1,
 	notifyMonsterAttackSpeedToClient/1
@@ -65,7 +66,12 @@ tickMove(Code, Diff) ->
 					skip
 			end;
 		_ ->
-			skip
+			case mapState:getMapSubType() of
+				?MapSubTypeMaterial ->
+					monsterMove:stopMove(Code, true);
+				_ ->
+					skip
+			end
 	end,
 	ok.
 
@@ -135,12 +141,25 @@ aiTickMove(_Code) ->
 	Code :: uint().
 shiftTo(Code) ->
 	CodeType = monsterState:getCodeType(Code),
+	DistPro =
+		case CodeType of
+			?SpawnPet ->
+				%% 玩家宠物，在玩家进程
+				case playerState:isPlayerBattleStatus() of
+					true -> 40;
+					_ -> 20
+				end;
+			?SpawnCallPet ->
+				%% 召唤宠物
+				30;
+			_ ->
+				30
+		end,
 	case CodeType =:= ?SpawnCallPet orelse CodeType =:= ?SpawnPet of
 		true ->
 			PlayerEts = monsterState:getMapPlayerEts(Code),
 			CasterInfo = monsterState:getCasterInfo(Code),
 			{X, Y} = monsterState:getMonsterPos(Code),
-%%			playerMap:syncPlayerToEts(),
 
 			{Dist, CasterTX, CasterTY} =
 				case mapView:getMapObjectFromEts(CasterInfo#recCasterInfo.casterCode, {PlayerEts, false, false}) of
@@ -151,7 +170,7 @@ shiftTo(Code) ->
 				end,
 
 			if
-				Dist > 30 -> %%直接瞬移过来
+				Dist > DistPro -> %%直接瞬移过来
 					monsterState:setMonsterPos(Code, CasterTX, CasterTY),
 					monsterBattle:delBothHate(Code),
 					petMoveGrid(Code, float(X), float(Y), float(CasterTX), float(CasterTY), true);
@@ -603,6 +622,40 @@ moveTo(Code, TX, TY) ->
 	end,
 	ok.
 
+%% 宠物移动，客户端要求使用他们的posInfos
+-spec moveToInfos(Code, TX, TY, PosInfos) -> ok when
+	Code :: uint(), TX :: float(), TY :: float(), PosInfos::[#pk_PosInfo{}, ...].
+moveToInfos(Code, TX, TY, PosInfos) ->
+	case isCanMove(Code) of
+		true ->
+			{X, Y} = monsterState:getMonsterPos(Code),
+			{TargetX, TargetY} = monsterState:getMoveTarget(Code),
+			case TX =:= TargetX andalso TY =:= TargetY of
+				true ->
+					stopMove(Code, false);
+				_ ->
+					monsterState:setActionStatus(Code, ?CreatureActionStatusMove),
+					%%广播移动消息
+					Msg = #pk_GS2U_MoveInfo{
+						code = Code,
+						posX = TX,
+						posY = TY,
+						posInfos = PosInfos
+					},
+					PlayerEts = monsterState:getMapPlayerEts(Code),
+					try
+						mapView:sendMsg2NearPlayerByPos(monsterState:getMapPid(Code), PlayerEts, Msg, X, Y, monsterState:getGroupID(Code)),
+						monsterState:setMoveTarget(Code, TX, TY)
+					catch
+						_:_ ->
+							?ERROR_OUT("Monster[~p] MoveTo exception:~p, ~p", [Code, TX, TY])
+					end,
+					ok
+			end;
+		_ ->
+			skip
+	end,
+	ok.
 
 monsterReadchedTargetPos(Code, TX,TY)->
 	{SX, SY} = monsterState:getMonsterPos(Code),
@@ -670,7 +723,7 @@ updateMove(Code, DiffTime) ->
 									core:sendMsgToActivity(?ActivityType_MoneyDungeon,
 										monsterToEnd, {MonsterID, Code, MapID, MapPid, SX, SY});
 								_ ->
-									skip
+									monsterMoveEnd(Code, MonsterID)
 							end,
 
 							%%马车到达终点发送消息
@@ -708,11 +761,31 @@ updateMove(Code, DiffTime) ->
 							core:sendMsgToActivity(?ActivityType_MoneyDungeon,
 								monsterToEnd, {MonsterID, Code, MapID, MapPid, SX, SY});
 						_ ->
-							skip
+							monsterMoveEnd(Code, MonsterID)
 					end;
 				_ ->
 					skip
 			end
+	end,
+	ok.
+
+monsterMoveEnd(Code, MonsterID)->
+	case monsterState:getIsConvoy(Code) of
+		true ->
+			monsterState:setIsConvoy(Code, false),
+			case monsterState:getCasterInfo(Code) of
+				#recCasterInfo{casterId = RoleID}->
+					case core:queryPlayerPidByRoleID(RoleID) of
+						PlayerPid when is_pid(PlayerPid)->
+							psMgr:sendMsg2PS(PlayerPid, convoSucess,{false, Code, MonsterID});
+						_ ->
+							skip
+					end;
+				_ ->
+					skip
+			end;
+		_ ->
+			skip
 	end,
 	ok.
 

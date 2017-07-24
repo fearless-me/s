@@ -112,7 +112,8 @@ loadIdentityAck({List_rec_player_identity, List_rec_pic_data_main, List_rec_pic_
 			pic1 = Pic1Bin,
 			pic2 = Pic2Bin,
 			pic3 = Pic3Bin,
-			sign = SignBin
+			sign = SignBin,
+			gifts = GiftsBin
 		} = Rec) ->
 			RecNew = Rec#rec_player_identity{
 				face = misc:listUnit8_to_stringASCII_inverse(erlang:binary_to_list(FaceBin)),
@@ -120,7 +121,8 @@ loadIdentityAck({List_rec_player_identity, List_rec_pic_data_main, List_rec_pic_
 				pic1 = misc:listUnit8_to_stringASCII_inverse(erlang:binary_to_list(Pic1Bin)),
 				pic2 = misc:listUnit8_to_stringASCII_inverse(erlang:binary_to_list(Pic2Bin)),
 				pic3 = misc:listUnit8_to_stringASCII_inverse(erlang:binary_to_list(Pic3Bin)),
-				sign = erlang:binary_to_list(SignBin)
+				sign = erlang:binary_to_list(SignBin),
+				gifts = misc:string_to_term(erlang:binary_to_list(GiftsBin))
 			},
 			ets:insert_new(?EtsIdentityData, RecNew)
 		end,
@@ -154,7 +156,7 @@ loadIdentityAck({List_rec_player_identity, List_rec_pic_data_main, List_rec_pic_
 	?LOG_OUT("loadIdentityAck end ..."),
 	ok.
 
-loadFriend2Ack({List_rec_friend2_relation, List_rec_friend2_interaction}) ->
+loadFriend2Ack({List_rec_friend2_relation, List_rec_friend2_interaction, List_rec_friend2_cross}) ->
 	?LOG_OUT("loadFriend2Ack begin ..."),
 	%% 初始化关系表
 	FunRelation =
@@ -170,6 +172,21 @@ loadFriend2Ack({List_rec_friend2_relation, List_rec_friend2_interaction}) ->
 		end,
 	lists:foreach(FunInteraction, List_rec_friend2_interaction),
 	?LOG_OUT("List_rec_friend2_interaction len:~p", [erlang:length(List_rec_friend2_interaction)]),
+	%% 初始化跨服好友列表
+	FunCross =
+		fun(#rec_friend2_cross{
+			tarRoleName = TarRoleNameBin,
+			tarSrvName = TarSrvNameBin,
+			tarFace = TarFaceBin
+		} = Cross) ->
+			friend2State:replaceFriend2CrossF(Cross#rec_friend2_cross{
+				tarRoleName = erlang:binary_to_list(TarRoleNameBin),
+				tarSrvName = erlang:binary_to_list(TarSrvNameBin),
+				tarFace = erlang:binary_to_list(TarFaceBin)
+			})
+		end,
+	lists:foreach(FunCross, List_rec_friend2_cross),
+	?LOG_OUT("List_rec_friend2_cross len:~p", [erlang:length(List_rec_friend2_cross)]),
 	loadDataProcess(loadFriend2Ack),
 	?LOG_OUT("loadFriend2Ack end"),
 	ok.

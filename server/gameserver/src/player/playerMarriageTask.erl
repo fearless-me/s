@@ -13,9 +13,9 @@
 -export([
 	resetTask/1,
 	acceptTask/0,
-	submitTask/0,
+	leaderSubmitTask/1,
 	submitTask/1,
-	canSubmitTask/0,
+	canSubmitTask/1,
 	acceptLink/0,
 	onAcceptTask/1
 ]).
@@ -23,13 +23,19 @@
 -include("playerPrivate.hrl").
 -include("../marriage/marriagePrivate.hrl").
 
--define(MarriageTask_ID, 6000).
+-define(MarriageTask_ID, 3001).
 -define(MarriageTask_ActivityID, 32).
 
 onAcceptTask(TaskID)->
 	case playerTask:isAcceptedTaskByID(TaskID) of
 		false ->
-			 playerTask:acceptTask(TaskID, 0);
+			 playerTask:acceptTask(TaskID, 0),
+			case playerPropSync:getProp(?SerProp_MarriageTaskInfo) of
+				{0, _} ->
+					playerPropSync:setAny(?SerProp_MarriageTaskInfo, {TaskID, time:getSyncTime1970FromDBS()});
+				_ ->
+					ok
+			end;
 		_ ->
 			skip
 	end,
@@ -91,6 +97,7 @@ checkMarriageTaskShip() ->
 		, true),
 
 	MemberLen = length(SameMapRoleList),
+	TeamMemberCount = teamInterface:getTeamMemberCountWithRoleID(RoleID),
 	IsInSameTeam = teamInterface:isInSameTeam(RoleID, SweetheartID),
 	IsTeamLeader = teamInterface:isTeamLeader(RoleID),
 
@@ -99,6 +106,8 @@ checkMarriageTaskShip() ->
 			{false, ?ErrorCode_Marriage_AcceptTask};
 		not IsTeamLeader ->
 			{false, ?ErrorCode_Marriage_AcceptTaskLeader};
+		TeamMemberCount =/= 2 ->
+			{false, ?ErrorCode_Marriage_AcceptTask};
 		MemberLen =/= 2 ->
 			{false, ?ErrorCode_Marriage_AcceptTask};
 		not IsInSameTeam ->
@@ -147,14 +156,14 @@ acceptTask() ->
 
 %%% --------------------------------------------------------------------
 %% 提交情缘任务
--spec submitTask() -> ok.
-submitTask() ->
+-spec leaderSubmitTask(Code :: uint()) -> ok.
+leaderSubmitTask(Code) ->
 	case checkMarriageTaskShip() of
 		{true, _SweetheartID, SweetheartPid} ->
 			%% 检查双方是否完成任务
-			case canSubmitTask() of
+			case canSubmitTask(Code) of
 				{true, TaskID} ->
-					psMgr:sendMsg2PS(SweetheartPid, marriage_askTask, TaskID);
+					psMgr:sendMsg2PS(SweetheartPid, marriage_askTask, {TaskID, Code});
 				_E ->
 					playerMsg:sendErrorCodeMsg(?ErrorCode_Marriage_NotComplete) %% 未完成不能提交
 			end;
@@ -162,35 +171,43 @@ submitTask() ->
 			playerMsg:sendErrorCodeMsg(ErrorCode)
 	end.
 
--spec submitTask({Pid :: pid(), TaskID :: uint()}) -> ok.
-submitTask({Pid, TaskID}) ->
-	case canSubmitTask() of
+-spec submitTask({Pid :: pid(), TaskID :: uint(), Code:: uint()}) -> ok.
+submitTask({Pid, TaskID, Code}) ->
+	case canSubmitTask(Code) of
 		{true, TaskID} ->
 			psMgr:sendMsg2PS(Pid, marriage_submitTask, TaskID),
 			#rec_marriage{targetRoleID = PartnerRoleID} = marriageState:queryRelation(playerState:getRoleID()),
 			playerTask:submitTask(TaskID, 0, PartnerRoleID),
 			case getCfg:getCfgByKey(cfg_task, TaskID) of
-				#taskCfg{auto_next = TaskIDNext} when erlang:is_integer(TaskIDNext), TaskIDNext > 0 ->
+				#taskCfg{auto_next = [TaskIDNext | _]} when erlang:is_integer(TaskIDNext), TaskIDNext > 0 ->
 					onAcceptTask(TaskIDNext),
 					psMgr:sendMsg2PS(Pid, marriage_acceptTask, TaskIDNext);
 				_ ->
 					psMgr:sendMsg2PS(Pid, marriage_completeTask, TaskID),
-					playerMsg:sendErrorCodeMsg(?ErrorCode_Marriage_CompleteTask)  %% 完成本轮情缘任务！
+					onRoundTaskFinish()  %% 完成本轮情缘任务！
 			end;
 		_E ->
 			playerMsg:sendErrorCodeMsg(?ErrorCode_Marriage_NotComplete) %% 未完成不能提交
 	end,
 	ok.
 
+%% 完成一轮
+onRoundTaskFinish()->
+	%% 完成本轮情缘任务！
+	playerMsg:sendErrorCodeMsg(?ErrorCode_Marriage_CompleteTask),
+	incTaskRound(),
+	acceptLink(),
+	ok.
+
 %%% --------------------------------------------------------------------
 %% 是否能提交情缘任务
--spec canSubmitTask() -> {boolean(), uint()}.
-canSubmitTask() ->
+-spec canSubmitTask( Code ::uint() ) -> {boolean(), uint()}.
+canSubmitTask(Code) ->
 	FunCheck =
 		fun(#rec_task{taskID = ID}, {_, {_, _}}) ->
 			case getCfg:getCfgByKey(cfg_task, ID) of
 				#taskCfg{type = ?TaskMainType_Marriage} ->
-					case playerTask:canSubmitTask(ID, 0) of
+					case playerTask:canSubmitTask(ID, Code) of
 						{true,_}->
 							{true,{true, ID}};
 						_ ->
@@ -200,7 +217,7 @@ canSubmitTask() ->
 					{false, {false, 0}}
 			end
 		end,
-	case misc:foldlEx(FunCheck, {false, {fasle, 0}}, playerState:getAcceptedTask()) of
+	case misc:foldlEx(FunCheck, {false, {false, 0}}, playerState:getAcceptedTask()) of
 		{true, {true, ID}} ->
 			{true, ID};
 		{_, {_, ID2}} ->
@@ -216,13 +233,13 @@ cancelLink()->
 	end.
 
 acceptLink() ->
-	V = playerDaily:getDailyCounter(?DailyType_MarriageTask, 0),
-	case V =< 0 of
+	case getMaxRoundCfg() > getTaskRound() of
 		true->
 			case getLinkMinLevel() =< playerState:getLevel() andalso isAccepted() =:= false of
 				true ->
 					case  playerTask:isAcceptedTaskByID(?MarriageTask_ID) of
 						false ->
+							playerPropSync:setAny(?SerProp_MarriageTaskInfo, {0, 0}),
 							playerTask:acceptTask(?MarriageTask_ID, 0);
 						_ ->
 							skip
@@ -234,6 +251,20 @@ acceptLink() ->
 			skip
 	end,
 	ok.
+
+getMaxRoundCfg()->
+	case getCfg:getCfgByKey(cfg_globalsetup, marriage_task_number) of
+		#globalsetupCfg{setpara = [V]}->
+			V;
+		_ ->
+			1
+	end.
+
+getTaskRound()->
+	playerDaily:getDailyCounter(?DailyType_MarriageTask, 1).
+
+incTaskRound()->
+	playerDaily:incDailyCounter(?DailyType_MarriageTask, 1).
 
 
 -spec isAccepted() -> true|false.

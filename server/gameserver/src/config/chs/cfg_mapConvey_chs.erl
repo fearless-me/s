@@ -85,6 +85,14 @@ getRow(10)->
     opencondition = 0,
     sparameter = 1
     };
+getRow(11)->
+    #mapConveyCfg {
+    id = 11,
+    mapId = 11,
+    isConvey = 1,
+    opencondition = 0,
+    sparameter = 1
+    };
 getRow(_)->[].
 
 getKeyList()->[
@@ -97,7 +105,8 @@ getKeyList()->[
     {7},
     {8},
     {9},
-    {10}
+    {10},
+    {11}
     ].
 
 get1KeyList()->[
@@ -110,6 +119,7 @@ get1KeyList()->[
     7,
     8,
     9,
-    10
+    10,
+    11
     ].
 

@@ -30,11 +30,9 @@ start() ->
 
 stop() ->
 	io:format("game server  recv stop!~n"),
-
 	%% 进入关服流程
-	psMgr:sendMsg2PS(dbMainPID, stop_server_Msg_Import, 0),
-
-	whereis(dbMainPID).
+	psMgr:sendMsg2PS(?PsNameDBMain, stop_server_Msg_Import, 0),
+	whereis(?PsNameDBMain).
 
 %% 关闭应用
 stop_real() ->

@@ -242,6 +242,20 @@ handle_info({date_touch_box, Pid, Msg}, State) ->
 	{noreply,State};
 
 
+%% 仅提供给GM命令的直接增加正面状态
+handle_info({date_pool_shooting, Pid, Msg}, State) ->
+	%?DEBUG_OUT("[DebugForDate] date_link_buff Msg(~p)", [Msg]),
+	acDateLogic:active(Pid, date_pool_shooting, Msg),
+	{noreply,State};
+
+
+%% 玩家上线
+handle_info({tryToOnlineEnterMap_dateLink_prepare, Pid, {RoleID, _MapID, DateActiveID, Data1, Data2}}, State) ->
+	Ret = acDateLogic:canEnterMap(RoleID,DateActiveID),
+	psMgr:sendMsg2PS(Pid, tryToOnlineEnterMap_date, {Ret,DateActiveID, Data1, Data2}),
+	{noreply,State};
+
+
 handle_info(Info, State) ->
 	?ERROR_OUT("~p ~p recv undefined msg:~p", [?MODULE, self(), Info]),
 	{noreply, State}.

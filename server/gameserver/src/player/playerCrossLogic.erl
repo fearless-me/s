@@ -56,6 +56,14 @@ packRoleData(RoleID) ->
 				throw(no_base_role)
 		end,
 
+	RoleKeyInfo =
+		case core:queryRoleKeyInfoByRoleID(RoleID) of
+			#?RoleKeyRec{} = RoleKeyInfo1 ->
+				RoleKeyInfo1;
+			_ ->
+				throw(no_roleKeyInfo)
+		end,
+
 	MCoin = #rec_player_coin{roleID = {RoleID, _ = '_'}, _ = '_'},
 	CoinList = edb:dirtyMatchRecord(rec_player_coin, MCoin),
 
@@ -110,6 +118,7 @@ packRoleData(RoleID) ->
 
 	#rec_fullData{
 		base_role = BaseRole,
+		roleKeyInfo = RoleKeyInfo,
 		coin_list = CoinList,
 		ext_role = ListExt,
 		variant = VariantList,
@@ -212,6 +221,7 @@ crossRolePidInit( #rec_crossRoleData{
 
 initCrossPlayerData(#rec_fullData{
 	base_role = BaseRole,
+	roleKeyInfo = RoleKeyInfo,
 	coin_list = CoinList,
 	ext_role = ExtRoleList,
 	variant = VariantList,
@@ -256,6 +266,7 @@ initCrossPlayerData(#rec_fullData{
 
 	ets:insert(ets_rec_playerdata, #rec_playerdata{roleID = BaseRole#rec_base_role.roleID, rec_player_prop = PlayerProps}),
 	ets:insert(ets_rec_base_role, BaseRole),
+	ets:insert(ets_rolekeyinfo, RoleKeyInfo),
 
 	%%初始化到进程
 	playerState:setAccountID(BaseRole#rec_base_role.accountID),
@@ -343,7 +354,7 @@ sendDataToSourceServer(OtpName, MsgID, MsgData) ->
 		true ->
 			NetPid = playerState:getNetPid(),
 			Node = erlang:node(NetPid),
-			psMgr:sendMsg2PS({?PsNameCros, Node}, sendDataToSourceServer, {OtpName, MsgID, MsgData}),
+			psMgr:sendMsg2PS({?PsNameNormalCross, Node}, sendDataToSourceServer, {OtpName, MsgID, MsgData}),
 			true;
 		_ ->
 			false

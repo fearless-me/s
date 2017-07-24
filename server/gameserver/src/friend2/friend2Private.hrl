@@ -110,10 +110,50 @@
 		chatMsgs = []
 	}
 ).
+-define(DefaultValueOfFriend2Cross(A),
+	#recFriend2Cross{
+		roleID = A,
+		friends = [],
+		applys = []
+	}
+).
 
 %% 心跳
--define(Friend2HeartBeat, 1000 * 60 * 5).             %% 普通心跳，主要用于清理超时的数据
+-define(Friend2HeartBeat, 1000 * 60 * 5).             %% 普通心跳，主要用于清理超时的数据，跨服的延时消息同步
 -define(ApplicantLife, 60 * 60 * 72).                 %% 申请者生命周期
 -define(OfflineMsgLife, 60 * 60 * 72).                %% 离线消息生命周期
+
+%%%-------------------------------------------------------------------
+
+%% 跨服好友相关列表类型定义
+-define(LT_Cross, 0).	%% 跨服好友列表
+-define(LT_Apply, 1).	%% 申请者列表
+
+%% 跨服好友相关数据实时同步类型
+-define(SYNC_R_BEGIN,			0).
+-define(SYNC_R_UpdateApply,		0).	%% 更新申请者列表
+-define(SYNC_R_DeleteApply,		1).	%% 删除申请者列表
+-define(SYNC_R_UpdateFriend,	2).	%% 更新好友列表
+-define(SYNC_R_DeleteFriend,	3).	%% 删除好友
+-define(SYNC_R_END,				3).
+-type type_syncR() :: ?SYNC_R_BEGIN .. ?SYNC_R_END.
+
+%% 跨服好友相关数据延时同步类型
+-define(SYNC_D_BEGIN,			0).
+-define(SYNC_D_N2C_Init,		0).	%% 普通服向跨服初始化列表
+-define(SYNC_D_C2N_AskRole,		1).	%% 跨服向普通服请求刷新角色状态
+-define(SYNC_D_N2C_AckRole,		2).	%% 普通服向跨服反馈角色状态
+-define(SYNC_D_C2N_Fix,			3).	%% 跨服向普通服同步校正数据
+-define(SYNC_D_END,				3).
+-type type_syncD() :: ?SYNC_D_BEGIN .. ?SYNC_D_END.
+
+%% 跨服好友公共进程延时同步状态
+-define(SYNC_DS_BEGIN,			0).
+-define(SYNC_DS_Tick,			0).	%% 等待心跳，空闲中，下一个Friend2HeartBeat触发下一状态
+-define(SYNC_DS_AllRoleID,		1).	%% 收集所有RoleID，计算中，计算完毕后向各个普通服发送消息触发下一个状态
+-define(SYNC_DS_AskRole,		2).	%% 等待所有普通服反馈消息，等待中，收到所有数据或下一个Friend2HeartBeat超时触发下一个状态
+-define(SYNC_DS_MatchInfo,		3).	%% 匹配刷新消息（更新、删除），计算中，计算完毕后向各个普通服发送消息回归状态0
+-define(SYNC_DS_END,			3).
+-type type_syncDS() :: ?SYNC_DS_BEGIN .. ?SYNC_DS_END.
 
 -endif. %% Hrl_friend2Private__hrl___

@@ -30,13 +30,13 @@
     playerEnterMapReal/0,
     gatherSuccess/1,
 	gatherFailed/1,
-	guildBattleEndPlayerReward/1
+	guildBattleEndPlayerReward/1,
+	getRevivePos/0
 ]).
 
 requestGuildBattleResult() ->
-	MapID = playerState:getMapID(),
-	case getCfg:getCfgByKey(cfg_activity, ?ActivityType_GuildBattle) of
-		#activityCfg{mapidlist = [MapID]} ->
+	case playerState:getMapID() of
+		?GuildBattleMapID ->
 			GuildID = playerState:getGuildID(),
 			case GuildID > 0 of
 				true ->
@@ -57,9 +57,8 @@ requestGuildBattleResult() ->
 	ok.
 
 gatherSuccess(GatherID) ->
-    MapID = playerState:getMapID(),
-    case getCfg:getCfgByKey(cfg_activity, ?ActivityType_GuildBattle) of
-        #activityCfg{mapidlist = [MapID]} ->
+	case playerState:getMapID() of
+		?GuildBattleMapID ->
             #globalsetupCfg{setpara = CIDs} = getCfg:getCfgPStack(cfg_globalsetup, guildbattlecollectids),
             case lists:keyfind(GatherID, 1, CIDs) of
                 {GatherID, Point} ->
@@ -76,9 +75,8 @@ gatherSuccess(GatherID) ->
     ok.
 
 gatherFailed(GatherID) ->
-	MapID = playerState:getMapID(),
-	case getCfg:getCfgByKey(cfg_activity, ?ActivityType_GuildBattle) of
-		#activityCfg{mapidlist = [MapID]} ->
+	case playerState:getMapID() of
+		?GuildBattleMapID ->
 			#globalsetupCfg{setpara = CIDs} = getCfg:getCfgPStack(cfg_globalsetup, guildbattlecollectids),
 			case lists:keyfind(GatherID, 1, CIDs) of
 				{GatherID, _Point} ->
@@ -90,6 +88,22 @@ gatherFailed(GatherID) ->
 			skip
 	end,
 	ok.
+
+%% 获取复活坐标
+-spec getRevivePos() -> {float(), float()} | false.
+getRevivePos() ->
+	case playerState:getMapID() of
+		?GuildBattleMapID ->
+			GuildID = playerState:getGuildID(),
+			case ets:lookup(rec_guildBattle, GuildID) of
+				[#rec_guildBattle{revivepos = {X, Y}}] ->
+					{erlang:float(X), erlang:float(Y)};
+				_ ->
+					false
+			end;
+		_ ->
+			false
+	end.
 
 %% 打开军团报名界面
 -spec openGuildApplyForm() -> ok.
@@ -169,6 +183,9 @@ applyGuildBattleAck(Results) ->
 			%% 重新刷新一下界面
 			openGuildApplyForm(),
 
+			%% 刷新客户端显示的军团资金
+			playerGuild:freshGuildProp(playerState:getGuildID()),
+
             playerMsg:sendErrorCodeMsg(?ErrorCode_GuildBattle_ApplySuccess);
         ErrorCode ->
             playerMsg:sendErrorCodeMsg(ErrorCode),
@@ -210,9 +227,8 @@ enterGuildBattleAck(ErrorCode) ->
     ok.
 
 playerEnterMapReal() ->
-    MapID = playerState:getMapID(),
-    case getCfg:getCfgByKey(cfg_activity, ?ActivityType_GuildBattle) of
-        #activityCfg{mapidlist = [MapID]} ->
+	case playerState:getMapID() of
+		?GuildBattleMapID ->
             RoleID = playerState:getRoleID(),
             case ets:lookup(rec_guild_member, RoleID) of
                 [#rec_guild_member{guildID = GuildID}] ->
@@ -246,9 +262,8 @@ playerleaveGuild(GuildID, RoleID) ->
             core:sendMsgToActivity(?ActivityType_GuildBattle, playerleaveGuild, {GuildID, RoleID}),
 
             %% 离开地图
-            MapID = playerState:getMapID(),
-            case getCfg:getCfgByKey(cfg_activity, ?ActivityType_GuildBattle) of
-                #activityCfg{mapidlist = [MapID]} ->
+			case playerState:getMapID() of
+				?GuildBattleMapID ->
                     playerCopyMap:leaveCopyMap();
                 _ ->
                     skip

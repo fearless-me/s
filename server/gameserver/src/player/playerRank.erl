@@ -58,7 +58,7 @@ requestRankRewardAck({RankType, _RoleID, DiffLastTime, ItemID, ItemNumber} = Msg
 requestRankAward(RankType) when erlang:is_integer(RankType) andalso
 	RankType >= ?PlayerRankType_Start andalso RankType =< ?PlayerRankType_End ->
 	case getCfg:getCfgPStack(cfg_rank, RankType) of
-		#rankCfg{rank_reward = Reward} when erlang:is_list(Reward) ->
+		#rankCfg{rank_reward = Reward, rewardType = ?RankRewardType_Draw} when erlang:is_list(Reward) ->
 			NowTime = time:getUTCNowMS(),
 			LastTime = playerPropSync:getProp(?SerProp_GetRankRewardCDTime),
 			case NowTime - LastTime >= ?GetRankRewardCDTime of
@@ -131,17 +131,26 @@ sendRankInfo(Type) when erlang:is_integer(Type) andalso Type >= ?PlayerRankType_
 	case myEts:lookUpEts(?TABLE_RankInfo, Type) of
 		[#recPlayerRank{}|_] = RL ->
 			Fun = fun(#recPlayerRank{roleID = RoleID} = Rank, AccList) ->
-				{Name, Title,RealWingLevel} =
+				{Name, Title,RealWingLevel,{Career,Race,Sex,Head,Level}} =
 					case Type of
 						?PlayerRankType_Guild ->
 							%% 这是一个军团排行榜
-							{playerGuildWar:getGuildName(Rank#recPlayerRank.value3), #pk_TitleData{title1 = 0, title2 = 0, title3 = 0, color = 0, background = 0}, 0};
+							{playerGuildWar:getGuildName(Rank#recPlayerRank.value3), #pk_TitleData{title1 = 0, title2 = 0, title3 = 0, color = 0, background = 0}, 0,
+								{0,0,0,0,0}};
 						_ ->
 							case ets:lookup(ets_recPlayerRankInfo, RoleID) of
 								[#recPlayerRankInfo{name = RoleName, title = T,wingLevel=WingLevel}] ->
-									{RoleName, T, WingLevel};
+									case core:queryRoleKeyInfoByRoleID(RoleID) of
+										#?RoleKeyRec{career = Career_, race = Race_, sex = Sex_, head = Head_, level = Level_} ->
+											{RoleName, T, WingLevel,
+												{Career_, Race_, Sex_, Head_, Level_}};
+										_ ->
+											{RoleName, T, WingLevel,
+												{0,0,0,0,0}}
+									end;
 								_ ->
-									{"", #pk_TitleData{title1 = 0, title2 = 0, title3 = 0, color = 0, background = 0},0}
+									{"", #pk_TitleData{title1 = 0, title2 = 0, title3 = 0, color = 0, background = 0},0,
+										{0,0,0,0,0}}
 							end
 					end,
 
@@ -154,7 +163,13 @@ sendRankInfo(Type) when erlang:is_integer(Type) andalso Type >= ?PlayerRankType_
 					title = Title,
 					rankValue1 = Rank#recPlayerRank.value1,
 					rankValue2 = Rank#recPlayerRank.value2,
-					rankValue3 = Rank#recPlayerRank.value3
+					rankValue3 = Rank#recPlayerRank.value3,
+					%% 仅个人排行有效
+					career = Career,
+					race = Race,
+					sex = Sex,
+					head = Head,
+					level = Level
 				},
 				[R | AccList]
 			end,
@@ -261,11 +276,6 @@ updatePlayerDataInfo() ->
 				background = playerPropSync:getProp(?PubProp_TitleFloorSlot)
 			},
 			FashionList = playerFashion:getShowFashions(),
-
-			WingLvl = case playerPropSync:getProp(?PubProp_WingLevel) of
-						  undefined ->0;
-						  Val ->Val
-					  end,
 			R = #recPlayerRankInfo{
 				roleID = RoleID,                   	%%角色ID
 				career = Career,                   	%%职业
@@ -274,7 +284,7 @@ updatePlayerDataInfo() ->
 				head = Head,						%%头
 				code = PlayerCode,						%%code
 				name = Name,                    	%%姓名
-				wingLevel = WingLvl,					%%玩家翅膀等级
+				wingLevel = 0,					%%玩家翅膀等级
 				title = Title,                     %%称号列表
 				fashionIDs = FashionList,				%%穿在身上的时装ID列表
 				visibleEquipLevels = RefineList,		%%装备精炼等级列表
@@ -303,13 +313,6 @@ updatePlayerKeyInfo() ->
                     {#rec_OnlinePlayer.pid, self()},
                     {#rec_OnlinePlayer.netPid, playerState:getNetPid()}
                 ]),
-
-			%% 被点赞值
-			PraiseNum =
-				case playerState:getPersonalityInfo() of
-					#rec_personality_info{praiseNum = Num} -> Num;
-					_ -> 0
-				end,
 			%% 勇者试炼
 			{WTPhase, WTPhaseTime} =
 				case mnesia:dirty_read(rec_warrior_trial, PlayerID) of
@@ -322,6 +325,14 @@ updatePlayerKeyInfo() ->
 						{SaveTime, Integral};
 					_ ->
 						{0, 0}
+				end,
+			%% fixme 此处可能没有初始化同步属性
+			ActionPoint =
+				case playerPropSync:getProp(?SerProp_ActionPoint) of
+					[_, ActionPoint_] ->
+						ActionPoint_;
+					_ ->
+						0
 				end,
 			%% 角色信息内存表
             gsSendMsg:sendMsg2PublicDMSaveData(
@@ -337,7 +348,6 @@ updatePlayerKeyInfo() ->
                         {#?RoleKeyRec.exp, playerState:getCurExp()},
                         {#?RoleKeyRec.gold, playerState:getCoin(?CoinTypeGold)},
                         {#?RoleKeyRec.achieve, playerPropSync:getProp(?PriProp_Achieve)},
-                        {#?RoleKeyRec.praise, PraiseNum},
                         {#?RoleKeyRec.pvpIntegral, PvpIntegral},
                         {#?RoleKeyRec.petForce, playerPropSync:getProp(?PriProp_PetForce)},
                         {#?RoleKeyRec.petID, playerPet:getPetBattleID()},
@@ -349,6 +359,7 @@ updatePlayerKeyInfo() ->
                         {#?RoleKeyRec.wtPhaseTime, WTPhaseTime},
                         {#?RoleKeyRec.lastUpdateTime, time:getSyncTime1970FromDBS()},
                         {#?RoleKeyRec.vipLv, playerState:getVip()},
+	                    {#?RoleKeyRec.actionPoint, ActionPoint},
                         {#?RoleKeyRec.offlineTime, time:getSyncTime1970FromDBS()}
                     ]
                 }),
