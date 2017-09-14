@@ -330,9 +330,16 @@ compile2(SrcFile, Opts, LogFile) ->
 			skip
 	end,
 
-	dLog(LogFile, "[~ts] compiled ~s ~p ~ts",
-		[time_format(), filename:basename(SrcFile), CompileResult =/= error, Str], CompileResult),
+	dLog(LogFile, "[~ts] ~ts ~s ~ts",
+		[time_format(), prefix(CompileResult), filename:basename(SrcFile), Str], CompileResult),
 	ok.
+	
+prefix(error)->
+	"?";
+prefix(warn)->
+	"!";
+prefix(_Any)->
+	"=".
 
 check_return(_SrcFile, {ok,_}) ->
 	{ok, ""};
