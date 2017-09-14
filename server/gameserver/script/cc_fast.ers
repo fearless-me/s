@@ -89,7 +89,7 @@ menu2(Lang) ->
 		"\t> 888. package~n"
 		"~n##########################################################~n~n"
 	),
-	set_title(Lang, "unknown"),
+	set_title(Lang, unknown_type, unknown_mode),
 	InputNoStr = io:get_line("Please enter your choice:"),
 	{InputNo, _Rest} = string:to_integer(InputNoStr),
 	dispatchInput2(Lang, InputNo).
@@ -441,22 +441,26 @@ make_cfg(Lang, Target, _V) ->
 	FileName = io_lib:format("compile_~p_~p.txt", [Lang, Target]),
 	file:write_file(FileName, ""),
 
-	set_title(Lang, Target),
-
-	{FileList, Opts} = scan_files(getCompileFastParam()),
+	{CompileType, FileList, Opts} = scan_files(getCompileFastParam()),
 	Schedulers = erlang:min(schedulers(), erlang:length(FileList)),
 
+	set_title(Lang, Target, CompileType),
 	{Schedulers, FileName, make_opts(Opts, Lang, Target), FileList}.
 
-scan_files({_, FileList, Opts, _})->
-	{FileList, Opts};
+scan_files({IsFast, FileList, Opts, _})->
+	case IsFast of
+		true ->
+			{fastCompile, FileList, Opts};
+		_ ->
+			{allCompile, FileList, Opts}
+	end;
 scan_files(undefined)->
 	{ok, Config} = file:consult("./mm.config"),
 	[{[_IncludeDir, SrcDir], Opts} | _] = Config,
 %%	FileList0 = filelib:fold_files(SrcDir, ".app.src$$", true, fun(File, Acc) -> [File | Acc] end, []),
 	FileList0 = [],
 	FileList1 = filelib:fold_files(SrcDir, ".erl$$", true, fun(File, Acc) -> [File | Acc] end, FileList0),
-	{FileList1, Opts}.
+	{allCompile, FileList1, Opts}.
 
 scan_all_files()->
 	{ok, Config} = file:consult("./mm.config"),
@@ -483,11 +487,11 @@ make_opts(Opts, Lang, gsD) ->
 make_opts(Opts, Lang, gs) ->
 	[{d, 'Region', Lang},{d,'RELEASE'} | Opts].
 
-set_title(Lang, Mode) ->
+set_title(Lang, Mode, CompileType) ->
 	case os:type() of
 		{win32, _} ->
 			{_, Cwd} = file:get_cwd(),
-			os:cmd(io_lib:format('title "~p|~p|~p"', [Cwd, Lang, Mode]));
+			os:cmd(io_lib:format('title \"~p <<~p>> <<~p>> <<~p>>\"', [erlang:list_to_binary(Cwd), Lang, Mode,CompileType]));
 		_ ->
 			skip
 	end.
